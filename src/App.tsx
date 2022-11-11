@@ -11,9 +11,11 @@ import {
   useLocation,
   useNavigate,
 } from 'react-router-dom';
+import * as styled from 'styled-components';
 import { localeAtom } from './atoms';
 
 const Home = lazy(() => import('./pages/Home'));
+const My = lazy(() => import('./pages/My'));
 
 const tabs = [
   {
@@ -48,7 +50,7 @@ const Layout = () => {
   const navigate = useNavigate();
   return (
     <div className="h-screen relative flex flex-col">
-      <div className="flex-1 overflow-y-auto">
+      <div className="flex-1">
         <Outlet />
       </div>
       <TabBar
@@ -97,7 +99,11 @@ const router = createHashRouter([
       },
       {
         path: 'my',
-        element: 'my',
+        element: (
+          <Suspense fallback={<div>Loading...</div>}>
+            <My />
+          </Suspense>
+        ),
       },
     ],
   },
@@ -106,6 +112,45 @@ const router = createHashRouter([
     element: <div>About</div>,
   },
 ]);
+
+const GlobalStyle = styled.createGlobalStyle`
+  @font-face {
+    font-family: AlibabaPuHuiTi;
+    font-weight: 400;
+    src: url(https://puhuiti.oss-cn-hangzhou.aliyuncs.com/AlibabaPuHuiTi-2/AlibabaPuHuiTi-2-55-Regular/AlibabaPuHuiTi-2-55-Regular.eot)
+        format('embedded-opentype'),
+      url(https://puhuiti.oss-cn-hangzhou.aliyuncs.com/AlibabaPuHuiTi-2/AlibabaPuHuiTi-2-55-Regular/AlibabaPuHuiTi-2-55-Regular.otf)
+        format('opentype'),
+      url(https://puhuiti.oss-cn-hangzhou.aliyuncs.com/AlibabaPuHuiTi-2/AlibabaPuHuiTi-2-55-Regular/AlibabaPuHuiTi-2-55-Regular.ttf)
+        format('TrueType'),
+      url(https://puhuiti.oss-cn-hangzhou.aliyuncs.com/AlibabaPuHuiTi-2/AlibabaPuHuiTi-2-55-Regular/AlibabaPuHuiTi-2-55-Regular.woff)
+        format('woff'),
+      url(https://puhuiti.oss-cn-hangzhou.aliyuncs.com/AlibabaPuHuiTi-2/AlibabaPuHuiTi-2-55-Regular/AlibabaPuHuiTi-2-55-Regular.woff2)
+        format('woff2');
+  }
+
+  @font-face {
+    font-family: AlibabaPuHuiTi;
+    font-weight: bold;
+    src: url(https://puhuiti.oss-cn-hangzhou.aliyuncs.com/AlibabaPuHuiTi-2/AlibabaPuHuiTi-2-85-Bold/AlibabaPuHuiTi-2-85-Bold.eot)
+        format('embedded-opentype'),
+      url(https://puhuiti.oss-cn-hangzhou.aliyuncs.com/AlibabaPuHuiTi-2/AlibabaPuHuiTi-2-85-Bold/AlibabaPuHuiTi-2-85-Bold.otf)
+        format('opentype'),
+      url(https://puhuiti.oss-cn-hangzhou.aliyuncs.com/AlibabaPuHuiTi-2/AlibabaPuHuiTi-2-85-Bold/AlibabaPuHuiTi-2-85-Bold.ttf)
+        format('TrueType'),
+      url(https://puhuiti.oss-cn-hangzhou.aliyuncs.com/AlibabaPuHuiTi-2/AlibabaPuHuiTi-2-85-Bold/AlibabaPuHuiTi-2-85-Bold.woff)
+        format('woff'),
+      url(https://puhuiti.oss-cn-hangzhou.aliyuncs.com/AlibabaPuHuiTi-2/AlibabaPuHuiTi-2-85-Bold/AlibabaPuHuiTi-2-85-Bold.woff2)
+        format('woff2');
+  }
+
+  html,
+  body {
+    font-family: AlibabaPuHuiTi, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+      'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji',
+      'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  }
+`;
 
 function App() {
   const locale = useAtomValue(localeAtom);
@@ -122,6 +167,7 @@ function App() {
   return (
     <IntlProvider locale={locale} defaultLocale="en" key={locale} messages={messages}>
       <RouterProvider router={router} />
+      <GlobalStyle />
     </IntlProvider>
   );
 }
