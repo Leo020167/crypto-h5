@@ -68,7 +68,6 @@ const My = () => {
         <List.Item
           prefix={<img alt="" src={ic_home_mine_stock} className="w-8 h-8" />}
           arrow={<Arrow />}
-          onClick={() => {}}
         >
           交易记录
         </List.Item>
@@ -78,7 +77,6 @@ const My = () => {
         <List.Item
           prefix={<img alt="" src={ic_home_mine_notice} className="w-8 h-8" />}
           arrow={<Arrow />}
-          onClick={() => {}}
         >
           系统通知
         </List.Item>
@@ -86,7 +84,6 @@ const My = () => {
         <List.Item
           prefix={<img alt="" src={ic_home_mine_help} className="w-8 h-8" />}
           arrow={<Arrow />}
-          onClick={() => {}}
         >
           帮助中心
         </List.Item>
@@ -96,7 +93,6 @@ const My = () => {
         <List.Item
           prefix={<img alt="" src={ic_home_mine_kefu} className="w-8 h-8" />}
           arrow={<Arrow />}
-          onClick={() => {}}
         >
           客服
         </List.Item>
@@ -104,7 +100,6 @@ const My = () => {
         <List.Item
           prefix={<img alt="" src={ic_home_mine_setting} className="w-8 h-8" />}
           arrow={<Arrow />}
-          onClick={() => {}}
         >
           设置
         </List.Item>
@@ -112,7 +107,6 @@ const My = () => {
         <List.Item
           prefix={<img alt="" src={ic_home_mine_shiming} className="w-8 h-8" />}
           arrow={<Arrow />}
-          onClick={() => {}}
         >
           实名认证
         </List.Item>
@@ -120,7 +114,6 @@ const My = () => {
         <List.Item
           prefix={<img alt="" src={ic_home_mine_youxiang} className="w-8 h-8" />}
           arrow={<Arrow />}
-          onClick={() => {}}
         >
           绑定邮箱
         </List.Item>

@@ -149,11 +149,23 @@ const GlobalStyle = styled.createGlobalStyle`
         format('woff2');
   }
 
+  :root {
+    --adm-color-primary: #6277b0;
+  }
+
   html,
   body {
+    margin: 0;
     font-family: AlibabaPuHuiTi, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
       'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji',
       'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  }
+
+  button,
+  [type='button'],
+  [type='reset'],
+  [type='submit'] {
+    background-color: var(--background-color);
   }
 `;
 
