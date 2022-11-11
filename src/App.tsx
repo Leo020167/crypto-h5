@@ -16,6 +16,7 @@ import { localeAtom } from './atoms';
 
 const Home = lazy(() => import('./pages/Home'));
 const My = lazy(() => import('./pages/My'));
+const Login = lazy(() => import('./pages/Login'));
 
 const tabs = [
   {
@@ -108,8 +109,12 @@ const router = createHashRouter([
     ],
   },
   {
-    path: 'about',
-    element: <div>About</div>,
+    path: 'login',
+    element: (
+      <Suspense fallback={<div>Loading...</div>}>
+        <Login />
+      </Suspense>
+    ),
   },
 ]);
 

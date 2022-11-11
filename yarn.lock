@@ -912,6 +912,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/js-md5@npm:^0.4.3":
+  version: 0.4.3
+  resolution: "@types/js-md5@npm:0.4.3"
+  checksum: f448b2cd510a24cb2c6aa6d4e30bfd3d0386113119ab8db0f22e4ae5cfe55e8f95ca76869779cb9798096aac245e67a19f2cfdd45cd51a320898cb1f55f7daf0
+  languageName: node
+  linkType: hard
+
 "@types/json-schema@npm:^7.0.9":
   version: 7.0.11
   resolution: "@types/json-schema@npm:7.0.11"
@@ -1465,6 +1472,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"asynckit@npm:^0.4.0":
+  version: 0.4.0
+  resolution: "asynckit@npm:0.4.0"
+  checksum: 7b78c451df768adba04e2d02e63e2d0bf3b07adcd6e42b4cf665cb7ce899bedd344c69a1dcbce355b5f972d597b25aaa1c1742b52cffd9caccb22f348114f6be
+  languageName: node
+  linkType: hard
+
 "autoprefixer@npm:^10.4.13":
   version: 10.4.13
   resolution: "autoprefixer@npm:10.4.13"
@@ -1487,6 +1501,17 @@ __metadata:
   version: 4.5.1
   resolution: "axe-core@npm:4.5.1"
   checksum: db90c6b41483e9c3452393933072fe0b8c2221e6d9b96ae0e6a03a4ce1e4c35bec539c92e9b6fcd63c4acf6678ad3c3ca7f5ab1d884210d157867cc54acd4f6a
+  languageName: node
+  linkType: hard
+
+"axios@npm:^1.1.3":
+  version: 1.1.3
+  resolution: "axios@npm:1.1.3"
+  dependencies:
+    follow-redirects: ^1.15.0
+    form-data: ^4.0.0
+    proxy-from-env: ^1.1.0
+  checksum: cab3b17bf6092c9387f7023d699db093cfa23650b56c4422cd474d124b78b2e3b5a520f932c330664a58ab85b867b1c25a95cace475ef72d236888c852b84e6d
   languageName: node
   linkType: hard
 
@@ -1762,6 +1787,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"combined-stream@npm:^1.0.8":
+  version: 1.0.8
+  resolution: "combined-stream@npm:1.0.8"
+  dependencies:
+    delayed-stream: ~1.0.0
+  checksum: 49fa4aeb4916567e33ea81d088f6584749fc90c7abec76fd516bf1c5aa5c79f3584b5ba3de6b86d26ddd64bae5329c4c7479343250cfe71c75bb366eae53bb7c
+  languageName: node
+  linkType: hard
+
 "commander@npm:^2.20.0":
   version: 2.20.3
   resolution: "commander@npm:2.20.3"
@@ -1934,6 +1968,13 @@ __metadata:
   version: 1.0.1
   resolution: "defined@npm:1.0.1"
   checksum: b1a852300bdb57f297289b55eafdd0c517afaa3ec8190e78fce91b9d8d0c0369d4505ecbdacfd3d98372e664f4a267d9bd793938d4a8c76209c9d9516fbe2101
+  languageName: node
+  linkType: hard
+
+"delayed-stream@npm:~1.0.0":
+  version: 1.0.0
+  resolution: "delayed-stream@npm:1.0.0"
+  checksum: 46fe6e83e2cb1d85ba50bd52803c68be9bd953282fa7096f51fc29edd5d67ff84ff753c51966061e5ba7cb5e47ef6d36a91924eddb7f3f3483b1c560f77a0020
   languageName: node
   linkType: hard
 
@@ -2743,6 +2784,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "fireup-h5@workspace:."
   dependencies:
+    "@types/js-md5": ^0.4.3
     "@types/lodash-es": ^4.17.6
     "@types/react": ^18.0.25
     "@types/react-dom": ^18.0.8
@@ -2754,6 +2796,7 @@ __metadata:
     antd-mobile: ^5.25.1
     antd-mobile-icons: ^0.3.0
     autoprefixer: ^10.4.13
+    axios: ^1.1.3
     eslint: ^8.27.0
     eslint-config-prettier: ^8.5.0
     eslint-import-resolver-typescript: ^3.5.2
@@ -2763,6 +2806,7 @@ __metadata:
     eslint-plugin-react: ^7.31.10
     eslint-plugin-react-hooks: ^4.6.0
     jotai: ^1.9.2
+    js-md5: ^0.7.3
     lodash-es: ^4.17.21
     postcss: ^8.4.19
     prettier: ^2.7.1
@@ -2793,6 +2837,27 @@ __metadata:
   version: 3.2.7
   resolution: "flatted@npm:3.2.7"
   checksum: 427633049d55bdb80201c68f7eb1cbd533e03eac541f97d3aecab8c5526f12a20ccecaeede08b57503e772c769e7f8680b37e8d482d1e5f8d7e2194687f9ea35
+  languageName: node
+  linkType: hard
+
+"follow-redirects@npm:^1.15.0":
+  version: 1.15.2
+  resolution: "follow-redirects@npm:1.15.2"
+  peerDependenciesMeta:
+    debug:
+      optional: true
+  checksum: faa66059b66358ba65c234c2f2a37fcec029dc22775f35d9ad6abac56003268baf41e55f9ee645957b32c7d9f62baf1f0b906e68267276f54ec4b4c597c2b190
+  languageName: node
+  linkType: hard
+
+"form-data@npm:^4.0.0":
+  version: 4.0.0
+  resolution: "form-data@npm:4.0.0"
+  dependencies:
+    asynckit: ^0.4.0
+    combined-stream: ^1.0.8
+    mime-types: ^2.1.12
+  checksum: 01135bf8675f9d5c61ff18e2e2932f719ca4de964e3be90ef4c36aacfc7b9cb2fceb5eca0b7e0190e3383fe51c5b37f4cb80b62ca06a99aaabfcfd6ac7c9328c
   languageName: node
   linkType: hard
 
@@ -3472,6 +3537,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"js-md5@npm:^0.7.3":
+  version: 0.7.3
+  resolution: "js-md5@npm:0.7.3"
+  checksum: 1ed9f7f23a2ad224fc159ba7e074617d20e6b501ea96319091ae4c7cfe722cc472c4e05366fd25708311fb66dc2deb1b82e51c730f9ccd910e64b67ba36d3a75
+  languageName: node
+  linkType: hard
+
 "js-sdsl@npm:^4.1.4":
   version: 4.1.5
   resolution: "js-sdsl@npm:4.1.5"
@@ -3701,6 +3773,22 @@ __metadata:
     braces: ^3.0.2
     picomatch: ^2.3.1
   checksum: 02a17b671c06e8fefeeb6ef996119c1e597c942e632a21ef589154f23898c9c6a9858526246abb14f8bca6e77734aa9dcf65476fca47cedfb80d9577d52843fc
+  languageName: node
+  linkType: hard
+
+"mime-db@npm:1.52.0":
+  version: 1.52.0
+  resolution: "mime-db@npm:1.52.0"
+  checksum: 0d99a03585f8b39d68182803b12ac601d9c01abfa28ec56204fa330bc9f3d1c5e14beb049bafadb3dbdf646dfb94b87e24d4ec7b31b7279ef906a8ea9b6a513f
+  languageName: node
+  linkType: hard
+
+"mime-types@npm:^2.1.12":
+  version: 2.1.35
+  resolution: "mime-types@npm:2.1.35"
+  dependencies:
+    mime-db: 1.52.0
+  checksum: 89a5b7f1def9f3af5dad6496c5ed50191ae4331cc5389d7c521c8ad28d5fdad2d06fd81baf38fed813dc4e46bb55c8145bb0ff406330818c9cf712fb2e9b3836
   languageName: node
   linkType: hard
 
@@ -4286,6 +4374,13 @@ __metadata:
     object-assign: ^4.1.1
     react-is: ^16.13.1
   checksum: c056d3f1c057cb7ff8344c645450e14f088a915d078dcda795041765047fa080d38e5d626560ccaac94a4e16e3aa15f3557c1a9a8d1174530955e992c675e459
+  languageName: node
+  linkType: hard
+
+"proxy-from-env@npm:^1.1.0":
+  version: 1.1.0
+  resolution: "proxy-from-env@npm:1.1.0"
+  checksum: ed7fcc2ba0a33404958e34d95d18638249a68c430e30fcb6c478497d72739ba64ce9810a24f53a7d921d0c065e5b78e3822759800698167256b04659366ca4d4
   languageName: node
   linkType: hard
 

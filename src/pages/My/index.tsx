@@ -82,6 +82,7 @@ const My = () => {
         >
           系统通知
         </List.Item>
+
         <List.Item
           prefix={<img alt="" src={ic_home_mine_help} className="w-8 h-8" />}
           arrow={<Arrow />}
@@ -107,6 +108,7 @@ const My = () => {
         >
           设置
         </List.Item>
+
         <List.Item
           prefix={<img alt="" src={ic_home_mine_shiming} className="w-8 h-8" />}
           arrow={<Arrow />}
@@ -114,6 +116,7 @@ const My = () => {
         >
           实名认证
         </List.Item>
+
         <List.Item
           prefix={<img alt="" src={ic_home_mine_youxiang} className="w-8 h-8" />}
           arrow={<Arrow />}
@@ -130,13 +133,11 @@ const Container = styled.div`
   .adm-list-item {
     padding-left: 1.5rem;
   }
+
   .adm-list-item-content-main {
     color: #1d3155;
     font-size: 0.875rem;
     padding: 1rem 0;
-  }
-  .adm-list-item-content {
-    border-top: 0;
   }
 
   .adm-list-item-content-arrow {
