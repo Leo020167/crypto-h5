@@ -1,8 +1,8 @@
 import { List, Popup, SearchBar } from 'antd-mobile';
 import { useAtomValue } from 'jotai';
 import { useState } from 'react';
-import { areaListAtom } from '../../atoms';
-import { AreaListItem } from '../../model';
+import { areaListAtom } from '../atoms';
+import { AreaListItem } from '../model';
 
 interface AreaListProps {
   open: boolean;

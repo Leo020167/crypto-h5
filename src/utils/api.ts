@@ -20,11 +20,10 @@ export const getSms = (data: {
   countryCode: string;
   dragImgKey: string;
   locationx: number;
-  platform: string;
   sendAddr: string;
   type: number; // 1, 手机，2，邮箱
 }) => {
-  return apiPost('/sms/get.do', data);
+  return apiPost('/sms/get.do', { ...data, platform: 'web' });
 };
 
 export const doSecurityRegister = (data: Register) => {
@@ -48,5 +47,22 @@ export const doSecurityLogin = (data: {
     userPass: md5(data.userPass ?? ''),
     platform: 'web',
     smsCode: '',
+  });
+};
+
+export const doSecurityLogout = () => {
+  return apiPost('/security/loginOut.do', {});
+};
+
+export const doSecurityForgetPass = (data: {
+  dragImgKey: string;
+  locationx: number;
+  phone: string;
+  smsCode: string;
+  userPass: string;
+}) => {
+  return apiPost('/security/forgetPass.do', {
+    platform: 'web',
+    userPass: md5(data.userPass),
   });
 };

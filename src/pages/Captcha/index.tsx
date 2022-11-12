@@ -95,7 +95,6 @@ const Captcha = () => {
             countryCode: register?.countryCode ?? '',
             dragImgKey: dragImgKey,
             locationx: positionX,
-            platform: 'web',
             sendAddr: register?.type === 1 ? register?.phone ?? '' : register?.email ?? '',
             type: register?.type ?? 1,
           }).then((res: any) => {

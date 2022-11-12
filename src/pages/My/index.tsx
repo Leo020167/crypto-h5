@@ -1,4 +1,5 @@
 import { List } from 'antd-mobile';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 import defaultHead from '../../assets/ic_default_head.png';
@@ -18,6 +19,7 @@ import ic_svg_take_coin from '../../assets/ic_svg_take_coin.svg';
 import ic_svg_transfer_coin from '../../assets/ic_svg_transfer_coin.svg';
 
 const My = () => {
+  const navigate = useNavigate();
   return (
     <Container className="bg-[#F0F1F7] h-full">
       <div className="bg-white pt-4">
@@ -100,6 +102,9 @@ const My = () => {
         <List.Item
           prefix={<img alt="" src={ic_home_mine_setting} className="w-8 h-8" />}
           arrow={<Arrow />}
+          onClick={() => {
+            navigate('/settings');
+          }}
         >
           设置
         </List.Item>

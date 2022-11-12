@@ -41,7 +41,7 @@ const Login = () => {
                   登录
                 </Button>
                 <div className="text-center mt-4">
-                  <Link to="">忘记了？找回密码</Link>
+                  <Link to="/reset-password">忘记了？找回密码</Link>
                 </div>
               </div>
             }

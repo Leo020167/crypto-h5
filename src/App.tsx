@@ -14,6 +14,8 @@ import {
 import * as styled from 'styled-components';
 import { localeAtom } from './atoms';
 
+const ResetPassword = lazy(() => import('./pages/ResetPassword'));
+const Settings = lazy(() => import('./pages/Settings'));
 const Captcha = lazy(() => import('./pages/Captcha'));
 const Signup = lazy(() => import('./pages/Signup'));
 const Login = lazy(() => import('./pages/Login'));
@@ -127,10 +129,26 @@ const router = createHashRouter([
     ),
   },
   {
+    path: 'reset-password',
+    element: (
+      <Suspense fallback={<div>Loading...</div>}>
+        <ResetPassword />
+      </Suspense>
+    ),
+  },
+  {
     path: 'captcha',
     element: (
       <Suspense fallback={<div>Loading...</div>}>
         <Captcha />
+      </Suspense>
+    ),
+  },
+  {
+    path: 'settings',
+    element: (
+      <Suspense fallback={<div>Loading...</div>}>
+        <Settings />
       </Suspense>
     ),
   },
@@ -184,6 +202,10 @@ const GlobalStyle = styled.createGlobalStyle`
   [type='reset'],
   [type='submit'] {
     background-color: var(--background-color);
+  }
+
+  .adm-nav-bar {
+    border-bottom: 1px solid #f6f6f6;
   }
 
   .adm-form {
