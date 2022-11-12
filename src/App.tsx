@@ -14,9 +14,11 @@ import {
 import * as styled from 'styled-components';
 import { localeAtom } from './atoms';
 
+const Captcha = lazy(() => import('./pages/Captcha'));
+const Signup = lazy(() => import('./pages/Signup'));
+const Login = lazy(() => import('./pages/Login'));
 const Home = lazy(() => import('./pages/Home'));
 const My = lazy(() => import('./pages/My'));
-const Login = lazy(() => import('./pages/Login'));
 
 const tabs = [
   {
@@ -116,6 +118,22 @@ const router = createHashRouter([
       </Suspense>
     ),
   },
+  {
+    path: 'signup',
+    element: (
+      <Suspense fallback={<div>Loading...</div>}>
+        <Signup />
+      </Suspense>
+    ),
+  },
+  {
+    path: 'captcha',
+    element: (
+      <Suspense fallback={<div>Loading...</div>}>
+        <Captcha />
+      </Suspense>
+    ),
+  },
 ]);
 
 const GlobalStyle = styled.createGlobalStyle`
@@ -166,6 +184,26 @@ const GlobalStyle = styled.createGlobalStyle`
   [type='reset'],
   [type='submit'] {
     background-color: var(--background-color);
+  }
+
+  .adm-form {
+    .adm-list-body {
+      border: 0;
+
+      .adm-list-item {
+        padding-left: 0;
+      }
+
+      .adm-list-item-content {
+        padding-right: 0;
+        border-top: 0;
+        border-bottom: var(--border-inner);
+      }
+    }
+
+    .adm-form-footer {
+      padding: 20px 0;
+    }
   }
 `;
 

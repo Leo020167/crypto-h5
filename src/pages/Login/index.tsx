@@ -1,13 +1,28 @@
-import { Button, Form, Input } from 'antd-mobile';
+import { Button, Form, Input, Toast } from 'antd-mobile';
 import { EyeInvisibleOutline, EyeOutline } from 'antd-mobile-icons';
+import { useAtom } from 'jotai';
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-use';
 import styled from 'styled-components';
+import { tokenAtom, userAtom } from '../../atoms';
 import SwipeImageValidator from '../../components/SwipeImageValidator';
+import { doSecurityLogin } from '../../utils/api';
 
 const Login = () => {
-  const [valid, setValid] = useState(false);
+  const [, setToken] = useAtom(tokenAtom);
+  const [, setUser] = useAtom(userAtom);
+  const [open, setOpen] = useState(false);
   const [visible, setVisible] = useState(false);
+
+  const [username, setUsername] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
+
+  const navigate = useNavigate();
+
+  const location = useLocation();
+  const from = location.state?.from?.pathname || '/home';
+
   return (
     <div className="h-screen bg-white px-4 py-4">
       <div className="text-right pb-2 border-b">
@@ -19,9 +34,10 @@ const Login = () => {
         <h1 className="py-8 text-2xl">登录</h1>
         <div>
           <Form
+            onFinish={() => setOpen(true)}
             footer={
               <div>
-                <Button block type="submit" color="primary" size="large" className="rounded-none">
+                <Button block type="submit" color="primary" className="rounded-none">
                   登录
                 </Button>
                 <div className="text-center mt-4">
@@ -30,8 +46,8 @@ const Login = () => {
               </div>
             }
           >
-            <Form.Item name="username" rules={[{ required: true }]}>
-              <Input placeholder="请输入姓名" />
+            <Form.Item name="username">
+              <Input placeholder="邮箱或手机" onChange={setUsername} />
             </Form.Item>
             <Form.Item name="password">
               <div className="password">
@@ -39,6 +55,7 @@ const Login = () => {
                   className="input"
                   placeholder="请输入密码"
                   type={visible ? 'text' : 'password'}
+                  onChange={setPassword}
                 />
                 <div className="eye">
                   {!visible ? (
@@ -54,10 +71,31 @@ const Login = () => {
       </Container>
       <SwipeImageValidator
         title="拖动图片完成验证"
-        open={valid}
-        onClose={() => setValid(false)}
-        onSuccess={() => {
-          setValid(false);
+        open={open}
+        onClose={() => setOpen(false)}
+        onSuccess={(locationX, dragImgKey) => {
+          const isEmail = /^\w+((.\w+)|(-\w+))@[A-Za-z0-9]+((.|-)[A-Za-z0-9]+).[A-Za-z0-9]+$/.test(
+            username,
+          );
+
+          doSecurityLogin({
+            locationx: locationX,
+            dragImgKey,
+            phone: isEmail ? '' : username,
+            type: isEmail ? 2 : 1,
+            email: isEmail ? username : '',
+            userPass: password,
+          }).then((res: any) => {
+            Toast.show(res.msg);
+
+            if (res.code === '200') {
+              setToken(res.code.token);
+              setUser(res.data.user);
+              navigate(from, { replace: true });
+            }
+          });
+
+          setOpen(false);
         }}
       />
     </div>

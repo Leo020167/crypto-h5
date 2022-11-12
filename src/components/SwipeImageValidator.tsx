@@ -31,10 +31,15 @@ interface SwipeImageValidatorProps {
   title?: string;
   open: boolean;
   onClose: () => void;
-  onSuccess: () => void;
+  onSuccess: (locationX: number, dragImgKey: string) => void;
 }
 
-const SwipeImageValidator = ({ title, open, onClose, onSuccess }: SwipeImageValidatorProps) => {
+const SwipeImageValidator = ({
+  title,
+  open = false,
+  onClose,
+  onSuccess,
+}: SwipeImageValidatorProps) => {
   const [imageData, setImageData] = useState<OutDragImage>();
 
   const [dragBgStyle, setDragBgStyle] = useState<{
@@ -101,6 +106,7 @@ const SwipeImageValidator = ({ title, open, onClose, onSuccess }: SwipeImageVali
           const SizeCor = data.sourceImgWidth / data.sourceImgHeight;
           // 计算图片的宽度(根据屏幕的宽度)
           const bgWidth = document.body.clientWidth * 0.85;
+
           // 计算背景图片的高度
           const bgHeight = bgWidth / SizeCor;
 
@@ -117,10 +123,12 @@ const SwipeImageValidator = ({ title, open, onClose, onSuccess }: SwipeImageVali
           };
 
           // 计算小方块的宽高比
-          const dragLis = data.sourceImgWidth / bgWidth;
-          const miniH = data.smallImgHeight / dragLis;
-          const miniW = data.smallImgWidth / dragLis;
-          const miniTop = data.locationy / dragLis;
+
+          const dragLis = Number(data.sourceImgWidth) / bgWidth;
+
+          const miniH = Number(data.smallImgHeight) / dragLis;
+          const miniW = Number(data.smallImgWidth) / dragLis;
+          const miniTop = Number(data.locationy) / dragLis;
 
           calculatedRef.current.dragLis = dragLis;
 
@@ -155,8 +163,10 @@ const SwipeImageValidator = ({ title, open, onClose, onSuccess }: SwipeImageVali
   }, []);
 
   useEffect(() => {
-    getVerifyImage();
-  }, [getVerifyImage]);
+    if (open) {
+      getVerifyImage();
+    }
+  }, [getVerifyImage, open]);
 
   const [error, setError] = useState(false);
   const [showDragTip, setShowDragTip] = useState(false);
@@ -222,18 +232,16 @@ const SwipeImageValidator = ({ title, open, onClose, onSuccess }: SwipeImageVali
           setProgressR(false);
           setTouchStyle({
             ...touchStyle,
+            left: '0',
           });
 
-          setProgressWidth({ width: maxLf + 'px' });
-
-          onSuccess();
+          setProgressWidth({ width: '0' });
+          setLoading(false);
+          onSuccess(calculatedRef.current.locationX, dragImgKey);
         } else {
           setShowDragTip(true);
           setDragTip(res.msg);
-
-          calculatedRef.current.locationX = 0;
           setProgressWidth({ width: '0' });
-
           getVerifyImage();
         }
       });
