@@ -1,13 +1,17 @@
 import { Button, Form, Input, NavBar, Toast } from 'antd-mobile';
+import produce from 'immer';
+import { useAtom } from 'jotai';
 import { useCallback } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import styled from 'styled-components';
+import { userAtom } from '../../../atoms';
 import { updateEmail } from '../../../utils/api';
 
 const BindEmailCode = () => {
   const navigate = useNavigate();
 
   const [searchParams] = useSearchParams();
+  const [, setUser] = useAtom(userAtom);
 
   const email = searchParams.get('email') ?? '';
 
@@ -21,13 +25,18 @@ const BindEmailCode = () => {
       updateEmail({ email, code: values.code }).then((res) => {
         if (res.code === '200') {
           Toast.show('綁定成功');
+          setUser(
+            produce((draft) => {
+              draft.email = email;
+            }),
+          );
           navigate('/my', { replace: true });
         } else {
           Toast.show(res.msg);
         }
       });
     },
-    [email, navigate],
+    [email, navigate, setUser],
   );
 
   return (
