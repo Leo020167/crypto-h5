@@ -1,7 +1,9 @@
 import { List } from 'antd-mobile';
 import { useAtom } from 'jotai';
 import { stringify } from 'qs';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useMount } from 'react-use';
 import styled from 'styled-components';
 
 import defaultHead from '../../assets/ic_default_head.png';
@@ -20,10 +22,22 @@ import ic_svg_recharge_coin from '../../assets/ic_svg_recharge_coin.svg';
 import ic_svg_take_coin from '../../assets/ic_svg_take_coin.svg';
 import ic_svg_transfer_coin from '../../assets/ic_svg_transfer_coin.svg';
 import { userAtom } from '../../atoms';
+import { getHomeMy } from '../../utils/api';
 
 const My = () => {
   const navigate = useNavigate();
   const [user] = useAtom(userAtom);
+
+  const [helpCenterUrl, setHelpCenterUrl] = useState<string>('');
+
+  useMount(() => {
+    getHomeMy().then((res) => {
+      if (res.code === '200') {
+        setHelpCenterUrl(res.data.helpCenterUrl);
+      }
+    });
+  });
+
   return (
     <Container className="bg-[#F0F1F7] h-full">
       <div className="bg-white pt-4">
@@ -86,6 +100,9 @@ const My = () => {
         <List.Item
           prefix={<img alt="" src={ic_home_mine_notice} className="w-8 h-8" />}
           arrow={<Arrow />}
+          onClick={() => {
+            navigate('/notifications');
+          }}
         >
           系统通知
         </List.Item>
@@ -93,6 +110,11 @@ const My = () => {
         <List.Item
           prefix={<img alt="" src={ic_home_mine_help} className="w-8 h-8" />}
           arrow={<Arrow />}
+          onClick={() => {
+            if (helpCenterUrl) {
+              window.open(helpCenterUrl);
+            }
+          }}
         >
           帮助中心
         </List.Item>

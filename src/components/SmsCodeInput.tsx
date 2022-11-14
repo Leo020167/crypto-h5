@@ -37,7 +37,6 @@ const Countdown = forwardRef<
       setStatus('stopped');
     },
     restart: () => {
-      console.log(11);
       setCountdown(60);
       setStatus('started');
     },

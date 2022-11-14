@@ -74,6 +74,9 @@ export const getHomeAccount = (userId: string) => {
 export const getUserInfo = () => {
   return apiPost('/user/info.do', {});
 };
+export const getHomeMy = () => {
+  return apiPost('/home/my.do', {});
+};
 
 export const userUpdateUserInfo = (data: {
   birthday?: string;

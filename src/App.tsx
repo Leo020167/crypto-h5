@@ -16,6 +16,7 @@ import { localeAtom, tokenAtom, userAtom } from './atoms';
 import { getUserInfo } from './utils/api';
 
 const SettingAccount = lazy(() => import('./pages/Settings/Account'));
+const Notifications = lazy(() => import('./pages/My/Notifications'));
 const ChangePassword = lazy(() => import('./pages/My/ChangePassword'));
 const EmailAuth = lazy(() => import('./pages/My/EmailAuth'));
 const EmailAuthCode = lazy(() => import('./pages/My/EmailAuth/EmailAuthCode'));
@@ -223,6 +224,14 @@ const router = createHashRouter([
     element: (
       <Suspense fallback={<div>Loading...</div>}>
         <ChangePassword />
+      </Suspense>
+    ),
+  },
+  {
+    path: 'notifications',
+    element: (
+      <Suspense fallback={<div>Loading...</div>}>
+        <Notifications />
       </Suspense>
     ),
   },

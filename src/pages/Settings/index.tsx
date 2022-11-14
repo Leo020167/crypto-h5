@@ -16,6 +16,7 @@ const Settings = () => {
 
   const [openRefreshRate, setOpenRefreshRate] = useState(false);
   const [openUpAndDownColor, setOpenUpAndDownColor] = useState(false);
+
   return (
     <div>
       <NavBar onBack={() => navigate(-1)} className="bg-white mb-2">
