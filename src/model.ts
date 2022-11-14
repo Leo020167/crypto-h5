@@ -5,6 +5,11 @@ export interface AreaListItem {
   tcName: string;
 }
 
+export interface Country {
+  code: string;
+  name: string;
+}
+
 export interface Register {
   configUserPass?: string;
   countryCode?: string;

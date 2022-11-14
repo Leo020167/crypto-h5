@@ -106,3 +106,24 @@ export const updateUserPass = (data: ChangePasswordInput) => {
     configUserPass: md5(data.configUserPass?.trim() ?? ''),
   });
 };
+
+export const checkIdentity = (data: {
+  dragImgKey: string;
+  locationx: number;
+  phone: string;
+  smsCode: string;
+}) => {
+  return apiPost('/user/security/checkIdentity.do', data);
+};
+
+export const changePhoneTwo = (data: {
+  dragImgKey: string;
+  locationx: number;
+  newCountryCode: string;
+  newPhone: string;
+  newSmsCode: string;
+  oldPhone: string;
+  oldSmsCode: string;
+}) => {
+  return apiPost('/user/security/changePhoneTwo.do', data);
+};

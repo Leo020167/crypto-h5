@@ -31,7 +31,7 @@ interface SwipeImageValidatorProps {
   title?: string;
   open: boolean;
   onClose: () => void;
-  onSuccess: (locationX: number, dragImgKey: string) => void;
+  onSuccess: (locationx: number, dragImgKey: string) => void;
 }
 
 const SwipeImageValidator = ({
@@ -219,7 +219,7 @@ const SwipeImageValidator = ({
 
   const checkDrag = useCallback(() => {
     if (dragImgKey) {
-      checkDragImg(calculatedRef.current.locationX, dragImgKey).then((res: any) => {
+      checkDragImg(calculatedRef.current.locationX, dragImgKey).then((res) => {
         const { placeWidth, touchWidth } = calculatedRef.current;
         if (res.code === '200') {
           const maxLf = placeWidth - touchWidth;

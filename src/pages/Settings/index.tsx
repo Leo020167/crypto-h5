@@ -25,11 +25,16 @@ const Settings = () => {
         <List.Item arrow={<Arrow />} onClick={() => navigate('/change-password')}>
           修改密码
         </List.Item>
-        <List.Item arrow={<Arrow />}>绑定手机</List.Item>
+
+        <List.Item arrow={<Arrow />} onClick={() => navigate('account')}>
+          绑定手机
+        </List.Item>
+
         <List.Item arrow={<Arrow />} onClick={() => setOpenUpAndDownColor(true)}>
           涨跌颜色
         </List.Item>
       </List>
+
       <List className="mb-2">
         <List.Item arrow={<Arrow />} onClick={() => setOpenRefreshRate(true)}>
           刷新频率设置
