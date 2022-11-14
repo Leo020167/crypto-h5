@@ -1,14 +1,14 @@
 import { Input, List, Modal, NavBar, TextArea, Toast } from 'antd-mobile';
 import { CheckOutline } from 'antd-mobile-icons';
 import { useAtom } from 'jotai';
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 import defaultHead from '../../assets/ic_default_head.png';
 import { ReactComponent as Arrow } from '../../assets/ic_svg_arrow_2.svg';
 import { userAtom } from '../../atoms';
-import { getUserInfo, userUpdateUserInfo } from '../../utils/api';
+import { userUpdateUserInfo } from '../../utils/api';
 
 const Personal = () => {
   const navigate = useNavigate();
@@ -22,10 +22,6 @@ const Personal = () => {
   const [describes, setDescribes] = useState<string>(user?.describes ?? '');
 
   const [action, setAction] = useState<'edit-userName' | 'edit-describes'>();
-
-  useEffect(() => {
-    getUserInfo();
-  }, []);
 
   const updateUserInfo = useCallback(() => {
     userUpdateUserInfo({ sex, userName, describes }).then((res: any) => {

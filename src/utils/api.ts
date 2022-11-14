@@ -84,3 +84,17 @@ export const userUpdateUserInfo = (data: {
 }) => {
   return apiPost('/user/updateUserInfo.do', data);
 };
+
+export const getEmail = (email: string) => {
+  return apiPost('/email/get.do', {
+    platform: 'web',
+    email,
+  });
+};
+export const updateEmail = (data: { email: string; code: string }) => {
+  return apiPost('/user/security/updateEmail.do', data);
+};
+
+export const checkEmailCode = (data: { email: string; code: string }) => {
+  return apiPost('/user/security/checkEmailCode.do', data);
+};

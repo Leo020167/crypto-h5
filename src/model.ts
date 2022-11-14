@@ -49,4 +49,5 @@ export interface User {
   verifySqlTime: string;
   version: string;
   describes?: string;
+  email?: string;
 }

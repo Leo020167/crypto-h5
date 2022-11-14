@@ -1,5 +1,6 @@
 import { List } from 'antd-mobile';
 import { useAtom } from 'jotai';
+import { stringify } from 'qs';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -125,6 +126,13 @@ const My = () => {
         <List.Item
           prefix={<img alt="" src={ic_home_mine_youxiang} className="w-8 h-8" />}
           arrow={<Arrow />}
+          onClick={() => {
+            if (user?.email) {
+              navigate(`/email-auth?${stringify({ mode: 1 })}`);
+            } else {
+              navigate('/bind-email');
+            }
+          }}
         >
           绑定邮箱
         </List.Item>

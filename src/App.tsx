@@ -1,7 +1,7 @@
 import { TabBar } from 'antd-mobile';
 import { AppOutline, UnorderedListOutline, MessageOutline, UserOutline } from 'antd-mobile-icons';
-import { useAtomValue } from 'jotai';
-import { lazy, Suspense, useEffect, useState } from 'react';
+import { useAtom, useAtomValue } from 'jotai';
+import { lazy, Suspense, useEffect, useRef, useState } from 'react';
 import { IntlProvider } from 'react-intl';
 import {
   createHashRouter,
@@ -12,8 +12,13 @@ import {
   useNavigate,
 } from 'react-router-dom';
 import * as styled from 'styled-components';
-import { localeAtom } from './atoms';
+import { localeAtom, tokenAtom, userAtom } from './atoms';
+import { getUserInfo } from './utils/api';
 
+const EmailAuth = lazy(() => import('./pages/My/EmailAuth'));
+const EmailAuthCode = lazy(() => import('./pages/My/EmailAuth/EmailAuthCode'));
+const BindEmail = lazy(() => import('./pages/My/EmailAuth/BindEmail'));
+const BindEmailCode = lazy(() => import('./pages/My/EmailAuth/BindEmailCode'));
 const Personal = lazy(() => import('./pages/Settings/Personal'));
 const ResetPassword = lazy(() => import('./pages/ResetPassword'));
 const Settings = lazy(() => import('./pages/Settings'));
@@ -171,6 +176,38 @@ const router = createHashRouter([
       </Suspense>
     ),
   },
+  {
+    path: 'email-auth',
+    element: (
+      <Suspense fallback={<div>Loading...</div>}>
+        <EmailAuth />
+      </Suspense>
+    ),
+  },
+  {
+    path: 'email-auth-code',
+    element: (
+      <Suspense fallback={<div>Loading...</div>}>
+        <EmailAuthCode />
+      </Suspense>
+    ),
+  },
+  {
+    path: 'bind-email',
+    element: (
+      <Suspense fallback={<div>Loading...</div>}>
+        <BindEmail />
+      </Suspense>
+    ),
+  },
+  {
+    path: 'bind-email-code',
+    element: (
+      <Suspense fallback={<div>Loading...</div>}>
+        <BindEmailCode />
+      </Suspense>
+    ),
+  },
 ]);
 
 const GlobalStyle = styled.createGlobalStyle`
@@ -228,6 +265,11 @@ const GlobalStyle = styled.createGlobalStyle`
   }
 
   .adm-form {
+    .adm-input-element {
+      padding: 0 1rem;
+      font-size: 1rem;
+    }
+
     .adm-list-body {
       border: 0;
 
@@ -244,6 +286,10 @@ const GlobalStyle = styled.createGlobalStyle`
 
     .adm-form-footer {
       padding: 20px 0;
+
+      .adm-button {
+        font-size: 1rem;
+      }
     }
   }
 
@@ -271,6 +317,8 @@ const GlobalStyle = styled.createGlobalStyle`
 function App() {
   const locale = useAtomValue(localeAtom);
 
+  const [token] = useAtom(tokenAtom);
+  const [, setUser] = useAtom(userAtom);
   const [messages, setMessages] = useState<Record<string, string>>();
 
   useEffect(() => {
@@ -279,6 +327,20 @@ function App() {
       setMessages(mod.default);
     })();
   }, [locale]);
+
+  const mounted = useRef<boolean>(false);
+
+  useEffect(() => {
+    if (token) {
+      if (mounted.current) return;
+      mounted.current = true;
+      getUserInfo().then((res: any) => {
+        if (res.code === '200') {
+          setUser(res.data);
+        }
+      });
+    }
+  }, [setUser, token]);
 
   return (
     <IntlProvider locale={locale} defaultLocale="en" key={locale} messages={messages}>
