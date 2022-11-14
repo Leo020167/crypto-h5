@@ -1,5 +1,5 @@
 import md5 from 'js-md5';
-import { Register } from '../model';
+import { ChangePasswordInput, Register } from '../model';
 import { apiPost } from './request';
 
 export const outDragImage = () => {
@@ -97,4 +97,12 @@ export const updateEmail = (data: { email: string; code: string }) => {
 
 export const checkEmailCode = (data: { email: string; code: string }) => {
   return apiPost('/user/security/checkEmailCode.do', data);
+};
+
+export const updateUserPass = (data: ChangePasswordInput) => {
+  return apiPost('/user/security/updateUserPass.do', {
+    oldUserPass: md5(data.oldUserPass?.trim() ?? ''),
+    newUserPass: md5(data.newUserPass?.trim() ?? ''),
+    configUserPass: md5(data.configUserPass?.trim() ?? ''),
+  });
 };

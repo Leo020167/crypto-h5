@@ -51,3 +51,9 @@ export interface User {
   describes?: string;
   email?: string;
 }
+
+export interface ChangePasswordInput {
+  oldUserPass?: string;
+  newUserPass?: string;
+  configUserPass?: string;
+}

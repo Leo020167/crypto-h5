@@ -15,6 +15,7 @@ import * as styled from 'styled-components';
 import { localeAtom, tokenAtom, userAtom } from './atoms';
 import { getUserInfo } from './utils/api';
 
+const ChangePassword = lazy(() => import('./pages/My/ChangePassword'));
 const EmailAuth = lazy(() => import('./pages/My/EmailAuth'));
 const EmailAuthCode = lazy(() => import('./pages/My/EmailAuth/EmailAuthCode'));
 const BindEmail = lazy(() => import('./pages/My/EmailAuth/BindEmail'));
@@ -208,6 +209,14 @@ const router = createHashRouter([
       </Suspense>
     ),
   },
+  {
+    path: 'change-password',
+    element: (
+      <Suspense fallback={<div>Loading...</div>}>
+        <ChangePassword />
+      </Suspense>
+    ),
+  },
 ]);
 
 const GlobalStyle = styled.createGlobalStyle`
@@ -266,6 +275,7 @@ const GlobalStyle = styled.createGlobalStyle`
 
   .adm-list-item-content-main {
     font-size: 0.875rem;
+    color: #2a3654;
   }
 
   .adm-form {

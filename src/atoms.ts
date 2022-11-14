@@ -21,3 +21,5 @@ export const countryAtom = atom<{ code: string; name: string }>({
   code: '+852',
   name: '香港',
 });
+
+export const refreshRateAtom = atomWithStorage<number>('refresh-rate', 1);
