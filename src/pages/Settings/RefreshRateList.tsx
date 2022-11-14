@@ -3,20 +3,20 @@ import { useAtom } from 'jotai';
 import { range } from 'lodash-es';
 import { refreshRateAtom } from '../../atoms';
 
-interface RefreshRateProps {
+interface RefreshRateListProps {
   open: boolean;
   onClose: () => void;
 }
 
 const values = range(1, 6);
 
-const RefreshRateList = ({ open, onClose }: RefreshRateProps) => {
+const RefreshRateList = ({ open, onClose }: RefreshRateListProps) => {
   const [refreshRate, setRefreshRate] = useAtom(refreshRateAtom);
   return (
     <Popup position="right" visible={open} onClose={onClose}>
       <div className="w-screen h-screen">
         <NavBar onBack={onClose}>刷新频率设置</NavBar>
-        <div className="border-b px-4 py-2">
+        <div className="px-4 py-2">
           <div className="text-[#b4b4b4]">行情刷新频率设置</div>
         </div>
 

@@ -7,6 +7,7 @@ import { ReactComponent as Arrow } from '../../assets/ic_svg_arrow_2.svg';
 import { tokenAtom, userAtom } from '../../atoms';
 import { doSecurityLogout } from '../../utils/api';
 import RefreshRateList from './RefreshRateList';
+import UpAndDownColorList from './UpAndDownColorList';
 
 const Settings = () => {
   const navigate = useNavigate();
@@ -14,6 +15,7 @@ const Settings = () => {
   const [, setUser] = useAtom(userAtom);
 
   const [openRefreshRate, setOpenRefreshRate] = useState(false);
+  const [openUpAndDownColor, setOpenUpAndDownColor] = useState(false);
   return (
     <div>
       <NavBar onBack={() => navigate(-1)} className="bg-white mb-2">
@@ -24,7 +26,9 @@ const Settings = () => {
           修改密码
         </List.Item>
         <List.Item arrow={<Arrow />}>绑定手机</List.Item>
-        <List.Item arrow={<Arrow />}>涨跌颜色</List.Item>
+        <List.Item arrow={<Arrow />} onClick={() => setOpenUpAndDownColor(true)}>
+          涨跌颜色
+        </List.Item>
       </List>
       <List className="mb-2">
         <List.Item arrow={<Arrow />} onClick={() => setOpenRefreshRate(true)}>
@@ -68,6 +72,7 @@ const Settings = () => {
       </List>
 
       <RefreshRateList open={openRefreshRate} onClose={() => setOpenRefreshRate(false)} />
+      <UpAndDownColorList open={openUpAndDownColor} onClose={() => setOpenUpAndDownColor(false)} />
     </div>
   );
 };
