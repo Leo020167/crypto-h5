@@ -89,7 +89,7 @@ const Login = () => {
             Toast.show(res.msg);
 
             if (res.code === '200') {
-              setToken(res.code.token);
+              setToken(res.data.token);
               setUser(res.data.user);
               navigate(from, { replace: true });
             }

@@ -66,3 +66,21 @@ export const doSecurityForgetPass = (data: {
     userPass: md5(data.userPass),
   });
 };
+
+export const getHomeAccount = (userId: string) => {
+  return apiPost('/home/account.do', { userId, platform: 'web' });
+};
+
+export const getUserInfo = () => {
+  return apiPost('/user/info.do', {});
+};
+
+export const userUpdateUserInfo = (data: {
+  birthday?: string;
+  describes?: string;
+  headUrl?: string;
+  sex?: '0' | '1';
+  userName?: string;
+}) => {
+  return apiPost('/user/updateUserInfo.do', data);
+};

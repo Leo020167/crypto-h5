@@ -14,6 +14,7 @@ import {
 import * as styled from 'styled-components';
 import { localeAtom } from './atoms';
 
+const Personal = lazy(() => import('./pages/Settings/Personal'));
 const ResetPassword = lazy(() => import('./pages/ResetPassword'));
 const Settings = lazy(() => import('./pages/Settings'));
 const Captcha = lazy(() => import('./pages/Captcha'));
@@ -104,11 +105,37 @@ const router = createHashRouter([
       },
       {
         path: 'my',
-        element: (
-          <Suspense fallback={<div>Loading...</div>}>
-            <My />
-          </Suspense>
-        ),
+        children: [
+          {
+            index: true,
+            element: (
+              <Suspense fallback={<div>Loading...</div>}>
+                <My />
+              </Suspense>
+            ),
+          },
+          {
+            path: 'settings',
+            children: [
+              {
+                index: true,
+                element: (
+                  <Suspense fallback={<div>Loading...</div>}>
+                    <Settings />
+                  </Suspense>
+                ),
+              },
+            ],
+          },
+          {
+            path: 'personal',
+            element: (
+              <Suspense fallback={<div>Loading...</div>}>
+                <Personal />
+              </Suspense>
+            ),
+          },
+        ],
       },
     ],
   },
@@ -141,14 +168,6 @@ const router = createHashRouter([
     element: (
       <Suspense fallback={<div>Loading...</div>}>
         <Captcha />
-      </Suspense>
-    ),
-  },
-  {
-    path: 'settings',
-    element: (
-      <Suspense fallback={<div>Loading...</div>}>
-        <Settings />
       </Suspense>
     ),
   },
@@ -226,6 +245,26 @@ const GlobalStyle = styled.createGlobalStyle`
     .adm-form-footer {
       padding: 20px 0;
     }
+  }
+
+  .adm-dialog-footer .adm-dialog-action-row > .adm-dialog-button {
+    font-size: 14px;
+  }
+
+  .adm-modal-footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    .adm-space-item {
+      margin: 0;
+      .adm-modal-button {
+        font-size: 1rem;
+      }
+    }
+  }
+
+  .adm-text-area {
+    --font-size: 1rem;
   }
 `;
 

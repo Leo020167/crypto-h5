@@ -1,12 +1,11 @@
 import { useAtomValue } from 'jotai';
-import React from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
 import { tokenAtom } from '../atoms';
 
 interface RequireAuthProps {
-  children?: React.ReactNode;
+  children: JSX.Element;
 }
-const RequireAuth = ({ children }: RequireAuthProps) => {
+const RequireAuth = ({ children }: RequireAuthProps): JSX.Element => {
   const location = useLocation();
   const token = useAtomValue(tokenAtom);
 

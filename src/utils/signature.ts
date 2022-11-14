@@ -1,4 +1,5 @@
 import md5 from 'js-md5';
+import { User } from '../model';
 
 const apiSecret = 'C2AE585AB6814937960DF0E0A22DF3FD';
 const apiKey = '2CE2BA19C7CA4937AD18BC1AFEE034E8';
@@ -43,16 +44,23 @@ export function signParameters(json: any) {
   json['apiKey'] = apiKey;
   json['timestamp'] = +new Date();
 
-  let userJson: any = {};
+  let user: User | null = null;
   try {
-    userJson = JSON.parse(sessionStorage.getItem('userInfo') ?? '');
+    user = JSON.parse(localStorage.getItem('user') ?? '');
   } catch (error) {
     /* empty */
   }
 
-  if (userJson && userJson.token) {
-    json['token'] = userJson.token ? userJson.token : '';
-    json['userId'] = userJson.user.userId ? userJson.user.userId : '';
+  let token = '';
+  try {
+    token = JSON.parse(localStorage.getItem('token') ?? '');
+  } catch (error) {
+    /* empty */
+  }
+
+  if (user && token) {
+    json['token'] = token;
+    json['userId'] = user.userId ? user.userId : '';
   } else {
     json['token'] = '';
     json['userId'] = '';
