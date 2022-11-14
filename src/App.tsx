@@ -264,10 +264,14 @@ const GlobalStyle = styled.createGlobalStyle`
     border-bottom: 1px solid #f6f6f6;
   }
 
+  .adm-list-item-content-main {
+    font-size: 0.875rem;
+  }
+
   .adm-form {
     .adm-input-element {
       padding: 0 1rem;
-      font-size: 1rem;
+      font-size: 0.875rem;
     }
 
     .adm-list-body {
@@ -288,7 +292,7 @@ const GlobalStyle = styled.createGlobalStyle`
       padding: 20px 0;
 
       .adm-button {
-        font-size: 1rem;
+        font-size: 0.875rem;
       }
     }
   }
@@ -304,13 +308,13 @@ const GlobalStyle = styled.createGlobalStyle`
     .adm-space-item {
       margin: 0;
       .adm-modal-button {
-        font-size: 1rem;
+        font-size: 0.875rem;
       }
     }
   }
 
   .adm-text-area {
-    --font-size: 1rem;
+    --font-size: 0.875rem;
   }
 `;
 
