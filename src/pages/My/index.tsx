@@ -2,7 +2,7 @@ import { List } from 'antd-mobile';
 import { useAtom } from 'jotai';
 import { stringify } from 'qs';
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useMount } from 'react-use';
 import styled from 'styled-components';
 
@@ -60,12 +60,12 @@ const My = () => {
         </div>
 
         <div className="flex justify-between bg-white mb-2 py-2">
-          <div className="flex-1 flex flex-col items-center">
+          <Link className="flex-1 flex flex-col items-center" to="/recharge-coin">
             <div className="bg-[#f0f1f5] w-12 h-12 mb-2 rounded-lg">
               <img alt="" src={ic_svg_recharge_coin} />
             </div>
             <span>充币</span>
-          </div>
+          </Link>
           <div className="flex-1 flex flex-col items-center">
             <div className="bg-[#f0f1f5] w-12 h-12 mb-2 rounded-lg">
               <img alt="" src={ic_svg_take_coin} />

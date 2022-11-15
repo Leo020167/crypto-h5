@@ -16,6 +16,10 @@ import { localeAtom, tokenAtom, userAtom } from './atoms';
 import { getUserInfo } from './utils/api';
 
 const SettingAccount = lazy(() => import('./pages/Settings/Account'));
+
+const TakeCoinHistoryDetails = lazy(() => import('./pages/My/TakeCoinHistoryDetails'));
+const TakeCoinHistory = lazy(() => import('./pages/My/TakeCoinHistory'));
+const RechargeCoin = lazy(() => import('./pages/My/RechargeCoin'));
 const Notifications = lazy(() => import('./pages/My/Notifications'));
 const ChangePassword = lazy(() => import('./pages/My/ChangePassword'));
 const EmailAuth = lazy(() => import('./pages/My/EmailAuth'));
@@ -235,6 +239,30 @@ const router = createHashRouter([
       </Suspense>
     ),
   },
+  {
+    path: 'recharge-coin',
+    element: (
+      <Suspense fallback={<div>Loading...</div>}>
+        <RechargeCoin />
+      </Suspense>
+    ),
+  },
+  {
+    path: 'recharge-coin-history',
+    element: (
+      <Suspense fallback={<div>Loading...</div>}>
+        <TakeCoinHistory />
+      </Suspense>
+    ),
+  },
+  {
+    path: 'recharge-coin-history-details',
+    element: (
+      <Suspense fallback={<div>Loading...</div>}>
+        <TakeCoinHistoryDetails />
+      </Suspense>
+    ),
+  },
 ]);
 
 const GlobalStyle = styled.createGlobalStyle`
@@ -343,6 +371,10 @@ const GlobalStyle = styled.createGlobalStyle`
 
   .adm-text-area {
     --font-size: 0.875rem;
+  }
+
+  .adm-button.adm-button-large {
+    --adm-font-size-10: 14px;
   }
 `;
 
