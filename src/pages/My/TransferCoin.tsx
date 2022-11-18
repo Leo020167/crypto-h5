@@ -1,4 +1,5 @@
-import { Button, Input } from 'antd-mobile';
+import { Button, Input, List, Popup } from 'antd-mobile';
+import { useState } from 'react';
 import styled from 'styled-components';
 import { ReactComponent as Arrow } from '../../assets/ic_svg_arrow_2.svg';
 import ic_transfer_point from '../../assets/ic_transfer_point.png';
@@ -9,6 +10,7 @@ import Screen from '../../components/Screen';
  * @returns
  */
 const TransferCoin = () => {
+  const [visible, setVisible] = useState(false);
   return (
     <Container
       headerTitle="划转"
@@ -28,14 +30,20 @@ const TransferCoin = () => {
         <div className="flex-1 ml-4 h-full flex flex-col">
           <div className="border-b flex items-center flex-1">
             <span className="text-[#663D3A50]">从</span>
-            <a className="flex-1 flex items-center justify-between px-4">
+            <a
+              className="flex-1 flex items-center justify-between px-4"
+              onClick={() => setVisible(true)}
+            >
               <span>余额账户</span>
               <Arrow />
             </a>
           </div>
           <div className=" flex items-center flex-1">
             <span className="text-[#663D3A50]">到</span>
-            <a className="flex-1 flex  items-center justify-between px-4">
+            <a
+              className="flex-1 flex  items-center justify-between px-4"
+              onClick={() => setVisible(true)}
+            >
               <span>股指期货账户</span>
               <Arrow />
             </a>
@@ -64,6 +72,25 @@ const TransferCoin = () => {
           只有將資產划轉到相對應的賬戶才可以進行交易。賬戶間的划轉不收取手續費
         </div>
       </div>
+
+      <Popup visible={visible} position="right">
+        <Screen
+          headerTitle="选择账户"
+          navBarProps={{
+            onBack() {
+              setVisible(false);
+            },
+          }}
+        >
+          <List>
+            <List.Item arrow={null} onClick={() => setVisible(false)}>
+              1
+            </List.Item>
+            <List.Item>2</List.Item>
+            <List.Item>3</List.Item>
+          </List>
+        </Screen>
+      </Popup>
     </Container>
   );
 };
