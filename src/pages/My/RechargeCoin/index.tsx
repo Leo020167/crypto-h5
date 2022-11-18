@@ -8,7 +8,7 @@ const RechargeCoin = () => {
       <NavBar
         onBack={() => navigate(-1)}
         className="mb-4"
-        right={<Link to="/recharge-coin-history">记录</Link>}
+        right={<Link to="/take-coin-history">记录</Link>}
       >
         充币
       </NavBar>

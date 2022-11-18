@@ -19,6 +19,7 @@ const SettingAccount = lazy(() => import('./pages/Settings/Account'));
 
 const TakeCoinHistoryDetails = lazy(() => import('./pages/My/TakeCoinHistoryDetails'));
 const TakeCoinHistory = lazy(() => import('./pages/My/TakeCoinHistory'));
+const TakeCoin = lazy(() => import('./pages/My/TakeCoin'));
 const RechargeCoin = lazy(() => import('./pages/My/RechargeCoin'));
 const Notifications = lazy(() => import('./pages/My/Notifications'));
 const ChangePassword = lazy(() => import('./pages/My/ChangePassword'));
@@ -248,7 +249,15 @@ const router = createHashRouter([
     ),
   },
   {
-    path: 'recharge-coin-history',
+    path: 'take-coin',
+    element: (
+      <Suspense fallback={<div>Loading...</div>}>
+        <TakeCoin />
+      </Suspense>
+    ),
+  },
+  {
+    path: 'take-coin-history',
     element: (
       <Suspense fallback={<div>Loading...</div>}>
         <TakeCoinHistory />
@@ -256,7 +265,7 @@ const router = createHashRouter([
     ),
   },
   {
-    path: 'recharge-coin-history-details',
+    path: 'take-coin-history-details',
     element: (
       <Suspense fallback={<div>Loading...</div>}>
         <TakeCoinHistoryDetails />

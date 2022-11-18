@@ -65,7 +65,7 @@ const TakeCoinHistory = () => {
                   </div>
                 }
                 onClick={() => {
-                  navigate('/recharge-coin-history-details');
+                  navigate('/take-coin-history-details');
                 }}
               >
                 <div className="flex text-xs mt-2">
