@@ -72,12 +72,12 @@ const My = () => {
             </div>
             <span>提币</span>
           </Link>
-          <div className="flex-1 flex flex-col items-center">
+          <Link className="flex-1 flex flex-col items-center" to="/transfer-coin">
             <div className="bg-[#f0f1f5] w-12 h-12 mb-2 rounded-lg">
               <img alt="" src={ic_svg_transfer_coin} />
             </div>
             <span>划转</span>
-          </div>
+          </Link>
           <div className="flex-1 flex flex-col items-center">
             <div className="bg-[#f0f1f5] w-12 h-12 mb-2 rounded-lg">
               <img alt="" src={ic_svg_legal_coin} />

@@ -19,6 +19,7 @@ const SettingAccount = lazy(() => import('./pages/Settings/Account'));
 
 const TakeCoinHistoryDetails = lazy(() => import('./pages/My/TakeCoinHistoryDetails'));
 const TakeCoinHistory = lazy(() => import('./pages/My/TakeCoinHistory'));
+const TransferCoin = lazy(() => import('./pages/My/TransferCoin'));
 const TakeCoin = lazy(() => import('./pages/My/TakeCoin'));
 const RechargeCoin = lazy(() => import('./pages/My/RechargeCoin'));
 const Notifications = lazy(() => import('./pages/My/Notifications'));
@@ -237,6 +238,14 @@ const router = createHashRouter([
     element: (
       <Suspense fallback={<div>Loading...</div>}>
         <Notifications />
+      </Suspense>
+    ),
+  },
+  {
+    path: 'transfer-coin',
+    element: (
+      <Suspense fallback={<div>Loading...</div>}>
+        <TransferCoin />
       </Suspense>
     ),
   },

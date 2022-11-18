@@ -80,6 +80,7 @@ const Container = styled.div`
   .amount {
     flex: 1;
   }
+
   .adm-form-item-child-inner {
     position: relative;
     display: flex;
