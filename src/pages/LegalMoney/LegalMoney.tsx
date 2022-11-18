@@ -3,8 +3,8 @@ import { useMemo, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
-import ic_legal_money_0 from '../../../assets/ic_legal_money_0.png';
-import ic_legal_money_1 from '../../../assets/ic_legal_money_1.png';
+import ic_legal_money_0 from '../../assets/ic_legal_money_0.png';
+import ic_legal_money_1 from '../../assets/ic_legal_money_1.png';
 import LegalMoneyQuick from './LegalMoneyQuick';
 
 interface SwitchProps {

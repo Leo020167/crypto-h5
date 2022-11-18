@@ -2,9 +2,11 @@ import { Button, Input } from 'antd-mobile';
 import { DownFill } from 'antd-mobile-icons';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ReactComponent as LegalHistory } from '../../../assets/ic_svg_legal_history.svg';
-import { ReactComponent as LegalMore } from '../../../assets/ic_svg_legal_more.svg';
-import { ReactComponent as Transfer } from '../../../assets/ic_svg_transfer.svg';
+
+import { ReactComponent as LegalHistory } from '../../assets/ic_svg_legal_history.svg';
+
+import { ReactComponent as Transfer } from '../../assets/ic_svg_transfer.svg';
+import LegalMore from './LegalMore';
 
 const selectedClassNames = 'text-2xl font-bold text-white';
 const unselectedClassNames = 'text-sm font-bold';
@@ -34,9 +36,8 @@ const LegalMoneyQuick = () => {
           <Link to="/otc-order-history" className="w-10">
             <LegalHistory />
           </Link>
-          <a className="w-10">
-            <LegalMore />
-          </a>
+
+          <LegalMore />
         </div>
       </div>
 
