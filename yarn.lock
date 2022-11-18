@@ -690,6 +690,37 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@react-spring/konva@npm:~9.5.5":
+  version: 9.5.5
+  resolution: "@react-spring/konva@npm:9.5.5"
+  dependencies:
+    "@react-spring/animated": ~9.5.5
+    "@react-spring/core": ~9.5.5
+    "@react-spring/shared": ~9.5.5
+    "@react-spring/types": ~9.5.5
+  peerDependencies:
+    konva: ">=2.6"
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-konva: ^16.8.0 || ^17.0.0
+  checksum: c0dfe1fbe8c472f654ddd9d752fd8cd144c982a1c9e0f9266db2f0fb532b69ab57f143f89ee9408786a990ae5c1d57d160bc7d1b41773b0e72127474747f4a1c
+  languageName: node
+  linkType: hard
+
+"@react-spring/native@npm:~9.5.5":
+  version: 9.5.5
+  resolution: "@react-spring/native@npm:9.5.5"
+  dependencies:
+    "@react-spring/animated": ~9.5.5
+    "@react-spring/core": ~9.5.5
+    "@react-spring/shared": ~9.5.5
+    "@react-spring/types": ~9.5.5
+  peerDependencies:
+    react: ^16.8.0  || >=17.0.0 || >=18.0.0
+    react-native: ">=0.58"
+  checksum: 98cdab111ff958278c2e26664c372b5606f79ea21fe05014092213a59881f29b5da0ca3ba58a086ea14d2a46f9e63474fca8e4bf1d6a6548d010eef0eb6f7c03
+  languageName: node
+  linkType: hard
+
 "@react-spring/rafz@npm:~9.5.5":
   version: 9.5.5
   resolution: "@react-spring/rafz@npm:9.5.5"
@@ -709,6 +740,22 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@react-spring/three@npm:~9.5.5":
+  version: 9.5.5
+  resolution: "@react-spring/three@npm:9.5.5"
+  dependencies:
+    "@react-spring/animated": ~9.5.5
+    "@react-spring/core": ~9.5.5
+    "@react-spring/shared": ~9.5.5
+    "@react-spring/types": ~9.5.5
+  peerDependencies:
+    "@react-three/fiber": ">=6.0"
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    three: ">=0.126"
+  checksum: 120655f27c25c1b6a619da7827e541bad3b4b4b6dd5a0569f22df44ab29827121f2befd0d7e07f101070adeb54c3f65caf853e669a7951e11b380510edb40795
+  languageName: node
+  linkType: hard
+
 "@react-spring/types@npm:~9.5.5":
   version: 9.5.5
   resolution: "@react-spring/types@npm:9.5.5"
@@ -716,7 +763,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@react-spring/web@npm:^9.4.5":
+"@react-spring/web@npm:^9.4.5, @react-spring/web@npm:~9.5.5":
   version: 9.5.5
   resolution: "@react-spring/web@npm:9.5.5"
   dependencies:
@@ -728,6 +775,23 @@ __metadata:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
   checksum: b75258a58bef026e78cb13285d6de9052286309a6e972d3fa26b4b609a566f3f8ca950462285718aff666407ae6a7b17978fc366ee0ca99296a35f82d80cd5aa
+  languageName: node
+  linkType: hard
+
+"@react-spring/zdog@npm:~9.5.5":
+  version: 9.5.5
+  resolution: "@react-spring/zdog@npm:9.5.5"
+  dependencies:
+    "@react-spring/animated": ~9.5.5
+    "@react-spring/core": ~9.5.5
+    "@react-spring/shared": ~9.5.5
+    "@react-spring/types": ~9.5.5
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-zdog: ">=1.0"
+    zdog: ">=1.0"
+  checksum: d7e55d552ed446186f9ac7ee5658d4406c9e86ca6628c9138f165a52955ac6cf579a6c367a6abe6539285ef47735f27da95fbaaedda063d169ce50bde55d5bca
   languageName: node
   linkType: hard
 
@@ -2883,6 +2947,7 @@ __metadata:
     react-dom: ^18.2.0
     react-intl: ^6.2.1
     react-router-dom: ^6.4.3
+    react-spring: ^9.5.5
     react-use: ^17.4.0
     styled-components: ^5.3.6
     tailwindcss: ^3.2.4
@@ -4652,6 +4717,23 @@ __metadata:
   peerDependencies:
     react: ">=16.8"
   checksum: b89c0495c6837b1457915c08c5acc4eb7a2e9e3fae0420faf9bfc6311ecdfe78627cc1034c0e975bccd9aeeb70d1dcc5021322779dd3053d94c47e37339d77eb
+  languageName: node
+  linkType: hard
+
+"react-spring@npm:^9.5.5":
+  version: 9.5.5
+  resolution: "react-spring@npm:9.5.5"
+  dependencies:
+    "@react-spring/core": ~9.5.5
+    "@react-spring/konva": ~9.5.5
+    "@react-spring/native": ~9.5.5
+    "@react-spring/three": ~9.5.5
+    "@react-spring/web": ~9.5.5
+    "@react-spring/zdog": ~9.5.5
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+  checksum: ea04c04aca1dc50ab68933b541fbde9e36e7bd185f923431868428d6225c01105db9b574b1c1bf0a35817fa30978bff325c4ce9308dfb597189068bfac7bdd2f
   languageName: node
   linkType: hard
 

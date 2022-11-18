@@ -1,5 +1,6 @@
 import { Button, Input, List, Popup } from 'antd-mobile';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { ReactComponent as Arrow } from '../../assets/ic_svg_arrow_2.svg';
 import ic_transfer_point from '../../assets/ic_transfer_point.png';
@@ -14,6 +15,9 @@ const TransferCoin = () => {
   return (
     <Container
       headerTitle="划转"
+      navBarProps={{
+        right: <Link to="/transfer-coin-history">记录</Link>,
+      }}
       footer={
         <div className="px-4 mb-4">
           <Button block color="primary">

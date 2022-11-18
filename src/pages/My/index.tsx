@@ -78,12 +78,12 @@ const My = () => {
             </div>
             <span>划转</span>
           </Link>
-          <div className="flex-1 flex flex-col items-center">
+          <Link className="flex-1 flex flex-col items-center" to="/legal-money">
             <div className="bg-[#f0f1f5] w-12 h-12 mb-2 rounded-lg">
               <img alt="" src={ic_svg_legal_coin} />
             </div>
             <span>法币买卖</span>
-          </div>
+          </Link>
         </div>
       </div>
 

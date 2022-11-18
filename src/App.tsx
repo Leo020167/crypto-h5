@@ -17,8 +17,11 @@ import { getUserInfo } from './utils/api';
 
 const SettingAccount = lazy(() => import('./pages/Settings/Account'));
 
+const OtcOrderHistory = lazy(() => import('./pages/OtcOrderHistory'));
+const LegalMoney = lazy(() => import('./pages/My/LegalMoney/LegalMoney'));
 const TakeCoinHistoryDetails = lazy(() => import('./pages/My/TakeCoinHistoryDetails'));
 const TakeCoinHistory = lazy(() => import('./pages/My/TakeCoinHistory'));
+const TransferCoinHistory = lazy(() => import('./pages/My/TransferCoinHistory'));
 const TransferCoin = lazy(() => import('./pages/My/TransferCoin'));
 const TakeCoin = lazy(() => import('./pages/My/TakeCoin'));
 const RechargeCoin = lazy(() => import('./pages/My/RechargeCoin'));
@@ -250,6 +253,14 @@ const router = createHashRouter([
     ),
   },
   {
+    path: 'transfer-coin-history',
+    element: (
+      <Suspense fallback={<div>Loading...</div>}>
+        <TransferCoinHistory />
+      </Suspense>
+    ),
+  },
+  {
     path: 'recharge-coin',
     element: (
       <Suspense fallback={<div>Loading...</div>}>
@@ -278,6 +289,22 @@ const router = createHashRouter([
     element: (
       <Suspense fallback={<div>Loading...</div>}>
         <TakeCoinHistoryDetails />
+      </Suspense>
+    ),
+  },
+  {
+    path: 'legal-money',
+    element: (
+      <Suspense fallback={<div>Loading...</div>}>
+        <LegalMoney />
+      </Suspense>
+    ),
+  },
+  {
+    path: 'otc-order-history',
+    element: (
+      <Suspense fallback={<div>Loading...</div>}>
+        <OtcOrderHistory />
       </Suspense>
     ),
   },
@@ -391,8 +418,20 @@ const GlobalStyle = styled.createGlobalStyle`
     --font-size: 0.875rem;
   }
 
-  .adm-button.adm-button-large {
-    --adm-font-size-10: 14px;
+  .adm-button {
+    font-size: 14px;
+  }
+
+  .adm-selector-item {
+    font-size: 12px;
+    color: #1d3155;
+    background-color: #f2f2f2;
+    border-radius: 4px;
+
+    &.adm-selector-item-active {
+      color: #fff;
+      background-color: #6277b0;
+    }
   }
 `;
 
