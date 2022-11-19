@@ -9,6 +9,7 @@ import { ReactComponent as HomeTabFollow } from './assets/home_tab_follow.svg';
 import { ReactComponent as HomeTabMarkSvg } from './assets/home_tab_mark.svg';
 import { ReactComponent as HomeTabMineSvg } from './assets/home_tab_mine.svg';
 
+const Recharge = lazy(() => import('./pages/Recharge'));
 const Community = lazy(() => import('./pages/Community'));
 const SettingAccount = lazy(() => import('./pages/Settings/Account'));
 const AddBankPay = lazy(() => import('./pages/ReceiptList/AddBankPay'));
@@ -23,7 +24,7 @@ const TransferCoin = lazy(() => import('./pages/TransferCoin/TransferCoin'));
 const TransferCoinHistory = lazy(() => import('./pages/TransferCoin/TransferCoinHistory'));
 //
 const TakeCoin = lazy(() => import('./pages/My/TakeCoin'));
-const RechargeCoin = lazy(() => import('./pages/My/RechargeCoin'));
+const RechargeCoin = lazy(() => import('./pages/RechargeCoin'));
 const Notifications = lazy(() => import('./pages/My/Notifications'));
 const ChangePassword = lazy(() => import('./pages/My/ChangePassword'));
 const EmailAuth = lazy(() => import('./pages/My/EmailAuth'));
@@ -338,6 +339,14 @@ export const routes = [
     element: (
       <Suspense fallback={<div>Loading...</div>}>
         <AddBankPay />
+      </Suspense>
+    ),
+  },
+  {
+    path: 'recharge',
+    element: (
+      <Suspense fallback={<div>Loading...</div>}>
+        <Recharge />
       </Suspense>
     ),
   },

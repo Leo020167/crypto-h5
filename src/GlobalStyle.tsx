@@ -108,7 +108,7 @@ const GlobalStyle = styled.createGlobalStyle`
   }
 
   .adm-button {
-    font-size: 14px;
+    font-size: 14px !important;
   }
 
   .adm-selector-item {

@@ -45,6 +45,25 @@ paths:
               schema:
                 $ref: '#/components/schemas/InviteHomeResponse'
 
+  /depositeWithdraw/getInfo.do:
+    post:
+      operationId: 'depositWithdrawGetInfo'
+      description: '获取充币信息'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                userId:
+                  type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DepositWithdrawGetInfoResponse'
+
   /home/my.do:
     post:
       operationId: 'homeMy'
@@ -85,6 +104,29 @@ paths:
 
 components:
   schemas:
+    DepositWithdrawGetInfoResponse:
+      allOf:
+        - $ref: '#/components/schemas/CommonResponse'
+        - properties:
+            data:
+              type: object
+              properties:
+                balance:
+                  type: string
+                infos:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      address:
+                        type: string
+                      fee:
+                        type: string
+                      image:
+                        type: string
+                      type:
+                        type: string
+
     InviteHomeResponse:
       allOf:
         - $ref: '#/components/schemas/CommonResponse'

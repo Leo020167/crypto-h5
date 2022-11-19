@@ -14,6 +14,11 @@ export default defineConfig({
           name: 'customInstance',
         },
         operations: {
+          depositWithdrawGetInfo: {
+            query: {
+              useQuery: true,
+            },
+          },
           inviteHome: {
             query: {
               useQuery: true,

@@ -18,6 +18,8 @@ import type {
   InviteBuyBody,
   InviteHomeResponse,
   InviteHomeBody,
+  DepositWithdrawGetInfoResponse,
+  DepositWithdrawGetInfoBody,
   HomeMyResponse,
   HomeMyBody,
   UserInfoResponse,
@@ -104,6 +106,55 @@ export const useInviteHome = <
     inviteHome(inviteHomeBody);
 
   const query = useQuery<Awaited<ReturnType<typeof inviteHome>>, TError, TData>(
+    queryKey,
+    queryFn,
+    queryOptions,
+  ) as UseQueryResult<TData, TError> & { queryKey: QueryKey };
+
+  query.queryKey = queryKey;
+
+  return query;
+};
+
+/**
+ * 获取充币信息
+ */
+export const depositWithdrawGetInfo = (depositWithdrawGetInfoBody: DepositWithdrawGetInfoBody) => {
+  return customInstance<DepositWithdrawGetInfoResponse>({
+    url: `/depositeWithdraw/getInfo.do`,
+    method: 'post',
+    headers: { 'Content-Type': 'application/json' },
+    data: depositWithdrawGetInfoBody,
+  });
+};
+
+export const getDepositWithdrawGetInfoQueryKey = (
+  depositWithdrawGetInfoBody: DepositWithdrawGetInfoBody,
+) => [`/depositeWithdraw/getInfo.do`, depositWithdrawGetInfoBody];
+
+export type DepositWithdrawGetInfoQueryResult = NonNullable<
+  Awaited<ReturnType<typeof depositWithdrawGetInfo>>
+>;
+export type DepositWithdrawGetInfoQueryError = ErrorType<unknown>;
+
+export const useDepositWithdrawGetInfo = <
+  TData = Awaited<ReturnType<typeof depositWithdrawGetInfo>>,
+  TError = ErrorType<unknown>,
+>(
+  depositWithdrawGetInfoBody: DepositWithdrawGetInfoBody,
+  options?: {
+    query?: UseQueryOptions<Awaited<ReturnType<typeof depositWithdrawGetInfo>>, TError, TData>;
+  },
+): UseQueryResult<TData, TError> & { queryKey: QueryKey } => {
+  const { query: queryOptions } = options ?? {};
+
+  const queryKey =
+    queryOptions?.queryKey ?? getDepositWithdrawGetInfoQueryKey(depositWithdrawGetInfoBody);
+
+  const queryFn: QueryFunction<Awaited<ReturnType<typeof depositWithdrawGetInfo>>> = () =>
+    depositWithdrawGetInfo(depositWithdrawGetInfoBody);
+
+  const query = useQuery<Awaited<ReturnType<typeof depositWithdrawGetInfo>>, TError, TData>(
     queryKey,
     queryFn,
     queryOptions,

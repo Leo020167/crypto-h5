@@ -1,14 +1,15 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { useAtom, useAtomValue } from 'jotai';
+import { parse, stringify } from 'query-string';
 import { useEffect, useRef, useState } from 'react';
 import { IntlProvider } from 'react-intl';
-import { createHashRouter, RouterProvider } from 'react-router-dom';
+import { HashRouter, useRoutes } from 'react-router-dom';
+import { QueryParamProvider } from 'use-query-params';
+import { ReactRouter6Adapter } from 'use-query-params/adapters/react-router-6';
 import GlobalStyle from './GlobalStyle';
 import { localeAtom, tokenAtom, userAtom } from './atoms';
 import routes from './routes';
 import { getUserInfo } from './utils/api';
-
-const router = createHashRouter(routes);
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -17,6 +18,11 @@ const queryClient = new QueryClient({
     },
   },
 });
+
+const options = {
+  searchStringToObject: parse,
+  objectToSearchString: stringify,
+};
 
 function App() {
   const locale = useAtomValue(localeAtom);
@@ -49,11 +55,20 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <IntlProvider locale={locale} defaultLocale="en" key={locale} messages={messages}>
-        <RouterProvider router={router} />
+        <HashRouter>
+          <QueryParamProvider adapter={ReactRouter6Adapter} options={options}>
+            <Routes />
+          </QueryParamProvider>
+        </HashRouter>
         <GlobalStyle />
       </IntlProvider>
     </QueryClientProvider>
   );
 }
+
+const Routes = () => {
+  const elements = useRoutes(routes);
+  return elements;
+};
 
 export default App;
