@@ -2,18 +2,20 @@ import { Button, Form, Input, NavBar, Toast } from 'antd-mobile';
 import produce from 'immer';
 import { useAtom } from 'jotai';
 import { useCallback } from 'react';
-import { useNavigate, useSearchParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
+import { useQueryParam, StringParam } from 'use-query-params';
 import { userAtom } from '../../../atoms';
 import { updateEmail } from '../../../utils/api';
+import { TypeParam } from '../../../utils/params';
 
 const BindEmailCode = () => {
   const navigate = useNavigate();
 
-  const [searchParams] = useSearchParams();
+  const [type] = useQueryParam('type', TypeParam);
+  const [email] = useQueryParam('email', StringParam);
+  const [redirectUrl] = useQueryParam('redirectUrl', StringParam);
   const [, setUser] = useAtom(userAtom);
-
-  const email = searchParams.get('email') ?? '';
 
   const handleFinish = useCallback(
     (values: { code?: string }) => {
@@ -22,7 +24,7 @@ const BindEmailCode = () => {
         return;
       }
 
-      updateEmail({ email, code: values.code }).then((res) => {
+      updateEmail({ email: email ?? '', code: values.code }).then((res) => {
         if (res.code === '200') {
           Toast.show('綁定成功');
           setUser(
@@ -30,13 +32,18 @@ const BindEmailCode = () => {
               draft.email = email;
             }),
           );
-          navigate('/my', { replace: true });
+
+          if (type === 1 && redirectUrl) {
+            navigate({ pathname: redirectUrl }, { replace: true, state: { success: true } });
+          } else {
+            navigate('/my', { replace: true });
+          }
         } else {
           Toast.show(res.msg);
         }
       });
     },
-    [email, navigate, setUser],
+    [email, navigate, redirectUrl, setUser, type],
   );
 
   return (

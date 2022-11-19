@@ -5,6 +5,68 @@ info:
 servers:
   - url: http://api.piglobalexchanges.com
 paths:
+  /user/security/checkIdentity.do:
+    post:
+      operationId: 'userSecurityCheckIdentity'
+      description: '身份验证'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                dragImgKey:
+                  type: string
+                locationx:
+                  type: number
+                phone:
+                  type: string
+                smsCode:
+                  type: string
+              required:
+                - dragImgKey
+                - locationx
+                - phone
+                - smsCode
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CommonResponse'
+  /sms/get.do:
+    post:
+      operationId: 'smsGet'
+      description: '获取手机验证码'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                countryCode:
+                  type: string
+                dragImgKey:
+                  type: string
+                locationx:
+                  type: number
+                sendAddr:
+                  type: string
+                type:
+                  type: number
+              required:
+                - countryCode
+                - dragImgKey
+                - locationx
+                - sendAddr
+                - type
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CommonResponse'
+
   /account/queryTransferList.do:
     post:
       operationId: 'accountQueryTransferList'

@@ -1,17 +1,18 @@
 import { Button, Form, Input, NavBar, Toast } from 'antd-mobile';
-import qs from 'qs';
+import { stringify } from 'query-string';
 import { useCallback } from 'react';
-import { useNavigate, useSearchParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
+import { useQueryParam, StringParam } from 'use-query-params';
 import { getEmail } from '../../../utils/api';
+import { TypeParam } from '../../../utils/params';
 
 const BindEmail = () => {
   const navigate = useNavigate();
 
-  const [searchParams] = useSearchParams();
-
-  const type = Number(searchParams.get('type') ?? 0);
-  const email = searchParams.get('email') ?? '';
+  const [type] = useQueryParam('type', TypeParam);
+  const [email] = useQueryParam('email', StringParam);
+  const [redirectUrl] = useQueryParam('redirectUrl', StringParam);
 
   const handleFinish = useCallback(
     (values: { email?: string }) => {
@@ -24,13 +25,14 @@ const BindEmail = () => {
         if (res.code === '200') {
           Toast.show(res.msg);
 
-          const params: any = { type: type === 1 ? 1 : undefined, email: values.email };
-
-          navigate(`/bind-email-code?${qs.stringify(params)}`);
+          navigate({
+            pathname: '/bind-email-code',
+            search: stringify({ type: type === 1 ? 1 : undefined, email, redirectUrl }),
+          });
         }
       });
     },
-    [navigate, type],
+    [email, navigate, redirectUrl, type],
   );
 
   return (

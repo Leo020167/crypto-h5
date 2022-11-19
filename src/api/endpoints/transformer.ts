@@ -14,13 +14,15 @@ import type {
   QueryKey,
 } from '@tanstack/react-query';
 import type {
+  CommonResponse,
+  UserSecurityCheckIdentityBody,
+  SmsGetBody,
   QueryTransferListResponse,
   AccountQueryTransferListBody,
   OutHoldAmountResponse,
   AccountTransferBody,
   AccountOutHoldAmountBody,
   ListAccountTypeResponse,
-  CommonResponse,
   UserSecurityUpdatePhoneBody,
   DepositWithdrawLocalSubmitBody,
   InviteBuyBody,
@@ -37,6 +39,96 @@ import type {
 } from '../model';
 import { customInstance } from '../mutator/custom-instance';
 import type { ErrorType } from '../mutator/custom-instance';
+
+/**
+ * 身份验证
+ */
+export const userSecurityCheckIdentity = (
+  userSecurityCheckIdentityBody: UserSecurityCheckIdentityBody,
+) => {
+  return customInstance<CommonResponse>({
+    url: `/user/security/checkIdentity.do`,
+    method: 'post',
+    headers: { 'Content-Type': 'application/json' },
+    data: userSecurityCheckIdentityBody,
+  });
+};
+
+export type UserSecurityCheckIdentityMutationResult = NonNullable<
+  Awaited<ReturnType<typeof userSecurityCheckIdentity>>
+>;
+export type UserSecurityCheckIdentityMutationBody = UserSecurityCheckIdentityBody;
+export type UserSecurityCheckIdentityMutationError = ErrorType<unknown>;
+
+export const useUserSecurityCheckIdentity = <
+  TError = ErrorType<unknown>,
+  TContext = unknown,
+>(options?: {
+  mutation?: UseMutationOptions<
+    Awaited<ReturnType<typeof userSecurityCheckIdentity>>,
+    TError,
+    { data: UserSecurityCheckIdentityBody },
+    TContext
+  >;
+}) => {
+  const { mutation: mutationOptions } = options ?? {};
+
+  const mutationFn: MutationFunction<
+    Awaited<ReturnType<typeof userSecurityCheckIdentity>>,
+    { data: UserSecurityCheckIdentityBody }
+  > = (props) => {
+    const { data } = props ?? {};
+
+    return userSecurityCheckIdentity(data);
+  };
+
+  return useMutation<
+    Awaited<ReturnType<typeof userSecurityCheckIdentity>>,
+    TError,
+    { data: UserSecurityCheckIdentityBody },
+    TContext
+  >(mutationFn, mutationOptions);
+};
+
+/**
+ * 获取手机验证码
+ */
+export const smsGet = (smsGetBody: SmsGetBody) => {
+  return customInstance<CommonResponse>({
+    url: `/sms/get.do`,
+    method: 'post',
+    headers: { 'Content-Type': 'application/json' },
+    data: smsGetBody,
+  });
+};
+
+export type SmsGetMutationResult = NonNullable<Awaited<ReturnType<typeof smsGet>>>;
+export type SmsGetMutationBody = SmsGetBody;
+export type SmsGetMutationError = ErrorType<unknown>;
+
+export const useSmsGet = <TError = ErrorType<unknown>, TContext = unknown>(options?: {
+  mutation?: UseMutationOptions<
+    Awaited<ReturnType<typeof smsGet>>,
+    TError,
+    { data: SmsGetBody },
+    TContext
+  >;
+}) => {
+  const { mutation: mutationOptions } = options ?? {};
+
+  const mutationFn: MutationFunction<Awaited<ReturnType<typeof smsGet>>, { data: SmsGetBody }> = (
+    props,
+  ) => {
+    const { data } = props ?? {};
+
+    return smsGet(data);
+  };
+
+  return useMutation<Awaited<ReturnType<typeof smsGet>>, TError, { data: SmsGetBody }, TContext>(
+    mutationFn,
+    mutationOptions,
+  );
+};
 
 /**
  * 获取转账记录

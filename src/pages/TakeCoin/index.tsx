@@ -1,19 +1,26 @@
-import { Button, Form, Input, InputRef, NavBar, Selector, Toast } from 'antd-mobile';
+import { Button, Dialog, Form, Input, InputRef, NavBar, Selector, Toast } from 'antd-mobile';
 import { useAtomValue } from 'jotai';
 import { first } from 'lodash-es';
 import { stringify } from 'query-string';
 import { useState, useMemo, useRef, useCallback } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-use';
 import styled from 'styled-components';
-import { useDepositWithdrawGetInfo } from '../../api/endpoints/transformer';
-import { isAuthTakeCoinAtom, userAtom } from '../../atoms';
+import {
+  useDepositWithdrawGetInfo,
+  useDepositWithdrawLocalSubmit,
+} from '../../api/endpoints/transformer';
+import { userAtom } from '../../atoms';
 import { uploadImage } from '../../utils/upload';
 
 const TakeCoin = () => {
   const navigate = useNavigate();
 
   const user = useAtomValue(userAtom);
-  const isAuthTakeCoin = useAtomValue(isAuthTakeCoinAtom);
+  const location = useLocation();
+
+  const isAuthTakeCoin = location.state?.success ?? false;
+
   const [selected, setSelected] = useState<string[]>([]);
 
   const { data } = useDepositWithdrawGetInfo(
@@ -53,6 +60,16 @@ const TakeCoin = () => {
   const ref = useRef<HTMLInputElement>(null);
   const inputRef = useRef<InputRef>(null);
 
+  const depositWithdrawLocalSubmit = useDepositWithdrawLocalSubmit({
+    mutation: {
+      onSuccess(data) {
+        if (data.code === '200') {
+          Toast.show('申請成功提交');
+        }
+      },
+    },
+  });
+
   const handleFinish = useCallback(() => {
     if (!selectedItem?.type) {
       Toast.show('請選擇鍵類型');
@@ -72,16 +89,40 @@ const TakeCoin = () => {
     }
 
     if (isAuthTakeCoin) {
-      // TODO 弹窗提示金额，是否确定提现
+      Dialog.confirm({
+        content: (
+          <div>
+            <div> 提幣幣種: USDT</div>
+            <div>提幣數量: {(amount ?? '0.00000000') + 'USDT'}</div>
+            <div>確認前請仔細核對提幣地址信息，以避免造成不必要的財產損失。</div>
+          </div>
+        ),
+        confirmText: '确定',
+        onConfirm() {
+          depositWithdrawLocalSubmit.mutate({
+            data: {
+              userId: user?.userId,
+              amount,
+              address,
+              image,
+              inOut: '-1',
+              chainType: selectedItem?.type ?? '',
+            },
+          });
+        },
+      });
     } else {
       //如果未通过手机验证
       if (user?.phone) {
-        navigate(
-          `/phone-auth-code?${stringify({
+        navigate({
+          pathname: '/phone-auth-code',
+          search: stringify({
             type: 1,
-          })}`,
-        );
-        // TODO PhoneAuthCode
+            phone: user?.phone,
+            email: user?.email,
+            redirectUrl: location.pathname,
+          }),
+        });
       } else {
         navigate('/bind-phone');
       }
@@ -89,11 +130,16 @@ const TakeCoin = () => {
   }, [
     address,
     amount,
+    depositWithdrawLocalSubmit,
+    image,
     isAuthTakeCoin,
+    location.pathname,
     navigate,
     selectedItem?.fee,
     selectedItem?.type,
+    user?.email,
     user?.phone,
+    user?.userId,
   ]);
 
   return (
