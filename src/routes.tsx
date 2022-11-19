@@ -18,8 +18,10 @@ const OtcOrderHistory = lazy(() => import('./pages/OtcOrderHistory'));
 const LegalMoney = lazy(() => import('./pages/LegalMoney/LegalMoney'));
 const TakeCoinHistoryDetails = lazy(() => import('./pages/My/TakeCoinHistoryDetails'));
 const TakeCoinHistory = lazy(() => import('./pages/My/TakeCoinHistory'));
-const TransferCoinHistory = lazy(() => import('./pages/My/TransferCoinHistory'));
-const TransferCoin = lazy(() => import('./pages/My/TransferCoin'));
+// 劃轉
+const TransferCoin = lazy(() => import('./pages/TransferCoin/TransferCoin'));
+const TransferCoinHistory = lazy(() => import('./pages/TransferCoin/TransferCoinHistory'));
+//
 const TakeCoin = lazy(() => import('./pages/My/TakeCoin'));
 const RechargeCoin = lazy(() => import('./pages/My/RechargeCoin'));
 const Notifications = lazy(() => import('./pages/My/Notifications'));

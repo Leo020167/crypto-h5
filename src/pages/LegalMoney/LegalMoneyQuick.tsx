@@ -45,10 +45,10 @@ const LegalMoneyQuick = () => {
         <div className="flex items-center">
           <span className="text-base font-bold text-[#3D3A50] flex-1">购买数量</span>
 
-          <a className="px-2 py-1 flex items-center bg-[#f1f3ff] rounded">
+          <Link to="/transfer-coin" className="px-2 py-1 flex items-center bg-[#f1f3ff] rounded">
             <Transfer className="w-4 h-4 mr-1" />
-            <span className="text-xs text-[#3D3A50]">划转</span>
-          </a>
+            <span className="text-xs text-[#3D3A50]">劃轉</span>
+          </Link>
 
           <a className="px-2 py-1 flex items-center bg-[#f1f3ff] rounded ml-4">
             <span className="text-xs text-[#3D3A50]">CNY</span>

@@ -13,7 +13,16 @@ import type {
   UseQueryResult,
   QueryKey,
 } from '@tanstack/react-query';
-import type { InviteHomeResponse, InviteBuyBody, InviteHomeBody } from '../model';
+import type {
+  CommonResponse,
+  InviteBuyBody,
+  InviteHomeResponse,
+  InviteHomeBody,
+  HomeMyResponse,
+  HomeMyBody,
+  UserInfoResponse,
+  UserInfoBody,
+} from '../model';
 import { customInstance } from '../mutator/custom-instance';
 import type { ErrorType } from '../mutator/custom-instance';
 
@@ -21,7 +30,7 @@ import type { ErrorType } from '../mutator/custom-instance';
  * 購買邀請碼
  */
 export const inviteBuy = (inviteBuyBody: InviteBuyBody) => {
-  return customInstance<InviteHomeResponse>({
+  return customInstance<CommonResponse>({
     url: `/invite/buy.do`,
     method: 'post',
     headers: { 'Content-Type': 'application/json' },
@@ -103,4 +112,87 @@ export const useInviteHome = <
   query.queryKey = queryKey;
 
   return query;
+};
+
+/**
+ * 我的頁面信息
+ */
+export const homeMy = (homeMyBody: HomeMyBody) => {
+  return customInstance<HomeMyResponse>({
+    url: `/home/my.do`,
+    method: 'post',
+    headers: { 'Content-Type': 'application/json' },
+    data: homeMyBody,
+  });
+};
+
+export type HomeMyMutationResult = NonNullable<Awaited<ReturnType<typeof homeMy>>>;
+export type HomeMyMutationBody = HomeMyBody;
+export type HomeMyMutationError = ErrorType<unknown>;
+
+export const useHomeMy = <TError = ErrorType<unknown>, TContext = unknown>(options?: {
+  mutation?: UseMutationOptions<
+    Awaited<ReturnType<typeof homeMy>>,
+    TError,
+    { data: HomeMyBody },
+    TContext
+  >;
+}) => {
+  const { mutation: mutationOptions } = options ?? {};
+
+  const mutationFn: MutationFunction<Awaited<ReturnType<typeof homeMy>>, { data: HomeMyBody }> = (
+    props,
+  ) => {
+    const { data } = props ?? {};
+
+    return homeMy(data);
+  };
+
+  return useMutation<Awaited<ReturnType<typeof homeMy>>, TError, { data: HomeMyBody }, TContext>(
+    mutationFn,
+    mutationOptions,
+  );
+};
+
+/**
+ * 獲取我的頁面信息
+ */
+export const userInfo = (userInfoBody: UserInfoBody) => {
+  return customInstance<UserInfoResponse>({
+    url: `/user/info.do`,
+    method: 'post',
+    headers: { 'Content-Type': 'application/json' },
+    data: userInfoBody,
+  });
+};
+
+export type UserInfoMutationResult = NonNullable<Awaited<ReturnType<typeof userInfo>>>;
+export type UserInfoMutationBody = UserInfoBody;
+export type UserInfoMutationError = ErrorType<unknown>;
+
+export const useUserInfo = <TError = ErrorType<unknown>, TContext = unknown>(options?: {
+  mutation?: UseMutationOptions<
+    Awaited<ReturnType<typeof userInfo>>,
+    TError,
+    { data: UserInfoBody },
+    TContext
+  >;
+}) => {
+  const { mutation: mutationOptions } = options ?? {};
+
+  const mutationFn: MutationFunction<
+    Awaited<ReturnType<typeof userInfo>>,
+    { data: UserInfoBody }
+  > = (props) => {
+    const { data } = props ?? {};
+
+    return userInfo(data);
+  };
+
+  return useMutation<
+    Awaited<ReturnType<typeof userInfo>>,
+    TError,
+    { data: UserInfoBody },
+    TContext
+  >(mutationFn, mutationOptions);
 };

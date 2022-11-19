@@ -24,7 +24,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/InviteHomeResponse'
+                $ref: '#/components/schemas/CommonResponse'
 
   /invite/home.do:
     post:
@@ -44,6 +44,44 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InviteHomeResponse'
+
+  /home/my.do:
+    post:
+      operationId: 'homeMy'
+      description: '我的頁面信息'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                userId:
+                  type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HomeMyResponse'
+
+  /user/info.do:
+    post:
+      operationId: 'userInfo'
+      description: '獲取我的頁面信息'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                userId:
+                  type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserInfoResponse'
 
 components:
   schemas:
@@ -77,6 +115,79 @@ components:
                         type: string
                       userId:
                         type: string
+    HomeMyResponse:
+      allOf:
+        - $ref: '#/components/schemas/CommonResponse'
+        - properties:
+            data:
+              type: object
+              properties:
+                helpCenterUrl:
+                  type: string
+                msgCount:
+                  type: string
+                shareUrl:
+                  type: string
+
+    UserInfoResponse:
+      allOf:
+        - $ref: '#/components/schemas/CommonResponse'
+        - properties:
+            data:
+              type: object
+              properties:
+                adminType:
+                  type: string
+                agencyCode:
+                  type: string
+                countryCode:
+                  type: string
+                createTime:
+                  type: string
+                headUrl:
+                  type: string
+                idCertify:
+                  type: string
+                inviteUid:
+                  type: string
+                isLock:
+                  type: string
+                isMark:
+                  type: string
+                isStop:
+                  type: string
+                isVip:
+                  type: string
+                lastIp:
+                  type: string
+                lastLogin:
+                  type: string
+                memberCode:
+                  type: string
+                passErrNum:
+                  type: string
+                phone:
+                  type: string
+                regPlatform:
+                  type: string
+                sex:
+                  type: string
+                synSign:
+                  type: string
+                synVersion:
+                  type: string
+                userId:
+                  type: string
+                userName:
+                  type: string
+                userPass:
+                  type: string
+                verifySql:
+                  type: string
+                verifySqlTime:
+                  type: string
+                version:
+                  type: string
 
     CommonResponse:
       type: object

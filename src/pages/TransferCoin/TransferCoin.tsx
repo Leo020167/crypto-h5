@@ -14,14 +14,14 @@ const TransferCoin = () => {
   const [visible, setVisible] = useState(false);
   return (
     <Container
-      headerTitle="划转"
+      headerTitle="劃轉"
       navBarProps={{
-        right: <Link to="/transfer-coin-history">记录</Link>,
+        right: <Link to="/transfer-coin-history">記錄</Link>,
       }}
       footer={
         <div className="px-4 mb-4">
           <Button block color="primary">
-            划转
+            劃轉
           </Button>
         </div>
       }
