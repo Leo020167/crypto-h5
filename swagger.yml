@@ -1,0 +1,95 @@
+openapi: '3.0.2'
+info:
+  title: API Title
+  version: '1.0'
+servers:
+  - url: http://api.piglobalexchanges.com
+paths:
+  /invite/buy.do:
+    post:
+      operationId: 'inviteBuy'
+      description: '購買邀請碼'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                count:
+                  type: number
+                userId:
+                  type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InviteHomeResponse'
+
+  /invite/home.do:
+    post:
+      operationId: 'inviteHome'
+      description: '獲取邀請碼頁面'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                userId:
+                  type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InviteHomeResponse'
+
+components:
+  schemas:
+    InviteHomeResponse:
+      allOf:
+        - $ref: '#/components/schemas/CommonResponse'
+        - properties:
+            data:
+              type: object
+              properties:
+                inviteCount:
+                  type: string
+                teamCount:
+                  type: string
+                inviteCodePrice:
+                  type: string
+                sumAmount:
+                  type: string
+                inviteList:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      amount:
+                        type: string
+                      inviteCode:
+                        type: string
+                      inviteUserId:
+                        type: string
+                      status:
+                        type: string
+                      userId:
+                        type: string
+
+    CommonResponse:
+      type: object
+      properties:
+        code:
+          type: integer
+        data:
+          type: object
+        msg:
+          type: string
+        success:
+          type: boolean
+      required:
+        - code
+        - msg
+        - success

@@ -1,8 +1,15 @@
 import { TabBar } from 'antd-mobile';
-import { AppOutline, UnorderedListOutline, MessageOutline, UserOutline } from 'antd-mobile-icons';
 import { lazy, Suspense } from 'react';
 import { Navigate, Outlet, useLocation, useNavigate } from 'react-router-dom';
+import styled from 'styled-components';
 
+import { ReactComponent as HomeTabAccount } from './assets/home_tab_account.svg';
+import { ReactComponent as HomeTabSvg } from './assets/home_tab_cropyme.svg';
+import { ReactComponent as HomeTabFollow } from './assets/home_tab_follow.svg';
+import { ReactComponent as HomeTabMarkSvg } from './assets/home_tab_mark.svg';
+import { ReactComponent as HomeTabMineSvg } from './assets/home_tab_mine.svg';
+
+const Community = lazy(() => import('./pages/Community'));
 const SettingAccount = lazy(() => import('./pages/Settings/Account'));
 const AddBankPay = lazy(() => import('./pages/ReceiptList/AddBankPay'));
 const AddReceipt = lazy(() => import('./pages/ReceiptList/AddReceipt'));
@@ -34,27 +41,27 @@ const tabs = [
   {
     key: '/home',
     title: '首页',
-    icon: <AppOutline />,
+    icon: <HomeTabSvg className="h-6" />,
   },
   {
     key: '/todo',
     title: '行情',
-    icon: <UnorderedListOutline />,
+    icon: <HomeTabMarkSvg className="h-6" />,
   },
   {
     key: '/account',
     title: '账户',
-    icon: <MessageOutline />,
+    icon: <HomeTabAccount className="h-6" />,
   },
   {
     key: '/community',
     title: '社区',
-    icon: <UserOutline />,
+    icon: <HomeTabFollow className="h-6" />,
   },
   {
     key: '/my',
     title: '我的',
-    icon: <UserOutline />,
+    icon: <HomeTabMineSvg className="h-6" />,
   },
 ];
 
@@ -62,8 +69,8 @@ const Layout = () => {
   const location = useLocation();
   const navigate = useNavigate();
   return (
-    <div className="h-screen relative flex flex-col">
-      <div className="flex-1">
+    <Container className="h-screen relative flex flex-col">
+      <div className="content flex flex-col">
         <Outlet />
       </div>
       <TabBar
@@ -71,15 +78,21 @@ const Layout = () => {
         onChange={(key) => {
           navigate(key);
         }}
-        className="bottom-0 w-full bg-white"
+        className="layout bottom-0 w-full bg-white"
       >
         {tabs.map((item) => (
           <TabBar.Item key={item.key} icon={item.icon} title={item.title} />
         ))}
       </TabBar>
-    </div>
+    </Container>
   );
 };
+
+const Container = styled.div`
+  .content {
+    height: calc(100vh - 50px);
+  }
+`;
 
 export const routes = [
   {
@@ -108,7 +121,11 @@ export const routes = [
       },
       {
         path: 'community',
-        element: 'community',
+        element: (
+          <Suspense fallback={<div>Loading...</div>}>
+            <Community />
+          </Suspense>
+        ),
       },
       {
         path: 'my',

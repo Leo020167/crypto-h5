@@ -126,5 +126,24 @@ const GlobalStyle = styled.createGlobalStyle`
   .adm-popover .adm-popover-arrow {
     display: none;
   }
+
+  .adm-tab-bar {
+    &.layout {
+      border-top: 1px solid #f5f5f5;
+      .adm-tab-bar-item {
+        color: #bababa;
+        .adm-tab-bar-item-icon {
+          color: #b2bdcb;
+        }
+
+        &.adm-tab-bar-item-active {
+          .adm-tab-bar-item-icon {
+            color: #6175ae;
+          }
+          color: #262626;
+        }
+      }
+    }
+  }
 `;
 export default GlobalStyle;

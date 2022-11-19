@@ -1,3 +1,4 @@
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { useAtom, useAtomValue } from 'jotai';
 import { useEffect, useRef, useState } from 'react';
 import { IntlProvider } from 'react-intl';
@@ -8,6 +9,14 @@ import routes from './routes';
 import { getUserInfo } from './utils/api';
 
 const router = createHashRouter(routes);
+
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      retry: false,
+    },
+  },
+});
 
 function App() {
   const locale = useAtomValue(localeAtom);
@@ -38,10 +47,12 @@ function App() {
   }, [setUser, token]);
 
   return (
-    <IntlProvider locale={locale} defaultLocale="en" key={locale} messages={messages}>
-      <RouterProvider router={router} />
-      <GlobalStyle />
-    </IntlProvider>
+    <QueryClientProvider client={queryClient}>
+      <IntlProvider locale={locale} defaultLocale="en" key={locale} messages={messages}>
+        <RouterProvider router={router} />
+        <GlobalStyle />
+      </IntlProvider>
+    </QueryClientProvider>
   );
 }
 
