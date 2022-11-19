@@ -14,6 +14,21 @@ export default defineConfig({
           name: 'customInstance',
         },
         operations: {
+          accountQueryTransferList: {
+            query: {
+              useQuery: true,
+            },
+          },
+          accountOutHoldAmount: {
+            query: {
+              useQuery: true,
+            },
+          },
+          accountListAccountType: {
+            query: {
+              useQuery: true,
+            },
+          },
           depositList: {
             query: {
               useQuery: true,

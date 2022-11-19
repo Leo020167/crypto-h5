@@ -5,6 +5,123 @@ info:
 servers:
   - url: http://api.piglobalexchanges.com
 paths:
+  /account/queryTransferList.do:
+    post:
+      operationId: 'accountQueryTransferList'
+      description: '获取转账记录'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                pageNo:
+                  type: number
+                fromAccountType:
+                  type: string
+                toAccountType:
+                  type: string
+                userId:
+                  type: string
+              required:
+                - pageNo
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QueryTransferListResponse'
+
+  /account/transfer.do:
+    post:
+      operationId: 'accountTransfer'
+      description: '划转，从一个账户转到另外一个账户'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                amount:
+                  type: string
+                fromAccountType:
+                  type: string
+                toAccountType:
+                  type: string
+                userId:
+                  type: string
+              required:
+                - amount
+                - fromAccountType
+                - toAccountType
+                - userId
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OutHoldAmountResponse'
+
+  /account/outHoldAmount.do:
+    post:
+      operationId: 'accountOutHoldAmount'
+      description: '获取我的账户可用数量'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                accountType:
+                  type: string
+                userId:
+                  type: string
+              required:
+                - accountType
+                - userId
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OutHoldAmountResponse'
+
+  /account/listAccountType.do:
+    post:
+      operationId: 'accountListAccountType'
+      description: '获取所有账户类型'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListAccountTypeResponse'
+
+  /user/security/updatePhone.do:
+    post:
+      operationId: 'userSecurityUpdatePhone'
+      description: '修改手机'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                code:
+                  type: string
+                phone:
+                  type: string
+              required:
+                - code
+                - phone
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CommonResponse'
+
   /depositeWithdraw/localSubmit.do:
     post:
       operationId: 'depositWithdrawLocalSubmit'
@@ -164,6 +281,63 @@ paths:
 
 components:
   schemas:
+    QueryTransferListResponse:
+      allOf:
+        - $ref: '#/components/schemas/CommonResponse'
+        - properties:
+            data:
+              allOf:
+                - $ref: '#/components/schemas/PaginationResponse'
+                - properties:
+                    data:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          amount:
+                            type: string
+                          createTime:
+                            type: string
+                          fromAccountType:
+                            type: string
+                          toAccountType:
+                            type: string
+                          transferId:
+                            type: string
+                          typeValue:
+                            type: string
+                          userId:
+                            type: string
+
+    OutHoldAmountResponse:
+      allOf:
+        - $ref: '#/components/schemas/CommonResponse'
+        - properties:
+            data:
+              type: object
+              properties:
+                amountDecimals:
+                  type: string
+                holdAmount:
+                  type: string
+
+    ListAccountTypeResponse:
+      allOf:
+        - $ref: '#/components/schemas/CommonResponse'
+        - properties:
+            data:
+              type: object
+              properties:
+                accountTypeList:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      accountName:
+                        type: string
+                      accountType:
+                        type: string
+
     DepositWithdrawGetInfoResponse:
       allOf:
         - $ref: '#/components/schemas/CommonResponse'

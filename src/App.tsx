@@ -14,6 +14,7 @@ import { getUserInfo } from './utils/api';
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
+      refetchOnWindowFocus: false,
       retry: false,
     },
   },

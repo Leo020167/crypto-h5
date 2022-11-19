@@ -14,7 +14,14 @@ import type {
   QueryKey,
 } from '@tanstack/react-query';
 import type {
+  QueryTransferListResponse,
+  AccountQueryTransferListBody,
+  OutHoldAmountResponse,
+  AccountTransferBody,
+  AccountOutHoldAmountBody,
+  ListAccountTypeResponse,
   CommonResponse,
+  UserSecurityUpdatePhoneBody,
   DepositWithdrawLocalSubmitBody,
   InviteBuyBody,
   InviteHomeResponse,
@@ -30,6 +37,242 @@ import type {
 } from '../model';
 import { customInstance } from '../mutator/custom-instance';
 import type { ErrorType } from '../mutator/custom-instance';
+
+/**
+ * 获取转账记录
+ */
+export const accountQueryTransferList = (
+  accountQueryTransferListBody: AccountQueryTransferListBody,
+) => {
+  return customInstance<QueryTransferListResponse>({
+    url: `/account/queryTransferList.do`,
+    method: 'post',
+    headers: { 'Content-Type': 'application/json' },
+    data: accountQueryTransferListBody,
+  });
+};
+
+export const getAccountQueryTransferListQueryKey = (
+  accountQueryTransferListBody: AccountQueryTransferListBody,
+) => [`/account/queryTransferList.do`, accountQueryTransferListBody];
+
+export type AccountQueryTransferListQueryResult = NonNullable<
+  Awaited<ReturnType<typeof accountQueryTransferList>>
+>;
+export type AccountQueryTransferListQueryError = ErrorType<unknown>;
+
+export const useAccountQueryTransferList = <
+  TData = Awaited<ReturnType<typeof accountQueryTransferList>>,
+  TError = ErrorType<unknown>,
+>(
+  accountQueryTransferListBody: AccountQueryTransferListBody,
+  options?: {
+    query?: UseQueryOptions<Awaited<ReturnType<typeof accountQueryTransferList>>, TError, TData>;
+  },
+): UseQueryResult<TData, TError> & { queryKey: QueryKey } => {
+  const { query: queryOptions } = options ?? {};
+
+  const queryKey =
+    queryOptions?.queryKey ?? getAccountQueryTransferListQueryKey(accountQueryTransferListBody);
+
+  const queryFn: QueryFunction<Awaited<ReturnType<typeof accountQueryTransferList>>> = () =>
+    accountQueryTransferList(accountQueryTransferListBody);
+
+  const query = useQuery<Awaited<ReturnType<typeof accountQueryTransferList>>, TError, TData>(
+    queryKey,
+    queryFn,
+    queryOptions,
+  ) as UseQueryResult<TData, TError> & { queryKey: QueryKey };
+
+  query.queryKey = queryKey;
+
+  return query;
+};
+
+/**
+ * 划转，从一个账户转到另外一个账户
+ */
+export const accountTransfer = (accountTransferBody: AccountTransferBody) => {
+  return customInstance<OutHoldAmountResponse>({
+    url: `/account/transfer.do`,
+    method: 'post',
+    headers: { 'Content-Type': 'application/json' },
+    data: accountTransferBody,
+  });
+};
+
+export type AccountTransferMutationResult = NonNullable<
+  Awaited<ReturnType<typeof accountTransfer>>
+>;
+export type AccountTransferMutationBody = AccountTransferBody;
+export type AccountTransferMutationError = ErrorType<unknown>;
+
+export const useAccountTransfer = <TError = ErrorType<unknown>, TContext = unknown>(options?: {
+  mutation?: UseMutationOptions<
+    Awaited<ReturnType<typeof accountTransfer>>,
+    TError,
+    { data: AccountTransferBody },
+    TContext
+  >;
+}) => {
+  const { mutation: mutationOptions } = options ?? {};
+
+  const mutationFn: MutationFunction<
+    Awaited<ReturnType<typeof accountTransfer>>,
+    { data: AccountTransferBody }
+  > = (props) => {
+    const { data } = props ?? {};
+
+    return accountTransfer(data);
+  };
+
+  return useMutation<
+    Awaited<ReturnType<typeof accountTransfer>>,
+    TError,
+    { data: AccountTransferBody },
+    TContext
+  >(mutationFn, mutationOptions);
+};
+
+/**
+ * 获取我的账户可用数量
+ */
+export const accountOutHoldAmount = (accountOutHoldAmountBody: AccountOutHoldAmountBody) => {
+  return customInstance<OutHoldAmountResponse>({
+    url: `/account/outHoldAmount.do`,
+    method: 'post',
+    headers: { 'Content-Type': 'application/json' },
+    data: accountOutHoldAmountBody,
+  });
+};
+
+export const getAccountOutHoldAmountQueryKey = (
+  accountOutHoldAmountBody: AccountOutHoldAmountBody,
+) => [`/account/outHoldAmount.do`, accountOutHoldAmountBody];
+
+export type AccountOutHoldAmountQueryResult = NonNullable<
+  Awaited<ReturnType<typeof accountOutHoldAmount>>
+>;
+export type AccountOutHoldAmountQueryError = ErrorType<unknown>;
+
+export const useAccountOutHoldAmount = <
+  TData = Awaited<ReturnType<typeof accountOutHoldAmount>>,
+  TError = ErrorType<unknown>,
+>(
+  accountOutHoldAmountBody: AccountOutHoldAmountBody,
+  options?: {
+    query?: UseQueryOptions<Awaited<ReturnType<typeof accountOutHoldAmount>>, TError, TData>;
+  },
+): UseQueryResult<TData, TError> & { queryKey: QueryKey } => {
+  const { query: queryOptions } = options ?? {};
+
+  const queryKey =
+    queryOptions?.queryKey ?? getAccountOutHoldAmountQueryKey(accountOutHoldAmountBody);
+
+  const queryFn: QueryFunction<Awaited<ReturnType<typeof accountOutHoldAmount>>> = () =>
+    accountOutHoldAmount(accountOutHoldAmountBody);
+
+  const query = useQuery<Awaited<ReturnType<typeof accountOutHoldAmount>>, TError, TData>(
+    queryKey,
+    queryFn,
+    queryOptions,
+  ) as UseQueryResult<TData, TError> & { queryKey: QueryKey };
+
+  query.queryKey = queryKey;
+
+  return query;
+};
+
+/**
+ * 获取所有账户类型
+ */
+export const accountListAccountType = () => {
+  return customInstance<ListAccountTypeResponse>({
+    url: `/account/listAccountType.do`,
+    method: 'post',
+  });
+};
+
+export const getAccountListAccountTypeQueryKey = () => [`/account/listAccountType.do`];
+
+export type AccountListAccountTypeQueryResult = NonNullable<
+  Awaited<ReturnType<typeof accountListAccountType>>
+>;
+export type AccountListAccountTypeQueryError = ErrorType<unknown>;
+
+export const useAccountListAccountType = <
+  TData = Awaited<ReturnType<typeof accountListAccountType>>,
+  TError = ErrorType<unknown>,
+>(options?: {
+  query?: UseQueryOptions<Awaited<ReturnType<typeof accountListAccountType>>, TError, TData>;
+}): UseQueryResult<TData, TError> & { queryKey: QueryKey } => {
+  const { query: queryOptions } = options ?? {};
+
+  const queryKey = queryOptions?.queryKey ?? getAccountListAccountTypeQueryKey();
+
+  const queryFn: QueryFunction<Awaited<ReturnType<typeof accountListAccountType>>> = () =>
+    accountListAccountType();
+
+  const query = useQuery<Awaited<ReturnType<typeof accountListAccountType>>, TError, TData>(
+    queryKey,
+    queryFn,
+    queryOptions,
+  ) as UseQueryResult<TData, TError> & { queryKey: QueryKey };
+
+  query.queryKey = queryKey;
+
+  return query;
+};
+
+/**
+ * 修改手机
+ */
+export const userSecurityUpdatePhone = (
+  userSecurityUpdatePhoneBody: UserSecurityUpdatePhoneBody,
+) => {
+  return customInstance<CommonResponse>({
+    url: `/user/security/updatePhone.do`,
+    method: 'post',
+    headers: { 'Content-Type': 'application/json' },
+    data: userSecurityUpdatePhoneBody,
+  });
+};
+
+export type UserSecurityUpdatePhoneMutationResult = NonNullable<
+  Awaited<ReturnType<typeof userSecurityUpdatePhone>>
+>;
+export type UserSecurityUpdatePhoneMutationBody = UserSecurityUpdatePhoneBody;
+export type UserSecurityUpdatePhoneMutationError = ErrorType<unknown>;
+
+export const useUserSecurityUpdatePhone = <
+  TError = ErrorType<unknown>,
+  TContext = unknown,
+>(options?: {
+  mutation?: UseMutationOptions<
+    Awaited<ReturnType<typeof userSecurityUpdatePhone>>,
+    TError,
+    { data: UserSecurityUpdatePhoneBody },
+    TContext
+  >;
+}) => {
+  const { mutation: mutationOptions } = options ?? {};
+
+  const mutationFn: MutationFunction<
+    Awaited<ReturnType<typeof userSecurityUpdatePhone>>,
+    { data: UserSecurityUpdatePhoneBody }
+  > = (props) => {
+    const { data } = props ?? {};
+
+    return userSecurityUpdatePhone(data);
+  };
+
+  return useMutation<
+    Awaited<ReturnType<typeof userSecurityUpdatePhone>>,
+    TError,
+    { data: UserSecurityUpdatePhoneBody },
+    TContext
+  >(mutationFn, mutationOptions);
+};
 
 /**
  * 充提币申请提交

@@ -42,6 +42,7 @@ const CountryPhoneNumber = ({
         >
           {country.code} <DownFill fontSize={7} className="ml-1" color="#c0c0c0" />
         </div>
+        <div className="bg-[#eeeeee] w-[1px] ml-3"></div>
         <Input {...rest} value={value} onChange={onChange} />
       </div>
 

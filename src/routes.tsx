@@ -9,6 +9,8 @@ import { ReactComponent as HomeTabFollow } from './assets/home_tab_follow.svg';
 import { ReactComponent as HomeTabMarkSvg } from './assets/home_tab_mark.svg';
 import { ReactComponent as HomeTabMineSvg } from './assets/home_tab_mine.svg';
 
+const PhoneAuthCode = lazy(() => import('./pages/PhoneAuthCode'));
+const BindPhone = lazy(() => import('./pages/BindPhone'));
 const Recharge = lazy(() => import('./pages/Recharge'));
 const Community = lazy(() => import('./pages/Community'));
 const SettingAccount = lazy(() => import('./pages/Settings/Account'));
@@ -23,7 +25,7 @@ const TakeCoinHistory = lazy(() => import('./pages/My/TakeCoinHistory'));
 const TransferCoin = lazy(() => import('./pages/TransferCoin/TransferCoin'));
 const TransferCoinHistory = lazy(() => import('./pages/TransferCoin/TransferCoinHistory'));
 //
-const TakeCoin = lazy(() => import('./pages/My/TakeCoin'));
+const TakeCoin = lazy(() => import('./pages/TakeCoin'));
 const RechargeCoin = lazy(() => import('./pages/RechargeCoin'));
 const Notifications = lazy(() => import('./pages/My/Notifications'));
 const ChangePassword = lazy(() => import('./pages/My/ChangePassword'));
@@ -347,6 +349,22 @@ export const routes = [
     element: (
       <Suspense fallback={<div>Loading...</div>}>
         <Recharge />
+      </Suspense>
+    ),
+  },
+  {
+    path: 'bind-phone',
+    element: (
+      <Suspense fallback={<div>Loading...</div>}>
+        <BindPhone />
+      </Suspense>
+    ),
+  },
+  {
+    path: 'phone-auth-code',
+    element: (
+      <Suspense fallback={<div>Loading...</div>}>
+        <PhoneAuthCode />
       </Suspense>
     ),
   },

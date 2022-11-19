@@ -1,3 +1,4 @@
+import { Toast } from 'antd-mobile';
 import Axios, { AxiosError, AxiosRequestConfig } from 'axios';
 import { signParameters } from '../../utils/signature';
 
@@ -6,6 +7,22 @@ export const AXIOS_UPLOAD_INSTANCE = Axios.create({ baseURL: '/procoin-file' });
 export const AXIOS_INSTANCE = Axios.create({
   baseURL: '/procoin',
 });
+
+AXIOS_INSTANCE.interceptors.response.use(
+  (config) => {
+    if (config.data.code !== '200') {
+      Toast.show(config.data.msg);
+    }
+
+    // if (config.data.code === 40009) {
+    //   window.location.href = '/#/login';
+    // }
+    return config;
+  },
+  (error) => {
+    return Promise.reject(error);
+  },
+);
 
 export const customInstance = <T>(config: AxiosRequestConfig): Promise<T> => {
   const source = Axios.CancelToken.source();

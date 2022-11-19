@@ -36,7 +36,7 @@ const each = function (object: any, callback: any) {
 };
 export default each;
 
-export function signParameters(json: any) {
+export function signParameters(json: any = {}) {
   const array: any = [];
   if (!json.platform) {
     json['platform'] = 'web';

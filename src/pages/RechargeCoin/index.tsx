@@ -72,7 +72,6 @@ const RechargeCoin = () => {
         </div>
         <div className="mt-4">
           <div className="text-[#1D3155]">充值网络</div>
-
           <Selector
             className="mt-2"
             columns={3}
