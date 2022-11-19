@@ -15,6 +15,7 @@ import type {
 } from '@tanstack/react-query';
 import type {
   CommonResponse,
+  DepositWithdrawLocalSubmitBody,
   InviteBuyBody,
   InviteHomeResponse,
   InviteHomeBody,
@@ -29,6 +30,56 @@ import type {
 } from '../model';
 import { customInstance } from '../mutator/custom-instance';
 import type { ErrorType } from '../mutator/custom-instance';
+
+/**
+ * 充提币申请提交
+ */
+export const depositWithdrawLocalSubmit = (
+  depositWithdrawLocalSubmitBody: DepositWithdrawLocalSubmitBody,
+) => {
+  return customInstance<CommonResponse>({
+    url: `/depositeWithdraw/localSubmit.do`,
+    method: 'post',
+    headers: { 'Content-Type': 'application/json' },
+    data: depositWithdrawLocalSubmitBody,
+  });
+};
+
+export type DepositWithdrawLocalSubmitMutationResult = NonNullable<
+  Awaited<ReturnType<typeof depositWithdrawLocalSubmit>>
+>;
+export type DepositWithdrawLocalSubmitMutationBody = DepositWithdrawLocalSubmitBody;
+export type DepositWithdrawLocalSubmitMutationError = ErrorType<unknown>;
+
+export const useDepositWithdrawLocalSubmit = <
+  TError = ErrorType<unknown>,
+  TContext = unknown,
+>(options?: {
+  mutation?: UseMutationOptions<
+    Awaited<ReturnType<typeof depositWithdrawLocalSubmit>>,
+    TError,
+    { data: DepositWithdrawLocalSubmitBody },
+    TContext
+  >;
+}) => {
+  const { mutation: mutationOptions } = options ?? {};
+
+  const mutationFn: MutationFunction<
+    Awaited<ReturnType<typeof depositWithdrawLocalSubmit>>,
+    { data: DepositWithdrawLocalSubmitBody }
+  > = (props) => {
+    const { data } = props ?? {};
+
+    return depositWithdrawLocalSubmit(data);
+  };
+
+  return useMutation<
+    Awaited<ReturnType<typeof depositWithdrawLocalSubmit>>,
+    TError,
+    { data: DepositWithdrawLocalSubmitBody },
+    TContext
+  >(mutationFn, mutationOptions);
+};
 
 /**
  * 購買邀請碼

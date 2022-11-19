@@ -39,9 +39,10 @@ const TakeCoinHistory = () => {
     <ScreenWithInfiniteScroll
       headerTitle="财务记录"
       dataSource={dataSource}
-      renderItem={(item: DepositListResponseAllOfDataAllOfDataItem) => {
+      renderItem={(item: DepositListResponseAllOfDataAllOfDataItem, index) => {
         return (
           <List.Item
+            key={index}
             arrow={null}
             title={
               <div className="flex justify-between items-center">
@@ -50,7 +51,9 @@ const TakeCoinHistory = () => {
               </div>
             }
             onClick={() => {
-              navigate('/take-coin-history-details');
+              navigate('/take-coin-history-details', {
+                state: item,
+              });
             }}
           >
             <div className="flex text-xs mt-2">

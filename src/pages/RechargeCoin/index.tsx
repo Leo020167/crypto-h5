@@ -1,6 +1,7 @@
 import { Button, NavBar, Selector, Toast } from 'antd-mobile';
 import { useAtomValue } from 'jotai';
 import { first } from 'lodash-es';
+import { stringify } from 'query-string';
 import { useMemo, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useCopyToClipboard } from 'react-use';
@@ -123,7 +124,7 @@ const RechargeCoin = () => {
           color="primary"
           block
           className="rounded-none"
-          onClick={() => navigate('/recharge')}
+          onClick={() => navigate(`/recharge?${stringify({ chainType: selectedItem?.type })}`)}
         >
           充值
         </Button>

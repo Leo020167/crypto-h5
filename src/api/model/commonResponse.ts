@@ -7,8 +7,8 @@
 import type { CommonResponseData } from './commonResponseData';
 
 export interface CommonResponse {
-  code: number;
+  code: string;
   data?: CommonResponseData;
   msg: string;
-  success: boolean;
+  success: string;
 }

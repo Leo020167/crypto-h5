@@ -85,3 +85,50 @@ export function signParameters(json: any) {
   json['sign'] = md5(sign).toUpperCase();
   return json;
 }
+
+export function signParametersToURL(json: any) {
+  const array: any = [];
+  if (!json.platform) {
+    json['platform'] = 'web';
+  }
+  json['apiKey'] = apiKey;
+
+  let user: User | null = null;
+  try {
+    user = JSON.parse(localStorage.getItem('user') ?? '');
+  } catch (error) {
+    /* empty */
+  }
+
+  let token = '';
+  try {
+    token = JSON.parse(localStorage.getItem('token') ?? '');
+  } catch (error) {
+    /* empty */
+  }
+
+  if (user && token) {
+    json['token'] = token;
+    json['userId'] = user.userId ? user.userId : '';
+  } else {
+    json['token'] = '';
+    json['userId'] = '';
+  }
+  each(json, function (key: string) {
+    array[array.length] = key;
+  });
+
+  array.sort();
+  let sign = '';
+  let value;
+
+  each(array, function (key: string) {
+    value = json[key];
+    if (value !== '' && value !== null) {
+      sign = sign + value;
+    }
+  });
+  sign = sign + apiSecret;
+  json['sign'] = md5(sign).toUpperCase();
+  return json;
+}

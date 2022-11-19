@@ -5,6 +5,34 @@ info:
 servers:
   - url: http://api.piglobalexchanges.com
 paths:
+  /depositeWithdraw/localSubmit.do:
+    post:
+      operationId: 'depositWithdrawLocalSubmit'
+      description: '充提币申请提交'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                address:
+                  type: string
+                amount:
+                  type: string
+                chainType:
+                  type: string
+                image:
+                  type: string
+                inOut:
+                  type: string
+                userId:
+                  type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CommonResponse'
   /invite/buy.do:
     post:
       operationId: 'inviteBuy'
@@ -158,6 +186,7 @@ components:
                         type: string
                       type:
                         type: string
+
     DepositListResponse:
       allOf:
         - $ref: '#/components/schemas/CommonResponse'
@@ -327,13 +356,13 @@ components:
       type: object
       properties:
         code:
-          type: integer
+          type: string
         data:
           type: object
         msg:
           type: string
         success:
-          type: boolean
+          type: string
       required:
         - code
         - msg

@@ -8,7 +8,7 @@ interface ScreenWithInfiniteScrollProps<T = any> {
   headerTitle?: string;
   navBarProps?: NavBarProps;
   dataSource: T[];
-  renderItem: (item: T) => React.ReactNode;
+  renderItem: (item: T, index: number) => React.ReactNode;
   loadMore: (isRetry: boolean) => Promise<void>;
   hasMore: boolean;
   onRefresh?: () => Promise<any>;

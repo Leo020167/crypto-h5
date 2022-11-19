@@ -11,6 +11,7 @@ export * from './depositWithdrawGetInfoResponse';
 export * from './depositWithdrawGetInfoResponseAllOf';
 export * from './depositWithdrawGetInfoResponseAllOfData';
 export * from './depositWithdrawGetInfoResponseAllOfDataInfosItem';
+export * from './depositWithdrawLocalSubmitBody';
 export * from './homeMyBody';
 export * from './homeMyResponse';
 export * from './homeMyResponseAllOf';

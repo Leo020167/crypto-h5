@@ -1,8 +1,11 @@
 import Axios, { AxiosError, AxiosRequestConfig } from 'axios';
 import { signParameters } from '../../utils/signature';
 
-export const AXIOS_UPLOAD_INSTANCE = Axios.create({ baseURL: '/procoin' });
-export const AXIOS_INSTANCE = Axios.create({ baseURL: '/procoin' });
+export const AXIOS_UPLOAD_INSTANCE = Axios.create({ baseURL: '/procoin-file' });
+
+export const AXIOS_INSTANCE = Axios.create({
+  baseURL: '/procoin',
+});
 
 export const customInstance = <T>(config: AxiosRequestConfig): Promise<T> => {
   const source = Axios.CancelToken.source();
