@@ -3,7 +3,7 @@ import { useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
-interface ScreenWithInfiniteScrollProps<T = unknown> {
+interface ScreenWithInfiniteScrollProps<T = any> {
   className?: string;
   headerTitle?: string;
   navBarProps?: NavBarProps;

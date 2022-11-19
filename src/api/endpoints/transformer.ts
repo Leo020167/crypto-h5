@@ -18,6 +18,8 @@ import type {
   InviteBuyBody,
   InviteHomeResponse,
   InviteHomeBody,
+  DepositListResponse,
+  DepositListBody,
   DepositWithdrawGetInfoResponse,
   DepositWithdrawGetInfoBody,
   HomeMyResponse,
@@ -106,6 +108,51 @@ export const useInviteHome = <
     inviteHome(inviteHomeBody);
 
   const query = useQuery<Awaited<ReturnType<typeof inviteHome>>, TError, TData>(
+    queryKey,
+    queryFn,
+    queryOptions,
+  ) as UseQueryResult<TData, TError> & { queryKey: QueryKey };
+
+  query.queryKey = queryKey;
+
+  return query;
+};
+
+/**
+ * 获取提币充币/申购相关记录
+ */
+export const depositList = (depositListBody: DepositListBody) => {
+  return customInstance<DepositListResponse>({
+    url: `/depositeWithdraw/list.do`,
+    method: 'post',
+    headers: { 'Content-Type': 'application/json' },
+    data: depositListBody,
+  });
+};
+
+export const getDepositListQueryKey = (depositListBody: DepositListBody) => [
+  `/depositeWithdraw/list.do`,
+  depositListBody,
+];
+
+export type DepositListQueryResult = NonNullable<Awaited<ReturnType<typeof depositList>>>;
+export type DepositListQueryError = ErrorType<unknown>;
+
+export const useDepositList = <
+  TData = Awaited<ReturnType<typeof depositList>>,
+  TError = ErrorType<unknown>,
+>(
+  depositListBody: DepositListBody,
+  options?: { query?: UseQueryOptions<Awaited<ReturnType<typeof depositList>>, TError, TData> },
+): UseQueryResult<TData, TError> & { queryKey: QueryKey } => {
+  const { query: queryOptions } = options ?? {};
+
+  const queryKey = queryOptions?.queryKey ?? getDepositListQueryKey(depositListBody);
+
+  const queryFn: QueryFunction<Awaited<ReturnType<typeof depositList>>> = () =>
+    depositList(depositListBody);
+
+  const query = useQuery<Awaited<ReturnType<typeof depositList>>, TError, TData>(
     queryKey,
     queryFn,
     queryOptions,

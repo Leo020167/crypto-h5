@@ -14,6 +14,11 @@ export default defineConfig({
           name: 'customInstance',
         },
         operations: {
+          depositList: {
+            query: {
+              useQuery: true,
+            },
+          },
           depositWithdrawGetInfo: {
             query: {
               useQuery: true,
@@ -24,11 +29,6 @@ export default defineConfig({
               useQuery: true,
             },
           },
-        },
-        query: {
-          useQuery: true,
-          useInfinite: true,
-          useInfiniteQueryParam: 'limit',
         },
       },
     },

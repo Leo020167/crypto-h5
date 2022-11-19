@@ -45,6 +45,38 @@ paths:
               schema:
                 $ref: '#/components/schemas/InviteHomeResponse'
 
+  /depositeWithdraw/list.do:
+    post:
+      operationId: 'depositList'
+      description: '获取提币充币/申购相关记录'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                inOut:
+                  type: string
+                  example: '充币 1， 提币 -1'
+                pageNo:
+                  type: number
+                  default: 1
+                platform:
+                  type: string
+                  example: 'android, ios, web'
+                type:
+                  type: number
+                  default: 1
+                  example: '1 充币提币，2 获取申购相关记录'
+                userId:
+                  type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DepositListResponse'
+
   /depositeWithdraw/getInfo.do:
     post:
       operationId: 'depositWithdrawGetInfo'
@@ -126,6 +158,45 @@ components:
                         type: string
                       type:
                         type: string
+    DepositListResponse:
+      allOf:
+        - $ref: '#/components/schemas/CommonResponse'
+        - properties:
+            data:
+              allOf:
+                - $ref: '#/components/schemas/PaginationResponse'
+                - properties:
+                    data:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          amount:
+                            type: string
+                          chainType:
+                            type: string
+                          createTime:
+                            type: string
+                          dwId:
+                            type: string
+                          fee:
+                            type: string
+                          inOut:
+                            type: string
+                          realAmount:
+                            type: string
+                          state:
+                            type: string
+                          stateDesc:
+                            type: string
+                          symbol:
+                            type: string
+                          time:
+                            type: string
+                          type:
+                            type: string
+                          userId:
+                            type: string
 
     InviteHomeResponse:
       allOf:
@@ -230,6 +301,27 @@ components:
                   type: string
                 version:
                   type: string
+
+    PaginationResponse:
+      type: object
+      properties:
+        buttons:
+          type: string
+        data:
+          type: array
+          items:
+            type: object
+        pageNo:
+          type: string
+        pageSize:
+          type: string
+        total:
+          type: string
+      required:
+        - buttons
+        - pageNo
+        - pageSize
+        - total
 
     CommonResponse:
       type: object
