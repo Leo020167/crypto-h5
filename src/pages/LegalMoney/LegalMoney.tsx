@@ -66,7 +66,7 @@ const LegalMoney = () => {
           }
         />
       </div>
-      <Swiper ref={ref} indicator={() => null} className="flex-1">
+      <Swiper ref={ref} indicator={() => null} className="flex-1" allowTouchMove={false}>
         <Swiper.Item key={1}>
           <LegalMoneyQuick />
         </Swiper.Item>

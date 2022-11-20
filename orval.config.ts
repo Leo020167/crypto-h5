@@ -14,6 +14,16 @@ export default defineConfig({
           name: 'customInstance',
         },
         operations: {
+          otcFindAdList: {
+            query: {
+              useQuery: true,
+            },
+          },
+          otcConfig: {
+            query: {
+              useQuery: true,
+            },
+          },
           identityGet: {
             query: {
               useQuery: true,

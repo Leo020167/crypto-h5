@@ -130,6 +130,9 @@ const My = () => {
         <List.Item
           prefix={<img alt="" src={ic_home_mine_kefu} className="w-8 h-8" />}
           arrow={<Arrow />}
+          onClick={() => {
+            navigate('/chat');
+          }}
         >
           客服
         </List.Item>

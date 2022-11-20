@@ -14,8 +14,12 @@ import type {
   QueryKey,
 } from '@tanstack/react-query';
 import type {
-  IdentityAuthResponse,
   CommonResponse,
+  OtcCreateOrderBody,
+  OtcFindAdListResponse,
+  OtcFindAdListBody,
+  OtcConfigResponse,
+  IdentityAuthResponse,
   IdentitySubmitBody,
   ProOrderQuerySumResponse,
   ProOrderQuerySumBody,
@@ -45,6 +49,129 @@ import type {
 } from '../model';
 import { customInstance } from '../mutator/custom-instance';
 import type { ErrorType } from '../mutator/custom-instance';
+
+/**
+ * 下单交易
+ */
+export const otcCreateOrder = (otcCreateOrderBody: OtcCreateOrderBody) => {
+  return customInstance<CommonResponse>({
+    url: `/otc/mainad/createOrder.do`,
+    method: 'post',
+    headers: { 'Content-Type': 'application/json' },
+    data: otcCreateOrderBody,
+  });
+};
+
+export type OtcCreateOrderMutationResult = NonNullable<Awaited<ReturnType<typeof otcCreateOrder>>>;
+export type OtcCreateOrderMutationBody = OtcCreateOrderBody;
+export type OtcCreateOrderMutationError = ErrorType<unknown>;
+
+export const useOtcCreateOrder = <TError = ErrorType<unknown>, TContext = unknown>(options?: {
+  mutation?: UseMutationOptions<
+    Awaited<ReturnType<typeof otcCreateOrder>>,
+    TError,
+    { data: OtcCreateOrderBody },
+    TContext
+  >;
+}) => {
+  const { mutation: mutationOptions } = options ?? {};
+
+  const mutationFn: MutationFunction<
+    Awaited<ReturnType<typeof otcCreateOrder>>,
+    { data: OtcCreateOrderBody }
+  > = (props) => {
+    const { data } = props ?? {};
+
+    return otcCreateOrder(data);
+  };
+
+  return useMutation<
+    Awaited<ReturnType<typeof otcCreateOrder>>,
+    TError,
+    { data: OtcCreateOrderBody },
+    TContext
+  >(mutationFn, mutationOptions);
+};
+
+/**
+ * 市场广告列表（购买，出售）
+ */
+export const otcFindAdList = (otcFindAdListBody: OtcFindAdListBody) => {
+  return customInstance<OtcFindAdListResponse>({
+    url: `/otc/mainad/findAdList.do`,
+    method: 'post',
+    headers: { 'Content-Type': 'application/json' },
+    data: otcFindAdListBody,
+  });
+};
+
+export const getOtcFindAdListQueryKey = (otcFindAdListBody: OtcFindAdListBody) => [
+  `/otc/mainad/findAdList.do`,
+  otcFindAdListBody,
+];
+
+export type OtcFindAdListQueryResult = NonNullable<Awaited<ReturnType<typeof otcFindAdList>>>;
+export type OtcFindAdListQueryError = ErrorType<unknown>;
+
+export const useOtcFindAdList = <
+  TData = Awaited<ReturnType<typeof otcFindAdList>>,
+  TError = ErrorType<unknown>,
+>(
+  otcFindAdListBody: OtcFindAdListBody,
+  options?: { query?: UseQueryOptions<Awaited<ReturnType<typeof otcFindAdList>>, TError, TData> },
+): UseQueryResult<TData, TError> & { queryKey: QueryKey } => {
+  const { query: queryOptions } = options ?? {};
+
+  const queryKey = queryOptions?.queryKey ?? getOtcFindAdListQueryKey(otcFindAdListBody);
+
+  const queryFn: QueryFunction<Awaited<ReturnType<typeof otcFindAdList>>> = () =>
+    otcFindAdList(otcFindAdListBody);
+
+  const query = useQuery<Awaited<ReturnType<typeof otcFindAdList>>, TError, TData>(
+    queryKey,
+    queryFn,
+    queryOptions,
+  ) as UseQueryResult<TData, TError> & { queryKey: QueryKey };
+
+  query.queryKey = queryKey;
+
+  return query;
+};
+
+/**
+ * 获取货币类型列表
+ */
+export const otcConfig = () => {
+  return customInstance<OtcConfigResponse>({ url: `/otc/mainad/config.do`, method: 'post' });
+};
+
+export const getOtcConfigQueryKey = () => [`/otc/mainad/config.do`];
+
+export type OtcConfigQueryResult = NonNullable<Awaited<ReturnType<typeof otcConfig>>>;
+export type OtcConfigQueryError = ErrorType<unknown>;
+
+export const useOtcConfig = <
+  TData = Awaited<ReturnType<typeof otcConfig>>,
+  TError = ErrorType<unknown>,
+>(options?: {
+  query?: UseQueryOptions<Awaited<ReturnType<typeof otcConfig>>, TError, TData>;
+}): UseQueryResult<TData, TError> & { queryKey: QueryKey } => {
+  const { query: queryOptions } = options ?? {};
+
+  const queryKey = queryOptions?.queryKey ?? getOtcConfigQueryKey();
+
+  const queryFn: QueryFunction<Awaited<ReturnType<typeof otcConfig>>> = () => otcConfig();
+
+  const query = useQuery<Awaited<ReturnType<typeof otcConfig>>, TError, TData>(
+    queryKey,
+    queryFn,
+    queryOptions,
+  ) as UseQueryResult<TData, TError> & { queryKey: QueryKey };
+
+  query.queryKey = queryKey;
+
+  return query;
+};
 
 /**
  * 获取实名认证信息

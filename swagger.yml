@@ -5,6 +5,86 @@ info:
 servers:
   - url: http://api.piglobalexchanges.com
 paths:
+  /otc/mainad/createOrder.do:
+    post:
+      operationId: 'otcCreateOrder'
+      description: '下单交易'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                adId:
+                  type: string
+                amount:
+                  type: string
+                buySell:
+                  type: string
+                price:
+                  type: string
+                showReceiptType:
+                  type: number
+              required:
+                - adId
+                - amount
+                - buySell
+                - price
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CommonResponse'
+
+  /otc/mainad/findAdList.do:
+    post:
+      operationId: 'otcFindAdList'
+      description: '市场广告列表（购买，出售）'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                buySell:
+                  type: string
+                currencyType:
+                  type: string
+                filterCny:
+                  type: string
+                filterPayWay:
+                  type: string
+                pageNo:
+                  type: string
+                type:
+                  type: string
+              required:
+                - buySell
+                - currencyType
+                - filterCny
+                - filterPayWay
+                - pageNo
+                - type
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OtcFindAdListResponse'
+
+  /otc/mainad/config.do:
+    post:
+      operationId: 'otcConfig'
+      description: '获取货币类型列表'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OtcConfigResponse'
+
   /identity/get.do:
     post:
       operationId: 'identityGet'
@@ -227,11 +307,8 @@ paths:
               properties:
                 accountType:
                   type: string
-                userId:
-                  type: string
               required:
                 - accountType
-                - userId
       responses:
         '200':
           description: OK
@@ -435,6 +512,72 @@ paths:
 
 components:
   schemas:
+    OtcFindAdListResponse:
+      allOf:
+        - $ref: '#/components/schemas/CommonResponse'
+        - properties:
+            data:
+              allOf:
+                - $ref: '#/components/schemas/PaginationResponse'
+                - properties:
+                    data:
+                      type: array
+                      items:
+                        $ref: '#/components/schemas/OtcFindAdListItem'
+    OtcFindAdListItem:
+      type: object
+      properties:
+        adId:
+          type: string
+        amount:
+          type: string
+        buySell:
+          type: string
+        currencySign:
+          type: string
+        currencyType:
+          type: string
+        isOnline:
+          type: string
+        isPayAli:
+          type: string
+        isPayBank:
+          type: string
+        isPayWx:
+          type: string
+        limitRate:
+          type: string
+        maxCny:
+          type: string
+        minCny:
+          type: string
+        orderNum:
+          type: string
+        payWay:
+          type: string
+        price:
+          type: string
+        timeLimit:
+          type: string
+        userId:
+          type: string
+        userLogo:
+          type: string
+        userName:
+          type: string
+
+    OtcConfigResponse:
+      allOf:
+        - $ref: '#/components/schemas/CommonResponse'
+        - properties:
+            data:
+              type: object
+              properties:
+                currencies:
+                  type: array
+                  items:
+                    type: string
+
     IdentityAuthResponse:
       allOf:
         - $ref: '#/components/schemas/CommonResponse'

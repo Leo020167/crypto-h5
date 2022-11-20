@@ -32,7 +32,6 @@ const TransferCoin = () => {
   const { data: outHoldAmount, refetch } = useAccountOutHoldAmount(
     {
       accountType: accountTypeFrom?.accountType ?? '',
-      userId: user?.userId ?? '',
     },
     {
       query: {

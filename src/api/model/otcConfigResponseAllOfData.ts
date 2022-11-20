@@ -5,6 +5,6 @@
  * OpenAPI spec version: 1.0
  */
 
-export type AccountOutHoldAmountBody = {
-  accountType: string;
+export type OtcConfigResponseAllOfData = {
+  currencies?: string[];
 };
