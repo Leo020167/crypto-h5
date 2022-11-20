@@ -14,6 +14,10 @@ import type {
   QueryKey,
 } from '@tanstack/react-query';
 import type {
+  ProOrderQuerySumResponse,
+  ProOrderQuerySumBody,
+  ProOrderQueryListResponse,
+  ProOrderQueryListBody,
   CommonResponse,
   UserSecurityCheckIdentityBody,
   SmsGetBody,
@@ -39,6 +43,102 @@ import type {
 } from '../model';
 import { customInstance } from '../mutator/custom-instance';
 import type { ErrorType } from '../mutator/custom-instance';
+
+/**
+ * 获取交易的总笔数和产生的代币数
+ */
+export const proOrderQuerySum = (proOrderQuerySumBody: ProOrderQuerySumBody) => {
+  return customInstance<ProOrderQuerySumResponse>({
+    url: `/pro/order/querySum.do`,
+    method: 'post',
+    headers: { 'Content-Type': 'application/json' },
+    data: proOrderQuerySumBody,
+  });
+};
+
+export const getProOrderQuerySumQueryKey = (proOrderQuerySumBody: ProOrderQuerySumBody) => [
+  `/pro/order/querySum.do`,
+  proOrderQuerySumBody,
+];
+
+export type ProOrderQuerySumQueryResult = NonNullable<Awaited<ReturnType<typeof proOrderQuerySum>>>;
+export type ProOrderQuerySumQueryError = ErrorType<unknown>;
+
+export const useProOrderQuerySum = <
+  TData = Awaited<ReturnType<typeof proOrderQuerySum>>,
+  TError = ErrorType<unknown>,
+>(
+  proOrderQuerySumBody: ProOrderQuerySumBody,
+  options?: {
+    query?: UseQueryOptions<Awaited<ReturnType<typeof proOrderQuerySum>>, TError, TData>;
+  },
+): UseQueryResult<TData, TError> & { queryKey: QueryKey } => {
+  const { query: queryOptions } = options ?? {};
+
+  const queryKey = queryOptions?.queryKey ?? getProOrderQuerySumQueryKey(proOrderQuerySumBody);
+
+  const queryFn: QueryFunction<Awaited<ReturnType<typeof proOrderQuerySum>>> = () =>
+    proOrderQuerySum(proOrderQuerySumBody);
+
+  const query = useQuery<Awaited<ReturnType<typeof proOrderQuerySum>>, TError, TData>(
+    queryKey,
+    queryFn,
+    queryOptions,
+  ) as UseQueryResult<TData, TError> & { queryKey: QueryKey };
+
+  query.queryKey = queryKey;
+
+  return query;
+};
+
+/**
+ * 查询交易记录（只适用数字货币记录、股指期货记录）
+ */
+export const proOrderQueryList = (proOrderQueryListBody: ProOrderQueryListBody) => {
+  return customInstance<ProOrderQueryListResponse>({
+    url: `/pro/order/queryList.do`,
+    method: 'post',
+    headers: { 'Content-Type': 'application/json' },
+    data: proOrderQueryListBody,
+  });
+};
+
+export const getProOrderQueryListQueryKey = (proOrderQueryListBody: ProOrderQueryListBody) => [
+  `/pro/order/queryList.do`,
+  proOrderQueryListBody,
+];
+
+export type ProOrderQueryListQueryResult = NonNullable<
+  Awaited<ReturnType<typeof proOrderQueryList>>
+>;
+export type ProOrderQueryListQueryError = ErrorType<unknown>;
+
+export const useProOrderQueryList = <
+  TData = Awaited<ReturnType<typeof proOrderQueryList>>,
+  TError = ErrorType<unknown>,
+>(
+  proOrderQueryListBody: ProOrderQueryListBody,
+  options?: {
+    query?: UseQueryOptions<Awaited<ReturnType<typeof proOrderQueryList>>, TError, TData>;
+  },
+): UseQueryResult<TData, TError> & { queryKey: QueryKey } => {
+  const { query: queryOptions } = options ?? {};
+
+  const queryKey = queryOptions?.queryKey ?? getProOrderQueryListQueryKey(proOrderQueryListBody);
+
+  const queryFn: QueryFunction<Awaited<ReturnType<typeof proOrderQueryList>>> = () =>
+    proOrderQueryList(proOrderQueryListBody);
+
+  const query = useQuery<Awaited<ReturnType<typeof proOrderQueryList>>, TError, TData>(
+    queryKey,
+    queryFn,
+    queryOptions,
+  ) as UseQueryResult<TData, TError> & { queryKey: QueryKey };
+
+  query.queryKey = queryKey;
+
+  return query;
+};
 
 /**
  * 身份验证

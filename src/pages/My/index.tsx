@@ -91,6 +91,9 @@ const My = () => {
         <List.Item
           prefix={<img alt="" src={ic_home_mine_stock} className="w-8 h-8" />}
           arrow={<Arrow />}
+          onClick={() => {
+            navigate('/transaction-records');
+          }}
         >
           交易记录
         </List.Item>

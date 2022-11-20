@@ -5,6 +5,55 @@ info:
 servers:
   - url: http://api.piglobalexchanges.com
 paths:
+  /pro/order/querySum.do:
+    post:
+      operationId: 'proOrderQuerySum'
+      description: '获取交易的总笔数和产生的代币数'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                accountType:
+                  type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProOrderQuerySumResponse'
+  /pro/order/queryList.do:
+    post:
+      operationId: 'proOrderQueryList'
+      description: '查询交易记录（只适用数字货币记录、股指期货记录）'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                accountType:
+                  type: string
+                buySell:
+                  type: string
+                isDone:
+                  type: string
+                pageNo:
+                  type: string
+                type:
+                  type: string
+                symbol:
+                  type: string
+                orderState:
+                  type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProOrderQueryListResponse'
+
   /user/security/checkIdentity.do:
     post:
       operationId: 'userSecurityCheckIdentity'
@@ -343,6 +392,113 @@ paths:
 
 components:
   schemas:
+    ProOrderQuerySumResponse:
+      allOf:
+        - $ref: '#/components/schemas/CommonResponse'
+        - properties:
+            data:
+              type: object
+              properties:
+                sumCount:
+                  type: string
+                sumToken:
+                  type: string
+
+    ProOrderQueryListResponse:
+      allOf:
+        - $ref: '#/components/schemas/CommonResponse'
+        - properties:
+            data:
+              allOf:
+                - $ref: '#/components/schemas/PaginationResponse'
+                - properties:
+                    data:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          buySell:
+                            type: string
+                          buySellValue:
+                            type: string
+                          closeDetails:
+                            type: array
+                            items:
+                              type: object
+                              properties:
+                                closeBail:
+                                  type: string
+                                closeFee:
+                                  type: string
+                                closeHand:
+                                  type: string
+                                closePrice:
+                                  type: string
+                                closeTime:
+                                  type: string
+                                dvForLossShare:
+                                  type: string
+                                dvForProfitShare:
+                                  type: string
+                                lossShare:
+                                  type: string
+                                profit:
+                                  type: string
+                                profitShare:
+                                  type: string
+                          closeDone:
+                            type: string
+                          closeFee:
+                            type: string
+                          closePrice:
+                            type: string
+                          closeState:
+                            type: string
+                          closeStateDesc:
+                            type: string
+                          closeTime:
+                            type: string
+                          multiNum:
+                            type: string
+                          nowStateDesc:
+                            type: string
+                          openBail:
+                            type: string
+                          openDone:
+                            type: string
+                          openFee:
+                            type: string
+                          openHand:
+                            type: string
+                          openPrice:
+                            type: string
+                          openState:
+                            type: string
+                          openStateDesc:
+                            type: string
+                          openTime:
+                            type: string
+                          orderId:
+                            type: string
+                          price:
+                            type: string
+                          priceDecimals:
+                            type: string
+                          profit:
+                            type: string
+                          profitRate:
+                            type: string
+                          stopLossPrice:
+                            type: string
+                          stopWinPrice:
+                            type: string
+                          symbol:
+                            type: string
+                          symbolName:
+                            type: string
+                          userId:
+                            type: string
+
     QueryTransferListResponse:
       allOf:
         - $ref: '#/components/schemas/CommonResponse'

@@ -145,5 +145,9 @@ const GlobalStyle = styled.createGlobalStyle`
       }
     }
   }
+
+  .adm-input-element {
+    font-size: 14px;
+  }
 `;
 export default GlobalStyle;

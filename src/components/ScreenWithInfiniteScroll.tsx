@@ -1,7 +1,8 @@
-import { NavBar, PullToRefresh, List, InfiniteScroll, DotLoading, NavBarProps } from 'antd-mobile';
+import { NavBar, PullToRefresh, List, InfiniteScroll, NavBarProps } from 'antd-mobile';
 import { useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
+import InfiniteScrollContent from './InfiniteScrollContent';
 
 interface ScreenWithInfiniteScrollProps<T = any> {
   className?: string;
@@ -47,21 +48,6 @@ const ScreenWithInfiniteScroll = ({
         </PullToRefresh>
       </div>
     </Container>
-  );
-};
-
-const InfiniteScrollContent = ({ hasMore }: { hasMore?: boolean }) => {
-  return (
-    <>
-      {hasMore ? (
-        <>
-          <span>Loading</span>
-          <DotLoading />
-        </>
-      ) : (
-        <span className="font-bold text-black">已加载全部</span>
-      )}
-    </>
   );
 };
 

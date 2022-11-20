@@ -14,6 +14,16 @@ export default defineConfig({
           name: 'customInstance',
         },
         operations: {
+          proOrderQuerySum: {
+            query: {
+              useQuery: true,
+            },
+          },
+          proOrderQueryList: {
+            query: {
+              useQuery: true,
+            },
+          },
           accountQueryTransferList: {
             query: {
               useQuery: true,
