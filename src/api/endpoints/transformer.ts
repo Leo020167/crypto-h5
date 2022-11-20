@@ -14,11 +14,13 @@ import type {
   QueryKey,
 } from '@tanstack/react-query';
 import type {
+  IdentityAuthResponse,
+  CommonResponse,
+  IdentitySubmitBody,
   ProOrderQuerySumResponse,
   ProOrderQuerySumBody,
   ProOrderQueryListResponse,
   ProOrderQueryListBody,
-  CommonResponse,
   UserSecurityCheckIdentityBody,
   SmsGetBody,
   QueryTransferListResponse,
@@ -43,6 +45,84 @@ import type {
 } from '../model';
 import { customInstance } from '../mutator/custom-instance';
 import type { ErrorType } from '../mutator/custom-instance';
+
+/**
+ * 获取实名认证信息
+ */
+export const identityGet = () => {
+  return customInstance<IdentityAuthResponse>({ url: `/identity/get.do`, method: 'post' });
+};
+
+export const getIdentityGetQueryKey = () => [`/identity/get.do`];
+
+export type IdentityGetQueryResult = NonNullable<Awaited<ReturnType<typeof identityGet>>>;
+export type IdentityGetQueryError = ErrorType<unknown>;
+
+export const useIdentityGet = <
+  TData = Awaited<ReturnType<typeof identityGet>>,
+  TError = ErrorType<unknown>,
+>(options?: {
+  query?: UseQueryOptions<Awaited<ReturnType<typeof identityGet>>, TError, TData>;
+}): UseQueryResult<TData, TError> & { queryKey: QueryKey } => {
+  const { query: queryOptions } = options ?? {};
+
+  const queryKey = queryOptions?.queryKey ?? getIdentityGetQueryKey();
+
+  const queryFn: QueryFunction<Awaited<ReturnType<typeof identityGet>>> = () => identityGet();
+
+  const query = useQuery<Awaited<ReturnType<typeof identityGet>>, TError, TData>(
+    queryKey,
+    queryFn,
+    queryOptions,
+  ) as UseQueryResult<TData, TError> & { queryKey: QueryKey };
+
+  query.queryKey = queryKey;
+
+  return query;
+};
+
+/**
+ * 提交实名认证信息
+ */
+export const identitySubmit = (identitySubmitBody: IdentitySubmitBody) => {
+  return customInstance<CommonResponse>({
+    url: `/identity/submit.do`,
+    method: 'post',
+    headers: { 'Content-Type': 'application/json' },
+    data: identitySubmitBody,
+  });
+};
+
+export type IdentitySubmitMutationResult = NonNullable<Awaited<ReturnType<typeof identitySubmit>>>;
+export type IdentitySubmitMutationBody = IdentitySubmitBody;
+export type IdentitySubmitMutationError = ErrorType<unknown>;
+
+export const useIdentitySubmit = <TError = ErrorType<unknown>, TContext = unknown>(options?: {
+  mutation?: UseMutationOptions<
+    Awaited<ReturnType<typeof identitySubmit>>,
+    TError,
+    { data: IdentitySubmitBody },
+    TContext
+  >;
+}) => {
+  const { mutation: mutationOptions } = options ?? {};
+
+  const mutationFn: MutationFunction<
+    Awaited<ReturnType<typeof identitySubmit>>,
+    { data: IdentitySubmitBody }
+  > = (props) => {
+    const { data } = props ?? {};
+
+    return identitySubmit(data);
+  };
+
+  return useMutation<
+    Awaited<ReturnType<typeof identitySubmit>>,
+    TError,
+    { data: IdentitySubmitBody },
+    TContext
+  >(mutationFn, mutationOptions);
+};
 
 /**
  * 获取交易的总笔数和产生的代币数

@@ -9,6 +9,8 @@ import { ReactComponent as HomeTabFollow } from './assets/home_tab_follow.svg';
 import { ReactComponent as HomeTabMarkSvg } from './assets/home_tab_mark.svg';
 import { ReactComponent as HomeTabMineSvg } from './assets/home_tab_mine.svg';
 
+const VerifiedResult = lazy(() => import('./pages/Verified/VerifiedResult'));
+const Verified = lazy(() => import('./pages/Verified'));
 const TransactionRecords = lazy(() => import('./pages/TransactionRecords'));
 const PhoneAuthCode = lazy(() => import('./pages/PhoneAuthCode'));
 const BindPhone = lazy(() => import('./pages/BindPhone'));
@@ -176,6 +178,22 @@ export const routes = [
         ],
       },
     ],
+  },
+  {
+    path: 'verified',
+    element: (
+      <Suspense fallback={<div>Loading...</div>}>
+        <Verified />
+      </Suspense>
+    ),
+  },
+  {
+    path: 'verified-result',
+    element: (
+      <Suspense fallback={<div>Loading...</div>}>
+        <VerifiedResult />
+      </Suspense>
+    ),
   },
   {
     path: 'transaction-records',

@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useMount } from 'react-use';
 import styled from 'styled-components';
+import { useIdentityGet } from '../../api/endpoints/transformer';
 
 import defaultHead from '../../assets/ic_default_head.png';
 import ic_home_mine_help from '../../assets/ic_home_mine_help.png';
@@ -29,6 +30,8 @@ const My = () => {
   const [user] = useAtom(userAtom);
 
   const [helpCenterUrl, setHelpCenterUrl] = useState<string>('');
+
+  const { data: identityGet } = useIdentityGet();
 
   useMount(() => {
     getHomeMy().then((res) => {
@@ -144,6 +147,13 @@ const My = () => {
         <List.Item
           prefix={<img alt="" src={ic_home_mine_shiming} className="w-8 h-8" />}
           arrow={<Arrow />}
+          onClick={() => {
+            if (identityGet?.data?.identityAuth?.state === '1') {
+              navigate('/verified-result');
+            } else {
+              navigate('/verified');
+            }
+          }}
         >
           实名认证
         </List.Item>

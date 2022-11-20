@@ -5,6 +5,48 @@ info:
 servers:
   - url: http://api.piglobalexchanges.com
 paths:
+  /identity/get.do:
+    post:
+      operationId: 'identityGet'
+      description: '获取实名认证信息'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IdentityAuthResponse'
+
+  /identity/submit.do:
+    post:
+      operationId: 'identitySubmit'
+      description: '提交实名认证信息'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                backImgUrl:
+                  type: string
+                certNo:
+                  type: string
+                frontImgUrl:
+                  type: string
+                name:
+                  type: string
+              required:
+                - backImgUrl
+                - certNo
+                - frontImgUrl
+                - name
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CommonResponse'
+
   /pro/order/querySum.do:
     post:
       operationId: 'proOrderQuerySum'
@@ -23,6 +65,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ProOrderQuerySumResponse'
+
   /pro/order/queryList.do:
     post:
       operationId: 'proOrderQueryList'
@@ -392,6 +435,38 @@ paths:
 
 components:
   schemas:
+    IdentityAuthResponse:
+      allOf:
+        - $ref: '#/components/schemas/CommonResponse'
+        - properties:
+            data:
+              type: object
+              properties:
+                identityAuth:
+                  $ref: '#/components/schemas/IdentityAuth'
+
+    IdentityAuth:
+      type: object
+      properties:
+        backImgUrl:
+          type: string
+        certNo:
+          type: string
+        checkMsg:
+          type: string
+        createTime:
+          type: string
+        frontImgUrl:
+          type: string
+        name:
+          type: string
+        state:
+          type: string
+        stateDesc:
+          type: string
+        userId:
+          type: string
+
     ProOrderQuerySumResponse:
       allOf:
         - $ref: '#/components/schemas/CommonResponse'

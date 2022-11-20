@@ -13,11 +13,11 @@ const Screen = ({ headerTitle, navBarProps = {}, children, footer }: ScreenProps
   const navigate = useNavigate();
   const handleBack = useCallback(() => navigate(-1), [navigate]);
   return (
-    <div className="flex flex-col h-screen w-screen bg-white min-h-0">
+    <div className="flex flex-col h-screen w-screen bg-white">
       <NavBar onBack={handleBack} {...navBarProps}>
         {headerTitle}
       </NavBar>
-      <div className="flex-1">{children}</div>
+      <div className="flex-1 min-h-0">{children}</div>
       {footer}
     </div>
   );

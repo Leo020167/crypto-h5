@@ -14,6 +14,11 @@ export default defineConfig({
           name: 'customInstance',
         },
         operations: {
+          identityGet: {
+            query: {
+              useQuery: true,
+            },
+          },
           proOrderQuerySum: {
             query: {
               useQuery: true,
