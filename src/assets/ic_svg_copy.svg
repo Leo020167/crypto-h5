@@ -1,0 +1,19 @@
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 15 17"
+    id="vector">
+    <path
+        id="path_3"
+        d="M 0 2 L 13 2 L 13 17 L 0 17 Z"
+        fill="#3d3a50"
+        fill-opacity="0.2"
+        stroke-opacity="0.2"/>
+    <path
+        id="path_4"
+        d="M 1 0 L 14 0 L 14 1 L 1 1 Z"
+        fill="#d8d7dc"/>
+    <path
+        id="path_5"
+        d="M 15 0 L 15 17 L 14 17 L 14 0 Z"
+        fill="#d8d7dc"/>
+</svg>

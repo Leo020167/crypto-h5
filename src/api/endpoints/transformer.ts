@@ -15,6 +15,14 @@ import type {
 } from '@tanstack/react-query';
 import type {
   CommonResponse,
+  OtcCancelOrderBody,
+  OtcGetOrderDetailResponse,
+  OtcGetOrderDetailBody,
+  OtcFindOrderListResponse,
+  OtcFindOrderListBody,
+  OtcFindMyPaymentListResponse,
+  MessageFindBody,
+  OtcCreateOrder200,
   OtcCreateOrderBody,
   OtcFindAdListResponse,
   OtcFindAdListBody,
@@ -51,10 +59,235 @@ import { customInstance } from '../mutator/custom-instance';
 import type { ErrorType } from '../mutator/custom-instance';
 
 /**
+ * 取消订单
+ */
+export const otcCancelOrder = (otcCancelOrderBody: OtcCancelOrderBody) => {
+  return customInstance<CommonResponse>({
+    url: `/otc/mainad/cancelOrder.do`,
+    method: 'post',
+    headers: { 'Content-Type': 'application/json' },
+    data: otcCancelOrderBody,
+  });
+};
+
+export type OtcCancelOrderMutationResult = NonNullable<Awaited<ReturnType<typeof otcCancelOrder>>>;
+export type OtcCancelOrderMutationBody = OtcCancelOrderBody;
+export type OtcCancelOrderMutationError = ErrorType<unknown>;
+
+export const useOtcCancelOrder = <TError = ErrorType<unknown>, TContext = unknown>(options?: {
+  mutation?: UseMutationOptions<
+    Awaited<ReturnType<typeof otcCancelOrder>>,
+    TError,
+    { data: OtcCancelOrderBody },
+    TContext
+  >;
+}) => {
+  const { mutation: mutationOptions } = options ?? {};
+
+  const mutationFn: MutationFunction<
+    Awaited<ReturnType<typeof otcCancelOrder>>,
+    { data: OtcCancelOrderBody }
+  > = (props) => {
+    const { data } = props ?? {};
+
+    return otcCancelOrder(data);
+  };
+
+  return useMutation<
+    Awaited<ReturnType<typeof otcCancelOrder>>,
+    TError,
+    { data: OtcCancelOrderBody },
+    TContext
+  >(mutationFn, mutationOptions);
+};
+
+/**
+ * 我的订单记录
+ */
+export const otcGetOrderDetail = (otcGetOrderDetailBody: OtcGetOrderDetailBody) => {
+  return customInstance<OtcGetOrderDetailResponse>({
+    url: `/otc/mainad/getOrderDetail.do`,
+    method: 'post',
+    headers: { 'Content-Type': 'application/json' },
+    data: otcGetOrderDetailBody,
+  });
+};
+
+export const getOtcGetOrderDetailQueryKey = (otcGetOrderDetailBody: OtcGetOrderDetailBody) => [
+  `/otc/mainad/getOrderDetail.do`,
+  otcGetOrderDetailBody,
+];
+
+export type OtcGetOrderDetailQueryResult = NonNullable<
+  Awaited<ReturnType<typeof otcGetOrderDetail>>
+>;
+export type OtcGetOrderDetailQueryError = ErrorType<unknown>;
+
+export const useOtcGetOrderDetail = <
+  TData = Awaited<ReturnType<typeof otcGetOrderDetail>>,
+  TError = ErrorType<unknown>,
+>(
+  otcGetOrderDetailBody: OtcGetOrderDetailBody,
+  options?: {
+    query?: UseQueryOptions<Awaited<ReturnType<typeof otcGetOrderDetail>>, TError, TData>;
+  },
+): UseQueryResult<TData, TError> & { queryKey: QueryKey } => {
+  const { query: queryOptions } = options ?? {};
+
+  const queryKey = queryOptions?.queryKey ?? getOtcGetOrderDetailQueryKey(otcGetOrderDetailBody);
+
+  const queryFn: QueryFunction<Awaited<ReturnType<typeof otcGetOrderDetail>>> = () =>
+    otcGetOrderDetail(otcGetOrderDetailBody);
+
+  const query = useQuery<Awaited<ReturnType<typeof otcGetOrderDetail>>, TError, TData>(
+    queryKey,
+    queryFn,
+    queryOptions,
+  ) as UseQueryResult<TData, TError> & { queryKey: QueryKey };
+
+  query.queryKey = queryKey;
+
+  return query;
+};
+
+/**
+ * 我的订单记录
+ */
+export const otcFindOrderList = (otcFindOrderListBody: OtcFindOrderListBody) => {
+  return customInstance<OtcFindOrderListResponse>({
+    url: `/otc/mainad/findOrderList.do`,
+    method: 'post',
+    headers: { 'Content-Type': 'application/json' },
+    data: otcFindOrderListBody,
+  });
+};
+
+export const getOtcFindOrderListQueryKey = (otcFindOrderListBody: OtcFindOrderListBody) => [
+  `/otc/mainad/findOrderList.do`,
+  otcFindOrderListBody,
+];
+
+export type OtcFindOrderListQueryResult = NonNullable<Awaited<ReturnType<typeof otcFindOrderList>>>;
+export type OtcFindOrderListQueryError = ErrorType<unknown>;
+
+export const useOtcFindOrderList = <
+  TData = Awaited<ReturnType<typeof otcFindOrderList>>,
+  TError = ErrorType<unknown>,
+>(
+  otcFindOrderListBody: OtcFindOrderListBody,
+  options?: {
+    query?: UseQueryOptions<Awaited<ReturnType<typeof otcFindOrderList>>, TError, TData>;
+  },
+): UseQueryResult<TData, TError> & { queryKey: QueryKey } => {
+  const { query: queryOptions } = options ?? {};
+
+  const queryKey = queryOptions?.queryKey ?? getOtcFindOrderListQueryKey(otcFindOrderListBody);
+
+  const queryFn: QueryFunction<Awaited<ReturnType<typeof otcFindOrderList>>> = () =>
+    otcFindOrderList(otcFindOrderListBody);
+
+  const query = useQuery<Awaited<ReturnType<typeof otcFindOrderList>>, TError, TData>(
+    queryKey,
+    queryFn,
+    queryOptions,
+  ) as UseQueryResult<TData, TError> & { queryKey: QueryKey };
+
+  query.queryKey = queryKey;
+
+  return query;
+};
+
+/**
+ * 获取用户的收款方式列表
+ */
+export const otcFindMyPaymentList = () => {
+  return customInstance<OtcFindMyPaymentListResponse>({
+    url: `/otc/payment/findMyPaymentList.do`,
+    method: 'post',
+  });
+};
+
+export const getOtcFindMyPaymentListQueryKey = () => [`/otc/payment/findMyPaymentList.do`];
+
+export type OtcFindMyPaymentListQueryResult = NonNullable<
+  Awaited<ReturnType<typeof otcFindMyPaymentList>>
+>;
+export type OtcFindMyPaymentListQueryError = ErrorType<unknown>;
+
+export const useOtcFindMyPaymentList = <
+  TData = Awaited<ReturnType<typeof otcFindMyPaymentList>>,
+  TError = ErrorType<unknown>,
+>(options?: {
+  query?: UseQueryOptions<Awaited<ReturnType<typeof otcFindMyPaymentList>>, TError, TData>;
+}): UseQueryResult<TData, TError> & { queryKey: QueryKey } => {
+  const { query: queryOptions } = options ?? {};
+
+  const queryKey = queryOptions?.queryKey ?? getOtcFindMyPaymentListQueryKey();
+
+  const queryFn: QueryFunction<Awaited<ReturnType<typeof otcFindMyPaymentList>>> = () =>
+    otcFindMyPaymentList();
+
+  const query = useQuery<Awaited<ReturnType<typeof otcFindMyPaymentList>>, TError, TData>(
+    queryKey,
+    queryFn,
+    queryOptions,
+  ) as UseQueryResult<TData, TError> & { queryKey: QueryKey };
+
+  query.queryKey = queryKey;
+
+  return query;
+};
+
+/**
+ * 获取我的消息
+ */
+export const messageFind = (messageFindBody: MessageFindBody) => {
+  return customInstance<CommonResponse>({
+    url: `/message/find.do`,
+    method: 'post',
+    headers: { 'Content-Type': 'application/json' },
+    data: messageFindBody,
+  });
+};
+
+export const getMessageFindQueryKey = (messageFindBody: MessageFindBody) => [
+  `/message/find.do`,
+  messageFindBody,
+];
+
+export type MessageFindQueryResult = NonNullable<Awaited<ReturnType<typeof messageFind>>>;
+export type MessageFindQueryError = ErrorType<unknown>;
+
+export const useMessageFind = <
+  TData = Awaited<ReturnType<typeof messageFind>>,
+  TError = ErrorType<unknown>,
+>(
+  messageFindBody: MessageFindBody,
+  options?: { query?: UseQueryOptions<Awaited<ReturnType<typeof messageFind>>, TError, TData> },
+): UseQueryResult<TData, TError> & { queryKey: QueryKey } => {
+  const { query: queryOptions } = options ?? {};
+
+  const queryKey = queryOptions?.queryKey ?? getMessageFindQueryKey(messageFindBody);
+
+  const queryFn: QueryFunction<Awaited<ReturnType<typeof messageFind>>> = () =>
+    messageFind(messageFindBody);
+
+  const query = useQuery<Awaited<ReturnType<typeof messageFind>>, TError, TData>(
+    queryKey,
+    queryFn,
+    queryOptions,
+  ) as UseQueryResult<TData, TError> & { queryKey: QueryKey };
+
+  query.queryKey = queryKey;
+
+  return query;
+};
+
+/**
  * 下单交易
  */
 export const otcCreateOrder = (otcCreateOrderBody: OtcCreateOrderBody) => {
-  return customInstance<CommonResponse>({
+  return customInstance<OtcCreateOrder200>({
     url: `/otc/mainad/createOrder.do`,
     method: 'post',
     headers: { 'Content-Type': 'application/json' },

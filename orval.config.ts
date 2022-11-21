@@ -14,6 +14,26 @@ export default defineConfig({
           name: 'customInstance',
         },
         operations: {
+          otcGetOrderDetail: {
+            query: {
+              useQuery: true,
+            },
+          },
+          otcFindOrderList: {
+            query: {
+              useQuery: true,
+            },
+          },
+          otcFindMyPaymentList: {
+            query: {
+              useQuery: true,
+            },
+          },
+          messageFind: {
+            query: {
+              useQuery: true,
+            },
+          },
           otcFindAdList: {
             query: {
               useQuery: true,

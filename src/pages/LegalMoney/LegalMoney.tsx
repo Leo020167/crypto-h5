@@ -2,6 +2,7 @@ import { NavBar, Swiper, SwiperRef } from 'antd-mobile';
 import { useMemo, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
+import { useMessageFind } from '../../api/endpoints/transformer';
 
 import ic_legal_money_0 from '../../assets/ic_legal_money_0.png';
 import ic_legal_money_1 from '../../assets/ic_legal_money_1.png';

@@ -5,6 +5,104 @@ info:
 servers:
   - url: http://api.piglobalexchanges.com
 paths:
+  /otc/mainad/cancelOrder.do:
+    post:
+      operationId: 'otcCancelOrder'
+      description: '取消订单'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                orderId:
+                  type: string
+              required:
+                - orderId
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CommonResponse'
+
+  /otc/mainad/getOrderDetail.do:
+    post:
+      operationId: 'otcGetOrderDetail'
+      description: '我的订单记录'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                orderId:
+                  type: string
+              required:
+                - orderId
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OtcGetOrderDetailResponse'
+
+  /otc/mainad/findOrderList.do:
+    post:
+      operationId: 'otcFindOrderList'
+      description: '我的订单记录'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                buySell:
+                  type: string
+                state:
+                  type: string
+                pageNo:
+                  type: number
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OtcFindOrderListResponse'
+
+  /otc/payment/findMyPaymentList.do:
+    post:
+      operationId: 'otcFindMyPaymentList'
+      description: '获取用户的收款方式列表'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OtcFindMyPaymentListResponse'
+
+  /message/find.do:
+    post:
+      operationId: 'messageFind'
+      description: '获取我的消息'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                pageNo:
+                  type: string
+              required:
+                - pageNo
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CommonResponse'
+
   /otc/mainad/createOrder.do:
     post:
       operationId: 'otcCreateOrder'
@@ -35,7 +133,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/CommonResponse'
+                allOf:
+                  - $ref: '#/components/schemas/CommonResponse'
+                  - properties:
+                      data:
+                        type: object
+                        properties:
+                          orderId:
+                            type: string
 
   /otc/mainad/findAdList.do:
     post:
@@ -512,6 +617,193 @@ paths:
 
 components:
   schemas:
+    OtcGetOrderDetailResponse:
+      allOf:
+        - $ref: '#/components/schemas/CommonResponse'
+        - properties:
+            data:
+              type: object
+              properties:
+                chatStaff:
+                  $ref: '#/components/schemas/ChatStaff'
+                order:
+                  $ref: '#/components/schemas/Order'
+
+    ChatStaff:
+      type: object
+      properties:
+        chatTopic:
+          type: string
+        headUrl:
+          type: string
+        type:
+          type: string
+        userId:
+          type: string
+        userName:
+          type: string
+
+    Order:
+      type: object
+      properties:
+        adId:
+          type: string
+        alertTip:
+          type: string
+        amount:
+          type: string
+        buySell:
+          type: string
+        buySellValue:
+          type: string
+        buyUserId:
+          type: string
+        chatTopic:
+          type: string
+        createTime:
+          type: string
+        currencySign:
+          type: string
+        orderId:
+          type: string
+        paySecondTime:
+          type: string
+        price:
+          type: string
+        receiptName:
+          type: string
+        sellUserId:
+          type: string
+        showPayWay:
+          type: string
+        showRealName:
+          type: string
+        showUserId:
+          type: string
+        showUserLogo:
+          type: string
+        showUserName:
+          type: string
+        state:
+          type: string
+        stateTip:
+          type: string
+        stateValue:
+          type: string
+        tolPrice:
+          type: string
+
+    OtcFindOrderListResponse:
+      allOf:
+        - $ref: '#/components/schemas/CommonResponse'
+        - properties:
+            data:
+              allOf:
+                - $ref: '#/components/schemas/PaginationResponse'
+                - properties:
+                    data:
+                      type: array
+                      items:
+                        $ref: '#/components/schemas/OtcOrderListItem'
+
+    OtcOrderListItem:
+      type: object
+      properties:
+        adId:
+          type: string
+        amount:
+          type: string
+        appealUserId:
+          type: string
+        buyAgencyCode:
+          type: string
+        buyBankName:
+          type: string
+        buyMemberCode:
+          type: string
+        buyReceiptName:
+          type: string
+        buyReceiptNo:
+          type: string
+        buySell:
+          type: string
+        buySellValue:
+          type: string
+        buyUserId:
+          type: string
+        chatTopic:
+          type: string
+        createTime:
+          type: string
+        currencySign:
+          type: string
+        doneTime:
+          type: string
+        expireTime:
+          type: string
+        isAdSell:
+          type: string
+        orderId:
+          type: string
+        price:
+          type: string
+        sellAgencyCode:
+          type: string
+        sellBankName:
+          type: string
+        sellMemberCode:
+          type: string
+        sellPayWay:
+          type: string
+        sellReceiptName:
+          type: string
+        sellReceiptNo:
+          type: string
+        sellUserId:
+          type: string
+        showPaymentId:
+          type: string
+        state:
+          type: string
+        stateValue:
+          type: string
+        synVersion:
+          type: string
+        tolPrice:
+          type: string
+
+    OtcFindMyPaymentListResponse:
+      allOf:
+        - $ref: '#/components/schemas/CommonResponse'
+        - properties:
+            data:
+              type: object
+              properties:
+                myPaymentList:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/Receipt'
+
+    Receipt:
+      type: object
+      properties:
+        bankName:
+          type: string
+        paymentId:
+          type: string
+        receiptLogo:
+          type: string
+        receiptName:
+          type: string
+        receiptNo:
+          type: string
+        receiptType:
+          type: number
+        receiptTypeValue:
+          type: string
+        sort:
+          type: number
+
     OtcFindAdListResponse:
       allOf:
         - $ref: '#/components/schemas/CommonResponse'

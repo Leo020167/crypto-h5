@@ -1,59 +1,33 @@
 import { Button, List, Popup, Toast } from 'antd-mobile';
 import currency from 'currency.js';
-import { orderBy } from 'lodash-es';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import styled from 'styled-components';
 import { useOtcCreateOrder } from '../../api/endpoints/transformer';
-import { OtcFindAdListItem } from '../../api/model';
-
+import { OtcFindAdListItem, Receipt } from '../../api/model';
 import { ReactComponent as SelectedSvg } from '../../assets/ic_svg_selected.svg';
+import { getReceipts } from '../../utils/response';
+import { symbols } from '../../utils/symbols';
 
-const symbols: { [key: string]: string } = {
-  CNY: '￥',
-  HKD: 'HK＄',
-  USD: '＄',
-};
-
-interface PayWay {
-  bankName: string;
-  paymentId: string;
-  receiptLogo: string;
-  receiptName: string;
-  receiptNo: string;
-  receiptType: number;
-  receiptTypeValue: string;
-  sort: number;
-}
-
-interface LegalQuicBuyDialogProps {
+interface LegalQuickBuyDialogProps {
   optionalOrder?: OtcFindAdListItem;
   symbol: string;
   amount: string;
   open: boolean;
   onClose: () => void;
+  onSuccess: (orderId?: string) => void;
 }
 
-const LegalQuicBuyDialog = ({
-  open,
-  onClose,
+const LegalQuickBuyDialog = ({
   optionalOrder,
   symbol,
   amount,
-}: LegalQuicBuyDialogProps) => {
-  const [selectedPayWay, setSelectedPayWay] = useState<PayWay>();
+  open,
+  onClose,
+  onSuccess,
+}: LegalQuickBuyDialogProps) => {
+  const [selectedPayWay, setSelectedPayWay] = useState<Receipt>();
 
-  const options = useMemo(() => {
-    let result: PayWay[] = [];
-    if (optionalOrder?.payWay) {
-      try {
-        result = JSON.parse(optionalOrder.payWay) as PayWay[];
-        result = orderBy(result, ['sort'], ['asc']);
-      } catch (error) {
-        /* empty */
-      }
-    }
-    return result;
-  }, [optionalOrder?.payWay]);
+  const options = useMemo(() => getReceipts(optionalOrder?.payWay), [optionalOrder?.payWay]);
 
   useEffect(() => {
     if (options.length) {
@@ -66,7 +40,7 @@ const LegalQuicBuyDialog = ({
       onSuccess(data) {
         if (data.code === '200') {
           Toast.show(data.msg);
-          // TODO 跳详情页面
+          onSuccess(data.data?.orderId);
         }
       },
     },
@@ -156,4 +130,4 @@ const Container = styled(Popup)`
     }
   }
 `;
-export default LegalQuicBuyDialog;
+export default LegalQuickBuyDialog;

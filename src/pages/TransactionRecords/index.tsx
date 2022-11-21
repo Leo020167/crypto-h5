@@ -97,8 +97,6 @@ const TransactionRecords = () => {
                     <Grid columns={2} gap={8}>
                       <Grid.Item>
                         <Button
-                          className="h-full block text-[#1D3155] text-sm bg-[#f2f2f2] text-center py-2.5 rounded overflow-hidden"
-                          fill="none"
                           block
                           onClick={() => {
                             setSymbol('');

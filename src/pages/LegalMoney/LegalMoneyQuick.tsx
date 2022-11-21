@@ -2,7 +2,8 @@ import { Button, Dialog, Input, InputRef, Toast } from 'antd-mobile';
 import { useAtom } from 'jotai';
 import { atomWithReset } from 'jotai/utils';
 import { first } from 'lodash-es';
-import { useCallback, useRef } from 'react';
+import { stringify } from 'query-string';
+import { useCallback, useRef, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { StringParam, useQueryParam, withDefault } from 'use-query-params';
 import {
@@ -10,11 +11,13 @@ import {
   useIdentityGet,
   useOtcFindAdList,
 } from '../../api/endpoints/transformer';
-import { OtcFindAdListItem } from '../../api/model';
+import { OtcFindAdListItem, Receipt } from '../../api/model';
 import { ReactComponent as LegalHistory } from '../../assets/ic_svg_legal_history.svg';
 import { ReactComponent as Transfer } from '../../assets/ic_svg_transfer.svg';
+import ConfirmSellDialog from './ConfirmSellDialog';
 import LegalMore from './LegalMore';
-import LegalQuicBuyDialog from './LegalQuicBuyDialog';
+import LegalQuickBuyDialog from './LegalQuickBuyDialog';
+import LegalQuickSellDialog from './LegalQuickSellDialog';
 import OTCCurrencies from './OTCCurrencies';
 
 const selectedClassNames = 'text-2xl font-bold text-white';
@@ -24,13 +27,12 @@ const TypeParam = withDefault(StringParam, 'buy');
 const SymbolParam = withDefault(StringParam, 'CNY');
 
 const amountAtom = atomWithReset<string>('');
-const actionAtom = atomWithReset<string>('');
 
 const LegalMoneyQuick = () => {
   const [type, setType] = useQueryParam('type', TypeParam);
   const [symbol, setSymbol] = useQueryParam('symbol', SymbolParam);
+  const [action, setAction] = useQueryParam('action', StringParam);
 
-  const [action, setAction] = useAtom(actionAtom);
   const [amount, setAmount] = useAtom(amountAtom);
 
   const unit = symbol + '/USDT';
@@ -94,6 +96,8 @@ const LegalMoneyQuick = () => {
     type,
   ]);
 
+  const [receipt, setReceipt] = useState<Receipt>();
+
   return (
     <div className="flex-1 flex flex-col">
       <div className="h-16 bg-[#6175AE] flex items-center px-5 text-[#CBCBCB] justify-between">
@@ -123,7 +127,9 @@ const LegalMoneyQuick = () => {
 
       <div className="px-4 mt-4">
         <div className="flex items-center">
-          <span className="text-base font-bold text-[#3D3A50] flex-1">购买数量</span>
+          <span className="text-base font-bold text-[#3D3A50] flex-1">
+            {type === 'sell' ? '出售数量' : '购买数量'}
+          </span>
 
           {type === 'sell' && (
             <Link to="/transfer-coin" className="px-2 py-1 flex items-center bg-[#f1f3ff] rounded">
@@ -187,12 +193,39 @@ const LegalMoneyQuick = () => {
         </Button>
       </div>
 
-      <LegalQuicBuyDialog
+      <LegalQuickBuyDialog
         optionalOrder={otcFindAdListItem}
         symbol={symbol}
         amount={amount}
         open={action === 'buy'}
-        onClose={() => setAction('')}
+        onClose={() => setAction(undefined, 'replaceIn')}
+        onSuccess={(orderId) => {
+          setAmount('');
+          setAction(undefined, 'replaceIn');
+
+          navigate({
+            pathname: '/legal-order-info',
+            search: stringify({ orderId }),
+          });
+        }}
+      />
+
+      <LegalQuickSellDialog
+        open={action === 'sell'}
+        onClose={() => setAction(undefined, 'replaceIn')}
+        onSelect={(receipt) => {
+          setReceipt(receipt);
+          setAction('confirm-sell', 'replaceIn');
+        }}
+      />
+
+      <ConfirmSellDialog
+        open={action === 'confirm-sell'}
+        onClose={() => setAction(undefined, 'replaceIn')}
+        receipt={receipt}
+        optionalOrder={otcFindAdListItem}
+        symbol={symbol}
+        amount={amount}
       />
     </div>
   );
