@@ -74,7 +74,7 @@ const TakeCoinHistory = () => {
         );
       }}
       loadMore={async () => {
-        fetchNextPage();
+        await fetchNextPage();
       }}
       hasMore={hasNextPage}
       onRefresh={refetch}

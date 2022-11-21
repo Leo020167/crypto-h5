@@ -150,7 +150,7 @@ const TransferCoinHistory = () => {
         );
       }}
       loadMore={async () => {
-        fetchNextPage();
+        await fetchNextPage();
       }}
       hasMore={hasNextPage}
       onRefresh={refetch}

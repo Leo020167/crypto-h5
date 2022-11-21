@@ -59,7 +59,7 @@ const TradeLeverHistory = forwardRef<TradeLeverHistoryRef, TradeLeverHistoryProp
         </List>
         <InfiniteScroll
           loadMore={async () => {
-            fetchNextPage();
+            await fetchNextPage();
           }}
           hasMore={hasNextPage}
         >
