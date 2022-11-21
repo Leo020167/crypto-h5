@@ -1860,6 +1860,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"add@npm:^2.0.6":
+  version: 2.0.6
+  resolution: "add@npm:2.0.6"
+  checksum: e2d23d40494565dfed4acd65e478570c444db5ac6c053551ed429c39ea0f2c99d83df63e7befec936df601827d2254d06a2fb6f7dcfd2022e810b25eab818b8c
+  languageName: node
+  linkType: hard
+
 "agent-base@npm:6, agent-base@npm:^6.0.0, agent-base@npm:^6.0.2":
   version: 6.0.2
   resolution: "agent-base@npm:6.0.2"
@@ -4187,6 +4194,7 @@ __metadata:
     "@typescript-eslint/parser": ^5.43.0
     "@vitejs/plugin-legacy": ^2.3.1
     "@vitejs/plugin-react": ^2.2.0
+    add: ^2.0.6
     antd-mobile: ^5.25.1
     antd-mobile-icons: ^0.3.0
     autoprefixer: ^10.4.13
@@ -4224,6 +4232,7 @@ __metadata:
     use-query-params: ^2.1.2
     vite: ^3.2.4
     vite-plugin-svgr: ^2.2.2
+    yarn: ^1.22.19
   languageName: unknown
   linkType: soft
 
@@ -8427,6 +8436,16 @@ __metadata:
     y18n: ^5.0.5
     yargs-parser: ^21.1.1
   checksum: 47da1b0d854fa16d45a3ded57b716b013b2179022352a5f7467409da5a04a1eef5b3b3d97a2dfc13e8bbe5f2ffc0afe3bc6a4a72f8254e60f5a4bd7947138643
+  languageName: node
+  linkType: hard
+
+"yarn@npm:^1.22.19":
+  version: 1.22.19
+  resolution: "yarn@npm:1.22.19"
+  bin:
+    yarn: bin/yarn.js
+    yarnpkg: bin/yarn.js
+  checksum: b43d2cc5fee7e933beb12a8aee7dfceca9e9ef2dd17c5d04d15a12ab7bec5f5744ea34a07b86e013da7f291a18c4e1ad8f70e150f5ed2f4666e6723c7f0a8452
   languageName: node
   linkType: hard
 

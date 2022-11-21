@@ -5,6 +5,54 @@ info:
 servers:
   - url: http://api.piglobalexchanges.com
 paths:
+  /otc/mainad/toMarkPayOrderSuccess.do:
+    post:
+      operationId: 'otcToMarkPayOrderSuccess'
+      description: '购买者权限操作【付款】第2步：点击“我已付款成功”按钮'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                orderId:
+                  type: string
+              required:
+                - orderId
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ToPayOrderResponse'
+
+  /otc/mainad/toPayOrder.do:
+    post:
+      operationId: 'otcToPayOrder'
+      description: '购买者权限操作【付款】第1步：点击“去付款”按钮进入到付款页面'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                orderId:
+                  type: string
+                showPaymentId:
+                  type: string
+                showUserId:
+                  type: string
+              required:
+                - orderId
+                - showPaymentId
+                - showUserId
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ToPayOrderResponse'
+
   /otc/mainad/cancelOrder.do:
     post:
       operationId: 'otcCancelOrder'
@@ -617,6 +665,68 @@ paths:
 
 components:
   schemas:
+    ToPayOrderResponse:
+      allOf:
+        - $ref: '#/components/schemas/CommonResponse'
+        - properties:
+            data:
+              type: object
+              properties:
+                chatStaff:
+                  $ref: '#/components/schemas/ChatStaff'
+                orderToPayResult:
+                  $ref: '#/components/schemas/OrderToPayResult'
+
+    OrderToPayResult:
+      type: object
+      properties:
+        alertTip:
+          type: string
+        amount:
+          type: string
+        bankName:
+          type: string
+        chatTopic:
+          type: string
+        createTime:
+          type: string
+        currencySign:
+          type: string
+        orderId:
+          type: string
+        paySecondTime:
+          type: string
+        payTip:
+          type: string
+        price:
+          type: string
+        receiptLogo:
+          type: string
+        receiptName:
+          type: string
+        receiptNo:
+          type: string
+        receiptType:
+          type: string
+        receiptTypeValue:
+          type: string
+        showRealName:
+          type: string
+        showUserId:
+          type: string
+        showUserLogo:
+          type: string
+        showUserName:
+          type: string
+        showUserTip:
+          type: string
+        state:
+          type: string
+        stateValue:
+          type: string
+        tolPrice:
+          type: string
+
     OtcGetOrderDetailResponse:
       allOf:
         - $ref: '#/components/schemas/CommonResponse'

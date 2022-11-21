@@ -9,6 +9,8 @@ import { ReactComponent as HomeTabFollow } from './assets/home_tab_follow.svg';
 import { ReactComponent as HomeTabMarkSvg } from './assets/home_tab_mark.svg';
 import { ReactComponent as HomeTabMineSvg } from './assets/home_tab_mine.svg';
 
+const LegalPay = lazy(() => import('./pages/LegalPay'));
+const OtcAppeal = lazy(() => import('./pages/OtcAppeal'));
 const LegalOrderInfo = lazy(() => import('./pages/LegalOrderInfo'));
 const Chat = lazy(() => import('./pages/Chat'));
 const VerifiedResult = lazy(() => import('./pages/Verified/VerifiedResult'));
@@ -186,6 +188,22 @@ export const routes = [
     element: (
       <Suspense fallback={<div>Loading...</div>}>
         <Chat />
+      </Suspense>
+    ),
+  },
+  {
+    path: 'legal-pay',
+    element: (
+      <Suspense fallback={<div>Loading...</div>}>
+        <LegalPay />
+      </Suspense>
+    ),
+  },
+  {
+    path: 'otc-appeal',
+    element: (
+      <Suspense fallback={<div>Loading...</div>}>
+        <OtcAppeal />
       </Suspense>
     ),
   },

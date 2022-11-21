@@ -14,6 +14,9 @@ import type {
   QueryKey,
 } from '@tanstack/react-query';
 import type {
+  ToPayOrderResponse,
+  OtcToMarkPayOrderSuccessBody,
+  OtcToPayOrderBody,
   CommonResponse,
   OtcCancelOrderBody,
   OtcGetOrderDetailResponse,
@@ -57,6 +60,101 @@ import type {
 } from '../model';
 import { customInstance } from '../mutator/custom-instance';
 import type { ErrorType } from '../mutator/custom-instance';
+
+/**
+ * 购买者权限操作【付款】第2步：点击“我已付款成功”按钮
+ */
+export const otcToMarkPayOrderSuccess = (
+  otcToMarkPayOrderSuccessBody: OtcToMarkPayOrderSuccessBody,
+) => {
+  return customInstance<ToPayOrderResponse>({
+    url: `/otc/mainad/toMarkPayOrderSuccess.do`,
+    method: 'post',
+    headers: { 'Content-Type': 'application/json' },
+    data: otcToMarkPayOrderSuccessBody,
+  });
+};
+
+export type OtcToMarkPayOrderSuccessMutationResult = NonNullable<
+  Awaited<ReturnType<typeof otcToMarkPayOrderSuccess>>
+>;
+export type OtcToMarkPayOrderSuccessMutationBody = OtcToMarkPayOrderSuccessBody;
+export type OtcToMarkPayOrderSuccessMutationError = ErrorType<unknown>;
+
+export const useOtcToMarkPayOrderSuccess = <
+  TError = ErrorType<unknown>,
+  TContext = unknown,
+>(options?: {
+  mutation?: UseMutationOptions<
+    Awaited<ReturnType<typeof otcToMarkPayOrderSuccess>>,
+    TError,
+    { data: OtcToMarkPayOrderSuccessBody },
+    TContext
+  >;
+}) => {
+  const { mutation: mutationOptions } = options ?? {};
+
+  const mutationFn: MutationFunction<
+    Awaited<ReturnType<typeof otcToMarkPayOrderSuccess>>,
+    { data: OtcToMarkPayOrderSuccessBody }
+  > = (props) => {
+    const { data } = props ?? {};
+
+    return otcToMarkPayOrderSuccess(data);
+  };
+
+  return useMutation<
+    Awaited<ReturnType<typeof otcToMarkPayOrderSuccess>>,
+    TError,
+    { data: OtcToMarkPayOrderSuccessBody },
+    TContext
+  >(mutationFn, mutationOptions);
+};
+
+/**
+ * 购买者权限操作【付款】第1步：点击“去付款”按钮进入到付款页面
+ */
+export const otcToPayOrder = (otcToPayOrderBody: OtcToPayOrderBody) => {
+  return customInstance<ToPayOrderResponse>({
+    url: `/otc/mainad/toPayOrder.do`,
+    method: 'post',
+    headers: { 'Content-Type': 'application/json' },
+    data: otcToPayOrderBody,
+  });
+};
+
+export const getOtcToPayOrderQueryKey = (otcToPayOrderBody: OtcToPayOrderBody) => [
+  `/otc/mainad/toPayOrder.do`,
+  otcToPayOrderBody,
+];
+
+export type OtcToPayOrderQueryResult = NonNullable<Awaited<ReturnType<typeof otcToPayOrder>>>;
+export type OtcToPayOrderQueryError = ErrorType<unknown>;
+
+export const useOtcToPayOrder = <
+  TData = Awaited<ReturnType<typeof otcToPayOrder>>,
+  TError = ErrorType<unknown>,
+>(
+  otcToPayOrderBody: OtcToPayOrderBody,
+  options?: { query?: UseQueryOptions<Awaited<ReturnType<typeof otcToPayOrder>>, TError, TData> },
+): UseQueryResult<TData, TError> & { queryKey: QueryKey } => {
+  const { query: queryOptions } = options ?? {};
+
+  const queryKey = queryOptions?.queryKey ?? getOtcToPayOrderQueryKey(otcToPayOrderBody);
+
+  const queryFn: QueryFunction<Awaited<ReturnType<typeof otcToPayOrder>>> = () =>
+    otcToPayOrder(otcToPayOrderBody);
+
+  const query = useQuery<Awaited<ReturnType<typeof otcToPayOrder>>, TError, TData>(
+    queryKey,
+    queryFn,
+    queryOptions,
+  ) as UseQueryResult<TData, TError> & { queryKey: QueryKey };
+
+  query.queryKey = queryKey;
+
+  return query;
+};
 
 /**
  * 取消订单

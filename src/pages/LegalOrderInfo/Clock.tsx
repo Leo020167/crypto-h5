@@ -1,5 +1,5 @@
 import { ReactComponent as SvgOtcTime } from '../../assets/ic_svg_otc_time_bg.svg';
-import Countdown, { CountdownProps } from './CountDown';
+import Countdown, { CountdownProps } from '../../components/Countdown';
 
 type ClockProps = CountdownProps;
 

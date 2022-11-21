@@ -14,6 +14,11 @@ export default defineConfig({
           name: 'customInstance',
         },
         operations: {
+          otcToPayOrder: {
+            query: {
+              useQuery: true,
+            },
+          },
           otcGetOrderDetail: {
             query: {
               useQuery: true,

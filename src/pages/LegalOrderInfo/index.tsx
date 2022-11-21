@@ -1,20 +1,22 @@
 import { Button, List, Toast } from 'antd-mobile';
 import { useAtomValue } from 'jotai';
+import { stringify } from 'query-string';
 import { useCallback, useMemo } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { StringParam, useQueryParam } from 'use-query-params';
 import { useOtcCancelOrder, useOtcGetOrderDetail } from '../../api/endpoints/transformer';
-import { Order } from '../../api/model';
+import { Order, Receipt } from '../../api/model';
 import { ReactComponent as SvgCopy } from '../../assets/ic_svg_copy.svg';
 import { ReactComponent as SvgOtcFalse } from '../../assets/ic_svg_otc_false.svg';
 import { ReactComponent as SvgOtcSuccess } from '../../assets/ic_svg_otc_success.svg';
 import { ReactComponent as SvgTime } from '../../assets/ic_svg_time.svg';
 import { userAtom } from '../../atoms';
+import Countdown from '../../components/Countdown';
 import Screen from '../../components/Screen';
 import { stringDateFormat } from '../../utils/date';
 import { getReceipts, OtcOrderState } from '../../utils/response';
 import Clock from './Clock';
-import Countdown from './CountDown';
 import OrderCancelDialog from './OrderCancelDialog';
 
 const HeaderRight = ({
@@ -86,7 +88,7 @@ const LegalOrderInfo = () => {
 
   const receipts = useMemo(() => getReceipts(order?.showPayWay), [order?.showPayWay]);
 
-  const receipt = useMemo(() => receipts?.[0], [receipts]);
+  const receipt: Receipt | undefined = useMemo(() => receipts?.[0], [receipts]);
 
   const user = useAtomValue(userAtom);
   const isBuyer = useMemo(
@@ -106,6 +108,8 @@ const LegalOrderInfo = () => {
         };
   }, [isBuyer]);
 
+  const navigate = useNavigate();
+
   const footer = useMemo(() => {
     if (order?.state === OtcOrderState.wait) {
       if (isBuyer) {
@@ -114,7 +118,21 @@ const LegalOrderInfo = () => {
             <Button block onClick={() => setAction('cancel', 'replaceIn')}>
               取消訂單
             </Button>
-            <Button block color="primary" className="ml-4">
+            <Button
+              block
+              color="primary"
+              className="ml-4"
+              onClick={() => {
+                navigate({
+                  pathname: '/legal-pay',
+                  search: stringify({
+                    orderId,
+                    showUserId: order.showUserId,
+                    paymentId: receipt.paymentId,
+                  }),
+                });
+              }}
+            >
               去付款
             </Button>
           </div>
@@ -129,20 +147,25 @@ const LegalOrderInfo = () => {
         );
       }
     } else if (order?.state === OtcOrderState.mark) {
+      // TODO showOtcConfirmReceivedPayDialog
+      // TODO 賣家申訴
       if (isBuyer) {
         return (
-          <div className="flex">
+          <div className="flex p-4">
             <Button block>申訴</Button>
-            <Button block color="primary" className="ml-4">
-              我確認收到付款
-            </Button>
           </div>
         );
+      } else {
+        <div className="flex p-4">
+          <Button block color="primary" className="ml-4">
+            我確認收到付款
+          </Button>
+        </div>;
       }
     }
 
     return null;
-  }, [isBuyer, order?.state, setAction]);
+  }, [isBuyer, navigate, order?.showUserId, order?.state, orderId, receipt?.paymentId, setAction]);
 
   const handleTimeout = useCallback(() => {
     Toast.show('訂單已經超時');
@@ -252,7 +275,7 @@ const LegalOrderInfo = () => {
       <OrderCancelDialog
         open={action === 'cancel'}
         onClose={() => setAction(undefined, 'replaceIn')}
-        onSubmit={() => otcCancelOrder.mutate({ data: { orderId } })}
+        onSubmit={() => otcCancelOrder.mutate({ data: { orderId: orderId ?? '' } })}
       />
     </Screen>
   );
