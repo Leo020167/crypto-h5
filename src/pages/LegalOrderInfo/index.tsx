@@ -127,8 +127,8 @@ const LegalOrderInfo = () => {
                   pathname: '/legal-pay',
                   search: stringify({
                     orderId,
-                    showUserId: order.showUserId,
-                    paymentId: receipt.paymentId,
+                    showUserId: order?.showUserId,
+                    paymentId: receipt?.paymentId,
                   }),
                 });
               }}
@@ -175,7 +175,7 @@ const LegalOrderInfo = () => {
     }
 
     return null;
-  }, [history, isBuyer, order?.showUserId, order?.state, orderId, receipt.paymentId, setAction]);
+  }, [history, isBuyer, order?.showUserId, order?.state, orderId, receipt?.paymentId, setAction]);
 
   const handleTimeout = useCallback(() => {
     Toast.show('訂單已經超時');
