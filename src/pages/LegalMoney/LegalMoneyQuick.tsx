@@ -12,16 +12,12 @@ import {
   useOtcFindAdList,
 } from '../../api/endpoints/transformer';
 import { OtcFindAdListItem, Receipt } from '../../api/model';
-import { ReactComponent as LegalHistory } from '../../assets/ic_svg_legal_history.svg';
 import { ReactComponent as Transfer } from '../../assets/ic_svg_transfer.svg';
 import ConfirmSellDialog from './ConfirmSellDialog';
-import LegalMore from './LegalMore';
+import LegalMoneyHeader from './LegalMoneyHeader';
 import LegalQuickBuyDialog from './LegalQuickBuyDialog';
 import LegalQuickSellDialog from './LegalQuickSellDialog';
 import OTCCurrencies from './OTCCurrencies';
-
-const selectedClassNames = 'text-2xl font-bold text-white';
-const unselectedClassNames = 'text-sm font-bold';
 
 const TypeParam = withDefault(StringParam, 'buy');
 const SymbolParam = withDefault(StringParam, 'CNY');
@@ -93,30 +89,7 @@ const LegalMoneyQuick = () => {
 
   return (
     <div className="flex-1 flex flex-col">
-      <div className="h-16 bg-[#6175AE] flex items-center px-5 text-[#CBCBCB] justify-between">
-        <div>
-          <a
-            className={type === 'buy' ? selectedClassNames : unselectedClassNames}
-            onClick={() => setType('buy', 'replaceIn')}
-          >
-            我要买
-          </a>
-          <a
-            className={`ml-5 ${type === 'sell' ? selectedClassNames : unselectedClassNames}`}
-            onClick={() => setType('sell', 'replaceIn')}
-          >
-            我要卖
-          </a>
-        </div>
-
-        <div className="flex items-center">
-          <Link to="/otc-order-history" className="w-10">
-            <LegalHistory />
-          </Link>
-
-          <LegalMore />
-        </div>
-      </div>
+      <LegalMoneyHeader value={type} onChange={(value) => setType(value, 'replaceIn')} />
 
       <div className="px-4 mt-4">
         <div className="flex items-center">

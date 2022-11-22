@@ -6,10 +6,10 @@
  */
 
 export type OtcFindAdListBody = {
-  buySell: string;
-  currencyType: string;
-  filterCny: string;
-  filterPayWay: string;
-  pageNo: string;
-  type: string;
+  buySell?: string;
+  currencyType?: string;
+  filterCny?: string;
+  filterPayWay?: string;
+  pageNo?: string;
+  type?: string;
 };

@@ -1,15 +1,20 @@
 import { NavBar, Swiper, SwiperRef } from 'antd-mobile';
-import { useMemo, useRef, useState } from 'react';
+import { useMemo, useRef } from 'react';
 import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
+import { NumberParam, useQueryParam, withDefault } from 'use-query-params';
 import ic_legal_money_0 from '../../assets/ic_legal_money_0.png';
 import ic_legal_money_1 from '../../assets/ic_legal_money_1.png';
+import LegalMoneyOptional from './LegalMoneyOptional';
 import LegalMoneyQuick from './LegalMoneyQuick';
 
 interface SwitchProps {
-  index: 0 | 1;
-  onChange: (index: 0 | 1) => void;
+  index: number;
+  onChange: (index: number) => void;
 }
+
+const WayParam = withDefault(NumberParam, 0);
+
 const Switch = ({ index, onChange }: SwitchProps) => {
   const styles: React.CSSProperties = useMemo(
     () => ({
@@ -42,7 +47,7 @@ const Switch = ({ index, onChange }: SwitchProps) => {
 const LegalMoney = () => {
   const history = useHistory();
 
-  const [index, setIndex] = useState<0 | 1>(0);
+  const [way, setWay] = useQueryParam('way', WayParam);
 
   const ref = useRef<SwiperRef>(null);
 
@@ -55,9 +60,10 @@ const LegalMoney = () => {
           right={
             <div>
               <Switch
-                index={index}
+                index={way}
                 onChange={(value) => {
-                  setIndex(value);
+                  setWay(value, 'replace');
+
                   ref.current?.swipeTo(value);
                 }}
               ></Switch>
@@ -65,11 +71,20 @@ const LegalMoney = () => {
           }
         />
       </div>
-      <Swiper ref={ref} indicator={() => null} className="flex-1" allowTouchMove={false}>
+
+      <Swiper
+        ref={ref}
+        defaultIndex={way}
+        indicator={() => null}
+        className="flex-1"
+        allowTouchMove={false}
+      >
         <Swiper.Item key={1}>
           <LegalMoneyQuick />
         </Swiper.Item>
-        <Swiper.Item key={2}>2</Swiper.Item>
+        <Swiper.Item key={2}>
+          <LegalMoneyOptional />
+        </Swiper.Item>
       </Swiper>
     </Container>
   );

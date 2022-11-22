@@ -31,7 +31,7 @@ const GlobalStyle = styled.createGlobalStyle`
   }
 
   :root {
-    --adm-color-primary: #6277b0;
+    --adm-color-primary: #6175ae;
     --adm-font-family: AlibabaPuHuiTi;
   }
 
@@ -149,6 +149,10 @@ const GlobalStyle = styled.createGlobalStyle`
 
   .adm-input-element {
     font-size: 14px;
+  }
+
+  .adm-button-default.adm-button-fill-none {
+    --background-color: #f7f7f7;
   }
 `;
 export default GlobalStyle;

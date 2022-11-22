@@ -266,13 +266,6 @@ paths:
                   type: string
                 type:
                   type: string
-              required:
-                - buySell
-                - currencyType
-                - filterCny
-                - filterPayWay
-                - pageNo
-                - type
       responses:
         '200':
           description: OK
