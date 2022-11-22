@@ -21,7 +21,7 @@ import {
   useIdentityGet,
   useOtcCreateOrder,
 } from '../../api/endpoints/transformer';
-import { OtcFindAdListBody, OtcFindAdListItem } from '../../api/model';
+import { OtcFindAdListItem } from '../../api/model';
 
 import LegalMoneyHeader from './LegalMoneyHeader';
 import OptionalBuySellDialog from './OptionalBuySellDialog';
@@ -56,10 +56,9 @@ const LegalMoneyOptional = () => {
   const [filterCny, setFilterCny] = useState<string>('');
 
   const [symbol, setSymbol] = useState<string>('CNY');
+  const [filterPayWay, setFilterPayWay] = useState<string>('');
 
   const dropdownRef = useRef<DropdownRef>(null);
-
-  const paramsRef = useRef<OtcFindAdListBody>({});
 
   const {
     data,
@@ -67,14 +66,14 @@ const LegalMoneyOptional = () => {
     fetchNextPage,
     refetch,
   } = useInfiniteQuery({
-    queryKey: getOtcFindAdListQueryKey({}),
+    queryKey: getOtcFindAdListQueryKey({ buySell: type }),
     queryFn: async ({ pageParam = 1 }) => {
       const res = await otcFindAdList({
-        ...paramsRef.current,
         pageNo: pageParam,
         buySell: type,
         currencyType: symbol,
         filterCny: filterCny,
+        filterPayWay: filterPayWay,
       });
       return res.data;
     },
@@ -145,7 +144,7 @@ const LegalMoneyOptional = () => {
                 defaultValue={['0']}
                 columns={3}
                 onChange={(value) => {
-                  paramsRef.current.filterPayWay = value?.[0];
+                  setFilterPayWay(value?.[0] ?? '');
                   dropdownRef.current?.close();
                   refetch();
                 }}
@@ -194,6 +193,7 @@ const LegalMoneyOptional = () => {
                 <Button
                   block
                   onClick={() => {
+                    setFilterPayWay('');
                     dropdownRef.current?.close();
                     refetch();
                   }}
@@ -220,7 +220,7 @@ const LegalMoneyOptional = () => {
       <div className="flex-1 overflow-y-auto">
         <List>
           {dataSource.map((v, i) => (
-            <List.Item key={i}>
+            <List.Item key={(v.adId ?? '') + i}>
               <OptionalListItem data={v} buySell={type} onClick={handleItemClick} />
             </List.Item>
           ))}

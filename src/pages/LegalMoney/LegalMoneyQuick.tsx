@@ -4,7 +4,7 @@ import { atomWithReset } from 'jotai/utils';
 import { first } from 'lodash-es';
 import { stringify } from 'query-string';
 import { useCallback, useRef, useState } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { StringParam, useQueryParam, withDefault } from 'use-query-params';
 import {
   useAccountOutHoldAmount,
@@ -12,12 +12,12 @@ import {
   useOtcFindAdList,
 } from '../../api/endpoints/transformer';
 import { OtcFindAdListItem, Receipt } from '../../api/model';
-import { ReactComponent as Transfer } from '../../assets/ic_svg_transfer.svg';
 import ConfirmSellDialog from './ConfirmSellDialog';
 import LegalMoneyHeader from './LegalMoneyHeader';
 import LegalQuickBuyDialog from './LegalQuickBuyDialog';
 import LegalQuickSellDialog from './LegalQuickSellDialog';
 import OTCCurrencies from './OTCCurrencies';
+import Transfer from './Transfer';
 
 const TypeParam = withDefault(StringParam, 'buy');
 const SymbolParam = withDefault(StringParam, 'CNY');
@@ -97,12 +97,7 @@ const LegalMoneyQuick = () => {
             {type === 'sell' ? '出售数量' : '购买数量'}
           </span>
 
-          {type === 'sell' && (
-            <Link to="/transfer-coin" className="px-2 py-1 flex items-center bg-[#f1f3ff] rounded">
-              <Transfer className="w-4 h-4 mr-1" />
-              <span className="text-xs text-[#3D3A50]">劃轉</span>
-            </Link>
-          )}
+          {type === 'sell' && <Transfer />}
 
           <OTCCurrencies value={symbol} onChange={(value) => setSymbol(value, 'replaceIn')} />
         </div>

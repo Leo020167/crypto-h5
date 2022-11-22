@@ -4,6 +4,7 @@ import { useInterval } from 'react-use';
 import styled from 'styled-components';
 import { useAccountOutHoldAmount } from '../../api/endpoints/transformer';
 import { OtcCreateOrderBody, OtcFindAdListItem } from '../../api/model';
+import Transfer from './Transfer';
 
 interface OptionalBuySellDialogProps {
   optionalOrder?: OtcFindAdListItem;
@@ -45,7 +46,10 @@ const OptionalBuySellDialog = ({
   return (
     <Container visible={open} onClose={onClose} closeOnMaskClick>
       <div className="flex flex-col px-4">
-        <span className="text-base font-bold text-[#3D3A50] h-16 flex items-center">{title}</span>
+        <div className="flex items-center justify-between">
+          <span className="text-base font-bold text-[#3D3A50] h-16 flex items-center">{title}</span>
+          {isBuyer && <Transfer />}
+        </div>
 
         <div className="relative flex items-center h-12 px-4 border border-[#465B98]">
           <Input
