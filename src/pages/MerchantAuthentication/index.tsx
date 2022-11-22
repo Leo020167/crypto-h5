@@ -1,6 +1,6 @@
 import { Button, List } from 'antd-mobile';
 import styled from 'styled-components';
-import { useGetCertificationInfo } from '../../api/endpoints/transformer';
+import { useOtcGetCertificationInfo } from '../../api/endpoints/transformer';
 import Screen from '../../components/Screen';
 
 /**
@@ -8,7 +8,7 @@ import Screen from '../../components/Screen';
  * @returns
  */
 const MerchantAuthentication = () => {
-  const { data } = useGetCertificationInfo();
+  const { data } = useOtcGetCertificationInfo();
 
   const otcCertification = data?.data?.otcCertification;
   const isAuthentication = otcCertification?.idCertify === '1';

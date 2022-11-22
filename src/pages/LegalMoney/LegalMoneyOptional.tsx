@@ -22,11 +22,10 @@ import {
   useOtcCreateOrder,
 } from '../../api/endpoints/transformer';
 import { OtcFindAdListItem } from '../../api/model';
-
+import OptionalListItem from '../../components/OptionalListItem';
 import LegalMoneyHeader from './LegalMoneyHeader';
 import OptionalBuySellDialog from './OptionalBuySellDialog';
 import OptionalCurrencies from './OptionalCurrencies';
-import OptionalListItem from './OptionalListItem';
 
 const filterPayWays = [
   {

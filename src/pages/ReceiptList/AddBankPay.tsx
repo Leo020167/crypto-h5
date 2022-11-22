@@ -1,6 +1,6 @@
 import { Button, Form, Input, Toast } from 'antd-mobile';
 import { useCallback, useState } from 'react';
-import { useHistory, useLocation } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import { StringParam, useQueryParam, withDefault } from 'use-query-params';
 import { useOtcPaymentSave } from '../../api/endpoints/transformer';
@@ -11,21 +11,20 @@ const ReceiptTypeParam = withDefault(StringParam, '3');
 
 const AddBankPay = () => {
   const [receiptType] = useQueryParam('receiptType', ReceiptTypeParam);
+  const [from] = useQueryParam('from', StringParam);
 
   const [name, setName] = useState<string>();
   const [bankNumber, setBankNumber] = useState<string>();
   const [bankName, setBankName] = useState<string>();
 
   const history = useHistory();
-  const location = useLocation<{ from: string }>();
-  const from = location.state?.from;
 
   const otcPaymentSave = useOtcPaymentSave({
     mutation: {
       onSuccess(data) {
         if (data.code === '200') {
           Toast.show(data.msg);
-          history.replace(from);
+          if (from) history.replace(from);
         }
       },
     },

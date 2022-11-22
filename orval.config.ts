@@ -14,7 +14,22 @@ export default defineConfig({
           name: 'customInstance',
         },
         operations: {
-          getCertificationInfo: {
+          otcGetMyAdInfo: {
+            query: {
+              useQuery: true,
+            },
+          },
+          otcGetAdPrice: {
+            query: {
+              useQuery: true,
+            },
+          },
+          otcFindMyAdList: {
+            query: {
+              useQuery: true,
+            },
+          },
+          otcGetCertificationInfo: {
             query: {
               useQuery: true,
             },

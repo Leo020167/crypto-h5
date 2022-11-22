@@ -5,9 +5,186 @@ info:
 servers:
   - url: http://api.piglobalexchanges.com
 paths:
+  /otc/myad/delMyAd.do:
+    post:
+      operationId: 'otcDelMyAd'
+      description: '获取广告详情信息'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                adId:
+                  type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/CommonResponse'
+
+  /otc/myad/getMyAdInfo.do:
+    post:
+      operationId: 'otcGetMyAdInfo'
+      description: '获取广告详情信息'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                adId:
+                  type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/CommonResponse'
+                  - properties:
+                      data:
+                        $ref: '#/components/schemas/AdItem'
+
+  /otc/myad/setOnline.do:
+    post:
+      operationId: 'otcSetOnline'
+      description: '设置上下架'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                adId:
+                  type: string
+                online:
+                  type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/CommonResponse'
+
+  /otc/myad/updateMyAd.do:
+    post:
+      operationId: 'otcUpdateMyAd'
+      description: '商家发布广告'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                adId:
+                  type: string
+                amount:
+                  type: string
+                buySell:
+                  type: string
+                content:
+                  type: string
+                maxCny:
+                  type: string
+                minCny:
+                  type: string
+                payWay:
+                  type: string
+                price:
+                  type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/CommonResponse'
+  /otc/myad/addMyAd.do:
+    post:
+      operationId: 'otcAddMyAd'
+      description: '商家发布广告'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                amount:
+                  type: string
+                buySell:
+                  type: string
+                content:
+                  type: string
+                maxCny:
+                  type: string
+                minCny:
+                  type: string
+                payWay:
+                  type: string
+                price:
+                  type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/CommonResponse'
+
+  /otc/myad/getAdPrice.do:
+    post:
+      operationId: 'otcGetAdPrice'
+      description: '获取当前最大价格或最小价格'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                buySell:
+                  type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/CommonResponse'
+                  - properties:
+                      data:
+                        type: object
+                        properties:
+                          price:
+                            type: string
+
+  /otc/myad/findMyAdList.do:
+    post:
+      operationId: 'otcFindMyAdList'
+      description: '获取我的广告列表'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/CommonResponse'
+                  - properties:
+                      data:
+                        type: object
+                        properties:
+                          myAdList:
+                            type: array
+                            items:
+                              $ref: '#/components/schemas/AdItem'
+
   /otc/certification/getCertificationInfo.do:
     post:
-      operationId: 'getCertificationInfo'
+      operationId: 'otcGetCertificationInfo'
       description: '获取商家认证需要信息，包括缴纳保证金'
       responses:
         '200':
@@ -784,6 +961,44 @@ paths:
 
 components:
   schemas:
+    AdItem:
+      type: object
+      properties:
+        adId:
+          type: string
+        amount:
+          type: string
+        buySell:
+          type: string
+        isOnline:
+          type: string
+        isPayAli:
+          type: string
+        isPayBank:
+          type: string
+        isPayWx:
+          type: string
+        limitRate:
+          type: string
+        maxCny:
+          type: string
+        minCny:
+          type: string
+        orderNum:
+          type: string
+        payWay:
+          type: string
+        price:
+          type: string
+        timeLimit:
+          type: string
+        userId:
+          type: string
+        userLogo:
+          type: string
+        userName:
+          type: string
+
     Certification:
       type: object
       properties:

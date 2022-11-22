@@ -1,6 +1,7 @@
 import { Button, Dialog, List, Toast } from 'antd-mobile';
+import { stringify } from 'query-string';
 import { useMemo } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 import { useOtcFindMyPaymentList, useOtcPaymentDelete } from '../../api/endpoints/transformer';
 import ic_payment_no_data from '../../assets/ic_payment_no_data.png';
 import Screen from '../../components/Screen';
@@ -17,6 +18,7 @@ const Empty = () => (
 // TODO 我的收款方式 1选择我的收款方式
 const ReceiptList = () => {
   const history = useHistory();
+  const location = useLocation();
 
   const { data, refetch } = useOtcFindMyPaymentList();
 
@@ -41,7 +43,12 @@ const ReceiptList = () => {
           <Button
             block
             color="primary"
-            onClick={() => history.push('/add-receipt', { from: '/receipt-list' })}
+            onClick={() =>
+              history.push({
+                pathname: '/add-receipt',
+                search: stringify({ from: location.pathname }),
+              })
+            }
           >
             添加
           </Button>

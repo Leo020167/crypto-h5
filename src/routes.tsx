@@ -9,6 +9,8 @@ import { ReactComponent as HomeTabFollow } from './assets/home_tab_follow.svg';
 import { ReactComponent as HomeTabMarkSvg } from './assets/home_tab_mark.svg';
 import { ReactComponent as HomeTabMineSvg } from './assets/home_tab_mine.svg';
 
+const AddAd = lazy(() => import('./pages/MyAdList/AddAd'));
+const MyAdList = lazy(() => import('./pages/MyAdList'));
 const MerchantAuthentication = lazy(() => import('./pages/MerchantAuthentication'));
 const LegalPay = lazy(() => import('./pages/LegalPay'));
 const OtcAppeal = lazy(() => import('./pages/OtcAppeal'));
@@ -128,6 +130,18 @@ export const Routes = () => {
 
       <Route path="/home">
         <Home />
+      </Route>
+
+      <Route path="/add-ad">
+        <Suspense fallback={<div>Loading...</div>}>
+          <AddAd />
+        </Suspense>
+      </Route>
+
+      <Route path="/my-ad-list">
+        <Suspense fallback={<div>Loading...</div>}>
+          <MyAdList />
+        </Suspense>
       </Route>
 
       <Route path="/merchant-authentication">

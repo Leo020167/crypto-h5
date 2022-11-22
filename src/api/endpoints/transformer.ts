@@ -14,8 +14,17 @@ import type {
   QueryKey,
 } from '@tanstack/react-query';
 import type {
-  GetCertificationInfo200,
   CommonResponse,
+  OtcDelMyAdBody,
+  OtcGetMyAdInfo200,
+  OtcGetMyAdInfoBody,
+  OtcSetOnlineBody,
+  OtcUpdateMyAdBody,
+  OtcAddMyAdBody,
+  OtcGetAdPrice200,
+  OtcGetAdPriceBody,
+  OtcFindMyAdList200,
+  OtcGetCertificationInfo200,
   OtcPaymentDeleteBody,
   OtcPaymentSaveBody,
   OtcSubmitAppealBody,
@@ -68,36 +77,336 @@ import { customInstance } from '../mutator/custom-instance';
 import type { ErrorType } from '../mutator/custom-instance';
 
 /**
+ * 获取广告详情信息
+ */
+export const otcDelMyAd = (otcDelMyAdBody: OtcDelMyAdBody) => {
+  return customInstance<CommonResponse>({
+    url: `/otc/myad/delMyAd.do`,
+    method: 'post',
+    headers: { 'Content-Type': 'application/json' },
+    data: otcDelMyAdBody,
+  });
+};
+
+export type OtcDelMyAdMutationResult = NonNullable<Awaited<ReturnType<typeof otcDelMyAd>>>;
+export type OtcDelMyAdMutationBody = OtcDelMyAdBody;
+export type OtcDelMyAdMutationError = ErrorType<unknown>;
+
+export const useOtcDelMyAd = <TError = ErrorType<unknown>, TContext = unknown>(options?: {
+  mutation?: UseMutationOptions<
+    Awaited<ReturnType<typeof otcDelMyAd>>,
+    TError,
+    { data: OtcDelMyAdBody },
+    TContext
+  >;
+}) => {
+  const { mutation: mutationOptions } = options ?? {};
+
+  const mutationFn: MutationFunction<
+    Awaited<ReturnType<typeof otcDelMyAd>>,
+    { data: OtcDelMyAdBody }
+  > = (props) => {
+    const { data } = props ?? {};
+
+    return otcDelMyAd(data);
+  };
+
+  return useMutation<
+    Awaited<ReturnType<typeof otcDelMyAd>>,
+    TError,
+    { data: OtcDelMyAdBody },
+    TContext
+  >(mutationFn, mutationOptions);
+};
+
+/**
+ * 获取广告详情信息
+ */
+export const otcGetMyAdInfo = (otcGetMyAdInfoBody: OtcGetMyAdInfoBody) => {
+  return customInstance<OtcGetMyAdInfo200>({
+    url: `/otc/myad/getMyAdInfo.do`,
+    method: 'post',
+    headers: { 'Content-Type': 'application/json' },
+    data: otcGetMyAdInfoBody,
+  });
+};
+
+export const getOtcGetMyAdInfoQueryKey = (otcGetMyAdInfoBody: OtcGetMyAdInfoBody) => [
+  `/otc/myad/getMyAdInfo.do`,
+  otcGetMyAdInfoBody,
+];
+
+export type OtcGetMyAdInfoQueryResult = NonNullable<Awaited<ReturnType<typeof otcGetMyAdInfo>>>;
+export type OtcGetMyAdInfoQueryError = ErrorType<unknown>;
+
+export const useOtcGetMyAdInfo = <
+  TData = Awaited<ReturnType<typeof otcGetMyAdInfo>>,
+  TError = ErrorType<unknown>,
+>(
+  otcGetMyAdInfoBody: OtcGetMyAdInfoBody,
+  options?: { query?: UseQueryOptions<Awaited<ReturnType<typeof otcGetMyAdInfo>>, TError, TData> },
+): UseQueryResult<TData, TError> & { queryKey: QueryKey } => {
+  const { query: queryOptions } = options ?? {};
+
+  const queryKey = queryOptions?.queryKey ?? getOtcGetMyAdInfoQueryKey(otcGetMyAdInfoBody);
+
+  const queryFn: QueryFunction<Awaited<ReturnType<typeof otcGetMyAdInfo>>> = () =>
+    otcGetMyAdInfo(otcGetMyAdInfoBody);
+
+  const query = useQuery<Awaited<ReturnType<typeof otcGetMyAdInfo>>, TError, TData>(
+    queryKey,
+    queryFn,
+    queryOptions,
+  ) as UseQueryResult<TData, TError> & { queryKey: QueryKey };
+
+  query.queryKey = queryKey;
+
+  return query;
+};
+
+/**
+ * 设置上下架
+ */
+export const otcSetOnline = (otcSetOnlineBody: OtcSetOnlineBody) => {
+  return customInstance<CommonResponse>({
+    url: `/otc/myad/setOnline.do`,
+    method: 'post',
+    headers: { 'Content-Type': 'application/json' },
+    data: otcSetOnlineBody,
+  });
+};
+
+export type OtcSetOnlineMutationResult = NonNullable<Awaited<ReturnType<typeof otcSetOnline>>>;
+export type OtcSetOnlineMutationBody = OtcSetOnlineBody;
+export type OtcSetOnlineMutationError = ErrorType<unknown>;
+
+export const useOtcSetOnline = <TError = ErrorType<unknown>, TContext = unknown>(options?: {
+  mutation?: UseMutationOptions<
+    Awaited<ReturnType<typeof otcSetOnline>>,
+    TError,
+    { data: OtcSetOnlineBody },
+    TContext
+  >;
+}) => {
+  const { mutation: mutationOptions } = options ?? {};
+
+  const mutationFn: MutationFunction<
+    Awaited<ReturnType<typeof otcSetOnline>>,
+    { data: OtcSetOnlineBody }
+  > = (props) => {
+    const { data } = props ?? {};
+
+    return otcSetOnline(data);
+  };
+
+  return useMutation<
+    Awaited<ReturnType<typeof otcSetOnline>>,
+    TError,
+    { data: OtcSetOnlineBody },
+    TContext
+  >(mutationFn, mutationOptions);
+};
+
+/**
+ * 商家发布广告
+ */
+export const otcUpdateMyAd = (otcUpdateMyAdBody: OtcUpdateMyAdBody) => {
+  return customInstance<CommonResponse>({
+    url: `/otc/myad/updateMyAd.do`,
+    method: 'post',
+    headers: { 'Content-Type': 'application/json' },
+    data: otcUpdateMyAdBody,
+  });
+};
+
+export type OtcUpdateMyAdMutationResult = NonNullable<Awaited<ReturnType<typeof otcUpdateMyAd>>>;
+export type OtcUpdateMyAdMutationBody = OtcUpdateMyAdBody;
+export type OtcUpdateMyAdMutationError = ErrorType<unknown>;
+
+export const useOtcUpdateMyAd = <TError = ErrorType<unknown>, TContext = unknown>(options?: {
+  mutation?: UseMutationOptions<
+    Awaited<ReturnType<typeof otcUpdateMyAd>>,
+    TError,
+    { data: OtcUpdateMyAdBody },
+    TContext
+  >;
+}) => {
+  const { mutation: mutationOptions } = options ?? {};
+
+  const mutationFn: MutationFunction<
+    Awaited<ReturnType<typeof otcUpdateMyAd>>,
+    { data: OtcUpdateMyAdBody }
+  > = (props) => {
+    const { data } = props ?? {};
+
+    return otcUpdateMyAd(data);
+  };
+
+  return useMutation<
+    Awaited<ReturnType<typeof otcUpdateMyAd>>,
+    TError,
+    { data: OtcUpdateMyAdBody },
+    TContext
+  >(mutationFn, mutationOptions);
+};
+
+/**
+ * 商家发布广告
+ */
+export const otcAddMyAd = (otcAddMyAdBody: OtcAddMyAdBody) => {
+  return customInstance<CommonResponse>({
+    url: `/otc/myad/addMyAd.do`,
+    method: 'post',
+    headers: { 'Content-Type': 'application/json' },
+    data: otcAddMyAdBody,
+  });
+};
+
+export type OtcAddMyAdMutationResult = NonNullable<Awaited<ReturnType<typeof otcAddMyAd>>>;
+export type OtcAddMyAdMutationBody = OtcAddMyAdBody;
+export type OtcAddMyAdMutationError = ErrorType<unknown>;
+
+export const useOtcAddMyAd = <TError = ErrorType<unknown>, TContext = unknown>(options?: {
+  mutation?: UseMutationOptions<
+    Awaited<ReturnType<typeof otcAddMyAd>>,
+    TError,
+    { data: OtcAddMyAdBody },
+    TContext
+  >;
+}) => {
+  const { mutation: mutationOptions } = options ?? {};
+
+  const mutationFn: MutationFunction<
+    Awaited<ReturnType<typeof otcAddMyAd>>,
+    { data: OtcAddMyAdBody }
+  > = (props) => {
+    const { data } = props ?? {};
+
+    return otcAddMyAd(data);
+  };
+
+  return useMutation<
+    Awaited<ReturnType<typeof otcAddMyAd>>,
+    TError,
+    { data: OtcAddMyAdBody },
+    TContext
+  >(mutationFn, mutationOptions);
+};
+
+/**
+ * 获取当前最大价格或最小价格
+ */
+export const otcGetAdPrice = (otcGetAdPriceBody: OtcGetAdPriceBody) => {
+  return customInstance<OtcGetAdPrice200>({
+    url: `/otc/myad/getAdPrice.do`,
+    method: 'post',
+    headers: { 'Content-Type': 'application/json' },
+    data: otcGetAdPriceBody,
+  });
+};
+
+export const getOtcGetAdPriceQueryKey = (otcGetAdPriceBody: OtcGetAdPriceBody) => [
+  `/otc/myad/getAdPrice.do`,
+  otcGetAdPriceBody,
+];
+
+export type OtcGetAdPriceQueryResult = NonNullable<Awaited<ReturnType<typeof otcGetAdPrice>>>;
+export type OtcGetAdPriceQueryError = ErrorType<unknown>;
+
+export const useOtcGetAdPrice = <
+  TData = Awaited<ReturnType<typeof otcGetAdPrice>>,
+  TError = ErrorType<unknown>,
+>(
+  otcGetAdPriceBody: OtcGetAdPriceBody,
+  options?: { query?: UseQueryOptions<Awaited<ReturnType<typeof otcGetAdPrice>>, TError, TData> },
+): UseQueryResult<TData, TError> & { queryKey: QueryKey } => {
+  const { query: queryOptions } = options ?? {};
+
+  const queryKey = queryOptions?.queryKey ?? getOtcGetAdPriceQueryKey(otcGetAdPriceBody);
+
+  const queryFn: QueryFunction<Awaited<ReturnType<typeof otcGetAdPrice>>> = () =>
+    otcGetAdPrice(otcGetAdPriceBody);
+
+  const query = useQuery<Awaited<ReturnType<typeof otcGetAdPrice>>, TError, TData>(
+    queryKey,
+    queryFn,
+    queryOptions,
+  ) as UseQueryResult<TData, TError> & { queryKey: QueryKey };
+
+  query.queryKey = queryKey;
+
+  return query;
+};
+
+/**
+ * 获取我的广告列表
+ */
+export const otcFindMyAdList = () => {
+  return customInstance<OtcFindMyAdList200>({ url: `/otc/myad/findMyAdList.do`, method: 'post' });
+};
+
+export const getOtcFindMyAdListQueryKey = () => [`/otc/myad/findMyAdList.do`];
+
+export type OtcFindMyAdListQueryResult = NonNullable<Awaited<ReturnType<typeof otcFindMyAdList>>>;
+export type OtcFindMyAdListQueryError = ErrorType<unknown>;
+
+export const useOtcFindMyAdList = <
+  TData = Awaited<ReturnType<typeof otcFindMyAdList>>,
+  TError = ErrorType<unknown>,
+>(options?: {
+  query?: UseQueryOptions<Awaited<ReturnType<typeof otcFindMyAdList>>, TError, TData>;
+}): UseQueryResult<TData, TError> & { queryKey: QueryKey } => {
+  const { query: queryOptions } = options ?? {};
+
+  const queryKey = queryOptions?.queryKey ?? getOtcFindMyAdListQueryKey();
+
+  const queryFn: QueryFunction<Awaited<ReturnType<typeof otcFindMyAdList>>> = () =>
+    otcFindMyAdList();
+
+  const query = useQuery<Awaited<ReturnType<typeof otcFindMyAdList>>, TError, TData>(
+    queryKey,
+    queryFn,
+    queryOptions,
+  ) as UseQueryResult<TData, TError> & { queryKey: QueryKey };
+
+  query.queryKey = queryKey;
+
+  return query;
+};
+
+/**
  * 获取商家认证需要信息，包括缴纳保证金
  */
-export const getCertificationInfo = () => {
-  return customInstance<GetCertificationInfo200>({
+export const otcGetCertificationInfo = () => {
+  return customInstance<OtcGetCertificationInfo200>({
     url: `/otc/certification/getCertificationInfo.do`,
     method: 'post',
   });
 };
 
-export const getGetCertificationInfoQueryKey = () => [`/otc/certification/getCertificationInfo.do`];
+export const getOtcGetCertificationInfoQueryKey = () => [
+  `/otc/certification/getCertificationInfo.do`,
+];
 
-export type GetCertificationInfoQueryResult = NonNullable<
-  Awaited<ReturnType<typeof getCertificationInfo>>
+export type OtcGetCertificationInfoQueryResult = NonNullable<
+  Awaited<ReturnType<typeof otcGetCertificationInfo>>
 >;
-export type GetCertificationInfoQueryError = ErrorType<unknown>;
+export type OtcGetCertificationInfoQueryError = ErrorType<unknown>;
 
-export const useGetCertificationInfo = <
-  TData = Awaited<ReturnType<typeof getCertificationInfo>>,
+export const useOtcGetCertificationInfo = <
+  TData = Awaited<ReturnType<typeof otcGetCertificationInfo>>,
   TError = ErrorType<unknown>,
 >(options?: {
-  query?: UseQueryOptions<Awaited<ReturnType<typeof getCertificationInfo>>, TError, TData>;
+  query?: UseQueryOptions<Awaited<ReturnType<typeof otcGetCertificationInfo>>, TError, TData>;
 }): UseQueryResult<TData, TError> & { queryKey: QueryKey } => {
   const { query: queryOptions } = options ?? {};
 
-  const queryKey = queryOptions?.queryKey ?? getGetCertificationInfoQueryKey();
+  const queryKey = queryOptions?.queryKey ?? getOtcGetCertificationInfoQueryKey();
 
-  const queryFn: QueryFunction<Awaited<ReturnType<typeof getCertificationInfo>>> = () =>
-    getCertificationInfo();
+  const queryFn: QueryFunction<Awaited<ReturnType<typeof otcGetCertificationInfo>>> = () =>
+    otcGetCertificationInfo();
 
-  const query = useQuery<Awaited<ReturnType<typeof getCertificationInfo>>, TError, TData>(
+  const query = useQuery<Awaited<ReturnType<typeof otcGetCertificationInfo>>, TError, TData>(
     queryKey,
     queryFn,
     queryOptions,

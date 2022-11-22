@@ -1,5 +1,6 @@
-import { Popover } from 'antd-mobile';
+import { Popover, Toast } from 'antd-mobile';
 import { useHistory } from 'react-router-dom';
+import { useOtcGetCertificationInfo } from '../../api/endpoints/transformer';
 
 import { ReactComponent as Authentication } from '../../assets/ic_svg_authentication.svg';
 import { ReactComponent as LegalMoreSvg } from '../../assets/ic_svg_legal_more.svg';
@@ -8,10 +9,24 @@ import { ReactComponent as ReceiptManager } from '../../assets/ic_svg_receipt_ma
 
 const LegalMore = () => {
   const history = useHistory();
+
+  const { data } = useOtcGetCertificationInfo();
+
   return (
     <Popover.Menu
       actions={[
-        { key: 'scan1', icon: <MyPublish className="h-5" />, text: '我的廣告' },
+        {
+          key: 'scan1',
+          icon: <MyPublish className="h-5" />,
+          text: '我的廣告',
+          onClick() {
+            if (data?.data?.otcCertification) {
+              history.push('/my-ad-list');
+            } else {
+              Toast.show('請先進行商家認證');
+            }
+          },
+        },
         {
           key: 'scan2',
           icon: <Authentication className="h-5" />,

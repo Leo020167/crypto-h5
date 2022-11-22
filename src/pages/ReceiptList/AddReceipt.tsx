@@ -25,15 +25,10 @@ const AddReceipt = () => {
               if (receiptType === 1 || receiptType === 2) {
                 // TODO AddAliPayAndWechatPayActivity
               } else if (receiptType === 3) {
-                history.push(
-                  {
-                    pathname: '/add-bank-pay',
-                    search: stringify({ receiptType }),
-                  },
-                  {
-                    from,
-                  },
-                );
+                history.push({
+                  pathname: '/add-bank-pay',
+                  search: stringify({ receiptType, from }),
+                });
               } else {
                 Toast.show('未知類型');
               }
