@@ -14,10 +14,13 @@ import type {
   QueryKey,
 } from '@tanstack/react-query';
 import type {
+  CommonResponse,
+  OtcSubmitAppealBody,
+  OtcGetInitAppealList200,
+  OtcGetInitAppealListBody,
   ToPayOrderResponse,
   OtcToMarkPayOrderSuccessBody,
   OtcToPayOrderBody,
-  CommonResponse,
   OtcCancelOrderBody,
   OtcGetOrderDetailResponse,
   OtcGetOrderDetailBody,
@@ -60,6 +63,100 @@ import type {
 } from '../model';
 import { customInstance } from '../mutator/custom-instance';
 import type { ErrorType } from '../mutator/custom-instance';
+
+/**
+ * 出售者权限操作【出售】第2步：点击“申诉”按钮
+ */
+export const otcSubmitAppeal = (otcSubmitAppealBody: OtcSubmitAppealBody) => {
+  return customInstance<CommonResponse>({
+    url: `/otc/mainad/submitAppeal.do`,
+    method: 'post',
+    headers: { 'Content-Type': 'application/json' },
+    data: otcSubmitAppealBody,
+  });
+};
+
+export type OtcSubmitAppealMutationResult = NonNullable<
+  Awaited<ReturnType<typeof otcSubmitAppeal>>
+>;
+export type OtcSubmitAppealMutationBody = OtcSubmitAppealBody;
+export type OtcSubmitAppealMutationError = ErrorType<unknown>;
+
+export const useOtcSubmitAppeal = <TError = ErrorType<unknown>, TContext = unknown>(options?: {
+  mutation?: UseMutationOptions<
+    Awaited<ReturnType<typeof otcSubmitAppeal>>,
+    TError,
+    { data: OtcSubmitAppealBody },
+    TContext
+  >;
+}) => {
+  const { mutation: mutationOptions } = options ?? {};
+
+  const mutationFn: MutationFunction<
+    Awaited<ReturnType<typeof otcSubmitAppeal>>,
+    { data: OtcSubmitAppealBody }
+  > = (props) => {
+    const { data } = props ?? {};
+
+    return otcSubmitAppeal(data);
+  };
+
+  return useMutation<
+    Awaited<ReturnType<typeof otcSubmitAppeal>>,
+    TError,
+    { data: OtcSubmitAppealBody },
+    TContext
+  >(mutationFn, mutationOptions);
+};
+
+/**
+ * 获取申诉理由列表
+ */
+export const otcGetInitAppealList = (otcGetInitAppealListBody: OtcGetInitAppealListBody) => {
+  return customInstance<OtcGetInitAppealList200>({
+    url: `/otc/mainad/getInitAppealList.do`,
+    method: 'post',
+    headers: { 'Content-Type': 'application/json' },
+    data: otcGetInitAppealListBody,
+  });
+};
+
+export const getOtcGetInitAppealListQueryKey = (
+  otcGetInitAppealListBody: OtcGetInitAppealListBody,
+) => [`/otc/mainad/getInitAppealList.do`, otcGetInitAppealListBody];
+
+export type OtcGetInitAppealListQueryResult = NonNullable<
+  Awaited<ReturnType<typeof otcGetInitAppealList>>
+>;
+export type OtcGetInitAppealListQueryError = ErrorType<unknown>;
+
+export const useOtcGetInitAppealList = <
+  TData = Awaited<ReturnType<typeof otcGetInitAppealList>>,
+  TError = ErrorType<unknown>,
+>(
+  otcGetInitAppealListBody: OtcGetInitAppealListBody,
+  options?: {
+    query?: UseQueryOptions<Awaited<ReturnType<typeof otcGetInitAppealList>>, TError, TData>;
+  },
+): UseQueryResult<TData, TError> & { queryKey: QueryKey } => {
+  const { query: queryOptions } = options ?? {};
+
+  const queryKey =
+    queryOptions?.queryKey ?? getOtcGetInitAppealListQueryKey(otcGetInitAppealListBody);
+
+  const queryFn: QueryFunction<Awaited<ReturnType<typeof otcGetInitAppealList>>> = () =>
+    otcGetInitAppealList(otcGetInitAppealListBody);
+
+  const query = useQuery<Awaited<ReturnType<typeof otcGetInitAppealList>>, TError, TData>(
+    queryKey,
+    queryFn,
+    queryOptions,
+  ) as UseQueryResult<TData, TError> & { queryKey: QueryKey };
+
+  query.queryKey = queryKey;
+
+  return query;
+};
 
 /**
  * 购买者权限操作【付款】第2步：点击“我已付款成功”按钮

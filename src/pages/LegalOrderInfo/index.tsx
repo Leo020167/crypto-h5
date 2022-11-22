@@ -152,7 +152,17 @@ const LegalOrderInfo = () => {
       if (isBuyer) {
         return (
           <div className="flex p-4">
-            <Button block>申訴</Button>
+            <Button
+              block
+              onClick={() =>
+                navigate({
+                  pathname: '/otc-appeal',
+                  search: stringify({ orderId }),
+                })
+              }
+            >
+              申訴
+            </Button>
           </div>
         );
       } else {

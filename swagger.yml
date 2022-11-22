@@ -5,6 +5,61 @@ info:
 servers:
   - url: http://api.piglobalexchanges.com
 paths:
+  /otc/mainad/submitAppeal.do:
+    post:
+      operationId: 'otcSubmitAppeal'
+      description: '出售者权限操作【出售】第2步：点击“申诉”按钮'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                image1Url:
+                  type: string
+                image2Url:
+                  type: string
+                message:
+                  type: string
+                orderId:
+                  type: string
+                reason:
+                  type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/CommonResponse'
+
+  /otc/mainad/getInitAppealList.do:
+    post:
+      operationId: 'otcGetInitAppealList'
+      description: '获取申诉理由列表'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                orderId:
+                  type: string
+              required:
+                - orderId
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/CommonResponse'
+                  - properties:
+                      data:
+                        type: array
+                        items:
+                          type: string
+
   /otc/mainad/toMarkPayOrderSuccess.do:
     post:
       operationId: 'otcToMarkPayOrderSuccess'

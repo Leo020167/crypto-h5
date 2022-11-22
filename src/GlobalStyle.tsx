@@ -32,6 +32,7 @@ const GlobalStyle = styled.createGlobalStyle`
 
   :root {
     --adm-color-primary: #6277b0;
+    --adm-font-family: AlibabaPuHuiTi;
   }
 
   html,
