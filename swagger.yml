@@ -5,6 +5,32 @@ info:
 servers:
   - url: http://api.piglobalexchanges.com
 paths:
+  /otc/certification/applyForCancellation.do:
+    post:
+      operationId: 'otcCertificationApplyForCancellation'
+      description: '获取广告详情信息'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/CommonResponse'
+
+  /otc/certification/authenticate.do:
+    post:
+      operationId: 'otcCertificationAuthenticate'
+      description: '获取广告详情信息'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/CommonResponse'
+
   /otc/myad/delMyAd.do:
     post:
       operationId: 'otcDelMyAd'

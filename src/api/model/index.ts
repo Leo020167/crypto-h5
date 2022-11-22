@@ -55,6 +55,7 @@ export * from './otcAddMyAd200AllOf';
 export * from './otcAddMyAd200AllOfData';
 export * from './otcAddMyAdBody';
 export * from './otcCancelOrderBody';
+export * from './otcCertificationAuthenticateBody';
 export * from './otcConfigResponse';
 export * from './otcConfigResponseAllOf';
 export * from './otcConfigResponseAllOfData';

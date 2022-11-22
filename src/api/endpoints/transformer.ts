@@ -79,6 +79,96 @@ import type { ErrorType } from '../mutator/custom-instance';
 /**
  * 获取广告详情信息
  */
+export const otcCertificationApplyForCancellation = () => {
+  return customInstance<CommonResponse>({
+    url: `/otc/certification/applyForCancellation.do`,
+    method: 'post',
+  });
+};
+
+export type OtcCertificationApplyForCancellationMutationResult = NonNullable<
+  Awaited<ReturnType<typeof otcCertificationApplyForCancellation>>
+>;
+
+export type OtcCertificationApplyForCancellationMutationError = ErrorType<unknown>;
+
+export const useOtcCertificationApplyForCancellation = <
+  TError = ErrorType<unknown>,
+  TVariables = void,
+  TContext = unknown,
+>(options?: {
+  mutation?: UseMutationOptions<
+    Awaited<ReturnType<typeof otcCertificationApplyForCancellation>>,
+    TError,
+    TVariables,
+    TContext
+  >;
+}) => {
+  const { mutation: mutationOptions } = options ?? {};
+
+  const mutationFn: MutationFunction<
+    Awaited<ReturnType<typeof otcCertificationApplyForCancellation>>,
+    TVariables
+  > = () => {
+    return otcCertificationApplyForCancellation();
+  };
+
+  return useMutation<
+    Awaited<ReturnType<typeof otcCertificationApplyForCancellation>>,
+    TError,
+    TVariables,
+    TContext
+  >(mutationFn, mutationOptions);
+};
+
+/**
+ * 获取广告详情信息
+ */
+export const otcCertificationAuthenticate = () => {
+  return customInstance<CommonResponse>({
+    url: `/otc/certification/authenticate.do`,
+    method: 'post',
+  });
+};
+
+export type OtcCertificationAuthenticateMutationResult = NonNullable<
+  Awaited<ReturnType<typeof otcCertificationAuthenticate>>
+>;
+
+export type OtcCertificationAuthenticateMutationError = ErrorType<unknown>;
+
+export const useOtcCertificationAuthenticate = <
+  TError = ErrorType<unknown>,
+  TVariables = void,
+  TContext = unknown,
+>(options?: {
+  mutation?: UseMutationOptions<
+    Awaited<ReturnType<typeof otcCertificationAuthenticate>>,
+    TError,
+    TVariables,
+    TContext
+  >;
+}) => {
+  const { mutation: mutationOptions } = options ?? {};
+
+  const mutationFn: MutationFunction<
+    Awaited<ReturnType<typeof otcCertificationAuthenticate>>,
+    TVariables
+  > = () => {
+    return otcCertificationAuthenticate();
+  };
+
+  return useMutation<
+    Awaited<ReturnType<typeof otcCertificationAuthenticate>>,
+    TError,
+    TVariables,
+    TContext
+  >(mutationFn, mutationOptions);
+};
+
+/**
+ * 获取广告详情信息
+ */
 export const otcDelMyAd = (otcDelMyAdBody: OtcDelMyAdBody) => {
   return customInstance<CommonResponse>({
     url: `/otc/myad/delMyAd.do`,
