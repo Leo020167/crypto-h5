@@ -10,5 +10,5 @@ export type OtcCreateOrderBody = {
   amount: string;
   buySell: string;
   price: string;
-  showReceiptType?: number;
+  showReceiptType?: string;
 };

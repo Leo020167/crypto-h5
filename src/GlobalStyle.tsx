@@ -59,6 +59,10 @@ const GlobalStyle = styled.createGlobalStyle`
     color: #2a3654;
   }
 
+  .adm-list-default .adm-list-body {
+    border: 0;
+  }
+
   .adm-form {
     .adm-input-element {
       padding: 0 1rem;

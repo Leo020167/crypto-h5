@@ -9,6 +9,7 @@ import { ReactComponent as HomeTabFollow } from './assets/home_tab_follow.svg';
 import { ReactComponent as HomeTabMarkSvg } from './assets/home_tab_mark.svg';
 import { ReactComponent as HomeTabMineSvg } from './assets/home_tab_mine.svg';
 
+const MerchantAuthentication = lazy(() => import('./pages/MerchantAuthentication'));
 const LegalPay = lazy(() => import('./pages/LegalPay'));
 const OtcAppeal = lazy(() => import('./pages/OtcAppeal'));
 const LegalOrderInfo = lazy(() => import('./pages/LegalOrderInfo'));
@@ -127,6 +128,12 @@ export const Routes = () => {
 
       <Route path="/home">
         <Home />
+      </Route>
+
+      <Route path="/merchant-authentication">
+        <Suspense fallback={<div>Loading...</div>}>
+          <MerchantAuthentication />
+        </Suspense>
       </Route>
 
       <Route path="/settings">

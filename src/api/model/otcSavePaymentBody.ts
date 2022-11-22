@@ -5,13 +5,11 @@
  * OpenAPI spec version: 1.0
  */
 
-export interface Receipt {
+export type OtcSavePaymentBody = {
   bankName?: string;
   paymentId?: string;
-  receiptLogo?: string;
+  qrCodeUrl?: string;
   receiptName?: string;
   receiptNo?: string;
   receiptType?: string;
-  receiptTypeValue?: string;
-  sort?: string;
-}
+};

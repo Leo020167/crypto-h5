@@ -14,7 +14,10 @@ import type {
   QueryKey,
 } from '@tanstack/react-query';
 import type {
+  GetCertificationInfo200,
   CommonResponse,
+  OtcPaymentDeleteBody,
+  OtcPaymentSaveBody,
   OtcSubmitAppealBody,
   OtcGetInitAppealList200,
   OtcGetInitAppealListBody,
@@ -63,6 +66,135 @@ import type {
 } from '../model';
 import { customInstance } from '../mutator/custom-instance';
 import type { ErrorType } from '../mutator/custom-instance';
+
+/**
+ * 获取商家认证需要信息，包括缴纳保证金
+ */
+export const getCertificationInfo = () => {
+  return customInstance<GetCertificationInfo200>({
+    url: `/otc/certification/getCertificationInfo.do`,
+    method: 'post',
+  });
+};
+
+export const getGetCertificationInfoQueryKey = () => [`/otc/certification/getCertificationInfo.do`];
+
+export type GetCertificationInfoQueryResult = NonNullable<
+  Awaited<ReturnType<typeof getCertificationInfo>>
+>;
+export type GetCertificationInfoQueryError = ErrorType<unknown>;
+
+export const useGetCertificationInfo = <
+  TData = Awaited<ReturnType<typeof getCertificationInfo>>,
+  TError = ErrorType<unknown>,
+>(options?: {
+  query?: UseQueryOptions<Awaited<ReturnType<typeof getCertificationInfo>>, TError, TData>;
+}): UseQueryResult<TData, TError> & { queryKey: QueryKey } => {
+  const { query: queryOptions } = options ?? {};
+
+  const queryKey = queryOptions?.queryKey ?? getGetCertificationInfoQueryKey();
+
+  const queryFn: QueryFunction<Awaited<ReturnType<typeof getCertificationInfo>>> = () =>
+    getCertificationInfo();
+
+  const query = useQuery<Awaited<ReturnType<typeof getCertificationInfo>>, TError, TData>(
+    queryKey,
+    queryFn,
+    queryOptions,
+  ) as UseQueryResult<TData, TError> & { queryKey: QueryKey };
+
+  query.queryKey = queryKey;
+
+  return query;
+};
+
+/**
+ * 刪除收款方式
+ */
+export const otcPaymentDelete = (otcPaymentDeleteBody: OtcPaymentDeleteBody) => {
+  return customInstance<CommonResponse>({
+    url: `/otc/payment/delete.do`,
+    method: 'post',
+    headers: { 'Content-Type': 'application/json' },
+    data: otcPaymentDeleteBody,
+  });
+};
+
+export type OtcPaymentDeleteMutationResult = NonNullable<
+  Awaited<ReturnType<typeof otcPaymentDelete>>
+>;
+export type OtcPaymentDeleteMutationBody = OtcPaymentDeleteBody;
+export type OtcPaymentDeleteMutationError = ErrorType<unknown>;
+
+export const useOtcPaymentDelete = <TError = ErrorType<unknown>, TContext = unknown>(options?: {
+  mutation?: UseMutationOptions<
+    Awaited<ReturnType<typeof otcPaymentDelete>>,
+    TError,
+    { data: OtcPaymentDeleteBody },
+    TContext
+  >;
+}) => {
+  const { mutation: mutationOptions } = options ?? {};
+
+  const mutationFn: MutationFunction<
+    Awaited<ReturnType<typeof otcPaymentDelete>>,
+    { data: OtcPaymentDeleteBody }
+  > = (props) => {
+    const { data } = props ?? {};
+
+    return otcPaymentDelete(data);
+  };
+
+  return useMutation<
+    Awaited<ReturnType<typeof otcPaymentDelete>>,
+    TError,
+    { data: OtcPaymentDeleteBody },
+    TContext
+  >(mutationFn, mutationOptions);
+};
+
+/**
+ * 添加/修改收款方式
+ */
+export const otcPaymentSave = (otcPaymentSaveBody: OtcPaymentSaveBody) => {
+  return customInstance<CommonResponse>({
+    url: `/otc/payment/savePayment.do`,
+    method: 'post',
+    headers: { 'Content-Type': 'application/json' },
+    data: otcPaymentSaveBody,
+  });
+};
+
+export type OtcPaymentSaveMutationResult = NonNullable<Awaited<ReturnType<typeof otcPaymentSave>>>;
+export type OtcPaymentSaveMutationBody = OtcPaymentSaveBody;
+export type OtcPaymentSaveMutationError = ErrorType<unknown>;
+
+export const useOtcPaymentSave = <TError = ErrorType<unknown>, TContext = unknown>(options?: {
+  mutation?: UseMutationOptions<
+    Awaited<ReturnType<typeof otcPaymentSave>>,
+    TError,
+    { data: OtcPaymentSaveBody },
+    TContext
+  >;
+}) => {
+  const { mutation: mutationOptions } = options ?? {};
+
+  const mutationFn: MutationFunction<
+    Awaited<ReturnType<typeof otcPaymentSave>>,
+    { data: OtcPaymentSaveBody }
+  > = (props) => {
+    const { data } = props ?? {};
+
+    return otcPaymentSave(data);
+  };
+
+  return useMutation<
+    Awaited<ReturnType<typeof otcPaymentSave>>,
+    TError,
+    { data: OtcPaymentSaveBody },
+    TContext
+  >(mutationFn, mutationOptions);
+};
 
 /**
  * 出售者权限操作【出售】第2步：点击“申诉”按钮

@@ -5,6 +5,77 @@ info:
 servers:
   - url: http://api.piglobalexchanges.com
 paths:
+  /otc/certification/getCertificationInfo.do:
+    post:
+      operationId: 'getCertificationInfo'
+      description: '获取商家认证需要信息，包括缴纳保证金'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/CommonResponse'
+                  - properties:
+                      data:
+                        type: object
+                        properties:
+                          otcAdUrl:
+                            type: string
+                          otcCertification:
+                            $ref: '#/components/schemas/Certification'
+
+  /otc/payment/delete.do:
+    post:
+      operationId: 'otcPaymentDelete'
+      description: '刪除收款方式'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                paymentId:
+                  type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/CommonResponse'
+
+  /otc/payment/savePayment.do:
+    post:
+      operationId: 'otcPaymentSave'
+      description: '添加/修改收款方式'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                bankName:
+                  type: string
+                paymentId:
+                  type: string
+                qrCodeUrl:
+                  type: string
+                receiptName:
+                  type: string
+                receiptNo:
+                  type: string
+                receiptType:
+                  type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/CommonResponse'
+
   /otc/mainad/submitAppeal.do:
     post:
       operationId: 'otcSubmitAppeal'
@@ -224,7 +295,7 @@ paths:
                 price:
                   type: string
                 showReceiptType:
-                  type: number
+                  type: string
               required:
                 - adId
                 - amount
@@ -713,6 +784,28 @@ paths:
 
 components:
   schemas:
+    Certification:
+      type: object
+      properties:
+        certNo:
+          type: string
+        createTime:
+          type: string
+        idCertify:
+          type: string
+        limitRate:
+          type: string
+        orderNum:
+          type: string
+        realName:
+          type: string
+        reason:
+          type: string
+        securityDeposit:
+          type: string
+        state:
+          type: string
+
     ToPayOrderResponse:
       allOf:
         - $ref: '#/components/schemas/CommonResponse'
@@ -956,11 +1049,11 @@ components:
         receiptNo:
           type: string
         receiptType:
-          type: number
+          type: string
         receiptTypeValue:
           type: string
         sort:
-          type: number
+          type: string
 
     OtcFindAdListResponse:
       allOf:

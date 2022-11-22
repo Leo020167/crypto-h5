@@ -14,6 +14,11 @@ export default defineConfig({
           name: 'customInstance',
         },
         operations: {
+          getCertificationInfo: {
+            query: {
+              useQuery: true,
+            },
+          },
           otcGetInitAppealList: {
             query: {
               useQuery: true,

@@ -1,11 +1,15 @@
 import { List, Toast } from 'antd-mobile';
+import { stringify } from 'query-string';
 import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
+import { useQueryParam, StringParam } from 'use-query-params';
 import { useOtcFindMyPaymentList } from '../../api/endpoints/transformer';
 import Screen from '../../components/Screen';
 
 const AddReceipt = () => {
   const history = useHistory();
+
+  const [from] = useQueryParam('from', StringParam);
 
   const { data } = useOtcFindMyPaymentList({});
 
@@ -21,7 +25,15 @@ const AddReceipt = () => {
               if (receiptType === 1 || receiptType === 2) {
                 // TODO AddAliPayAndWechatPayActivity
               } else if (receiptType === 3) {
-                history.push('/add-bank-pay');
+                history.push(
+                  {
+                    pathname: '/add-bank-pay',
+                    search: stringify({ receiptType }),
+                  },
+                  {
+                    from,
+                  },
+                );
               } else {
                 Toast.show('未知類型');
               }

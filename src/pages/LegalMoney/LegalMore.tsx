@@ -12,7 +12,14 @@ const LegalMore = () => {
     <Popover.Menu
       actions={[
         { key: 'scan1', icon: <MyPublish className="h-5" />, text: '我的廣告' },
-        { key: 'scan2', icon: <Authentication className="h-5" />, text: '商家确认' },
+        {
+          key: 'scan2',
+          icon: <Authentication className="h-5" />,
+          text: '商家認證',
+          onClick() {
+            history.push('/merchant-authentication');
+          },
+        },
         {
           key: 'scan3',
           icon: <ReceiptManager className="h-5" />,
