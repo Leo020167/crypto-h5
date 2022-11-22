@@ -1,6 +1,6 @@
 import { List, NavBar } from 'antd-mobile';
 import { useMemo } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import { useIdentityGet } from '../../api/endpoints/transformer';
 import id1 from '../../assets/id1.png';
@@ -8,7 +8,7 @@ import id2 from '../../assets/id2.png';
 import { stringDateFormat } from '../../utils/date';
 
 const VerifiedResult = () => {
-  const navigate = useNavigate();
+  const history = useHistory();
 
   const { data } = useIdentityGet();
 
@@ -17,7 +17,7 @@ const VerifiedResult = () => {
   return (
     <Container className="h-screen bg-white">
       <div className="bg-[#1677ff]">
-        <NavBar onBack={() => navigate(-1)}>實名認證中心</NavBar>
+        <NavBar onBack={() => history.goBack()}>實名認證中心</NavBar>
         <div className="flex flex-col items-center justify-center mt-4">
           <div className="w-[128px] h-[104px] identity flex items-center justify-center relative">
             <img alt="" src={id2} className=" w-[90px]" />

@@ -1,6 +1,6 @@
 import { Button, Form, Input, Toast } from 'antd-mobile';
 import { useCallback, useMemo, useRef, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { useIdentityGet, useIdentitySubmit } from '../../api/endpoints/transformer';
 import aPng from '../../assets/a.png';
 import addPng from '../../assets/add.png';
@@ -29,7 +29,7 @@ const Verified = () => {
   const [frontImgFile, setFrontImgFile] = useState<string>();
   const [backImgFile, setBackImgFile] = useState<string>();
 
-  const navigate = useNavigate();
+  const history = useHistory();
 
   const { data } = useIdentityGet({
     query: {
@@ -50,7 +50,7 @@ const Verified = () => {
       onSuccess(data) {
         if (data.code) {
           Toast.show(data.msg);
-          navigate({ pathname: '/my' }, { replace: true });
+          history.replace({ pathname: '/my' });
         }
       },
     },

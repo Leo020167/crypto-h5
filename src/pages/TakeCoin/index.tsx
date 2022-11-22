@@ -3,7 +3,7 @@ import { useAtomValue } from 'jotai';
 import { first } from 'lodash-es';
 import { stringify } from 'query-string';
 import { useState, useMemo, useRef, useCallback } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { useLocation } from 'react-use';
 import styled from 'styled-components';
 import {
@@ -14,7 +14,7 @@ import { userAtom } from '../../atoms';
 import { uploadImage } from '../../utils/upload';
 
 const TakeCoin = () => {
-  const navigate = useNavigate();
+  const history = useHistory();
 
   const user = useAtomValue(userAtom);
   const location = useLocation();
@@ -114,7 +114,7 @@ const TakeCoin = () => {
     } else {
       //如果未通过手机验证
       if (user?.phone) {
-        navigate({
+        history.push({
           pathname: '/phone-auth-code',
           search: stringify({
             type: 1,
@@ -124,17 +124,17 @@ const TakeCoin = () => {
           }),
         });
       } else {
-        navigate('/bind-phone');
+        history.push('/bind-phone');
       }
     }
   }, [
     address,
     amount,
     depositWithdrawLocalSubmit,
+    history,
     image,
     isAuthTakeCoin,
     location.pathname,
-    navigate,
     selectedItem?.fee,
     selectedItem?.type,
     user?.email,
@@ -144,7 +144,7 @@ const TakeCoin = () => {
 
   return (
     <Container className="h-screen bg-white flex flex-col">
-      <NavBar onBack={() => navigate(-1)} right={<Link to="/take-coin-history">记录</Link>}>
+      <NavBar onBack={() => history.goBack()} right={<Link to="/take-coin-history">记录</Link>}>
         提币
       </NavBar>
 

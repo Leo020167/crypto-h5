@@ -1,7 +1,7 @@
 import { Button, Radio, Space, TextArea, Toast } from 'antd-mobile';
 import { stringify } from 'query-string';
 import { useCallback, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import { StringParam, useQueryParam } from 'use-query-params';
 import { useOtcGetInitAppealList, useOtcSubmitAppeal } from '../../api/endpoints/transformer';
@@ -32,21 +32,16 @@ const OtcAppeal = () => {
     },
   );
 
-  const navigate = useNavigate();
+  const history = useHistory();
   const otcSubmitAppeal = useOtcSubmitAppeal({
     mutation: {
       onSuccess(data) {
         if (data.code === '200') {
           Toast.show(data.msg);
-          navigate(
-            {
-              pathname: '/legal-order-info',
-              search: stringify({ orderId }),
-            },
-            {
-              replace: true,
-            },
-          );
+          history.replace({
+            pathname: '/legal-order-info',
+            search: stringify({ orderId }),
+          });
         }
       },
     },

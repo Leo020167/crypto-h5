@@ -1,6 +1,6 @@
 import { TabBar } from 'antd-mobile';
 import { lazy, Suspense } from 'react';
-import { Navigate, Outlet, useLocation, useNavigate } from 'react-router-dom';
+import { Redirect, Route, Switch, useHistory, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { ReactComponent as HomeTabAccount } from './assets/home_tab_account.svg';
@@ -46,7 +46,7 @@ const Settings = lazy(() => import('./pages/Settings'));
 const Captcha = lazy(() => import('./pages/Captcha'));
 const Signup = lazy(() => import('./pages/Signup'));
 const Login = lazy(() => import('./pages/Login'));
-const Home = lazy(() => import('./pages/Home'));
+const HomeIndex = lazy(() => import('./pages/Home'));
 const My = lazy(() => import('./pages/My'));
 
 const tabs = [
@@ -56,40 +56,54 @@ const tabs = [
     icon: <HomeTabSvg className="h-6" />,
   },
   {
-    key: '/todo',
+    key: '/home/todo',
     title: '行情',
     icon: <HomeTabMarkSvg className="h-6" />,
   },
   {
-    key: '/account',
+    key: '/home/account',
     title: '账户',
     icon: <HomeTabAccount className="h-6" />,
   },
   {
-    key: '/community',
+    key: '/home/community',
     title: '社区',
     icon: <HomeTabFollow className="h-6" />,
   },
   {
-    key: '/my',
+    key: '/home/my',
     title: '我的',
     icon: <HomeTabMineSvg className="h-6" />,
   },
 ];
 
-const Layout = () => {
+const Home = () => {
   const location = useLocation();
-  const navigate = useNavigate();
+  const history = useHistory();
   return (
     <Container className="h-screen relative flex flex-col">
       <div className="content flex flex-col">
-        <Outlet />
+        <Switch>
+          <Route path="/home" exact>
+            <Suspense fallback={<div>Loading...</div>}>
+              <HomeIndex />
+            </Suspense>
+          </Route>
+          <Route path="/home/community">
+            <Suspense fallback={<div>Loading...</div>}>
+              <Community />
+            </Suspense>
+          </Route>
+          <Route path="/home/my">
+            <Suspense fallback={<div>Loading...</div>}>
+              <My />
+            </Suspense>
+          </Route>
+        </Switch>
       </div>
       <TabBar
         activeKey={location.pathname}
-        onChange={(key) => {
-          navigate(key);
-        }}
+        onChange={history.push}
         className="layout bottom-0 w-full bg-white"
       >
         {tabs.map((item) => (
@@ -106,331 +120,188 @@ const Container = styled.div`
   }
 `;
 
-export const routes = [
-  {
-    path: '/',
-    element: <Layout />,
-    children: [
-      {
-        index: true,
-        element: <Navigate to="/home" replace />,
-      },
-      {
-        path: 'home',
-        element: (
-          <Suspense fallback={<div>Loading...</div>}>
-            <Home />
-          </Suspense>
-        ),
-      },
-      {
-        path: 'todo',
-        element: 'todo',
-      },
-      {
-        path: 'account',
-        element: 'account',
-      },
-      {
-        path: 'community',
-        element: (
-          <Suspense fallback={<div>Loading...</div>}>
-            <Community />
-          </Suspense>
-        ),
-      },
-      {
-        path: 'my',
-        children: [
-          {
-            index: true,
-            element: (
-              <Suspense fallback={<div>Loading...</div>}>
-                <My />
-              </Suspense>
-            ),
-          },
-          {
-            path: 'settings',
-            children: [
-              {
-                index: true,
-                element: (
-                  <Suspense fallback={<div>Loading...</div>}>
-                    <Settings />
-                  </Suspense>
-                ),
-              },
-              {
-                path: 'account',
-                element: (
-                  <Suspense fallback={<div>Loading...</div>}>
-                    <SettingAccount />
-                  </Suspense>
-                ),
-              },
-            ],
-          },
-          {
-            path: 'personal',
-            element: (
-              <Suspense fallback={<div>Loading...</div>}>
-                <Personal />
-              </Suspense>
-            ),
-          },
-        ],
-      },
-    ],
-  },
-  {
-    path: 'chat',
-    element: (
-      <Suspense fallback={<div>Loading...</div>}>
-        <Chat />
-      </Suspense>
-    ),
-  },
-  {
-    path: 'legal-pay',
-    element: (
-      <Suspense fallback={<div>Loading...</div>}>
-        <LegalPay />
-      </Suspense>
-    ),
-  },
-  {
-    path: 'otc-appeal',
-    element: (
-      <Suspense fallback={<div>Loading...</div>}>
-        <OtcAppeal />
-      </Suspense>
-    ),
-  },
-  {
-    path: 'legal-order-info',
-    element: (
-      <Suspense fallback={<div>Loading...</div>}>
-        <LegalOrderInfo />
-      </Suspense>
-    ),
-  },
-  {
-    path: 'verified',
-    element: (
-      <Suspense fallback={<div>Loading...</div>}>
-        <Verified />
-      </Suspense>
-    ),
-  },
-  {
-    path: 'verified-result',
-    element: (
-      <Suspense fallback={<div>Loading...</div>}>
-        <VerifiedResult />
-      </Suspense>
-    ),
-  },
-  {
-    path: 'transaction-records',
-    element: (
-      <Suspense fallback={<div>Loading...</div>}>
-        <TransactionRecords />
-      </Suspense>
-    ),
-  },
-  {
-    path: 'login',
-    element: (
-      <Suspense fallback={<div>Loading...</div>}>
-        <Login />
-      </Suspense>
-    ),
-  },
-  {
-    path: 'signup',
-    element: (
-      <Suspense fallback={<div>Loading...</div>}>
-        <Signup />
-      </Suspense>
-    ),
-  },
-  {
-    path: 'reset-password',
-    element: (
-      <Suspense fallback={<div>Loading...</div>}>
-        <ResetPassword />
-      </Suspense>
-    ),
-  },
-  {
-    path: 'captcha',
-    element: (
-      <Suspense fallback={<div>Loading...</div>}>
-        <Captcha />
-      </Suspense>
-    ),
-  },
-  {
-    path: 'email-auth',
-    element: (
-      <Suspense fallback={<div>Loading...</div>}>
-        <EmailAuth />
-      </Suspense>
-    ),
-  },
-  {
-    path: 'email-auth-code',
-    element: (
-      <Suspense fallback={<div>Loading...</div>}>
-        <EmailAuthCode />
-      </Suspense>
-    ),
-  },
-  {
-    path: 'bind-email',
-    element: (
-      <Suspense fallback={<div>Loading...</div>}>
-        <BindEmail />
-      </Suspense>
-    ),
-  },
-  {
-    path: 'bind-email-code',
-    element: (
-      <Suspense fallback={<div>Loading...</div>}>
-        <BindEmailCode />
-      </Suspense>
-    ),
-  },
-  {
-    path: 'change-password',
-    element: (
-      <Suspense fallback={<div>Loading...</div>}>
-        <ChangePassword />
-      </Suspense>
-    ),
-  },
-  {
-    path: 'notifications',
-    element: (
-      <Suspense fallback={<div>Loading...</div>}>
-        <Notifications />
-      </Suspense>
-    ),
-  },
-  {
-    path: 'transfer-coin',
-    element: (
-      <Suspense fallback={<div>Loading...</div>}>
-        <TransferCoin />
-      </Suspense>
-    ),
-  },
-  {
-    path: 'transfer-coin-history',
-    element: (
-      <Suspense fallback={<div>Loading...</div>}>
-        <TransferCoinHistory />
-      </Suspense>
-    ),
-  },
-  {
-    path: 'recharge-coin',
-    element: (
-      <Suspense fallback={<div>Loading...</div>}>
-        <RechargeCoin />
-      </Suspense>
-    ),
-  },
-  {
-    path: 'take-coin',
-    element: (
-      <Suspense fallback={<div>Loading...</div>}>
-        <TakeCoin />
-      </Suspense>
-    ),
-  },
-  {
-    path: 'take-coin-history',
-    element: (
-      <Suspense fallback={<div>Loading...</div>}>
-        <TakeCoinHistory />
-      </Suspense>
-    ),
-  },
-  {
-    path: 'take-coin-history-details',
-    element: (
-      <Suspense fallback={<div>Loading...</div>}>
-        <TakeCoinHistoryDetails />
-      </Suspense>
-    ),
-  },
-  {
-    path: 'legal-money',
-    element: (
-      <Suspense fallback={<div>Loading...</div>}>
-        <LegalMoney />
-      </Suspense>
-    ),
-  },
-  {
-    path: 'otc-order-history',
-    element: (
-      <Suspense fallback={<div>Loading...</div>}>
-        <OtcOrderHistory />
-      </Suspense>
-    ),
-  },
-  {
-    path: 'receipt-list',
-    element: (
-      <Suspense fallback={<div>Loading...</div>}>
-        <ReceiptList />
-      </Suspense>
-    ),
-  },
-  {
-    path: 'add-receipt',
-    element: (
-      <Suspense fallback={<div>Loading...</div>}>
-        <AddReceipt />
-      </Suspense>
-    ),
-  },
-  {
-    path: 'add-bank-pay',
-    element: (
-      <Suspense fallback={<div>Loading...</div>}>
-        <AddBankPay />
-      </Suspense>
-    ),
-  },
-  {
-    path: 'recharge',
-    element: (
-      <Suspense fallback={<div>Loading...</div>}>
-        <Recharge />
-      </Suspense>
-    ),
-  },
-  {
-    path: 'bind-phone',
-    element: (
-      <Suspense fallback={<div>Loading...</div>}>
-        <BindPhone />
-      </Suspense>
-    ),
-  },
-  {
-    path: 'phone-auth-code',
-    element: (
-      <Suspense fallback={<div>Loading...</div>}>
-        <PhoneAuthCode />
-      </Suspense>
-    ),
-  },
-];
+export const Routes = () => {
+  return (
+    <Switch>
+      <Redirect path="/" to="/home" exact />
 
-export default routes;
+      <Route path="/home">
+        <Home />
+      </Route>
+
+      <Route path="/settings">
+        <Suspense fallback={<div>Loading...</div>}>
+          <Settings />
+        </Suspense>
+      </Route>
+
+      <Route path="/account">
+        <Suspense fallback={<div>Loading...</div>}>
+          <SettingAccount />
+        </Suspense>
+      </Route>
+      <Route path="/personal">
+        <Suspense fallback={<div>Loading...</div>}>
+          <Personal />
+        </Suspense>
+      </Route>
+      <Route path="/chat">
+        <Suspense fallback={<div>Loading...</div>}>
+          <Chat />
+        </Suspense>
+      </Route>
+      <Route path="/legal-pay">
+        <Suspense fallback={<div>Loading...</div>}>
+          <LegalPay />
+        </Suspense>
+      </Route>
+      <Route path="/otc-appeal">
+        <Suspense fallback={<div>Loading...</div>}>
+          <OtcAppeal />
+        </Suspense>
+      </Route>
+      <Route path="/legal-order-info">
+        <Suspense fallback={<div>Loading...</div>}>
+          <LegalOrderInfo />
+        </Suspense>
+      </Route>
+      <Route path="/verified">
+        <Suspense fallback={<div>Loading...</div>}>
+          <Verified />
+        </Suspense>
+      </Route>
+      <Route path="/verified-result">
+        <Suspense fallback={<div>Loading...</div>}>
+          <VerifiedResult />
+        </Suspense>
+      </Route>
+      <Route path="/transaction-records">
+        <Suspense fallback={<div>Loading...</div>}>
+          <TransactionRecords />
+        </Suspense>
+      </Route>
+      <Route path="/login">
+        <Suspense fallback={<div>Loading...</div>}>
+          <Login />
+        </Suspense>
+      </Route>
+      <Route path="/signup">
+        <Suspense fallback={<div>Loading...</div>}>
+          <Signup />
+        </Suspense>
+      </Route>
+      <Route path="/reset-password">
+        <Suspense fallback={<div>Loading...</div>}>
+          <ResetPassword />
+        </Suspense>
+      </Route>
+      <Route path="/captcha">
+        <Suspense fallback={<div>Loading...</div>}>
+          <Captcha />
+        </Suspense>
+      </Route>
+      <Route path="/email-auth">
+        <Suspense fallback={<div>Loading...</div>}>
+          <EmailAuth />
+        </Suspense>
+      </Route>
+      <Route path="/email-auth-code">
+        <Suspense fallback={<div>Loading...</div>}>
+          <EmailAuthCode />
+        </Suspense>
+      </Route>
+      <Route path="/bind-email">
+        <Suspense fallback={<div>Loading...</div>}>
+          <BindEmail />
+        </Suspense>
+      </Route>
+      <Route path="/bind-email-code">
+        <Suspense fallback={<div>Loading...</div>}>
+          <BindEmailCode />
+        </Suspense>
+      </Route>
+      <Route path="/change-password">
+        <Suspense fallback={<div>Loading...</div>}>
+          <ChangePassword />
+        </Suspense>
+      </Route>
+      <Route path="/notifications">
+        <Suspense fallback={<div>Loading...</div>}>
+          <Notifications />
+        </Suspense>
+      </Route>
+      <Route path="/transfer-coin">
+        <Suspense fallback={<div>Loading...</div>}>
+          <TransferCoin />
+        </Suspense>
+      </Route>
+      <Route path="/transfer-coin-history">
+        <Suspense fallback={<div>Loading...</div>}>
+          <TransferCoinHistory />
+        </Suspense>
+      </Route>
+      <Route path="/recharge-coin">
+        <Suspense fallback={<div>Loading...</div>}>
+          <RechargeCoin />
+        </Suspense>
+      </Route>
+      <Route path="/take-coin">
+        <Suspense fallback={<div>Loading...</div>}>
+          <TakeCoin />
+        </Suspense>
+      </Route>
+      <Route path="/take-coin-history">
+        <Suspense fallback={<div>Loading...</div>}>
+          <TakeCoinHistory />
+        </Suspense>
+      </Route>
+      <Route path="/take-coin-history-details">
+        <Suspense fallback={<div>Loading...</div>}>
+          <TakeCoinHistoryDetails />
+        </Suspense>
+      </Route>
+      <Route path="/legal-money" exact>
+        <Suspense fallback={<div>Loading...</div>}>
+          <LegalMoney />
+        </Suspense>
+      </Route>
+      <Route path="/otc-order-history">
+        <Suspense fallback={<div>Loading...</div>}>
+          <OtcOrderHistory />
+        </Suspense>
+      </Route>
+      <Route path="/receipt-list">
+        <Suspense fallback={<div>Loading...</div>}>
+          <ReceiptList />
+        </Suspense>
+      </Route>
+      <Route path="/add-receipt">
+        <Suspense fallback={<div>Loading...</div>}>
+          <AddReceipt />
+        </Suspense>
+      </Route>
+      <Route path="/add-bank-pay">
+        <Suspense fallback={<div>Loading...</div>}>
+          <AddBankPay />
+        </Suspense>
+      </Route>
+      <Route path="/recharge">
+        <Suspense fallback={<div>Loading...</div>}>
+          <Recharge />
+        </Suspense>
+      </Route>
+      <Route path="/bind-phone">
+        <Suspense fallback={<div>Loading...</div>}>
+          <BindPhone />
+        </Suspense>
+      </Route>
+      <Route path="/phone-auth-code">
+        <Suspense fallback={<div>Loading...</div>}>
+          <PhoneAuthCode />
+        </Suspense>
+      </Route>
+    </Switch>
+  );
+};
+
+export default Routes;

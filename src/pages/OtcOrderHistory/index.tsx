@@ -2,7 +2,7 @@ import { useInfiniteQuery } from '@tanstack/react-query';
 import { Button, Dropdown, DropdownRef, Grid, List, Selector } from 'antd-mobile';
 import { stringify } from 'query-string';
 import { useMemo, useRef, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { getOtcFindOrderListQueryKey, otcFindOrderList } from '../../api/endpoints/transformer';
 import { OtcOrderListItem } from '../../api/model/otcOrderListItem';
 import ScreenWithInfiniteScroll from '../../components/ScreenWithInfiniteScroll';
@@ -44,7 +44,7 @@ const OtcOrderHistory = () => {
 
   const [buySell, setBuySell] = useState<string[]>([]);
 
-  const navigate = useNavigate();
+  const history = useHistory();
 
   return (
     <ScreenWithInfiniteScroll
@@ -113,7 +113,7 @@ const OtcOrderHistory = () => {
             key={item.orderId}
             arrow={null}
             onClick={() => {
-              navigate({
+              history.push({
                 pathname: '/legal-order-info',
                 search: stringify({ orderId: item.orderId }),
               });

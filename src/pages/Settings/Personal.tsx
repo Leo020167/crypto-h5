@@ -2,7 +2,7 @@ import { Input, List, Modal, NavBar, TextArea, Toast } from 'antd-mobile';
 import { CheckOutline } from 'antd-mobile-icons';
 import { useAtom } from 'jotai';
 import { useCallback, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 
 import defaultHead from '../../assets/ic_default_head.png';
@@ -11,7 +11,7 @@ import { userAtom } from '../../atoms';
 import { userUpdateUserInfo } from '../../utils/api';
 
 const Personal = () => {
-  const navigate = useNavigate();
+  const history = useHistory();
   const [user, setUser] = useAtom(userAtom);
 
   const [holderUserName, setHolderUserName] = useState<string>(user?.userName ?? '');
@@ -29,15 +29,15 @@ const Personal = () => {
         setUser({ ...user, ...res.data });
 
         Toast.show('更新信息成功');
-        navigate('/my', { replace: true });
+        history.replace('/my');
       }
     });
-  }, [describes, navigate, setUser, sex, user, userName]);
+  }, [describes, history, setUser, sex, user, userName]);
 
   return (
     <Container className="bg-[#F0F1F7] h-full">
       <NavBar
-        onBack={() => navigate(-1)}
+        onBack={() => history.goBack()}
         className="bg-white mb-2"
         right={
           <div className="flex justify-end">

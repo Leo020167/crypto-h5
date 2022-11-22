@@ -1,6 +1,6 @@
 import { NavBar, NavBarProps } from 'antd-mobile';
 import React, { useCallback } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 interface ScreenProps {
   headerTitle?: React.ReactNode;
@@ -10,8 +10,8 @@ interface ScreenProps {
 }
 
 const Screen = ({ headerTitle, navBarProps = {}, children, footer }: ScreenProps) => {
-  const navigate = useNavigate();
-  const handleBack = useCallback(() => navigate(-1), [navigate]);
+  const history = useHistory();
+  const handleBack = useCallback(() => history.goBack(), [history]);
   return (
     <div className="flex flex-col h-screen w-screen bg-white">
       <NavBar onBack={handleBack} {...navBarProps}>

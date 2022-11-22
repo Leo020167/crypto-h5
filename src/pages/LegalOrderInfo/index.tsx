@@ -2,7 +2,7 @@ import { Button, List, Toast } from 'antd-mobile';
 import { useAtomValue } from 'jotai';
 import { stringify } from 'query-string';
 import { useCallback, useMemo } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import { StringParam, useQueryParam } from 'use-query-params';
 import { useOtcCancelOrder, useOtcGetOrderDetail } from '../../api/endpoints/transformer';
@@ -108,7 +108,7 @@ const LegalOrderInfo = () => {
         };
   }, [isBuyer]);
 
-  const navigate = useNavigate();
+  const history = useHistory();
 
   const footer = useMemo(() => {
     if (order?.state === OtcOrderState.wait) {
@@ -123,7 +123,7 @@ const LegalOrderInfo = () => {
               color="primary"
               className="ml-4"
               onClick={() => {
-                navigate({
+                history.push({
                   pathname: '/legal-pay',
                   search: stringify({
                     orderId,
@@ -155,7 +155,7 @@ const LegalOrderInfo = () => {
             <Button
               block
               onClick={() =>
-                navigate({
+                history.push({
                   pathname: '/otc-appeal',
                   search: stringify({ orderId }),
                 })
@@ -175,7 +175,7 @@ const LegalOrderInfo = () => {
     }
 
     return null;
-  }, [isBuyer, navigate, order?.showUserId, order?.state, orderId, receipt?.paymentId, setAction]);
+  }, [history, isBuyer, order?.showUserId, order?.state, orderId, receipt.paymentId, setAction]);
 
   const handleTimeout = useCallback(() => {
     Toast.show('訂單已經超時');

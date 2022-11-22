@@ -1,5 +1,5 @@
 import { Form, NavBar, Toast } from 'antd-mobile';
-import { useNavigate } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import Password from '../../../components/Password';
 import { ChangePasswordInput } from '../../../model';
@@ -7,7 +7,7 @@ import { updateUserPass } from '../../../utils/api';
 import { validPassword } from '../../../utils/validation';
 
 const ChangePassword = () => {
-  const navigate = useNavigate();
+  const history = useHistory();
 
   const [form] = Form.useForm();
 
@@ -15,7 +15,7 @@ const ChangePassword = () => {
     <Container className="h-screen bg-[#f0f1f5]">
       <NavBar
         className="mb-2 bg-white"
-        onBack={() => navigate(-1)}
+        onBack={() => history.goBack()}
         right={
           <a
             onClick={() => {
@@ -33,7 +33,7 @@ const ChangePassword = () => {
                   Toast.show(res.msg);
 
                   if (res.code === '200') {
-                    navigate(-1);
+                    history.goBack();
                   }
                 });
               });

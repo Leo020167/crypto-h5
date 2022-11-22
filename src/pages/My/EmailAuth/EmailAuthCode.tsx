@@ -1,24 +1,24 @@
 import { Button, Form, Input, NavBar, Toast } from 'antd-mobile';
 import qs from 'qs';
-import { useCallback, useEffect, useMemo, useRef } from 'react';
-import { useNavigate, useSearchParams } from 'react-router-dom';
+import { useCallback, useEffect, useRef } from 'react';
+import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
+import { NumberParam, StringParam, useQueryParam, withDefault } from 'use-query-params';
 import { checkEmailCode, getEmail } from '../../../utils/api';
 
+const ModeParam = withDefault(NumberParam, 0);
 const EmailAuthCode = () => {
-  const navigate = useNavigate();
+  const history = useHistory();
 
-  const [searchParams] = useSearchParams();
-
-  const mode = Number(searchParams.get('mode') ?? 0);
-  const email = useMemo(() => searchParams.get('email') ?? '', [searchParams]);
+  const [mode] = useQueryParam('mode', ModeParam);
+  const [email] = useQueryParam('email', StringParam);
 
   const mounted = useRef<boolean>(false);
   useEffect(() => {
     if (mounted.current) return;
     mounted.current = true;
 
-    getEmail(email);
+    getEmail(email ?? '');
   }, [email]);
 
   const handleFinish = useCallback(
@@ -28,23 +28,23 @@ const EmailAuthCode = () => {
         return;
       }
 
-      checkEmailCode({ code: values.code, email }).then((res) => {
+      checkEmailCode({ code: values.code, email: email ?? '' }).then((res) => {
         if (res.code === '200') {
           if (mode === 1) {
-            navigate(`/bind-email?${qs.stringify({ email })}`);
+            history.push(`/bind-email?${qs.stringify({ email })}`);
           } else {
             Toast.show('验证成功');
-            navigate(-1);
+            history.goBack();
           }
         }
       });
     },
-    [email, mode, navigate],
+    [email, history, mode],
   );
 
   return (
     <Container className="bg-[#F0F1F7] h-full">
-      <NavBar onBack={() => navigate(-1)} className="bg-white mb-8">
+      <NavBar onBack={() => history.goBack()} className="bg-white mb-8">
         郵箱驗證碼
       </NavBar>
 

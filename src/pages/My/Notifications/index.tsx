@@ -1,7 +1,7 @@
 import { DotLoading, InfiniteScroll, List, NavBar, PullToRefresh } from 'antd-mobile';
 import { sleep } from 'antd-mobile/es/utils/sleep';
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 import defaultHead from '../../../assets/ic_default_head.png';
 
@@ -32,7 +32,7 @@ const InfiniteScrollContent = ({ hasMore }: { hasMore?: boolean }) => {
 };
 
 const NotificationList = () => {
-  const navigate = useNavigate();
+  const history = useHistory();
 
   const [data, setData] = useState<string[]>([]);
   const [hasMore, setHasMore] = useState(true);
@@ -44,7 +44,7 @@ const NotificationList = () => {
 
   return (
     <div>
-      <NavBar onBack={() => navigate(-1)} className="bg-white fixed top-0 w-full z-10">
+      <NavBar onBack={() => history.goBack()} className="bg-white fixed top-0 w-full z-10">
         系统通知
       </NavBar>
       <div className="pt-[45px]">

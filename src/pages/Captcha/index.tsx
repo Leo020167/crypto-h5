@@ -1,14 +1,14 @@
 import { Button, Form, Input, NavBar, Toast } from 'antd-mobile';
 import { useAtom } from 'jotai';
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import { registerAtom, tokenAtom, userAtom } from '../../atoms';
 import SwipeImageValidator from '../../components/SwipeImageValidator';
 import { doSecurityRegister, getSms } from '../../utils/api';
 
 const Captcha = () => {
-  const navigate = useNavigate();
+  const history = useHistory();
   const [register] = useAtom(registerAtom);
 
   const [open, setOpen] = useState(false);
@@ -21,7 +21,7 @@ const Captcha = () => {
     <Container className="h-screen bg-white">
       <NavBar
         onBack={() => {
-          navigate(-1);
+          history.goBack();
         }}
       />
 
@@ -79,7 +79,7 @@ const Captcha = () => {
             if (res.code === '200') {
               setToken(res.data.token);
               setUser(res.data.user);
-              navigate('/home', { replace: true });
+              history.replace('/home');
             }
           });
 

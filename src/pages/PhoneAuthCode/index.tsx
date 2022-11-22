@@ -2,7 +2,7 @@ import { Button, Input, Toast } from 'antd-mobile';
 import { useAtomValue } from 'jotai';
 import { stringify } from 'query-string';
 import { useCallback, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import { withDefault, NumberParam, useQueryParam, StringParam } from 'use-query-params';
 import { useSmsGet, useUserSecurityCheckIdentity } from '../../api/endpoints/transformer';
@@ -44,7 +44,7 @@ const PhoneAuthCode = () => {
 
   const [code, setCode] = useState<string>();
 
-  const navigate = useNavigate();
+  const history = useHistory();
 
   const userSecurityCheckIdentity = useUserSecurityCheckIdentity({
     mutation: {
@@ -55,7 +55,7 @@ const PhoneAuthCode = () => {
             if (email) {
               setEmail(email, 'replace');
             } else {
-              navigate({
+              history.push({
                 pathname: '/bind-email',
                 search: stringify({ type: 1, redirectUrl }),
               });

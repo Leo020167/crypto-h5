@@ -2,7 +2,7 @@ import { List } from 'antd-mobile';
 import { useAtom } from 'jotai';
 import { stringify } from 'qs';
 import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { useMount } from 'react-use';
 import styled from 'styled-components';
 import { useIdentityGet } from '../../api/endpoints/transformer';
@@ -26,7 +26,7 @@ import { userAtom } from '../../atoms';
 import { getHomeMy } from '../../utils/api';
 
 const My = () => {
-  const navigate = useNavigate();
+  const history = useHistory();
   const [user] = useAtom(userAtom);
 
   const [helpCenterUrl, setHelpCenterUrl] = useState<string>('');
@@ -52,7 +52,7 @@ const My = () => {
             <div>
               <div
                 className="font-bold text-xl leading-5 text-[#c1d3155] flex mb-2"
-                onClick={() => navigate('personal')}
+                onClick={() => history.push('personal')}
               >
                 <span>{user?.userName}</span>
                 <img alt="" src={ic_svg_edit} className="ml-2 w-5" />
@@ -95,7 +95,7 @@ const My = () => {
           prefix={<img alt="" src={ic_home_mine_stock} className="w-8 h-8" />}
           arrow={<Arrow />}
           onClick={() => {
-            navigate('/transaction-records');
+            history.push('/transaction-records');
           }}
         >
           交易记录
@@ -107,7 +107,7 @@ const My = () => {
           prefix={<img alt="" src={ic_home_mine_notice} className="w-8 h-8" />}
           arrow={<Arrow />}
           onClick={() => {
-            navigate('/notifications');
+            history.push('/notifications');
           }}
         >
           系统通知
@@ -131,7 +131,7 @@ const My = () => {
           prefix={<img alt="" src={ic_home_mine_kefu} className="w-8 h-8" />}
           arrow={<Arrow />}
           onClick={() => {
-            navigate('/chat');
+            history.push('/chat');
           }}
         >
           客服
@@ -141,7 +141,7 @@ const My = () => {
           prefix={<img alt="" src={ic_home_mine_setting} className="w-8 h-8" />}
           arrow={<Arrow />}
           onClick={() => {
-            navigate('settings');
+            history.push('/settings');
           }}
         >
           设置
@@ -152,9 +152,9 @@ const My = () => {
           arrow={<Arrow />}
           onClick={() => {
             if (identityGet?.data?.identityAuth?.state === '1') {
-              navigate('/verified-result');
+              history.push('/verified-result');
             } else {
-              navigate('/verified');
+              history.push('/verified');
             }
           }}
         >
@@ -166,9 +166,9 @@ const My = () => {
           arrow={<Arrow />}
           onClick={() => {
             if (user?.email) {
-              navigate(`/email-auth?${stringify({ mode: 1 })}`);
+              history.push(`/email-auth?${stringify({ mode: 1 })}`);
             } else {
-              navigate('/bind-email');
+              history.push('/bind-email');
             }
           }}
         >

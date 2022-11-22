@@ -1,6 +1,6 @@
 import { NavBar, PullToRefresh, List, InfiniteScroll, NavBarProps } from 'antd-mobile';
 import { useMemo } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import InfiniteScrollContent from './InfiniteScrollContent';
 
@@ -25,14 +25,14 @@ const ScreenWithInfiniteScroll = ({
   hasMore,
   onRefresh,
 }: ScreenWithInfiniteScrollProps) => {
-  const navigate = useNavigate();
+  const history = useHistory();
 
   const content = useMemo(() => dataSource.map(renderItem), [dataSource, renderItem]);
 
   return (
     <Container className={`bg-white h-screen relative ${className ?? ''}`}>
       <NavBar
-        onBack={() => navigate(-1)}
+        onBack={() => history.goBack()}
         {...navBarProps}
         className="bg-white fixed top-0 w-full z-10"
       >

@@ -1,8 +1,7 @@
 import { NavBar, Swiper, SwiperRef } from 'antd-mobile';
 import { useMemo, useRef, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
-
 import ic_legal_money_0 from '../../assets/ic_legal_money_0.png';
 import ic_legal_money_1 from '../../assets/ic_legal_money_1.png';
 import LegalMoneyQuick from './LegalMoneyQuick';
@@ -41,7 +40,7 @@ const Switch = ({ index, onChange }: SwitchProps) => {
 };
 
 const LegalMoney = () => {
-  const navigate = useNavigate();
+  const history = useHistory();
 
   const [index, setIndex] = useState<0 | 1>(0);
 
@@ -52,7 +51,7 @@ const LegalMoney = () => {
       <div className="bg-[#6175AE]">
         <NavBar
           className="text-white"
-          onBack={() => navigate(-1)}
+          onBack={() => history.goBack()}
           right={
             <div>
               <Switch

@@ -1,5 +1,5 @@
 import { List, Popup } from 'antd-mobile';
-import { useNavigate } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import { useOtcFindMyPaymentList } from '../../api/endpoints/transformer';
 import { Receipt } from '../../api/model';
@@ -19,7 +19,7 @@ const LegalQuickSellDialog = ({ open, onClose, onSelect }: LegalQuickSellDialogP
     },
   });
 
-  const navigate = useNavigate();
+  const history = useHistory();
 
   return (
     <Container visible={open} onClose={onClose} closeOnMaskClick>
@@ -44,7 +44,7 @@ const LegalQuickSellDialog = ({ open, onClose, onSelect }: LegalQuickSellDialogP
               prefix={<img alt="" src={ic_add2} className="w-5 h-5" />}
               key="add"
               onClick={() => {
-                navigate('/add-receipt');
+                history.push('/add-receipt');
               }}
             >
               新增收款方式

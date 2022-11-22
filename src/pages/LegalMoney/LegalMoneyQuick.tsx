@@ -4,7 +4,7 @@ import { atomWithReset } from 'jotai/utils';
 import { first } from 'lodash-es';
 import { stringify } from 'query-string';
 import { useCallback, useRef, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { StringParam, useQueryParam, withDefault } from 'use-query-params';
 import {
   useAccountOutHoldAmount,
@@ -65,7 +65,7 @@ const LegalMoneyQuick = () => {
 
   const { data: identityGet } = useIdentityGet();
 
-  const navigate = useNavigate();
+  const history = useHistory();
 
   const handleFinish = useCallback(() => {
     if (!otcFindAdListItem) return;
@@ -83,18 +83,11 @@ const LegalMoneyQuick = () => {
         content: '帳戶未實名',
         confirmText: '去認證',
         onConfirm() {
-          navigate('/verified');
+          history.push('/verified');
         },
       });
     }
-  }, [
-    amount,
-    identityGet?.data?.identityAuth?.state,
-    navigate,
-    otcFindAdListItem,
-    setAction,
-    type,
-  ]);
+  }, [amount, history, identityGet?.data?.identityAuth?.state, otcFindAdListItem, setAction, type]);
 
   const [receipt, setReceipt] = useState<Receipt>();
 
@@ -203,7 +196,7 @@ const LegalMoneyQuick = () => {
           setAmount('');
           setAction(undefined, 'replaceIn');
 
-          navigate({
+          history.push({
             pathname: '/legal-order-info',
             search: stringify({ orderId }),
           });

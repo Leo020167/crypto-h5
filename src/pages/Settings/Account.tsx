@@ -1,13 +1,13 @@
 import { NavBar, Steps, Toast } from 'antd-mobile';
 import { useMemo, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import { doSecurityLogout } from '../../utils/api';
 import AccountStep1 from './AccountStep1';
 import AccountStep2 from './AccountStep2';
 
 const Account = () => {
-  const navigate = useNavigate();
+  const history = useHistory();
 
   const [current, setCurrent] = useState<number>(0);
 
@@ -24,7 +24,7 @@ const Account = () => {
               doSecurityLogout().then((res) => {
                 if (res.code === '200') {
                   Toast.show('請重新登錄');
-                  navigate('/login', { replace: true });
+                  history.replace('/login');
                 }
               });
             }}
@@ -40,11 +40,11 @@ const Account = () => {
           />
         );
     }
-  }, [current, navigate, oldSmsCode]);
+  }, [current, history, oldSmsCode]);
 
   return (
     <Container className="h-screen bg-white">
-      <NavBar onBack={() => navigate(-1)} className="mb-2">
+      <NavBar onBack={() => history.goBack()} className="mb-2">
         更换手机号码
       </NavBar>
 

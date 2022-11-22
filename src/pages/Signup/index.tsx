@@ -2,7 +2,7 @@ import { Button, Form, Input, NavBar, Toast } from 'antd-mobile';
 import { DownFill } from 'antd-mobile-icons';
 import { useAtom } from 'jotai';
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import { countryAtom, registerAtom } from '../../atoms';
 import AreaList from '../../components/AreaList';
@@ -10,7 +10,7 @@ import { AreaListItem } from '../../model';
 import { validPassword } from '../../utils/validation';
 
 const Signup = () => {
-  const navigate = useNavigate();
+  const history = useHistory();
 
   const [register, setRegister] = useAtom(registerAtom);
   const [country, setCountry] = useAtom(countryAtom);
@@ -29,7 +29,7 @@ const Signup = () => {
     <Container className="h-screen bg-white">
       <NavBar
         onBack={() => {
-          navigate({ pathname: '/login' }, { replace: true });
+          history.replace({ pathname: '/login' });
         }}
       />
 
@@ -57,7 +57,7 @@ const Signup = () => {
               return;
             }
             setRegister({ ...values, countryCode: country.code });
-            navigate('/captcha');
+            history.push('/captcha');
           }}
           footer={
             <div>

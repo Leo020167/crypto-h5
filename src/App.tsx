@@ -3,12 +3,12 @@ import { useAtom, useAtomValue } from 'jotai';
 import { parse, stringify } from 'query-string';
 import { useEffect, useRef, useState } from 'react';
 import { IntlProvider } from 'react-intl';
-import { BrowserRouter, useRoutes } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 import { QueryParamProvider } from 'use-query-params';
-import { ReactRouter6Adapter } from 'use-query-params/adapters/react-router-6';
+import { ReactRouter5Adapter } from 'use-query-params/adapters/react-router-5';
 import GlobalStyle from './GlobalStyle';
+import Routes from './Routes';
 import { localeAtom, tokenAtom, userAtom } from './atoms';
-import routes from './routes';
 import { getUserInfo } from './utils/api';
 
 const queryClient = new QueryClient({
@@ -56,20 +56,15 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <IntlProvider locale={locale} defaultLocale="en" key={locale} messages={messages}>
-        <BrowserRouter>
-          <QueryParamProvider adapter={ReactRouter6Adapter} options={options}>
+        <HashRouter>
+          <QueryParamProvider adapter={ReactRouter5Adapter} options={options}>
             <Routes />
           </QueryParamProvider>
-        </BrowserRouter>
+        </HashRouter>
         <GlobalStyle />
       </IntlProvider>
     </QueryClientProvider>
   );
 }
-
-const Routes = () => {
-  const elements = useRoutes(routes);
-  return elements;
-};
 
 export default App;

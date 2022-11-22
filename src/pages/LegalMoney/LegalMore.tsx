@@ -1,12 +1,13 @@
 import { Popover } from 'antd-mobile';
-import { useNavigate } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
+
 import { ReactComponent as Authentication } from '../../assets/ic_svg_authentication.svg';
 import { ReactComponent as LegalMoreSvg } from '../../assets/ic_svg_legal_more.svg';
 import { ReactComponent as MyPublish } from '../../assets/ic_svg_my_publish.svg';
 import { ReactComponent as ReceiptManager } from '../../assets/ic_svg_receipt_manager.svg';
 
 const LegalMore = () => {
-  const navigate = useNavigate();
+  const history = useHistory();
   return (
     <Popover.Menu
       actions={[
@@ -17,7 +18,7 @@ const LegalMore = () => {
           icon: <ReceiptManager className="h-5" />,
           text: '收款管理',
           onClick() {
-            navigate('/receipt-list');
+            history.push('/receipt-list');
           },
         },
       ]}

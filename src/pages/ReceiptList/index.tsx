@@ -1,5 +1,5 @@
 import { Button } from 'antd-mobile';
-import { useNavigate } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import ic_payment_no_data from '../../assets/ic_payment_no_data.png';
 import Screen from '../../components/Screen';
 
@@ -13,13 +13,13 @@ const Empty = () => (
 );
 
 const ReceiptList = () => {
-  const navigate = useNavigate();
+  const history = useHistory();
   return (
     <Screen
       headerTitle="收款管理"
       footer={
         <div className="px-4 mb-4">
-          <Button block color="primary" onClick={() => navigate('/add-receipt')}>
+          <Button block color="primary" onClick={() => history.push('/add-receipt')}>
             添加
           </Button>
         </div>

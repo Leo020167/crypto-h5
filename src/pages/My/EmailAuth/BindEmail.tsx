@@ -1,14 +1,14 @@
 import { Button, Form, Input, NavBar, Toast } from 'antd-mobile';
 import { stringify } from 'query-string';
 import { useCallback } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import { useQueryParam, StringParam } from 'use-query-params';
 import { getEmail } from '../../../utils/api';
 import { TypeParam } from '../../../utils/params';
 
 const BindEmail = () => {
-  const navigate = useNavigate();
+  const history = useHistory();
 
   const [type] = useQueryParam('type', TypeParam);
   const [email] = useQueryParam('email', StringParam);
@@ -25,19 +25,19 @@ const BindEmail = () => {
         if (res.code === '200') {
           Toast.show(res.msg);
 
-          navigate({
+          history.push({
             pathname: '/bind-email-code',
             search: stringify({ type: type === 1 ? 1 : undefined, email, redirectUrl }),
           });
         }
       });
     },
-    [email, navigate, redirectUrl, type],
+    [email, history, redirectUrl, type],
   );
 
   return (
     <Container className="bg-[#F0F1F7] h-full">
-      <NavBar onBack={() => navigate(-1)} className="bg-white mb-8">
+      <NavBar onBack={() => history.goBack()} className="bg-white mb-8">
         請輸入新郵箱
       </NavBar>
 

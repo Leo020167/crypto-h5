@@ -2,7 +2,7 @@ import { Button, Form, Input, Toast } from 'antd-mobile';
 import { EyeInvisibleOutline, EyeOutline } from 'antd-mobile-icons';
 import { useAtom } from 'jotai';
 import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { useLocation } from 'react-use';
 import styled from 'styled-components';
 import { tokenAtom, userAtom } from '../../atoms';
@@ -18,7 +18,7 @@ const Login = () => {
   const [username, setUsername] = useState<string>('');
   const [password, setPassword] = useState<string>('');
 
-  const navigate = useNavigate();
+  const history = useHistory();
 
   const location = useLocation();
   const from = location.state?.from?.pathname || '/home';
@@ -91,7 +91,7 @@ const Login = () => {
             if (res.code === '200') {
               setToken(res.data.token);
               setUser(res.data.user);
-              navigate(from, { replace: true });
+              history.replace(from);
             }
           });
 

@@ -1,7 +1,7 @@
 import { useInfiniteQuery } from '@tanstack/react-query';
 import { List } from 'antd-mobile';
 import { useMemo } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { depositList, getDepositListQueryKey } from '../../../api/endpoints/transformer';
 import { DepositListResponseAllOfDataAllOfDataItem } from '../../../api/model';
 
@@ -10,7 +10,7 @@ import ScreenWithInfiniteScroll from '../../../components/ScreenWithInfiniteScro
 import { stringDateFormat } from '../../../utils/date';
 
 const TakeCoinHistory = () => {
-  const navigate = useNavigate();
+  const history = useHistory();
 
   const {
     data,
@@ -51,7 +51,7 @@ const TakeCoinHistory = () => {
               </div>
             }
             onClick={() => {
-              navigate('/take-coin-history-details', {
+              history.push('/take-coin-history-details', {
                 state: item,
               });
             }}

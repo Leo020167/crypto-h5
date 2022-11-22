@@ -5,7 +5,7 @@ import { DepositListResponseAllOfDataAllOfDataItem } from '../../../api/model';
 import { stringDateFormat } from '../../../utils/date';
 
 const TakeCoinHistoryDetails = () => {
-  const navigate = useNavigate();
+  const history = useHistory();
 
   const location = useLocation();
 
@@ -13,7 +13,7 @@ const TakeCoinHistoryDetails = () => {
 
   return (
     <Container className="h-screen bg-white">
-      <NavBar onBack={() => navigate(-1)} className="bg-white">
+      <NavBar onBack={() => history.goBack()} className="bg-white">
         详情
       </NavBar>
 

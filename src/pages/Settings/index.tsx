@@ -1,7 +1,7 @@
 import { Dialog, List, NavBar, Toast } from 'antd-mobile';
 import { useAtom } from 'jotai';
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 import { ReactComponent as Arrow } from '../../assets/ic_svg_arrow_2.svg';
 import { tokenAtom, userAtom } from '../../atoms';
@@ -10,7 +10,7 @@ import RefreshRateList from './RefreshRateList';
 import UpAndDownColorList from './UpAndDownColorList';
 
 const Settings = () => {
-  const navigate = useNavigate();
+  const history = useHistory();
   const [, setToken] = useAtom(tokenAtom);
   const [, setUser] = useAtom(userAtom);
 
@@ -19,15 +19,15 @@ const Settings = () => {
 
   return (
     <div>
-      <NavBar onBack={() => navigate(-1)} className="bg-white mb-2">
+      <NavBar onBack={() => history.goBack()} className="bg-white mb-2">
         设置
       </NavBar>
       <List className="mb-2">
-        <List.Item arrow={<Arrow />} onClick={() => navigate('/change-password')}>
+        <List.Item arrow={<Arrow />} onClick={() => history.push('/change-password')}>
           修改密码
         </List.Item>
 
-        <List.Item arrow={<Arrow />} onClick={() => navigate('account')}>
+        <List.Item arrow={<Arrow />} onClick={() => history.push('/account')}>
           绑定手机
         </List.Item>
 
@@ -68,7 +68,7 @@ const Settings = () => {
                 setUser(null);
                 doSecurityLogout();
                 Toast.show('退出成功');
-                navigate('/login', { replace: true });
+                history.replace('/login');
               },
             });
           }}

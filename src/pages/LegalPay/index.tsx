@@ -1,7 +1,7 @@
 import { Button, List, Toast } from 'antd-mobile';
 import { stringify } from 'query-string';
 import { useMemo } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import { StringParam, useQueryParam } from 'use-query-params';
 import {
@@ -54,7 +54,7 @@ const LegalPay = () => {
     [toPayOrder?.data?.orderToPayResult],
   );
 
-  const navigate = useNavigate();
+  const history = useHistory();
 
   const otcToMarkPayOrderSuccess = useOtcToMarkPayOrderSuccess({
     mutation: {
@@ -62,17 +62,12 @@ const LegalPay = () => {
         if (data.code === '200') {
           Toast.show(data.msg);
 
-          navigate(
-            {
-              pathname: '/legal-order-info',
-              search: stringify({
-                orderId,
-              }),
-            },
-            {
-              replace: true,
-            },
-          );
+          history.replace({
+            pathname: '/legal-order-info',
+            search: stringify({
+              orderId,
+            }),
+          });
         }
       },
     },

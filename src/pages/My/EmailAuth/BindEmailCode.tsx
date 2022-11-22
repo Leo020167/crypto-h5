@@ -2,7 +2,7 @@ import { Button, Form, Input, NavBar, Toast } from 'antd-mobile';
 import produce from 'immer';
 import { useAtom } from 'jotai';
 import { useCallback } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import { useQueryParam, StringParam } from 'use-query-params';
 import { userAtom } from '../../../atoms';
@@ -10,7 +10,7 @@ import { updateEmail } from '../../../utils/api';
 import { TypeParam } from '../../../utils/params';
 
 const BindEmailCode = () => {
-  const navigate = useNavigate();
+  const history = useHistory();
 
   const [type] = useQueryParam('type', TypeParam);
   const [email] = useQueryParam('email', StringParam);
@@ -34,21 +34,21 @@ const BindEmailCode = () => {
           );
 
           if (type === 1 && redirectUrl) {
-            navigate({ pathname: redirectUrl }, { replace: true, state: { success: true } });
+            history.replace({ pathname: redirectUrl }, { state: { success: true } });
           } else {
-            navigate('/my', { replace: true });
+            history.replace('/my');
           }
         } else {
           Toast.show(res.msg);
         }
       });
     },
-    [email, navigate, redirectUrl, setUser, type],
+    [email, history, redirectUrl, setUser, type],
   );
 
   return (
     <Container className="bg-[#F0F1F7] h-full">
-      <NavBar onBack={() => navigate(-1)} className="bg-white mb-8">
+      <NavBar onBack={() => history.goBack()} className="bg-white mb-8">
         郵箱驗證碼
       </NavBar>
 

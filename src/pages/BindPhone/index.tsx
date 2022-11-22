@@ -1,6 +1,6 @@
 import { Button, Form, Toast } from 'antd-mobile';
 import { useCallback, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import { useUserSecurityUpdatePhone } from '../../api/endpoints/transformer';
 import CountryPhoneNumber from '../../components/CountryPhoneNumber';
@@ -14,13 +14,13 @@ const BindPhone = () => {
   const [smsCode, setSmsCode] = useState<string>('');
   const [country, setCountry] = useState<Country>({ code: '+852', name: '香港' });
 
-  const navigate = useNavigate();
+  const history = useHistory();
   const userSecurityUpdatePhone = useUserSecurityUpdatePhone({
     mutation: {
       onSuccess(data) {
         if (data.code === '200') {
           Toast.show(data.msg);
-          navigate('/take-coin', { replace: true });
+          history.replace('/take-coin');
         }
       },
     },

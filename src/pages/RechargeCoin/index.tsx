@@ -3,7 +3,7 @@ import { useAtomValue } from 'jotai';
 import { first } from 'lodash-es';
 import { stringify } from 'query-string';
 import { useMemo, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { useCopyToClipboard } from 'react-use';
 import styled from 'styled-components';
 import { useDepositWithdrawGetInfo } from '../../api/endpoints/transformer';
@@ -18,7 +18,7 @@ const download = (image: string) => {
 };
 
 const RechargeCoin = () => {
-  const navigate = useNavigate();
+  const history = useHistory();
 
   const user = useAtomValue(userAtom);
 
@@ -59,7 +59,7 @@ const RechargeCoin = () => {
   return (
     <Container className="h-screen bg-white relative">
       <NavBar
-        onBack={() => navigate(-1)}
+        onBack={() => history.goBack()}
         className="mb-4"
         right={<Link to="/take-coin-history">记录</Link>}
       >
@@ -123,7 +123,7 @@ const RechargeCoin = () => {
           color="primary"
           block
           className="rounded-none"
-          onClick={() => navigate(`/recharge?${stringify({ chainType: selectedItem?.type })}`)}
+          onClick={() => history.push(`/recharge?${stringify({ chainType: selectedItem?.type })}`)}
         >
           充值
         </Button>

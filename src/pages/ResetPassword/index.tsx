@@ -2,7 +2,7 @@ import { Button, Form, Input, NavBar, Toast } from 'antd-mobile';
 import { DownFill } from 'antd-mobile-icons';
 import { useAtom } from 'jotai';
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import { countryAtom } from '../../atoms';
 import AreaList from '../../components/AreaList';
@@ -12,7 +12,7 @@ import { doSecurityForgetPass, getSms } from '../../utils/api';
 import { validPassword } from '../../utils/validation';
 
 const ResetPassword = () => {
-  const navigate = useNavigate();
+  const history = useHistory();
 
   const [country, setCountry] = useAtom(countryAtom);
 
@@ -30,7 +30,7 @@ const ResetPassword = () => {
     <Container className="h-screen bg-white">
       <NavBar
         onBack={() => {
-          navigate({ pathname: '/login' }, { replace: true });
+          history.replace({ pathname: '/login' });
         }}
       />
 
@@ -129,7 +129,7 @@ const ResetPassword = () => {
               Toast.show(res.msg);
 
               if (res.code === '200') {
-                navigate('/login', { replace: true });
+                history.replace('/login');
               }
             })
             .finally(() => {

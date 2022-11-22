@@ -88,7 +88,7 @@ export const userUpdateUserInfo = (data: {
   return apiPost('/user/updateUserInfo.do', data);
 };
 
-export const getEmail = (email: string) => {
+export const getEmail = (email?: string) => {
   return apiPost('/email/get.do', {
     platform: 'web',
     email,

@@ -1,7 +1,7 @@
 import { Input, Toast } from 'antd-mobile';
 import { useAtomValue } from 'jotai';
 import { useCallback, useRef, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import { StringParam, useQueryParam } from 'use-query-params';
 import { useDepositWithdrawLocalSubmit } from '../../api/endpoints/transformer';
@@ -10,7 +10,7 @@ import Screen from '../../components/Screen';
 import { uploadImage } from '../../utils/upload';
 
 const Recharge = () => {
-  const navigate = useNavigate();
+  const history = useHistory();
   const user = useAtomValue(userAtom);
   const [chainType] = useQueryParam('chainType', StringParam);
 
@@ -24,7 +24,7 @@ const Recharge = () => {
       onSuccess(data) {
         if (data.code === '200') {
           Toast.show('提交申請成功');
-          navigate('/recharge-coin', { replace: true });
+          history.replace('/recharge-coin');
         } else {
           Toast.show(data.msg);
         }
