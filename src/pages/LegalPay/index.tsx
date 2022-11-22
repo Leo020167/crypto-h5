@@ -61,11 +61,12 @@ const LegalPay = () => {
       onSuccess(data) {
         if (data.code === '200') {
           Toast.show(data.msg);
+
           navigate(
             {
               pathname: '/legal-order-info',
               search: stringify({
-                orderId: payResult?.orderId,
+                orderId,
               }),
             },
             {

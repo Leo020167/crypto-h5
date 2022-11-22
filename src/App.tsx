@@ -3,7 +3,7 @@ import { useAtom, useAtomValue } from 'jotai';
 import { parse, stringify } from 'query-string';
 import { useEffect, useRef, useState } from 'react';
 import { IntlProvider } from 'react-intl';
-import { HashRouter, useRoutes } from 'react-router-dom';
+import { BrowserRouter, useRoutes } from 'react-router-dom';
 import { QueryParamProvider } from 'use-query-params';
 import { ReactRouter6Adapter } from 'use-query-params/adapters/react-router-6';
 import GlobalStyle from './GlobalStyle';
@@ -56,11 +56,11 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <IntlProvider locale={locale} defaultLocale="en" key={locale} messages={messages}>
-        <HashRouter>
+        <BrowserRouter>
           <QueryParamProvider adapter={ReactRouter6Adapter} options={options}>
             <Routes />
           </QueryParamProvider>
-        </HashRouter>
+        </BrowserRouter>
         <GlobalStyle />
       </IntlProvider>
     </QueryClientProvider>
