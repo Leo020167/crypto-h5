@@ -5,6 +5,52 @@ info:
 servers:
   - url: http://api.piglobalexchanges.com
 paths:
+  /config/all.do:
+    post:
+      operationId: 'allConfig'
+      description: '获取风险率说明、搬砖收益说明、banner、金刚区信息等等'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/AllConfigResponse'
+
+  /account/recordList.do:
+    post:
+      operationId: 'accountRecordList'
+      description: '获取token账户财务记录'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                pageNo:
+                  type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/AccountRecordListResponse'
+
+  /home/account.do:
+    post:
+      operationId: 'homeAccount'
+      description: '账户信息'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/HomeAccountResponse'
+
   /otc/certification/applyForCancellation.do:
     post:
       operationId: 'otcCertificationApplyForCancellation'
@@ -987,6 +1033,194 @@ paths:
 
 components:
   schemas:
+    AllConfigResponse:
+      allOf:
+        - $ref: '#/components/schemas/CommonResponse'
+        - properties:
+            data:
+              type: object
+              properties:
+                banner:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/Banner'
+                miningRateDesc:
+                  type: string
+                riskRateDesc:
+                  type: string
+
+    AccountRecordListResponse:
+      allOf:
+        - $ref: '#/components/schemas/CommonResponse'
+        - properties:
+            data:
+              allOf:
+                - $ref: '#/components/schemas/PaginationResponse'
+                - properties:
+                    data:
+                      type: array
+                      items:
+                        $ref: '#/components/schemas/AccountRecordListItem'
+
+    AccountRecordListItem:
+      type: object
+      properties:
+        accountType:
+          type: string
+        amount:
+          type: string
+        createTime:
+          type: string
+        createTimeMs:
+          type: string
+        id:
+          type: string
+        inOut:
+          type: string
+        lowerUserId:
+          type: string
+        remark:
+          type: string
+        state:
+          type: string
+        type:
+          type: string
+        updateTime:
+          type: string
+
+    HomeAccountResponse:
+      allOf:
+        - $ref: '#/components/schemas/CommonResponse'
+        - properties:
+            data:
+              type: object
+              properties:
+                balanceAccount:
+                  $ref: '#/components/schemas/AccountInfo'
+                banner:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/Banner'
+                digitalAccount:
+                  $ref: '#/components/schemas/AccountInfo'
+                followAccount:
+                  $ref: '#/components/schemas/AccountInfo'
+                spotAccount:
+                  $ref: '#/components/schemas/AccountInfo'
+                stockAccount:
+                  $ref: '#/components/schemas/AccountInfo'
+                tokenAccount:
+                  $ref: '#/components/schemas/AccountInfo'
+                tolAssets:
+                  type: string
+                tolAssetsCny:
+                  type: string
+
+    Banner:
+      type: object
+      properties:
+        bannerId:
+          type: string
+        cls:
+          type: string
+        createTime:
+          type: string
+        downTime:
+          type: string
+        imageUrl:
+          type: string
+        params:
+          type: string
+        pkg:
+          type: string
+        position:
+          type: string
+        pview:
+          type: string
+        sortNum:
+          type: string
+        state:
+          type: string
+        type:
+          type: string
+        upTime:
+          type: string
+        videoUrl:
+          type: string
+
+    AccountInfo:
+      type: object
+      properties:
+        accountType:
+          type: string
+        assets:
+          type: string
+        assetsCny:
+          type: string
+        disableAmount:
+          type: string
+        eableBail:
+          type: string
+        frozenAmount:
+          type: string
+        frozenBail:
+          type: string
+        holdAmount:
+          type: string
+        openBail:
+          type: string
+        openList:
+          $ref: '#/components/schemas/OpenList'
+        profit:
+          type: string
+        riskRate:
+          type: string
+
+    OpenList:
+      type: array
+      items:
+        $ref: '#/components/schemas/Position'
+
+    Position:
+      type: object
+      properties:
+        accountType:
+          type: string
+        accountTypeName:
+          type: string
+        airDropAmount:
+          type: string
+        amount:
+          type: string
+        availableAmount:
+          type: string
+        dvLossRate:
+          type: string
+        dvProfitRate:
+          type: string
+        dvUid:
+          type: string
+        followUid:
+          type: string
+        frozenAmount:
+          type: string
+        openHand:
+          type: string
+        openTime:
+          type: string
+        orderId:
+          type: string
+        price:
+          type: string
+        profit:
+          type: string
+        profitRate:
+          type: string
+        subAmount:
+          type: string
+        symbol:
+          type: string
+
     AdItem:
       type: object
       properties:
@@ -1581,6 +1815,40 @@ components:
                       type:
                         type: string
 
+    DepositWithdrawListItem:
+      type: object
+      properties:
+        address:
+          type: string
+        amount:
+          type: string
+        createTime:
+          type: string
+        dwId:
+          type: string
+        fee:
+          type: string
+        inOut:
+          type: string
+        realAmount:
+          type: string
+        sessionId:
+          type: string
+        state:
+          type: string
+        stateDesc:
+          type: string
+        subSymbol:
+          type: string
+        subTitle:
+          type: string
+        symbol:
+          type: string
+        time:
+          type: string
+        transferTime:
+          type: string
+
     DepositListResponse:
       allOf:
         - $ref: '#/components/schemas/CommonResponse'
@@ -1592,34 +1860,7 @@ components:
                     data:
                       type: array
                       items:
-                        type: object
-                        properties:
-                          amount:
-                            type: string
-                          chainType:
-                            type: string
-                          createTime:
-                            type: string
-                          dwId:
-                            type: string
-                          fee:
-                            type: string
-                          inOut:
-                            type: string
-                          realAmount:
-                            type: string
-                          state:
-                            type: string
-                          stateDesc:
-                            type: string
-                          symbol:
-                            type: string
-                          time:
-                            type: string
-                          type:
-                            type: string
-                          userId:
-                            type: string
+                        $ref: '#/components/schemas/DepositWithdrawListItem'
 
     InviteHomeResponse:
       allOf:

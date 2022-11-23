@@ -14,6 +14,10 @@ import type {
   QueryKey,
 } from '@tanstack/react-query';
 import type {
+  AllConfigResponse,
+  AccountRecordListResponse,
+  AccountRecordListBody,
+  HomeAccountResponse,
   CommonResponse,
   OtcDelMyAdBody,
   OtcGetMyAdInfo200,
@@ -75,6 +79,125 @@ import type {
 } from '../model';
 import { customInstance } from '../mutator/custom-instance';
 import type { ErrorType } from '../mutator/custom-instance';
+
+/**
+ * 获取风险率说明、搬砖收益说明、banner、金刚区信息等等
+ */
+export const allConfig = () => {
+  return customInstance<AllConfigResponse>({ url: `/config/all.do`, method: 'post' });
+};
+
+export const getAllConfigQueryKey = () => [`/config/all.do`];
+
+export type AllConfigQueryResult = NonNullable<Awaited<ReturnType<typeof allConfig>>>;
+export type AllConfigQueryError = ErrorType<unknown>;
+
+export const useAllConfig = <
+  TData = Awaited<ReturnType<typeof allConfig>>,
+  TError = ErrorType<unknown>,
+>(options?: {
+  query?: UseQueryOptions<Awaited<ReturnType<typeof allConfig>>, TError, TData>;
+}): UseQueryResult<TData, TError> & { queryKey: QueryKey } => {
+  const { query: queryOptions } = options ?? {};
+
+  const queryKey = queryOptions?.queryKey ?? getAllConfigQueryKey();
+
+  const queryFn: QueryFunction<Awaited<ReturnType<typeof allConfig>>> = () => allConfig();
+
+  const query = useQuery<Awaited<ReturnType<typeof allConfig>>, TError, TData>(
+    queryKey,
+    queryFn,
+    queryOptions,
+  ) as UseQueryResult<TData, TError> & { queryKey: QueryKey };
+
+  query.queryKey = queryKey;
+
+  return query;
+};
+
+/**
+ * 获取token账户财务记录
+ */
+export const accountRecordList = (accountRecordListBody: AccountRecordListBody) => {
+  return customInstance<AccountRecordListResponse>({
+    url: `/account/recordList.do`,
+    method: 'post',
+    headers: { 'Content-Type': 'application/json' },
+    data: accountRecordListBody,
+  });
+};
+
+export const getAccountRecordListQueryKey = (accountRecordListBody: AccountRecordListBody) => [
+  `/account/recordList.do`,
+  accountRecordListBody,
+];
+
+export type AccountRecordListQueryResult = NonNullable<
+  Awaited<ReturnType<typeof accountRecordList>>
+>;
+export type AccountRecordListQueryError = ErrorType<unknown>;
+
+export const useAccountRecordList = <
+  TData = Awaited<ReturnType<typeof accountRecordList>>,
+  TError = ErrorType<unknown>,
+>(
+  accountRecordListBody: AccountRecordListBody,
+  options?: {
+    query?: UseQueryOptions<Awaited<ReturnType<typeof accountRecordList>>, TError, TData>;
+  },
+): UseQueryResult<TData, TError> & { queryKey: QueryKey } => {
+  const { query: queryOptions } = options ?? {};
+
+  const queryKey = queryOptions?.queryKey ?? getAccountRecordListQueryKey(accountRecordListBody);
+
+  const queryFn: QueryFunction<Awaited<ReturnType<typeof accountRecordList>>> = () =>
+    accountRecordList(accountRecordListBody);
+
+  const query = useQuery<Awaited<ReturnType<typeof accountRecordList>>, TError, TData>(
+    queryKey,
+    queryFn,
+    queryOptions,
+  ) as UseQueryResult<TData, TError> & { queryKey: QueryKey };
+
+  query.queryKey = queryKey;
+
+  return query;
+};
+
+/**
+ * 账户信息
+ */
+export const homeAccount = () => {
+  return customInstance<HomeAccountResponse>({ url: `/home/account.do`, method: 'post' });
+};
+
+export const getHomeAccountQueryKey = () => [`/home/account.do`];
+
+export type HomeAccountQueryResult = NonNullable<Awaited<ReturnType<typeof homeAccount>>>;
+export type HomeAccountQueryError = ErrorType<unknown>;
+
+export const useHomeAccount = <
+  TData = Awaited<ReturnType<typeof homeAccount>>,
+  TError = ErrorType<unknown>,
+>(options?: {
+  query?: UseQueryOptions<Awaited<ReturnType<typeof homeAccount>>, TError, TData>;
+}): UseQueryResult<TData, TError> & { queryKey: QueryKey } => {
+  const { query: queryOptions } = options ?? {};
+
+  const queryKey = queryOptions?.queryKey ?? getHomeAccountQueryKey();
+
+  const queryFn: QueryFunction<Awaited<ReturnType<typeof homeAccount>>> = () => homeAccount();
+
+  const query = useQuery<Awaited<ReturnType<typeof homeAccount>>, TError, TData>(
+    queryKey,
+    queryFn,
+    queryOptions,
+  ) as UseQueryResult<TData, TError> & { queryKey: QueryKey };
+
+  query.queryKey = queryKey;
+
+  return query;
+};
 
 /**
  * 获取广告详情信息

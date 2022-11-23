@@ -4,8 +4,8 @@
  * API Title
  * OpenAPI spec version: 1.0
  */
-import type { DepositListResponseAllOfDataAllOfDataItem } from './depositListResponseAllOfDataAllOfDataItem';
+import type { DepositWithdrawListItem } from './depositWithdrawListItem';
 
 export type DepositListResponseAllOfDataAllOf = {
-  data?: DepositListResponseAllOfDataAllOfDataItem[];
+  data?: DepositWithdrawListItem[];
 };

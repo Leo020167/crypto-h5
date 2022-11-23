@@ -14,6 +14,21 @@ export default defineConfig({
           name: 'customInstance',
         },
         operations: {
+          allConfig: {
+            query: {
+              useQuery: true,
+            },
+          },
+          accountRecordList: {
+            query: {
+              useQuery: true,
+            },
+          },
+          homeAccount: {
+            query: {
+              useQuery: true,
+            },
+          },
           otcGetMyAdInfo: {
             query: {
               useQuery: true,

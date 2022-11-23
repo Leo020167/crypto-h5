@@ -49,8 +49,11 @@ const Settings = lazy(() => import('./pages/Settings'));
 const Captcha = lazy(() => import('./pages/Captcha'));
 const Signup = lazy(() => import('./pages/Signup'));
 const Login = lazy(() => import('./pages/Login'));
-const HomeIndex = lazy(() => import('./pages/Home'));
 const My = lazy(() => import('./pages/My'));
+
+// Home
+const HomeIndex = lazy(() => import('./pages/Home'));
+const HomeAccount = lazy(() => import('./pages/HomeAccount'));
 
 const tabs = [
   {
@@ -65,7 +68,7 @@ const tabs = [
   },
   {
     key: '/home/account',
-    title: '账户',
+    title: '賬戶',
     icon: <HomeTabAccount className="h-6" />,
   },
   {
@@ -90,6 +93,11 @@ const Home = () => {
           <Route path="/home" exact>
             <Suspense fallback={<div>Loading...</div>}>
               <HomeIndex />
+            </Suspense>
+          </Route>
+          <Route path="/home/account">
+            <Suspense fallback={<div>Loading...</div>}>
+              <HomeAccount />
             </Suspense>
           </Route>
           <Route path="/home/community">
