@@ -52,8 +52,10 @@ const Login = lazy(() => import('./pages/Login'));
 const My = lazy(() => import('./pages/My'));
 
 // Home
-const HomeIndex = lazy(() => import('./pages/Home'));
+
+const HomeMarket = lazy(() => import('./pages/HomeMarket'));
 const HomeAccount = lazy(() => import('./pages/HomeAccount'));
+const HomeIndex = lazy(() => import('./pages/Home'));
 
 const tabs = [
   {
@@ -62,7 +64,7 @@ const tabs = [
     icon: <HomeTabSvg className="h-6" />,
   },
   {
-    key: '/home/todo',
+    key: '/home/market',
     title: '行情',
     icon: <HomeTabMarkSvg className="h-6" />,
   },
@@ -93,6 +95,11 @@ const Home = () => {
           <Route path="/home" exact>
             <Suspense fallback={<div>Loading...</div>}>
               <HomeIndex />
+            </Suspense>
+          </Route>
+          <Route path="/home/market">
+            <Suspense fallback={<div>Loading...</div>}>
+              <HomeMarket />
             </Suspense>
           </Route>
           <Route path="/home/account">

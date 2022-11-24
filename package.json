@@ -16,6 +16,7 @@
     "antd-mobile-icons": "^0.3.0",
     "axios": "^1.2.0",
     "currency.js": "^2.0.4",
+    "echarts": "^5.4.0",
     "immer": "^9.0.16",
     "jotai": "^1.10.0",
     "js-md5": "^0.7.3",
