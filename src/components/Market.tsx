@@ -36,7 +36,7 @@ const Market = () => {
             </div>
           </div>
         </div>
-        <Tabs defaultActiveKey="1" stretch={false}>
+        <Tabs defaultActiveKey="1" stretch={false} className="px-1.5">
           <Tabs.Tab title="分時" key="1" />
           <Tabs.Tab title="5分鐘" key="2" />
           <Tabs.Tab title="15分鐘" key="3" />
@@ -52,10 +52,16 @@ const Market = () => {
 
         <div className="relative">
           <KLine />
-          <div className="absolute z-10 top-0 flex items-center gap-2 text-xs">
-            <span className="text-[#01aa87]">VOL: </span>
-            <span className="text-[#ffc43e]">MA5: </span>
-            <span className="text-[#b080ce]">MA10: </span>
+          <div className="absolute z-10 top-[154px] text-xs w-full">
+            <div className="flex items-center gap-2 ">
+              <span className="text-[#01aa87]">VOL: </span>
+              <span className="text-[#357dad]">MA5: </span>
+              <span className="text-[#ffc43e]">MA10: </span>
+            </div>
+            <div className="flex items-center justify-between">
+              <span className="text-[#357dad]">2022-09-06</span>
+              <span className="text-[#357dad]">2022-09-06</span>
+            </div>
           </div>
         </div>
       </div>
@@ -70,6 +76,7 @@ const Market = () => {
 const Container = styled.div`
   .adm-nav-bar {
     border: 0;
+    background-color: #131e31;
   }
 
   .adm-tabs {

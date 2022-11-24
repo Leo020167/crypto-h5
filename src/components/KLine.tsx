@@ -56,7 +56,7 @@ const KLine = () => {
           ],
         },
         grid: [
-          { top: '5%', left: 0, right: 0, height: '40%', containLabel: true },
+          { top: 0, left: 0, right: 0, height: '40%', containLabel: true },
           {
             top: '50%',
             right: 0,
@@ -113,6 +113,27 @@ const KLine = () => {
             splitLine: {
               show: false,
             },
+          },
+          {
+            axisLabel: { show: false },
+            splitLine: {
+              show: true,
+              lineStyle: {
+                color: '#222c38',
+              },
+            },
+            data: [1, 2, 3],
+          },
+          {
+            gridIndex: 1,
+            axisLabel: { show: false },
+            splitLine: {
+              show: true,
+              lineStyle: {
+                color: '#222c38',
+              },
+            },
+            data: [1, 2],
           },
         ],
         dataZoom: [
