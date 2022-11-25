@@ -1,5 +1,5 @@
 import { Button, Form, Input, NavBar, Toast } from 'antd-mobile';
-import qs from 'qs';
+import { stringify } from 'query-string';
 import { useCallback, useEffect, useRef } from 'react';
 import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
@@ -31,7 +31,7 @@ const EmailAuthCode = () => {
       checkEmailCode({ code: values.code, email: email ?? '' }).then((res) => {
         if (res.code === '200') {
           if (mode === 1) {
-            history.push(`/bind-email?${qs.stringify({ email })}`);
+            history.push(`/bind-email?${stringify({ email })}`);
           } else {
             Toast.show('验证成功');
             history.goBack();

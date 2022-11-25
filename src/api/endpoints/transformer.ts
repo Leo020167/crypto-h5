@@ -14,6 +14,10 @@ import type {
   QueryKey,
 } from '@tanstack/react-query';
 import type {
+  IsOptional200,
+  IsOptionalBody,
+  CoinInfo200,
+  CoinInfoBody,
   AllConfigResponse,
   AccountRecordListResponse,
   AccountRecordListBody,
@@ -79,6 +83,92 @@ import type {
 } from '../model';
 import { customInstance } from '../mutator/custom-instance';
 import type { ErrorType } from '../mutator/custom-instance';
+
+/**
+ * 是否自选
+ */
+export const isOptional = (isOptionalBody: IsOptionalBody) => {
+  return customInstance<IsOptional200>({
+    url: `/optional/coin/isOptional.do`,
+    method: 'post',
+    headers: { 'Content-Type': 'application/json' },
+    data: isOptionalBody,
+  });
+};
+
+export const getIsOptionalQueryKey = (isOptionalBody: IsOptionalBody) => [
+  `/optional/coin/isOptional.do`,
+  isOptionalBody,
+];
+
+export type IsOptionalQueryResult = NonNullable<Awaited<ReturnType<typeof isOptional>>>;
+export type IsOptionalQueryError = ErrorType<unknown>;
+
+export const useIsOptional = <
+  TData = Awaited<ReturnType<typeof isOptional>>,
+  TError = ErrorType<unknown>,
+>(
+  isOptionalBody: IsOptionalBody,
+  options?: { query?: UseQueryOptions<Awaited<ReturnType<typeof isOptional>>, TError, TData> },
+): UseQueryResult<TData, TError> & { queryKey: QueryKey } => {
+  const { query: queryOptions } = options ?? {};
+
+  const queryKey = queryOptions?.queryKey ?? getIsOptionalQueryKey(isOptionalBody);
+
+  const queryFn: QueryFunction<Awaited<ReturnType<typeof isOptional>>> = () =>
+    isOptional(isOptionalBody);
+
+  const query = useQuery<Awaited<ReturnType<typeof isOptional>>, TError, TData>(
+    queryKey,
+    queryFn,
+    queryOptions,
+  ) as UseQueryResult<TData, TError> & { queryKey: QueryKey };
+
+  query.queryKey = queryKey;
+
+  return query;
+};
+
+/**
+ * 获取币信息
+ */
+export const coinInfo = (coinInfoBody: CoinInfoBody) => {
+  return customInstance<CoinInfo200>({
+    url: `/coin/info.do`,
+    method: 'post',
+    headers: { 'Content-Type': 'application/json' },
+    data: coinInfoBody,
+  });
+};
+
+export const getCoinInfoQueryKey = (coinInfoBody: CoinInfoBody) => [`/coin/info.do`, coinInfoBody];
+
+export type CoinInfoQueryResult = NonNullable<Awaited<ReturnType<typeof coinInfo>>>;
+export type CoinInfoQueryError = ErrorType<unknown>;
+
+export const useCoinInfo = <
+  TData = Awaited<ReturnType<typeof coinInfo>>,
+  TError = ErrorType<unknown>,
+>(
+  coinInfoBody: CoinInfoBody,
+  options?: { query?: UseQueryOptions<Awaited<ReturnType<typeof coinInfo>>, TError, TData> },
+): UseQueryResult<TData, TError> & { queryKey: QueryKey } => {
+  const { query: queryOptions } = options ?? {};
+
+  const queryKey = queryOptions?.queryKey ?? getCoinInfoQueryKey(coinInfoBody);
+
+  const queryFn: QueryFunction<Awaited<ReturnType<typeof coinInfo>>> = () => coinInfo(coinInfoBody);
+
+  const query = useQuery<Awaited<ReturnType<typeof coinInfo>>, TError, TData>(
+    queryKey,
+    queryFn,
+    queryOptions,
+  ) as UseQueryResult<TData, TError> & { queryKey: QueryKey };
+
+  query.queryKey = queryKey;
+
+  return query;
+};
 
 /**
  * 获取风险率说明、搬砖收益说明、banner、金刚区信息等等

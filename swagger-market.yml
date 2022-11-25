@@ -1,0 +1,308 @@
+openapi: '3.0.2'
+info:
+  title: Market API
+  version: '1.0'
+servers:
+  - url: http://market.piglobalexchanges.com
+paths:
+  /quote/real.do:
+    post:
+      operationId: 'quoteReal'
+      description: ''
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                symbol:
+                  type: string
+                klineType:
+                  type: string
+                depth:
+                  type: number
+
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QuoteRealResponse'
+
+  /quote/kline.do:
+    post:
+      operationId: 'kline'
+      description: ''
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                symbol:
+                  type: string
+                klineType:
+                  type: string
+                timestamp:
+                  type: string
+                type:
+                  type: string
+
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/CommonResponse'
+                  - properties:
+                      data:
+                        type: object
+                        properties:
+                          cxNum:
+                            type: number
+                          isEnd:
+                            type: boolean
+                          kline:
+                            type: string
+                          klineType:
+                            type: string
+                          symbol:
+                            type: string
+
+  /quote/getMinuteLine.do:
+    post:
+      operationId: 'marketData'
+      description: ''
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                sortField:
+                  type: string
+                sortType:
+                  type: string
+                tab:
+                  type: string
+                  description: 'stock全球指数，digital合约，spot币币'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MarketDataResponse'
+
+  /quote/marketData.do:
+    post:
+      operationId: 'marketData'
+      description: ''
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                sortField:
+                  type: string
+                sortType:
+                  type: string
+                tab:
+                  type: string
+                  description: 'stock全球指数，digital合约，spot币币'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MarketDataResponse'
+
+components:
+  schemas:
+    QuoteRealResponse:
+      allOf:
+        - $ref: '#/components/schemas/CommonResponse'
+        - properties:
+            data:
+              type: object
+              properties:
+                klineType:
+                  type: string
+                lastKline:
+                  $ref: '#/components/schemas/Kline'
+              additionalProperties: true
+
+    QuoteReal:
+      type: object
+      properties:
+        amount:
+          type: string
+        amountDecimals:
+          type: string
+        amt:
+          type: string
+        balance:
+          type: string
+        buys:
+          type: array
+          items:
+            $ref: '#/components/schemas/RealBuy'
+        currency:
+          type: string
+        dealList:
+          type: array
+          items:
+            $ref: '#/components/schemas/RealDeal'
+        high:
+          type: string
+        isTrade:
+          type: number
+        last:
+          type: string
+        lastCny:
+          type: string
+        low:
+          type: string
+        marketType:
+          type: string
+        name:
+          type: string
+        open:
+          type: string
+        openMarketStr:
+          type: string
+        prefixType:
+          type: string
+        priceDecimals:
+          type: number
+        rate:
+          type: string
+        sells:
+          type: array
+          items:
+            $ref: '#/components/schemas/RealSell'
+        symbol:
+          type: string
+        timestamp:
+          type: number
+        usdtRate:
+          type: string
+        yesClose:
+          type: string
+
+    RealDeal:
+      type: object
+      properties:
+        amount:
+          type: string
+        buySell:
+          type: string
+        price:
+          type: string
+        time:
+          type: number
+
+    RealBuy:
+      type: object
+      properties:
+        amount:
+          type: string
+        depthRate:
+          type: number
+        price:
+          type: string
+        total:
+          type: string
+
+    RealSell:
+      type: object
+      properties:
+        amount:
+          type: string
+        depthRate:
+          type: number
+        price:
+          type: string
+        total:
+          type: string
+
+    Kline:
+      type: object
+      properties:
+        amount:
+          type: string
+        balance:
+          type: string
+        high:
+          type: string
+        last:
+          type: string
+        low:
+          type: string
+        open:
+          type: string
+        timestamp:
+          type: number
+
+    MarketDataResponse:
+      allOf:
+        - $ref: '#/components/schemas/CommonResponse'
+        - properties:
+            data:
+              properties:
+                quotes:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/Quote'
+                tab:
+                  type: string
+    Quote:
+      type: object
+      properties:
+        amount:
+          type: string
+        amountSort:
+          type: string
+        balance:
+          type: string
+        balanceSort:
+          type: string
+        currency:
+          type: string
+        high:
+          type: string
+        low:
+          type: string
+        marketType:
+          type: string
+        name:
+          type: string
+        openMarketStr:
+          type: string
+        price:
+          type: string
+        priceCny:
+          type: string
+        rate:
+          type: string
+        sortNum:
+          type: number
+        symbol:
+          type: string
+
+    CommonResponse:
+      type: object
+      properties:
+        code:
+          type: string
+        data:
+          type: object
+        msg:
+          type: string
+        success:
+          type: string
+      required:
+        - code
+        - msg
+        - success

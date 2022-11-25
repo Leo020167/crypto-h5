@@ -1,6 +1,6 @@
 import { Button, NavBar } from 'antd-mobile';
 import { useAtomValue } from 'jotai';
-import { stringify } from 'qs';
+import { stringify } from 'query-string';
 import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import { useQueryParam } from 'use-query-params';

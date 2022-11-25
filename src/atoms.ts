@@ -23,4 +23,4 @@ export const countryAtom = atom<{ code: string; name: string }>({
 });
 
 export const refreshRateAtom = atomWithStorage<number>('refresh-rate', 1);
-export const UpAndDownColorAtom = atomWithStorage<string>('up-and-down-color', '1');
+export const SwitchColorValueAtom = atomWithStorage<string>('switch-color-value', '1');

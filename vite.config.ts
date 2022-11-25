@@ -9,6 +9,10 @@ import svgr from 'vite-plugin-svgr';
 export default defineConfig({
   server: {
     proxy: {
+      '/procoin-market': {
+        target: 'http://market.piglobalexchanges.com',
+        changeOrigin: true,
+      },
       '/procoin-file': {
         target: 'http://upload.piglobalexchanges.com',
         changeOrigin: true,

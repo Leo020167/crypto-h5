@@ -1,6 +1,6 @@
 import { List, NavBar, Popup, Radio } from 'antd-mobile';
 import { useAtom } from 'jotai';
-import { UpAndDownColorAtom } from '../../atoms';
+import { SwitchColorValueAtom } from '../../atoms';
 
 interface UpAndDownColorListProps {
   open: boolean;
@@ -13,7 +13,7 @@ const colors = [
 ];
 
 const UpAndDownColorList = ({ open, onClose }: UpAndDownColorListProps) => {
-  const [upAndDownColor, setUpAndDownColor] = useAtom(UpAndDownColorAtom);
+  const [upAndDownColor, setUpAndDownColor] = useAtom(SwitchColorValueAtom);
   return (
     <Popup position="right" visible={open} onClose={onClose}>
       <div className="w-screen h-screen">

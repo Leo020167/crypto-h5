@@ -5,6 +5,60 @@ info:
 servers:
   - url: http://api.piglobalexchanges.com
 paths:
+  /optional/coin/isOptional.do:
+    post:
+      operationId: 'isOptional'
+      description: '是否自选'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                symbol:
+                  type: string
+              required:
+                - 'symbol'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/CommonResponse'
+                  - properties:
+                      data:
+                        type: object
+                        properties:
+                          isOptional:
+                            type: string
+  /coin/info.do:
+    post:
+      operationId: 'coinInfo'
+      description: '获取币信息'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                symbol:
+                  type: string
+              required:
+                - 'symbol'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/CommonResponse'
+                  - properties:
+                      data:
+                        type: object
+                        properties:
+                          coin:
+                            $ref: '#/components/schemas/Coin'
   /config/all.do:
     post:
       operationId: 'allConfig'
@@ -1033,6 +1087,38 @@ paths:
 
 components:
   schemas:
+    Coin:
+      type: object
+      properties:
+        blockUrl:
+          type: string
+        circulateAmount:
+          type: string
+        crowdfundPrice:
+          type: string
+        currency:
+          type: string
+        desc:
+          type: string
+        isTrade:
+          type: string
+        issueAmount:
+          type: string
+        issueDate:
+          type: string
+        marketType:
+          type: string
+        maxWithdrawDecimals:
+          type: string
+        name:
+          type: string
+        officialWebUrl:
+          type: string
+        symbol:
+          type: string
+        whitePaperUrl:
+          type: string
+
     AllConfigResponse:
       allOf:
         - $ref: '#/components/schemas/CommonResponse'

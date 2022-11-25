@@ -1,6 +1,6 @@
 import { List } from 'antd-mobile';
 import { useAtom } from 'jotai';
-import { stringify } from 'qs';
+import { stringify } from 'query-string';
 import { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { useMount } from 'react-use';

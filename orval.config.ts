@@ -1,7 +1,42 @@
 import { defineConfig } from 'orval';
 
 export default defineConfig({
-  petstore: {
+  market: {
+    output: {
+      mode: 'split',
+      target: 'src/market/endpoints/marketWithTransformer.ts',
+      schemas: 'src/market/model',
+      client: 'react-query',
+      prettier: true,
+      override: {
+        mutator: {
+          path: './src/market/mutator/custom-instance.ts',
+          name: 'customInstance',
+        },
+        operations: {
+          quoteReal: {
+            query: {
+              useQuery: true,
+            },
+          },
+          kline: {
+            query: {
+              useQuery: true,
+            },
+          },
+          marketData: {
+            query: {
+              useQuery: true,
+            },
+          },
+        },
+      },
+    },
+    input: {
+      target: './swagger-market.yml',
+    },
+  },
+  api: {
     output: {
       mode: 'split',
       target: 'src/api/endpoints/transformer.ts',
@@ -14,6 +49,16 @@ export default defineConfig({
           name: 'customInstance',
         },
         operations: {
+          isOptional: {
+            query: {
+              useQuery: true,
+            },
+          },
+          coinInfo: {
+            query: {
+              useQuery: true,
+            },
+          },
           allConfig: {
             query: {
               useQuery: true,
@@ -138,7 +183,7 @@ export default defineConfig({
       },
     },
     input: {
-      target: './swagger.yml',
+      target: './swagger-api.yml',
     },
   },
 });
