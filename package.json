@@ -10,7 +10,7 @@
     "lint": "eslint . --ext .ts,.tsx"
   },
   "dependencies": {
-    "@tanstack/react-query": "^4.16.1",
+    "@tanstack/react-query": "^4.17.1",
     "add": "^2.0.6",
     "antd-mobile": "^5.26.0",
     "antd-mobile-icons": "^0.3.0",
