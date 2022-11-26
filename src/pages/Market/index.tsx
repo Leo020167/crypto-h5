@@ -1,26 +1,32 @@
 import { NavBar, Tabs } from 'antd-mobile';
 import currency from 'currency.js';
 import { useAtom } from 'jotai';
-import { useMemo } from 'react';
-import { Link } from 'react-router-dom';
-import { useInterval } from 'react-use';
+import { stringify } from 'query-string';
+import { useCallback, useMemo } from 'react';
+import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import { NumberParam, StringParam, useQueryParam, withDefault } from 'use-query-params';
-import { useCoinInfo, useIsOptional } from '../../api/endpoints/transformer';
-import { SwitchColorValueAtom } from '../../atoms';
-import KLine, { Stock } from '../../components/KLine';
-import { useKline, useQuoteReal } from '../../market/endpoints/marketWithTransformer';
+import { useCoinInfo } from '../../api/endpoints/transformer';
+import { marketPeriodAtom, switchColorValueAtom, userAtom } from '../../atoms';
+import KLine from '../../components/KLine';
+import { useQuoteReal } from '../../market/endpoints/marketWithTransformer';
 import { QuoteReal } from '../../market/model';
+import CoinSummary from './CoinSummary';
 import MinuteDetail from './MinuteDetail';
+import MinuteDigitalTimeLineChart from './MinuteDigitalTimeLineChart';
 
 const IsLeverParam = withDefault(NumberParam, 1);
 
 const Market = () => {
   const [symbol] = useQueryParam('symbol', StringParam);
   const [isLever] = useQueryParam('isLever', IsLeverParam);
-  const [accountType] = useQueryParam('accountType', StringParam);
+  // const [accountType] = useQueryParam('accountType', StringParam);
 
-  const coinInfo = useCoinInfo(
+  const [marketPeriod, setMarketPeriod] = useAtom(marketPeriodAtom);
+
+  const user = useAtom(userAtom);
+
+  const { data: coinInfo } = useCoinInfo(
     {
       symbol: symbol ?? '',
     },
@@ -31,48 +37,18 @@ const Market = () => {
     },
   );
 
-  const isOptional = useIsOptional(
-    {
-      symbol: symbol ?? '',
-    },
-    {
-      query: {
-        enabled: !!symbol,
-      },
-    },
-  );
+  // const isOptional = useIsOptional(
+  //   {
+  //     symbol: symbol ?? '',
+  //   },
+  //   {
+  //     query: {
+  //       enabled: !!symbol,
+  //     },
+  //   },
+  // );
 
-  const { data } = useKline({
-    symbol: symbol ?? '',
-    klineType: 'day',
-    timestamp: '',
-    type: 'v',
-  });
-
-  const stocks = useMemo(() => {
-    const result: Stock[] = [];
-    if (data?.data?.kline) {
-      data?.data?.kline.split(';').forEach((v) => {
-        // 1558713600,0.08163400,0.08278000,0.07951000,0.08131500,60550314.39726961;
-        // 1日期,2开盘,3最高,4最低,5收盘(最近成交),成交量
-        const d = v.split(',');
-        if (d.length === 6) {
-          result.push({
-            date: Number(d[0]),
-            open: Number(d[1]),
-            highest: Number(d[2]),
-            lowest: Number(d[3]),
-            close: Number(d[4]),
-            volume: Number(d[5]),
-          });
-        }
-      });
-    }
-
-    return result;
-  }, [data?.data?.kline]);
-
-  const { data: quoteReal, refetch } = useQuoteReal(
+  const { data: quoteReal } = useQuoteReal(
     {
       symbol: symbol ?? '',
       depth: 30,
@@ -85,7 +61,7 @@ const Market = () => {
     },
   );
 
-  const coin = coinInfo.data?.data?.coin;
+  const coin = coinInfo?.data?.coin;
 
   const real = symbol ? (quoteReal?.data?.[symbol] as QuoteReal) : undefined;
 
@@ -95,7 +71,7 @@ const Market = () => {
     symbol: '',
   });
 
-  const [switchColorValue] = useAtom(SwitchColorValueAtom);
+  const [switchColorValue] = useAtom(switchColorValueAtom);
 
   const rate = Number(real?.rate ?? 0);
 
@@ -111,13 +87,42 @@ const Market = () => {
     }
   }, [rate, switchColorValue]);
 
-  useInterval(() => {
-    refetch();
-  }, 1000);
+  // useInterval(() => {
+  //   refetch();
+  // }, 5000);
+
+  const history = useHistory();
+
+  const handleBuySell = useCallback(
+    (buySell: number) => {
+      if (user) {
+        if (isLever === 0) {
+          history.push({
+            pathname: '/trade',
+            search: stringify({
+              symbol,
+              buySell,
+            }),
+          });
+        } else {
+          history.push({
+            pathname: '/trade-lever',
+            search: stringify({
+              symbol,
+              buySell,
+            }),
+          });
+        }
+      } else {
+        history.push('/login');
+      }
+    },
+    [history, isLever, symbol, user],
+  );
 
   return (
     <Container className="h-screen min-h-0 text-white flex flex-col">
-      <NavBar>
+      <NavBar onBack={() => history.goBack()}>
         <div className="flex flex-col">
           <div className="text-lg font-bold">{coin?.name}</div>
           <span className="text-xs text-[#cbcbcb] leading-3">{symbol}</span>
@@ -165,36 +170,57 @@ const Market = () => {
             </div>
           </div>
         </div>
-        <Tabs defaultActiveKey="1" stretch={false} className="px-1.5">
-          <Tabs.Tab title="分時" key="1" />
-          <Tabs.Tab title="5分鐘" key="2" />
-          <Tabs.Tab title="15分鐘" key="3" />
-          <Tabs.Tab title="1小時" key="4" />
-          <Tabs.Tab title="日K" key="5" />
-          <Tabs.Tab title="周K" key="6" />
+        <Tabs
+          stretch={false}
+          activeKey={marketPeriod}
+          onChange={setMarketPeriod}
+          className="px-1.5"
+        >
+          <Tabs.Tab title="分時" key="min1" />
+          <Tabs.Tab title="5分鐘" key="min5" />
+          <Tabs.Tab title="15分鐘" key="min15" />
+          <Tabs.Tab title="1小時" key="hour1" />
+          <Tabs.Tab title="日K" key="day" />
+          <Tabs.Tab title="周K" key="week" />
         </Tabs>
 
-        <KLine data={stocks} precision={real?.priceDecimals} />
+        {marketPeriod === 'min1' ? (
+          <MinuteDigitalTimeLineChart key="min1" symbol={symbol} precision={real?.priceDecimals} />
+        ) : (
+          <KLine
+            key="kline"
+            symbol={symbol}
+            klineType={marketPeriod}
+            precision={real?.priceDecimals}
+          />
+        )}
 
-        <Tabs defaultActiveKey="1" stretch={false} className="flex justify-center px-1.5">
-          <Tabs.Tab title="交易" key="1" />
-          <Tabs.Tab title="简介" key="2" />
+        <Tabs
+          defaultActiveKey="1"
+          stretch={false}
+          className="flex flex-col items-center justify-center px-1.5"
+        >
+          <Tabs.Tab title="交易" key="1">
+            <MinuteDetail real={real} />
+          </Tabs.Tab>
+          <Tabs.Tab title="简介" key="2">
+            <CoinSummary coin={coin} />
+          </Tabs.Tab>
         </Tabs>
-        <MinuteDetail real={real} />
       </div>
       <div className="p-4 bg-[#131e31] flex items-center gap-2">
-        <Link
+        <a
           className="flex-1 bg-[#E2214E] h-10 flex items-center justify-center text-base"
-          to={''}
+          onClick={() => handleBuySell(1)}
         >
           看漲(做多)
-        </Link>
-        <Link
+        </a>
+        <a
           className="flex-1 bg-[#00AD88] h-10 flex items-center justify-center text-base"
-          to={''}
+          onClick={() => handleBuySell(-1)}
         >
           看跌(做空)
-        </Link>
+        </a>
       </div>
     </Container>
   );
@@ -210,13 +236,17 @@ const Container = styled.div`
     color: #626073;
     --adm-font-size-9: 14px;
     --adm-color-primary: #f08c42;
-
+    --content-padding: 0;
     .adm-tabs-header {
       border: 0;
 
       .adm-tabs-tab-wrapper {
         padding: 0 10px;
       }
+    }
+
+    .adm-tabs-content {
+      width: 100%;
     }
   }
 `;

@@ -51,7 +51,8 @@ const TakeCoinHistory = () => {
               </div>
             }
             onClick={() => {
-              history.push('/take-coin-history-details', {
+              history.push({
+                pathname: '/take-coin-history-details',
                 state: item,
               });
             }}

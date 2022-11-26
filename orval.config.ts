@@ -14,6 +14,11 @@ export default defineConfig({
           name: 'customInstance',
         },
         operations: {
+          getMinuteLine: {
+            query: {
+              useQuery: true,
+            },
+          },
           quoteReal: {
             query: {
               useQuery: true,

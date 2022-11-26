@@ -16,6 +16,8 @@ import type {
   QuoteRealBody,
   Kline200,
   KlineBody,
+  GetMinuteLine200,
+  GetMinuteLineBody,
   MarketDataResponse,
   MarketDataBody,
 } from '../model';
@@ -89,6 +91,48 @@ export const useKline = <TData = Awaited<ReturnType<typeof kline>>, TError = Err
   const queryFn: QueryFunction<Awaited<ReturnType<typeof kline>>> = () => kline(klineBody);
 
   const query = useQuery<Awaited<ReturnType<typeof kline>>, TError, TData>(
+    queryKey,
+    queryFn,
+    queryOptions,
+  ) as UseQueryResult<TData, TError> & { queryKey: QueryKey };
+
+  query.queryKey = queryKey;
+
+  return query;
+};
+
+export const getMinuteLine = (getMinuteLineBody: GetMinuteLineBody) => {
+  return customInstance<GetMinuteLine200>({
+    url: `/quote/getMinuteLine.do`,
+    method: 'post',
+    headers: { 'Content-Type': 'application/json' },
+    data: getMinuteLineBody,
+  });
+};
+
+export const getGetMinuteLineQueryKey = (getMinuteLineBody: GetMinuteLineBody) => [
+  `/quote/getMinuteLine.do`,
+  getMinuteLineBody,
+];
+
+export type GetMinuteLineQueryResult = NonNullable<Awaited<ReturnType<typeof getMinuteLine>>>;
+export type GetMinuteLineQueryError = ErrorType<unknown>;
+
+export const useGetMinuteLine = <
+  TData = Awaited<ReturnType<typeof getMinuteLine>>,
+  TError = ErrorType<unknown>,
+>(
+  getMinuteLineBody: GetMinuteLineBody,
+  options?: { query?: UseQueryOptions<Awaited<ReturnType<typeof getMinuteLine>>, TError, TData> },
+): UseQueryResult<TData, TError> & { queryKey: QueryKey } => {
+  const { query: queryOptions } = options ?? {};
+
+  const queryKey = queryOptions?.queryKey ?? getGetMinuteLineQueryKey(getMinuteLineBody);
+
+  const queryFn: QueryFunction<Awaited<ReturnType<typeof getMinuteLine>>> = () =>
+    getMinuteLine(getMinuteLineBody);
+
+  const query = useQuery<Awaited<ReturnType<typeof getMinuteLine>>, TError, TData>(
     queryKey,
     queryFn,
     queryOptions,

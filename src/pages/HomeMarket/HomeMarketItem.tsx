@@ -1,11 +1,11 @@
 import { useAtom } from 'jotai';
 import { useMemo } from 'react';
-import { SwitchColorValueAtom } from '../../atoms';
+import { switchColorValueAtom } from '../../atoms';
 import { Quote } from '../../market/model';
 import { getOriginSymbol, getUnitSymbol } from '../TransactionRecords/utils';
 
 const HomeMarketItem = ({ data }: { data: Quote }) => {
-  const [upDownColor] = useAtom(SwitchColorValueAtom);
+  const [upDownColor] = useAtom(switchColorValueAtom);
   const unitSymbol = getUnitSymbol(data.symbol);
 
   const rate = Number(data.rate);

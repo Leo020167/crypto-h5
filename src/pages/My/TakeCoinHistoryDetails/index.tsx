@@ -1,5 +1,5 @@
 import { List, NavBar } from 'antd-mobile';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import { DepositListResponseAllOfDataAllOfDataItem } from '../../../api/model';
 import { stringDateFormat } from '../../../utils/date';
@@ -8,8 +8,8 @@ const TakeCoinHistoryDetails = () => {
   const history = useHistory();
 
   const location = useLocation();
-
-  const state: DepositListResponseAllOfDataAllOfDataItem | undefined = location.state;
+  console.log(location);
+  const state: DepositListResponseAllOfDataAllOfDataItem | undefined = location.state as any;
 
   return (
     <Container className="h-screen bg-white">

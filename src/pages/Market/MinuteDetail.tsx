@@ -1,7 +1,14 @@
+import { reverse } from 'lodash-es';
+import { useMemo } from 'react';
 import styled from 'styled-components';
 import { QuoteReal } from '../../market/model';
 
 const MinuteDetail = ({ real }: { real?: QuoteReal }) => {
+  const sells = useMemo(() => {
+    const result = real?.sells ?? [];
+    return reverse([...result]);
+  }, [real?.sells]);
+
   return (
     <Container className="flex flex-col text-[#626073] my-4 text-xs">
       <div className="flex items-center gap-2">
@@ -22,7 +29,7 @@ const MinuteDetail = ({ real }: { real?: QuoteReal }) => {
               <div
                 className="absolute h-full"
                 style={{
-                  width: `${v.amount ?? 0 / Number(v.total ?? 1)}%`,
+                  width: `${(Number(v.amount ?? 0) / Number(v.total ?? 1)) * 100}%`,
                   backgroundColor: `rgba(226,33,78,.3)`,
                 }}
               />
@@ -32,12 +39,12 @@ const MinuteDetail = ({ real }: { real?: QuoteReal }) => {
           ))}
         </div>
         <div className="w-1/2">
-          {real?.sells?.map((v, i) => (
+          {sells.map((v, i) => (
             <div className="flex items-center py-1 relative" key={i}>
               <div
                 className="absolute h-full right-0"
                 style={{
-                  width: `${v.amount ?? 0 / Number(v.total ?? 1)}%`,
+                  width: `${(Number(v.amount ?? 0) / Number(v.total ?? 1)) * 100}%`,
                   backgroundColor: `rgba(0,173,136,.3)`,
                 }}
               />

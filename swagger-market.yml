@@ -72,27 +72,38 @@ paths:
 
   /quote/getMinuteLine.do:
     post:
-      operationId: 'marketData'
+      operationId: 'getMinuteLine'
       description: ''
       requestBody:
         content:
           application/json:
             schema:
               properties:
-                sortField:
+                symbol:
                   type: string
-                sortType:
-                  type: string
-                tab:
-                  type: string
-                  description: 'stock全球指数，digital合约，spot币币'
+                timestamp:
+                  type: number
+                pageSize:
+                  type: number
+              required:
+                - 'symbol'
+                - 'timestamp'
+                - 'pageSize'
       responses:
         '200':
           description: OK
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/MarketDataResponse'
+                allOf:
+                  - $ref: '#/components/schemas/CommonResponse'
+                  - properties:
+                      data:
+                        type: object
+                        properties:
+                          klineType:
+                            type: string
+                        additionalProperties: true
 
   /quote/marketData.do:
     post:
