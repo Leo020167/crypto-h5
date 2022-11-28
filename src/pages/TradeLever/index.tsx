@@ -1,3 +1,4 @@
+import { StylesConfig } from 'react-select';
 import styled from 'styled-components';
 import { NumberParam, StringParam, useQueryParam, withDefault } from 'use-query-params';
 import ic_switch_sell_selected from '../../assets/ic_switch_buy_selected.9.png';
@@ -6,6 +7,8 @@ import ic_switch_buy_selected from '../../assets/ic_switch_sell_selected.9.png';
 import ic_switch_buy_unselected from '../../assets/ic_switch_sell_unselected.9.png';
 
 import Screen from '../../components/Screen';
+import TradeLeverDetails from './TradeLeverDetails';
+import TradeLeverPrices from './TradeLeverPrices';
 
 const BuySellParam = withDefault(NumberParam, 1);
 
@@ -17,19 +20,21 @@ const TradeLever = () => {
     <Screen headerTitle="HSI">
       <div className="flex-1 overflow-y-auto">
         <div className="flex">
-          <div className="w-3/5 flex items-center">
-            <SelectorSwitchBuy
-              isSelected={buySell === 1}
-              className="ml-4"
-              onClick={() => setBuySell(1)}
-            >
-              看漲
-            </SelectorSwitchBuy>
-            <SelectorSwitchSell isSelected={buySell === -1} onClick={() => setBuySell(-1)}>
-              看跌
-            </SelectorSwitchSell>
+          <div className="w-3/5 pl-4">
+            <div className="flex items-center mb-2">
+              <SelectorSwitchBuy isSelected={buySell === 1} onClick={() => setBuySell(1)}>
+                看漲
+              </SelectorSwitchBuy>
+              <SelectorSwitchSell isSelected={buySell === -1} onClick={() => setBuySell(-1)}>
+                看跌
+              </SelectorSwitchSell>
+            </div>
+            <TradeLeverDetails />
           </div>
-          <div className="w-2/5"></div>
+
+          <div className="w-2/5 ml-4">
+            <TradeLeverPrices />
+          </div>
         </div>
       </div>
     </Screen>
