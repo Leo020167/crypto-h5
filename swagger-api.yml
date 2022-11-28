@@ -5,6 +5,18 @@ info:
 servers:
   - url: http://api.piglobalexchanges.com
 paths:
+  /home/cropyme.do:
+    post:
+      operationId: 'homeCropMe'
+      description: '大V排行榜页面信息'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HomeCropMeResponse'
+
   /depositeWithdraw/getCoinInfo.do:
     post:
       operationId: 'getCoinInfo'
@@ -1151,6 +1163,79 @@ paths:
 
 components:
   schemas:
+    HomeCropMeResponse:
+      allOf:
+        - $ref: '#/components/schemas/CommonResponse'
+        - properties:
+            data:
+              type: object
+              properties:
+                banner:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/Banner'
+                noticeList:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/Notice'
+                platformData:
+                  type: object
+                  properties:
+                    activeUser:
+                      type: string
+                    allAmount:
+                      type: string
+                    allHand:
+                      type: string
+                scoreRank:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/ScoreRank'
+
+    ScoreRank:
+      type: object
+      properties:
+        correctRate:
+          type: string
+        days:
+          type: string
+        entryTime:
+          type: string
+        expireTime:
+          type: string
+        headUrl:
+          type: string
+        isExpireTime:
+          type: string
+        maxMultiNum:
+          type: string
+        monthProfit:
+          type: string
+        subIsFee:
+          type: string
+        totalProfit:
+          type: string
+        userId:
+          type: string
+        userName:
+          type: string
+
+    Notice:
+      type: object
+      properties:
+        articleId:
+          type: string
+        createTime:
+          type: string
+        isTop:
+          type: string
+        title:
+          type: string
+        type:
+          type: string
+        url:
+          type: string
+
     ChargeConfigsResponse:
       allOf:
         - $ref: '#/components/schemas/CommonResponse'

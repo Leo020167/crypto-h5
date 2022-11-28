@@ -14,6 +14,11 @@ export default defineConfig({
           name: 'customInstance',
         },
         operations: {
+          quoteHomePage: {
+            query: {
+              useQuery: true,
+            },
+          },
           getMinuteLine: {
             query: {
               useQuery: true,
@@ -54,6 +59,11 @@ export default defineConfig({
           name: 'customInstance',
         },
         operations: {
+          homeCropMe: {
+            query: {
+              useQuery: true,
+            },
+          },
           getCoinInfo: {
             query: {
               useQuery: true,

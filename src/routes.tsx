@@ -59,7 +59,7 @@ const My = lazy(() => import('./pages/My'));
 
 const HomeMarket = lazy(() => import('./pages/HomeMarket'));
 const HomeAccount = lazy(() => import('./pages/HomeAccount'));
-const HomeIndex = lazy(() => import('./pages/Home'));
+const Home = lazy(() => import('./pages/Home'));
 
 const tabs = [
   {
@@ -89,7 +89,7 @@ const tabs = [
   },
 ];
 
-const Home = () => {
+const HomeTabs = () => {
   const location = useLocation();
   const history = useHistory();
   return (
@@ -98,7 +98,7 @@ const Home = () => {
         <Switch>
           <Route path="/home" exact>
             <Suspense fallback={<div>Loading...</div>}>
-              <HomeIndex />
+              <Home />
             </Suspense>
           </Route>
           <Route path="/home/market">
@@ -148,10 +148,10 @@ export const Routes = () => {
       <Redirect path="/" to="/home" exact />
 
       <Route path="/home">
-        <Home />
+        <HomeTabs />
       </Route>
 
-      <Route path="/language">
+      <Route path="/languages">
         <Suspense fallback={<div>Loading...</div>}>
           <Language />
         </Suspense>

@@ -14,6 +14,7 @@ import type {
   QueryKey,
 } from '@tanstack/react-query';
 import type {
+  HomeCropMeResponse,
   CoinListResponse,
   GetCoinInfoBody,
   ChargeConfigsResponse,
@@ -87,6 +88,41 @@ import type {
 } from '../model';
 import { customInstance } from '../mutator/custom-instance';
 import type { ErrorType } from '../mutator/custom-instance';
+
+/**
+ * 大V排行榜页面信息
+ */
+export const homeCropMe = () => {
+  return customInstance<HomeCropMeResponse>({ url: `/home/cropyme.do`, method: 'post' });
+};
+
+export const getHomeCropMeQueryKey = () => [`/home/cropyme.do`];
+
+export type HomeCropMeQueryResult = NonNullable<Awaited<ReturnType<typeof homeCropMe>>>;
+export type HomeCropMeQueryError = ErrorType<unknown>;
+
+export const useHomeCropMe = <
+  TData = Awaited<ReturnType<typeof homeCropMe>>,
+  TError = ErrorType<unknown>,
+>(options?: {
+  query?: UseQueryOptions<Awaited<ReturnType<typeof homeCropMe>>, TError, TData>;
+}): UseQueryResult<TData, TError> & { queryKey: QueryKey } => {
+  const { query: queryOptions } = options ?? {};
+
+  const queryKey = queryOptions?.queryKey ?? getHomeCropMeQueryKey();
+
+  const queryFn: QueryFunction<Awaited<ReturnType<typeof homeCropMe>>> = () => homeCropMe();
+
+  const query = useQuery<Awaited<ReturnType<typeof homeCropMe>>, TError, TData>(
+    queryKey,
+    queryFn,
+    queryOptions,
+  ) as UseQueryResult<TData, TError> & { queryKey: QueryKey };
+
+  query.queryKey = queryKey;
+
+  return query;
+};
 
 /**
  * 获取提币充币相关信息

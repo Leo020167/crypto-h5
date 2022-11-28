@@ -12,6 +12,7 @@ import type {
   QueryKey,
 } from '@tanstack/react-query';
 import type {
+  QuoteHomePageResponse,
   QuoteRealResponse,
   QuoteRealBody,
   Kline200,
@@ -23,6 +24,41 @@ import type {
 } from '../model';
 import { customInstance } from '../mutator/custom-instance';
 import type { ErrorType } from '../mutator/custom-instance';
+
+/**
+ * 大V排行榜页面信息
+ */
+export const quoteHomePage = () => {
+  return customInstance<QuoteHomePageResponse>({ url: `/quote/homePage.do`, method: 'post' });
+};
+
+export const getQuoteHomePageQueryKey = () => [`/quote/homePage.do`];
+
+export type QuoteHomePageQueryResult = NonNullable<Awaited<ReturnType<typeof quoteHomePage>>>;
+export type QuoteHomePageQueryError = ErrorType<unknown>;
+
+export const useQuoteHomePage = <
+  TData = Awaited<ReturnType<typeof quoteHomePage>>,
+  TError = ErrorType<unknown>,
+>(options?: {
+  query?: UseQueryOptions<Awaited<ReturnType<typeof quoteHomePage>>, TError, TData>;
+}): UseQueryResult<TData, TError> & { queryKey: QueryKey } => {
+  const { query: queryOptions } = options ?? {};
+
+  const queryKey = queryOptions?.queryKey ?? getQuoteHomePageQueryKey();
+
+  const queryFn: QueryFunction<Awaited<ReturnType<typeof quoteHomePage>>> = () => quoteHomePage();
+
+  const query = useQuery<Awaited<ReturnType<typeof quoteHomePage>>, TError, TData>(
+    queryKey,
+    queryFn,
+    queryOptions,
+  ) as UseQueryResult<TData, TError> & { queryKey: QueryKey };
+
+  query.queryKey = queryKey;
+
+  return query;
+};
 
 export const quoteReal = (quoteRealBody: QuoteRealBody) => {
   return customInstance<QuoteRealResponse>({

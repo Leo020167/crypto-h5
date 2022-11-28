@@ -157,17 +157,19 @@ const RechargeCoin = () => {
             <div className="flex items-center h-11 bg-[#EDF3FA] text-[#6175AE] px-2.5 rounded-md overflow-x-auto pr-12 w-full">
               {currentAddress?.address}
             </div>
-            <a
-              className="absolute right-[-4px] h-8 bg-[#6175AE] text-white pl-2.5 pr-2 flex items-center text-sm rounded-tl-[14px] rounded-bl-[14px]  rounded-tr-md rounded-br-md"
-              onClick={() => {
-                if (currentAddress?.address) {
-                  copyToClipboard(currentAddress?.address);
-                  Toast.show('已複製到粘貼板');
-                }
-              }}
-            >
-              複製
-            </a>
+            {currentAddress?.address && (
+              <a
+                className="absolute right-[-4px] h-8 bg-[#6175AE] text-white pl-2.5 pr-2 flex items-center text-sm rounded-tl-[14px] rounded-bl-[14px]  rounded-tr-md rounded-br-md"
+                onClick={() => {
+                  if (currentAddress?.address) {
+                    copyToClipboard(currentAddress?.address);
+                    Toast.show('已複製到粘貼板');
+                  }
+                }}
+              >
+                複製
+              </a>
+            )}
           </div>
         </div>
 

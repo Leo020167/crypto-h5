@@ -13,7 +13,7 @@ interface CoinSymbolDialogProps {
   onSelect?: (value?: string) => void;
 }
 
-const anchors = [window.innerHeight * 0.4, window.innerHeight * 0.8];
+const anchors = [window.innerHeight * 0.5, window.innerHeight * 0.8];
 
 const CoinSymbolSelectDialog = ({
   open,
@@ -24,7 +24,7 @@ const CoinSymbolSelectDialog = ({
   const [selected, setSelected] = useState<string | undefined>(defaultValue);
   const { data } = useGetCoinList({ inOut: 1 });
 
-  const [height, setHeight] = useState(window.innerHeight * 0.4 - 28);
+  const [height, setHeight] = useState(window.innerHeight * 0.5 - 28);
 
   const handleClick = useCallback((v: CoinListItem) => {
     setSelected(v.symbol);
@@ -45,7 +45,7 @@ const CoinSymbolSelectDialog = ({
           className="flex flex-col min-h-0 ease-in-out duration-300 symbol-list"
           style={{ height }}
         >
-          <div className="mb-8 text-base px-5">選擇幣種</div>
+          <div className="mb-7 text-base px-5 font-bold">選擇幣種</div>
           <div className="flex-1 overflow-y-auto">
             {data?.data?.coinList?.map((v) => (
               <a

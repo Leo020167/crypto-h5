@@ -5,6 +5,18 @@ info:
 servers:
   - url: http://market.piglobalexchanges.com
 paths:
+  /quote/homePage.do:
+    post:
+      operationId: 'quoteHomePage'
+      description: '大V排行榜页面信息'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QuoteHomePageResponse'
+
   /quote/real.do:
     post:
       operationId: 'quoteReal'
@@ -131,6 +143,20 @@ paths:
 
 components:
   schemas:
+    QuoteHomePageResponse:
+      allOf:
+        - $ref: '#/components/schemas/CommonResponse'
+        - properties:
+            data:
+              type: object
+              properties:
+                tab:
+                  type: string
+                quotes:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/Quote'
+
     QuoteRealResponse:
       allOf:
         - $ref: '#/components/schemas/CommonResponse'

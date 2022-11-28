@@ -29,7 +29,7 @@ const Settings = () => {
         <List.Item arrow={<Arrow />} onClick={() => history.push('/account')}>
           修改綁定手機
         </List.Item>
-        <List.Item arrow={<Arrow />} onClick={() => history.push('/language')}>
+        <List.Item arrow={<Arrow />} onClick={() => history.push('/languages')}>
           更換語言
         </List.Item>
       </List>
