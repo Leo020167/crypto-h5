@@ -24,21 +24,22 @@ const Settings = () => {
       </NavBar>
       <List className="mb-2">
         <List.Item arrow={<Arrow />} onClick={() => history.push('/change-password')}>
-          修改密码
+          登錄密碼
         </List.Item>
-
         <List.Item arrow={<Arrow />} onClick={() => history.push('/account')}>
-          绑定手机
+          修改綁定手機
         </List.Item>
-
-        <List.Item arrow={<Arrow />} onClick={() => setOpenUpAndDownColor(true)}>
-          涨跌颜色
+        <List.Item arrow={<Arrow />} onClick={() => history.push('/language')}>
+          更換語言
         </List.Item>
       </List>
 
       <List className="mb-2">
         <List.Item arrow={<Arrow />} onClick={() => setOpenRefreshRate(true)}>
           刷新频率设置
+        </List.Item>
+        <List.Item arrow={<Arrow />} onClick={() => setOpenUpAndDownColor(true)}>
+          涨跌颜色
         </List.Item>
         {/* <List.Item arrow={<Arrow />}>消息推送</List.Item> */}
         {/* <List.Item arrow={<Arrow />}>消除缓存</List.Item> */}

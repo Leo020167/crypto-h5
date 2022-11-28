@@ -5,6 +5,77 @@ info:
 servers:
   - url: http://api.piglobalexchanges.com
 paths:
+  /depositeWithdraw/getCoinInfo.do:
+    post:
+      operationId: 'getCoinInfo'
+      description: '获取提币充币相关信息'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                chainType:
+                  type: string
+                inOut:
+                  type: number
+                symbol:
+                  type: string
+              required:
+                - 'chainType'
+                - 'inOut'
+                - 'symbol'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CoinListResponse'
+
+  /depositeWithdraw/getChargeConfigs.do:
+    post:
+      operationId: 'getChargeConfigs'
+      description: '获取充币信息'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                symbol:
+                  type: string
+                  description: '币种符号'
+              required:
+                - 'symbol'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChargeConfigsResponse'
+
+  /depositeWithdraw/coinList.do:
+    post:
+      operationId: 'getCoinList'
+      description: '获取充提币币种列表'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                inOut:
+                  type: number
+                  description: '充提币类型，充币 1 ，提币 -1'
+              required:
+                - 'inOut'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CoinListResponse'
+
   /optional/coin/isOptional.do:
     post:
       operationId: 'isOptional'
@@ -1032,13 +1103,6 @@ paths:
     post:
       operationId: 'depositWithdrawGetInfo'
       description: '获取充币信息'
-      requestBody:
-        content:
-          application/json:
-            schema:
-              properties:
-                userId:
-                  type: string
       responses:
         '200':
           description: OK
@@ -1087,6 +1151,59 @@ paths:
 
 components:
   schemas:
+    ChargeConfigsResponse:
+      allOf:
+        - $ref: '#/components/schemas/CommonResponse'
+        - properties:
+            data:
+              $ref: '#/components/schemas/ChargeConfig'
+
+    Address:
+      type: object
+      properties:
+        symbol:
+          type: string
+        address:
+          type: string
+        qrcode:
+          type: string
+        chainTpe:
+          type: string
+
+    ChargeConfig:
+      type: object
+      properties:
+        addressList:
+          type: array
+          items:
+            $ref: '#/components/schemas/Address'
+        availableAmount:
+          type: string
+        minChargeAmount:
+          type: string
+
+    CoinListResponse:
+      allOf:
+        - $ref: '#/components/schemas/CommonResponse'
+        - properties:
+            data:
+              type: object
+              properties:
+                coinList:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/CoinListItem'
+
+    CoinListItem:
+      type: object
+      properties:
+        isTrade:
+          type: string
+        maxWithdrawDecimals:
+          type: string
+        symbol:
+          type: string
+
     Coin:
       type: object
       properties:

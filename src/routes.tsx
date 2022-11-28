@@ -9,6 +9,7 @@ import { ReactComponent as HomeTabFollow } from './assets/home_tab_follow.svg';
 import { ReactComponent as HomeTabMarkSvg } from './assets/home_tab_mark.svg';
 import { ReactComponent as HomeTabMineSvg } from './assets/home_tab_mine.svg';
 
+const Language = lazy(() => import('./pages/Language'));
 const TradeLever = lazy(() => import('./pages/TradeLever'));
 const Trade = lazy(() => import('./pages/Trade'));
 const Market = lazy(() => import('./pages/Market'));
@@ -148,6 +149,12 @@ export const Routes = () => {
 
       <Route path="/home">
         <Home />
+      </Route>
+
+      <Route path="/language">
+        <Suspense fallback={<div>Loading...</div>}>
+          <Language />
+        </Suspense>
       </Route>
 
       <Route path="/trade-lever">

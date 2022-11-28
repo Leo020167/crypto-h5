@@ -54,6 +54,21 @@ export default defineConfig({
           name: 'customInstance',
         },
         operations: {
+          getCoinInfo: {
+            query: {
+              useQuery: true,
+            },
+          },
+          getChargeConfigs: {
+            query: {
+              useQuery: true,
+            },
+          },
+          getCoinList: {
+            query: {
+              useQuery: true,
+            },
+          },
           isOptional: {
             query: {
               useQuery: true,

@@ -1,146 +1,229 @@
-import { Button, NavBar, Selector, Toast } from 'antd-mobile';
-import { useAtomValue } from 'jotai';
-import { first } from 'lodash-es';
+import { Input, Selector, Toast } from 'antd-mobile';
+import { DownFill } from 'antd-mobile-icons';
+import { find } from 'lodash-es';
 import { stringify } from 'query-string';
 import { useMemo, useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { useCopyToClipboard } from 'react-use';
 import styled from 'styled-components';
-import { useDepositWithdrawGetInfo } from '../../api/endpoints/transformer';
-import { userAtom } from '../../atoms';
+import { StringParam, useQueryParam, withDefault } from 'use-query-params';
+import { useDepositWithdrawGetInfo, useGetChargeConfigs } from '../../api/endpoints/transformer';
+import Screen from '../../components/Screen';
+import CoinSymbolSelectDialog from './CoinSymbolSelectDialog';
 
-const download = (image: string) => {
-  const element = document.createElement('a');
-  const file = new Blob([image], { type: 'image/*' });
-  element.href = URL.createObjectURL(file);
-  element.download = 'image.jpg';
-  element.click();
-};
-
+const SymbolParam = withDefault(StringParam, 'USDT');
 const RechargeCoin = () => {
+  const [chainType, setChainType] = useQueryParam('chainType', StringParam);
+  const [symbol, setSymbol] = useQueryParam('symbol', SymbolParam);
+  const [openSymbol, setOpenSymbol] = useState(false);
+
   const history = useHistory();
 
-  const user = useAtomValue(userAtom);
+  const { data } = useDepositWithdrawGetInfo({
+    query: {
+      enabled: symbol === 'USDT',
+      onSuccess(data) {
+        if (data.data?.infos) {
+          setChainType(data.data?.infos[0].type ?? '', 'replaceIn');
+        }
+      },
+    },
+  });
 
-  const [selected, setSelected] = useState<string[]>([]);
+  const [amount, setAmount] = useState<string>();
 
-  const { data } = useDepositWithdrawGetInfo(
-    { userId: user?.userId },
+  const { data: chargeConfigs } = useGetChargeConfigs(
+    { symbol },
     {
       query: {
-        enabled: !!user?.userId,
+        enabled: !!symbol,
         onSuccess(data) {
-          if (data.data?.infos) {
-            setSelected([data.data?.infos[0].type ?? '']);
+          if (data.code === '200') {
+            setAmount(data.data?.minChargeAmount);
           }
         },
       },
     },
   );
 
-  const items = useMemo(() => data?.data?.infos ?? [], [data?.data?.infos]);
-
   const options = useMemo(
     () =>
-      items.map((v) => ({
+      data?.data?.infos?.map((v) => ({
         value: v.type ?? '',
-        label: v.type ? 'USDT-' + v.type : '--',
+        label: v.type ? v.type : '--',
       })) ?? [],
-    [items],
+    [data?.data?.infos],
   );
 
-  const selectedItem = useMemo(
-    () => first(items.filter((v) => selected.includes(v.type ?? ''))),
-    [items, selected],
+  const addressList = useMemo(
+    () => chargeConfigs?.data?.addressList ?? [],
+    [chargeConfigs?.data?.addressList],
   );
+
+  const currentAddress = useMemo(() => {
+    return find(addressList, (v) => {
+      if (symbol === 'USDT') {
+        return v.chainTpe === chainType && v.symbol === symbol;
+      }
+      return v.symbol === symbol;
+    });
+  }, [addressList, chainType, symbol]);
 
   const [, copyToClipboard] = useCopyToClipboard();
 
   return (
-    <Container className="h-screen bg-white relative">
-      <NavBar
-        onBack={() => history.goBack()}
-        className="mb-4"
-        right={<Link to="/take-coin-history">记录</Link>}
-      >
-        充币
-      </NavBar>
-
-      <div className="px-4">
-        <div className="bg-[#f8faf9] h-14 text-[#989a99] text-lg px-4 flex items-center rounded">
-          USDT
-        </div>
-        <div className="mt-4">
-          <div className="text-[#1D3155]">充值网络</div>
-          <Selector
-            className="mt-2"
-            columns={3}
-            showCheckMark={false}
-            options={options}
-            value={selected}
-            onChange={setSelected}
-          />
+    <Screen
+      headerTitle="充幣"
+      navBarProps={{
+        right: <Link to="/take-coin-history">记录</Link>,
+      }}
+    >
+      <Container className="p-4 bg-[#F4F6F4] flex-1 overflow-y-auto">
+        <div className="rounded-xl shadow-md shadow-black/5 p-5 bg-white">
+          <div className="text-[#A2A9BC] flex items-center justify-between text-sm">
+            <span>可用餘額（USDT）</span>
+            <span className="text-[#3E4660] text-lg">
+              {chargeConfigs?.data?.availableAmount ?? '0.00'}
+            </span>
+          </div>
+          <div className="text-[#A2A9BC] flex items-center justify-between text-sm">
+            <span>最小充值金額（USDT）</span>
+            <span className="text-[#00BAB8] text-lg">
+              {chargeConfigs?.data?.minChargeAmount ?? '0.00'}
+            </span>
+          </div>
         </div>
 
-        <div className="mt-4 bg-[#f7f8fa] flex flex-col items-center justify-center p-5">
-          <div className="w-32 h-32">
-            {selectedItem?.image && (
-              <img alt="" src={selectedItem?.image} className="w-full h-full" />
+        <div className="rounded-xl shadow-md shadow-black/5 p-5 bg-white mt-4">
+          <div className="flex items-start justify-between">
+            <div>
+              <span className="text-[#3E4660]">選擇幣種</span>
+              <div className="mt-4">
+                <a
+                  className="flex items-center justify-center border border-[#3E4660] rounded h-8 px-2"
+                  onClick={() => {
+                    setOpenSymbol(true);
+                  }}
+                >
+                  {symbol}
+                  <DownFill fontSize={8} className="ml-2" />
+                </a>
+              </div>
+            </div>
+            {symbol === 'USDT' && (
+              <div className="text-right">
+                <span className="text-[#3E4660]">選擇充幣網絡</span>
+                <Selector
+                  className="mt-4"
+                  columns={3}
+                  showCheckMark={false}
+                  options={options}
+                  value={[chainType ?? '']}
+                  onChange={(value) => {
+                    if (value.length) {
+                      setChainType(value[0], 'replaceIn');
+                    }
+                  }}
+                />
+              </div>
             )}
           </div>
-          <a
-            className="px-4 py-1 rounded bg-[#e4e5e9] text-[#6175AE] mt-4"
-            onClick={() => {
-              if (selectedItem?.image && selectedItem.address) {
-                download(selectedItem.image);
-              }
-            }}
-          >
-            保存二维码
-          </a>
+          <div className="border-t border-dashed border-[#E2E4F0] mt-5"></div>
 
-          <div className="mt-4 w-full flex text-[#666175AE]">充币地址</div>
-          <span className="mt-4 text-xs text-[#6175AE]">{selectedItem?.address}</span>
-          <div className="mt-4 w-full flex">
-            <div
-              className="px-4 py-1 rounded bg-[#e4e5e9] text-[#6175AE]"
+          <div className="flex items-center justify-center mt-8">
+            <div className="w-[180px] h-[180px]">
+              {currentAddress?.qrcode && (
+                <img alt="" src={currentAddress?.qrcode} className="w-full h-full" />
+              )}
+            </div>
+          </div>
+
+          <div className="flex justify-center mt-8">
+            <span className="bg-[#6175AE] text-white rounded-2xl px-3 py-2 text-xs">
+              只允許充值{symbol}
+            </span>
+          </div>
+
+          <div className="mt-12 text-sm text-[#3E4660] flex justify-between">
+            <span>充幣地址</span>
+            {symbol === 'USDT' && (
+              <span>
+                當前鏈路：<span className="text-[#00BAB8]">{chainType}</span>
+              </span>
+            )}
+          </div>
+
+          <div className="mt-4 relative flex items-center">
+            <div className="flex items-center h-11 bg-[#EDF3FA] text-[#6175AE] px-2.5 rounded-md overflow-x-auto pr-12 w-full">
+              {currentAddress?.address}
+            </div>
+            <a
+              className="absolute right-[-4px] h-8 bg-[#6175AE] text-white pl-2.5 pr-2 flex items-center text-sm rounded-tl-[14px] rounded-bl-[14px]  rounded-tr-md rounded-br-md"
               onClick={() => {
-                if (selectedItem?.address) {
-                  copyToClipboard(selectedItem?.address);
+                if (currentAddress?.address) {
+                  copyToClipboard(currentAddress?.address);
                   Toast.show('已複製到粘貼板');
                 }
               }}
             >
-              复制
-            </div>
+              複製
+            </a>
           </div>
         </div>
-      </div>
 
-      <div className="absolute bottom-0 w-full">
-        <Button
-          size="large"
-          color="primary"
-          block
-          className="rounded-none"
-          onClick={() => history.push(`/recharge?${stringify({ chainType: selectedItem?.type })}`)}
-        >
-          充值
-        </Button>
-      </div>
-    </Container>
+        <div className="rounded-xl shadow-md shadow-black/5 p-5 bg-white mt-4">
+          <div>
+            <span className="text-xs text-[#A2A9BC]">充值數量</span>
+            <Input
+              type="number"
+              maxLength={18}
+              className="h-12 bg-[#F6F7F9] mt-2 px-5"
+              min={Number(chargeConfigs?.data?.minChargeAmount ?? 0)}
+              value={amount}
+              onChange={setAmount}
+            />
+          </div>
+
+          <a
+            className="btn-purple mt-5"
+            onClick={() =>
+              history.push(`/recharge?${stringify({ chainType: currentAddress?.chainTpe })}`)
+            }
+          >
+            充值確認
+          </a>
+        </div>
+
+        <CoinSymbolSelectDialog
+          open={openSymbol}
+          onClose={() => setOpenSymbol(false)}
+          defaultValue={symbol}
+          onSelect={(value) => {
+            setOpenSymbol(false);
+            setSymbol(value, 'replaceIn');
+          }}
+        />
+      </Container>
+    </Screen>
   );
 };
 
 const Container = styled.div`
-  .adm-selector-item {
-    border: 1px solid #cccccc;
-
-    color: #cccccc;
-    background-color: transparent;
-    &.adm-selector-item-active {
-      border-color: #6175ae;
-      color: #6175ae;
+  .adm-selector {
+    --padding: 0 10px;
+    .adm-selector-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 32px;
+      color: #00bab8;
+      font-size: 16px;
+      border: 1px solid #00bab8;
+      background-color: transparent;
+      &.adm-selector-item-active {
+        color: #fff;
+        background-color: #00bab8;
+      }
     }
   }
 `;

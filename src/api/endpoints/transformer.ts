@@ -14,6 +14,11 @@ import type {
   QueryKey,
 } from '@tanstack/react-query';
 import type {
+  CoinListResponse,
+  GetCoinInfoBody,
+  ChargeConfigsResponse,
+  GetChargeConfigsBody,
+  GetCoinListBody,
   IsOptional200,
   IsOptionalBody,
   CoinInfo200,
@@ -75,7 +80,6 @@ import type {
   DepositListResponse,
   DepositListBody,
   DepositWithdrawGetInfoResponse,
-  DepositWithdrawGetInfoBody,
   HomeMyResponse,
   HomeMyBody,
   UserInfoResponse,
@@ -83,6 +87,143 @@ import type {
 } from '../model';
 import { customInstance } from '../mutator/custom-instance';
 import type { ErrorType } from '../mutator/custom-instance';
+
+/**
+ * 获取提币充币相关信息
+ */
+export const getCoinInfo = (getCoinInfoBody: GetCoinInfoBody) => {
+  return customInstance<CoinListResponse>({
+    url: `/depositeWithdraw/getCoinInfo.do`,
+    method: 'post',
+    headers: { 'Content-Type': 'application/json' },
+    data: getCoinInfoBody,
+  });
+};
+
+export const getGetCoinInfoQueryKey = (getCoinInfoBody: GetCoinInfoBody) => [
+  `/depositeWithdraw/getCoinInfo.do`,
+  getCoinInfoBody,
+];
+
+export type GetCoinInfoQueryResult = NonNullable<Awaited<ReturnType<typeof getCoinInfo>>>;
+export type GetCoinInfoQueryError = ErrorType<unknown>;
+
+export const useGetCoinInfo = <
+  TData = Awaited<ReturnType<typeof getCoinInfo>>,
+  TError = ErrorType<unknown>,
+>(
+  getCoinInfoBody: GetCoinInfoBody,
+  options?: { query?: UseQueryOptions<Awaited<ReturnType<typeof getCoinInfo>>, TError, TData> },
+): UseQueryResult<TData, TError> & { queryKey: QueryKey } => {
+  const { query: queryOptions } = options ?? {};
+
+  const queryKey = queryOptions?.queryKey ?? getGetCoinInfoQueryKey(getCoinInfoBody);
+
+  const queryFn: QueryFunction<Awaited<ReturnType<typeof getCoinInfo>>> = () =>
+    getCoinInfo(getCoinInfoBody);
+
+  const query = useQuery<Awaited<ReturnType<typeof getCoinInfo>>, TError, TData>(
+    queryKey,
+    queryFn,
+    queryOptions,
+  ) as UseQueryResult<TData, TError> & { queryKey: QueryKey };
+
+  query.queryKey = queryKey;
+
+  return query;
+};
+
+/**
+ * 获取充币信息
+ */
+export const getChargeConfigs = (getChargeConfigsBody: GetChargeConfigsBody) => {
+  return customInstance<ChargeConfigsResponse>({
+    url: `/depositeWithdraw/getChargeConfigs.do`,
+    method: 'post',
+    headers: { 'Content-Type': 'application/json' },
+    data: getChargeConfigsBody,
+  });
+};
+
+export const getGetChargeConfigsQueryKey = (getChargeConfigsBody: GetChargeConfigsBody) => [
+  `/depositeWithdraw/getChargeConfigs.do`,
+  getChargeConfigsBody,
+];
+
+export type GetChargeConfigsQueryResult = NonNullable<Awaited<ReturnType<typeof getChargeConfigs>>>;
+export type GetChargeConfigsQueryError = ErrorType<unknown>;
+
+export const useGetChargeConfigs = <
+  TData = Awaited<ReturnType<typeof getChargeConfigs>>,
+  TError = ErrorType<unknown>,
+>(
+  getChargeConfigsBody: GetChargeConfigsBody,
+  options?: {
+    query?: UseQueryOptions<Awaited<ReturnType<typeof getChargeConfigs>>, TError, TData>;
+  },
+): UseQueryResult<TData, TError> & { queryKey: QueryKey } => {
+  const { query: queryOptions } = options ?? {};
+
+  const queryKey = queryOptions?.queryKey ?? getGetChargeConfigsQueryKey(getChargeConfigsBody);
+
+  const queryFn: QueryFunction<Awaited<ReturnType<typeof getChargeConfigs>>> = () =>
+    getChargeConfigs(getChargeConfigsBody);
+
+  const query = useQuery<Awaited<ReturnType<typeof getChargeConfigs>>, TError, TData>(
+    queryKey,
+    queryFn,
+    queryOptions,
+  ) as UseQueryResult<TData, TError> & { queryKey: QueryKey };
+
+  query.queryKey = queryKey;
+
+  return query;
+};
+
+/**
+ * 获取充提币币种列表
+ */
+export const getCoinList = (getCoinListBody: GetCoinListBody) => {
+  return customInstance<CoinListResponse>({
+    url: `/depositeWithdraw/coinList.do`,
+    method: 'post',
+    headers: { 'Content-Type': 'application/json' },
+    data: getCoinListBody,
+  });
+};
+
+export const getGetCoinListQueryKey = (getCoinListBody: GetCoinListBody) => [
+  `/depositeWithdraw/coinList.do`,
+  getCoinListBody,
+];
+
+export type GetCoinListQueryResult = NonNullable<Awaited<ReturnType<typeof getCoinList>>>;
+export type GetCoinListQueryError = ErrorType<unknown>;
+
+export const useGetCoinList = <
+  TData = Awaited<ReturnType<typeof getCoinList>>,
+  TError = ErrorType<unknown>,
+>(
+  getCoinListBody: GetCoinListBody,
+  options?: { query?: UseQueryOptions<Awaited<ReturnType<typeof getCoinList>>, TError, TData> },
+): UseQueryResult<TData, TError> & { queryKey: QueryKey } => {
+  const { query: queryOptions } = options ?? {};
+
+  const queryKey = queryOptions?.queryKey ?? getGetCoinListQueryKey(getCoinListBody);
+
+  const queryFn: QueryFunction<Awaited<ReturnType<typeof getCoinList>>> = () =>
+    getCoinList(getCoinListBody);
+
+  const query = useQuery<Awaited<ReturnType<typeof getCoinList>>, TError, TData>(
+    queryKey,
+    queryFn,
+    queryOptions,
+  ) as UseQueryResult<TData, TError> & { queryKey: QueryKey };
+
+  query.queryKey = queryKey;
+
+  return query;
+};
 
 /**
  * 是否自选
@@ -2031,18 +2172,14 @@ export const useDepositList = <
 /**
  * 获取充币信息
  */
-export const depositWithdrawGetInfo = (depositWithdrawGetInfoBody: DepositWithdrawGetInfoBody) => {
+export const depositWithdrawGetInfo = () => {
   return customInstance<DepositWithdrawGetInfoResponse>({
     url: `/depositeWithdraw/getInfo.do`,
     method: 'post',
-    headers: { 'Content-Type': 'application/json' },
-    data: depositWithdrawGetInfoBody,
   });
 };
 
-export const getDepositWithdrawGetInfoQueryKey = (
-  depositWithdrawGetInfoBody: DepositWithdrawGetInfoBody,
-) => [`/depositeWithdraw/getInfo.do`, depositWithdrawGetInfoBody];
+export const getDepositWithdrawGetInfoQueryKey = () => [`/depositeWithdraw/getInfo.do`];
 
 export type DepositWithdrawGetInfoQueryResult = NonNullable<
   Awaited<ReturnType<typeof depositWithdrawGetInfo>>
@@ -2052,19 +2189,15 @@ export type DepositWithdrawGetInfoQueryError = ErrorType<unknown>;
 export const useDepositWithdrawGetInfo = <
   TData = Awaited<ReturnType<typeof depositWithdrawGetInfo>>,
   TError = ErrorType<unknown>,
->(
-  depositWithdrawGetInfoBody: DepositWithdrawGetInfoBody,
-  options?: {
-    query?: UseQueryOptions<Awaited<ReturnType<typeof depositWithdrawGetInfo>>, TError, TData>;
-  },
-): UseQueryResult<TData, TError> & { queryKey: QueryKey } => {
+>(options?: {
+  query?: UseQueryOptions<Awaited<ReturnType<typeof depositWithdrawGetInfo>>, TError, TData>;
+}): UseQueryResult<TData, TError> & { queryKey: QueryKey } => {
   const { query: queryOptions } = options ?? {};
 
-  const queryKey =
-    queryOptions?.queryKey ?? getDepositWithdrawGetInfoQueryKey(depositWithdrawGetInfoBody);
+  const queryKey = queryOptions?.queryKey ?? getDepositWithdrawGetInfoQueryKey();
 
   const queryFn: QueryFunction<Awaited<ReturnType<typeof depositWithdrawGetInfo>>> = () =>
-    depositWithdrawGetInfo(depositWithdrawGetInfoBody);
+    depositWithdrawGetInfo();
 
   const query = useQuery<Awaited<ReturnType<typeof depositWithdrawGetInfo>>, TError, TData>(
     queryKey,
