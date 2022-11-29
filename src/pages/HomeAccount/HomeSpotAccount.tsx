@@ -1,6 +1,7 @@
 import { List } from 'antd-mobile';
+import { stringify } from 'query-string';
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import { AccountInfo } from '../../api/model';
 import FinancialList from './FinancialList';
@@ -11,6 +12,8 @@ interface HomeSpotAccountProps {
 }
 const HomeSpotAccount = ({ account }: HomeSpotAccountProps) => {
   const [selected, setSelected] = useState(0);
+
+  const history = useHistory();
   return (
     <Container className="bg-gray-100">
       <div className="p-4 bg-white text-xs">
@@ -67,7 +70,16 @@ const HomeSpotAccount = ({ account }: HomeSpotAccountProps) => {
       {selected === 0 ? (
         <List>
           {account?.openList?.map((v, i) => (
-            <List.Item key={i}>
+            <List.Item
+              key={i}
+              arrow={null}
+              onClick={() =>
+                history.push({
+                  pathname: '/position-details',
+                  search: stringify({ symbol: v.symbol }),
+                })
+              }
+            >
               <PositionItem data={v} />
             </List.Item>
           ))}

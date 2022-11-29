@@ -9,6 +9,7 @@ import { ReactComponent as HomeTabFollow } from './assets/home_tab_follow.svg';
 import { ReactComponent as HomeTabMarkSvg } from './assets/home_tab_mark.svg';
 import { ReactComponent as HomeTabMineSvg } from './assets/home_tab_mine.svg';
 
+const PositionDetails = lazy(() => import('./pages/HomeAccount/PositionDetails'));
 const PledgeHistory = lazy(() => import('./pages/Pledge/PledgeHistory'));
 const Pledge = lazy(() => import('./pages/Pledge'));
 const Language = lazy(() => import('./pages/Language'));
@@ -151,6 +152,12 @@ export const Routes = () => {
 
       <Route path="/home">
         <HomeTabs />
+      </Route>
+
+      <Route path="/position-details">
+        <Suspense fallback={<div>Loading...</div>}>
+          <PositionDetails />
+        </Suspense>
       </Route>
 
       <Route path="/pledge-history">

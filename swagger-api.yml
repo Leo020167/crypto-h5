@@ -5,6 +5,62 @@ info:
 servers:
   - url: http://api.piglobalexchanges.com
 paths:
+  /pro/order/open.do:
+    post:
+      operationId: 'proOrderOpen'
+      description: '明細'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                buySell:
+                  type: string
+                hand:
+                  type: string
+                multiNum:
+                  type: string
+                orderType:
+                  type: string
+                price:
+                  type: string
+                symbol:
+                  type: string
+                type:
+                  type: string
+
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CommonResponse'
+
+  /pro/order/detail.do:
+    post:
+      operationId: 'proOrderDetail'
+      description: '明細'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                orderId:
+                  type: string
+                symbol:
+                  type: string
+              required:
+                - 'symbol'
+
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProOrderDetailResponse'
+
   /pledge/commit.do:
     post:
       operationId: 'pledgeCommit'
@@ -1223,6 +1279,38 @@ paths:
 
 components:
   schemas:
+    ProOrderDetailResponse:
+      allOf:
+        - $ref: '#/components/schemas/CommonResponse'
+        - properties:
+            data:
+              type: object
+              properties:
+                data:
+                  $ref: '#/components/schemas/ProOrderDetail'
+
+    ProOrderDetail:
+      type: object
+      properties:
+        amount:
+          type: string
+        availableAmount:
+          type: string
+        last:
+          type: string
+        price:
+          type: string
+        priceDecimals:
+          type: string
+        profit:
+          type: string
+        profitRate:
+          type: string
+        rate:
+          type: string
+        symbol:
+          type: string
+
     RecordListPledgesResponse:
       allOf:
         - $ref: '#/components/schemas/CommonResponse'

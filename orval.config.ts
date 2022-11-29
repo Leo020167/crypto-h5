@@ -59,6 +59,11 @@ export default defineConfig({
           name: 'customInstance',
         },
         operations: {
+          proOrderDetail: {
+            query: {
+              useQuery: true,
+            },
+          },
           listPledges: {
             query: {
               useQuery: true,

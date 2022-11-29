@@ -15,6 +15,9 @@ import type {
 } from '@tanstack/react-query';
 import type {
   CommonResponse,
+  ProOrderOpenBody,
+  ProOrderDetailResponse,
+  ProOrderDetailBody,
   PledgeCommitBody,
   RecordListPledgesResponse,
   RecordListPledgesBody,
@@ -92,6 +95,94 @@ import type {
 } from '../model';
 import { customInstance } from '../mutator/custom-instance';
 import type { ErrorType } from '../mutator/custom-instance';
+
+/**
+ * 明細
+ */
+export const proOrderOpen = (proOrderOpenBody: ProOrderOpenBody) => {
+  return customInstance<CommonResponse>({
+    url: `/pro/order/open.do`,
+    method: 'post',
+    headers: { 'Content-Type': 'application/json' },
+    data: proOrderOpenBody,
+  });
+};
+
+export type ProOrderOpenMutationResult = NonNullable<Awaited<ReturnType<typeof proOrderOpen>>>;
+export type ProOrderOpenMutationBody = ProOrderOpenBody;
+export type ProOrderOpenMutationError = ErrorType<unknown>;
+
+export const useProOrderOpen = <TError = ErrorType<unknown>, TContext = unknown>(options?: {
+  mutation?: UseMutationOptions<
+    Awaited<ReturnType<typeof proOrderOpen>>,
+    TError,
+    { data: ProOrderOpenBody },
+    TContext
+  >;
+}) => {
+  const { mutation: mutationOptions } = options ?? {};
+
+  const mutationFn: MutationFunction<
+    Awaited<ReturnType<typeof proOrderOpen>>,
+    { data: ProOrderOpenBody }
+  > = (props) => {
+    const { data } = props ?? {};
+
+    return proOrderOpen(data);
+  };
+
+  return useMutation<
+    Awaited<ReturnType<typeof proOrderOpen>>,
+    TError,
+    { data: ProOrderOpenBody },
+    TContext
+  >(mutationFn, mutationOptions);
+};
+
+/**
+ * 明細
+ */
+export const proOrderDetail = (proOrderDetailBody: ProOrderDetailBody) => {
+  return customInstance<ProOrderDetailResponse>({
+    url: `/pro/order/detail.do`,
+    method: 'post',
+    headers: { 'Content-Type': 'application/json' },
+    data: proOrderDetailBody,
+  });
+};
+
+export const getProOrderDetailQueryKey = (proOrderDetailBody: ProOrderDetailBody) => [
+  `/pro/order/detail.do`,
+  proOrderDetailBody,
+];
+
+export type ProOrderDetailQueryResult = NonNullable<Awaited<ReturnType<typeof proOrderDetail>>>;
+export type ProOrderDetailQueryError = ErrorType<unknown>;
+
+export const useProOrderDetail = <
+  TData = Awaited<ReturnType<typeof proOrderDetail>>,
+  TError = ErrorType<unknown>,
+>(
+  proOrderDetailBody: ProOrderDetailBody,
+  options?: { query?: UseQueryOptions<Awaited<ReturnType<typeof proOrderDetail>>, TError, TData> },
+): UseQueryResult<TData, TError> & { queryKey: QueryKey } => {
+  const { query: queryOptions } = options ?? {};
+
+  const queryKey = queryOptions?.queryKey ?? getProOrderDetailQueryKey(proOrderDetailBody);
+
+  const queryFn: QueryFunction<Awaited<ReturnType<typeof proOrderDetail>>> = () =>
+    proOrderDetail(proOrderDetailBody);
+
+  const query = useQuery<Awaited<ReturnType<typeof proOrderDetail>>, TError, TData>(
+    queryKey,
+    queryFn,
+    queryOptions,
+  ) as UseQueryResult<TData, TError> & { queryKey: QueryKey };
+
+  query.queryKey = queryKey;
+
+  return query;
+};
 
 /**
  * 提交质押申请
