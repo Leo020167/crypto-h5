@@ -69,7 +69,7 @@ const Home = () => {
         </div>
 
         <Link to="/languages">
-          <img alt="" src={`/public/languages/${locale}.png`} className="w-6 h-6 rounded-full" />
+          <img alt="" src={`/languages/${locale}.png`} className="w-6 h-6 rounded-full" />
         </Link>
       </div>
 

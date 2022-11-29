@@ -10,7 +10,7 @@ const HomeDigitalAccount = ({ account }: HomeDigitalAccountProps) => {
   const { data } = useAllConfig();
 
   return (
-    <div className="p-4 text-xs">
+    <div className="p-4 text-xs bg-white">
       <div className="flex items-center justify-between">
         <div>
           <div className="text-gray-400">總資產(USDT)</div>

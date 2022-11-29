@@ -31,7 +31,7 @@ const HomeAccount = () => {
   // useInterval(() => refetch(), 1000);
 
   return (
-    <Container className="h-screen min-h-0 relative flex flex-col bg-white">
+    <Container className="h-screen min-h-0 relative flex flex-col bg-gray-100">
       <div className="flex-1 overflow-y-auto">
         <div className="flex flex-col pt-10 px-4 pb-6 bg-[#4D4CE6] text-white">
           <div className="text-xs text-gray-200">賬戶總資產(USDT)</div>
