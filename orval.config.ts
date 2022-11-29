@@ -59,6 +59,16 @@ export default defineConfig({
           name: 'customInstance',
         },
         operations: {
+          listPledges: {
+            query: {
+              useQuery: true,
+            },
+          },
+          recordListPledges: {
+            query: {
+              useQuery: true,
+            },
+          },
           homeCropMe: {
             query: {
               useQuery: true,

@@ -14,6 +14,11 @@ import type {
   QueryKey,
 } from '@tanstack/react-query';
 import type {
+  CommonResponse,
+  PledgeCommitBody,
+  RecordListPledgesResponse,
+  RecordListPledgesBody,
+  ListPledgesResponse,
   HomeCropMeResponse,
   CoinListResponse,
   GetCoinInfoBody,
@@ -28,7 +33,6 @@ import type {
   AccountRecordListResponse,
   AccountRecordListBody,
   HomeAccountResponse,
-  CommonResponse,
   OtcDelMyAdBody,
   OtcGetMyAdInfo200,
   OtcGetMyAdInfoBody,
@@ -88,6 +92,133 @@ import type {
 } from '../model';
 import { customInstance } from '../mutator/custom-instance';
 import type { ErrorType } from '../mutator/custom-instance';
+
+/**
+ * 提交质押申请
+ */
+export const pledgeCommit = (pledgeCommitBody: PledgeCommitBody) => {
+  return customInstance<CommonResponse>({
+    url: `/pledge/commit.do`,
+    method: 'post',
+    headers: { 'Content-Type': 'application/json' },
+    data: pledgeCommitBody,
+  });
+};
+
+export type PledgeCommitMutationResult = NonNullable<Awaited<ReturnType<typeof pledgeCommit>>>;
+export type PledgeCommitMutationBody = PledgeCommitBody;
+export type PledgeCommitMutationError = ErrorType<unknown>;
+
+export const usePledgeCommit = <TError = ErrorType<unknown>, TContext = unknown>(options?: {
+  mutation?: UseMutationOptions<
+    Awaited<ReturnType<typeof pledgeCommit>>,
+    TError,
+    { data: PledgeCommitBody },
+    TContext
+  >;
+}) => {
+  const { mutation: mutationOptions } = options ?? {};
+
+  const mutationFn: MutationFunction<
+    Awaited<ReturnType<typeof pledgeCommit>>,
+    { data: PledgeCommitBody }
+  > = (props) => {
+    const { data } = props ?? {};
+
+    return pledgeCommit(data);
+  };
+
+  return useMutation<
+    Awaited<ReturnType<typeof pledgeCommit>>,
+    TError,
+    { data: PledgeCommitBody },
+    TContext
+  >(mutationFn, mutationOptions);
+};
+
+/**
+ * 获取质押记录列表
+ */
+export const recordListPledges = (recordListPledgesBody: RecordListPledgesBody) => {
+  return customInstance<RecordListPledgesResponse>({
+    url: `/pledge/recordList.do`,
+    method: 'post',
+    headers: { 'Content-Type': 'application/json' },
+    data: recordListPledgesBody,
+  });
+};
+
+export const getRecordListPledgesQueryKey = (recordListPledgesBody: RecordListPledgesBody) => [
+  `/pledge/recordList.do`,
+  recordListPledgesBody,
+];
+
+export type RecordListPledgesQueryResult = NonNullable<
+  Awaited<ReturnType<typeof recordListPledges>>
+>;
+export type RecordListPledgesQueryError = ErrorType<unknown>;
+
+export const useRecordListPledges = <
+  TData = Awaited<ReturnType<typeof recordListPledges>>,
+  TError = ErrorType<unknown>,
+>(
+  recordListPledgesBody: RecordListPledgesBody,
+  options?: {
+    query?: UseQueryOptions<Awaited<ReturnType<typeof recordListPledges>>, TError, TData>;
+  },
+): UseQueryResult<TData, TError> & { queryKey: QueryKey } => {
+  const { query: queryOptions } = options ?? {};
+
+  const queryKey = queryOptions?.queryKey ?? getRecordListPledgesQueryKey(recordListPledgesBody);
+
+  const queryFn: QueryFunction<Awaited<ReturnType<typeof recordListPledges>>> = () =>
+    recordListPledges(recordListPledgesBody);
+
+  const query = useQuery<Awaited<ReturnType<typeof recordListPledges>>, TError, TData>(
+    queryKey,
+    queryFn,
+    queryOptions,
+  ) as UseQueryResult<TData, TError> & { queryKey: QueryKey };
+
+  query.queryKey = queryKey;
+
+  return query;
+};
+
+/**
+ * 获取可质押品种列表
+ */
+export const listPledges = () => {
+  return customInstance<ListPledgesResponse>({ url: `/pledge/list.do`, method: 'post' });
+};
+
+export const getListPledgesQueryKey = () => [`/pledge/list.do`];
+
+export type ListPledgesQueryResult = NonNullable<Awaited<ReturnType<typeof listPledges>>>;
+export type ListPledgesQueryError = ErrorType<unknown>;
+
+export const useListPledges = <
+  TData = Awaited<ReturnType<typeof listPledges>>,
+  TError = ErrorType<unknown>,
+>(options?: {
+  query?: UseQueryOptions<Awaited<ReturnType<typeof listPledges>>, TError, TData>;
+}): UseQueryResult<TData, TError> & { queryKey: QueryKey } => {
+  const { query: queryOptions } = options ?? {};
+
+  const queryKey = queryOptions?.queryKey ?? getListPledgesQueryKey();
+
+  const queryFn: QueryFunction<Awaited<ReturnType<typeof listPledges>>> = () => listPledges();
+
+  const query = useQuery<Awaited<ReturnType<typeof listPledges>>, TError, TData>(
+    queryKey,
+    queryFn,
+    queryOptions,
+  ) as UseQueryResult<TData, TError> & { queryKey: QueryKey };
+
+  query.queryKey = queryKey;
+
+  return query;
+};
 
 /**
  * 大V排行榜页面信息

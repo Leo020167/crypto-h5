@@ -5,6 +5,66 @@ info:
 servers:
   - url: http://api.piglobalexchanges.com
 paths:
+  /pledge/commit.do:
+    post:
+      operationId: 'pledgeCommit'
+      description: '提交质押申请'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                count:
+                  type: string
+                pledgeId:
+                  type: string
+              required:
+                - 'count'
+                - 'pledgeId'
+
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CommonResponse'
+
+  /pledge/recordList.do:
+    post:
+      operationId: 'recordListPledges'
+      description: '获取质押记录列表'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                status:
+                  type: string
+                  description: '状态 0 进行中 1 已结束'
+              required:
+                - 'status'
+
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RecordListPledgesResponse'
+
+  /pledge/list.do:
+    post:
+      operationId: 'listPledges'
+      description: '获取可质押品种列表'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListPledgesResponse'
+
   /home/cropyme.do:
     post:
       operationId: 'homeCropMe'
@@ -1163,6 +1223,64 @@ paths:
 
 components:
   schemas:
+    RecordListPledgesResponse:
+      allOf:
+        - $ref: '#/components/schemas/CommonResponse'
+        - properties:
+            data:
+              type: array
+              items:
+                $ref: '#/components/schemas/PledgeRecord'
+
+    PledgeRecord:
+      type: object
+      properties:
+        count:
+          type: string
+        duration:
+          type: string
+        endTime:
+          type: string
+        id:
+          type: string
+        preProfit:
+          type: string
+        pledgeId:
+          type: string
+        profit:
+          type: string
+        profitRate:
+          type: string
+        startTime:
+          type: string
+        status:
+          type: string
+        symbol:
+          type: string
+
+    ListPledgesResponse:
+      allOf:
+        - $ref: '#/components/schemas/CommonResponse'
+        - properties:
+            data:
+              type: array
+              items:
+                $ref: '#/components/schemas/PledgeListItem'
+
+    PledgeListItem:
+      type: object
+      properties:
+        duration:
+          type: string
+        id:
+          type: string
+        minCount:
+          type: string
+        profitRate:
+          type: string
+        symbol:
+          type: string
+
     HomeCropMeResponse:
       allOf:
         - $ref: '#/components/schemas/CommonResponse'

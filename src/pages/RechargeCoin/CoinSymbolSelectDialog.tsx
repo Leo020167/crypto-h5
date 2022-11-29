@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { useGetCoinList } from '../../api/endpoints/transformer';
 import { CoinListItem } from '../../api/model';
 
-import symbol_selection_png from '../../assets/symbol-selection.png';
+import symbol_selection_png from '../../assets/floating-panel-bg.png';
 
 interface CoinSymbolDialogProps {
   open: boolean;
