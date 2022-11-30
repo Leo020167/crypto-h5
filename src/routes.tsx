@@ -9,6 +9,8 @@ import { ReactComponent as HomeTabFollow } from './assets/home_tab_follow.svg';
 import { ReactComponent as HomeTabMarkSvg } from './assets/home_tab_mark.svg';
 import { ReactComponent as HomeTabMineSvg } from './assets/home_tab_mine.svg';
 
+const UserHome = lazy(() => import('./pages/UserHome'));
+const Institution = lazy(() => import('./pages/Institution'));
 const AddressAdd = lazy(() => import('./pages/AddressManagement/AddressAdd'));
 const AddressManagement = lazy(() => import('./pages/AddressManagement'));
 const Addresses = lazy(() => import('./pages/Addresses'));
@@ -154,6 +156,18 @@ export const Routes = () => {
 
       <Route path="/home">
         <HomeTabs />
+      </Route>
+
+      <Route path="/user-home">
+        <Suspense fallback={<div>Loading...</div>}>
+          <UserHome />
+        </Suspense>
+      </Route>
+
+      <Route path="/institution">
+        <Suspense fallback={<div>Loading...</div>}>
+          <Institution />
+        </Suspense>
       </Route>
 
       <Route path="/addresses">

@@ -1,6 +1,12 @@
 // 引入 echarts 核心模块，核心模块提供了 echarts 使用必须要的接口。
 // 引入柱状图图表，图表后缀都为 Chart
-import { BarChart, LineChart, CandlestickChart, EffectScatterChart } from 'echarts/charts';
+import {
+  BarChart,
+  LineChart,
+  CandlestickChart,
+  EffectScatterChart,
+  RadarChart,
+} from 'echarts/charts';
 // 引入提示框，标题，直角坐标系，数据集，内置数据转换器组件，组件后缀都为 Component
 import {
   TitleComponent,
@@ -9,6 +15,7 @@ import {
   TransformComponent,
   VisualMapComponent,
   DataZoomComponent,
+  RadarComponent,
 } from 'echarts/components';
 
 import * as echarts from 'echarts/core';
@@ -34,6 +41,8 @@ echarts.use([
   UniversalTransition,
   VisualMapComponent,
   CanvasRenderer,
+  RadarComponent,
+  RadarChart,
 ]);
 
 const myECharts = echarts;

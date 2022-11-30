@@ -14,6 +14,8 @@ import type {
   QueryKey,
 } from '@tanstack/react-query';
 import type {
+  PersonalHomeResponse,
+  PersonalHomeBody,
   GetWithdrawConfigsResponse,
   GetWithdrawConfigsBody,
   CommonResponse,
@@ -101,6 +103,51 @@ import type {
 } from '../model';
 import { customInstance } from '../mutator/custom-instance';
 import type { ErrorType } from '../mutator/custom-instance';
+
+/**
+ * 获取提币信息
+ */
+export const personalHome = (personalHomeBody: PersonalHomeBody) => {
+  return customInstance<PersonalHomeResponse>({
+    url: `/personal/home.do`,
+    method: 'post',
+    headers: { 'Content-Type': 'application/json' },
+    data: personalHomeBody,
+  });
+};
+
+export const getPersonalHomeQueryKey = (personalHomeBody: PersonalHomeBody) => [
+  `/personal/home.do`,
+  personalHomeBody,
+];
+
+export type PersonalHomeQueryResult = NonNullable<Awaited<ReturnType<typeof personalHome>>>;
+export type PersonalHomeQueryError = ErrorType<unknown>;
+
+export const usePersonalHome = <
+  TData = Awaited<ReturnType<typeof personalHome>>,
+  TError = ErrorType<unknown>,
+>(
+  personalHomeBody: PersonalHomeBody,
+  options?: { query?: UseQueryOptions<Awaited<ReturnType<typeof personalHome>>, TError, TData> },
+): UseQueryResult<TData, TError> & { queryKey: QueryKey } => {
+  const { query: queryOptions } = options ?? {};
+
+  const queryKey = queryOptions?.queryKey ?? getPersonalHomeQueryKey(personalHomeBody);
+
+  const queryFn: QueryFunction<Awaited<ReturnType<typeof personalHome>>> = () =>
+    personalHome(personalHomeBody);
+
+  const query = useQuery<Awaited<ReturnType<typeof personalHome>>, TError, TData>(
+    queryKey,
+    queryFn,
+    queryOptions,
+  ) as UseQueryResult<TData, TError> & { queryKey: QueryKey };
+
+  query.queryKey = queryKey;
+
+  return query;
+};
 
 /**
  * 获取提币信息

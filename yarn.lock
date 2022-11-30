@@ -4417,6 +4417,7 @@ __metadata:
     prettier: ^2.8.0
     query-string: ^7.1.1
     react: ^18.2.0
+    react-advanced-news-ticker: ^1.0.1
     react-dom: ^18.2.0
     react-intl: ^6.2.2
     react-router-dom: 5.3.4
@@ -6875,7 +6876,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prop-types@npm:^15.6.0, prop-types@npm:^15.6.2, prop-types@npm:^15.8.1":
+"prop-types@npm:^15.6.0, prop-types@npm:^15.6.2, prop-types@npm:^15.7.2, prop-types@npm:^15.8.1":
   version: 15.8.1
   resolution: "prop-types@npm:15.8.1"
   dependencies:
@@ -6993,6 +6994,16 @@ __metadata:
     react: ">=16.9.0"
     react-dom: ">=16.9.0"
   checksum: efda306dcf9eeb0df6d3a8d315d18ec73c653d463174355bd91d34f4d42acc092b2d6ffee47993312841ea4d13b4fe036c764a3a46fa935f307d51a8807e2c10
+  languageName: node
+  linkType: hard
+
+"react-advanced-news-ticker@npm:^1.0.1":
+  version: 1.0.1
+  resolution: "react-advanced-news-ticker@npm:1.0.1"
+  dependencies:
+    prop-types: ^15.7.2
+    react: ^16.13.1
+  checksum: 69c09bd41cd048b0ab1e01c9ab95c053229f32d1d48c196f684bc3cbf8f0e072e04fa4c0cfb5d10d0db2f15e16e30949eeb26eb327a79668c631e2f7844564f3
   languageName: node
   linkType: hard
 
@@ -7186,6 +7197,17 @@ __metadata:
     react: ">=16 || >=17 || >= 18"
     react-dom: ">=16 || >=17 || >= 18"
   checksum: c6dd6921e73ec1f88ae99c0eb002df24cdd73eb9154d71be43ea957b613ca9e976d6b0625b78f25a4dafc415ac680c6de576466847887d1da57bb3313cce7ec8
+  languageName: node
+  linkType: hard
+
+"react@npm:^16.13.1":
+  version: 16.14.0
+  resolution: "react@npm:16.14.0"
+  dependencies:
+    loose-envify: ^1.1.0
+    object-assign: ^4.1.1
+    prop-types: ^15.6.2
+  checksum: 8484f3ecb13414526f2a7412190575fc134da785c02695eb92bb6028c930bfe1c238d7be2a125088fec663cc7cda0a3623373c46807cf2c281f49c34b79881ac
   languageName: node
   linkType: hard
 

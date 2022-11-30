@@ -62,7 +62,9 @@ const Home = () => {
   return (
     <Container className="bg-[#eef3f9] flex-1 overflow-y-auto px-2.5">
       <div className="mt-5 flex items-center">
-        <img alt="" src={user?.headUrl ?? ic_default_head} className="w-10 h-10 rounded-full" />
+        <Link to="/home/my">
+          <img alt="" src={user?.headUrl ?? ic_default_head} className="w-10 h-10 rounded-full" />
+        </Link>
 
         <div className="flex-1 flex justify-center">
           <img alt="" src={tab2_2} className="w-[76px] h-[31px] " />
@@ -115,7 +117,7 @@ const Home = () => {
       </div>
 
       <div className="text-sm font-bold mt-3 shadow-md shadow-black/5 bg-white rounded-lg overflow-hidden h-[100px] px-2.5 flex items-center">
-        <Link to="" className="flex flex-col items-center justify-center w-1/5">
+        <Link to="/institution" className="flex flex-col items-center justify-center w-1/5">
           <img alt="" src={tab1_menu1} className="w-9 h-9" />
           <div className="mt-2.5 text-xs text-[#666666]">金牌機构</div>
         </Link>

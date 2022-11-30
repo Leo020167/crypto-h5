@@ -5,6 +5,27 @@ info:
 servers:
   - url: http://api.piglobalexchanges.com
 paths:
+  /personal/home.do:
+    post:
+      operationId: 'personalHome'
+      description: '获取提币信息'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                targetUid:
+                  type: string
+              required:
+                - 'targetUid'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PersonalHomeResponse'
+
   /depositeWithdraw/getWithdrawConfigs.do:
     post:
       operationId: 'getWithdrawConfigs'
@@ -1374,6 +1395,105 @@ paths:
 
 components:
   schemas:
+    PersonalHomeResponse:
+      allOf:
+        - $ref: '#/components/schemas/CommonResponse'
+        - properties:
+            data:
+              type: object
+              properties:
+                userRadar:
+                  $ref: '#/components/schemas/UserRadar'
+    UserRadar:
+      type: object
+      properties:
+        attentionNum:
+          type: string
+        correctRate:
+          type: string
+        days:
+          type: string
+        describes:
+          type: string
+        dvLossRate:
+          type: string
+        dvProfitRate:
+          type: string
+        entryTime:
+          type: string
+        expireTime:
+          type: string
+        followAutoBind:
+          type: string
+        followDigitalAssets:
+          type: string
+        followNotice:
+          type: string
+        followProfitRate:
+          type: string
+        followStockAssets:
+          type: string
+        headUrl:
+          type: string
+        isAgentOnly:
+          type: string
+        isExpireTime:
+          type: string
+        isOnline:
+          type: string
+        maxMultiNum:
+          type: string
+        monthProfit:
+          type: string
+        myIsAttention:
+          type: string
+        myIsFollow:
+          type: string
+        radarFollowBalance:
+          type: string
+        radarFollowBalanceWeight:
+          type: string
+        radarFollowNum:
+          type: string
+        radarFollowNumWeight:
+          type: string
+        radarFollowProfitRate:
+          type: string
+        radarFollowProfitRateWeight:
+          type: string
+        radarFollowWinRate:
+          type: string
+        radarFollowWinRateWeight:
+          type: string
+        radarProfitRate:
+          type: string
+        radarProfitRateWeight:
+          type: string
+        realAttentionNum:
+          type: string
+        realFollowCount:
+          type: string
+        recommend:
+          type: string
+        subFee:
+          type: string
+        subFeeType:
+          type: string
+        subFeeTypeName:
+          type: string
+        subFeeTypeUnit:
+          type: string
+        subIsFee:
+          type: string
+        tolRadarWeight:
+          type: string
+        totalProfit:
+          type: string
+        userId:
+          type: string
+        userName:
+          type: string
+
     GetWithdrawConfigsResponse:
       allOf:
         - $ref: '#/components/schemas/CommonResponse'
