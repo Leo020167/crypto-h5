@@ -1,4 +1,4 @@
-import { List, NoticeBar, Swiper, Tabs } from 'antd-mobile';
+import { List, Swiper, Tabs } from 'antd-mobile';
 import { useAtomValue } from 'jotai';
 import { useCallback, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
@@ -36,13 +36,6 @@ const Home = () => {
     sortType: sortType,
     tab: 'stock',
   });
-
-  const notice = useMemo(() => {
-    if (homeCropMe?.data?.noticeList?.length) {
-      return homeCropMe.data.noticeList.map((v) => v.title ?? '').join('; ');
-    }
-    return '';
-  }, [homeCropMe]);
 
   const quotes = useMemo(() => quoteHomePage?.data?.quotes ?? [], [quoteHomePage?.data?.quotes]);
 
@@ -85,12 +78,24 @@ const Home = () => {
         </Swiper>
       </div>
 
-      <div className="mt-3 shadow-md shadow-black/5 bg-white rounded-lg overflow-hidden h-12">
-        <NoticeBar
-          icon={<img alt="" src={xiaolaba} className="w-5 h-5" />}
-          content={notice}
-          extra={<img alt="" src={lvjiantou} className="w-5 h-4" />}
-        />
+      <div className="flex items-center mt-3 px-4 shadow-md shadow-black/5 bg-white rounded-lg overflow-hidden h-12">
+        <img alt="" src={xiaolaba} className="w-5 h-5" />
+        <Swiper
+          direction="vertical"
+          style={{ '--height': '3rem' }}
+          loop
+          autoplay
+          indicator={() => null}
+        >
+          {homeCropMe?.data?.noticeList?.map((v) => (
+            <Swiper.Item key={v.articleId} className="flex items-center h-12 px-2">
+              <a href={v.url} target="__blank" className="truncate">
+                {v.title}
+              </a>
+            </Swiper.Item>
+          ))}
+        </Swiper>
+        <img alt="" src={lvjiantou} className="w-5 h-4" />
       </div>
 
       <div className="text-sm font-bold mt-3 shadow-md shadow-black/5 bg-white rounded-lg overflow-hidden h-28 px-2.5 flex items-center">
@@ -125,7 +130,7 @@ const Home = () => {
           <img alt="" src={tab1_menu2} className="w-9 h-9" />
           <div className="mt-2.5 text-xs text-[#666666]">創新試驗區</div>
         </Link>
-        <Link to="" className="flex flex-col items-center justify-center w-1/5">
+        <Link to="/legal-money" className="flex flex-col items-center justify-center w-1/5">
           <img alt="" src={tab1_menu3} className="w-9 h-9" />
           <div className="mt-2.5 text-xs text-[#666666]">OTC交易</div>
         </Link>
