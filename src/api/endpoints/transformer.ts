@@ -14,7 +14,12 @@ import type {
   QueryKey,
 } from '@tanstack/react-query';
 import type {
+  GetWithdrawConfigsResponse,
+  GetWithdrawConfigsBody,
   CommonResponse,
+  DelAddressBody,
+  AddressListResponse,
+  AddressListBody,
   AddAddressBody,
   ProOrderOpenBody,
   ProOrderDetailResponse,
@@ -89,7 +94,6 @@ import type {
   InviteHomeBody,
   DepositListResponse,
   DepositListBody,
-  DepositWithdrawGetInfoResponse,
   HomeMyResponse,
   HomeMyBody,
   UserInfoResponse,
@@ -97,6 +101,143 @@ import type {
 } from '../model';
 import { customInstance } from '../mutator/custom-instance';
 import type { ErrorType } from '../mutator/custom-instance';
+
+/**
+ * 获取提币信息
+ */
+export const getWithdrawConfigs = (getWithdrawConfigsBody: GetWithdrawConfigsBody) => {
+  return customInstance<GetWithdrawConfigsResponse>({
+    url: `/depositeWithdraw/getWithdrawConfigs.do`,
+    method: 'post',
+    headers: { 'Content-Type': 'application/json' },
+    data: getWithdrawConfigsBody,
+  });
+};
+
+export const getGetWithdrawConfigsQueryKey = (getWithdrawConfigsBody: GetWithdrawConfigsBody) => [
+  `/depositeWithdraw/getWithdrawConfigs.do`,
+  getWithdrawConfigsBody,
+];
+
+export type GetWithdrawConfigsQueryResult = NonNullable<
+  Awaited<ReturnType<typeof getWithdrawConfigs>>
+>;
+export type GetWithdrawConfigsQueryError = ErrorType<unknown>;
+
+export const useGetWithdrawConfigs = <
+  TData = Awaited<ReturnType<typeof getWithdrawConfigs>>,
+  TError = ErrorType<unknown>,
+>(
+  getWithdrawConfigsBody: GetWithdrawConfigsBody,
+  options?: {
+    query?: UseQueryOptions<Awaited<ReturnType<typeof getWithdrawConfigs>>, TError, TData>;
+  },
+): UseQueryResult<TData, TError> & { queryKey: QueryKey } => {
+  const { query: queryOptions } = options ?? {};
+
+  const queryKey = queryOptions?.queryKey ?? getGetWithdrawConfigsQueryKey(getWithdrawConfigsBody);
+
+  const queryFn: QueryFunction<Awaited<ReturnType<typeof getWithdrawConfigs>>> = () =>
+    getWithdrawConfigs(getWithdrawConfigsBody);
+
+  const query = useQuery<Awaited<ReturnType<typeof getWithdrawConfigs>>, TError, TData>(
+    queryKey,
+    queryFn,
+    queryOptions,
+  ) as UseQueryResult<TData, TError> & { queryKey: QueryKey };
+
+  query.queryKey = queryKey;
+
+  return query;
+};
+
+/**
+ * 删除提币地址
+ */
+export const delAddress = (delAddressBody: DelAddressBody) => {
+  return customInstance<CommonResponse>({
+    url: `/depositeWithdraw/delAddress.do`,
+    method: 'post',
+    headers: { 'Content-Type': 'application/json' },
+    data: delAddressBody,
+  });
+};
+
+export type DelAddressMutationResult = NonNullable<Awaited<ReturnType<typeof delAddress>>>;
+export type DelAddressMutationBody = DelAddressBody;
+export type DelAddressMutationError = ErrorType<unknown>;
+
+export const useDelAddress = <TError = ErrorType<unknown>, TContext = unknown>(options?: {
+  mutation?: UseMutationOptions<
+    Awaited<ReturnType<typeof delAddress>>,
+    TError,
+    { data: DelAddressBody },
+    TContext
+  >;
+}) => {
+  const { mutation: mutationOptions } = options ?? {};
+
+  const mutationFn: MutationFunction<
+    Awaited<ReturnType<typeof delAddress>>,
+    { data: DelAddressBody }
+  > = (props) => {
+    const { data } = props ?? {};
+
+    return delAddress(data);
+  };
+
+  return useMutation<
+    Awaited<ReturnType<typeof delAddress>>,
+    TError,
+    { data: DelAddressBody },
+    TContext
+  >(mutationFn, mutationOptions);
+};
+
+/**
+ * 获取提币地址列表
+ */
+export const addressList = (addressListBody: AddressListBody) => {
+  return customInstance<AddressListResponse>({
+    url: `/depositeWithdraw/addressList.do`,
+    method: 'post',
+    headers: { 'Content-Type': 'application/json' },
+    data: addressListBody,
+  });
+};
+
+export const getAddressListQueryKey = (addressListBody: AddressListBody) => [
+  `/depositeWithdraw/addressList.do`,
+  addressListBody,
+];
+
+export type AddressListQueryResult = NonNullable<Awaited<ReturnType<typeof addressList>>>;
+export type AddressListQueryError = ErrorType<unknown>;
+
+export const useAddressList = <
+  TData = Awaited<ReturnType<typeof addressList>>,
+  TError = ErrorType<unknown>,
+>(
+  addressListBody: AddressListBody,
+  options?: { query?: UseQueryOptions<Awaited<ReturnType<typeof addressList>>, TError, TData> },
+): UseQueryResult<TData, TError> & { queryKey: QueryKey } => {
+  const { query: queryOptions } = options ?? {};
+
+  const queryKey = queryOptions?.queryKey ?? getAddressListQueryKey(addressListBody);
+
+  const queryFn: QueryFunction<Awaited<ReturnType<typeof addressList>>> = () =>
+    addressList(addressListBody);
+
+  const query = useQuery<Awaited<ReturnType<typeof addressList>>, TError, TData>(
+    queryKey,
+    queryFn,
+    queryOptions,
+  ) as UseQueryResult<TData, TError> & { queryKey: QueryKey };
+
+  query.queryKey = queryKey;
+
+  return query;
+};
 
 /**
  * 添加提币地址
@@ -2498,47 +2639,6 @@ export const useDepositList = <
     depositList(depositListBody);
 
   const query = useQuery<Awaited<ReturnType<typeof depositList>>, TError, TData>(
-    queryKey,
-    queryFn,
-    queryOptions,
-  ) as UseQueryResult<TData, TError> & { queryKey: QueryKey };
-
-  query.queryKey = queryKey;
-
-  return query;
-};
-
-/**
- * 获取充币信息
- */
-export const depositWithdrawGetInfo = () => {
-  return customInstance<DepositWithdrawGetInfoResponse>({
-    url: `/depositeWithdraw/getInfo.do`,
-    method: 'post',
-  });
-};
-
-export const getDepositWithdrawGetInfoQueryKey = () => [`/depositeWithdraw/getInfo.do`];
-
-export type DepositWithdrawGetInfoQueryResult = NonNullable<
-  Awaited<ReturnType<typeof depositWithdrawGetInfo>>
->;
-export type DepositWithdrawGetInfoQueryError = ErrorType<unknown>;
-
-export const useDepositWithdrawGetInfo = <
-  TData = Awaited<ReturnType<typeof depositWithdrawGetInfo>>,
-  TError = ErrorType<unknown>,
->(options?: {
-  query?: UseQueryOptions<Awaited<ReturnType<typeof depositWithdrawGetInfo>>, TError, TData>;
-}): UseQueryResult<TData, TError> & { queryKey: QueryKey } => {
-  const { query: queryOptions } = options ?? {};
-
-  const queryKey = queryOptions?.queryKey ?? getDepositWithdrawGetInfoQueryKey();
-
-  const queryFn: QueryFunction<Awaited<ReturnType<typeof depositWithdrawGetInfo>>> = () =>
-    depositWithdrawGetInfo();
-
-  const query = useQuery<Awaited<ReturnType<typeof depositWithdrawGetInfo>>, TError, TData>(
     queryKey,
     queryFn,
     queryOptions,

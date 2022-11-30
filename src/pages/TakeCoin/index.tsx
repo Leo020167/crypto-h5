@@ -1,14 +1,19 @@
-import { Button, Dialog, Input, Selector, Toast } from 'antd-mobile';
+import { Button, Dialog, Input, Popup, Selector, Toast } from 'antd-mobile';
 import { DownFill, RightOutline } from 'antd-mobile-icons';
 import { useAtomValue } from 'jotai';
-import { first } from 'lodash-es';
 import { stringify } from 'query-string';
 import { useState, useMemo, useCallback } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { useLocation } from 'react-use';
 import styled from 'styled-components';
 import { withDefault, StringParam, useQueryParam } from 'use-query-params';
-import { useDepositWithdrawGetInfo, useWithdrawSubmit } from '../../api/endpoints/transformer';
+import {
+  useAddressList,
+  useGetCoinList,
+  useGetWithdrawConfigs,
+  useWithdrawSubmit,
+} from '../../api/endpoints/transformer';
+import { Address } from '../../api/model';
 import { userAtom } from '../../atoms';
 import Screen from '../../components/Screen';
 import CoinSymbolSelectDialog from '../RechargeCoin/CoinSymbolSelectDialog';
@@ -20,43 +25,43 @@ const TakeCoin = () => {
   const [chainType, setChainType] = useQueryParam('chainType', StringParam);
   const [openSymbol, setOpenSymbol] = useState(false);
 
+  const [openAddress, setOpenAddress] = useState(false);
+
   const history = useHistory();
 
   const user = useAtomValue(userAtom);
+
   const location = useLocation();
 
   const isAuthTakeCoin = location.state?.success ?? false;
 
-  const [selected, setSelected] = useState<string[]>([]);
+  const { data: configs } = useGetWithdrawConfigs({ symbol: symbol });
 
-  const { data } = useDepositWithdrawGetInfo({
-    query: {
-      enabled: !!user?.userId,
-      onSuccess(data) {
-        if (data.data?.infos) {
-          setSelected([data.data?.infos[0].type ?? '']);
-        }
+  const { data: coinList } = useGetCoinList(
+    {
+      inOut: -1,
+    },
+    {
+      query: {
+        onSuccess(data) {
+          if (data.code === '200') {
+            setChainType(data.data?.chainTypeList?.[0]);
+          }
+        },
       },
     },
-  });
-
-  const items = useMemo(() => data?.data?.infos ?? [], [data?.data?.infos]);
+  );
 
   const options = useMemo(
     () =>
-      items.map((v) => ({
-        value: v.type ?? '',
-        label: v.type ?? '--',
+      coinList?.data?.chainTypeList?.map((v) => ({
+        value: v,
+        label: v,
       })) ?? [],
-    [items],
+    [coinList?.data?.chainTypeList],
   );
 
-  const selectedItem = useMemo(
-    () => first(items.filter((v) => selected.includes(v.type ?? ''))),
-    [items, selected],
-  );
-
-  const [address, setAddress] = useState<string>();
+  const [address, setAddress] = useState<Address>();
   const [amount, setAmount] = useState<string>();
 
   const withdrawSubmit = useWithdrawSubmit({
@@ -70,11 +75,7 @@ const TakeCoin = () => {
   });
 
   const handleFinish = useCallback(() => {
-    if (!selectedItem?.type) {
-      Toast.show('請選擇鍵類型');
-      return;
-    }
-    if (!address || !address.trim().length) {
+    if (!address) {
       Toast.show('請填寫提幣地址');
       return;
     }
@@ -82,7 +83,7 @@ const TakeCoin = () => {
       Toast.show('請輸入提幣數量');
       return;
     }
-    if (Number(amount) < Number(selectedItem?.fee)) {
+    if (Number(amount) < Number(configs?.data?.fee)) {
       Toast.show('提幣數量不足');
       return;
     }
@@ -125,15 +126,16 @@ const TakeCoin = () => {
   }, [
     address,
     amount,
-    withdrawSubmit,
-    history,
+    configs?.data?.fee,
     isAuthTakeCoin,
-    location.pathname,
-    selectedItem?.fee,
-    selectedItem?.type,
-    user?.email,
+    withdrawSubmit,
     user?.phone,
+    user?.email,
+    history,
+    location.pathname,
   ]);
+
+  const { data: addressList } = useAddressList({ symbol: symbol, chainType: chainType ?? '' });
 
   return (
     <Screen headerTitle="提币" right={<Link to="/take-coin-history">记录</Link>}>
@@ -141,11 +143,13 @@ const TakeCoin = () => {
         <div className="rounded-xl shadow-md shadow-black/5 p-5 bg-white">
           <div className="text-[#A2A9BC] flex items-center justify-between text-sm">
             <span>可用餘額（USDT）</span>
-            <span className="text-[#3E4660] text-lg">{'0.00'}</span>
+            <span className="text-[#3E4660] text-lg">
+              {configs?.data?.availableAmount ?? '0.00'}
+            </span>
           </div>
           <div className="text-[#A2A9BC] flex items-center justify-between text-sm">
             <span>凍結金額（USDT）</span>
-            <span className="text-[#F32A44] text-lg">{'0.00'}</span>
+            <span className="text-[#F32A44] text-lg">{configs?.data?.frozenAmount ?? '0.00'}</span>
           </div>
         </div>
 
@@ -194,15 +198,15 @@ const TakeCoin = () => {
               </Link>
             </div>
 
-            <div className="mt-4 flex items-center bg-[#EDF3FA] px-2.5">
-              <Input
-                className=" h-11  "
-                placeholder="输入或长按粘贴地址"
-                value={address}
-                onChange={setAddress}
-              />
+            <a
+              className="mt-4 flex items-center bg-[#EDF3FA] px-2.5"
+              onClick={() => setOpenAddress(true)}
+            >
+              <div className="h-11 flex-1 flex items-center">
+                {address?.address ?? '請選擇地址'}
+              </div>
               <RightOutline fontSize={16} />
-            </div>
+            </a>
 
             <div className="mt-4 bg-[#F6F7F9] p-4 rounded-xl text-xs text-[#6175AE] leading-6">
               為保障資金安全，當您帳戶安全策略變更、密碼修改、使用新地址提幣，我們會對提幣進行人工審核，請耐心等待工作人員電話或郵件聯繫。
@@ -240,6 +244,7 @@ const TakeCoin = () => {
       </Container>
 
       <CoinSymbolSelectDialog
+        symbols={coinList?.data?.coinList}
         open={openSymbol}
         onClose={() => setOpenSymbol(false)}
         defaultValue={symbol}
@@ -248,6 +253,42 @@ const TakeCoin = () => {
           setSymbol(value, 'replaceIn');
         }}
       />
+
+      <Popup visible={openAddress} position="right">
+        <Screen
+          headerTitle="提幣地址管理"
+          navBarProps={{
+            onBack() {
+              setOpenAddress(false);
+            },
+          }}
+        >
+          <div className="flex-1 overflow-y-auto bg-[#F4F6F4] p-4">
+            <div className="text-[#3E4660] text-sm mb-4">我的提幣地址</div>
+
+            {addressList?.data?.map((v) => (
+              <a
+                key={v.id}
+                className=" bg-white rounded-lg shadow-md shadow-black/5 px-5 py-4 flex items-center"
+                onClick={() => {
+                  setAddress(v);
+                  setOpenAddress(false);
+                }}
+              >
+                <div className="flex-1 flex flex-col min-w-0">
+                  <div className="text-[#6175AE] text-lg">{v.symbol}</div>
+                  <div className="text-[#A2A9BC] text-xs mt-1 break-words">{v.address}</div>
+                  <div className="text-[#A2A9BC] mt-2">
+                    備注
+                    <span className="text-[#3E4660] ml-1">{v.remark}</span>
+                  </div>
+                </div>
+                <RightOutline fontSize={18} className=" ml-8" />
+              </a>
+            ))}
+          </div>
+        </Screen>
+      </Popup>
     </Screen>
   );
 };

@@ -5,11 +5,9 @@
  * OpenAPI spec version: 1.0
  */
 
-export interface Address {
-  address?: string;
-  chainType?: string;
-  createTime?: string;
-  id?: string;
-  remark?: string;
+export interface ChargeConfigAddress {
   symbol?: string;
+  address?: string;
+  qrcode?: string;
+  chainTpe?: string;
 }

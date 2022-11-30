@@ -5,6 +5,69 @@ info:
 servers:
   - url: http://api.piglobalexchanges.com
 paths:
+  /depositeWithdraw/getWithdrawConfigs.do:
+    post:
+      operationId: 'getWithdrawConfigs'
+      description: '获取提币信息'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                symbol:
+                  type: string
+              required:
+                - 'symbol'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetWithdrawConfigsResponse'
+
+  /depositeWithdraw/delAddress.do:
+    post:
+      operationId: 'delAddress'
+      description: '删除提币地址'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                addressId:
+                  type: string
+              required:
+                - 'addressId'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CommonResponse'
+
+  /depositeWithdraw/addressList.do:
+    post:
+      operationId: 'addressList'
+      description: '获取提币地址列表'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                chainType:
+                  type: string
+                symbol:
+                  type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AddressListResponse'
+
   /depositeWithdraw/addAddress.do:
     post:
       operationId: 'addAddress'
@@ -1271,18 +1334,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/DepositListResponse'
 
-  /depositeWithdraw/getInfo.do:
-    post:
-      operationId: 'depositWithdrawGetInfo'
-      description: '获取充币信息'
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/DepositWithdrawGetInfoResponse'
-
   /home/my.do:
     post:
       operationId: 'homeMy'
@@ -1323,6 +1374,49 @@ paths:
 
 components:
   schemas:
+    GetWithdrawConfigsResponse:
+      allOf:
+        - $ref: '#/components/schemas/CommonResponse'
+        - properties:
+            data:
+              type: object
+              properties:
+                addressList:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/Address'
+                availableAmount:
+                  type: string
+                fee:
+                  type: string
+                frozenAmount:
+                  type: string
+
+    AddressListResponse:
+      allOf:
+        - $ref: '#/components/schemas/CommonResponse'
+        - properties:
+            data:
+              type: array
+              items:
+                $ref: '#/components/schemas/Address'
+
+    Address:
+      type: object
+      properties:
+        address:
+          type: string
+        chainType:
+          type: string
+        createTime:
+          type: string
+        id:
+          type: string
+        remark:
+          type: string
+        symbol:
+          type: string
+
     ProOrderDetailResponse:
       allOf:
         - $ref: '#/components/schemas/CommonResponse'
@@ -1493,7 +1587,7 @@ components:
             data:
               $ref: '#/components/schemas/ChargeConfig'
 
-    Address:
+    ChargeConfigAddress:
       type: object
       properties:
         symbol:
@@ -1511,7 +1605,7 @@ components:
         addressList:
           type: array
           items:
-            $ref: '#/components/schemas/Address'
+            $ref: '#/components/schemas/ChargeConfigAddress'
         availableAmount:
           type: string
         minChargeAmount:
@@ -2346,29 +2440,6 @@ components:
                       accountName:
                         type: string
                       accountType:
-                        type: string
-
-    DepositWithdrawGetInfoResponse:
-      allOf:
-        - $ref: '#/components/schemas/CommonResponse'
-        - properties:
-            data:
-              type: object
-              properties:
-                balance:
-                  type: string
-                infos:
-                  type: array
-                  items:
-                    type: object
-                    properties:
-                      address:
-                        type: string
-                      fee:
-                        type: string
-                      image:
-                        type: string
-                      type:
                         type: string
 
     DepositWithdrawListItem:

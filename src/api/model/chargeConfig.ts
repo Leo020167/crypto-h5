@@ -4,10 +4,10 @@
  * API Title
  * OpenAPI spec version: 1.0
  */
-import type { Address } from './address';
+import type { ChargeConfigAddress } from './chargeConfigAddress';
 
 export interface ChargeConfig {
-  addressList?: Address[];
+  addressList?: ChargeConfigAddress[];
   availableAmount?: string;
   minChargeAmount?: string;
 }

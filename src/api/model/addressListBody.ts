@@ -5,11 +5,7 @@
  * OpenAPI spec version: 1.0
  */
 
-export interface Address {
-  address?: string;
+export type AddressListBody = {
   chainType?: string;
-  createTime?: string;
-  id?: string;
-  remark?: string;
   symbol?: string;
-}
+};

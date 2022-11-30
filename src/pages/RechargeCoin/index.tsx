@@ -8,8 +8,8 @@ import styled from 'styled-components';
 import { StringParam, useQueryParam, withDefault } from 'use-query-params';
 import {
   useChargeSubmit,
-  useDepositWithdrawGetInfo,
   useGetChargeConfigs,
+  useGetCoinList,
 } from '../../api/endpoints/transformer';
 import ImagePicker from '../../components/ImagePicker';
 import Screen from '../../components/Screen';
@@ -17,6 +17,7 @@ import { uploadImage } from '../../utils/upload';
 import CoinSymbolSelectDialog from './CoinSymbolSelectDialog';
 
 const SymbolParam = withDefault(StringParam, 'USDT');
+
 const RechargeCoin = () => {
   const [chainType, setChainType] = useQueryParam('chainType', StringParam);
   const [symbol, setSymbol] = useQueryParam('symbol', SymbolParam);
@@ -24,18 +25,31 @@ const RechargeCoin = () => {
 
   const history = useHistory();
 
-  const { data } = useDepositWithdrawGetInfo({
-    query: {
-      enabled: symbol === 'USDT',
-      onSuccess(data) {
-        if (data.data?.infos) {
-          setChainType(data.data?.infos[0].type ?? '', 'replaceIn');
-        }
+  const [amount, setAmount] = useState<string>();
+
+  const { data: coinList } = useGetCoinList(
+    {
+      inOut: 1,
+    },
+    {
+      query: {
+        onSuccess(data) {
+          if (data.code === '200') {
+            setChainType(data.data?.chainTypeList?.[0], 'replaceIn');
+          }
+        },
       },
     },
-  });
+  );
 
-  const [amount, setAmount] = useState<string>();
+  const options = useMemo(
+    () =>
+      coinList?.data?.chainTypeList?.map((v) => ({
+        value: v,
+        label: v,
+      })) ?? [],
+    [coinList?.data?.chainTypeList],
+  );
 
   const { data: chargeConfigs } = useGetChargeConfigs(
     { symbol },
@@ -49,15 +63,6 @@ const RechargeCoin = () => {
         },
       },
     },
-  );
-
-  const options = useMemo(
-    () =>
-      data?.data?.infos?.map((v) => ({
-        value: v.type ?? '',
-        label: v.type ? v.type : '--',
-      })) ?? [],
-    [data?.data?.infos],
   );
 
   const addressList = useMemo(
@@ -266,6 +271,7 @@ const RechargeCoin = () => {
         </div>
 
         <CoinSymbolSelectDialog
+          symbols={coinList?.data?.coinList}
           open={openSymbol}
           onClose={() => setOpenSymbol(false)}
           defaultValue={symbol}

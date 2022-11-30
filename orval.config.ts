@@ -59,6 +59,16 @@ export default defineConfig({
           name: 'customInstance',
         },
         operations: {
+          getWithdrawConfigs: {
+            query: {
+              useQuery: true,
+            },
+          },
+          addressList: {
+            query: {
+              useQuery: true,
+            },
+          },
           proOrderDetail: {
             query: {
               useQuery: true,
