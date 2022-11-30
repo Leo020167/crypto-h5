@@ -1,4 +1,5 @@
 import { Checkbox, Grid } from 'antd-mobile';
+import { useMemo, useState } from 'react';
 import styled from 'styled-components';
 import { AccountInfo } from '../../api/model';
 
@@ -6,6 +7,18 @@ interface HomeBalanceAccountProps {
   account?: AccountInfo;
 }
 const HomeBalanceAccount = ({ account }: HomeBalanceAccountProps) => {
+  const [hidden0Assets, setHidden0Assets] = useState(false);
+
+  const assets = useMemo(() => {
+    const symbols = account?.symbolList ?? [];
+
+    if (hidden0Assets) {
+      return symbols.filter((v) => Number(v.holdAmount) > 0 || Number(v.frozenAmount) > 0);
+    }
+
+    return symbols;
+  }, [account?.symbolList, hidden0Assets]);
+
   return (
     <Container className="bg-gray-100">
       <div className="p-4 bg-white">
@@ -27,30 +40,31 @@ const HomeBalanceAccount = ({ account }: HomeBalanceAccountProps) => {
       </div>
       <div className="mt-2">
         <div className="flex items-center justify-between text-xs bg-white p-4">
-          <Checkbox>隐藏0资产</Checkbox>
-          <a className="text-[#6175ae]">搜索</a>
+          <Checkbox checked={hidden0Assets} onChange={setHidden0Assets}>
+            隐藏0资产
+          </Checkbox>
         </div>
-        <div className=" divide-y-8 divide-gray-100 bg-white">
-          <div className="rounded-lg p-4">
+        {assets.map((v) => (
+          <div className="p-4 mb-2 bg-white" key={v.symbol}>
             <div>
-              <span className="text-sm font-bold text-[#6175ae]">BTC</span>
+              <span className="text-sm font-bold text-[#6175ae]">{v.symbol}</span>
             </div>
             <Grid columns={3} className="mt-2.5 text-xs">
               <Grid.Item>
                 <div className="text-[#A2A9BC]">可用資產</div>
-                <div className="text-[#3E4660] mt-1">12293.00000000</div>
+                <div className="text-[#3E4660] mt-1">{v.holdAmount}</div>
               </Grid.Item>
               <Grid.Item className="text-center">
                 <div className="text-[#A2A9BC]">凍結</div>
-                <div className="text-[#3E4660] mt-1">12293.00000000</div>
+                <div className="text-[#3E4660] mt-1">{v.frozenAmount}</div>
               </Grid.Item>
               <Grid.Item className="text-right">
                 <div className="text-[#A2A9BC]">折合(USDT)</div>
-                <div className="text-[#3E4660] mt-1">12293.00000000</div>
+                <div className="text-[#3E4660] mt-1">{v.usdtAmount}</div>
               </Grid.Item>
             </Grid>
           </div>
-        </div>
+        ))}
       </div>
     </Container>
   );

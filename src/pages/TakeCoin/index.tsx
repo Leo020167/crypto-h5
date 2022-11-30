@@ -18,6 +18,7 @@ import { uploadImage } from '../../utils/upload';
 import CoinSymbolSelectDialog from '../RechargeCoin/CoinSymbolSelectDialog';
 
 const SymbolParam = withDefault(StringParam, 'USDT');
+
 const TakeCoin = () => {
   const [symbol, setSymbol] = useQueryParam('symbol', SymbolParam);
   const [chainType, setChainType] = useQueryParam('chainType', StringParam);

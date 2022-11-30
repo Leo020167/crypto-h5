@@ -5,6 +5,7 @@
  * OpenAPI spec version: 1.0
  */
 import type { OpenList } from './openList';
+import type { SymbolListItem } from './symbolListItem';
 
 export interface AccountInfo {
   accountType?: string;
@@ -19,4 +20,5 @@ export interface AccountInfo {
   openList?: OpenList;
   profit?: string;
   riskRate?: string;
+  symbolList?: SymbolListItem[];
 }

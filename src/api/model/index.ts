@@ -197,6 +197,7 @@ export * from './recordListPledgesResponse';
 export * from './recordListPledgesResponseAllOf';
 export * from './scoreRank';
 export * from './smsGetBody';
+export * from './symbolListItem';
 export * from './toPayOrderResponse';
 export * from './toPayOrderResponseAllOf';
 export * from './toPayOrderResponseAllOfData';

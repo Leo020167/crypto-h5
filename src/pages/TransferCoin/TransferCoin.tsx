@@ -9,6 +9,7 @@ import {
   useAccountTransfer,
 } from '../../api/endpoints/transformer';
 import { ListAccountTypeResponseAllOfDataAccountTypeListItem } from '../../api/model';
+import { ReactComponent as SvgChange } from '../../assets/change.svg';
 import { ReactComponent as Arrow } from '../../assets/ic_svg_arrow_2.svg';
 import ic_transfer_point from '../../assets/ic_transfer_point.png';
 import { userAtom } from '../../atoms';
@@ -90,6 +91,12 @@ const TransferCoin = () => {
     }
   }, [accountTransfer, accountTypeFrom, accountTypeTo, amount, user?.userId]);
 
+  const handleChange = useCallback(() => {
+    const placeholder = accountTypeTo;
+    setAccountTypeTo(accountTypeFrom);
+    setAccountTypeFrom(placeholder);
+  }, [accountTypeFrom, accountTypeTo]);
+
   return (
     <Container
       headerTitle="划转"
@@ -104,33 +111,38 @@ const TransferCoin = () => {
         </div>
       }
     >
-      <div className="h-28 m-5 border flex items-center justify-center">
-        <div className="ml-4">
-          <img alt="" src={ic_transfer_point} className="h-14" />
-        </div>
+      <div className="flex items-center p-5">
+        <div className="h-28 border flex items-center justify-center mr-4 flex-1">
+          <div className="ml-4">
+            <img alt="" src={ic_transfer_point} className="h-14" />
+          </div>
 
-        <div className="flex-1 ml-4 h-full flex flex-col">
-          <div className="border-b flex items-center flex-1">
-            <span className="text-[#663D3A50]">从</span>
-            <a
-              className="flex-1 flex items-center justify-between px-4"
-              onClick={() => setAction('from')}
-            >
-              <span>{accountTypeFrom?.accountName}</span>
-              <Arrow />
-            </a>
-          </div>
-          <div className=" flex items-center flex-1">
-            <span className="text-[#663D3A50]">到</span>
-            <a
-              className="flex-1 flex  items-center justify-between px-4"
-              onClick={() => setAction('to')}
-            >
-              <span>{accountTypeTo?.accountName}</span>
-              <Arrow />
-            </a>
+          <div className="flex-1 ml-4 h-full flex flex-col">
+            <div className="border-b flex items-center flex-1">
+              <span className="text-[#663D3A50]">从</span>
+              <a
+                className="flex-1 flex items-center justify-between px-4"
+                onClick={() => setAction('from')}
+              >
+                <span>{accountTypeFrom?.accountName}</span>
+                <Arrow />
+              </a>
+            </div>
+            <div className=" flex items-center flex-1">
+              <span className="text-[#663D3A50]">到</span>
+              <a
+                className="flex-1 flex  items-center justify-between px-4"
+                onClick={() => setAction('to')}
+              >
+                <span>{accountTypeTo?.accountName}</span>
+                <Arrow />
+              </a>
+            </div>
           </div>
         </div>
+        <a onClick={handleChange}>
+          <SvgChange />
+        </a>
       </div>
 
       <div className="mt-4 px-4">

@@ -1669,6 +1669,28 @@ components:
           type: string
         riskRate:
           type: string
+        symbolList:
+          type: array
+          items:
+            $ref: '#/components/schemas/SymbolListItem'
+
+    SymbolListItem:
+      type: object
+      properties:
+        frozenAmount:
+          type: string
+          description: '委托'
+        holdAmount:
+          type: string
+          description: '可用'
+        sumAmount:
+          type: string
+          description: '总资产'
+        symbol:
+          type: string
+        usdtAmount:
+          type: string
+          description: '折合'
 
     OpenList:
       type: array
