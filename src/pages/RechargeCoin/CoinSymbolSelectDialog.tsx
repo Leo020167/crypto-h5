@@ -1,12 +1,11 @@
 import { FloatingPanel, Mask } from 'antd-mobile';
 import { useCallback, useState } from 'react';
 import styled from 'styled-components';
-import { useGetCoinList } from '../../api/endpoints/transformer';
-import { CoinListItem } from '../../api/model';
 
 import symbol_selection_png from '../../assets/floating-panel-bg.png';
 
 interface CoinSymbolDialogProps {
+  symbols?: string[];
   open: boolean;
   onClose: () => void;
   defaultValue?: string;
@@ -16,18 +15,18 @@ interface CoinSymbolDialogProps {
 const anchors = [window.innerHeight * 0.5, window.innerHeight * 0.8];
 
 const CoinSymbolSelectDialog = ({
+  symbols = [],
   open,
   onClose,
   defaultValue,
   onSelect,
 }: CoinSymbolDialogProps) => {
   const [selected, setSelected] = useState<string | undefined>(defaultValue);
-  const { data } = useGetCoinList({ inOut: 1 });
 
   const [height, setHeight] = useState(window.innerHeight * 0.5 - 28);
 
-  const handleClick = useCallback((v: CoinListItem) => {
-    setSelected(v.symbol);
+  const handleClick = useCallback((v: string) => {
+    setSelected(v);
   }, []);
 
   return (
@@ -47,15 +46,15 @@ const CoinSymbolSelectDialog = ({
         >
           <div className="mb-7 text-base px-5 font-bold">選擇幣種</div>
           <div className="flex-1 overflow-y-auto">
-            {data?.data?.coinList?.map((v) => (
+            {symbols.map((v) => (
               <a
-                key={v.symbol}
+                key={v}
                 className={`ease-in-out duration-300 flex items-center justify-center h-11 symbol-list-item ${
-                  v.symbol === selected ? 'active' : ''
+                  v === selected ? 'active' : ''
                 }`}
                 onClick={() => handleClick(v)}
               >
-                {v.symbol}
+                {v}
               </a>
             ))}
           </div>

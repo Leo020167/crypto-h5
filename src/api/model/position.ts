@@ -24,4 +24,5 @@ export interface Position {
   profitRate?: string;
   subAmount?: string;
   symbol?: string;
+  usdtAmount?: string;
 }

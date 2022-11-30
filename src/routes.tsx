@@ -9,6 +9,9 @@ import { ReactComponent as HomeTabFollow } from './assets/home_tab_follow.svg';
 import { ReactComponent as HomeTabMarkSvg } from './assets/home_tab_mark.svg';
 import { ReactComponent as HomeTabMineSvg } from './assets/home_tab_mine.svg';
 
+const AddressAdd = lazy(() => import('./pages/AddressManagement/AddressAdd'));
+const AddressManagement = lazy(() => import('./pages/AddressManagement'));
+const Addresses = lazy(() => import('./pages/Addresses'));
 const PositionDetails = lazy(() => import('./pages/HomeAccount/PositionDetails'));
 const PledgeHistory = lazy(() => import('./pages/Pledge/PledgeHistory'));
 const Pledge = lazy(() => import('./pages/Pledge'));
@@ -28,7 +31,6 @@ const Verified = lazy(() => import('./pages/Verified'));
 const TransactionRecords = lazy(() => import('./pages/TransactionRecords'));
 const PhoneAuthCode = lazy(() => import('./pages/PhoneAuthCode'));
 const BindPhone = lazy(() => import('./pages/BindPhone'));
-const Recharge = lazy(() => import('./pages/Recharge'));
 const Community = lazy(() => import('./pages/Community'));
 const SettingAccount = lazy(() => import('./pages/Settings/Account'));
 const AddBankPay = lazy(() => import('./pages/ReceiptList/AddBankPay'));
@@ -154,6 +156,24 @@ export const Routes = () => {
         <HomeTabs />
       </Route>
 
+      <Route path="/addresses">
+        <Suspense fallback={<div>Loading...</div>}>
+          <Addresses />
+        </Suspense>
+      </Route>
+
+      <Route path="/address-management" exact>
+        <Suspense fallback={<div>Loading...</div>}>
+          <AddressManagement />
+        </Suspense>
+      </Route>
+
+      <Route path="/address-management/add">
+        <Suspense fallback={<div>Loading...</div>}>
+          <AddressAdd />
+        </Suspense>
+      </Route>
+
       <Route path="/position-details">
         <Suspense fallback={<div>Loading...</div>}>
           <PositionDetails />
@@ -225,161 +245,187 @@ export const Routes = () => {
           <SettingAccount />
         </Suspense>
       </Route>
+
       <Route path="/personal">
         <Suspense fallback={<div>Loading...</div>}>
           <Personal />
         </Suspense>
       </Route>
+
       <Route path="/chat">
         <Suspense fallback={<div>Loading...</div>}>
           <Chat />
         </Suspense>
       </Route>
+
       <Route path="/legal-pay">
         <Suspense fallback={<div>Loading...</div>}>
           <LegalPay />
         </Suspense>
       </Route>
+
       <Route path="/otc-appeal">
         <Suspense fallback={<div>Loading...</div>}>
           <OtcAppeal />
         </Suspense>
       </Route>
+
       <Route path="/legal-order-info">
         <Suspense fallback={<div>Loading...</div>}>
           <LegalOrderInfo />
         </Suspense>
       </Route>
+
       <Route path="/verified">
         <Suspense fallback={<div>Loading...</div>}>
           <Verified />
         </Suspense>
       </Route>
+
       <Route path="/verified-result">
         <Suspense fallback={<div>Loading...</div>}>
           <VerifiedResult />
         </Suspense>
       </Route>
+
       <Route path="/transaction-records">
         <Suspense fallback={<div>Loading...</div>}>
           <TransactionRecords />
         </Suspense>
       </Route>
+
       <Route path="/login">
         <Suspense fallback={<div>Loading...</div>}>
           <Login />
         </Suspense>
       </Route>
+
       <Route path="/signup">
         <Suspense fallback={<div>Loading...</div>}>
           <Signup />
         </Suspense>
       </Route>
+
       <Route path="/reset-password">
         <Suspense fallback={<div>Loading...</div>}>
           <ResetPassword />
         </Suspense>
       </Route>
+
       <Route path="/captcha">
         <Suspense fallback={<div>Loading...</div>}>
           <Captcha />
         </Suspense>
       </Route>
+
       <Route path="/email-auth">
         <Suspense fallback={<div>Loading...</div>}>
           <EmailAuth />
         </Suspense>
       </Route>
+
       <Route path="/email-auth-code">
         <Suspense fallback={<div>Loading...</div>}>
           <EmailAuthCode />
         </Suspense>
       </Route>
+
       <Route path="/bind-email">
         <Suspense fallback={<div>Loading...</div>}>
           <BindEmail />
         </Suspense>
       </Route>
+
       <Route path="/bind-email-code">
         <Suspense fallback={<div>Loading...</div>}>
           <BindEmailCode />
         </Suspense>
       </Route>
+
       <Route path="/change-password">
         <Suspense fallback={<div>Loading...</div>}>
           <ChangePassword />
         </Suspense>
       </Route>
+
       <Route path="/notifications">
         <Suspense fallback={<div>Loading...</div>}>
           <Notifications />
         </Suspense>
       </Route>
+
       <Route path="/transfer-coin">
         <Suspense fallback={<div>Loading...</div>}>
           <TransferCoin />
         </Suspense>
       </Route>
+
       <Route path="/transfer-coin-history">
         <Suspense fallback={<div>Loading...</div>}>
           <TransferCoinHistory />
         </Suspense>
       </Route>
+
       <Route path="/recharge-coin">
         <Suspense fallback={<div>Loading...</div>}>
           <RechargeCoin />
         </Suspense>
       </Route>
+
       <Route path="/take-coin">
         <Suspense fallback={<div>Loading...</div>}>
           <TakeCoin />
         </Suspense>
       </Route>
+
       <Route path="/take-coin-history">
         <Suspense fallback={<div>Loading...</div>}>
           <TakeCoinHistory />
         </Suspense>
       </Route>
+
       <Route path="/take-coin-history-details">
         <Suspense fallback={<div>Loading...</div>}>
           <TakeCoinHistoryDetails />
         </Suspense>
       </Route>
+
       <Route path="/legal-money" exact>
         <Suspense fallback={<div>Loading...</div>}>
           <LegalMoney />
         </Suspense>
       </Route>
+
       <Route path="/otc-order-history">
         <Suspense fallback={<div>Loading...</div>}>
           <OtcOrderHistory />
         </Suspense>
       </Route>
+
       <Route path="/receipt-list">
         <Suspense fallback={<div>Loading...</div>}>
           <ReceiptList />
         </Suspense>
       </Route>
+
       <Route path="/add-receipt">
         <Suspense fallback={<div>Loading...</div>}>
           <AddReceipt />
         </Suspense>
       </Route>
+
       <Route path="/add-bank-pay">
         <Suspense fallback={<div>Loading...</div>}>
           <AddBankPay />
         </Suspense>
       </Route>
-      <Route path="/recharge">
-        <Suspense fallback={<div>Loading...</div>}>
-          <Recharge />
-        </Suspense>
-      </Route>
+
       <Route path="/bind-phone">
         <Suspense fallback={<div>Loading...</div>}>
           <BindPhone />
         </Suspense>
       </Route>
+
       <Route path="/phone-auth-code">
         <Suspense fallback={<div>Loading...</div>}>
           <PhoneAuthCode />

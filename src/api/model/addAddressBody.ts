@@ -5,7 +5,9 @@
  * OpenAPI spec version: 1.0
  */
 
-export type CoinListResponseAllOfData = {
-  coinList?: string[];
-  chainTypeList?: string[];
+export type AddAddressBody = {
+  address?: string;
+  chainType?: string;
+  remark?: string;
+  symbol?: string;
 };

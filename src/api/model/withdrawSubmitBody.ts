@@ -5,7 +5,7 @@
  * OpenAPI spec version: 1.0
  */
 
-export type CoinListResponseAllOfData = {
-  coinList?: string[];
-  chainTypeList?: string[];
+export type WithdrawSubmitBody = {
+  addressId?: string;
+  amount?: string;
 };

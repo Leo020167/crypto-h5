@@ -3,18 +3,14 @@ import { DownFill, RightOutline } from 'antd-mobile-icons';
 import { useAtomValue } from 'jotai';
 import { first } from 'lodash-es';
 import { stringify } from 'query-string';
-import { useState, useMemo, useRef, useCallback } from 'react';
+import { useState, useMemo, useCallback } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { useLocation } from 'react-use';
 import styled from 'styled-components';
 import { withDefault, StringParam, useQueryParam } from 'use-query-params';
-import {
-  useDepositWithdrawGetInfo,
-  useDepositWithdrawLocalSubmit,
-} from '../../api/endpoints/transformer';
+import { useDepositWithdrawGetInfo, useWithdrawSubmit } from '../../api/endpoints/transformer';
 import { userAtom } from '../../atoms';
 import Screen from '../../components/Screen';
-import { uploadImage } from '../../utils/upload';
 import CoinSymbolSelectDialog from '../RechargeCoin/CoinSymbolSelectDialog';
 
 const SymbolParam = withDefault(StringParam, 'USDT');
@@ -62,11 +58,8 @@ const TakeCoin = () => {
 
   const [address, setAddress] = useState<string>();
   const [amount, setAmount] = useState<string>();
-  const [image, setImage] = useState<string>();
 
-  const ref = useRef<HTMLInputElement>(null);
-
-  const depositWithdrawLocalSubmit = useDepositWithdrawLocalSubmit({
+  const withdrawSubmit = useWithdrawSubmit({
     mutation: {
       onSuccess(data) {
         if (data.code === '200') {
@@ -105,14 +98,10 @@ const TakeCoin = () => {
         ),
         confirmText: '确定',
         onConfirm() {
-          depositWithdrawLocalSubmit.mutate({
+          withdrawSubmit.mutate({
             data: {
-              userId: user?.userId,
               amount,
-              address,
-              image,
-              inOut: '-1',
-              chainType: selectedItem?.type ?? '',
+              addressId: '',
             },
           });
         },
@@ -136,36 +125,18 @@ const TakeCoin = () => {
   }, [
     address,
     amount,
-    depositWithdrawLocalSubmit,
+    withdrawSubmit,
     history,
-    image,
     isAuthTakeCoin,
     location.pathname,
     selectedItem?.fee,
     selectedItem?.type,
     user?.email,
     user?.phone,
-    user?.userId,
   ]);
 
   return (
     <Screen headerTitle="提币" right={<Link to="/take-coin-history">记录</Link>}>
-      <input
-        ref={ref}
-        type="file"
-        accept="image/*"
-        className="hidden"
-        onChange={(e) => {
-          if (e.target.files) {
-            const formData = new FormData();
-            formData.append('imageFiles', e.target.files[0]);
-
-            uploadImage(formData).then((res: any) => {
-              setImage(res.data.data?.imageUrlList?.[0]);
-            });
-          }
-        }}
-      />
       <Container className="p-4 bg-[#F4F6F4] flex-1 overflow-y-auto">
         <div className="rounded-xl shadow-md shadow-black/5 p-5 bg-white">
           <div className="text-[#A2A9BC] flex items-center justify-between text-sm">
@@ -218,7 +189,9 @@ const TakeCoin = () => {
           <div className="mt-5">
             <div className="flex items-center justify-between text-sm">
               <span>提幣地址</span>
-              <a className="text-[#00BAB8]">提幣地址管理</a>
+              <Link to="/address-management" className="text-[#00BAB8]">
+                提幣地址管理
+              </Link>
             </div>
 
             <div className="mt-4 flex items-center bg-[#EDF3FA] px-2.5">
@@ -263,31 +236,6 @@ const TakeCoin = () => {
           <Button block className="btn-purple mt-4" onClick={handleFinish}>
             提币
           </Button>
-        </div>
-
-        <div className="mt-2">
-          <div className=" h-32 flex items-center">
-            <div className="flex-1 text-base">提币二维码</div>
-            <div
-              className="text-center text-[#00C8FF] h-full flex items-center"
-              onClick={() => {
-                if (ref.current) {
-                  ref.current.value = '';
-                  ref.current.click();
-                }
-              }}
-            >
-              {image ? (
-                <img alt="" src={image} className="h-full w-full" />
-              ) : (
-                <a>
-                  点击此处上传
-                  <br />
-                  提币二维码
-                </a>
-              )}
-            </div>
-          </div>
         </div>
       </Container>
 

@@ -5,6 +5,31 @@ info:
 servers:
   - url: http://api.piglobalexchanges.com
 paths:
+  /depositeWithdraw/addAddress.do:
+    post:
+      operationId: 'addAddress'
+      description: '添加提币地址'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                address:
+                  type: string
+                chainType:
+                  type: string
+                remark:
+                  type: string
+                symbol:
+                  type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CommonResponse'
+
   /pro/order/open.do:
     post:
       operationId: 'proOrderOpen'
@@ -1127,9 +1152,30 @@ paths:
               schema:
                 $ref: '#/components/schemas/CommonResponse'
 
-  /depositeWithdraw/localSubmit.do:
+  /depositeWithdraw/withdrawSubmit.do:
     post:
-      operationId: 'depositWithdrawLocalSubmit'
+      operationId: 'withdrawSubmit'
+      description: '提交提币申请'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                addressId:
+                  type: string
+                amount:
+                  type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CommonResponse'
+
+  /depositeWithdraw/chargeSubmit.do:
+    post:
+      operationId: 'chargeSubmit'
       description: '充提币申请提交'
       requestBody:
         content:
@@ -1144,9 +1190,7 @@ paths:
                   type: string
                 image:
                   type: string
-                inOut:
-                  type: string
-                userId:
+                symbol:
                   type: string
       responses:
         '200':
@@ -1483,17 +1527,11 @@ components:
                 coinList:
                   type: array
                   items:
-                    $ref: '#/components/schemas/CoinListItem'
-
-    CoinListItem:
-      type: object
-      properties:
-        isTrade:
-          type: string
-        maxWithdrawDecimals:
-          type: string
-        symbol:
-          type: string
+                    type: string
+                chainTypeList:
+                  type: array
+                  items:
+                    type: string
 
     Coin:
       type: object
@@ -1735,6 +1773,8 @@ components:
         subAmount:
           type: string
         symbol:
+          type: string
+        usdtAmount:
           type: string
 
     AdItem:

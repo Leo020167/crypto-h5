@@ -1,4 +1,5 @@
 import { Button, Input, InputRef, List, Popup, Toast } from 'antd-mobile';
+import { RightOutline } from 'antd-mobile-icons';
 import { useAtomValue } from 'jotai';
 import { useCallback, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
@@ -142,6 +143,13 @@ const TransferCoin = () => {
         </div>
         <a onClick={handleChange}>
           <SvgChange />
+        </a>
+      </div>
+
+      <div className="px-4">
+        <a className="mt-4 flex items-center bg-[#EDF3FA] px-2.5">
+          <div className="h-11 flex-1 flex items-center">USDT</div>
+          <RightOutline fontSize={16} />
         </a>
       </div>
 

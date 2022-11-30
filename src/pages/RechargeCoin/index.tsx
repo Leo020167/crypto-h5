@@ -1,14 +1,19 @@
-import { Input, Selector, Toast } from 'antd-mobile';
-import { DownFill } from 'antd-mobile-icons';
+import { Button, Input, Selector, Toast } from 'antd-mobile';
+import { AddOutline, DownFill } from 'antd-mobile-icons';
 import { find } from 'lodash-es';
-import { stringify } from 'query-string';
-import { useMemo, useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { useCopyToClipboard } from 'react-use';
 import styled from 'styled-components';
 import { StringParam, useQueryParam, withDefault } from 'use-query-params';
-import { useDepositWithdrawGetInfo, useGetChargeConfigs } from '../../api/endpoints/transformer';
+import {
+  useChargeSubmit,
+  useDepositWithdrawGetInfo,
+  useGetChargeConfigs,
+} from '../../api/endpoints/transformer';
+import ImagePicker from '../../components/ImagePicker';
 import Screen from '../../components/Screen';
+import { uploadImage } from '../../utils/upload';
 import CoinSymbolSelectDialog from './CoinSymbolSelectDialog';
 
 const SymbolParam = withDefault(StringParam, 'USDT');
@@ -70,6 +75,43 @@ const RechargeCoin = () => {
   }, [addressList, chainType, symbol]);
 
   const [, copyToClipboard] = useCopyToClipboard();
+
+  const [image, setImage] = useState<string>();
+
+  const chargeSubmit = useChargeSubmit({
+    mutation: {
+      onSuccess(data) {
+        if (data.code === '200') {
+          Toast.show('提交申請成功');
+          history.goBack();
+        } else {
+          Toast.show(data.msg);
+        }
+      },
+    },
+  });
+
+  const handleFinish = useCallback(() => {
+    if (!amount || !amount.trim().length) {
+      Toast.show('請輸入充值金額');
+      return;
+    }
+
+    if (!image) {
+      Toast.show('請先上傳充值截圖');
+      return;
+    }
+
+    chargeSubmit.mutate({
+      data: {
+        amount,
+        address: currentAddress?.address ?? '',
+        image,
+        symbol: symbol,
+        chainType: chainType ?? '',
+      },
+    });
+  }, [amount, image, chargeSubmit, currentAddress?.address, symbol, chainType]);
 
   return (
     <Screen
@@ -186,14 +228,41 @@ const RechargeCoin = () => {
             />
           </div>
 
-          <a
+          <div className="mt-4">
+            <span className="text-xs text-[#A2A9BC]">充值數量</span>
+
+            <div className="mt-1">
+              <ImagePicker
+                onChange={(e) => {
+                  if (e.target.files) {
+                    const formData = new FormData();
+                    formData.append('imageFiles', e.target.files[0]);
+
+                    uploadImage(formData).then((res: any) => {
+                      setImage(res.data.data?.imageUrlList?.[0]);
+                    });
+                  }
+                }}
+              >
+                <div className="w-28 h-28 bg-[#F6F7F9] flex items-center justify-center text-xl font-bold">
+                  {image ? (
+                    <img alt="" src={image} className="w-full h-full" />
+                  ) : (
+                    <AddOutline fontSize={30} color="#C9CDD4" />
+                  )}
+                </div>
+              </ImagePicker>
+            </div>
+          </div>
+
+          <Button
             className="btn-purple mt-5"
-            onClick={() =>
-              history.push(`/recharge?${stringify({ chainType: currentAddress?.chainTpe })}`)
-            }
+            onClick={handleFinish}
+            block
+            loading={chargeSubmit.isLoading}
           >
             充值確認
-          </a>
+          </Button>
         </div>
 
         <CoinSymbolSelectDialog

@@ -15,6 +15,7 @@ import type {
 } from '@tanstack/react-query';
 import type {
   CommonResponse,
+  AddAddressBody,
   ProOrderOpenBody,
   ProOrderDetailResponse,
   ProOrderDetailBody,
@@ -81,7 +82,8 @@ import type {
   AccountOutHoldAmountBody,
   ListAccountTypeResponse,
   UserSecurityUpdatePhoneBody,
-  DepositWithdrawLocalSubmitBody,
+  WithdrawSubmitBody,
+  ChargeSubmitBody,
   InviteBuyBody,
   InviteHomeResponse,
   InviteHomeBody,
@@ -95,6 +97,49 @@ import type {
 } from '../model';
 import { customInstance } from '../mutator/custom-instance';
 import type { ErrorType } from '../mutator/custom-instance';
+
+/**
+ * 添加提币地址
+ */
+export const addAddress = (addAddressBody: AddAddressBody) => {
+  return customInstance<CommonResponse>({
+    url: `/depositeWithdraw/addAddress.do`,
+    method: 'post',
+    headers: { 'Content-Type': 'application/json' },
+    data: addAddressBody,
+  });
+};
+
+export type AddAddressMutationResult = NonNullable<Awaited<ReturnType<typeof addAddress>>>;
+export type AddAddressMutationBody = AddAddressBody;
+export type AddAddressMutationError = ErrorType<unknown>;
+
+export const useAddAddress = <TError = ErrorType<unknown>, TContext = unknown>(options?: {
+  mutation?: UseMutationOptions<
+    Awaited<ReturnType<typeof addAddress>>,
+    TError,
+    { data: AddAddressBody },
+    TContext
+  >;
+}) => {
+  const { mutation: mutationOptions } = options ?? {};
+
+  const mutationFn: MutationFunction<
+    Awaited<ReturnType<typeof addAddress>>,
+    { data: AddAddressBody }
+  > = (props) => {
+    const { data } = props ?? {};
+
+    return addAddress(data);
+  };
+
+  return useMutation<
+    Awaited<ReturnType<typeof addAddress>>,
+    TError,
+    { data: AddAddressBody },
+    TContext
+  >(mutationFn, mutationOptions);
+};
 
 /**
  * 明細
@@ -2245,51 +2290,87 @@ export const useUserSecurityUpdatePhone = <
 };
 
 /**
- * 充提币申请提交
+ * 提交提币申请
  */
-export const depositWithdrawLocalSubmit = (
-  depositWithdrawLocalSubmitBody: DepositWithdrawLocalSubmitBody,
-) => {
+export const withdrawSubmit = (withdrawSubmitBody: WithdrawSubmitBody) => {
   return customInstance<CommonResponse>({
-    url: `/depositeWithdraw/localSubmit.do`,
+    url: `/depositeWithdraw/withdrawSubmit.do`,
     method: 'post',
     headers: { 'Content-Type': 'application/json' },
-    data: depositWithdrawLocalSubmitBody,
+    data: withdrawSubmitBody,
   });
 };
 
-export type DepositWithdrawLocalSubmitMutationResult = NonNullable<
-  Awaited<ReturnType<typeof depositWithdrawLocalSubmit>>
->;
-export type DepositWithdrawLocalSubmitMutationBody = DepositWithdrawLocalSubmitBody;
-export type DepositWithdrawLocalSubmitMutationError = ErrorType<unknown>;
+export type WithdrawSubmitMutationResult = NonNullable<Awaited<ReturnType<typeof withdrawSubmit>>>;
+export type WithdrawSubmitMutationBody = WithdrawSubmitBody;
+export type WithdrawSubmitMutationError = ErrorType<unknown>;
 
-export const useDepositWithdrawLocalSubmit = <
-  TError = ErrorType<unknown>,
-  TContext = unknown,
->(options?: {
+export const useWithdrawSubmit = <TError = ErrorType<unknown>, TContext = unknown>(options?: {
   mutation?: UseMutationOptions<
-    Awaited<ReturnType<typeof depositWithdrawLocalSubmit>>,
+    Awaited<ReturnType<typeof withdrawSubmit>>,
     TError,
-    { data: DepositWithdrawLocalSubmitBody },
+    { data: WithdrawSubmitBody },
     TContext
   >;
 }) => {
   const { mutation: mutationOptions } = options ?? {};
 
   const mutationFn: MutationFunction<
-    Awaited<ReturnType<typeof depositWithdrawLocalSubmit>>,
-    { data: DepositWithdrawLocalSubmitBody }
+    Awaited<ReturnType<typeof withdrawSubmit>>,
+    { data: WithdrawSubmitBody }
   > = (props) => {
     const { data } = props ?? {};
 
-    return depositWithdrawLocalSubmit(data);
+    return withdrawSubmit(data);
   };
 
   return useMutation<
-    Awaited<ReturnType<typeof depositWithdrawLocalSubmit>>,
+    Awaited<ReturnType<typeof withdrawSubmit>>,
     TError,
-    { data: DepositWithdrawLocalSubmitBody },
+    { data: WithdrawSubmitBody },
+    TContext
+  >(mutationFn, mutationOptions);
+};
+
+/**
+ * 充提币申请提交
+ */
+export const chargeSubmit = (chargeSubmitBody: ChargeSubmitBody) => {
+  return customInstance<CommonResponse>({
+    url: `/depositeWithdraw/chargeSubmit.do`,
+    method: 'post',
+    headers: { 'Content-Type': 'application/json' },
+    data: chargeSubmitBody,
+  });
+};
+
+export type ChargeSubmitMutationResult = NonNullable<Awaited<ReturnType<typeof chargeSubmit>>>;
+export type ChargeSubmitMutationBody = ChargeSubmitBody;
+export type ChargeSubmitMutationError = ErrorType<unknown>;
+
+export const useChargeSubmit = <TError = ErrorType<unknown>, TContext = unknown>(options?: {
+  mutation?: UseMutationOptions<
+    Awaited<ReturnType<typeof chargeSubmit>>,
+    TError,
+    { data: ChargeSubmitBody },
+    TContext
+  >;
+}) => {
+  const { mutation: mutationOptions } = options ?? {};
+
+  const mutationFn: MutationFunction<
+    Awaited<ReturnType<typeof chargeSubmit>>,
+    { data: ChargeSubmitBody }
+  > = (props) => {
+    const { data } = props ?? {};
+
+    return chargeSubmit(data);
+  };
+
+  return useMutation<
+    Awaited<ReturnType<typeof chargeSubmit>>,
+    TError,
+    { data: ChargeSubmitBody },
     TContext
   >(mutationFn, mutationOptions);
 };
