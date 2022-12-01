@@ -5,6 +5,109 @@ info:
 servers:
   - url: http://api.piglobalexchanges.com
 paths:
+  /pro/order/updateLossPrice.do:
+    post:
+      operationId: 'proOrderUpdateLossPrice'
+      description: '获取提币信息'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                orderId:
+                  type: string
+                stopLossPrice:
+                  type: string
+
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CommonResponse'
+
+  /pro/order/updateWinPrice.do:
+    post:
+      operationId: 'proOrderUpdateWinPrice'
+      description: '获取提币信息'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                orderId:
+                  type: string
+                stopWinPrice:
+                  type: string
+
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CommonResponse'
+
+  /pro/order/config.do:
+    post:
+      operationId: 'proOrderConfig'
+      description: '获取提币信息'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                symbol:
+                  type: string
+
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProOrderConfigResponse'
+
+  /pro/order/checkOut.do:
+    post:
+      operationId: 'proOrderCheckOut'
+      description: '获取提币信息'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                symbol:
+                  type: string
+                price:
+                  type: string
+                buySell:
+                  type: string
+                hand:
+                  type: string
+                multiNum:
+                  type: string
+                orderType:
+                  type: string
+
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/CommonResponse'
+                  - properties:
+                      data:
+                        type: object
+                        properties:
+                          maxHand:
+                            type: string
+                          openBail:
+                            type: string
+
   /follow/getTypes.do:
     post:
       operationId: 'getFollowTypes'
@@ -273,8 +376,6 @@ paths:
                   type: string
                 symbol:
                   type: string
-              required:
-                - 'symbol'
 
       responses:
         '200':
@@ -1509,6 +1610,32 @@ paths:
 
 components:
   schemas:
+    ProOrderConfigResponse:
+      allOf:
+        - $ref: '#/components/schemas/CommonResponse'
+        - properties:
+            data:
+              type: object
+              properties:
+                accountName:
+                  type: string
+                accountType:
+                  type: string
+                initHandList:
+                  type: array
+                  items:
+                    type: number
+                multiNumList:
+                  type: array
+                  items:
+                    type: number
+                openFeeScale:
+                  type: string
+                priceDecimals:
+                  type: string
+                usdtRate:
+                  type: string
+
     GetFollowTypesResponse:
       allOf:
         - $ref: '#/components/schemas/CommonResponse'
@@ -1733,10 +1860,74 @@ components:
             data:
               type: object
               properties:
+                order:
+                  $ref: '#/components/schemas/ProOrder'
                 data:
-                  $ref: '#/components/schemas/ProOrderDetail'
+                  $ref: '#/components/schemas/ProOrderData'
 
-    ProOrderDetail:
+    ProOrder:
+      type: object
+      properties:
+        buySell:
+          type: string
+        buySellValue:
+          type: string
+        closeDetails:
+          type: string
+        closeDone:
+          type: string
+        closeFee:
+          type: string
+        closePrice:
+          type: string
+        closeState:
+          type: string
+        closeStateDesc:
+          type: string
+        closeTime:
+          type: string
+        last:
+          type: string
+        multiNum:
+          type: string
+        nowStateDesc:
+          type: string
+        openBail:
+          type: string
+        openDone:
+          type: string
+        openFee:
+          type: string
+        openHand:
+          type: string
+        openPrice:
+          type: string
+        openState:
+          type: string
+        openStateDesc:
+          type: string
+        openTime:
+          type: string
+        orderId:
+          type: string
+        price:
+          type: string
+        priceDecimals:
+          type: string
+        profit:
+          type: string
+        profitRate:
+          type: string
+        rate:
+          type: string
+        stopLossPrice:
+          type: string
+        stopWinPrice:
+          type: string
+        symbol:
+          type: string
+
+    ProOrderData:
       type: object
       properties:
         amount:
@@ -2612,89 +2803,92 @@ components:
                     data:
                       type: array
                       items:
-                        type: object
-                        properties:
-                          buySell:
-                            type: string
-                          buySellValue:
-                            type: string
-                          closeDetails:
-                            type: array
-                            items:
-                              type: object
-                              properties:
-                                closeBail:
-                                  type: string
-                                closeFee:
-                                  type: string
-                                closeHand:
-                                  type: string
-                                closePrice:
-                                  type: string
-                                closeTime:
-                                  type: string
-                                dvForLossShare:
-                                  type: string
-                                dvForProfitShare:
-                                  type: string
-                                lossShare:
-                                  type: string
-                                profit:
-                                  type: string
-                                profitShare:
-                                  type: string
-                          closeDone:
-                            type: string
-                          closeFee:
-                            type: string
-                          closePrice:
-                            type: string
-                          closeState:
-                            type: string
-                          closeStateDesc:
-                            type: string
-                          closeTime:
-                            type: string
-                          multiNum:
-                            type: string
-                          nowStateDesc:
-                            type: string
-                          openBail:
-                            type: string
-                          openDone:
-                            type: string
-                          openFee:
-                            type: string
-                          openHand:
-                            type: string
-                          openPrice:
-                            type: string
-                          openState:
-                            type: string
-                          openStateDesc:
-                            type: string
-                          openTime:
-                            type: string
-                          orderId:
-                            type: string
-                          price:
-                            type: string
-                          priceDecimals:
-                            type: string
-                          profit:
-                            type: string
-                          profitRate:
-                            type: string
-                          stopLossPrice:
-                            type: string
-                          stopWinPrice:
-                            type: string
-                          symbol:
-                            type: string
-                          symbolName:
-                            type: string
-                          userId:
-                            type: string
+                        $ref: '#/components/schemas/ProOrderQueryListItem'
+
+    ProOrderQueryListItem:
+      type: object
+      properties:
+        buySell:
+          type: string
+        buySellValue:
+          type: string
+        closeDetails:
+          type: array
+          items:
+            type: object
+            properties:
+              closeBail:
+                type: string
+              closeFee:
+                type: string
+              closeHand:
+                type: string
+              closePrice:
+                type: string
+              closeTime:
+                type: string
+              dvForLossShare:
+                type: string
+              dvForProfitShare:
+                type: string
+              lossShare:
+                type: string
+              profit:
+                type: string
+              profitShare:
+                type: string
+        closeDone:
+          type: string
+        closeFee:
+          type: string
+        closePrice:
+          type: string
+        closeState:
+          type: string
+        closeStateDesc:
+          type: string
+        closeTime:
+          type: string
+        multiNum:
+          type: string
+        nowStateDesc:
+          type: string
+        openBail:
+          type: string
+        openDone:
+          type: string
+        openFee:
+          type: string
+        openHand:
+          type: string
+        openPrice:
+          type: string
+        openState:
+          type: string
+        openStateDesc:
+          type: string
+        openTime:
+          type: string
+        orderId:
+          type: string
+        price:
+          type: string
+        priceDecimals:
+          type: string
+        profit:
+          type: string
+        profitRate:
+          type: string
+        stopLossPrice:
+          type: string
+        stopWinPrice:
+          type: string
+        symbol:
+          type: string
+        symbolName:
+          type: string
+        userId:
+          type: string
 
     QueryTransferListResponse:
       allOf:

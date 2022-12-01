@@ -5,7 +5,7 @@
  * OpenAPI spec version: 1.0
  */
 
-export type ProOrderDetailBody = {
+export type ProOrderUpdateWinPriceBody = {
   orderId?: string;
-  symbol?: string;
+  stopWinPrice?: string;
 };

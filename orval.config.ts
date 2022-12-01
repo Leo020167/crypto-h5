@@ -59,6 +59,16 @@ export default defineConfig({
           name: 'customInstance',
         },
         operations: {
+          proOrderConfig: {
+            query: {
+              useQuery: true,
+            },
+          },
+          proOrderCheckOut: {
+            query: {
+              useQuery: true,
+            },
+          },
           getFollowTypes: {
             query: {
               useQuery: true,

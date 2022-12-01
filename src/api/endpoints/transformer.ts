@@ -14,9 +14,15 @@ import type {
   QueryKey,
 } from '@tanstack/react-query';
 import type {
+  CommonResponse,
+  ProOrderUpdateLossPriceBody,
+  ProOrderUpdateWinPriceBody,
+  ProOrderConfigResponse,
+  ProOrderConfigBody,
+  ProOrderCheckOut200,
+  ProOrderCheckOutBody,
   GetFollowTypesResponse,
   GetFollowTypesBody,
-  CommonResponse,
   ApplyForFollowBody,
   UnBindFollowBody,
   AttentionAddBody,
@@ -110,6 +116,196 @@ import type {
 } from '../model';
 import { customInstance } from '../mutator/custom-instance';
 import type { ErrorType } from '../mutator/custom-instance';
+
+/**
+ * 获取提币信息
+ */
+export const proOrderUpdateLossPrice = (
+  proOrderUpdateLossPriceBody: ProOrderUpdateLossPriceBody,
+) => {
+  return customInstance<CommonResponse>({
+    url: `/pro/order/updateLossPrice.do`,
+    method: 'post',
+    headers: { 'Content-Type': 'application/json' },
+    data: proOrderUpdateLossPriceBody,
+  });
+};
+
+export type ProOrderUpdateLossPriceMutationResult = NonNullable<
+  Awaited<ReturnType<typeof proOrderUpdateLossPrice>>
+>;
+export type ProOrderUpdateLossPriceMutationBody = ProOrderUpdateLossPriceBody;
+export type ProOrderUpdateLossPriceMutationError = ErrorType<unknown>;
+
+export const useProOrderUpdateLossPrice = <
+  TError = ErrorType<unknown>,
+  TContext = unknown,
+>(options?: {
+  mutation?: UseMutationOptions<
+    Awaited<ReturnType<typeof proOrderUpdateLossPrice>>,
+    TError,
+    { data: ProOrderUpdateLossPriceBody },
+    TContext
+  >;
+}) => {
+  const { mutation: mutationOptions } = options ?? {};
+
+  const mutationFn: MutationFunction<
+    Awaited<ReturnType<typeof proOrderUpdateLossPrice>>,
+    { data: ProOrderUpdateLossPriceBody }
+  > = (props) => {
+    const { data } = props ?? {};
+
+    return proOrderUpdateLossPrice(data);
+  };
+
+  return useMutation<
+    Awaited<ReturnType<typeof proOrderUpdateLossPrice>>,
+    TError,
+    { data: ProOrderUpdateLossPriceBody },
+    TContext
+  >(mutationFn, mutationOptions);
+};
+
+/**
+ * 获取提币信息
+ */
+export const proOrderUpdateWinPrice = (proOrderUpdateWinPriceBody: ProOrderUpdateWinPriceBody) => {
+  return customInstance<CommonResponse>({
+    url: `/pro/order/updateWinPrice.do`,
+    method: 'post',
+    headers: { 'Content-Type': 'application/json' },
+    data: proOrderUpdateWinPriceBody,
+  });
+};
+
+export type ProOrderUpdateWinPriceMutationResult = NonNullable<
+  Awaited<ReturnType<typeof proOrderUpdateWinPrice>>
+>;
+export type ProOrderUpdateWinPriceMutationBody = ProOrderUpdateWinPriceBody;
+export type ProOrderUpdateWinPriceMutationError = ErrorType<unknown>;
+
+export const useProOrderUpdateWinPrice = <
+  TError = ErrorType<unknown>,
+  TContext = unknown,
+>(options?: {
+  mutation?: UseMutationOptions<
+    Awaited<ReturnType<typeof proOrderUpdateWinPrice>>,
+    TError,
+    { data: ProOrderUpdateWinPriceBody },
+    TContext
+  >;
+}) => {
+  const { mutation: mutationOptions } = options ?? {};
+
+  const mutationFn: MutationFunction<
+    Awaited<ReturnType<typeof proOrderUpdateWinPrice>>,
+    { data: ProOrderUpdateWinPriceBody }
+  > = (props) => {
+    const { data } = props ?? {};
+
+    return proOrderUpdateWinPrice(data);
+  };
+
+  return useMutation<
+    Awaited<ReturnType<typeof proOrderUpdateWinPrice>>,
+    TError,
+    { data: ProOrderUpdateWinPriceBody },
+    TContext
+  >(mutationFn, mutationOptions);
+};
+
+/**
+ * 获取提币信息
+ */
+export const proOrderConfig = (proOrderConfigBody: ProOrderConfigBody) => {
+  return customInstance<ProOrderConfigResponse>({
+    url: `/pro/order/config.do`,
+    method: 'post',
+    headers: { 'Content-Type': 'application/json' },
+    data: proOrderConfigBody,
+  });
+};
+
+export const getProOrderConfigQueryKey = (proOrderConfigBody: ProOrderConfigBody) => [
+  `/pro/order/config.do`,
+  proOrderConfigBody,
+];
+
+export type ProOrderConfigQueryResult = NonNullable<Awaited<ReturnType<typeof proOrderConfig>>>;
+export type ProOrderConfigQueryError = ErrorType<unknown>;
+
+export const useProOrderConfig = <
+  TData = Awaited<ReturnType<typeof proOrderConfig>>,
+  TError = ErrorType<unknown>,
+>(
+  proOrderConfigBody: ProOrderConfigBody,
+  options?: { query?: UseQueryOptions<Awaited<ReturnType<typeof proOrderConfig>>, TError, TData> },
+): UseQueryResult<TData, TError> & { queryKey: QueryKey } => {
+  const { query: queryOptions } = options ?? {};
+
+  const queryKey = queryOptions?.queryKey ?? getProOrderConfigQueryKey(proOrderConfigBody);
+
+  const queryFn: QueryFunction<Awaited<ReturnType<typeof proOrderConfig>>> = () =>
+    proOrderConfig(proOrderConfigBody);
+
+  const query = useQuery<Awaited<ReturnType<typeof proOrderConfig>>, TError, TData>(
+    queryKey,
+    queryFn,
+    queryOptions,
+  ) as UseQueryResult<TData, TError> & { queryKey: QueryKey };
+
+  query.queryKey = queryKey;
+
+  return query;
+};
+
+/**
+ * 获取提币信息
+ */
+export const proOrderCheckOut = (proOrderCheckOutBody: ProOrderCheckOutBody) => {
+  return customInstance<ProOrderCheckOut200>({
+    url: `/pro/order/checkOut.do`,
+    method: 'post',
+    headers: { 'Content-Type': 'application/json' },
+    data: proOrderCheckOutBody,
+  });
+};
+
+export const getProOrderCheckOutQueryKey = (proOrderCheckOutBody: ProOrderCheckOutBody) => [
+  `/pro/order/checkOut.do`,
+  proOrderCheckOutBody,
+];
+
+export type ProOrderCheckOutQueryResult = NonNullable<Awaited<ReturnType<typeof proOrderCheckOut>>>;
+export type ProOrderCheckOutQueryError = ErrorType<unknown>;
+
+export const useProOrderCheckOut = <
+  TData = Awaited<ReturnType<typeof proOrderCheckOut>>,
+  TError = ErrorType<unknown>,
+>(
+  proOrderCheckOutBody: ProOrderCheckOutBody,
+  options?: {
+    query?: UseQueryOptions<Awaited<ReturnType<typeof proOrderCheckOut>>, TError, TData>;
+  },
+): UseQueryResult<TData, TError> & { queryKey: QueryKey } => {
+  const { query: queryOptions } = options ?? {};
+
+  const queryKey = queryOptions?.queryKey ?? getProOrderCheckOutQueryKey(proOrderCheckOutBody);
+
+  const queryFn: QueryFunction<Awaited<ReturnType<typeof proOrderCheckOut>>> = () =>
+    proOrderCheckOut(proOrderCheckOutBody);
+
+  const query = useQuery<Awaited<ReturnType<typeof proOrderCheckOut>>, TError, TData>(
+    queryKey,
+    queryFn,
+    queryOptions,
+  ) as UseQueryResult<TData, TError> & { queryKey: QueryKey };
+
+  query.queryKey = queryKey;
+
+  return query;
+};
 
 /**
  * 获取提币信息

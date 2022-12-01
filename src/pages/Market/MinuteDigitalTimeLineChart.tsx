@@ -1,7 +1,7 @@
 import currency from 'currency.js';
 import { graphic } from 'echarts';
 import { ECharts } from 'echarts/core';
-import { max, min, orderBy, uniqBy } from 'lodash-es';
+import { last, max, min, orderBy, uniqBy } from 'lodash-es';
 import moment from 'moment';
 import { useCallback, useEffect, useRef } from 'react';
 import { useGetMinuteLine } from '../../market/endpoints/marketWithTransformer';
@@ -76,6 +76,13 @@ const MinuteDigitalTimeLineChart = ({ symbol, precision }: MinuteDigitalTimeLine
           series: [
             {
               data: priceData,
+              markLine: {
+                data: [
+                  {
+                    yAxis: last(priceData),
+                  },
+                ],
+              },
             },
             {
               data: volumes,
@@ -123,7 +130,7 @@ const MinuteDigitalTimeLineChart = ({ symbol, precision }: MinuteDigitalTimeLine
           {
             type: 'inside',
             xAxisIndex: [0, 1],
-            start: 90,
+            start: 80,
             end: 100,
           },
         ],
@@ -147,12 +154,14 @@ const MinuteDigitalTimeLineChart = ({ symbol, precision }: MinuteDigitalTimeLine
                 color: '#28323e',
               },
             },
+            min: 'dataMin',
+            max: 'dataMax',
           },
           {
             type: 'category',
+            boundaryGap: false,
             gridIndex: 1,
             data: [],
-            boundaryGap: false,
             axisLine: {
               lineStyle: {
                 color: '#28323e',
@@ -164,10 +173,9 @@ const MinuteDigitalTimeLineChart = ({ symbol, precision }: MinuteDigitalTimeLine
               color: '#fff',
               fontSize: 8,
               formatter: (v: string) => moment(v, 'YYYY-MM-DD HH:mm').format('HH:mm'),
-              width: 100,
-              padding: [0, 20],
             },
-            splitNumber: 5,
+            min: 'dataMin',
+            max: 'dataMax',
           },
         ],
         yAxis: [
@@ -179,35 +187,9 @@ const MinuteDigitalTimeLineChart = ({ symbol, precision }: MinuteDigitalTimeLine
               inside: true,
               color: '#fff',
               fontSize: 8,
-              margin: 2,
               formatter: (v: number) => {
                 return currency(v, { precision, separator: '', symbol: '' }).format();
               },
-            },
-            splitLine: {
-              show: false,
-            },
-          },
-          {
-            scale: true,
-            gridIndex: 1,
-            splitNumber: 2,
-            axisLabel: { show: false },
-            axisLine: { show: false },
-            axisTick: { show: false },
-            splitLine: { show: false },
-          },
-          {
-            position: 'left',
-            boundaryGap: false,
-            axisLine: { show: false },
-            axisTick: { show: false },
-            axisLabel: {
-              show: true,
-              inside: true,
-              color: '#fff',
-              fontSize: 8,
-              margin: 2,
             },
             splitLine: {
               show: true,
@@ -215,13 +197,19 @@ const MinuteDigitalTimeLineChart = ({ symbol, precision }: MinuteDigitalTimeLine
                 color: '#28323e',
               },
             },
-            data: ['', 2, 3, 4, 5],
+          },
+          {
+            scale: true,
+            gridIndex: 1,
+            axisLabel: { show: false },
+            axisLine: { show: false },
+            axisTick: { show: false },
+            splitLine: { show: false },
           },
         ],
         series: [
           {
             type: 'line',
-            step: 'start',
             symbol: 'none',
             sampling: 'lttb',
             itemStyle: {
@@ -242,6 +230,16 @@ const MinuteDigitalTimeLineChart = ({ symbol, precision }: MinuteDigitalTimeLine
                 },
               ]),
             },
+            markLine: {
+              symbol: 'none',
+              data: [],
+              label: {
+                show: true,
+                position: 'insideEndTop',
+                color: '#f68e0e',
+                fontSize: 8,
+              },
+            },
           },
           {
             name: 'Volume',
@@ -253,40 +251,13 @@ const MinuteDigitalTimeLineChart = ({ symbol, precision }: MinuteDigitalTimeLine
               color: '#f68e0e',
             },
           },
-          {
-            type: 'effectScatter',
-            data: [['Sun', 210]],
-            rippleEffect: {
-              number: 1,
-              period: 2,
-              scale: 2.5,
-            },
-            markLine: {
-              symbol: 'none',
-              data: [
-                [
-                  {
-                    name: '233322',
-                    coord: ['Sun', 210],
-                  },
-                  {
-                    coord: ['222', 210],
-                  },
-                ],
-              ],
-            },
-          },
         ],
       },
       true,
     );
   }, [precision]);
 
-  return (
-    <div className="h-96" ref={ref}>
-      MinuteDigitalTimeLineChart
-    </div>
-  );
+  return <div className="h-96" ref={ref}></div>;
 };
 
 export default MinuteDigitalTimeLineChart;

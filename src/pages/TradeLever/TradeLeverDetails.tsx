@@ -1,11 +1,15 @@
-import { Input, Selector } from 'antd-mobile';
+import { Input, Selector, Toast } from 'antd-mobile';
+import { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Select, { StylesConfig } from 'react-select';
 import styled from 'styled-components';
+import { useProOrderCheckOut, useProOrderOpen } from '../../api/endpoints/transformer';
+import { ProOrderConfigResponseAllOfData } from '../../api/model';
+import { QuoteReal } from '../../market/model';
 
-const options = [
-  { value: 'chocolate', label: '市價委托' },
-  { value: 'strawberry', label: '限價委托' },
+const orderTypeOptions = [
+  { value: 'market', label: '市價委托' },
+  { value: 'limit', label: '限價委托' },
 ];
 
 const colourStyles: StylesConfig = {
@@ -24,44 +28,146 @@ const colourStyles: StylesConfig = {
       backgroundColor: isSelected ? '#d9d8dd' : undefined,
     };
   },
-  input: (styles) => ({ ...styles }),
-  singleValue: (styles) => ({ ...styles, color: '#666175ae' }),
+  input: (styles) => ({ ...styles, margin: 0, padding: 0 }),
+  singleValue: (styles) => ({ ...styles, color: '#666175ae', margin: 0 }),
   indicatorSeparator: () => ({ display: 'none' }),
   dropdownIndicator: (styles) => ({ ...styles, paddingLeft: 0 }),
   valueContainer: (styles) => ({ ...styles, paddingRight: 0 }),
 };
 
-const TradeLeverDetails = () => {
+interface TradeLeverDetailsProps {
+  config?: ProOrderConfigResponseAllOfData;
+  symbol?: string | null;
+  buySell?: number;
+  quote?: QuoteReal;
+}
+
+const TradeLeverDetails = ({ symbol, buySell, quote, config }: TradeLeverDetailsProps) => {
+  const [orderTypeOption, setOrderTypeOption] = useState<any>(orderTypeOptions[0]);
+  const [multiNumOption, setMultiNumOption] = useState<any>();
+  const [multiNumOptions, setMultiNumOptions] = useState<any[]>([]);
+
+  const [hand, setHand] = useState<string>('');
+
+  useEffect(() => {
+    const options =
+      config?.multiNumList?.map((v) => ({
+        label: `${v}X`,
+        value: `${v}`,
+      })) ?? [];
+    setMultiNumOption(options[0]);
+    setMultiNumOptions(options);
+  }, [config?.multiNumList]);
+
+  const leverMultiple = useMemo(
+    () => (config?.accountType === 'stock' ? '1' : multiNumOption?.value ?? ''),
+    [config?.accountType, multiNumOption?.value],
+  );
+
+  const [price, setPrice] = useState<string>();
+
+  const calcPrice = useMemo(() => {
+    if (orderTypeOption.value === 'limit' && price?.trim().length) {
+      return price;
+    }
+
+    return '0';
+  }, [orderTypeOption.value, price]);
+
+  const { data: orderCheckOut, refetch: refetchCheckOut } = useProOrderCheckOut(
+    {
+      symbol: symbol ?? '',
+      buySell: buySell === 1 ? 'buy' : 'sell',
+      price: calcPrice,
+      hand: hand ?? '0',
+      multiNum: leverMultiple,
+      orderType: orderTypeOption.value,
+    },
+    {
+      query: {
+        enabled: !!hand,
+      },
+    },
+  );
+
+  useEffect(() => {
+    if (quote) {
+      setPrice(quote.last);
+    }
+  }, [quote]);
+
+  const proOrderOpen = useProOrderOpen({
+    mutation: {
+      onSuccess(data) {
+        if (data.code === '200') {
+          refetchCheckOut();
+          Toast.show(data.msg);
+        }
+      },
+    },
+  });
+
   return (
     <Container>
-      <div className="flex text-sm">
-        <Select options={options} styles={colourStyles} className="flex-1" placeholder="請選擇" />
+      <div className="flex text-sm gap-2">
         <Select
-          options={options}
+          value={orderTypeOption}
+          onChange={setOrderTypeOption}
+          options={orderTypeOptions}
           styles={colourStyles}
-          className="flex-1 ml-2"
+          className="w-1/2"
           placeholder="請選擇"
         />
+
+        {config?.accountType !== 'stock' && (
+          <Select
+            value={multiNumOption}
+            onChange={setMultiNumOption}
+            options={multiNumOptions}
+            styles={colourStyles}
+            className="w-1/2"
+            placeholder="請選擇"
+          />
+        )}
       </div>
 
-      <div className="flex items-center justify-center text-xs text-[#666175ae] h-10 mt-2 bg-[#f2f2f2]">
-        以當前最優價格交易
-      </div>
+      {orderTypeOption.value === 'market' ? (
+        <div className="flex items-center justify-center text-xs text-[#666175ae] h-10 mt-2 bg-[#f2f2f2]">
+          以當前最優價格交易
+        </div>
+      ) : (
+        <div className="mt-2.5 flex items-center border border-gray-300">
+          <Input
+            type="number"
+            placeholder="價格"
+            maxLength={18}
+            className="flex-1 pl-2.5"
+            value={price}
+            onChange={setPrice}
+          />
+          <div className="h-8 bg-gray-300 w-[1px]"></div>
+          <a className="text-lg font-bold text-gray-300 w-10 flex items-center justify-center">-</a>
+          <div className="h-6 bg-gray-300 w-[1px]"></div>
+          <a className="text-lg font-bold text-gray-300 w-10 flex items-center justify-center">+</a>
+        </div>
+      )}
 
       <Selector
         className="mt-2 text-xs"
         columns={4}
-        options={[
-          { label: '10', value: 10 },
-          { label: '20', value: 20 },
-          { label: '50', value: 50 },
-          { label: '100', value: 100 },
-        ]}
+        options={config?.initHandList?.map((v) => ({ label: v, value: `${v}` })) ?? []}
         showCheckMark={false}
+        onChange={(value) => {
+          if (value.length) {
+            setHand(value[0]);
+          }
+        }}
       />
 
       <div className="mt-2 flex items-center border border-[#efefef] h-10 px-2 rounded-sm">
         <Input
+          value={hand}
+          onChange={setHand}
           type="number"
           className="text-sm font-bold"
           placeholder="請輸入手數"
@@ -72,18 +178,38 @@ const TradeLeverDetails = () => {
 
       <div className="mt-1 text-xs flex items-center justify-between">
         <div>
-          <div className="text-[#6175ae]">可開%s手</div>
-          <div className="text-[#666175ae] mt-3">開倉保證金 %s USDT</div>
+          <div className="text-[#6175ae]">可開{orderCheckOut?.data?.maxHand}手</div>
+          <div className="text-gray-400 mt-3">開倉保證金{orderCheckOut?.data?.openBail}</div>
         </div>
 
-        <Link to="" className="bg-[#6175ae] text-white px-3 py-1">
+        <Link to="/transfer-coin" className="bg-[#6175ae] text-center text-white py-1.5 w-12">
           划轉
         </Link>
       </div>
 
       <div>
-        <a className="flex items-center justify-center h-12 bg-[#e2214e] text-white mt-4 text-sm">
-          看漲(做多)
+        <a
+          className="flex items-center justify-center h-12 text-white mt-4 text-sm"
+          style={{ backgroundColor: buySell === 1 ? '#E2214E' : '#00AD88' }}
+          onClick={() => {
+            if (orderTypeOption.value === 'limit' && !calcPrice) {
+              Toast.show('請輸入價格');
+              return;
+            }
+
+            proOrderOpen.mutate({
+              data: {
+                symbol: symbol ?? '',
+                price: calcPrice,
+                buySell: buySell === 1 ? 'buy' : 'sell',
+                hand: hand ?? '0',
+                multiNum: leverMultiple,
+                orderType: orderTypeOption.value,
+              },
+            });
+          }}
+        >
+          {buySell === 1 ? '看漲(做多)' : '看跌(做空)'}
         </a>
       </div>
     </Container>

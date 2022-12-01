@@ -4,8 +4,8 @@
  * API Title
  * OpenAPI spec version: 1.0
  */
-import type { ProOrderQueryListResponseAllOfDataAllOfDataItem } from './proOrderQueryListResponseAllOfDataAllOfDataItem';
+import type { ProOrderQueryListItem } from './proOrderQueryListItem';
 
 export type ProOrderQueryListResponseAllOfDataAllOf = {
-  data?: ProOrderQueryListResponseAllOfDataAllOfDataItem[];
+  data?: ProOrderQueryListItem[];
 };

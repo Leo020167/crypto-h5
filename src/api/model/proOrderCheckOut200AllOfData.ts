@@ -5,7 +5,7 @@
  * OpenAPI spec version: 1.0
  */
 
-export type ProOrderDetailBody = {
-  orderId?: string;
-  symbol?: string;
+export type ProOrderCheckOut200AllOfData = {
+  maxHand?: string;
+  openBail?: string;
 };

@@ -4,8 +4,10 @@
  * API Title
  * OpenAPI spec version: 1.0
  */
-import type { ProOrderDetail } from './proOrderDetail';
+import type { ProOrder } from './proOrder';
+import type { ProOrderData } from './proOrderData';
 
 export type ProOrderDetailResponseAllOfData = {
-  data?: ProOrderDetail;
+  order?: ProOrder;
+  data?: ProOrderData;
 };

@@ -13,8 +13,9 @@ import {
   Tabs,
 } from 'antd-mobile';
 import { DownFill, DownOutline } from 'antd-mobile-icons';
-import { useRef, useState } from 'react';
+import { useMemo, useRef, useState } from 'react';
 import styled from 'styled-components';
+import { StringParam, useQueryParam, withDefault } from 'use-query-params';
 import { useProOrderQuerySum } from '../../api/endpoints/transformer';
 import Screen from '../../components/Screen';
 import TradeLeverHistory, { TradeLeverHistoryRef } from './TradeLeverHistory';
@@ -37,6 +38,8 @@ const tabItems = [
 
 const proOrderQuerySumKeys = ['stock', 'digital'];
 
+const AccountTypeParam = withDefault(StringParam, 'follow');
+
 const TransactionRecords = () => {
   const [visible, setVisible] = useState(false);
 
@@ -46,9 +49,22 @@ const TransactionRecords = () => {
 
   const [symbol, setSymbol] = useState<string>();
   const [orderState, setOrderState] = useState<string[]>([]);
-  const [accountType, setAccountType] = useState<AccountType>(accountTypes[0]);
 
-  const { data: proOrderQuerySum } = useProOrderQuerySum({ accountType: accountType.value });
+  const [accountType, setAccountType] = useQueryParam('accountType', AccountTypeParam);
+
+  const accountTypeOption = useMemo(
+    () => accountTypes.find((v) => v.value === accountType),
+    [accountType],
+  );
+
+  const { data: proOrderQuerySum } = useProOrderQuerySum(
+    { accountType: accountType ?? '' },
+    {
+      query: {
+        enabled: !!accountType,
+      },
+    },
+  );
 
   const ref = useRef<DropdownRef>(null);
 
@@ -58,7 +74,7 @@ const TransactionRecords = () => {
     <Screen
       headerTitle={
         <a className="flex items-center justify-center text-base" onClick={() => setVisible(true)}>
-          {accountType.label}
+          {accountTypeOption?.label}
           <div className="ml-1 w-2.5 h-2.5">
             <DownFill className="h-full w-full" />
           </div>
@@ -145,7 +161,7 @@ const TransactionRecords = () => {
             ))}
           </Tabs>
 
-          {proOrderQuerySumKeys.includes(accountType.value) && (
+          {proOrderQuerySumKeys.includes(accountType) && (
             <div className="flex-1 flex items-center justify-end px-4">
               <div className="flex flex-col">
                 <span className="text-xs text-[#999999]">總交易手數</span>
@@ -174,7 +190,7 @@ const TransactionRecords = () => {
           <Swiper.Item>
             <TradeLeverHistory
               ref={historyRef}
-              accountType={accountType.value}
+              accountType={accountType}
               symbol={symbol}
               orderState={orderState?.[0]}
             />
@@ -191,7 +207,7 @@ const TransactionRecords = () => {
                 arrow={null}
                 key={v.value}
                 onClick={() => {
-                  setAccountType(v);
+                  setAccountType(v.value);
                   setVisible(false);
                 }}
               >

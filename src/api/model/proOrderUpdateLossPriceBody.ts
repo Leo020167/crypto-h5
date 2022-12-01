@@ -5,7 +5,7 @@
  * OpenAPI spec version: 1.0
  */
 
-export type ProOrderDetailBody = {
+export type ProOrderUpdateLossPriceBody = {
   orderId?: string;
-  symbol?: string;
+  stopLossPrice?: string;
 };

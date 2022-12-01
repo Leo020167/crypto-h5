@@ -1,6 +1,8 @@
 import { useInfiniteQuery } from '@tanstack/react-query';
 import { InfiniteScroll, List } from 'antd-mobile';
+import { stringify } from 'query-string';
 import { forwardRef, useImperativeHandle, useMemo } from 'react';
+import { useHistory } from 'react-router-dom';
 import { getProOrderQueryListQueryKey, proOrderQueryList } from '../../api/endpoints/transformer';
 import InfiniteScrollContent from '../../components/InfiniteScrollContent';
 import Record from './Record';
@@ -48,11 +50,23 @@ const TradeLeverHistory = forwardRef<TradeLeverHistoryRef, TradeLeverHistoryProp
 
     useImperativeHandle(ref, () => ({ refetch }));
 
+    const history = useHistory();
+
     return (
       <div>
         <List>
           {dataSource.map((v, index) => (
-            <List.Item key={index}>
+            <List.Item
+              key={index}
+              onClick={() =>
+                history.push({
+                  pathname: '/lever-info',
+                  search: stringify({
+                    orderId: v.orderId,
+                  }),
+                })
+              }
+            >
               {accountType === '2' ? <Spot data={v} /> : <Record data={v} />}
             </List.Item>
           ))}
