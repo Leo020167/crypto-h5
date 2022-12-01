@@ -9,6 +9,7 @@ import { ReactComponent as HomeTabFollow } from './assets/home_tab_follow.svg';
 import { ReactComponent as HomeTabMarkSvg } from './assets/home_tab_mark.svg';
 import { ReactComponent as HomeTabMineSvg } from './assets/home_tab_mine.svg';
 
+const RadarSummary = lazy(() => import('./pages/UserHome/RadarSummary'));
 const UserHome = lazy(() => import('./pages/UserHome'));
 const Institution = lazy(() => import('./pages/Institution'));
 const AddressAdd = lazy(() => import('./pages/AddressManagement/AddressAdd'));
@@ -156,6 +157,12 @@ export const Routes = () => {
 
       <Route path="/home">
         <HomeTabs />
+      </Route>
+
+      <Route path="/radar-summary">
+        <Suspense fallback={<div>Loading...</div>}>
+          <RadarSummary />
+        </Suspense>
       </Route>
 
       <Route path="/user-home">
