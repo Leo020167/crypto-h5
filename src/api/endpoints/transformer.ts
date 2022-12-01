@@ -14,6 +14,8 @@ import type {
   QueryKey,
 } from '@tanstack/react-query';
 import type {
+  PersonalTrendChartResponse,
+  PersonalTrendChartBody,
   PersonalHomeResponse,
   PersonalHomeBody,
   GetWithdrawConfigsResponse,
@@ -103,6 +105,55 @@ import type {
 } from '../model';
 import { customInstance } from '../mutator/custom-instance';
 import type { ErrorType } from '../mutator/custom-instance';
+
+/**
+ * 获取提币信息
+ */
+export const personalTrendChart = (personalTrendChartBody: PersonalTrendChartBody) => {
+  return customInstance<PersonalTrendChartResponse>({
+    url: `/personal/trendChart.do`,
+    method: 'post',
+    headers: { 'Content-Type': 'application/json' },
+    data: personalTrendChartBody,
+  });
+};
+
+export const getPersonalTrendChartQueryKey = (personalTrendChartBody: PersonalTrendChartBody) => [
+  `/personal/trendChart.do`,
+  personalTrendChartBody,
+];
+
+export type PersonalTrendChartQueryResult = NonNullable<
+  Awaited<ReturnType<typeof personalTrendChart>>
+>;
+export type PersonalTrendChartQueryError = ErrorType<unknown>;
+
+export const usePersonalTrendChart = <
+  TData = Awaited<ReturnType<typeof personalTrendChart>>,
+  TError = ErrorType<unknown>,
+>(
+  personalTrendChartBody: PersonalTrendChartBody,
+  options?: {
+    query?: UseQueryOptions<Awaited<ReturnType<typeof personalTrendChart>>, TError, TData>;
+  },
+): UseQueryResult<TData, TError> & { queryKey: QueryKey } => {
+  const { query: queryOptions } = options ?? {};
+
+  const queryKey = queryOptions?.queryKey ?? getPersonalTrendChartQueryKey(personalTrendChartBody);
+
+  const queryFn: QueryFunction<Awaited<ReturnType<typeof personalTrendChart>>> = () =>
+    personalTrendChart(personalTrendChartBody);
+
+  const query = useQuery<Awaited<ReturnType<typeof personalTrendChart>>, TError, TData>(
+    queryKey,
+    queryFn,
+    queryOptions,
+  ) as UseQueryResult<TData, TError> & { queryKey: QueryKey };
+
+  query.queryKey = queryKey;
+
+  return query;
+};
 
 /**
  * 获取提币信息

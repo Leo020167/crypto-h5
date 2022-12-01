@@ -138,7 +138,7 @@ const UserHome = () => {
           </div>
         </div>
 
-        <Capability />
+        <Capability radar={radar} />
 
         {!!radar?.recommend && (
           <div className="mt-5 mb-12 px-4 text-sm text-[#3d3a50]">{radar?.recommend}</div>

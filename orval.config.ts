@@ -59,6 +59,11 @@ export default defineConfig({
           name: 'customInstance',
         },
         operations: {
+          personalTrendChart: {
+            query: {
+              useQuery: true,
+            },
+          },
           personalHome: {
             query: {
               useQuery: true,

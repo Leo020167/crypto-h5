@@ -5,6 +5,33 @@ info:
 servers:
   - url: http://api.piglobalexchanges.com
 paths:
+  /personal/trendChart.do:
+    post:
+      operationId: 'personalTrendChart'
+      description: '获取提币信息'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                targetUid:
+                  type: string
+                timeType:
+                  type: string
+                  description: 'month month3 month6 year'
+                type:
+                  type: string
+                  description: '1 业绩走势  2跟单人气  3交易次数  4累计盈亏'
+              required:
+                - 'targetUid'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PersonalTrendChartResponse'
+
   /personal/home.do:
     post:
       operationId: 'personalHome'
@@ -1395,6 +1422,32 @@ paths:
 
 components:
   schemas:
+    PersonalTrendChartResponse:
+      allOf:
+        - $ref: '#/components/schemas/CommonResponse'
+        - properties:
+            data:
+              type: object
+              properties:
+                trendData:
+                  $ref: '#/components/schemas/TrendData'
+    TrendData:
+      type: array
+      items:
+        $ref: '#/components/schemas/TrendDataItem'
+
+    TrendDataItem:
+      type: object
+      properties:
+        dayTime:
+          type: string
+        dayTimeFor:
+          type: string
+        num:
+          type: string
+        profit:
+          type: string
+
     PersonalHomeResponse:
       allOf:
         - $ref: '#/components/schemas/CommonResponse'
