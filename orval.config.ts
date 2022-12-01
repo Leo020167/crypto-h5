@@ -59,6 +59,11 @@ export default defineConfig({
           name: 'customInstance',
         },
         operations: {
+          getFollowTypes: {
+            query: {
+              useQuery: true,
+            },
+          },
           personalTrendChart: {
             query: {
               useQuery: true,

@@ -5,6 +5,93 @@ info:
 servers:
   - url: http://api.piglobalexchanges.com
 paths:
+  /follow/getTypes.do:
+    post:
+      operationId: 'getFollowTypes'
+      description: '获取提币信息'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                dvUid:
+                  type: string
+              required:
+                - 'dvUid'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetFollowTypesResponse'
+
+  /follow/applyForFollow.do:
+    post:
+      operationId: 'applyForFollow'
+      description: '获取提币信息'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                dvUid:
+                  type: string
+                typeId:
+                  type: string
+                multiNum:
+                  type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CommonResponse'
+
+  /follow/unBind.do:
+    post:
+      operationId: 'unBindFollow'
+      description: '获取提币信息'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                dvUid:
+                  type: string
+              required:
+                - 'dvUid'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CommonResponse'
+  /attention/add.do:
+    post:
+      operationId: 'attentionAdd'
+      description: '获取提币信息'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                attentionUid:
+                  type: string
+                num:
+                  type: string
+              required:
+                - 'attentionUid'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CommonResponse'
+
   /personal/trendChart.do:
     post:
       operationId: 'personalTrendChart'
@@ -1422,6 +1509,54 @@ paths:
 
 components:
   schemas:
+    GetFollowTypesResponse:
+      allOf:
+        - $ref: '#/components/schemas/CommonResponse'
+        - properties:
+            data:
+              type: object
+              properties:
+                data:
+                  type: object
+                  properties:
+                    showBind:
+                      type: string
+                    types:
+                      type: array
+                      items:
+                        $ref: '#/components/schemas/FollowType'
+    FollowType:
+      type: object
+      properties:
+        agentLimit:
+          type: string
+        createTime:
+          type: string
+        duration:
+          type: string
+        dvUid:
+          type: string
+        expireTime:
+          type: string
+        id:
+          type: string
+        isBind:
+          type: string
+        limit:
+          type: string
+        lossRate:
+          type: string
+        maxMultiNum:
+          type: string
+        minMultiNum:
+          type: string
+        profitRate:
+          type: string
+        tokenAmount:
+          type: string
+        updateTime:
+          type: string
+
     PersonalTrendChartResponse:
       allOf:
         - $ref: '#/components/schemas/CommonResponse'
@@ -1431,6 +1566,7 @@ components:
               properties:
                 trendData:
                   $ref: '#/components/schemas/TrendData'
+
     TrendData:
       type: array
       items:

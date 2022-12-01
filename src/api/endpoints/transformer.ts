@@ -14,13 +14,18 @@ import type {
   QueryKey,
 } from '@tanstack/react-query';
 import type {
+  GetFollowTypesResponse,
+  GetFollowTypesBody,
+  CommonResponse,
+  ApplyForFollowBody,
+  UnBindFollowBody,
+  AttentionAddBody,
   PersonalTrendChartResponse,
   PersonalTrendChartBody,
   PersonalHomeResponse,
   PersonalHomeBody,
   GetWithdrawConfigsResponse,
   GetWithdrawConfigsBody,
-  CommonResponse,
   DelAddressBody,
   AddressListResponse,
   AddressListBody,
@@ -105,6 +110,180 @@ import type {
 } from '../model';
 import { customInstance } from '../mutator/custom-instance';
 import type { ErrorType } from '../mutator/custom-instance';
+
+/**
+ * 获取提币信息
+ */
+export const getFollowTypes = (getFollowTypesBody: GetFollowTypesBody) => {
+  return customInstance<GetFollowTypesResponse>({
+    url: `/follow/getTypes.do`,
+    method: 'post',
+    headers: { 'Content-Type': 'application/json' },
+    data: getFollowTypesBody,
+  });
+};
+
+export const getGetFollowTypesQueryKey = (getFollowTypesBody: GetFollowTypesBody) => [
+  `/follow/getTypes.do`,
+  getFollowTypesBody,
+];
+
+export type GetFollowTypesQueryResult = NonNullable<Awaited<ReturnType<typeof getFollowTypes>>>;
+export type GetFollowTypesQueryError = ErrorType<unknown>;
+
+export const useGetFollowTypes = <
+  TData = Awaited<ReturnType<typeof getFollowTypes>>,
+  TError = ErrorType<unknown>,
+>(
+  getFollowTypesBody: GetFollowTypesBody,
+  options?: { query?: UseQueryOptions<Awaited<ReturnType<typeof getFollowTypes>>, TError, TData> },
+): UseQueryResult<TData, TError> & { queryKey: QueryKey } => {
+  const { query: queryOptions } = options ?? {};
+
+  const queryKey = queryOptions?.queryKey ?? getGetFollowTypesQueryKey(getFollowTypesBody);
+
+  const queryFn: QueryFunction<Awaited<ReturnType<typeof getFollowTypes>>> = () =>
+    getFollowTypes(getFollowTypesBody);
+
+  const query = useQuery<Awaited<ReturnType<typeof getFollowTypes>>, TError, TData>(
+    queryKey,
+    queryFn,
+    queryOptions,
+  ) as UseQueryResult<TData, TError> & { queryKey: QueryKey };
+
+  query.queryKey = queryKey;
+
+  return query;
+};
+
+/**
+ * 获取提币信息
+ */
+export const applyForFollow = (applyForFollowBody: ApplyForFollowBody) => {
+  return customInstance<CommonResponse>({
+    url: `/follow/applyForFollow.do`,
+    method: 'post',
+    headers: { 'Content-Type': 'application/json' },
+    data: applyForFollowBody,
+  });
+};
+
+export type ApplyForFollowMutationResult = NonNullable<Awaited<ReturnType<typeof applyForFollow>>>;
+export type ApplyForFollowMutationBody = ApplyForFollowBody;
+export type ApplyForFollowMutationError = ErrorType<unknown>;
+
+export const useApplyForFollow = <TError = ErrorType<unknown>, TContext = unknown>(options?: {
+  mutation?: UseMutationOptions<
+    Awaited<ReturnType<typeof applyForFollow>>,
+    TError,
+    { data: ApplyForFollowBody },
+    TContext
+  >;
+}) => {
+  const { mutation: mutationOptions } = options ?? {};
+
+  const mutationFn: MutationFunction<
+    Awaited<ReturnType<typeof applyForFollow>>,
+    { data: ApplyForFollowBody }
+  > = (props) => {
+    const { data } = props ?? {};
+
+    return applyForFollow(data);
+  };
+
+  return useMutation<
+    Awaited<ReturnType<typeof applyForFollow>>,
+    TError,
+    { data: ApplyForFollowBody },
+    TContext
+  >(mutationFn, mutationOptions);
+};
+
+/**
+ * 获取提币信息
+ */
+export const unBindFollow = (unBindFollowBody: UnBindFollowBody) => {
+  return customInstance<CommonResponse>({
+    url: `/follow/unBind.do`,
+    method: 'post',
+    headers: { 'Content-Type': 'application/json' },
+    data: unBindFollowBody,
+  });
+};
+
+export type UnBindFollowMutationResult = NonNullable<Awaited<ReturnType<typeof unBindFollow>>>;
+export type UnBindFollowMutationBody = UnBindFollowBody;
+export type UnBindFollowMutationError = ErrorType<unknown>;
+
+export const useUnBindFollow = <TError = ErrorType<unknown>, TContext = unknown>(options?: {
+  mutation?: UseMutationOptions<
+    Awaited<ReturnType<typeof unBindFollow>>,
+    TError,
+    { data: UnBindFollowBody },
+    TContext
+  >;
+}) => {
+  const { mutation: mutationOptions } = options ?? {};
+
+  const mutationFn: MutationFunction<
+    Awaited<ReturnType<typeof unBindFollow>>,
+    { data: UnBindFollowBody }
+  > = (props) => {
+    const { data } = props ?? {};
+
+    return unBindFollow(data);
+  };
+
+  return useMutation<
+    Awaited<ReturnType<typeof unBindFollow>>,
+    TError,
+    { data: UnBindFollowBody },
+    TContext
+  >(mutationFn, mutationOptions);
+};
+
+/**
+ * 获取提币信息
+ */
+export const attentionAdd = (attentionAddBody: AttentionAddBody) => {
+  return customInstance<CommonResponse>({
+    url: `/attention/add.do`,
+    method: 'post',
+    headers: { 'Content-Type': 'application/json' },
+    data: attentionAddBody,
+  });
+};
+
+export type AttentionAddMutationResult = NonNullable<Awaited<ReturnType<typeof attentionAdd>>>;
+export type AttentionAddMutationBody = AttentionAddBody;
+export type AttentionAddMutationError = ErrorType<unknown>;
+
+export const useAttentionAdd = <TError = ErrorType<unknown>, TContext = unknown>(options?: {
+  mutation?: UseMutationOptions<
+    Awaited<ReturnType<typeof attentionAdd>>,
+    TError,
+    { data: AttentionAddBody },
+    TContext
+  >;
+}) => {
+  const { mutation: mutationOptions } = options ?? {};
+
+  const mutationFn: MutationFunction<
+    Awaited<ReturnType<typeof attentionAdd>>,
+    { data: AttentionAddBody }
+  > = (props) => {
+    const { data } = props ?? {};
+
+    return attentionAdd(data);
+  };
+
+  return useMutation<
+    Awaited<ReturnType<typeof attentionAdd>>,
+    TError,
+    { data: AttentionAddBody },
+    TContext
+  >(mutationFn, mutationOptions);
+};
 
 /**
  * 获取提币信息

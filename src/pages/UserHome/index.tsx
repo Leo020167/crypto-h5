@@ -1,10 +1,10 @@
-import { Button } from 'antd-mobile';
+import { Button, Dialog, Toast } from 'antd-mobile';
 import { useAtomValue } from 'jotai';
 import { stringify } from 'query-string';
 import { useMemo } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { StringParam, useQueryParam } from 'use-query-params';
-import { usePersonalHome } from '../../api/endpoints/transformer';
+import { useAttentionAdd, usePersonalHome, useUnBindFollow } from '../../api/endpoints/transformer';
 import ic_default_head from '../../assets/ic_default_head.png';
 import { userAtom } from '../../atoms';
 import Screen from '../../components/Screen';
@@ -15,7 +15,7 @@ import TradableTargetChart from './TradableTargetChart';
 const UserHome = () => {
   const [userId] = useQueryParam('userId', StringParam);
 
-  const { data } = usePersonalHome(
+  const { data, refetch } = usePersonalHome(
     { targetUid: userId ?? '' },
     {
       query: {
@@ -26,14 +26,38 @@ const UserHome = () => {
 
   const radar = data?.data?.userRadar;
 
-  const currentUser = useAtomValue(userAtom);
+  const user = useAtomValue(userAtom);
+
+  const history = useHistory();
+
+  const attentionAdd = useAttentionAdd({
+    mutation: {
+      onSuccess(data) {
+        if (data.code === '200') {
+          refetch();
+          Toast.show(data.msg);
+        }
+      },
+    },
+  });
+
+  const unBindFollow = useUnBindFollow({
+    mutation: {
+      onSuccess(data) {
+        if (data.code === '200') {
+          refetch();
+          Toast.show(data.msg);
+        }
+      },
+    },
+  });
 
   const buttons = useMemo(() => {
-    if (radar?.userId === currentUser?.userId) return null;
+    if (radar?.userId === user?.userId) return null;
 
     const renderFollowLabel = () => {
       if (radar?.myIsAttention === '0') {
-        if (radar.subIsFee === '0') {
+        if (radar?.subIsFee === '0') {
           return '免費訂閱';
         }
         return '訂閱';
@@ -48,12 +72,12 @@ const UserHome = () => {
 
     const renderTime = () => {
       if (radar?.myIsAttention !== '0' && radar?.subIsFee !== '0') {
-        if (radar?.isExpireTime === '1' && Number(radar.expireTime) > 0) {
+        if (radar?.isExpireTime === '1' && Number(radar?.expireTime) > 0) {
           return <div style={{ color: 'red' }}>訂閱已過期</div>;
-        } else if (radar?.isExpireTime === '0' && Number(radar.expireTime) > 0) {
+        } else if (radar?.isExpireTime === '0' && Number(radar?.expireTime) > 0) {
           return (
             <div style={{ color: '#1d3155' }}>
-              到期: {stringDateFormat(radar.expireTime, 'YYYY-MM-DD')}
+              到期: {stringDateFormat(radar?.expireTime, 'YYYY-MM-DD')}
             </div>
           );
         }
@@ -64,20 +88,72 @@ const UserHome = () => {
     return (
       <div className="flex pb-5 px-5 w-full gap-5">
         <div className="flex-1">
-          <Button color="primary" block>
+          <Button
+            color="primary"
+            block
+            onClick={() => {
+              if (user) {
+                if (!radar) return;
+
+                if (radar.subIsFee === '0') {
+                  if (radar.myIsAttention === '0') {
+                    Dialog.confirm({
+                      title: '提示',
+                      content: '是否訂閲該用戶？',
+                      confirmText: '訂閲',
+                      onConfirm() {
+                        attentionAdd.mutate({
+                          data: {
+                            attentionUid: radar.userId ?? '',
+                            num: '0',
+                          },
+                        });
+                      },
+                    });
+                  } else {
+                    Toast.show('已訂閱');
+                  }
+                } else {
+                  // TODO show attention dialog
+                }
+              } else {
+                history.push('/login');
+              }
+            }}
+          >
             {renderFollowLabel()}
           </Button>
           {renderTime()}
         </div>
 
         <div className="flex-1">
-          <Button color="primary" block>
-            申請綁定
+          <Button
+            color="primary"
+            block
+            onClick={() => {
+              if (!radar) return;
+              if (radar.myIsFollow === '1') {
+                unBindFollow.mutate({
+                  data: {
+                    dvUid: radar.userId ?? '',
+                  },
+                });
+              } else {
+                if (radar) {
+                  history.push({
+                    pathname: '/apply-bind-account',
+                    search: stringify({ userId: radar.userId }),
+                  });
+                }
+              }
+            }}
+          >
+            {radar?.myIsFollow === '1' ? '已綁定' : '申請綁定'}
           </Button>
         </div>
       </div>
     );
-  }, [currentUser?.userId, radar]);
+  }, [radar, user, attentionAdd, history, unBindFollow]);
 
   return (
     <Screen>
