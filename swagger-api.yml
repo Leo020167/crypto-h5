@@ -1757,6 +1757,8 @@ components:
           type: string
         symbol:
           type: string
+        usdtAmount:
+          type: string
 
     RecordListPledgesResponse:
       allOf:

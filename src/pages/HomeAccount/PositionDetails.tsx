@@ -88,7 +88,7 @@ const PositionDetails = () => {
         </div>
         <div className="flex justify-between mt-2">
           <span>委托</span>
-          <span></span>
+          <span>{data?.data?.data?.usdtAmount}</span>
         </div>
       </div>
 

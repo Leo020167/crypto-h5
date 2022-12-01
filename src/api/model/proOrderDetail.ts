@@ -15,4 +15,5 @@ export interface ProOrderDetail {
   profitRate?: string;
   rate?: string;
   symbol?: string;
+  usdtAmount?: string;
 }
