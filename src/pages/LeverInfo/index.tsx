@@ -1,10 +1,11 @@
-import { Button, Form, Input, List, Popup, Toast } from 'antd-mobile';
+import { Button, Dialog, Form, Input, List, Popup, Toast } from 'antd-mobile';
 import { stringify } from 'query-string';
 import { useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { StringParam, useQueryParam } from 'use-query-params';
 import {
+  useProOrderClose,
   useProOrderDetail,
   useProOrderUpdateLossPrice,
   useProOrderUpdateWinPrice,
@@ -23,6 +24,9 @@ const LeverInfo = () => {
 
   const [openSetLoss, setOpenSetLoss] = useState(false);
   const [loss, setLoss] = useState<string>();
+
+  const [openClosePosition, setOpenClosePosition] = useState(false);
+  const [closeHand, setCloseHand] = useState<string>();
 
   const { data, refetch } = useProOrderDetail(
     { orderId: orderId ?? '' },
@@ -91,8 +95,49 @@ const LeverInfo = () => {
     },
   });
 
+  const proOrderClose = useProOrderClose({
+    mutation: {
+      onSuccess(data) {
+        if (data.code === '200') {
+          refetch();
+          setOpenClosePosition(false);
+          Toast.show(data.msg);
+        }
+      },
+    },
+  });
+
   return (
-    <Screen headerTitle={order?.symbol}>
+    <Screen
+      headerTitle={order?.symbol}
+      footer={
+        <div className="flex gap-4 p-4">
+          <Button block onClick={() => setOpenClosePosition(true)}>
+            普通平倉
+          </Button>
+          <Button
+            block
+            color="primary"
+            onClick={() => {
+              Dialog.confirm({
+                content: `是否以當前市價平倉${order?.openHand}？`,
+                confirmText: '確定',
+                onConfirm() {
+                  proOrderClose.mutate({
+                    data: {
+                      orderId: orderId ?? '',
+                      closeHand: '0',
+                    },
+                  });
+                },
+              });
+            }}
+          >
+            快捷平倉
+          </Button>
+        </div>
+      }
+    >
       <Container className="flex-1 overflow-y-auto">
         <div className=" py-8 text-center text-[#3d3a50]">
           <div className="text-sm ">盈利(USDT)</div>
@@ -170,7 +215,7 @@ const LeverInfo = () => {
           onFinish={() => {
             proOrderUpdateWinPrice.mutate({
               data: {
-                orderId,
+                orderId: orderId ?? '',
                 stopWinPrice: stopWin ?? '0.0',
               },
             });
@@ -205,7 +250,7 @@ const LeverInfo = () => {
           onFinish={() => {
             proOrderUpdateLossPrice.mutate({
               data: {
-                orderId,
+                orderId: orderId ?? '',
                 stopLossPrice: loss ?? '0.0',
               },
             });
@@ -226,6 +271,53 @@ const LeverInfo = () => {
               placeholder="請輸入止損價"
             />
           </Form.Item>
+        </Form>
+      </Popup>
+
+      <Popup
+        visible={openClosePosition}
+        onClose={() => setOpenClosePosition(false)}
+        closeOnMaskClick
+      >
+        <Form
+          className="px-4"
+          style={{
+            '--prefix-width': '4rem',
+          }}
+          layout="horizontal"
+          mode="card"
+          onFinish={() => {
+            if (!closeHand || !closeHand.trim().length) return;
+            proOrderClose.mutate({
+              data: {
+                orderId: orderId ?? '',
+                closeHand: loss ?? '0.0',
+              },
+            });
+          }}
+          footer={
+            <Button block type="submit" color="primary" size="large">
+              提交
+            </Button>
+          }
+        >
+          <Form.Header>
+            <span className="text-black">普通平倉</span>
+            <span className="text-xs">(以當前市價成交)</span>
+          </Form.Header>
+          <div className="flex items-center mt-4">
+            <Input
+              type="number"
+              max={Number(order?.openHand)}
+              maxLength={18}
+              value={closeHand}
+              onChange={setCloseHand}
+              placeholder="請輸入平倉手數"
+              className="border-b h-10"
+            />
+            <span className="text-sm">手</span>
+          </div>
+          <div className="text-gray-400 text-xs mt-2">持倉手數{order?.openHand}</div>
         </Form>
       </Popup>
     </Screen>

@@ -202,6 +202,7 @@ export * from './proOrderCheckOut200';
 export * from './proOrderCheckOut200AllOf';
 export * from './proOrderCheckOut200AllOfData';
 export * from './proOrderCheckOutBody';
+export * from './proOrderCloseBody';
 export * from './proOrderConfigBody';
 export * from './proOrderConfigResponse';
 export * from './proOrderConfigResponseAllOf';

@@ -5,6 +5,28 @@ info:
 servers:
   - url: http://api.piglobalexchanges.com
 paths:
+  /pro/order/close.do:
+    post:
+      operationId: 'proOrderClose'
+      description: '获取提币信息'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                orderId:
+                  type: string
+                closeHand:
+                  type: string
+
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CommonResponse'
+
   /pro/order/updateLossPrice.do:
     post:
       operationId: 'proOrderUpdateLossPrice'

@@ -15,6 +15,7 @@ import type {
 } from '@tanstack/react-query';
 import type {
   CommonResponse,
+  ProOrderCloseBody,
   ProOrderUpdateLossPriceBody,
   ProOrderUpdateWinPriceBody,
   ProOrderConfigResponse,
@@ -116,6 +117,49 @@ import type {
 } from '../model';
 import { customInstance } from '../mutator/custom-instance';
 import type { ErrorType } from '../mutator/custom-instance';
+
+/**
+ * 获取提币信息
+ */
+export const proOrderClose = (proOrderCloseBody: ProOrderCloseBody) => {
+  return customInstance<CommonResponse>({
+    url: `/pro/order/close.do`,
+    method: 'post',
+    headers: { 'Content-Type': 'application/json' },
+    data: proOrderCloseBody,
+  });
+};
+
+export type ProOrderCloseMutationResult = NonNullable<Awaited<ReturnType<typeof proOrderClose>>>;
+export type ProOrderCloseMutationBody = ProOrderCloseBody;
+export type ProOrderCloseMutationError = ErrorType<unknown>;
+
+export const useProOrderClose = <TError = ErrorType<unknown>, TContext = unknown>(options?: {
+  mutation?: UseMutationOptions<
+    Awaited<ReturnType<typeof proOrderClose>>,
+    TError,
+    { data: ProOrderCloseBody },
+    TContext
+  >;
+}) => {
+  const { mutation: mutationOptions } = options ?? {};
+
+  const mutationFn: MutationFunction<
+    Awaited<ReturnType<typeof proOrderClose>>,
+    { data: ProOrderCloseBody }
+  > = (props) => {
+    const { data } = props ?? {};
+
+    return proOrderClose(data);
+  };
+
+  return useMutation<
+    Awaited<ReturnType<typeof proOrderClose>>,
+    TError,
+    { data: ProOrderCloseBody },
+    TContext
+  >(mutationFn, mutationOptions);
+};
 
 /**
  * 获取提币信息
