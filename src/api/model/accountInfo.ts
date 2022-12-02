@@ -4,7 +4,7 @@
  * API Title
  * OpenAPI spec version: 1.0
  */
-import type { OpenList } from './openList';
+import type { Position } from './position';
 import type { SymbolListItem } from './symbolListItem';
 
 export interface AccountInfo {
@@ -17,7 +17,7 @@ export interface AccountInfo {
   frozenBail?: string;
   holdAmount?: string;
   openBail?: string;
-  openList?: OpenList;
+  openList?: Position[];
   profit?: string;
   riskRate?: string;
   symbolList?: SymbolListItem[];

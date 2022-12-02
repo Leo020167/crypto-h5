@@ -92,25 +92,27 @@ const HomeAccount = () => {
           }}
         >
           <Swiper.Item key="HomeBalanceAccount">
-            <HomeBalanceAccount account={data?.data?.balanceAccount} />
+            {tab === '0' && <HomeBalanceAccount account={data?.data?.balanceAccount} />}
           </Swiper.Item>
           <Swiper.Item key="HomeTokenAccount">
-            <HomeTokenAccount account={data?.data?.tokenAccount} />
+            {tab === '1' && <HomeTokenAccount account={data?.data?.tokenAccount} />}
           </Swiper.Item>
           <Swiper.Item key="HomeFollowAccount">
-            <HomeFollowAccount
-              account={data?.data?.followAccount}
-              followDv={data?.data?.followDv}
-            />
+            {tab === '2' && (
+              <HomeFollowAccount
+                account={data?.data?.followAccount}
+                followDv={data?.data?.followDv}
+              />
+            )}
           </Swiper.Item>
           <Swiper.Item key="HomeStockAccount">
-            <HomeStockAccount account={data?.data?.stockAccount} />
+            {tab === '3' && <HomeStockAccount account={data?.data?.stockAccount} />}
           </Swiper.Item>
           <Swiper.Item key="HomeDigitalAccount">
-            <HomeDigitalAccount account={data?.data?.digitalAccount} />
+            {tab === '4' && <HomeDigitalAccount account={data?.data?.digitalAccount} />}
           </Swiper.Item>
           <Swiper.Item key="HomeSpotAccount">
-            <HomeSpotAccount account={data?.data?.spotAccount} />
+            {tab === '5' && <HomeSpotAccount account={data?.data?.spotAccount} />}
           </Swiper.Item>
         </Swiper>
       </div>

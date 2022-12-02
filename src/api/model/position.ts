@@ -11,12 +11,17 @@ export interface Position {
   airDropAmount?: string;
   amount?: string;
   availableAmount?: string;
+  buySell?: string;
+  buySellValue?: string;
+  closeDetails?: string;
+  closePrice?: string;
   dvLossRate?: string;
   dvProfitRate?: string;
   dvUid?: string;
   followUid?: string;
   frozenAmount?: string;
   openHand?: string;
+  openPrice?: string;
   openTime?: string;
   orderId?: string;
   price?: string;

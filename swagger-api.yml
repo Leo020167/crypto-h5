@@ -2517,7 +2517,9 @@ components:
         openBail:
           type: string
         openList:
-          $ref: '#/components/schemas/OpenList'
+          type: array
+          items:
+            $ref: '#/components/schemas/Position'
         profit:
           type: string
         riskRate:
@@ -2545,11 +2547,6 @@ components:
           type: string
           description: '折合'
 
-    OpenList:
-      type: array
-      items:
-        $ref: '#/components/schemas/Position'
-
     Position:
       type: object
       properties:
@@ -2563,6 +2560,14 @@ components:
           type: string
         availableAmount:
           type: string
+        buySell:
+          type: string
+        buySellValue:
+          type: string
+        closeDetails:
+          type: string
+        closePrice:
+          type: string
         dvLossRate:
           type: string
         dvProfitRate:
@@ -2574,6 +2579,8 @@ components:
         frozenAmount:
           type: string
         openHand:
+          type: string
+        openPrice:
           type: string
         openTime:
           type: string

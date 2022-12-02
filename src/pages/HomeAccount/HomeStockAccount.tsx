@@ -2,6 +2,7 @@ import { Dialog } from 'antd-mobile';
 import { useAllConfig } from '../../api/endpoints/transformer';
 import { AccountInfo } from '../../api/model';
 import ic_question_mark from '../../assets/ic_question_mark.png';
+import TradePositionList from './TradePositionList';
 
 interface HomeStockAccountProps {
   account?: AccountInfo;
@@ -60,6 +61,8 @@ const HomeStockAccount = ({ account }: HomeStockAccountProps) => {
           <div>{account?.disableAmount ?? '0'}</div>
         </div>
       </div>
+
+      {!!account?.openList?.length && <TradePositionList data={account.openList} />}
     </div>
   );
 };

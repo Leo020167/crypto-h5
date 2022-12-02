@@ -6,6 +6,7 @@ import { useAllConfig } from '../../api/endpoints/transformer';
 import { AccountInfo, FollowDv } from '../../api/model';
 import ic_default_head from '../../assets/ic_default_head.png';
 import ic_question_mark from '../../assets/ic_question_mark.png';
+import TradePositionList from './TradePositionList';
 
 interface HomeFollowAccountProps {
   account?: AccountInfo;
@@ -105,6 +106,8 @@ const HomeFollowAccount = ({ account, followDv }: HomeFollowAccountProps) => {
           <div>{account?.disableAmount ?? '0'}</div>
         </div>
       </div>
+
+      {!!account?.openList?.length && <TradePositionList data={account.openList} />}
     </div>
   );
 };
