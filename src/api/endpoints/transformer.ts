@@ -88,6 +88,7 @@ import type {
   OtcFindOrderListResponse,
   OtcFindOrderListBody,
   OtcFindMyPaymentListResponse,
+  MessageFindResponse,
   MessageFindBody,
   OtcCreateOrder200,
   OtcCreateOrderBody,
@@ -2473,7 +2474,7 @@ export const useOtcFindMyPaymentList = <
  * 获取我的消息
  */
 export const messageFind = (messageFindBody: MessageFindBody) => {
-  return customInstance<CommonResponse>({
+  return customInstance<MessageFindResponse>({
     url: `/message/find.do`,
     method: 'post',
     headers: { 'Content-Type': 'application/json' },

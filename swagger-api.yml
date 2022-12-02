@@ -1219,15 +1219,14 @@ paths:
               properties:
                 pageNo:
                   type: string
-              required:
-                - pageNo
+
       responses:
         '200':
           description: OK
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/CommonResponse'
+                $ref: '#/components/schemas/MessageFindResponse'
 
   /otc/mainad/createOrder.do:
     post:
@@ -1736,6 +1735,42 @@ paths:
 
 components:
   schemas:
+    MessageFindResponse:
+      allOf:
+        - $ref: '#/components/schemas/CommonResponse'
+        - properties:
+            data:
+              allOf:
+                - $ref: '#/components/schemas/PaginationResponse'
+                - properties:
+                    data:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          content:
+                            type: string
+                          createTime:
+                            type: string
+                          extra:
+                            type: string
+                          fromUid:
+                            type: string
+                          headUrl:
+                            type: string
+                          isMark:
+                            type: string
+                          isVip:
+                            type: string
+                          msgId:
+                            type: string
+                          title:
+                            type: string
+                          userId:
+                            type: string
+                          userName:
+                            type: string
+
     ProOrderConfigResponse:
       allOf:
         - $ref: '#/components/schemas/CommonResponse'
@@ -2359,6 +2394,8 @@ components:
                   $ref: '#/components/schemas/AccountInfo'
                 followAccount:
                   $ref: '#/components/schemas/AccountInfo'
+                followDv:
+                  $ref: '#/components/schemas/FollowDv'
                 spotAccount:
                   $ref: '#/components/schemas/AccountInfo'
                 stockAccount:
@@ -2369,6 +2406,42 @@ components:
                   type: string
                 tolAssetsCny:
                   type: string
+
+    FollowDv:
+      type: object
+      properties:
+        agencyCode:
+          type: string
+        couponAmt:
+          type: string
+        dvHeadUrl:
+          type: string
+        dvLossRate:
+          type: string
+        dvProfitRate:
+          type: string
+        dvUid:
+          type: string
+        dvUserName:
+          type: string
+        expireTime:
+          type: string
+        isOpen:
+          type: string
+        memberCode:
+          type: string
+        multiple:
+          type: string
+        status:
+          type: string
+        tokenAmt:
+          type: string
+        typeId:
+          type: string
+        updateTime:
+          type: string
+        userId:
+          type: string
 
     Banner:
       type: object

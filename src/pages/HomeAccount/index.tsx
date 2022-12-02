@@ -1,5 +1,5 @@
 import { Swiper, SwiperRef, Tabs } from 'antd-mobile';
-import { useRef, useState } from 'react';
+import { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { StringParam, useQueryParam } from 'use-query-params';
@@ -21,9 +21,9 @@ const tabItems = [
 ];
 
 const HomeAccount = () => {
-  const [tab, setTab] = useQueryParam('tab', StringParam);
   const swiperRef = useRef<SwiperRef>(null);
-  const [activeIndex, setActiveIndex] = useState(0);
+
+  const [tab, setTab] = useQueryParam('tab', StringParam);
 
   const { data } = useHomeAccount();
 
@@ -66,14 +66,14 @@ const HomeAccount = () => {
           </div>
         </div>
         <Tabs
-          defaultActiveKey="0"
+          defaultActiveKey={tab}
           className="sticky top-0 z-10 bg-white"
           stretch={false}
           activeKey={tab}
           onChange={(key) => {
             const index = Number(key);
             setTab(key, 'replaceIn');
-            setActiveIndex(index);
+
             swiperRef.current?.swipeTo(index);
           }}
         >
@@ -86,43 +86,31 @@ const HomeAccount = () => {
           direction="horizontal"
           indicator={() => null}
           ref={swiperRef}
-          defaultIndex={activeIndex}
+          defaultIndex={Number(tab)}
           onIndexChange={(index) => {
-            setActiveIndex(index);
+            setTab(String(index), 'replaceIn');
           }}
         >
           <Swiper.Item key="HomeBalanceAccount">
-            <div style={{ display: activeIndex === 0 ? '' : 'none' }}>
-              <HomeBalanceAccount account={data?.data?.balanceAccount} />
-            </div>
+            <HomeBalanceAccount account={data?.data?.balanceAccount} />
           </Swiper.Item>
           <Swiper.Item key="HomeTokenAccount">
-            <div style={{ display: activeIndex === 1 ? '' : 'none' }}>
-              <HomeTokenAccount account={data?.data?.tokenAccount} />
-            </div>
+            <HomeTokenAccount account={data?.data?.tokenAccount} />
           </Swiper.Item>
           <Swiper.Item key="HomeFollowAccount">
-            <div style={{ display: activeIndex === 2 ? '' : 'none' }}>
-              <HomeFollowAccount
-                account={data?.data?.followAccount}
-                followDv={data?.data?.followDv}
-              />
-            </div>
+            <HomeFollowAccount
+              account={data?.data?.followAccount}
+              followDv={data?.data?.followDv}
+            />
           </Swiper.Item>
           <Swiper.Item key="HomeStockAccount">
-            <div style={{ display: activeIndex === 3 ? '' : 'none' }}>
-              <HomeStockAccount account={data?.data?.stockAccount} />
-            </div>
+            <HomeStockAccount account={data?.data?.stockAccount} />
           </Swiper.Item>
           <Swiper.Item key="HomeDigitalAccount">
-            <div style={{ display: activeIndex === 4 ? '' : 'none' }}>
-              <HomeDigitalAccount account={data?.data?.digitalAccount} />
-            </div>
+            <HomeDigitalAccount account={data?.data?.digitalAccount} />
           </Swiper.Item>
           <Swiper.Item key="HomeSpotAccount">
-            <div style={{ display: activeIndex === 5 ? '' : 'none' }}>
-              <HomeSpotAccount account={data?.data?.spotAccount} />
-            </div>
+            <HomeSpotAccount account={data?.data?.spotAccount} />
           </Swiper.Item>
         </Swiper>
       </div>

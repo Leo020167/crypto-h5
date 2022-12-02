@@ -6,5 +6,5 @@
  */
 
 export type MessageFindBody = {
-  pageNo: string;
+  pageNo?: string;
 };

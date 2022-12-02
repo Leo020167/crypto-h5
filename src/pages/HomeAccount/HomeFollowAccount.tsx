@@ -1,21 +1,41 @@
 import { Dialog } from 'antd-mobile';
+import { stringify } from 'query-string';
 import { useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { useAllConfig } from '../../api/endpoints/transformer';
-import { AccountInfo } from '../../api/model';
+import { AccountInfo, FollowDv } from '../../api/model';
 import ic_default_head from '../../assets/ic_default_head.png';
 import ic_question_mark from '../../assets/ic_question_mark.png';
 
 interface HomeFollowAccountProps {
   account?: AccountInfo;
-  followDv?: any;
+  followDv?: FollowDv;
 }
 const HomeFollowAccount = ({ account, followDv }: HomeFollowAccountProps) => {
   const { data } = useAllConfig();
 
   const follow = useMemo(() => {
     if (followDv) {
-      return <img alt="" src={ic_default_head} className="w-8 h-8 rounded-full" />;
+      return (
+        <div className="flex items-center bg-gray-100 px-4 py-2 mb-4 text-xs">
+          <div className="flex-1 flex items-center">
+            <span>跟單機构:</span>
+            <img
+              alt=""
+              src={followDv.dvHeadUrl ?? ic_default_head}
+              className="w-8 h-8 rounded-full ml-1"
+            />
+            <span className="ml-1">{followDv.dvUserName}</span>
+          </div>
+
+          <Link
+            to={{ pathname: '/user-home', search: stringify({ userId: followDv.dvUid }) }}
+            className="bg-white rounded-xl py-1 px-2"
+          >
+            查看機構
+          </Link>
+        </div>
+      );
     }
 
     return (
