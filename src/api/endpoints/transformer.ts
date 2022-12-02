@@ -14,12 +14,13 @@ import type {
   QueryKey,
 } from '@tanstack/react-query';
 import type {
+  CommonResponse,
+  ProOrderCancelBody,
   GetTransferSymbols200,
   GetTransferSymbolsBody,
   GetSymbolMaxAmount200,
   GetSymbolMaxAmountBody,
   GetCustomerService200,
-  CommonResponse,
   FindOtcChatListBody,
   ProOrderCloseBody,
   ProOrderUpdateLossPriceBody,
@@ -124,6 +125,49 @@ import type {
 } from '../model';
 import { customInstance } from '../mutator/custom-instance';
 import type { ErrorType } from '../mutator/custom-instance';
+
+/**
+ * 获取可划转的币种最大数量
+ */
+export const proOrderCancel = (proOrderCancelBody: ProOrderCancelBody) => {
+  return customInstance<CommonResponse>({
+    url: `/pro/order/cancel.do`,
+    method: 'post',
+    headers: { 'Content-Type': 'application/json' },
+    data: proOrderCancelBody,
+  });
+};
+
+export type ProOrderCancelMutationResult = NonNullable<Awaited<ReturnType<typeof proOrderCancel>>>;
+export type ProOrderCancelMutationBody = ProOrderCancelBody;
+export type ProOrderCancelMutationError = ErrorType<unknown>;
+
+export const useProOrderCancel = <TError = ErrorType<unknown>, TContext = unknown>(options?: {
+  mutation?: UseMutationOptions<
+    Awaited<ReturnType<typeof proOrderCancel>>,
+    TError,
+    { data: ProOrderCancelBody },
+    TContext
+  >;
+}) => {
+  const { mutation: mutationOptions } = options ?? {};
+
+  const mutationFn: MutationFunction<
+    Awaited<ReturnType<typeof proOrderCancel>>,
+    { data: ProOrderCancelBody }
+  > = (props) => {
+    const { data } = props ?? {};
+
+    return proOrderCancel(data);
+  };
+
+  return useMutation<
+    Awaited<ReturnType<typeof proOrderCancel>>,
+    TError,
+    { data: ProOrderCancelBody },
+    TContext
+  >(mutationFn, mutationOptions);
+};
 
 /**
  * 获取可划转的币种最大数量

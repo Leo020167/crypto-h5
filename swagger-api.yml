@@ -5,6 +5,26 @@ info:
 servers:
   - url: http://api.piglobalexchanges.com
 paths:
+  /pro/order/cancel.do:
+    post:
+      operationId: 'proOrderCancel'
+      description: '获取可划转的币种最大数量'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                orderId:
+                  type: string
+
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CommonResponse'
+
   /account/getTransferSymbols.do:
     post:
       operationId: 'getTransferSymbols'

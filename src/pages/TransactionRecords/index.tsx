@@ -18,6 +18,7 @@ import styled from 'styled-components';
 import { StringParam, useQueryParam, withDefault } from 'use-query-params';
 import { useProOrderQuerySum } from '../../api/endpoints/transformer';
 import Screen from '../../components/Screen';
+import TradeCommissionHistory from './TradeCommissionHistory';
 import TradeLeverHistory, { TradeLeverHistoryRef } from './TradeLeverHistory';
 
 interface AccountType {
@@ -185,7 +186,9 @@ const TransactionRecords = () => {
             setActiveIndex(index);
           }}
         >
-          <Swiper.Item></Swiper.Item>
+          <Swiper.Item>
+            <TradeCommissionHistory accountType={accountType} />
+          </Swiper.Item>
 
           <Swiper.Item>
             <TradeLeverHistory
@@ -224,7 +227,11 @@ const TransactionRecords = () => {
 const Container = styled.div`
   .adm-swiper {
     height: calc(100vh - 100px);
-    overflow-y: auto;
+    min-height: 0;
+
+    .adm-swiper-item {
+      overflow-y: auto;
+    }
   }
   .adm-list-body,
   .adm-tabs-header {

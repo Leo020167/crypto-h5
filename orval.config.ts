@@ -59,6 +59,11 @@ export default defineConfig({
           name: 'customInstance',
         },
         operations: {
+          getAccountHold: {
+            query: {
+              useQuery: true,
+            },
+          },
           getTransferSymbols: {
             query: {
               useQuery: true,

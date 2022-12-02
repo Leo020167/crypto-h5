@@ -1,5 +1,6 @@
 import { Input, Selector, Toast } from 'antd-mobile';
-import { useEffect, useMemo, useState } from 'react';
+import currency from 'currency.js';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Select, { StylesConfig } from 'react-select';
 import styled from 'styled-components';
@@ -40,9 +41,16 @@ interface TradeLeverDetailsProps {
   symbol?: string | null;
   buySell?: number;
   quote?: QuoteReal;
+  onCreateOrderSuccess?: () => void;
 }
 
-const TradeLeverDetails = ({ symbol, buySell, quote, config }: TradeLeverDetailsProps) => {
+const TradeLeverDetails = ({
+  symbol,
+  buySell,
+  quote,
+  config,
+  onCreateOrderSuccess,
+}: TradeLeverDetailsProps) => {
   const [orderTypeOption, setOrderTypeOption] = useState<any>(orderTypeOptions[0]);
   const [multiNumOption, setMultiNumOption] = useState<any>();
   const [multiNumOptions, setMultiNumOptions] = useState<any[]>([]);
@@ -100,12 +108,34 @@ const TradeLeverDetails = ({ symbol, buySell, quote, config }: TradeLeverDetails
     mutation: {
       onSuccess(data) {
         if (data.code === '200') {
+          onCreateOrderSuccess?.();
           refetchCheckOut();
           Toast.show(data.msg);
         }
       },
     },
   });
+
+  const plusOrMinus = useCallback(
+    (isPlus: boolean) => {
+      if (!price || !price.trim().length) return;
+
+      const priceDecimals = Number(config?.priceDecimals ?? 2);
+
+      let d = Number(price);
+
+      const unit = 1 / Math.pow(10, priceDecimals);
+
+      if (isPlus) {
+        d += unit;
+      } else {
+        d -= unit;
+      }
+
+      setPrice(currency(d, { separator: '', precision: priceDecimals, symbol: '' }).format());
+    },
+    [config?.priceDecimals, price],
+  );
 
   return (
     <Container>
@@ -146,9 +176,19 @@ const TradeLeverDetails = ({ symbol, buySell, quote, config }: TradeLeverDetails
             onChange={setPrice}
           />
           <div className="h-8 bg-gray-300 w-[1px]"></div>
-          <a className="text-lg font-bold text-gray-300 w-10 flex items-center justify-center">-</a>
+          <a
+            className="text-lg font-bold text-gray-300 w-10 flex items-center justify-center"
+            onClick={() => plusOrMinus(false)}
+          >
+            -
+          </a>
           <div className="h-6 bg-gray-300 w-[1px]"></div>
-          <a className="text-lg font-bold text-gray-300 w-10 flex items-center justify-center">+</a>
+          <a
+            className="text-lg font-bold text-gray-300 w-10 flex items-center justify-center"
+            onClick={() => plusOrMinus(true)}
+          >
+            +
+          </a>
         </div>
       )}
 

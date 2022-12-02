@@ -1,18 +1,23 @@
+import { Dialog, Toast } from 'antd-mobile';
 import { stringify } from 'query-string';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { NumberParam, StringParam, useQueryParam, withDefault } from 'use-query-params';
-import { useProOrderConfig, useProOrderQueryList } from '../../api/endpoints/transformer';
-import ic_arrow from '../../assets/ic_arrow.png';
+import {
+  useProOrderCancel,
+  useProOrderConfig,
+  useProOrderQueryList,
+} from '../../api/endpoints/transformer';
 import ic_switch_sell_selected from '../../assets/ic_switch_buy_selected.9.png';
 import ic_switch_sell_unselected from '../../assets/ic_switch_buy_unselected.9.png';
 import ic_switch_buy_selected from '../../assets/ic_switch_sell_selected.9.png';
 import ic_switch_buy_unselected from '../../assets/ic_switch_sell_unselected.9.png';
 
 import Screen from '../../components/Screen';
-import useSwitchColor from '../../hooks/useSwitchColor';
 import { useQuoteReal } from '../../market/endpoints/marketWithTransformer';
+import TradeCurrentCommission from './TradeCurrentCommission';
+import TradeCurrentOpenPosition from './TradeCurrentOpenPosition';
 import TradeLeverDetails from './TradeLeverDetails';
 import TradeLeverPrices from './TradeLeverPrices';
 
@@ -44,15 +49,15 @@ const TradeLever = () => {
     },
   );
 
-  const [selected, setSelected] = useState<number>(0);
-  const { data: proOrderQueryList } = useProOrderQueryList(
+  const [selected, setSelected] = useState<string>('0');
+  const { data: proOrderQueryList, refetch } = useProOrderQueryList(
     {
       symbol: '',
       accountType: orderConfig?.data?.accountType,
       buySell: '',
       pageNo: '1',
       orderState: '',
-      isDone: selected === 0 ? '1' : '0',
+      isDone: selected === '0' ? '1' : '0',
     },
     {
       query: {
@@ -61,10 +66,19 @@ const TradeLever = () => {
     },
   );
 
-  const getColor = useSwitchColor();
+  const proOrderCancel = useProOrderCancel({
+    mutation: {
+      onSuccess(data) {
+        if (data.code === '200') {
+          refetch();
+          Toast.show(data.msg);
+        }
+      },
+    },
+  });
 
   return (
-    <Screen headerTitle="HSI">
+    <Screen headerTitle={symbol}>
       <div className="flex-1 overflow-y-auto bg-gray-100">
         <div className="flex bg-white p-4 gap-4">
           <div className="w-3/5">
@@ -87,6 +101,9 @@ const TradeLever = () => {
               buySell={buySell}
               quote={quote}
               config={orderConfig?.data}
+              onCreateOrderSuccess={() => {
+                refetch();
+              }}
             />
           </div>
 
@@ -99,14 +116,14 @@ const TradeLever = () => {
           <div className="flex items-center">
             <div className="flex item-center text-lg text-[#6175ae] gap-5 font-bold flex-1">
               <a
-                className={`flex items-center ${selected !== 0 ? 'text-sm text-gray-400' : ''}`}
-                onClick={() => setSelected(0)}
+                className={`flex items-center ${selected !== '0' ? 'text-sm text-gray-400' : ''}`}
+                onClick={() => setSelected('0')}
               >
                 當前開倉
               </a>
               <a
-                className={`flex items-center ${selected !== 1 ? 'text-sm text-gray-400' : ''}`}
-                onClick={() => setSelected(1)}
+                className={`flex items-center ${selected !== '1' ? 'text-sm text-gray-400' : ''}`}
+                onClick={() => setSelected('1')}
               >
                 當前委托
               </a>
@@ -125,46 +142,25 @@ const TradeLever = () => {
         </div>
 
         <div className="flex flex-col gap-2">
-          {proOrderQueryList?.data?.data?.length ? (
-            proOrderQueryList?.data?.data?.map((v, i) => (
-              <Link
-                to={{
-                  pathname: '/lever-info',
-                  search: stringify({
-                    orderId: v.orderId,
-                  }),
-                }}
-                key={i}
-                className="p-4 bg-white"
-              >
-                <div className="flex items-center">
-                  <div className="flex items-center flex-1">
-                    <span className="text-base font-bold text-[#3d3a50]">{v.symbol}</span>
-                    <span className="text-xs text-gray-400 ml-2 flex-1">{v.buySellValue}</span>
-                  </div>
-                  <img alt="" src={ic_arrow} className="h-4" />
-                </div>
-                <div className="flex mt-2.5">
-                  <div className="flex flex-col w-1/3">
-                    <span className="text-xs text-gray-400">手數</span>
-                    <span className="text-sm text-[#3d3a50]">{v.openHand}</span>
-                  </div>
-                  <div className="flex flex-col w-1/3 items-center">
-                    <span className="text-xs text-gray-400">開倉價</span>
-                    <span className="text-sm text-[#3d3a50]">{v.openPrice}</span>
-                  </div>
-                  <div className="flex flex-col w-1/3 items-end">
-                    <span className="text-xs text-gray-400">盈虧(USDT)</span>
-                    <span className="text-sm text-[#3d3a50]" style={{ color: getColor(v.profit) }}>
-                      {Number(v.profit) >= 0 ? '+' : ''}
-                      {v.profit}
-                    </span>
-                  </div>
-                </div>
-              </Link>
-            ))
+          {selected === '0' ? (
+            <TradeCurrentOpenPosition data={proOrderQueryList?.data?.data} />
           ) : (
-            <span className="text-center p-10">暫無數據</span>
+            <TradeCurrentCommission
+              data={proOrderQueryList?.data?.data}
+              onCancel={(orderId) => {
+                Dialog.confirm({
+                  content: '確定撤銷訂單',
+                  confirmText: '確定',
+                  onConfirm() {
+                    proOrderCancel.mutate({
+                      data: {
+                        orderId,
+                      },
+                    });
+                  },
+                });
+              }}
+            />
           )}
         </div>
       </div>
