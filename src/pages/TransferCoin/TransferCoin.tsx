@@ -6,8 +6,9 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import {
   useAccountListAccountType,
-  useAccountOutHoldAmount,
   useAccountTransfer,
+  useGetSymbolMaxAmount,
+  useGetTransferSymbols,
 } from '../../api/endpoints/transformer';
 import { ListAccountTypeResponseAllOfDataAccountTypeListItem } from '../../api/model';
 import { ReactComponent as SvgChange } from '../../assets/change.svg';
@@ -21,7 +22,7 @@ import Screen from '../../components/Screen';
  * @returns
  */
 const TransferCoin = () => {
-  const [action, setAction] = useState<'from' | 'to'>();
+  const [action, setAction] = useState<'from' | 'to' | 'symbols'>();
 
   const [accountTypeFrom, setAccountTypeFrom] =
     useState<ListAccountTypeResponseAllOfDataAccountTypeListItem>();
@@ -30,17 +31,6 @@ const TransferCoin = () => {
     useState<ListAccountTypeResponseAllOfDataAccountTypeListItem>();
 
   const user = useAtomValue(userAtom);
-
-  const { data: outHoldAmount, refetch } = useAccountOutHoldAmount(
-    {
-      accountType: accountTypeFrom?.accountType ?? '',
-    },
-    {
-      query: {
-        enabled: !!(accountTypeFrom?.accountType && user?.userId),
-      },
-    },
-  );
 
   const { data } = useAccountListAccountType({
     query: {
@@ -56,6 +46,36 @@ const TransferCoin = () => {
 
   const [amount, setAmount] = useState<string>();
   const inputRef = useRef<InputRef>(null);
+
+  const [symbol, setSymbol] = useState<string>();
+  const { data: transferSymbols } = useGetTransferSymbols(
+    {
+      fromAccountType: accountTypeFrom?.accountType,
+      toAccountType: accountTypeTo?.accountType,
+    },
+    {
+      query: {
+        enabled: !!(accountTypeFrom && accountTypeTo),
+        onSuccess(data) {
+          if (data.code === '200') {
+            setSymbol(data.data?.[0]);
+          }
+        },
+      },
+    },
+  );
+
+  const { data: symbolMaxAmount, refetch } = useGetSymbolMaxAmount(
+    {
+      fromAccountType: accountTypeFrom?.accountType,
+      symbol,
+    },
+    {
+      query: {
+        enabled: !!(accountTypeFrom && symbol),
+      },
+    },
+  );
 
   const accountTransfer = useAccountTransfer({
     mutation: {
@@ -147,8 +167,11 @@ const TransferCoin = () => {
       </div>
 
       <div className="px-4">
-        <a className="mt-4 flex items-center bg-[#EDF3FA] px-2.5">
-          <div className="h-11 flex-1 flex items-center">USDT</div>
+        <a
+          className="mt-4 flex items-center bg-[#EDF3FA] px-2.5"
+          onClick={() => setAction('symbols')}
+        >
+          <div className="h-11 flex-1 flex items-center">{symbol}</div>
           <RightOutline fontSize={16} />
         </a>
       </div>
@@ -165,11 +188,11 @@ const TransferCoin = () => {
             placeholder="输入划转数量"
             ref={inputRef}
           />
-          <div className="absolute right-12 text-[#666175AE]">USDT</div>
+          <div className="absolute right-12 text-[#666175AE]">{symbol}</div>
           <a
             className="absolute right-0 text-[#6175AE] text-xs"
             onClick={() => {
-              setAmount(outHoldAmount?.data?.holdAmount);
+              setAmount(symbolMaxAmount?.data);
               inputRef.current?.focus();
             }}
           >
@@ -177,7 +200,7 @@ const TransferCoin = () => {
           </a>
         </div>
         <div className="text-[#666175AE] mt-1 text-xs">
-          可用数量：{outHoldAmount?.data?.holdAmount ?? '--' + 'USDT'}
+          可用数量：{symbolMaxAmount?.data ?? '--' + symbol}
         </div>
       </div>
 
@@ -187,7 +210,33 @@ const TransferCoin = () => {
         </div>
       </div>
 
-      <Popup visible={!!action} position="right">
+      <Popup visible={action === 'symbols'} position="right">
+        <Screen
+          headerTitle="选择账户"
+          navBarProps={{
+            onBack() {
+              setAction(undefined);
+            },
+          }}
+        >
+          <List>
+            {transferSymbols?.data?.map((v) => (
+              <List.Item
+                key={v}
+                arrow={null}
+                onClick={() => {
+                  setSymbol(v);
+                  setAction(undefined);
+                }}
+              >
+                {v}
+              </List.Item>
+            ))}
+          </List>
+        </Screen>
+      </Popup>
+
+      <Popup visible={action === 'from' || action === 'to'} position="right">
         <Screen
           headerTitle="选择账户"
           navBarProps={{

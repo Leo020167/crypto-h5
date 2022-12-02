@@ -1,15 +1,40 @@
 import { Dialog } from 'antd-mobile';
+import { useMemo } from 'react';
+import { Link } from 'react-router-dom';
 import { useAllConfig } from '../../api/endpoints/transformer';
 import { AccountInfo } from '../../api/model';
+import ic_default_head from '../../assets/ic_default_head.png';
 import ic_question_mark from '../../assets/ic_question_mark.png';
 
 interface HomeFollowAccountProps {
   account?: AccountInfo;
+  followDv?: any;
 }
-const HomeFollowAccount = ({ account }: HomeFollowAccountProps) => {
+const HomeFollowAccount = ({ account, followDv }: HomeFollowAccountProps) => {
   const { data } = useAllConfig();
+
+  const follow = useMemo(() => {
+    if (followDv) {
+      return <img alt="" src={ic_default_head} className="w-8 h-8 rounded-full" />;
+    }
+
+    return (
+      <div className="flex items-center bg-gray-100 px-4 py-2 mb-4 text-sm">
+        <div className="flex-1 flex items-center">
+          <span>跟單機构:</span>
+          <span>未綁定</span>
+        </div>
+
+        <Link to="/institution" className="bg-white rounded-xl py-1 px-2">
+          去綁定
+        </Link>
+      </div>
+    );
+  }, [followDv]);
+
   return (
     <div className="p-4 text-xs bg-white">
+      {follow}
       <div className="flex items-center justify-between">
         <div>
           <div className="text-gray-400">總資產(USDT)</div>

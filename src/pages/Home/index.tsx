@@ -134,7 +134,7 @@ const Home = () => {
           <img alt="" src={tab1_menu3} className="w-9 h-9" />
           <div className="mt-2.5 text-xs text-[#666666]">OTC交易</div>
         </Link>
-        <Link to="" className="flex flex-col items-center justify-center w-1/5">
+        <Link to="/chat" className="flex flex-col items-center justify-center w-1/5">
           <img alt="" src={tab1_menu4} className="w-9 h-9" />
           <div className="mt-2.5 text-xs text-[#666666]">線上客服</div>
         </Link>

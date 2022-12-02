@@ -103,7 +103,10 @@ const HomeAccount = () => {
           </Swiper.Item>
           <Swiper.Item key="HomeFollowAccount">
             <div style={{ display: activeIndex === 2 ? '' : 'none' }}>
-              <HomeFollowAccount account={data?.data?.followAccount} />
+              <HomeFollowAccount
+                account={data?.data?.followAccount}
+                followDv={data?.data?.followDv}
+              />
             </div>
           </Swiper.Item>
           <Swiper.Item key="HomeStockAccount">

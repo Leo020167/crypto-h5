@@ -5,6 +5,110 @@ info:
 servers:
   - url: http://api.piglobalexchanges.com
 paths:
+  /account/getTransferSymbols.do:
+    post:
+      operationId: 'getTransferSymbols'
+      description: '获取可划转的币种最大数量'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                fromAccountType:
+                  type: string
+                toAccountType:
+                  type: string
+
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/CommonResponse'
+                  - properties:
+                      data:
+                        type: array
+                        items:
+                          type: string
+
+  /account/getSymbolMaxAmount.do:
+    post:
+      operationId: 'getSymbolMaxAmount'
+      description: '获取可划转的币种最大数量'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                fromAccountType:
+                  type: string
+                symbol:
+                  type: string
+
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/CommonResponse'
+                  - properties:
+                      data:
+                        type: string
+
+  /chat/getCustomerService.do:
+    post:
+      operationId: 'getCustomerService'
+      description: '获取客服人员'
+
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/CommonResponse'
+                  - properties:
+                      data:
+                        type: object
+                        properties:
+                          chatTopic:
+                            type: string
+                          headUrl:
+                            type: string
+                          type:
+                            type: string
+                          userId:
+                            type: string
+                          userName:
+                            type: string
+
+  /chat/otc/findOtcChatList.do:
+    post:
+      operationId: 'findOtcChatList'
+      description: '获取当前订单对应该订单聊天列表'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                orderId:
+                  type: string
+                closeHand:
+                  type: string
+
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CommonResponse'
+
   /pro/order/close.do:
     post:
       operationId: 'proOrderClose'

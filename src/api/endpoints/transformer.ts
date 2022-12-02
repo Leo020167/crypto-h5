@@ -14,7 +14,13 @@ import type {
   QueryKey,
 } from '@tanstack/react-query';
 import type {
+  GetTransferSymbols200,
+  GetTransferSymbolsBody,
+  GetSymbolMaxAmount200,
+  GetSymbolMaxAmountBody,
+  GetCustomerService200,
   CommonResponse,
+  FindOtcChatListBody,
   ProOrderCloseBody,
   ProOrderUpdateLossPriceBody,
   ProOrderUpdateWinPriceBody,
@@ -117,6 +123,190 @@ import type {
 } from '../model';
 import { customInstance } from '../mutator/custom-instance';
 import type { ErrorType } from '../mutator/custom-instance';
+
+/**
+ * 获取可划转的币种最大数量
+ */
+export const getTransferSymbols = (getTransferSymbolsBody: GetTransferSymbolsBody) => {
+  return customInstance<GetTransferSymbols200>({
+    url: `/account/getTransferSymbols.do`,
+    method: 'post',
+    headers: { 'Content-Type': 'application/json' },
+    data: getTransferSymbolsBody,
+  });
+};
+
+export const getGetTransferSymbolsQueryKey = (getTransferSymbolsBody: GetTransferSymbolsBody) => [
+  `/account/getTransferSymbols.do`,
+  getTransferSymbolsBody,
+];
+
+export type GetTransferSymbolsQueryResult = NonNullable<
+  Awaited<ReturnType<typeof getTransferSymbols>>
+>;
+export type GetTransferSymbolsQueryError = ErrorType<unknown>;
+
+export const useGetTransferSymbols = <
+  TData = Awaited<ReturnType<typeof getTransferSymbols>>,
+  TError = ErrorType<unknown>,
+>(
+  getTransferSymbolsBody: GetTransferSymbolsBody,
+  options?: {
+    query?: UseQueryOptions<Awaited<ReturnType<typeof getTransferSymbols>>, TError, TData>;
+  },
+): UseQueryResult<TData, TError> & { queryKey: QueryKey } => {
+  const { query: queryOptions } = options ?? {};
+
+  const queryKey = queryOptions?.queryKey ?? getGetTransferSymbolsQueryKey(getTransferSymbolsBody);
+
+  const queryFn: QueryFunction<Awaited<ReturnType<typeof getTransferSymbols>>> = () =>
+    getTransferSymbols(getTransferSymbolsBody);
+
+  const query = useQuery<Awaited<ReturnType<typeof getTransferSymbols>>, TError, TData>(
+    queryKey,
+    queryFn,
+    queryOptions,
+  ) as UseQueryResult<TData, TError> & { queryKey: QueryKey };
+
+  query.queryKey = queryKey;
+
+  return query;
+};
+
+/**
+ * 获取可划转的币种最大数量
+ */
+export const getSymbolMaxAmount = (getSymbolMaxAmountBody: GetSymbolMaxAmountBody) => {
+  return customInstance<GetSymbolMaxAmount200>({
+    url: `/account/getSymbolMaxAmount.do`,
+    method: 'post',
+    headers: { 'Content-Type': 'application/json' },
+    data: getSymbolMaxAmountBody,
+  });
+};
+
+export const getGetSymbolMaxAmountQueryKey = (getSymbolMaxAmountBody: GetSymbolMaxAmountBody) => [
+  `/account/getSymbolMaxAmount.do`,
+  getSymbolMaxAmountBody,
+];
+
+export type GetSymbolMaxAmountQueryResult = NonNullable<
+  Awaited<ReturnType<typeof getSymbolMaxAmount>>
+>;
+export type GetSymbolMaxAmountQueryError = ErrorType<unknown>;
+
+export const useGetSymbolMaxAmount = <
+  TData = Awaited<ReturnType<typeof getSymbolMaxAmount>>,
+  TError = ErrorType<unknown>,
+>(
+  getSymbolMaxAmountBody: GetSymbolMaxAmountBody,
+  options?: {
+    query?: UseQueryOptions<Awaited<ReturnType<typeof getSymbolMaxAmount>>, TError, TData>;
+  },
+): UseQueryResult<TData, TError> & { queryKey: QueryKey } => {
+  const { query: queryOptions } = options ?? {};
+
+  const queryKey = queryOptions?.queryKey ?? getGetSymbolMaxAmountQueryKey(getSymbolMaxAmountBody);
+
+  const queryFn: QueryFunction<Awaited<ReturnType<typeof getSymbolMaxAmount>>> = () =>
+    getSymbolMaxAmount(getSymbolMaxAmountBody);
+
+  const query = useQuery<Awaited<ReturnType<typeof getSymbolMaxAmount>>, TError, TData>(
+    queryKey,
+    queryFn,
+    queryOptions,
+  ) as UseQueryResult<TData, TError> & { queryKey: QueryKey };
+
+  query.queryKey = queryKey;
+
+  return query;
+};
+
+/**
+ * 获取客服人员
+ */
+export const getCustomerService = () => {
+  return customInstance<GetCustomerService200>({
+    url: `/chat/getCustomerService.do`,
+    method: 'post',
+  });
+};
+
+export const getGetCustomerServiceQueryKey = () => [`/chat/getCustomerService.do`];
+
+export type GetCustomerServiceQueryResult = NonNullable<
+  Awaited<ReturnType<typeof getCustomerService>>
+>;
+export type GetCustomerServiceQueryError = ErrorType<unknown>;
+
+export const useGetCustomerService = <
+  TData = Awaited<ReturnType<typeof getCustomerService>>,
+  TError = ErrorType<unknown>,
+>(options?: {
+  query?: UseQueryOptions<Awaited<ReturnType<typeof getCustomerService>>, TError, TData>;
+}): UseQueryResult<TData, TError> & { queryKey: QueryKey } => {
+  const { query: queryOptions } = options ?? {};
+
+  const queryKey = queryOptions?.queryKey ?? getGetCustomerServiceQueryKey();
+
+  const queryFn: QueryFunction<Awaited<ReturnType<typeof getCustomerService>>> = () =>
+    getCustomerService();
+
+  const query = useQuery<Awaited<ReturnType<typeof getCustomerService>>, TError, TData>(
+    queryKey,
+    queryFn,
+    queryOptions,
+  ) as UseQueryResult<TData, TError> & { queryKey: QueryKey };
+
+  query.queryKey = queryKey;
+
+  return query;
+};
+
+/**
+ * 获取当前订单对应该订单聊天列表
+ */
+export const findOtcChatList = (findOtcChatListBody: FindOtcChatListBody) => {
+  return customInstance<CommonResponse>({
+    url: `/chat/otc/findOtcChatList.do`,
+    method: 'post',
+    headers: { 'Content-Type': 'application/json' },
+    data: findOtcChatListBody,
+  });
+};
+
+export const getFindOtcChatListQueryKey = (findOtcChatListBody: FindOtcChatListBody) => [
+  `/chat/otc/findOtcChatList.do`,
+  findOtcChatListBody,
+];
+
+export type FindOtcChatListQueryResult = NonNullable<Awaited<ReturnType<typeof findOtcChatList>>>;
+export type FindOtcChatListQueryError = ErrorType<unknown>;
+
+export const useFindOtcChatList = <
+  TData = Awaited<ReturnType<typeof findOtcChatList>>,
+  TError = ErrorType<unknown>,
+>(
+  findOtcChatListBody: FindOtcChatListBody,
+  options?: { query?: UseQueryOptions<Awaited<ReturnType<typeof findOtcChatList>>, TError, TData> },
+): UseQueryResult<TData, TError> & { queryKey: QueryKey } => {
+  const { query: queryOptions } = options ?? {};
+
+  const queryKey = queryOptions?.queryKey ?? getFindOtcChatListQueryKey(findOtcChatListBody);
+
+  const queryFn: QueryFunction<Awaited<ReturnType<typeof findOtcChatList>>> = () =>
+    findOtcChatList(findOtcChatListBody);
+
+  const query = useQuery<Awaited<ReturnType<typeof findOtcChatList>>, TError, TData>(
+    queryKey,
+    queryFn,
+    queryOptions,
+  ) as UseQueryResult<TData, TError> & { queryKey: QueryKey };
+
+  query.queryKey = queryKey;
+
+  return query;
+};
 
 /**
  * 获取提币信息

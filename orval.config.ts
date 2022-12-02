@@ -59,6 +59,26 @@ export default defineConfig({
           name: 'customInstance',
         },
         operations: {
+          getTransferSymbols: {
+            query: {
+              useQuery: true,
+            },
+          },
+          getSymbolMaxAmount: {
+            query: {
+              useQuery: true,
+            },
+          },
+          getCustomerService: {
+            query: {
+              useQuery: true,
+            },
+          },
+          findOtcChatList: {
+            query: {
+              useQuery: true,
+            },
+          },
           proOrderConfig: {
             query: {
               useQuery: true,
