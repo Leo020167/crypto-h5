@@ -76,7 +76,7 @@ const TakeCoin = () => {
 
   const handleFinish = useCallback(() => {
     if (!address) {
-      Toast.show('請填寫提幣地址');
+      Toast.show('請選擇提幣地址');
       return;
     }
     if (!amount || !amount.trim().length) {
@@ -92,8 +92,8 @@ const TakeCoin = () => {
       Dialog.confirm({
         content: (
           <div>
-            <div> 提幣幣種: USDT</div>
-            <div>提幣數量: {(amount ?? '0.00000000') + 'USDT'}</div>
+            <div>提幣幣種: {symbol}</div>
+            <div>提幣數量: {(amount ?? '0.00000000') + symbol}</div>
             <div>確認前請仔細核對提幣地址信息，以避免造成不必要的財產損失。</div>
           </div>
         ),
@@ -102,7 +102,7 @@ const TakeCoin = () => {
           withdrawSubmit.mutate({
             data: {
               amount,
-              addressId: '',
+              addressId: address?.id,
             },
           });
         },
@@ -128,6 +128,7 @@ const TakeCoin = () => {
     amount,
     configs?.data?.fee,
     isAuthTakeCoin,
+    symbol,
     withdrawSubmit,
     user?.phone,
     user?.email,
