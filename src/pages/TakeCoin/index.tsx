@@ -220,6 +220,7 @@ const TakeCoin = () => {
           <div className="text-[#A2A9BC] text-xs">提幣數量</div>
           <Input
             type="number"
+            min={Number(configs?.data?.fee ?? 0)}
             maxLength={18}
             className="mt-2.5 h-11 bg-[#F6F7F9] px-2.5"
             placeholder="输入提币数量"
@@ -229,12 +230,14 @@ const TakeCoin = () => {
 
           <div className="text-sm mt-4 flex items-center justify-between">
             <span className="text-[#A2A9BC]">手續費({symbol})</span>
-            <span className="text-base text-[#6175AE]">0</span>
+            <span className="text-base text-[#6175AE]">{configs?.data?.fee}</span>
           </div>
 
           <div className="text-sm mt-2 flex items-center justify-between">
             <span className="text-[#A2A9BC]">到賬數量({symbol})</span>
-            <span className="text-base text-[#6175AE]">0</span>
+            <span className="text-base text-[#6175AE]">
+              {amount ? Number(amount) - Number(configs?.data?.fee) : '0.00'}
+            </span>
           </div>
 
           <Button block className="btn-purple mt-4" onClick={handleFinish}>
