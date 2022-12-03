@@ -8,11 +8,11 @@ import Screen from '../../components/Screen';
 const languages = [
   {
     name: '简体中文',
-    key: 'zh-Hans',
+    key: 'zh-CN',
   },
   {
     name: '繁體中文',
-    key: 'zh-Hant',
+    key: 'zh-TW',
   },
   {
     name: 'ENGLISH',
