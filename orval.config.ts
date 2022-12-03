@@ -59,6 +59,16 @@ export default defineConfig({
           name: 'customInstance',
         },
         operations: {
+          getUnreadCount: {
+            query: {
+              useQuery: true,
+            },
+          },
+          findStaffChatList: {
+            query: {
+              useQuery: true,
+            },
+          },
           getAccountHold: {
             query: {
               useQuery: true,

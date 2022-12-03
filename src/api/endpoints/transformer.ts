@@ -127,6 +127,79 @@ import { customInstance } from '../mutator/custom-instance';
 import type { ErrorType } from '../mutator/custom-instance';
 
 /**
+ * 获取当前用户未读消息数量
+ */
+export const getUnreadCount = () => {
+  return customInstance<CommonResponse>({ url: `/chat/getUnreadCount.do`, method: 'post' });
+};
+
+export const getGetUnreadCountQueryKey = () => [`/chat/getUnreadCount.do`];
+
+export type GetUnreadCountQueryResult = NonNullable<Awaited<ReturnType<typeof getUnreadCount>>>;
+export type GetUnreadCountQueryError = ErrorType<unknown>;
+
+export const useGetUnreadCount = <
+  TData = Awaited<ReturnType<typeof getUnreadCount>>,
+  TError = ErrorType<unknown>,
+>(options?: {
+  query?: UseQueryOptions<Awaited<ReturnType<typeof getUnreadCount>>, TError, TData>;
+}): UseQueryResult<TData, TError> & { queryKey: QueryKey } => {
+  const { query: queryOptions } = options ?? {};
+
+  const queryKey = queryOptions?.queryKey ?? getGetUnreadCountQueryKey();
+
+  const queryFn: QueryFunction<Awaited<ReturnType<typeof getUnreadCount>>> = () => getUnreadCount();
+
+  const query = useQuery<Awaited<ReturnType<typeof getUnreadCount>>, TError, TData>(
+    queryKey,
+    queryFn,
+    queryOptions,
+  ) as UseQueryResult<TData, TError> & { queryKey: QueryKey };
+
+  query.queryKey = queryKey;
+
+  return query;
+};
+
+/**
+ * 获取与客服聊天列表
+ */
+export const findStaffChatList = () => {
+  return customInstance<CommonResponse>({ url: `/chat/findStaffChatList.do`, method: 'post' });
+};
+
+export const getFindStaffChatListQueryKey = () => [`/chat/findStaffChatList.do`];
+
+export type FindStaffChatListQueryResult = NonNullable<
+  Awaited<ReturnType<typeof findStaffChatList>>
+>;
+export type FindStaffChatListQueryError = ErrorType<unknown>;
+
+export const useFindStaffChatList = <
+  TData = Awaited<ReturnType<typeof findStaffChatList>>,
+  TError = ErrorType<unknown>,
+>(options?: {
+  query?: UseQueryOptions<Awaited<ReturnType<typeof findStaffChatList>>, TError, TData>;
+}): UseQueryResult<TData, TError> & { queryKey: QueryKey } => {
+  const { query: queryOptions } = options ?? {};
+
+  const queryKey = queryOptions?.queryKey ?? getFindStaffChatListQueryKey();
+
+  const queryFn: QueryFunction<Awaited<ReturnType<typeof findStaffChatList>>> = () =>
+    findStaffChatList();
+
+  const query = useQuery<Awaited<ReturnType<typeof findStaffChatList>>, TError, TData>(
+    queryKey,
+    queryFn,
+    queryOptions,
+  ) as UseQueryResult<TData, TError> & { queryKey: QueryKey };
+
+  query.queryKey = queryKey;
+
+  return query;
+};
+
+/**
  * 获取可划转的币种最大数量
  */
 export const proOrderCancel = (proOrderCancelBody: ProOrderCancelBody) => {
