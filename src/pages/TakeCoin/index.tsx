@@ -142,13 +142,13 @@ const TakeCoin = () => {
       <Container className="p-4 bg-[#F4F6F4] flex-1 overflow-y-auto">
         <div className="rounded-xl shadow-md shadow-black/5 p-5 bg-white">
           <div className="text-[#A2A9BC] flex items-center justify-between text-sm">
-            <span>可用餘額（USDT）</span>
+            <span>可用餘額({symbol})</span>
             <span className="text-[#3E4660] text-lg">
               {configs?.data?.availableAmount ?? '0.00'}
             </span>
           </div>
           <div className="text-[#A2A9BC] flex items-center justify-between text-sm">
-            <span>凍結金額（USDT）</span>
+            <span>凍結金額({symbol})</span>
             <span className="text-[#F32A44] text-lg">{configs?.data?.frozenAmount ?? '0.00'}</span>
           </div>
         </div>
