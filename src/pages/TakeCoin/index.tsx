@@ -231,13 +231,15 @@ const TakeCoin = () => {
 
           <div className="text-sm mt-4 flex items-center justify-between">
             <span className="text-[#A2A9BC]">手續費({symbol})</span>
-            <span className="text-base text-[#6175AE]">{configs?.data?.fee}</span>
+            <span className="text-base text-[#6175AE]">
+              {Number(configs?.data?.fee ?? 0).toFixed(2)}
+            </span>
           </div>
 
           <div className="text-sm mt-2 flex items-center justify-between">
             <span className="text-[#A2A9BC]">到賬數量({symbol})</span>
             <span className="text-base text-[#6175AE]">
-              {amount ? Number(amount) - Number(configs?.data?.fee) : '0.00'}
+              {amount ? (Number(amount) - Number(configs?.data?.fee)).toFixed(2) : '0.00'}
             </span>
           </div>
 
