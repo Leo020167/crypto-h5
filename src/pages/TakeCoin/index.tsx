@@ -228,12 +228,12 @@ const TakeCoin = () => {
           />
 
           <div className="text-sm mt-4 flex items-center justify-between">
-            <span className="text-[#A2A9BC]">手續費（USDT）</span>
+            <span className="text-[#A2A9BC]">手續費({symbol})</span>
             <span className="text-base text-[#6175AE]">0</span>
           </div>
 
           <div className="text-sm mt-2 flex items-center justify-between">
-            <span className="text-[#A2A9BC]">到賬數量（USDT）</span>
+            <span className="text-[#A2A9BC]">到賬數量({symbol})</span>
             <span className="text-base text-[#6175AE]">0</span>
           </div>
 
