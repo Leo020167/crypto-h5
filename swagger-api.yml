@@ -5,6 +5,34 @@ info:
 servers:
   - url: http://api.piglobalexchanges.com
 paths:
+  /chat/otc/sendOtcChat.do:
+    post:
+      operationId: 'sendOtcChat'
+      description: 'http發送文字聊天'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                fileUrl:
+                  type: string
+                imgHeight:
+                  type: string
+                imgWidth:
+                  type: string
+                orderId:
+                  type: string
+                say:
+                  type: string
+                type:
+                  type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CommonResponse'
   /chat/sendSay.do:
     post:
       operationId: 'sendSay'
@@ -52,6 +80,25 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/CommonResponse'
+
+  /chat/otc/findOtcChatList.do:
+    post:
+      operationId: 'findOtcChatList'
+      description: '获取当前订单对应该订单聊天列表'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                orderId:
+                  type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChatListResponse'
 
   /chat/findStaffChatList.do:
     post:
@@ -249,28 +296,6 @@ paths:
                         properties:
                           customerServiceStaff:
                             $ref: '#/components/schemas/CustomerServiceStaff'
-
-  /chat/otc/findOtcChatList.do:
-    post:
-      operationId: 'findOtcChatList'
-      description: '获取当前订单对应该订单聊天列表'
-      requestBody:
-        content:
-          application/json:
-            schema:
-              properties:
-                orderId:
-                  type: string
-                closeHand:
-                  type: string
-
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/CommonResponse'
 
   /pro/order/close.do:
     post:

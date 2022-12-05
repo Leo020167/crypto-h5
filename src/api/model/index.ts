@@ -276,6 +276,7 @@ export * from './register200AllOf';
 export * from './register200AllOfData';
 export * from './registerBody';
 export * from './scoreRank';
+export * from './sendOtcChatBody';
 export * from './sendSayBody';
 export * from './smsGetBody';
 export * from './symbolListItem';

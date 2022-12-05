@@ -15,8 +15,10 @@ import type {
 } from '@tanstack/react-query';
 import type {
   CommonResponse,
+  SendOtcChatBody,
   SendSayBody,
   ChatListResponse,
+  FindOtcChatListBody,
   Login200,
   LoginBody,
   Register200,
@@ -27,7 +29,6 @@ import type {
   GetSymbolMaxAmount200,
   GetSymbolMaxAmountBody,
   GetCustomerService200,
-  FindOtcChatListBody,
   ProOrderCloseBody,
   ProOrderUpdateLossPriceBody,
   ProOrderUpdateWinPriceBody,
@@ -134,6 +135,49 @@ import type { ErrorType } from '../mutator/custom-instance';
 /**
  * http發送文字聊天
  */
+export const sendOtcChat = (sendOtcChatBody: SendOtcChatBody) => {
+  return customInstance<CommonResponse>({
+    url: `/chat/otc/sendOtcChat.do`,
+    method: 'post',
+    headers: { 'Content-Type': 'application/json' },
+    data: sendOtcChatBody,
+  });
+};
+
+export type SendOtcChatMutationResult = NonNullable<Awaited<ReturnType<typeof sendOtcChat>>>;
+export type SendOtcChatMutationBody = SendOtcChatBody;
+export type SendOtcChatMutationError = ErrorType<unknown>;
+
+export const useSendOtcChat = <TError = ErrorType<unknown>, TContext = unknown>(options?: {
+  mutation?: UseMutationOptions<
+    Awaited<ReturnType<typeof sendOtcChat>>,
+    TError,
+    { data: SendOtcChatBody },
+    TContext
+  >;
+}) => {
+  const { mutation: mutationOptions } = options ?? {};
+
+  const mutationFn: MutationFunction<
+    Awaited<ReturnType<typeof sendOtcChat>>,
+    { data: SendOtcChatBody }
+  > = (props) => {
+    const { data } = props ?? {};
+
+    return sendOtcChat(data);
+  };
+
+  return useMutation<
+    Awaited<ReturnType<typeof sendOtcChat>>,
+    TError,
+    { data: SendOtcChatBody },
+    TContext
+  >(mutationFn, mutationOptions);
+};
+
+/**
+ * http發送文字聊天
+ */
 export const sendSay = (sendSayBody: SendSayBody) => {
   return customInstance<CommonResponse>({
     url: `/chat/sendSay.do`,
@@ -226,6 +270,51 @@ export const useGetUnreadCount = <
   const queryFn: QueryFunction<Awaited<ReturnType<typeof getUnreadCount>>> = () => getUnreadCount();
 
   const query = useQuery<Awaited<ReturnType<typeof getUnreadCount>>, TError, TData>(
+    queryKey,
+    queryFn,
+    queryOptions,
+  ) as UseQueryResult<TData, TError> & { queryKey: QueryKey };
+
+  query.queryKey = queryKey;
+
+  return query;
+};
+
+/**
+ * 获取当前订单对应该订单聊天列表
+ */
+export const findOtcChatList = (findOtcChatListBody: FindOtcChatListBody) => {
+  return customInstance<ChatListResponse>({
+    url: `/chat/otc/findOtcChatList.do`,
+    method: 'post',
+    headers: { 'Content-Type': 'application/json' },
+    data: findOtcChatListBody,
+  });
+};
+
+export const getFindOtcChatListQueryKey = (findOtcChatListBody: FindOtcChatListBody) => [
+  `/chat/otc/findOtcChatList.do`,
+  findOtcChatListBody,
+];
+
+export type FindOtcChatListQueryResult = NonNullable<Awaited<ReturnType<typeof findOtcChatList>>>;
+export type FindOtcChatListQueryError = ErrorType<unknown>;
+
+export const useFindOtcChatList = <
+  TData = Awaited<ReturnType<typeof findOtcChatList>>,
+  TError = ErrorType<unknown>,
+>(
+  findOtcChatListBody: FindOtcChatListBody,
+  options?: { query?: UseQueryOptions<Awaited<ReturnType<typeof findOtcChatList>>, TError, TData> },
+): UseQueryResult<TData, TError> & { queryKey: QueryKey } => {
+  const { query: queryOptions } = options ?? {};
+
+  const queryKey = queryOptions?.queryKey ?? getFindOtcChatListQueryKey(findOtcChatListBody);
+
+  const queryFn: QueryFunction<Awaited<ReturnType<typeof findOtcChatList>>> = () =>
+    findOtcChatList(findOtcChatListBody);
+
+  const query = useQuery<Awaited<ReturnType<typeof findOtcChatList>>, TError, TData>(
     queryKey,
     queryFn,
     queryOptions,
@@ -529,51 +618,6 @@ export const useGetCustomerService = <
     getCustomerService();
 
   const query = useQuery<Awaited<ReturnType<typeof getCustomerService>>, TError, TData>(
-    queryKey,
-    queryFn,
-    queryOptions,
-  ) as UseQueryResult<TData, TError> & { queryKey: QueryKey };
-
-  query.queryKey = queryKey;
-
-  return query;
-};
-
-/**
- * 获取当前订单对应该订单聊天列表
- */
-export const findOtcChatList = (findOtcChatListBody: FindOtcChatListBody) => {
-  return customInstance<CommonResponse>({
-    url: `/chat/otc/findOtcChatList.do`,
-    method: 'post',
-    headers: { 'Content-Type': 'application/json' },
-    data: findOtcChatListBody,
-  });
-};
-
-export const getFindOtcChatListQueryKey = (findOtcChatListBody: FindOtcChatListBody) => [
-  `/chat/otc/findOtcChatList.do`,
-  findOtcChatListBody,
-];
-
-export type FindOtcChatListQueryResult = NonNullable<Awaited<ReturnType<typeof findOtcChatList>>>;
-export type FindOtcChatListQueryError = ErrorType<unknown>;
-
-export const useFindOtcChatList = <
-  TData = Awaited<ReturnType<typeof findOtcChatList>>,
-  TError = ErrorType<unknown>,
->(
-  findOtcChatListBody: FindOtcChatListBody,
-  options?: { query?: UseQueryOptions<Awaited<ReturnType<typeof findOtcChatList>>, TError, TData> },
-): UseQueryResult<TData, TError> & { queryKey: QueryKey } => {
-  const { query: queryOptions } = options ?? {};
-
-  const queryKey = queryOptions?.queryKey ?? getFindOtcChatListQueryKey(findOtcChatListBody);
-
-  const queryFn: QueryFunction<Awaited<ReturnType<typeof findOtcChatList>>> = () =>
-    findOtcChatList(findOtcChatListBody);
-
-  const query = useQuery<Awaited<ReturnType<typeof findOtcChatList>>, TError, TData>(
     queryKey,
     queryFn,
     queryOptions,

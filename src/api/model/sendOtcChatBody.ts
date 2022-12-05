@@ -5,6 +5,11 @@
  * OpenAPI spec version: 1.0
  */
 
-export type FindOtcChatListBody = {
+export type SendOtcChatBody = {
+  fileUrl?: string;
+  imgHeight?: string;
+  imgWidth?: string;
   orderId?: string;
+  say?: string;
+  type?: string;
 };

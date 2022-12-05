@@ -1,11 +1,12 @@
 import { Button, List, Toast } from 'antd-mobile';
 import { stringify } from 'query-string';
 import { useCallback, useMemo } from 'react';
-import { useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import { StringParam, useQueryParam } from 'use-query-params';
 import { useOtcCancelOrder, useOtcGetOrderDetail } from '../../api/endpoints/transformer';
 import { Order, Receipt } from '../../api/model';
+import { ReactComponent as SvgContactOther } from '../../assets/ic_svg_contact_other.svg';
 import { ReactComponent as SvgCopy } from '../../assets/ic_svg_copy.svg';
 import { ReactComponent as SvgOtcFalse } from '../../assets/ic_svg_otc_false.svg';
 import { ReactComponent as SvgOtcSuccess } from '../../assets/ic_svg_otc_success.svg';
@@ -215,7 +216,16 @@ const LegalOrderInfo = () => {
   });
 
   return (
-    <Screen footer={footer}>
+    <Screen
+      right={
+        <div className="flex items-center justify-end">
+          <Link to={{ pathname: '/otc-chat', search: stringify({ orderId }) }}>
+            <SvgContactOther className=" w-5 h-5" />
+          </Link>
+        </div>
+      }
+      footer={footer}
+    >
       <Container className="flex-1 overflow-y-auto">
         {header}
         <div className="my-4">
