@@ -1,4 +1,4 @@
-import { List } from 'antd-mobile';
+import { Badge, List } from 'antd-mobile';
 import { stringify } from 'query-string';
 import { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
@@ -82,11 +82,14 @@ const My = () => {
             </div>
             <span>划转</span>
           </Link>
+
           <Link className="flex-1 flex flex-col items-center" to="/legal-money">
-            <div className="bg-[#f0f1f5] w-12 h-12 mb-2 rounded-lg">
-              <img alt="" src={ic_svg_legal_coin} />
-            </div>
-            <span>法币买卖</span>
+            <Badge content={Number(data?.data?.otcCount) || null}>
+              <div className="bg-[#f0f1f5] w-12 h-12 mb-2 rounded-lg">
+                <img alt="" src={ic_svg_legal_coin} />
+              </div>
+              <span>法币买卖</span>
+            </Badge>
           </Link>
         </div>
       </div>

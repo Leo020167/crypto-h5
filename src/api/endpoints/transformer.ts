@@ -17,6 +17,7 @@ import type {
   CommonResponse,
   SendOtcChatBody,
   SendSayBody,
+  GetUnreadCount200,
   ChatListResponse,
   FindOtcChatListBody,
   Login200,
@@ -249,7 +250,7 @@ export const useLogout = <
  * 获取当前用户未读消息数量
  */
 export const getUnreadCount = () => {
-  return customInstance<CommonResponse>({ url: `/chat/getUnreadCount.do`, method: 'post' });
+  return customInstance<GetUnreadCount200>({ url: `/chat/getUnreadCount.do`, method: 'post' });
 };
 
 export const getGetUnreadCountQueryKey = () => [`/chat/getUnreadCount.do`];

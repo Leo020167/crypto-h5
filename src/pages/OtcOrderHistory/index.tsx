@@ -1,9 +1,14 @@
 import { useInfiniteQuery } from '@tanstack/react-query';
-import { Button, Dropdown, DropdownRef, Grid, List, Selector } from 'antd-mobile';
+import { Badge, Button, Dropdown, DropdownRef, Grid, List, Selector } from 'antd-mobile';
+import { keyBy } from 'lodash-es';
 import { stringify } from 'query-string';
 import { useMemo, useRef, useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import { getOtcFindOrderListQueryKey, otcFindOrderList } from '../../api/endpoints/transformer';
+import {
+  getOtcFindOrderListQueryKey,
+  otcFindOrderList,
+  useGetUnreadCount,
+} from '../../api/endpoints/transformer';
 import { OtcOrderListItem } from '../../api/model/otcOrderListItem';
 import ScreenWithInfiniteScroll from '../../components/ScreenWithInfiniteScroll';
 import { stringDateFormat } from '../../utils/date';
@@ -45,6 +50,15 @@ const OtcOrderHistory = () => {
   const [buySell, setBuySell] = useState<string[]>([]);
 
   const history = useHistory();
+
+  const { data: getUnreadCount } = useGetUnreadCount();
+
+  const otcListHash = useMemo(() => {
+    if (getUnreadCount?.data?.otcList?.length) {
+      return keyBy(getUnreadCount?.data?.otcList, (v) => v.orderId ?? '');
+    }
+    return {};
+  }, [getUnreadCount?.data?.otcList]);
 
   return (
     <ScreenWithInfiniteScroll
@@ -123,8 +137,11 @@ const OtcOrderHistory = () => {
               <div className="h-10 flex items-center justify-between">
                 <span className="text-[#3D3A50] font-bold">{item.buySellValue}</span>
                 <div className="flex items-center" style={{ color: getStateColor(item.state) }}>
-                  <span className="mr-4">{item.stateValue}</span>
-                  <Arrow />
+                  <Badge content={otcListHash[item.orderId ?? '']?.count || null}>
+                    <span>{item.stateValue}</span>
+                  </Badge>
+
+                  <Arrow className="ml-4" />
                 </div>
               </div>
 

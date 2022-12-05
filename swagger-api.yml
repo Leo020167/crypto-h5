@@ -79,7 +79,27 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/CommonResponse'
+                allOf:
+                  - $ref: '#/components/schemas/CommonResponse'
+                  - properties:
+                      data:
+                        type: object
+                        properties:
+                          otcCount:
+                            type: string
+                          otcList:
+                            type: array
+                            items:
+                              type: object
+                              properties:
+                                orderId:
+                                  type: string
+                                count:
+                                  type: string
+                          staffCount:
+                            type: string
+                          sumCount:
+                            type: string
 
   /chat/otc/findOtcChatList.do:
     post:

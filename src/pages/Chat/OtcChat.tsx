@@ -104,7 +104,7 @@ const OtcChat = () => {
   const sendText = useCallback(() => {
     sendOtcChat.mutate({
       data: {
-        orderId: orderId,
+        orderId: orderId ?? '',
         say: text,
         type: 'text',
       },
@@ -115,7 +115,7 @@ const OtcChat = () => {
     (url: string) => {
       sendOtcChat.mutate({
         data: {
-          orderId: orderId,
+          orderId: orderId ?? '',
           say: url,
           type: 'img',
         },

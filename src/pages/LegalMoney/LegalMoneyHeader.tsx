@@ -1,4 +1,6 @@
+import { Badge } from 'antd-mobile';
 import { Link } from 'react-router-dom';
+import { useGetUnreadCount } from '../../api/endpoints/transformer';
 import { ReactComponent as LegalHistory } from '../../assets/ic_svg_legal_history.svg';
 import LegalMore from './LegalMore';
 const selectedClassNames = 'text-2xl font-bold text-white';
@@ -10,6 +12,8 @@ interface LegalMoneyHeaderProps {
 }
 
 const LegalMoneyHeader = ({ value, onChange }: LegalMoneyHeaderProps) => {
+  const { data } = useGetUnreadCount();
+
   return (
     <div className="h-16 bg-[#6175AE] flex items-center px-5 text-[#CBCBCB] justify-between">
       <div>
@@ -28,8 +32,10 @@ const LegalMoneyHeader = ({ value, onChange }: LegalMoneyHeaderProps) => {
       </div>
 
       <div className="flex items-center">
-        <Link to="/otc-order-history" className="w-10">
-          <LegalHistory />
+        <Link to="/otc-order-history" className="w-10 flex items-center">
+          <Badge content={Number(data?.data?.otcCount) || null}>
+            <LegalHistory />
+          </Badge>
         </Link>
 
         <LegalMore />
