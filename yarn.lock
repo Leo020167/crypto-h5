@@ -1508,18 +1508,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tanstack/query-core@npm:4.19.0":
-  version: 4.19.0
-  resolution: "@tanstack/query-core@npm:4.19.0"
-  checksum: ca8bb8cbba8ff7f6f223731a637eadf0c47943d84e964f24b02c8092d6629b84bcfbad897da8193004566e7618cc4746a9d9be67d2d4b441225c6cce5c802a7a
+"@tanstack/query-core@npm:4.19.1":
+  version: 4.19.1
+  resolution: "@tanstack/query-core@npm:4.19.1"
+  checksum: a54a613d5b7abe2bba352fa26228bee0589eb8116bf482760dbe39474202b08cfc3899100e478f0bd1ae1a7bd60dcda0634c04bec56a98346763d32bc7720b54
   languageName: node
   linkType: hard
 
-"@tanstack/react-query@npm:^4.19.0":
-  version: 4.19.0
-  resolution: "@tanstack/react-query@npm:4.19.0"
+"@tanstack/react-query@npm:^4.19.1":
+  version: 4.19.1
+  resolution: "@tanstack/react-query@npm:4.19.1"
   dependencies:
-    "@tanstack/query-core": 4.19.0
+    "@tanstack/query-core": 4.19.1
     use-sync-external-store: ^1.2.0
   peerDependencies:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
@@ -1530,7 +1530,7 @@ __metadata:
       optional: true
     react-native:
       optional: true
-  checksum: bce0a8a1b44e6c0a9732615158408e432ee94173e2bddef68d1384bbdd40e59a4dd1b023ac194a757d653b76a451abb8c1493f591e027230bdf13a371179d084
+  checksum: cce8b51c5cbaff007efb2fc54c5e03a2191e363626226903c345ae9baf0d48a36fc322383e24aff4f12250e672da67d3ceaa9819bbb16ace98a5c7bdff098a61
   languageName: node
   linkType: hard
 
@@ -4391,7 +4391,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "fireup-h5@workspace:."
   dependencies:
-    "@tanstack/react-query": ^4.19.0
+    "@tanstack/react-query": ^4.19.1
     "@types/js-md5": ^0.4.3
     "@types/lodash-es": ^4.17.6
     "@types/qs": ^6.9.7
@@ -4441,7 +4441,7 @@ __metadata:
     terser: ^5.16.1
     typescript: ^4.9.3
     use-query-params: ^2.1.2
-    vite: ^3.2.4
+    vite: ^3.2.5
     vite-plugin-svgr: ^2.2.2
     yarn: ^1.22.19
   languageName: unknown
@@ -8559,9 +8559,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite@npm:^3.2.4":
-  version: 3.2.4
-  resolution: "vite@npm:3.2.4"
+"vite@npm:^3.2.5":
+  version: 3.2.5
+  resolution: "vite@npm:3.2.5"
   dependencies:
     esbuild: ^0.15.9
     fsevents: ~2.3.2
@@ -8593,7 +8593,7 @@ __metadata:
       optional: true
   bin:
     vite: bin/vite.js
-  checksum: 0f3e8f89c15809bd6bd8dec54b04b7c9b87374314d00928035f9d70190b4b220e8206b5d77a1e4097a5019cebf7862df4fbc11fbbb35c4f75f359999123d2c25
+  checksum: ad35b7008c2b62a167d1d1a82f0a0c60fa457733f1969e9eedf0b0077f67a7ac74b4c9477e75a397895150f09b6551f0c17841c5b05c34d9fe302bb0b5dc28a8
   languageName: node
   linkType: hard
 
