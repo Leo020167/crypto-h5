@@ -10,4 +10,5 @@ export type AddAddressBody = {
   chainType?: string;
   remark?: string;
   symbol?: string;
+  payPass?: string;
 };

@@ -1,5 +1,7 @@
 import { Dialog, Toast } from 'antd-mobile';
 import { AddOutline } from 'antd-mobile-icons';
+import md5 from 'js-md5';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useAddressList, useDelAddress } from '../../api/endpoints/transformer';
 import { ReactComponent as SvgTrash } from '../../assets/trash.svg';
@@ -13,13 +15,17 @@ const AddressManagement = () => {
     mutation: {
       onSuccess(data) {
         if (data.code === '200') {
+          setOpen(false);
+          setId(undefined);
           Toast.show(data.msg);
           refetch();
         }
       },
     },
   });
-  // TODO 資金驗證碼
+
+  const [id, setId] = useState<string>();
+  const [open, setOpen] = useState(false);
 
   return (
     <Screen
@@ -49,11 +55,8 @@ const AddressManagement = () => {
                       content: '確定刪除該地址嗎？',
                       confirmText: '刪除',
                       onConfirm() {
-                        delAddress.mutate({
-                          data: {
-                            addressId: v.id ?? '',
-                          },
-                        });
+                        setId(v.id);
+                        setOpen(true);
                       },
                     });
                   }}
@@ -73,7 +76,18 @@ const AddressManagement = () => {
         ))}
       </div>
 
-      <PaymentPasswordDialog />
+      <PaymentPasswordDialog
+        open={open}
+        onClose={() => setOpen(false)}
+        onFill={(value) => {
+          delAddress.mutate({
+            data: {
+              addressId: id ?? '',
+              payPass: md5(value),
+            },
+          });
+        }}
+      />
     </Screen>
   );
 };

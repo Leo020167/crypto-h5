@@ -609,6 +609,8 @@ paths:
               properties:
                 addressId:
                   type: string
+                payPass:
+                  type: string
               required:
                 - 'addressId'
       responses:
@@ -656,6 +658,8 @@ paths:
                 remark:
                   type: string
                 symbol:
+                  type: string
+                payPass:
                   type: string
       responses:
         '200':

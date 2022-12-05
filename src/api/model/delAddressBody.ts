@@ -7,4 +7,5 @@
 
 export type DelAddressBody = {
   addressId: string;
+  payPass?: string;
 };

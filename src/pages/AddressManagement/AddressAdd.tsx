@@ -1,10 +1,12 @@
 import { Button, Input, InputRef, Selector, Toast } from 'antd-mobile';
 import { DownFill } from 'antd-mobile-icons';
+import md5 from 'js-md5';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import { withDefault, StringParam, useQueryParam } from 'use-query-params';
 import { useAddAddress, useGetCoinList } from '../../api/endpoints/transformer';
+import PaymentPasswordDialog from '../../components/PaymentPasswordDialog';
 import Screen from '../../components/Screen';
 import CoinSymbolSelectDialog from '../RechargeCoin/CoinSymbolSelectDialog';
 
@@ -13,6 +15,8 @@ const AddressAdd = () => {
   const [symbol, setSymbol] = useQueryParam('symbol', SymbolParam);
   const [chainType, setChainType] = useState<string>();
   const [openSymbol, setOpenSymbol] = useState(false);
+
+  const [open, setOpen] = useState(false);
 
   const { data } = useGetCoinList(
     {
@@ -78,6 +82,7 @@ const AddressAdd = () => {
     mutation: {
       onSuccess(data) {
         if (data.code === '200') {
+          setOpen(false);
           Toast.show(data.msg);
           history.replace('/address-management');
         }
@@ -91,15 +96,8 @@ const AddressAdd = () => {
       return;
     }
 
-    addAddress.mutate({
-      data: {
-        address,
-        chainType: symbol === 'USDT' ? chainType : '',
-        remark,
-        symbol,
-      },
-    });
-  }, [addAddress, address, chainType, remark, symbol]);
+    setOpen(true);
+  }, [address]);
 
   return (
     <Screen headerTitle="添加提幣地址">
@@ -196,6 +194,22 @@ const AddressAdd = () => {
         onSelect={(value) => {
           setOpenSymbol(false);
           setSymbol(value, 'replaceIn');
+        }}
+      />
+
+      <PaymentPasswordDialog
+        open={open}
+        onClose={() => setOpen(false)}
+        onFill={(value) => {
+          addAddress.mutate({
+            data: {
+              address,
+              chainType: symbol === 'USDT' ? chainType : '',
+              remark,
+              symbol,
+              payPass: md5(value),
+            },
+          });
         }}
       />
     </Screen>
