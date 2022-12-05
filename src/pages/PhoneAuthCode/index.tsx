@@ -1,14 +1,14 @@
 import { Button, Input, Toast } from 'antd-mobile';
-import { useAtomValue } from 'jotai';
 import { stringify } from 'query-string';
 import { useCallback, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import { withDefault, NumberParam, useQueryParam, StringParam } from 'use-query-params';
 import { useSmsGet, useUserSecurityCheckIdentity } from '../../api/endpoints/transformer';
-import { userAtom } from '../../atoms';
+
 import Screen from '../../components/Screen';
 import SwipeImageValidator from '../../components/SwipeImageValidator';
+import { useAuthStore } from '../../stores/auth';
 
 const TypeParam = withDefault(NumberParam, 0);
 
@@ -18,7 +18,7 @@ const PhoneAuthCode = () => {
   const [phone] = useQueryParam('phone', StringParam);
   const [redirectUrl] = useQueryParam('redirectUrl', StringParam);
 
-  const user = useAtomValue(userAtom);
+  const { userInfo } = useAuthStore();
 
   const [open, setOpen] = useState(false);
   const [openVerityPhone, setOpenVerityPhone] = useState(false);
@@ -34,12 +34,12 @@ const PhoneAuthCode = () => {
           locationx,
           dragImgKey,
           type: phone ? 1 : 2,
-          countryCode: user?.countryCode ?? '',
+          countryCode: userInfo?.countryCode ?? '',
           sendAddr: phone ?? email ?? '',
         },
       });
     },
-    [email, phone, smsGet, user?.countryCode],
+    [email, phone, smsGet, userInfo?.countryCode],
   );
 
   const [code, setCode] = useState<string>();

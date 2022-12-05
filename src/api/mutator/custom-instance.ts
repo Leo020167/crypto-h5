@@ -1,5 +1,6 @@
 import { Toast } from 'antd-mobile';
 import Axios, { AxiosError, AxiosRequestConfig } from 'axios';
+import { useAuthStore } from '../../stores/auth';
 import { signParameters } from '../../utils/signature';
 
 export const AXIOS_UPLOAD_INSTANCE = Axios.create({ baseURL: '/procoin-file' });
@@ -14,9 +15,10 @@ AXIOS_INSTANCE.interceptors.response.use(
       Toast.show(config.data.msg);
     }
 
-    // if (config.data.code === 40009) {
-    //   window.location.href = '/#/login';
-    // }
+    if (config.data.code === 40009) {
+      useAuthStore.setState({ token: undefined, userInfo: undefined });
+    }
+
     return config;
   },
   (error) => {

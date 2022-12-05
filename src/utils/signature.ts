@@ -1,5 +1,7 @@
 import md5 from 'js-md5';
+import { UserInfo } from '../api/model';
 import { User } from '../model';
+import { useAuthStore } from '../stores/auth';
 
 const apiSecret = 'C2AE585AB6814937960DF0E0A22DF3FD';
 const apiKey = '2CE2BA19C7CA4937AD18BC1AFEE034E8';
@@ -44,16 +46,16 @@ export function signParameters(json: any = {}) {
   json['apiKey'] = apiKey;
   json['timestamp'] = +new Date();
 
-  let user: User | null = null;
+  let user: UserInfo | undefined = undefined;
   try {
-    user = JSON.parse(localStorage.getItem('user') ?? '');
+    user = useAuthStore.getState().userInfo;
   } catch (error) {
     /* empty */
   }
 
-  let token = '';
+  let token: string | undefined = '';
   try {
-    token = JSON.parse(localStorage.getItem('token') ?? '');
+    token = useAuthStore.getState().token;
   } catch (error) {
     /* empty */
   }

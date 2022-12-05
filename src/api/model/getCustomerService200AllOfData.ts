@@ -4,11 +4,8 @@
  * API Title
  * OpenAPI spec version: 1.0
  */
+import type { CustomerServiceStaff } from './customerServiceStaff';
 
 export type GetCustomerService200AllOfData = {
-  chatTopic?: string;
-  headUrl?: string;
-  type?: string;
-  userId?: string;
-  userName?: string;
+  customerServiceStaff?: CustomerServiceStaff;
 };

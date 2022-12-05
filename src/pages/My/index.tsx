@@ -1,12 +1,10 @@
 import { List } from 'antd-mobile';
-import { useAtom } from 'jotai';
 import { stringify } from 'query-string';
 import { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { useMount } from 'react-use';
 import styled from 'styled-components';
-import { useIdentityGet } from '../../api/endpoints/transformer';
-
+import { useGetUnreadCount, useIdentityGet } from '../../api/endpoints/transformer';
 import defaultHead from '../../assets/ic_default_head.png';
 import ic_home_mine_help from '../../assets/ic_home_mine_help.png';
 import ic_home_mine_kefu from '../../assets/ic_home_mine_kefu.png';
@@ -15,19 +13,20 @@ import ic_home_mine_notice from '../../assets/ic_home_mine_notice.png';
 import ic_home_mine_shiming from '../../assets/ic_home_mine_shiming.png';
 import ic_home_mine_stock from '../../assets/ic_home_mine_stock.png';
 import ic_home_mine_youxiang from '../../assets/ic_home_mine_youxiang.png';
-
 import { ReactComponent as Arrow } from '../../assets/ic_svg_arrow_2.svg';
 import ic_svg_edit from '../../assets/ic_svg_edit.svg';
 import ic_svg_legal_coin from '../../assets/ic_svg_legal_coin.svg';
 import ic_svg_recharge_coin from '../../assets/ic_svg_recharge_coin.svg';
 import ic_svg_take_coin from '../../assets/ic_svg_take_coin.svg';
 import ic_svg_transfer_coin from '../../assets/ic_svg_transfer_coin.svg';
-import { userAtom } from '../../atoms';
+import { useAuthStore } from '../../stores/auth';
+
 import { getHomeMy } from '../../utils/api';
 
 const My = () => {
   const history = useHistory();
-  const [user] = useAtom(userAtom);
+
+  const { userInfo } = useAuthStore();
 
   const [helpCenterUrl, setHelpCenterUrl] = useState<string>('');
 
@@ -41,23 +40,25 @@ const My = () => {
     });
   });
 
+  const { data } = useGetUnreadCount();
+
   return (
     <Container className="bg-[#F0F1F7] h-full">
       <div className="bg-white pt-4">
         <div className="px-4 py-2">
           <div className="avatar flex">
             <div className="w-10 h-10 rounded-full mr-4 overflow-hidden">
-              <img alt="head" src={user?.headUrl ?? defaultHead} />
+              <img alt="head" src={userInfo?.headUrl ?? defaultHead} />
             </div>
             <div>
               <div
                 className="font-bold text-xl leading-5 text-[#c1d3155] flex mb-2"
                 onClick={() => history.push('personal')}
               >
-                <span>{user?.userName}</span>
+                <span>{userInfo?.userName}</span>
                 <img alt="" src={ic_svg_edit} className="ml-2 w-5" />
               </div>
-              <span className="text-[#a2abc8]">ID: {user?.userId}</span>
+              <span className="text-[#a2abc8]">ID: {userInfo?.userId}</span>
             </div>
           </div>
         </div>
@@ -165,7 +166,7 @@ const My = () => {
           prefix={<img alt="" src={ic_home_mine_youxiang} className="w-8 h-8" />}
           arrow={<Arrow />}
           onClick={() => {
-            if (user?.email) {
+            if (userInfo?.email) {
               history.push(`/email-auth?${stringify({ mode: 1 })}`);
             } else {
               history.push('/bind-email');

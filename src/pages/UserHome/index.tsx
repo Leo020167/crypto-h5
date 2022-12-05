@@ -1,13 +1,13 @@
 import { Button, Dialog, Toast } from 'antd-mobile';
-import { useAtomValue } from 'jotai';
 import { stringify } from 'query-string';
 import { useMemo } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { StringParam, useQueryParam } from 'use-query-params';
 import { useAttentionAdd, usePersonalHome, useUnBindFollow } from '../../api/endpoints/transformer';
 import ic_default_head from '../../assets/ic_default_head.png';
-import { userAtom } from '../../atoms';
+
 import Screen from '../../components/Screen';
+import { useAuthStore } from '../../stores/auth';
 import { stringDateFormat } from '../../utils/date';
 import Capability from './Capability';
 import TradableTargetChart from './TradableTargetChart';
@@ -26,7 +26,7 @@ const UserHome = () => {
 
   const radar = data?.data?.userRadar;
 
-  const user = useAtomValue(userAtom);
+  const { userInfo } = useAuthStore();
 
   const history = useHistory();
 
@@ -53,7 +53,7 @@ const UserHome = () => {
   });
 
   const buttons = useMemo(() => {
-    if (radar?.userId === user?.userId) return null;
+    if (radar?.userId === userInfo?.userId) return null;
 
     const renderFollowLabel = () => {
       if (radar?.myIsAttention === '0') {
@@ -92,7 +92,7 @@ const UserHome = () => {
             color="primary"
             block
             onClick={() => {
-              if (user) {
+              if (userInfo) {
                 if (!radar) return;
 
                 if (radar.subIsFee === '0') {
@@ -153,7 +153,7 @@ const UserHome = () => {
         </div>
       </div>
     );
-  }, [radar, user, attentionAdd, history, unBindFollow]);
+  }, [radar, userInfo, attentionAdd, history, unBindFollow]);
 
   return (
     <Screen>

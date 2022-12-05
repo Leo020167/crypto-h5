@@ -1,21 +1,19 @@
 import { Dialog, List, NavBar, Toast } from 'antd-mobile';
-import { useAtom } from 'jotai';
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
 import { ReactComponent as Arrow } from '../../assets/ic_svg_arrow_2.svg';
-import { tokenAtom, userAtom } from '../../atoms';
-import { doSecurityLogout } from '../../utils/api';
+import { useAuthStore } from '../../stores/auth';
 import RefreshRateList from './RefreshRateList';
 import UpAndDownColorList from './UpAndDownColorList';
 
 const Settings = () => {
   const history = useHistory();
-  const [, setToken] = useAtom(tokenAtom);
-  const [, setUser] = useAtom(userAtom);
 
   const [openRefreshRate, setOpenRefreshRate] = useState(false);
   const [openUpAndDownColor, setOpenUpAndDownColor] = useState(false);
+
+  const authStore = useAuthStore();
 
   return (
     <div>
@@ -65,9 +63,7 @@ const Settings = () => {
               title: '注销',
               content: '你确定要注销吗?',
               onConfirm() {
-                setToken('');
-                setUser(null);
-                doSecurityLogout();
+                authStore.logout();
                 Toast.show('退出成功');
                 history.replace('/login');
               },

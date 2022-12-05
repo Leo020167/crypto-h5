@@ -1,10 +1,10 @@
 import { Button, NavBar } from 'antd-mobile';
-import { useAtomValue } from 'jotai';
 import { stringify } from 'query-string';
 import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import { useQueryParam } from 'use-query-params';
-import { userAtom } from '../../../atoms';
+import { useAuthStore } from '../../../stores/auth';
+
 import { ModeParam } from '../../../utils/params';
 
 const EmailAuth = () => {
@@ -12,7 +12,7 @@ const EmailAuth = () => {
 
   const history = useHistory();
 
-  const user = useAtomValue(userAtom);
+  const { userInfo } = useAuthStore();
 
   return (
     <Container className="bg-[#F0F1F7] h-full">
@@ -25,15 +25,15 @@ const EmailAuth = () => {
           为了保证你的账号安全，请验证身份
         </div>
 
-        <div className="text-center text-base font-bold mb-8">{user?.email}</div>
+        <div className="text-center text-base font-bold mb-8">{userInfo?.email}</div>
 
         <Button
           block
           size="large"
           className="submit"
           onClick={() => {
-            if (user?.email) {
-              history.push(`/email-auth-code?${stringify({ mode, email: user?.email })}`);
+            if (userInfo?.email) {
+              history.push(`/email-auth-code?${stringify({ mode, email: userInfo?.email })}`);
             }
           }}
         >

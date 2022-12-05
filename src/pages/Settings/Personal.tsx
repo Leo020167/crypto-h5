@@ -1,38 +1,39 @@
 import { Input, List, Modal, NavBar, TextArea, Toast } from 'antd-mobile';
 import { CheckOutline } from 'antd-mobile-icons';
-import { useAtom } from 'jotai';
 import { useCallback, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
+import { getUserInfo } from '../../api/endpoints/transformer';
 
 import defaultHead from '../../assets/ic_default_head.png';
 import { ReactComponent as Arrow } from '../../assets/ic_svg_arrow_2.svg';
-import { userAtom } from '../../atoms';
+import { useAuthStore } from '../../stores/auth';
+
 import { userUpdateUserInfo } from '../../utils/api';
 
 const Personal = () => {
   const history = useHistory();
-  const [user, setUser] = useAtom(userAtom);
+  const { userInfo } = useAuthStore();
 
-  const [holderUserName, setHolderUserName] = useState<string>(user?.userName ?? '');
-  const [holderDescribes, setHolderDescribes] = useState<string>(user?.describes ?? '');
+  const [holderUserName, setHolderUserName] = useState<string>(userInfo?.userName ?? '');
+  const [holderDescribes, setHolderDescribes] = useState<string>(userInfo?.describes ?? '');
 
-  const [sex, setSex] = useState<'0' | '1'>(user?.sex ?? '0');
-  const [userName, setUserName] = useState<string>(user?.userName ?? '');
-  const [describes, setDescribes] = useState<string>(user?.describes ?? '');
+  const [sex, setSex] = useState<string>(userInfo?.sex ?? '0');
+  const [userName, setUserName] = useState<string>(userInfo?.userName ?? '');
+  const [describes, setDescribes] = useState<string>(userInfo?.describes ?? '');
 
   const [action, setAction] = useState<'edit-userName' | 'edit-describes'>();
 
   const updateUserInfo = useCallback(() => {
     userUpdateUserInfo({ sex, userName, describes }).then((res: any) => {
       if (res.code === '200') {
-        setUser({ ...user, ...res.data });
+        getUserInfo();
 
         Toast.show('更新信息成功');
         history.replace('/my');
       }
     });
-  }, [describes, history, setUser, sex, user, userName]);
+  }, [describes, history, sex, userName]);
 
   return (
     <Container className="bg-[#F0F1F7] h-full">
@@ -55,7 +56,7 @@ const Personal = () => {
           arrow={<Arrow />}
           extra={
             <div className="w-8 h-8 rounded-full mr-4 overflow-hidden">
-              <img alt="head" src={user?.headUrl ?? defaultHead} />
+              <img alt="head" src={userInfo?.headUrl ?? defaultHead} />
             </div>
           }
         >
@@ -70,7 +71,7 @@ const Personal = () => {
         >
           昵称
         </List.Item>
-        <List.Item arrow={null} extra={<div className="mr-4">{user?.userId}</div>}>
+        <List.Item arrow={null} extra={<div className="mr-4">{userInfo?.userId}</div>}>
           ID
         </List.Item>
         <List.Item

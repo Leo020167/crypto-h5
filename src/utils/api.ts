@@ -34,26 +34,6 @@ export const doSecurityRegister = (data: Register) => {
   });
 };
 
-export const doSecurityLogin = (data: {
-  dragImgKey: string;
-  email?: string;
-  locationx: number;
-  phone: string;
-  type: number;
-  userPass: string;
-}) => {
-  return apiPost('/security/login.do', {
-    ...data,
-    userPass: md5(data.userPass ?? ''),
-    platform: 'web',
-    smsCode: '',
-  });
-};
-
-export const doSecurityLogout = () => {
-  return apiPost('/security/loginOut.do', {});
-};
-
 export const doSecurityForgetPass = (data: {
   dragImgKey: string;
   locationx: number;
@@ -67,13 +47,6 @@ export const doSecurityForgetPass = (data: {
   });
 };
 
-export const getHomeAccount = (userId: string) => {
-  return apiPost('/home/account.do', { userId, platform: 'web' });
-};
-
-export const getUserInfo = () => {
-  return apiPost('/user/info.do', {});
-};
 export const getHomeMy = () => {
   return apiPost('/home/my.do', {});
 };
@@ -82,7 +55,7 @@ export const userUpdateUserInfo = (data: {
   birthday?: string;
   describes?: string;
   headUrl?: string;
-  sex?: '0' | '1';
+  sex?: string;
   userName?: string;
 }) => {
   return apiPost('/user/updateUserInfo.do', data);

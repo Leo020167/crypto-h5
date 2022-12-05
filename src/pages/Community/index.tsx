@@ -1,21 +1,21 @@
 import { Button, Input, List, Modal, NavBar, Toast } from 'antd-mobile';
-import { useAtomValue } from 'jotai';
 import { useCallback, useState } from 'react';
 import styled from 'styled-components';
 import { useInviteBuy, useInviteHome } from '../../api/endpoints/transformer';
 import ic_default_head from '../../assets/ic_default_head.png';
-import { userAtom } from '../../atoms';
+
+import { useAuthStore } from '../../stores/auth';
 
 const Community = () => {
-  const user = useAtomValue(userAtom);
+  const { userInfo } = useAuthStore();
 
   const [visible, setVisible] = useState(false);
 
   const [count, setCount] = useState<string>();
 
   const { data: inviteHome, refetch } = useInviteHome(
-    { userId: user?.userId },
-    { query: { enabled: !!user?.userId } },
+    { userId: userInfo?.userId },
+    { query: { enabled: !!userInfo?.userId } },
   );
 
   const inviteBuy = useInviteBuy({
@@ -40,10 +40,10 @@ const Community = () => {
     inviteBuy.mutate({
       data: {
         count: Number(count),
-        userId: user?.userId,
+        userId: userInfo?.userId,
       },
     });
-  }, [count, inviteBuy, user?.userId]);
+  }, [count, inviteBuy, userInfo?.userId]);
 
   return (
     <Container className="bg-[#4d4ce6] flex-1 flex flex-col min-h-0">
@@ -54,10 +54,10 @@ const Community = () => {
         <div className="mt-4 px-4 h-40 text-white ">
           <div className="flex">
             <div className="h-10 w-10 rounded-full mr-2.5 overflow-hidden">
-              <img alt="" src={user?.headUrl ?? ic_default_head} />
+              <img alt="" src={userInfo?.headUrl ?? ic_default_head} />
             </div>
             <div>
-              <span className="text-sm">{user?.userName}</span>
+              <span className="text-sm">{userInfo?.userName}</span>
               <div className="mt-2 text-xs text-[#dae1f8]">
                 <span className="mr-8">社區人數：{inviteHome?.data?.teamCount}</span>
                 <span>邀請碼數量：{inviteHome?.data?.inviteCount}</span>

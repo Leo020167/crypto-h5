@@ -7,10 +7,11 @@ import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import { NumberParam, StringParam, useQueryParam, withDefault } from 'use-query-params';
 import { useCoinInfo } from '../../api/endpoints/transformer';
-import { marketPeriodAtom, switchColorValueAtom, userAtom } from '../../atoms';
+import { marketPeriodAtom, switchColorValueAtom } from '../../atoms';
 import KLine from '../../components/KLine';
 import { useQuoteReal } from '../../market/endpoints/marketWithTransformer';
 import { QuoteReal } from '../../market/model';
+import { useAuthStore } from '../../stores/auth';
 import CoinSummary from './CoinSummary';
 import MinuteDetail from './MinuteDetail';
 import MinuteDigitalTimeLineChart from './MinuteDigitalTimeLineChart';
@@ -24,7 +25,7 @@ const Market = () => {
 
   const [marketPeriod, setMarketPeriod] = useAtom(marketPeriodAtom);
 
-  const user = useAtom(userAtom);
+  const { userInfo } = useAuthStore();
 
   const { data: coinInfo } = useCoinInfo(
     {
@@ -95,7 +96,7 @@ const Market = () => {
 
   const handleBuySell = useCallback(
     (buySell: number) => {
-      if (user) {
+      if (userInfo) {
         if (isLever === 0) {
           history.push({
             pathname: '/trade',
@@ -117,7 +118,7 @@ const Market = () => {
         history.push('/login');
       }
     },
-    [history, isLever, symbol, user],
+    [history, isLever, symbol, userInfo],
   );
 
   return (

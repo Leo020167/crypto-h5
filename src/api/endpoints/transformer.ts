@@ -15,6 +15,12 @@ import type {
 } from '@tanstack/react-query';
 import type {
   CommonResponse,
+  SendSayBody,
+  ChatListResponse,
+  Login200,
+  LoginBody,
+  Register200,
+  RegisterBody,
   ProOrderCancelBody,
   GetTransferSymbols200,
   GetTransferSymbolsBody,
@@ -121,10 +127,79 @@ import type {
   HomeMyResponse,
   HomeMyBody,
   UserInfoResponse,
-  UserInfoBody,
 } from '../model';
 import { customInstance } from '../mutator/custom-instance';
 import type { ErrorType } from '../mutator/custom-instance';
+
+/**
+ * http發送文字聊天
+ */
+export const sendSay = (sendSayBody: SendSayBody) => {
+  return customInstance<CommonResponse>({
+    url: `/chat/sendSay.do`,
+    method: 'post',
+    headers: { 'Content-Type': 'application/json' },
+    data: sendSayBody,
+  });
+};
+
+export type SendSayMutationResult = NonNullable<Awaited<ReturnType<typeof sendSay>>>;
+export type SendSayMutationBody = SendSayBody;
+export type SendSayMutationError = ErrorType<unknown>;
+
+export const useSendSay = <TError = ErrorType<unknown>, TContext = unknown>(options?: {
+  mutation?: UseMutationOptions<
+    Awaited<ReturnType<typeof sendSay>>,
+    TError,
+    { data: SendSayBody },
+    TContext
+  >;
+}) => {
+  const { mutation: mutationOptions } = options ?? {};
+
+  const mutationFn: MutationFunction<Awaited<ReturnType<typeof sendSay>>, { data: SendSayBody }> = (
+    props,
+  ) => {
+    const { data } = props ?? {};
+
+    return sendSay(data);
+  };
+
+  return useMutation<Awaited<ReturnType<typeof sendSay>>, TError, { data: SendSayBody }, TContext>(
+    mutationFn,
+    mutationOptions,
+  );
+};
+
+/**
+ * 登出
+ */
+export const logout = () => {
+  return customInstance<CommonResponse>({ url: `/security/loginOut.do`, method: 'post' });
+};
+
+export type LogoutMutationResult = NonNullable<Awaited<ReturnType<typeof logout>>>;
+
+export type LogoutMutationError = ErrorType<unknown>;
+
+export const useLogout = <
+  TError = ErrorType<unknown>,
+  TVariables = void,
+  TContext = unknown,
+>(options?: {
+  mutation?: UseMutationOptions<Awaited<ReturnType<typeof logout>>, TError, TVariables, TContext>;
+}) => {
+  const { mutation: mutationOptions } = options ?? {};
+
+  const mutationFn: MutationFunction<Awaited<ReturnType<typeof logout>>, TVariables> = () => {
+    return logout();
+  };
+
+  return useMutation<Awaited<ReturnType<typeof logout>>, TError, TVariables, TContext>(
+    mutationFn,
+    mutationOptions,
+  );
+};
 
 /**
  * 获取当前用户未读消息数量
@@ -165,7 +240,7 @@ export const useGetUnreadCount = <
  * 获取与客服聊天列表
  */
 export const findStaffChatList = () => {
-  return customInstance<CommonResponse>({ url: `/chat/findStaffChatList.do`, method: 'post' });
+  return customInstance<ChatListResponse>({ url: `/chat/findStaffChatList.do`, method: 'post' });
 };
 
 export const getFindStaffChatListQueryKey = () => [`/chat/findStaffChatList.do`];
@@ -197,6 +272,89 @@ export const useFindStaffChatList = <
   query.queryKey = queryKey;
 
   return query;
+};
+
+/**
+ * 登錄
+ */
+export const login = (loginBody: LoginBody) => {
+  return customInstance<Login200>({
+    url: `/security/login.do`,
+    method: 'post',
+    headers: { 'Content-Type': 'application/json' },
+    data: loginBody,
+  });
+};
+
+export type LoginMutationResult = NonNullable<Awaited<ReturnType<typeof login>>>;
+export type LoginMutationBody = LoginBody;
+export type LoginMutationError = ErrorType<unknown>;
+
+export const useLogin = <TError = ErrorType<unknown>, TContext = unknown>(options?: {
+  mutation?: UseMutationOptions<
+    Awaited<ReturnType<typeof login>>,
+    TError,
+    { data: LoginBody },
+    TContext
+  >;
+}) => {
+  const { mutation: mutationOptions } = options ?? {};
+
+  const mutationFn: MutationFunction<Awaited<ReturnType<typeof login>>, { data: LoginBody }> = (
+    props,
+  ) => {
+    const { data } = props ?? {};
+
+    return login(data);
+  };
+
+  return useMutation<Awaited<ReturnType<typeof login>>, TError, { data: LoginBody }, TContext>(
+    mutationFn,
+    mutationOptions,
+  );
+};
+
+/**
+ * 注冊
+ */
+export const register = (registerBody: RegisterBody) => {
+  return customInstance<Register200>({
+    url: `/security/register.do`,
+    method: 'post',
+    headers: { 'Content-Type': 'application/json' },
+    data: registerBody,
+  });
+};
+
+export type RegisterMutationResult = NonNullable<Awaited<ReturnType<typeof register>>>;
+export type RegisterMutationBody = RegisterBody;
+export type RegisterMutationError = ErrorType<unknown>;
+
+export const useRegister = <TError = ErrorType<unknown>, TContext = unknown>(options?: {
+  mutation?: UseMutationOptions<
+    Awaited<ReturnType<typeof register>>,
+    TError,
+    { data: RegisterBody },
+    TContext
+  >;
+}) => {
+  const { mutation: mutationOptions } = options ?? {};
+
+  const mutationFn: MutationFunction<
+    Awaited<ReturnType<typeof register>>,
+    { data: RegisterBody }
+  > = (props) => {
+    const { data } = props ?? {};
+
+    return register(data);
+  };
+
+  return useMutation<
+    Awaited<ReturnType<typeof register>>,
+    TError,
+    { data: RegisterBody },
+    TContext
+  >(mutationFn, mutationOptions);
 };
 
 /**
@@ -3517,42 +3675,34 @@ export const useHomeMy = <TError = ErrorType<unknown>, TContext = unknown>(optio
 /**
  * 獲取我的頁面信息
  */
-export const userInfo = (userInfoBody: UserInfoBody) => {
-  return customInstance<UserInfoResponse>({
-    url: `/user/info.do`,
-    method: 'post',
-    headers: { 'Content-Type': 'application/json' },
-    data: userInfoBody,
-  });
+export const getUserInfo = () => {
+  return customInstance<UserInfoResponse>({ url: `/user/info.do`, method: 'post' });
 };
 
-export type UserInfoMutationResult = NonNullable<Awaited<ReturnType<typeof userInfo>>>;
-export type UserInfoMutationBody = UserInfoBody;
-export type UserInfoMutationError = ErrorType<unknown>;
+export type GetUserInfoMutationResult = NonNullable<Awaited<ReturnType<typeof getUserInfo>>>;
 
-export const useUserInfo = <TError = ErrorType<unknown>, TContext = unknown>(options?: {
+export type GetUserInfoMutationError = ErrorType<unknown>;
+
+export const useGetUserInfo = <
+  TError = ErrorType<unknown>,
+  TVariables = void,
+  TContext = unknown,
+>(options?: {
   mutation?: UseMutationOptions<
-    Awaited<ReturnType<typeof userInfo>>,
+    Awaited<ReturnType<typeof getUserInfo>>,
     TError,
-    { data: UserInfoBody },
+    TVariables,
     TContext
   >;
 }) => {
   const { mutation: mutationOptions } = options ?? {};
 
-  const mutationFn: MutationFunction<
-    Awaited<ReturnType<typeof userInfo>>,
-    { data: UserInfoBody }
-  > = (props) => {
-    const { data } = props ?? {};
-
-    return userInfo(data);
+  const mutationFn: MutationFunction<Awaited<ReturnType<typeof getUserInfo>>, TVariables> = () => {
+    return getUserInfo();
   };
 
-  return useMutation<
-    Awaited<ReturnType<typeof userInfo>>,
-    TError,
-    { data: UserInfoBody },
-    TContext
-  >(mutationFn, mutationOptions);
+  return useMutation<Awaited<ReturnType<typeof getUserInfo>>, TError, TVariables, TContext>(
+    mutationFn,
+    mutationOptions,
+  );
 };

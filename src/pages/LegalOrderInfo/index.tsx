@@ -1,5 +1,4 @@
 import { Button, List, Toast } from 'antd-mobile';
-import { useAtomValue } from 'jotai';
 import { stringify } from 'query-string';
 import { useCallback, useMemo } from 'react';
 import { useHistory } from 'react-router-dom';
@@ -11,9 +10,10 @@ import { ReactComponent as SvgCopy } from '../../assets/ic_svg_copy.svg';
 import { ReactComponent as SvgOtcFalse } from '../../assets/ic_svg_otc_false.svg';
 import { ReactComponent as SvgOtcSuccess } from '../../assets/ic_svg_otc_success.svg';
 import { ReactComponent as SvgTime } from '../../assets/ic_svg_time.svg';
-import { userAtom } from '../../atoms';
+
 import Countdown from '../../components/Countdown';
 import Screen from '../../components/Screen';
+import { useAuthStore } from '../../stores/auth';
 import { stringDateFormat } from '../../utils/date';
 import { getReceipts, OtcOrderState } from '../../utils/response';
 import Clock from './Clock';
@@ -90,10 +90,10 @@ const LegalOrderInfo = () => {
 
   const receipt: Receipt | undefined = useMemo(() => receipts?.[0], [receipts]);
 
-  const user = useAtomValue(userAtom);
+  const { userInfo } = useAuthStore();
   const isBuyer = useMemo(
-    () => !!user?.userId && !!order?.buyUserId && user?.userId === order?.buyUserId,
-    [order?.buyUserId, user?.userId],
+    () => !!userInfo?.userId && !!order?.buyUserId && userInfo?.userId === order?.buyUserId,
+    [order?.buyUserId, userInfo?.userId],
   );
 
   const names = useMemo(() => {

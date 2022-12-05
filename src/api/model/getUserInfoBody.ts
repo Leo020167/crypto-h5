@@ -4,8 +4,7 @@
  * API Title
  * OpenAPI spec version: 1.0
  */
-import type { UserInfo } from './userInfo';
 
-export type UserInfoResponseAllOf = {
-  data?: UserInfo;
+export type GetUserInfoBody = {
+  userId?: string;
 };

@@ -1,6 +1,5 @@
 import { Button, Dialog, Input, Popup, Selector, Toast } from 'antd-mobile';
 import { DownFill, RightOutline } from 'antd-mobile-icons';
-import { useAtomValue } from 'jotai';
 import { stringify } from 'query-string';
 import { useState, useMemo, useCallback } from 'react';
 import { Link, useHistory } from 'react-router-dom';
@@ -14,8 +13,9 @@ import {
   useWithdrawSubmit,
 } from '../../api/endpoints/transformer';
 import { Address } from '../../api/model';
-import { userAtom } from '../../atoms';
+
 import Screen from '../../components/Screen';
+import { useAuthStore } from '../../stores/auth';
 import CoinSymbolSelectDialog from '../RechargeCoin/CoinSymbolSelectDialog';
 
 const SymbolParam = withDefault(StringParam, 'USDT');
@@ -29,7 +29,7 @@ const TakeCoin = () => {
 
   const history = useHistory();
 
-  const user = useAtomValue(userAtom);
+  const { userInfo } = useAuthStore();
 
   const location = useLocation();
 
@@ -109,13 +109,13 @@ const TakeCoin = () => {
       });
     } else {
       //如果未通过手机验证
-      if (user?.phone) {
+      if (userInfo?.phone) {
         history.push({
           pathname: '/phone-auth-code',
           search: stringify({
             type: 1,
-            phone: user?.phone,
-            email: user?.email,
+            phone: userInfo?.phone,
+            email: userInfo?.email,
             redirectUrl: location.pathname,
           }),
         });
@@ -130,8 +130,8 @@ const TakeCoin = () => {
     isAuthTakeCoin,
     symbol,
     withdrawSubmit,
-    user?.phone,
-    user?.email,
+    userInfo?.phone,
+    userInfo?.email,
     history,
     location.pathname,
   ]);

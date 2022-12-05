@@ -5,6 +5,41 @@ info:
 servers:
   - url: http://api.piglobalexchanges.com
 paths:
+  /chat/sendSay.do:
+    post:
+      operationId: 'sendSay'
+      description: 'http發送文字聊天'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                chatTopic:
+                  type: string
+                say:
+                  type: string
+                verify:
+                  type: number
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CommonResponse'
+
+  /security/loginOut.do:
+    post:
+      operationId: 'logout'
+      description: '登出'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CommonResponse'
+
   /chat/getUnreadCount.do:
     post:
       operationId: 'getUnreadCount'
@@ -29,7 +64,97 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/CommonResponse'
+                $ref: '#/components/schemas/ChatListResponse'
+
+  /security/login.do:
+    post:
+      operationId: 'login'
+      description: '登錄'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                dragImgKey:
+                  type: string
+                email:
+                  type: string
+                locationx:
+                  type: number
+                phone:
+                  type: string
+                platform:
+                  type: string
+                smsCode:
+                  type: string
+                type:
+                  type: number
+                userPass:
+                  type: string
+              required:
+                - 'dragImgKey'
+
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/CommonResponse'
+                  - properties:
+                      data:
+                        type: object
+                        properties:
+                          token:
+                            type: string
+                          user:
+                            $ref: '#/components/schemas/UserInfo'
+
+  /security/register.do:
+    post:
+      operationId: 'register'
+      description: '注冊'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                dragImgKey:
+                  type: string
+                email:
+                  type: string
+                locationx:
+                  type: number
+                phone:
+                  type: string
+                platform:
+                  type: string
+                smsCode:
+                  type: string
+                type:
+                  type: number
+                userPass:
+                  type: string
+              required:
+                - 'dragImgKey'
+
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/CommonResponse'
+                  - properties:
+                      data:
+                        type: object
+                        properties:
+                          token:
+                            type: string
+                          user:
+                            $ref: '#/components/schemas/UserInfo'
 
   /pro/order/cancel.do:
     post:
@@ -122,16 +247,8 @@ paths:
                       data:
                         type: object
                         properties:
-                          chatTopic:
-                            type: string
-                          headUrl:
-                            type: string
-                          type:
-                            type: string
-                          userId:
-                            type: string
-                          userName:
-                            type: string
+                          customerServiceStaff:
+                            $ref: '#/components/schemas/CustomerServiceStaff'
 
   /chat/otc/findOtcChatList.do:
     post:
@@ -1762,15 +1879,8 @@ paths:
 
   /user/info.do:
     post:
-      operationId: 'userInfo'
+      operationId: 'getUserInfo'
       description: '獲取我的頁面信息'
-      requestBody:
-        content:
-          application/json:
-            schema:
-              properties:
-                userId:
-                  type: string
       responses:
         '200':
           description: OK
@@ -1781,6 +1891,63 @@ paths:
 
 components:
   schemas:
+    CustomerServiceStaff:
+      type: object
+      properties:
+        chatTopic:
+          type: string
+        headUrl:
+          type: string
+        type:
+          type: string
+        userId:
+          type: string
+        userName:
+          type: string
+
+    ChatListItem:
+      type: object
+      properties:
+        chatId:
+          type: string
+        chatTopic:
+          type: string
+        createTime:
+          type: string
+        headUrl:
+          type: string
+        mark:
+          type: string
+        name:
+          type: string
+        push:
+          type: string
+        read:
+          type: string
+        say:
+          type: string
+        toHeadUrl:
+          type: string
+        toName:
+          type: string
+        toUid:
+          type: string
+        type:
+          type: string
+        userId:
+          type: string
+        verify:
+          type: string
+
+    ChatListResponse:
+      allOf:
+        - $ref: '#/components/schemas/CommonResponse'
+        - properties:
+            data:
+              type: array
+              items:
+                $ref: '#/components/schemas/ChatListItem'
+
     MessageFindResponse:
       allOf:
         - $ref: '#/components/schemas/CommonResponse'
@@ -3290,65 +3457,72 @@ components:
                 shareUrl:
                   type: string
 
+    UserInfo:
+      type: object
+      properties:
+        adminType:
+          type: string
+        agencyCode:
+          type: string
+        countryCode:
+          type: string
+        createTime:
+          type: string
+        describes:
+          type: string
+        email:
+          type: string
+        headUrl:
+          type: string
+        idCertify:
+          type: string
+        inviteUid:
+          type: string
+        isLock:
+          type: string
+        isMark:
+          type: string
+        isStop:
+          type: string
+        isVip:
+          type: string
+        lastIp:
+          type: string
+        lastLogin:
+          type: string
+        memberCode:
+          type: string
+        passErrNum:
+          type: string
+        phone:
+          type: string
+        regPlatform:
+          type: string
+        sex:
+          type: string
+        synSign:
+          type: string
+        synVersion:
+          type: string
+        userId:
+          type: string
+        userName:
+          type: string
+        userPass:
+          type: string
+        verifySql:
+          type: string
+        verifySqlTime:
+          type: string
+        version:
+          type: string
+
     UserInfoResponse:
       allOf:
         - $ref: '#/components/schemas/CommonResponse'
         - properties:
             data:
-              type: object
-              properties:
-                adminType:
-                  type: string
-                agencyCode:
-                  type: string
-                countryCode:
-                  type: string
-                createTime:
-                  type: string
-                headUrl:
-                  type: string
-                idCertify:
-                  type: string
-                inviteUid:
-                  type: string
-                isLock:
-                  type: string
-                isMark:
-                  type: string
-                isStop:
-                  type: string
-                isVip:
-                  type: string
-                lastIp:
-                  type: string
-                lastLogin:
-                  type: string
-                memberCode:
-                  type: string
-                passErrNum:
-                  type: string
-                phone:
-                  type: string
-                regPlatform:
-                  type: string
-                sex:
-                  type: string
-                synSign:
-                  type: string
-                synVersion:
-                  type: string
-                userId:
-                  type: string
-                userName:
-                  type: string
-                userPass:
-                  type: string
-                verifySql:
-                  type: string
-                verifySqlTime:
-                  type: string
-                version:
-                  type: string
+              $ref: '#/components/schemas/UserInfo'
 
     PaginationResponse:
       type: object

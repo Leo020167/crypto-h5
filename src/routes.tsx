@@ -8,6 +8,7 @@ import { ReactComponent as HomeTabSvg } from './assets/home_tab_cropyme.svg';
 import { ReactComponent as HomeTabFollow } from './assets/home_tab_follow.svg';
 import { ReactComponent as HomeTabMarkSvg } from './assets/home_tab_mark.svg';
 import { ReactComponent as HomeTabMineSvg } from './assets/home_tab_mine.svg';
+import PrivateRoute from './auth/PrivateRoute';
 
 const LeverInfo = lazy(() => import('./pages/LeverInfo'));
 const ApplyBindAccount = lazy(() => import('./pages/UserHome/ApplyBindAccount'));
@@ -116,21 +117,21 @@ const HomeTabs = () => {
               <HomeMarket />
             </Suspense>
           </Route>
-          <Route path="/home/account">
+          <PrivateRoute path="/home/account">
             <Suspense fallback={<div>Loading...</div>}>
               <HomeAccount />
             </Suspense>
-          </Route>
-          <Route path="/home/community">
+          </PrivateRoute>
+          <PrivateRoute path="/home/community">
             <Suspense fallback={<div>Loading...</div>}>
               <Community />
             </Suspense>
-          </Route>
-          <Route path="/home/my">
+          </PrivateRoute>
+          <PrivateRoute path="/home/my">
             <Suspense fallback={<div>Loading...</div>}>
               <My />
             </Suspense>
-          </Route>
+          </PrivateRoute>
         </Switch>
       </div>
       <TabBar

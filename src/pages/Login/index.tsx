@@ -1,17 +1,14 @@
-import { Button, Form, Input, Toast } from 'antd-mobile';
+import { Button, Form, Input } from 'antd-mobile';
 import { EyeInvisibleOutline, EyeOutline } from 'antd-mobile-icons';
-import { useAtom } from 'jotai';
+import md5 from 'js-md5';
 import { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { useLocation } from 'react-use';
 import styled from 'styled-components';
-import { tokenAtom, userAtom } from '../../atoms';
 import SwipeImageValidator from '../../components/SwipeImageValidator';
-import { doSecurityLogin } from '../../utils/api';
+import { useAuthStore } from '../../stores/auth';
 
 const Login = () => {
-  const [, setToken] = useAtom(tokenAtom);
-  const [, setUser] = useAtom(userAtom);
   const [open, setOpen] = useState(false);
   const [visible, setVisible] = useState(false);
 
@@ -22,6 +19,8 @@ const Login = () => {
 
   const location = useLocation();
   const from = location.state?.from?.pathname || '/home';
+
+  const authStore = useAuthStore();
 
   return (
     <div className="h-screen bg-white px-4 py-4">
@@ -73,27 +72,25 @@ const Login = () => {
         title="拖动图片完成验证"
         open={open}
         onClose={() => setOpen(false)}
-        onSuccess={(locationX, dragImgKey) => {
+        onSuccess={(locationx, dragImgKey) => {
           const isEmail = /^\w+((.\w+)|(-\w+))@[A-Za-z0-9]+((.|-)[A-Za-z0-9]+).[A-Za-z0-9]+$/.test(
             username,
           );
 
-          doSecurityLogin({
-            locationx: locationX,
-            dragImgKey,
-            phone: isEmail ? '' : username,
-            type: isEmail ? 2 : 1,
-            email: isEmail ? username : '',
-            userPass: password,
-          }).then((res: any) => {
-            Toast.show(res.msg);
-
-            if (res.code === '200') {
-              setToken(res.data.token);
-              setUser(res.data.user);
+          authStore
+            .login({
+              locationx,
+              dragImgKey,
+              phone: isEmail ? '' : username,
+              type: isEmail ? 2 : 1,
+              email: isEmail ? username : '',
+              userPass: md5(password ?? ''),
+              platform: 'web',
+              smsCode: '',
+            })
+            .then(async () => {
               history.replace(from);
-            }
-          });
+            });
 
           setOpen(false);
         }}

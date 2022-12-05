@@ -4,26 +4,28 @@ import { useAtom } from 'jotai';
 import { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
-import { countryAtom, registerAtom } from '../../atoms';
+import { countryAtom } from '../../atoms';
 import AreaList from '../../components/AreaList';
 import { AreaListItem } from '../../model';
+import { useSignUpStore } from '../../stores/signup';
 import { validPassword } from '../../utils/validation';
 
 const Signup = () => {
   const history = useHistory();
 
-  const [register, setRegister] = useAtom(registerAtom);
   const [country, setCountry] = useAtom(countryAtom);
 
   const [open, setOpen] = useState(false);
 
   const [form] = Form.useForm();
 
+  const { value, setValue } = useSignUpStore();
+
   useEffect(() => {
-    if (register) {
-      form.setFieldsValue(register);
+    if (value.type) {
+      form.setFieldsValue(value);
     }
-  }, [form, register]);
+  }, [form, value]);
 
   return (
     <Container className="h-screen bg-white">
@@ -39,14 +41,14 @@ const Signup = () => {
           form={form}
           layout="horizontal"
           onFinish={(values) => {
-            if (register.type === 1) {
+            if (value.type === 1) {
               if (!values.phone || !values.phone.trim().length) {
                 Toast.show('手機號碼不能為空');
                 return;
               }
             }
 
-            if (register.type === 2) {
+            if (value.type === 2) {
               if (!values.email) {
                 Toast.show('請輸入郵箱號');
                 return;
@@ -56,12 +58,12 @@ const Signup = () => {
             if (!validPassword(values.userPass, values.configUserPass)) {
               return;
             }
-            setRegister({ ...values, countryCode: country.code });
+            setValue({ ...values, countryCode: country.code });
             history.push('/captcha');
           }}
           footer={
             <div>
-              {register.type === 1 && (
+              {value.type === 1 && (
                 <div className="text-[#cdcdcd]">
                   注册即代表你已同意并接受
                   <a href="" target="_blank" className="text-[#6277b0]">
@@ -79,11 +81,11 @@ const Signup = () => {
               </Button>
 
               <div className="text-center mt-4">
-                {register.type === 1 ? (
+                {value.type === 1 ? (
                   <a
                     className="text-[#6277b0]"
                     onClick={() => {
-                      setRegister({ ...register, type: 2 });
+                      setValue({ ...value, type: 2 });
                     }}
                   >
                     邮箱注册
@@ -92,7 +94,7 @@ const Signup = () => {
                   <a
                     className="text-[#6277b0]"
                     onClick={() => {
-                      setRegister({ ...register, type: 1 });
+                      setValue({ ...value, type: 1 });
                     }}
                   >
                     手机注册
@@ -102,7 +104,7 @@ const Signup = () => {
             </div>
           }
         >
-          {register.type === 1 ? (
+          {value.type === 1 ? (
             <>
               <div
                 className="mt-6 mb-2 locale pl-2 flex items-center"

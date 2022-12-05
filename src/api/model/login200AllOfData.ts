@@ -6,6 +6,7 @@
  */
 import type { UserInfo } from './userInfo';
 
-export type UserInfoResponseAllOf = {
-  data?: UserInfo;
+export type Login200AllOfData = {
+  token?: string;
+  user?: UserInfo;
 };

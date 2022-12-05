@@ -1,9 +1,8 @@
 import { Button, Form, Toast } from 'antd-mobile';
-import { useAtomValue } from 'jotai';
 import { useState } from 'react';
-import { userAtom } from '../../atoms';
 import SmsCodeInput from '../../components/SmsCodeInput';
 import SwipeImageValidator from '../../components/SwipeImageValidator';
+import { useAuthStore } from '../../stores/auth';
 import { checkIdentity, getSms } from '../../utils/api';
 
 interface AccountStepProps {
@@ -14,11 +13,11 @@ const AccountStep1 = ({ onStepCompleted }: AccountStepProps) => {
   const [openSmsCodeVerity, setOpenSmsCodeVerity] = useState(false);
   const [smsCode, setSmsCode] = useState<string>('');
 
-  const user = useAtomValue(userAtom);
+  const { userInfo } = useAuthStore();
 
   return (
     <div>
-      <div className="border-b p-4">已绑定手机号：{user?.phone}</div>
+      <div className="border-b p-4">已绑定手机号：{userInfo?.phone}</div>
       <Form
         onFinish={() => {
           setOpenSmsCodeVerity(true);
@@ -33,8 +32,8 @@ const AccountStep1 = ({ onStepCompleted }: AccountStepProps) => {
       >
         <Form.Item>
           <SmsCodeInput
-            phoneNumber={user?.phone ?? ''}
-            countryCode={user?.countryCode ?? ''}
+            phoneNumber={userInfo?.phone ?? ''}
+            countryCode={userInfo?.countryCode ?? ''}
             value={smsCode}
             onChange={setSmsCode}
             placeholder="请输入验证码"
@@ -47,7 +46,7 @@ const AccountStep1 = ({ onStepCompleted }: AccountStepProps) => {
         onClose={() => setOpenSmsCodeVerity(false)}
         onSuccess={(locationx, dragImgKey) => {
           checkIdentity({
-            phone: user?.phone ?? '',
+            phone: userInfo?.phone ?? '',
             smsCode,
             dragImgKey,
             locationx,
@@ -65,10 +64,10 @@ const AccountStep1 = ({ onStepCompleted }: AccountStepProps) => {
         onClose={() => setOpen(false)}
         onSuccess={(positionX, dragImgKey) => {
           getSms({
-            countryCode: user?.countryCode ?? '',
+            countryCode: userInfo?.countryCode ?? '',
             dragImgKey: dragImgKey,
             locationx: positionX,
-            sendAddr: user?.phone ?? '',
+            sendAddr: userInfo?.phone ?? '',
             type: 1,
           }).then((res) => {
             if (res.code !== '200') {
@@ -76,8 +75,8 @@ const AccountStep1 = ({ onStepCompleted }: AccountStepProps) => {
             }
           });
 
-          if (user?.phone) {
-            const phone = user.phone.substring(0, 3) + '****' + user.phone.substring(7);
+          if (userInfo?.phone) {
+            const phone = userInfo.phone.substring(0, 3) + '****' + userInfo.phone.substring(7);
             Toast.show(`短信验证码已经发送至${phone}`);
           }
 

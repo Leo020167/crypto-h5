@@ -1,11 +1,10 @@
 import { Button, Form, Input, NavBar, Toast } from 'antd-mobile';
-import produce from 'immer';
-import { useAtom } from 'jotai';
 import { useCallback } from 'react';
 import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import { useQueryParam, StringParam } from 'use-query-params';
-import { userAtom } from '../../../atoms';
+import { useAuthStore } from '../../../stores/auth';
+
 import { updateEmail } from '../../../utils/api';
 import { TypeParam } from '../../../utils/params';
 
@@ -15,7 +14,8 @@ const BindEmailCode = () => {
   const [type] = useQueryParam('type', TypeParam);
   const [email] = useQueryParam('email', StringParam);
   const [redirectUrl] = useQueryParam('redirectUrl', StringParam);
-  const [, setUser] = useAtom(userAtom);
+
+  const { getUserInfo } = useAuthStore();
 
   const handleFinish = useCallback(
     (values: { code?: string }) => {
@@ -26,12 +26,9 @@ const BindEmailCode = () => {
 
       updateEmail({ email: email ?? '', code: values.code }).then((res) => {
         if (res.code === '200') {
+          getUserInfo();
+
           Toast.show('綁定成功');
-          setUser(
-            produce((draft) => {
-              draft.email = email;
-            }),
-          );
 
           if (type === 1 && redirectUrl) {
             history.replace({ pathname: redirectUrl }, { state: { success: true } });
@@ -43,7 +40,7 @@ const BindEmailCode = () => {
         }
       });
     },
-    [email, history, redirectUrl, setUser, type],
+    [email, getUserInfo, history, redirectUrl, type],
   );
 
   return (

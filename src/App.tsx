@@ -1,5 +1,5 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { useAtom, useAtomValue } from 'jotai';
+import { useAtomValue } from 'jotai';
 import { parse, stringify } from 'query-string';
 import { useEffect, useRef, useState } from 'react';
 import { IntlProvider } from 'react-intl';
@@ -8,8 +8,8 @@ import { QueryParamProvider } from 'use-query-params';
 import { ReactRouter5Adapter } from 'use-query-params/adapters/react-router-5';
 import GlobalStyle from './GlobalStyle';
 import Routes from './Routes';
-import { localeAtom, tokenAtom, userAtom } from './atoms';
-import { getUserInfo } from './utils/api';
+import { localeAtom } from './atoms';
+import { useAuthStore } from './stores/auth';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -28,8 +28,6 @@ const options = {
 function App() {
   const locale = useAtomValue(localeAtom);
 
-  const [token] = useAtom(tokenAtom);
-  const [, setUser] = useAtom(userAtom);
   const [messages, setMessages] = useState<Record<string, string>>();
 
   useEffect(() => {
@@ -41,17 +39,12 @@ function App() {
 
   const mounted = useRef<boolean>(false);
 
+  const authStore = useAuthStore();
   useEffect(() => {
-    if (token) {
-      if (mounted.current) return;
-      mounted.current = true;
-      getUserInfo().then((res: any) => {
-        if (res.code === '200') {
-          setUser(res.data);
-        }
-      });
-    }
-  }, [setUser, token]);
+    if (mounted.current) return;
+    mounted.current = true;
+    authStore.getUserInfo();
+  }, [authStore]);
 
   return (
     <QueryClientProvider client={queryClient}>

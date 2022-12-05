@@ -14,15 +14,16 @@ import tab1_menu4 from '../../assets/tab1_menu4.png';
 import tab1_menu5 from '../../assets/tab1_menu5.png';
 import tab2_2 from '../../assets/tab2_2.png';
 import xiaolaba from '../../assets/xiaolaba.png';
-import { localeAtom, switchColorValueAtom, userAtom } from '../../atoms';
+import { localeAtom, switchColorValueAtom } from '../../atoms';
 import { useMarketData, useQuoteHomePage } from '../../market/endpoints/marketWithTransformer';
 import { Quote } from '../../market/model';
+import { useAuthStore } from '../../stores/auth';
 import { getOriginSymbol, getUnitSymbol } from '../TransactionRecords/utils';
 
 const Home = () => {
   const locale = useAtomValue(localeAtom);
 
-  const user = useAtomValue(userAtom);
+  const { userInfo } = useAuthStore();
 
   const { data: homeAccount } = useHomeAccount();
 
@@ -56,7 +57,11 @@ const Home = () => {
     <Container className="bg-[#eef3f9] flex-1 overflow-y-auto px-2.5">
       <div className="mt-5 flex items-center">
         <Link to="/home/my">
-          <img alt="" src={user?.headUrl ?? ic_default_head} className="w-10 h-10 rounded-full" />
+          <img
+            alt=""
+            src={userInfo?.headUrl ?? ic_default_head}
+            className="w-10 h-10 rounded-full"
+          />
         </Link>
 
         <div className="flex-1 flex justify-center">

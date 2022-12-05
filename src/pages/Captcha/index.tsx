@@ -1,21 +1,20 @@
 import { Button, Form, Input, NavBar, Toast } from 'antd-mobile';
-import { useAtom } from 'jotai';
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
-import { registerAtom, tokenAtom, userAtom } from '../../atoms';
+
 import SwipeImageValidator from '../../components/SwipeImageValidator';
+import { useSignUpStore } from '../../stores/signup';
 import { doSecurityRegister, getSms } from '../../utils/api';
 
 const Captcha = () => {
   const history = useHistory();
-  const [register] = useAtom(registerAtom);
 
   const [open, setOpen] = useState(false);
   const [registerOpen, setRegisterOpen] = useState(false);
   const [smsCode, setSmsCode] = useState<string>('');
-  const [, setToken] = useAtom(tokenAtom);
-  const [, setUser] = useAtom(userAtom);
+
+  const { value } = useSignUpStore();
 
   return (
     <Container className="h-screen bg-white">
@@ -32,7 +31,7 @@ const Captcha = () => {
         <Form
           layout="horizontal"
           onFinish={() => {
-            doSecurityRegister({ ...register, smsCode });
+            doSecurityRegister({ ...value, smsCode });
           }}
           footer={
             <Button
@@ -68,7 +67,7 @@ const Captcha = () => {
         onClose={() => setRegisterOpen(false)}
         onSuccess={(positionX, dragImgKey) => {
           doSecurityRegister({
-            ...register,
+            ...value,
             locationx: positionX,
             dragImgKey,
             smsCode,
@@ -77,8 +76,6 @@ const Captcha = () => {
             Toast.show(res.msg);
 
             if (res.code === '200') {
-              setToken(res.data.token);
-              setUser(res.data.user);
               history.replace('/home');
             }
           });
@@ -92,19 +89,19 @@ const Captcha = () => {
         onClose={() => setOpen(false)}
         onSuccess={(positionX, dragImgKey) => {
           getSms({
-            countryCode: register?.countryCode ?? '',
+            countryCode: value?.countryCode ?? '',
             dragImgKey: dragImgKey,
             locationx: positionX,
-            sendAddr: register?.type === 1 ? register?.phone ?? '' : register?.email ?? '',
-            type: register?.type ?? 1,
+            sendAddr: value?.type === 1 ? value?.phone ?? '' : value?.email ?? '',
+            type: value?.type ?? 1,
           }).then((res: any) => {
             if (res.code !== '200') {
               Toast.show(res.msg);
             }
           });
 
-          if (register?.phone) {
-            const phone = register.phone.substring(0, 3) + '****' + register.phone.substring(7);
+          if (value?.phone) {
+            const phone = value.phone.substring(0, 3) + '****' + value.phone.substring(7);
             Toast.show(`短信验证码已经发送至${phone}`);
           }
 

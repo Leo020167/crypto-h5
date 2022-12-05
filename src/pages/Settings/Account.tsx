@@ -2,7 +2,7 @@ import { NavBar, Steps, Toast } from 'antd-mobile';
 import { useMemo, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
-import { doSecurityLogout } from '../../utils/api';
+import { useAuthStore } from '../../stores/auth';
 import AccountStep1 from './AccountStep1';
 import AccountStep2 from './AccountStep2';
 
@@ -13,6 +13,8 @@ const Account = () => {
 
   const [oldSmsCode, setOldSmsCode] = useState<string>('');
 
+  const authStore = useAuthStore();
+
   const content = useMemo(() => {
     switch (current) {
       case 1:
@@ -21,12 +23,9 @@ const Account = () => {
             oldSmsCode={oldSmsCode}
             onStepCompleted={() => {
               setCurrent(2);
-              doSecurityLogout().then((res) => {
-                if (res.code === '200') {
-                  Toast.show('請重新登錄');
-                  history.replace('/login');
-                }
-              });
+              authStore.logout();
+              Toast.show('請重新登錄');
+              history.replace('/login');
             }}
           />
         );
@@ -40,7 +39,7 @@ const Account = () => {
           />
         );
     }
-  }, [current, history, oldSmsCode]);
+  }, [authStore, current, history, oldSmsCode]);
 
   return (
     <Container className="h-screen bg-white">

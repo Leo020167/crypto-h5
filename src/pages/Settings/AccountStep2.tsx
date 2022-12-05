@@ -1,12 +1,12 @@
 import { Button, Form, Toast } from 'antd-mobile';
-import { useAtomValue } from 'jotai';
 import { useState } from 'react';
 import styled from 'styled-components';
-import { userAtom } from '../../atoms';
+
 import CountryPhoneNumber from '../../components/CountryPhoneNumber';
 import SmsCodeInput from '../../components/SmsCodeInput';
 import SwipeImageValidator from '../../components/SwipeImageValidator';
 import { Country } from '../../model';
+import { useAuthStore } from '../../stores/auth';
 import { changePhoneTwo } from '../../utils/api';
 
 interface AccountStepProps {
@@ -17,7 +17,7 @@ const AccountStep2 = ({ oldSmsCode, onStepCompleted }: AccountStepProps) => {
   const [openChangePhoneVerity, setOpenChangePhoneVerity] = useState(false);
   const [smsCode, setSmsCode] = useState<string>('');
 
-  const user = useAtomValue(userAtom);
+  const { userInfo } = useAuthStore();
 
   const [country, setCountry] = useState<Country>({ code: '+852', name: '香港' });
 
@@ -73,7 +73,7 @@ const AccountStep2 = ({ oldSmsCode, onStepCompleted }: AccountStepProps) => {
             newCountryCode: country.code,
             newPhone: phone,
             newSmsCode: smsCode,
-            oldPhone: user?.phone ?? '',
+            oldPhone: userInfo?.phone ?? '',
             oldSmsCode,
           }).then((res) => {
             if (res.code === '200') {

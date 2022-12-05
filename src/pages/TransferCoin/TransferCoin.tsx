@@ -1,6 +1,5 @@
 import { Button, Input, InputRef, List, Popup, Toast } from 'antd-mobile';
 import { RightOutline } from 'antd-mobile-icons';
-import { useAtomValue } from 'jotai';
 import { useCallback, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
@@ -14,8 +13,9 @@ import { ListAccountTypeResponseAllOfDataAccountTypeListItem } from '../../api/m
 import { ReactComponent as SvgChange } from '../../assets/change.svg';
 import { ReactComponent as Arrow } from '../../assets/ic_svg_arrow_2.svg';
 import ic_transfer_point from '../../assets/ic_transfer_point.png';
-import { userAtom } from '../../atoms';
+
 import Screen from '../../components/Screen';
+import { useAuthStore } from '../../stores/auth';
 
 /**
  * 划转
@@ -30,7 +30,7 @@ const TransferCoin = () => {
   const [accountTypeTo, setAccountTypeTo] =
     useState<ListAccountTypeResponseAllOfDataAccountTypeListItem>();
 
-  const user = useAtomValue(userAtom);
+  const { userInfo } = useAuthStore();
 
   const { data } = useAccountListAccountType({
     query: {
@@ -106,11 +106,11 @@ const TransferCoin = () => {
           amount: amount ?? '',
           fromAccountType: accountTypeFrom?.accountType ?? '',
           toAccountType: accountTypeTo?.accountType ?? '',
-          userId: user?.userId ?? '',
+          userId: userInfo?.userId ?? '',
         },
       });
     }
-  }, [accountTransfer, accountTypeFrom, accountTypeTo, amount, user?.userId]);
+  }, [accountTransfer, accountTypeFrom, accountTypeTo, amount, userInfo?.userId]);
 
   const handleChange = useCallback(() => {
     const placeholder = accountTypeTo;

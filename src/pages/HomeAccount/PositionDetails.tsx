@@ -1,13 +1,13 @@
 import { Button, Form, Input, Popup, Toast } from 'antd-mobile';
-import { useAtomValue } from 'jotai';
 import { stringify } from 'query-string';
 import { useCallback, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import { StringParam, useQueryParam } from 'use-query-params';
 import { useProOrderDetail, useProOrderOpen } from '../../api/endpoints/transformer';
-import { userAtom } from '../../atoms';
+
 import Screen from '../../components/Screen';
+import { useAuthStore } from '../../stores/auth';
 
 const PositionDetails = () => {
   const [open, setOpen] = useState(false);
@@ -24,12 +24,12 @@ const PositionDetails = () => {
     },
   );
 
-  const user = useAtomValue(userAtom);
+  const { userInfo } = useAuthStore();
   const history = useHistory();
 
   const toBuySellPage = useCallback(
     (buySell: number) => {
-      if (user) {
+      if (userInfo) {
         history.push({
           pathname: '/trade-lever',
           search: stringify({
@@ -41,7 +41,7 @@ const PositionDetails = () => {
         history.push('/login');
       }
     },
-    [history, symbol, user],
+    [history, symbol, userInfo],
   );
 
   const proOrderOpen = useProOrderOpen({
