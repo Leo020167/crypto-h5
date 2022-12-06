@@ -1,6 +1,7 @@
 import { List, Swiper, Tabs } from 'antd-mobile';
 import { useAtomValue } from 'jotai';
 import { useCallback, useMemo, useState } from 'react';
+import { useIntl } from 'react-intl';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { useHomeAccount, useHomeCropMe } from '../../api/endpoints/transformer';
@@ -52,6 +53,8 @@ const Home = () => {
     },
     [switchColorValue],
   );
+
+  const intl = useIntl();
 
   return (
     <Container className="bg-[#eef3f9] flex-1 overflow-y-auto px-2.5">
@@ -129,23 +132,27 @@ const Home = () => {
       <div className="text-sm font-bold mt-3 shadow-md shadow-black/5 bg-white rounded-lg overflow-hidden h-[100px] px-2.5 flex items-center">
         <Link to="/institution" className="flex flex-col items-center justify-center w-1/5">
           <img alt="" src={tab1_menu1} className="w-9 h-9" />
-          <div className="mt-2.5 text-xs text-[#666666]">金牌機构</div>
+          <div className="mt-2.5 text-xs text-[#666666]">{intl.$t({ id: 'home.institution' })}</div>
         </Link>
         <Link to="" className="flex flex-col items-center justify-center w-1/5">
           <img alt="" src={tab1_menu2} className="w-9 h-9" />
-          <div className="mt-2.5 text-xs text-[#666666]">創新試驗區</div>
+          <div className="mt-2.5 text-xs text-[#666666]">{intl.$t({ id: 'home.innovation' })}</div>
         </Link>
         <Link to="/legal-money" className="flex flex-col items-center justify-center w-1/5">
           <img alt="" src={tab1_menu3} className="w-9 h-9" />
-          <div className="mt-2.5 text-xs text-[#666666]">OTC交易</div>
+          <div className="mt-2.5 text-xs text-[#666666]">
+            {intl.$t({ id: 'home.otcTransaction' })}
+          </div>
         </Link>
         <Link to="/chat" className="flex flex-col items-center justify-center w-1/5">
           <img alt="" src={tab1_menu4} className="w-9 h-9" />
-          <div className="mt-2.5 text-xs text-[#666666]">線上客服</div>
+          <div className="mt-2.5 text-xs text-[#666666]">
+            {intl.$t({ id: 'home.customerService' })}
+          </div>
         </Link>
         <Link to="/pledge" className="flex flex-col items-center justify-center w-1/5">
           <img alt="" src={tab1_menu5} className="w-9 h-9" />
-          <div className="mt-2.5 text-xs text-[#666666]">質押生息</div>
+          <div className="mt-2.5 text-xs text-[#666666]">{intl.$t({ id: 'home.pledge' })}</div>
         </Link>
       </div>
 
@@ -156,19 +163,24 @@ const Home = () => {
             setSortType(key);
           }}
         >
-          <Tabs.Tab title="漲幅榜" key="1" className="text-[#A2A9BC]" destroyOnClose>
+          <Tabs.Tab
+            title={intl.$t({ id: 'home.gainList' })}
+            key="1"
+            className="text-[#A2A9BC]"
+            destroyOnClose
+          >
             <div className="flex items-center px-3">
-              <div className="text-sm w-1/3">名稱</div>
-              <div className="text-sm w-1/3 text-center">最新價</div>
-              <div className="text-sm w-1/3 text-right">漲跌幅</div>
+              <div className="text-sm w-1/3">{intl.$t({ id: 'name' })}</div>
+              <div className="text-sm w-1/3 text-center">{intl.$t({ id: 'latestPrice' })}</div>
+              <div className="text-sm w-1/3 text-right">{intl.$t({ id: 'quoteChange' })}</div>
             </div>
             <Symbols quotes={marketData?.data?.quotes} />
           </Tabs.Tab>
-          <Tabs.Tab title="跌幅榜" key="2" destroyOnClose>
+          <Tabs.Tab title={intl.$t({ id: 'home.dropList' })} key="2" destroyOnClose>
             <div className="flex items-center px-3">
-              <div className="text-sm w-1/3">名稱</div>
-              <div className="text-sm w-1/3 text-center">最新價</div>
-              <div className="text-sm w-1/3 text-right">漲跌幅</div>
+              <div className="text-sm w-1/3">{intl.$t({ id: 'name' })}</div>
+              <div className="text-sm w-1/3 text-center">{intl.$t({ id: 'latestPrice' })}</div>
+              <div className="text-sm w-1/3 text-right">{intl.$t({ id: 'quoteChange' })}</div>
             </div>
             <Symbols quotes={marketData?.data?.quotes} />
           </Tabs.Tab>

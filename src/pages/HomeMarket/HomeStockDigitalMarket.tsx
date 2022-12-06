@@ -1,5 +1,6 @@
 import { List } from 'antd-mobile';
 import { stringify } from 'query-string';
+import { useIntl } from 'react-intl';
 import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import { useMarketData } from '../../market/endpoints/marketWithTransformer';
@@ -14,17 +15,19 @@ const HomeStockDigitalMarket = ({ tab }: { tab: string }) => {
 
   const history = useHistory();
 
+  const intl = useIntl();
+
   return (
     <Container className="h-full flex flex-col text-xs">
       <div className="text-[#666175ae] flex items-center justify-between text-center h-10 px-4">
         <div className="min-w-[100px] text-left">
-          <span>名稱代碼</span>
+          <span>{intl.$t({ id: 'home.market.nameCode' })}</span>
         </div>
         <div className="flex-1">
-          <span>最新價</span>
+          <span>{intl.$t({ id: 'latestPrice' })}</span>
         </div>
         <div className="min-w-[80px]">
-          <span>漲跌幅</span>
+          <span>{intl.$t({ id: 'quoteChange' })}</span>
         </div>
       </div>
       <div className="flex-1 overflow-y-auto">

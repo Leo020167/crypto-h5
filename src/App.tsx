@@ -32,7 +32,7 @@ function App() {
 
   useEffect(() => {
     (async () => {
-      const mod = await import(`./locale/${locale}.json`);
+      const mod = await import(`./lang/${locale}.json`);
       setMessages(mod.default);
     })();
   }, [locale]);

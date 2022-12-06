@@ -3,6 +3,7 @@ import currency from 'currency.js';
 import { useAtom } from 'jotai';
 import { stringify } from 'query-string';
 import { useCallback, useMemo } from 'react';
+import { useIntl } from 'react-intl';
 import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import { NumberParam, StringParam, useQueryParam, withDefault } from 'use-query-params';
@@ -121,6 +122,8 @@ const Market = () => {
     [history, isLever, symbol, userInfo],
   );
 
+  const intl = useIntl();
+
   return (
     <Container className="h-screen min-h-0 text-white flex flex-col">
       <NavBar onBack={() => history.goBack()}>
@@ -158,15 +161,15 @@ const Market = () => {
 
           <div className="text-xs flex flex-col gap-2">
             <div className="flex justify-between">
-              <span className="w-8 text-gray-400">高</span>
+              <span className="w-8 text-gray-400">{intl.$t({ id: 'high' })}</span>
               <span className="text-white">{real?.high ?? '0.00'}</span>
             </div>
             <div className="flex justify-between">
-              <span className="w-8 text-gray-400">低</span>
+              <span className="w-8 text-gray-400">{intl.$t({ id: 'low' })}</span>
               <span className="text-white">{real?.low ?? '0.00'}</span>
             </div>
             <div className="flex justify-between">
-              <span className="w-8 text-gray-400">量</span>
+              <span className="w-8 text-gray-400">{intl.$t({ id: 'volume' })}</span>
               <span className="text-white">{real?.amount ?? '0'}</span>
             </div>
           </div>

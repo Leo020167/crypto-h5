@@ -1,5 +1,6 @@
 import { TabBar } from 'antd-mobile';
-import { lazy, Suspense } from 'react';
+import { lazy, Suspense, useMemo } from 'react';
+import { useIntl } from 'react-intl';
 import { Redirect, Route, Switch, useHistory, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -73,37 +74,43 @@ const HomeMarket = lazy(() => import('./pages/HomeMarket'));
 const HomeAccount = lazy(() => import('./pages/HomeAccount'));
 const Home = lazy(() => import('./pages/Home'));
 
-const tabs = [
-  {
-    key: '/home',
-    title: '首页',
-    icon: <HomeTabSvg className="h-6" />,
-  },
-  {
-    key: '/home/market',
-    title: '行情',
-    icon: <HomeTabMarkSvg className="h-6" />,
-  },
-  {
-    key: '/home/account',
-    title: '賬戶',
-    icon: <HomeTabAccount className="h-6" />,
-  },
-  {
-    key: '/home/community',
-    title: '社区',
-    icon: <HomeTabFollow className="h-6" />,
-  },
-  {
-    key: '/home/my',
-    title: '我的',
-    icon: <HomeTabMineSvg className="h-6" />,
-  },
-];
-
 const HomeTabs = () => {
   const location = useLocation();
   const history = useHistory();
+
+  const intl = useIntl();
+
+  const tabs = useMemo(
+    () => [
+      {
+        key: '/home',
+        title: intl.$t({ id: 'app.home' }),
+        icon: <HomeTabSvg className="h-6" />,
+      },
+      {
+        key: '/home/market',
+        title: intl.$t({ id: 'app.market' }),
+        icon: <HomeTabMarkSvg className="h-6" />,
+      },
+      {
+        key: '/home/account',
+        title: intl.$t({ id: 'app.account' }),
+        icon: <HomeTabAccount className="h-6" />,
+      },
+      {
+        key: '/home/community',
+        title: intl.$t({ id: 'app.community' }),
+        icon: <HomeTabFollow className="h-6" />,
+      },
+      {
+        key: '/home/my',
+        title: intl.$t({ id: 'app.my' }),
+        icon: <HomeTabMineSvg className="h-6" />,
+      },
+    ],
+    [intl],
+  );
+
   return (
     <Container className="h-screen relative flex flex-col">
       <div className="content flex flex-col">

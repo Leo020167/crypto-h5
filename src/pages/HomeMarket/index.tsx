@@ -1,14 +1,9 @@
 import { NavBar, Swiper, SwiperRef, Tabs } from 'antd-mobile';
-import { useRef } from 'react';
+import { useMemo, useRef } from 'react';
+import { useIntl } from 'react-intl';
 import styled from 'styled-components';
 import { NumberParam, useQueryParam, withDefault } from 'use-query-params';
 import HomeStockDigitalMarket from './HomeStockDigitalMarket';
-
-const tabItems = [
-  { key: '0', title: '全球期指' },
-  { key: '1', title: '合約' },
-  { key: '2', title: '幣幣' },
-];
 
 const ActiveIndexParam = withDefault(NumberParam, 0);
 
@@ -17,9 +12,19 @@ const HomeMarket = () => {
 
   const [activeIndex, setActiveIndex] = useQueryParam('tab', ActiveIndexParam);
 
+  const intl = useIntl();
+  const tabItems = useMemo(
+    () => [
+      { key: '0', title: intl.$t({ id: 'home.market.globalFutures' }) },
+      { key: '1', title: intl.$t({ id: 'home.market.contracts' }) },
+      { key: '2', title: intl.$t({ id: 'home.market.currency' }) },
+    ],
+    [intl],
+  );
+
   return (
     <Container className="flex-1 flex flex-col min-h-0 bg-white">
-      <NavBar back={null}>行情</NavBar>
+      <NavBar back={null}>{intl.$t({ id: 'home.market' })}</NavBar>
 
       <Tabs
         className="flex items-center justify-center"

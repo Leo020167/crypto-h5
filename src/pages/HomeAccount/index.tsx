@@ -1,6 +1,8 @@
 import { Swiper, SwiperRef, Tabs } from 'antd-mobile';
-import { useRef } from 'react';
+import { useMemo, useRef } from 'react';
+import { useIntl } from 'react-intl';
 import { Link } from 'react-router-dom';
+import { useInterval } from 'react-use';
 import styled from 'styled-components';
 import { StringParam, useQueryParam } from 'use-query-params';
 import { useHomeAccount } from '../../api/endpoints/transformer';
@@ -11,24 +13,28 @@ import HomeSpotAccount from './HomeSpotAccount';
 import HomeStockAccount from './HomeStockAccount';
 import HomeTokenAccount from './HomeTokenAccount';
 
-const tabItems = [
-  { key: '0', title: '餘額' },
-  { key: '1', title: 'TFU' },
-  { key: '2', title: '跟單帳戶' },
-  { key: '3', title: '全球期指帳戶' },
-  { key: '4', title: '合約帳戶' },
-  { key: '5', title: '幣幣帳戶' },
-];
-
 const HomeAccount = () => {
   const swiperRef = useRef<SwiperRef>(null);
 
   const [tab, setTab] = useQueryParam('tab', StringParam);
 
-  const { data } = useHomeAccount();
+  const { data, refetch } = useHomeAccount();
+
+  const intl = useIntl();
+  const tabItems = useMemo(
+    () => [
+      { key: '0', title: intl.$t({ id: 'balance' }) },
+      { key: '1', title: intl.$t({ id: 'TFU' }) },
+      { key: '2', title: '跟單帳戶' },
+      { key: '3', title: '全球期指帳戶' },
+      { key: '4', title: '合約帳戶' },
+      { key: '5', title: '幣幣帳戶' },
+    ],
+    [intl],
+  );
 
   // TODO 什麽情況下會定時更新
-  // useInterval(() => refetch(), 1000);
+  useInterval(() => refetch(), 1000);
 
   return (
     <Container className="h-screen min-h-0 relative flex flex-col bg-gray-100">
