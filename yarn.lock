@@ -4512,7 +4512,7 @@ __metadata:
     eslint-plugin-react: ^7.31.11
     eslint-plugin-react-hooks: ^4.6.0
     immer: ^9.0.16
-    jotai: ^1.11.0
+    jotai: ^1.11.1
     js-md5: ^0.7.3
     lodash-es: ^4.17.21
     moment: ^2.29.4
@@ -5495,9 +5495,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jotai@npm:^1.11.0":
-  version: 1.11.0
-  resolution: "jotai@npm:1.11.0"
+"jotai@npm:^1.11.1":
+  version: 1.11.1
+  resolution: "jotai@npm:1.11.1"
   peerDependencies:
     "@babel/core": "*"
     "@babel/template": "*"
@@ -5531,7 +5531,7 @@ __metadata:
       optional: true
     jotai-zustand:
       optional: true
-  checksum: 9cac4074d8eded12bfcbb20bf9d3038c69060e4a56db398954351e41fb49a5ceb5fd178fb8f29d23a58d4e49ccc592bd7fc82dcce3387618b196ff32bb937634
+  checksum: a311aa2d91cd7c077b2a632fdbcd7948e24d627ccd162cac5a875c6a14fba4eb873aa6d096afc17b00e87b96282d442c0c52dd07250ae70bea077e94b7b9b3d0
   languageName: node
   linkType: hard
 

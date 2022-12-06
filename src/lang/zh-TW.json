@@ -1,60 +1,822 @@
 {
+  "+2zznO": {
+    "string": "請輸入短信驗證碼"
+  },
+  "+4lD9e": {
+    "string": "姓名"
+  },
+  "+9Acwm": {
+    "string": "我確認收到付款"
+  },
+  "+JdgDW": {
+    "string": "進行中"
+  },
+  "+PkU4R": {
+    "string": "綁定郵箱"
+  },
+  "+ZvENE": {
+    "string": "數量(手)"
+  },
+  "+eQ50+": {
+    "string": "設置"
+  },
+  "+prpsi": {
+    "string": "訂閱數"
+  },
+  "+sZUWv": {
+    "string": "一個月"
+  },
+  "+ulzus": {
+    "string": "請上傳國徽照"
+  },
+  "/+9l+X": {
+    "string": "申訴提醒"
+  },
+  "/4Nsnx": {
+    "string": "行情刷新频率设置"
+  },
+  "/7LMEm": {
+    "string": "確定刪除?"
+  },
+  "/AVS2G": {
+    "string": "解倉時間"
+  },
+  "/EvoLI": {
+    "string": "我已閲讀並同意"
+  },
   "/I+pby": {
     "string": "我的"
+  },
+  "/T0l4z": {
+    "string": "每日利息"
+  },
+  "/k9TmU": {
+    "string": "盈虧(USDT)"
+  },
+  "/nvKfb": {
+    "string": "提起申訴後資產將會凍結，申訴專員將介入本次交易，直至申訴結束。惡意申訴屬於擾亂平台正常運營秩序的行為，情節嚴重將凍結賬戶。"
+  },
+  "/slM7z": {
+    "string": "預計收益"
+  },
+  "0B0jPm": {
+    "string": "天"
+  },
+  "0UBtXx": {
+    "string": "提交申請成功"
+  },
+  "0asaCS": {
+    "string": "圖片"
+  },
+  "0vuz1g": {
+    "string": "新增收款方式"
+  },
+  "161suA": {
+    "string": "質押"
   },
   "1cJMw5": {
     "string": "去綁定"
   },
+  "1sn0tp": {
+    "string": "銀行卡"
+  },
+  "1y6X+M": {
+    "string": "買家姓名"
+  },
+  "2+1H1y": {
+    "string": "是否訂閲該用戶？"
+  },
   "20MJBj": {
     "string": "TFU"
+  },
+  "297aFF": {
+    "string": "保證金比例"
+  },
+  "2FTlRq": {
+    "string": "支付寶"
+  },
+  "2QzYmY": {
+    "string": "取消"
+  },
+  "2S6+KD": {
+    "string": "最低金額"
+  },
+  "2Y1clI": {
+    "string": "更换手机号码"
+  },
+  "2a4k+m": {
+    "string": "已加载全部"
+  },
+  "2cS2Q3": {
+    "string": "密必须是8 -16位字、字母组合"
+  },
+  "2fmtw4": {
+    "string": "請輸入地址"
+  },
+  "2lQGkw": {
+    "string": "客服"
+  },
+  "2yjenl": {
+    "string": "請輸入止盈價"
+  },
+  "3Ced22": {
+    "string": "賣家姓名"
+  },
+  "3Zwkix": {
+    "string": "自选区"
+  },
+  "3a7HVy": {
+    "string": "購買中"
+  },
+  "3cuhJj": {
+    "string": "注冊賬號"
+  },
+  "3gspHW": {
+    "string": "凍結金額"
+  },
+  "3s7D9W": {
+    "string": "購買數量"
+  },
+  "3tf3AE": {
+    "string": "如您已經向賣家付款，請不要取消訂單"
+  },
+  "3vyRBa": {
+    "string": "請先上傳充值截圖"
+  },
+  "3yGSyj": {
+    "string": "請輸入最小限額"
+  },
+  "42JqYW": {
+    "string": "訂單時間"
+  },
+  "42lMqW": {
+    "string": "添加银行卡"
+  },
+  "42lXMM": {
+    "string": "提币"
+  },
+  "45GFMc": {
+    "string": "請輸入充值金額"
+  },
+  "4FDcHK": {
+    "string": "输入验证码"
+  },
+  "4NqD9g": {
+    "string": "已成功"
+  },
+  "4Oh5kb": {
+    "string": "交易收益"
+  },
+  "4Qsef4": {
+    "string": "解釋：高手最近30天跟單人數，數值越大，代表跟隨者越多，人氣越高。"
+  },
+  "4V3iak": {
+    "string": "平倉明細"
   },
   "4ivSMB": {
     "string": "總資產(TFU)"
   },
+  "56o47p": {
+    "string": "郵箱驗證碼"
+  },
+  "5FboZ/": {
+    "string": "类型"
+  },
+  "5UBWei": {
+    "string": "交易金額({currencySign})"
+  },
   "5kTIPB": {
     "string": "低"
+  },
+  "5nalmK": {
+    "string": "止損價"
+  },
+  "5qldgM": {
+    "string": "選擇反面"
+  },
+  "5zfR27": {
+    "string": "出售"
+  },
+  "63r2yf": {
+    "string": "請輸入密碼"
+  },
+  "64eliW": {
+    "string": "我的廣告"
+  },
+  "65CX2o": {
+    "string": "头像"
+  },
+  "672nEV": {
+    "string": "獲取成功"
+  },
+  "6Dthl9": {
+    "string": "跟單收益率"
+  },
+  "6EjbHU": {
+    "string": "詳情"
   },
   "6ExJHy": {
     "string": "合約"
   },
+  "6T3Qx4": {
+    "string": "當前鏈路："
+  },
+  "6Y0p2/": {
+    "string": "下一步"
+  },
+  "6jT3zt": {
+    "string": "你确定要注销吗?"
+  },
+  "6w/mMH": {
+    "string": "红涨绿跌"
+  },
+  "6zlqMT": {
+    "string": "設置新密碼(8-16位字、字母組合)"
+  },
   "7AsBpi": {
     "string": "未實現盈虧(USDT)"
+  },
+  "7C3q18": {
+    "string": "可用"
+  },
+  "7IlbnR": {
+    "string": "申請取消商家認證"
+  },
+  "7KOsNC": {
+    "string": "关于我们"
+  },
+  "7Km8jt": {
+    "string": "請寫下您想對賣家/買家說的話！（限140字）"
+  },
+  "7WxsZY": {
+    "string": "取消規則：買家當日累計4筆取消， 會限制當日買入功能。"
   },
   "7iWsp4": {
     "string": "風險率"
   },
+  "7oGHtt": {
+    "string": "請選擇收付款方式"
+  },
+  "7rLwaw": {
+    "string": "我的提幣地址"
+  },
+  "7xCHrU": {
+    "string": "總盈虧(USDT)"
+  },
+  "84nlVd": {
+    "string": "請輸入正整數"
+  },
+  "8Jc445": {
+    "string": "是否確定下架?"
+  },
+  "8OyLEv": {
+    "string": "盈開倉價"
+  },
+  "8Pdrch": {
+    "string": "選擇充幣網絡"
+  },
+  "8TceES": {
+    "string": "系統會為您篩選包含目標金額的商品"
+  },
+  "8p3RD/": {
+    "string": "重新获取"
+  },
+  "9+4/A7": {
+    "string": "盈利分成:"
+  },
+  "91IYT/": {
+    "string": "持倉手數{openHand}"
+  },
+  "91nAu+": {
+    "string": "提幣數量不足"
+  },
+  "92MTUG": {
+    "string": "證件號碼"
+  },
+  "958kN+": {
+    "string": "登錄密碼"
+  },
+  "98NP8A": {
+    "string": "賬戶未實名"
+  },
+  "9DlDCO": {
+    "string": "請輸入賣出數量"
+  },
+  "9ErIMe": {
+    "string": "請輸入幣種"
+  },
+  "9UZxwP": {
+    "string": "请输入验证码"
+  },
+  "9V7qTC": {
+    "string": "發送"
+  },
+  "9piGP6": {
+    "string": "开户姓名"
+  },
+  "9wuU2o": {
+    "string": "委托记录"
+  },
+  "9x6bNN": {
+    "string": "訂單已經超時"
+  },
+  "A20Ity": {
+    "string": "注册即代表你已同意并接受"
+  },
+  "A2jxOW": {
+    "string": "我的社區"
+  },
+  "A3Awd7": {
+    "string": "風險提示書"
+  },
+  "A53KYY": {
+    "string": "確認前請仔細核對提幣地址信息，以避免造成不必要的財產損失。"
+  },
+  "A7hKV4": {
+    "string": "交易金額"
+  },
+  "A8sxJT": {
+    "string": "已訂閱"
+  },
+  "AC5dLK": {
+    "string": "充值數量"
+  },
+  "ASHrJh": {
+    "string": "添加廣告"
+  },
+  "AlC2M4": {
+    "string": "跟單勝率"
+  },
+  "Au/GQB": {
+    "string": "请输入开户银行"
+  },
+  "B+KT/l": {
+    "string": "手機號碼不能為空"
+  },
+  "B+YBvr": {
+    "string": "退出登录"
+  },
+  "B+wVLW": {
+    "string": "(以當前市價成交)"
+  },
+  "B6j8h5": {
+    "string": "类型选择"
+  },
+  "BHh721": {
+    "string": "狀態:"
+  },
+  "BO7t+j": {
+    "string": "前往實名"
+  },
+  "BRtAE8": {
+    "string": "幫助中心"
+  },
+  "BSPQ7h": {
+    "string": "最大"
+  },
+  "BXndbT": {
+    "string": "保存語言設置"
+  },
+  "BbSb0z": {
+    "string": "修改"
+  },
+  "Be30m1": {
+    "string": "備注"
+  },
+  "Bj/Ifv": {
+    "string": "出售USDT"
+  },
+  "Bp4Dlk": {
+    "string": "請輸入倍數"
+  },
+  "Brhkdh": {
+    "string": "粘貼"
+  },
+  "BsrEsf": {
+    "string": "社區人數："
+  },
+  "BxvrdK": {
+    "string": "確定刪除該地址嗎？"
+  },
+  "Bzq9W2": {
+    "string": "請輸入驗證碼"
+  },
+  "C8HXvQ": {
+    "string": "短信驗證碼"
+  },
+  "C8ZFaR": {
+    "string": "筛选"
+  },
+  "CKdped": {
+    "string": "委托"
+  },
+  "CTWCcu": {
+    "string": "全部買入"
+  },
+  "CbGK63": {
+    "string": "當前購買最高價"
+  },
+  "ChK/7j": {
+    "string": "到"
+  },
+  "ClVjxw": {
+    "string": "開倉價"
+  },
+  "CuGKWh": {
+    "string": "請輸入數量"
+  },
+  "DNlbBz": {
+    "string": "郵箱或手機"
+  },
+  "DRC113": {
+    "string": "{symbol}現價"
+  },
+  "DSV3lz": {
+    "string": "訂單號"
+  },
+  "DobpJi": {
+    "string": "系統通知"
+  },
+  "DpnauN": {
+    "string": "时间"
+  },
+  "Dq6c3S": {
+    "string": "選擇正面"
+  },
   "DsGgac": {
     "string": "跌幅榜"
+  },
+  "Du+HBZ": {
+    "string": "您已通過實名認證"
+  },
+  "Dw4KtW": {
+    "string": "複製"
+  },
+  "E5sgW+": {
+    "string": "可交易標的"
+  },
+  "E7wFmB": {
+    "string": "刷新频率设置"
+  },
+  "EMjkQg": {
+    "string": "請輸入手機號碼"
+  },
+  "EN7oPQ": {
+    "string": "委託價"
+  },
+  "ENPgS/": {
+    "string": "提交"
+  },
+  "EOWvn9": {
+    "string": "賣出"
+  },
+  "ETWocP": {
+    "string": "邀請碼數量："
+  },
+  "EVLNlH": {
+    "string": "請輸入質押數量"
+  },
+  "EXoXnp": {
+    "string": "總交易手數"
+  },
+  "EYBWHx": {
+    "string": "價格最優"
+  },
+  "EZtA6l": {
+    "string": "請選擇提幣地址"
+  },
+  "EmziDl": {
+    "string": "最小充值金額(USDT)"
+  },
+  "FXys9B": {
+    "string": "輸入舊密碼"
+  },
+  "FqoFLn": {
+    "string": "價格約"
+  },
+  "G0ISee": {
+    "string": "人氣指數"
+  },
+  "G5BgHI": {
+    "string": "申請綁定"
   },
   "G9QNOq": {
     "string": "創新實驗區"
   },
+  "GBuUew": {
+    "string": "已複製到粘貼板"
+  },
+  "GDglvI": {
+    "string": "最小質押數量"
+  },
+  "GFzduc": {
+    "string": "申訴留言(可選)"
+  },
+  "GKRXXt": {
+    "string": "獲得FireCoin"
+  },
+  "GO/P/E": {
+    "string": "添加提幣地址"
+  },
+  "GSpULh": {
+    "string": "總收益(USDT)"
+  },
+  "GVXj0E": {
+    "string": "退出成功"
+  },
+  "Gx5Krn": {
+    "string": "充值確認"
+  },
+  "H+7dPx": {
+    "string": "解釋：跟隨高手的用戶最近30天平均每筆交易的收益率。數值越大，代表跟隨高手的用戶收益越好。"
+  },
+  "H0Cdjg": {
+    "string": "搜索家或地区"
+  },
+  "H4vld2": {
+    "string": "開倉保證金"
+  },
+  "HBqJuk": {
+    "string": "已實名"
+  },
+  "HCvPwM": {
+    "string": "请输入數量"
+  },
+  "HDx5DM": {
+    "string": "全球期指交易記錄"
+  },
+  "HEzFXJ": {
+    "string": "{receiptTypeValue}號"
+  },
+  "HMxoED": {
+    "string": "一年内"
+  },
+  "HaILNu": {
+    "string": "上架"
+  },
+  "HbPiga": {
+    "string": "已下架"
+  },
+  "HcSaEz": {
+    "string": "您目前的郵箱是{email}，想要把它更新為？"
+  },
+  "HeL/t7": {
+    "string": "購買USDT"
+  },
+  "HmiIeC": {
+    "string": "是否確定上架?"
+  },
+  "HpbXNh": {
+    "string": "虧損補貼:"
+  },
   "Hv1Nr8": {
     "string": "行情"
+  },
+  "IFXGBR": {
+    "string": "請先進行商家認證"
+  },
+  "IRtvek": {
+    "string": "已結束"
   },
   "IbtpXH": {
     "string": "總資產(USDT)"
   },
+  "IoCgCq": {
+    "string": "總資產"
+  },
+  "J1sdOC": {
+    "string": "質押結束時間"
+  },
+  "J5FSqv": {
+    "string": "免費訂閱"
+  },
   "JI87J/": {
     "string": "法幣購買"
+  },
+  "JVHhgb": {
+    "string": "《FireUP用户协议》"
+  },
+  "JYhyDW": {
+    "string": "已入住{days}天"
+  },
+  "Jgy7GK": {
+    "string": "驗證碼已發送至，{email}"
+  },
+  "JuFr3z": {
+    "string": "賣出價"
+  },
+  "K9M/Ln": {
+    "string": "類型"
+  },
+  "K9kVz9": {
+    "string": "只有將資產划轉到相對應的賬戶才可以進行交易。賬戶間的划轉不收取手續費"
+  },
+  "KAHC21": {
+    "string": "去付款"
+  },
+  "KBVp8X": {
+    "string": "请输入手机号"
   },
   "KC9/eD": {
     "string": "可用資產"
   },
+  "KCC04w": {
+    "string": "輸入數量"
+  },
+  "KCMRBl": {
+    "string": "是否以當前市價平倉{openHand}？"
+  },
+  "KF8CBJ": {
+    "string": "我再想想"
+  },
+  "KLriKo": {
+    "string": "已成交"
+  },
+  "KNgmr/": {
+    "string": "持倉手數"
+  },
+  "KuONpk": {
+    "string": "請輸入提幣數量"
+  },
+  "KyHiY3": {
+    "string": "持倉保證金"
+  },
+  "KyuHZw": {
+    "string": "當前開倉"
+  },
+  "KzQKst": {
+    "string": "跟單倍數設置"
+  },
   "L2Dpi5": {
     "string": "全球期指帳戶"
+  },
+  "LC8/+u": {
+    "string": "请获取短信验证"
+  },
+  "LEah6f": {
+    "string": "我要卖"
   },
   "LJ33pi": {
     "string": "社區"
   },
+  "LLn6Tg": {
+    "string": "請輸入最大限額"
+  },
+  "LOwS8B": {
+    "string": "未實名"
+  },
+  "LRqmws": {
+    "string": "划转数量"
+  },
+  "LTp8Pi": {
+    "string": "更新信息成功"
+  },
+  "LZqmso": {
+    "string": "到期時間"
+  },
+  "LaFd5t": {
+    "string": "开户银行"
+  },
+  "Lj6xLm": {
+    "string": "换一张"
+  },
   "Ls3qou": {
     "string": "金牌機構"
+  },
+  "MG99Vk": {
+    "string": "合約交易記錄"
+  },
+  "MGGEAi": {
+    "string": "请输入银行卡号"
+  },
+  "MN40Dh": {
+    "string": "證件號"
+  },
+  "MPJViy": {
+    "string": "请再次输入密码"
+  },
+  "MQKv1T": {
+    "string": "社區總獎勵(TFU)"
+  },
+  "MTyrlB": {
+    "string": "密必须是8-16位字、字母组合"
+  },
+  "MXqXyk": {
+    "string": "請輸入證件號"
+  },
+  "MYqUqI": {
+    "string": "發送驗證碼"
+  },
+  "Ma2fRl": {
+    "string": "質押開始時間"
+  },
+  "MeeLjX": {
+    "string": "申購凍結({a}-{b})"
+  },
+  "Mj7nsK": {
+    "string": "當前委托"
+  },
+  "MmsEyp": {
+    "string": "注册"
+  },
+  "NH0fE1": {
+    "string": "金牌機构排行榜"
+  },
+  "NL+iCs": {
+    "string": "狀態"
+  },
+  "NNH82R": {
+    "string": "取消訂單"
+  },
+  "NQroRs": {
+    "string": "市價委托"
+  },
+  "NUeill": {
+    "string": "提幣地址"
+  },
+  "NZTO6Y": {
+    "string": "請輸入郵箱"
   },
   "NdxUVx": {
     "string": "查看如何獲取TFU"
   },
+  "NlcysC": {
+    "string": "請輸入郵箱號"
+  },
+  "Nlt2yU": {
+    "string": "倍"
+  },
+  "NxOp7s": {
+    "string": "0手續費購買"
+  },
+  "O1q1uh": {
+    "string": "兌換邀請碼"
+  },
+  "O3bb/6": {
+    "string": "方式"
+  },
+  "O3jk1+": {
+    "string": "商家認證"
+  },
+  "O4KgNk": {
+    "string": "性别"
+  },
+  "OTiy6F": {
+    "string": "提幣地址管理"
+  },
+  "OxlDIl": {
+    "string": "涨跌颜色设置"
+  },
   "P+t8ta": {
     "string": "折合(USDT)"
+  },
+  "P8YUAQ": {
+    "string": "跟單人氣"
+  },
+  "PA9DRl": {
+    "string": "參與質押"
+  },
+  "PHMSxi": {
+    "string": "下單"
+  },
+  "PUWCuy": {
+    "string": "申購時間"
+  },
+  "PYgwg0": {
+    "string": "留言不能超過300個字符"
+  },
+  "Pg99aL": {
+    "string": "確定刪除"
+  },
+  "Q4foHv": {
+    "string": "充幣地址"
+  },
+  "Q9qgiz": {
+    "string": "intl"
+  },
+  "QInuMW": {
+    "string": "添加賬戶類型"
+  },
+  "QLilYb": {
+    "string": "劃轉"
+  },
+  "QQdpxX": {
+    "string": "保證金用於發佈出售或購買USDT廣告，提交認證信息即時從資產餘額中進行凍結。"
+  },
+  "QWavza": {
+    "string": "到期:"
+  },
+  "Qg/P8m": {
+    "string": "實付款"
+  },
+  "Qka2kz": {
+    "string": "賣家暱稱"
+  },
+  "Qyvn9e": {
+    "string": "请输入交易密码"
+  },
+  "R0bpcH": {
+    "string": "您暫未發佈廣告～"
   },
   "R3Xfcn": {
     "string": "質押生息"
@@ -62,11 +824,26 @@
   "R4Ww2H": {
     "string": "賬戶"
   },
+  "RDdf7n": {
+    "string": "解釋：跟隨高手盈利的幾率。數值越大，代表跟單獲利的可能性就越高。"
+  },
+  "RGKUXx": {
+    "string": "請輸入兌換數量"
+  },
   "RHvMTR": {
     "string": "市值(USDT)"
   },
+  "RXCFfg": {
+    "string": "幣幣交易記錄"
+  },
+  "RXYW6s": {
+    "string": "請輸入出售數量"
+  },
   "ReRVZ/": {
     "string": "未綁定"
+  },
+  "RtJnaj": {
+    "string": "请输入姓名"
   },
   "RwgA6k": {
     "string": "全球期指"
@@ -74,88 +851,874 @@
   "Rx1AtW": {
     "string": "凍結(USDT)"
   },
+  "S/yKCZ": {
+    "string": "出售數量"
+  },
+  "S7E2WU": {
+    "string": "請務必使用與您註冊手機號碼一致的實名賬號"
+  },
+  "ST/9QH": {
+    "string": "快捷区"
+  },
+  "SaqkUp": {
+    "string": "報價貨幣"
+  },
+  "Snhxet": {
+    "string": "相同賬戶之間不能划轉"
+  },
+  "Snj6vy": {
+    "string": "最高倍數:"
+  },
+  "StIa2l": {
+    "string": "簡介:"
+  },
+  "Sz8zFH": {
+    "string": "解釋：高高手最近30天平均每筆交易的收益率。數值越大，代表個人盈利能力越強。"
+  },
+  "TByK7F": {
+    "string": "输入划转数量"
+  },
+  "THckAT": {
+    "string": "訂閱已過期"
+  },
+  "TT0rUo": {
+    "string": "設定止盈止損"
+  },
+  "TZUB/k": {
+    "string": "支付方式"
+  },
+  "Telt8H": {
+    "string": "開戶銀行"
+  },
+  "Tq9EwF": {
+    "string": "買家暱稱"
+  },
+  "Tw8y2o": {
+    "string": "請輸入手數"
+  },
+  "U99CrO": {
+    "string": "輸入證件資訊"
+  },
+  "UA7E9h": {
+    "string": "收款方式"
+  },
   "UBT8f1": {
     "string": "跟單凍結資產"
   },
   "UD6XMk": {
     "string": "划轉"
   },
+  "UH1kCc": {
+    "string": "添加"
+  },
   "UT6tN2": {
     "string": "幣幣"
+  },
+  "UVGoM9": {
+    "string": "上月收益(USDT)"
+  },
+  "UWUjVA": {
+    "string": "法幣買賣"
   },
   "UX7lUm": {
     "string": "跟單機构"
   },
+  "UXkrvR": {
+    "string": "確定撤銷訂單"
+  },
+  "UXyFaa": {
+    "string": "手續費"
+  },
+  "UZappM": {
+    "string": "请输入價格"
+  },
+  "Uamdul": {
+    "string": "请输入新手机号码"
+  },
+  "UgHO9l": {
+    "string": "三個月"
+  },
+  "UkiaYk": {
+    "string": "請輸入身份證號碼"
+  },
+  "UvWwpv": {
+    "string": "實名認證成功"
+  },
+  "Uw5tn0": {
+    "string": "認證日期"
+  },
+  "V1f0Zb": {
+    "string": "转出账户选择"
+  },
+  "V4Iau9": {
+    "string": "全部出售"
+  },
+  "VEmd9D": {
+    "string": "系統消息"
+  },
+  "VU6g7c": {
+    "string": "请输入邀请码(选填)"
+  },
+  "VXMi89": {
+    "string": "以當前最優價格交易"
+  },
   "VYKM4q": {
     "string": "合約帳戶"
+  },
+  "VbE2gD": {
+    "string": "確認新密碼"
+  },
+  "VldACD": {
+    "string": "已實名認證"
+  },
+  "VqH7F0": {
+    "string": "操作超時"
+  },
+  "Vt3fSC": {
+    "string": "倍數"
+  },
+  "VvurtK": {
+    "string": "订单记录"
+  },
+  "W+d7SX": {
+    "string": "開倉時間"
+  },
+  "W6smHj": {
+    "string": "時間"
   },
   "WDcvta": {
     "string": "跟單帳戶"
   },
+  "WKCB03": {
+    "string": "可兌換數量："
+  },
+  "WKYPpM": {
+    "string": "质押生息"
+  },
+  "WLF2E0": {
+    "string": "收款管理"
+  },
+  "WrleG5": {
+    "string": "更換語言"
+  },
+  "Wrputc": {
+    "string": "解釋：跟隨高手的用戶最近30天盈虧總金額。"
+  },
+  "WyPuru": {
+    "string": "單價"
+  },
+  "X/X8Ge": {
+    "string": "委託金額(USDT)"
+  },
+  "XJfx+x": {
+    "string": "正在申請取消商家認證"
+  },
+  "XNQjr/": {
+    "string": "交易次數"
+  },
+  "XNz8uP": {
+    "string": "可用餘額"
+  },
+  "XR6wlA": {
+    "string": "《FireUp隐私条款》"
+  },
+  "XWzDpA": {
+    "string": "我已付款成功"
+  },
+  "Xagh1G": {
+    "string": "下架"
+  },
   "XddKO7": {
     "string": "隐藏0资产"
+  },
+  "Xj/GCF": {
+    "string": "認證狀態"
+  },
+  "XkGx1k": {
+    "string": "總價"
+  },
+  "Xr6MgR": {
+    "string": "拖動圖片完成驗證"
+  },
+  "Y+Wlw4": {
+    "string": "請輸入郵箱驗證碼"
+  },
+  "Y2Ed0L": {
+    "string": "請輸入銀行卡號"
+  },
+  "YJwfmY": {
+    "string": "開倉手續費"
+  },
+  "YYra8Q": {
+    "string": "數量"
+  },
+  "YcfcO0": {
+    "string": "短信验证码已经发送至{phone}"
+  },
+  "YvriPY": {
+    "string": "记录"
+  },
+  "Yy75R8": {
+    "string": "实名认证"
   },
   "ZH7DS8": {
     "string": "漲幅榜"
   },
+  "ZOabtQ": {
+    "string": "申訴截圖(可選)"
+  },
+  "ZP7om0": {
+    "string": "請輸入平倉手數"
+  },
   "ZU9FqB": {
     "string": "名稱"
+  },
+  "ZbI0hT": {
+    "string": "確認取消訂單"
+  },
+  "Zg9Cm+": {
+    "string": "未實名不能申請商家認證"
+  },
+  "Zhkpb8": {
+    "string": "只允許充值"
+  },
+  "aD/9at": {
+    "string": "數量(TFU)"
+  },
+  "aOp/5l": {
+    "string": "未實名不能申請商家認證，請實名認證後，在提交商家認證申請。"
+  },
+  "aaQVo1": {
+    "string": "盈利(USDT)"
+  },
+  "ag8LxW": {
+    "string": "未设置"
+  },
+  "anbdi0": {
+    "string": "買入點差"
   },
   "andeZs": {
     "string": "提幣"
   },
+  "ans63b": {
+    "string": "帳戶未實名"
+  },
+  "ap+l4f": {
+    "string": "請輸入購買數量"
+  },
+  "b5Yvc8": {
+    "string": "認證中"
+  },
+  "b5l2vN": {
+    "string": "保存"
+  },
+  "b6Krbb": {
+    "string": "交易記錄"
+  },
+  "bKoTT3": {
+    "string": "請確認您已向賣家付款"
+  },
+  "bOeVuL": {
+    "string": "已入駐{days}天"
+  },
+  "bW0/mN": {
+    "string": "請輸入價格"
+  },
+  "bi/Yk/": {
+    "string": "跟單盈利額"
+  },
+  "bpymDW": {
+    "string": "選擇交易類型"
+  },
+  "brzlNv": {
+    "string": "保證金"
+  },
   "bsSd3V": {
     "string": "首頁"
+  },
+  "bwIAbr": {
+    "string": "未添加账户"
+  },
+  "bweeFF": {
+    "string": "實名認證中心"
+  },
+  "bwg6o7": {
+    "string": "請輸入開戶銀行名稱"
+  },
+  "c6kvxO": {
+    "string": "已使用"
+  },
+  "cBWJI5": {
+    "string": "看漲(做多)"
+  },
+  "cQiVhL": {
+    "string": "惡意點擊將直接凍結賬戶"
+  },
+  "cbYoMn": {
+    "string": "爲了保證你的賬號安全，請驗證身份"
+  },
+  "cde9b7": {
+    "string": "止盈價格"
+  },
+  "cjFoGi": {
+    "string": "看漲"
+  },
+  "cuM+vo": {
+    "string": "未知類型"
+  },
+  "cx0QNu": {
+    "string": "我要买"
+  },
+  "dGBGbt": {
+    "string": "全部"
   },
   "dKX04w": {
     "string": "餘額賬戶總資產(USDT)"
   },
+  "ddZtfx": {
+    "string": "請輸入姓名"
+  },
+  "dfCJ6D": {
+    "string": "请编辑个人简介"
+  },
+  "dfT5lg": {
+    "string": "手机注册"
+  },
+  "dhfg6B": {
+    "string": "止損價格"
+  },
+  "dqhJYx": {
+    "string": "暫無數據"
+  },
+  "eD3Ul5": {
+    "string": "請上傳人像照"
+  },
+  "eHNb85": {
+    "string": "當前出售最低價"
+  },
+  "eJ3fDL": {
+    "string": "(參數錯誤: {checkMsg})"
+  },
+  "eMnHfD": {
+    "string": "邮箱注册"
+  },
+  "eXPzpx": {
+    "string": "購買"
+  },
   "ebj6E6": {
     "string": "可用保證金(USDT)"
+  },
+  "egvBG/": {
+    "string": "開倉狀態"
+  },
+  "ehbGQt": {
+    "string": "委托價"
+  },
+  "ejs0A3": {
+    "string": "请输入手机号码"
+  },
+  "ep7sPi": {
+    "string": "止損設置"
+  },
+  "etRUXu": {
+    "string": "最小波動值"
+  },
+  "etzvPz": {
+    "string": "我想"
+  },
+  "f2BEYr": {
+    "string": "我確認還沒有付款給對方"
+  },
+  "fGSeaa": {
+    "string": "划转"
+  },
+  "fINI3k": {
+    "string": "請選擇"
+  },
+  "fKknPq": {
+    "string": "女"
+  },
+  "fLMjGv": {
+    "string": "請輸入備註"
+  },
+  "fftT6p": {
+    "string": "出售USDT時系統將會從餘額賬戶中凍結該部分資金"
+  },
+  "fzPv+C": {
+    "string": "纍計收益"
+  },
+  "g4FQPM": {
+    "string": "手數"
+  },
+  "g6V3he": {
+    "string": "微信"
   },
   "gA15gF": {
     "string": "漲跌幅"
   },
+  "gVKoa9": {
+    "string": "同意凍結"
+  },
+  "gsk33w": {
+    "string": "重置密码"
+  },
   "gtC59I": {
     "string": "財務記錄"
+  },
+  "guM4xe": {
+    "string": "最高倍消耗TFU:"
+  },
+  "gx0XBL": {
+    "string": "訂閱"
+  },
+  "h24vu5": {
+    "string": "转入账户选择"
   },
   "hBkLmp": {
     "string": "高"
   },
+  "hDx3/S": {
+    "string": "邮箱"
+  },
+  "hEtJ5h": {
+    "string": "撤銷"
+  },
+  "hJ1meP": {
+    "string": "盈利能力"
+  },
   "hPHyre": {
     "string": "餘額"
+  },
+  "htEymu": {
+    "string": "申訴理由"
+  },
+  "i3xGD8": {
+    "string": "提交申訴"
+  },
+  "iCZI8W": {
+    "string": "合約份數"
+  },
+  "iVpb9N": {
+    "string": "更改手机号"
   },
   "iipjBw": {
     "string": "最新價"
   },
+  "j5arhs": {
+    "string": "生日"
+  },
+  "jAROVC": {
+    "string": "完成验证"
+  },
+  "jB+/k7": {
+    "string": "申请绑定"
+  },
+  "jJ0rDY": {
+    "string": "選擇幣種"
+  },
+  "jPTst4": {
+    "string": "準確率"
+  },
+  "jefLBO": {
+    "string": "去認證"
+  },
+  "jnrXEJ": {
+    "string": "最小波動盈虧"
+  },
+  "k/qXgT": {
+    "string": "持倉"
+  },
+  "kCh5Jz": {
+    "string": "提示"
+  },
+  "kCvDNl": {
+    "string": "請輸入止損價"
+  },
+  "kEQh1G": {
+    "string": "請輸入證件姓名"
+  },
   "kGK1/L": {
     "string": "充幣"
+  },
+  "kIQ/Xp": {
+    "string": "設置語言"
+  },
+  "kSaqSM": {
+    "string": "留言長度不能大於140個字符"
+  },
+  "keuHvr": {
+    "string": "設置止盈止損"
+  },
+  "l+7dfj": {
+    "string": "請選擇地址"
   },
   "l9VaC8": {
     "string": "幣幣帳戶"
   },
+  "lK7IeZ": {
+    "string": "交易密码管理"
+  },
+  "lc43/w": {
+    "string": "邀請碼"
+  },
+  "ldyl/D": {
+    "string": "為保障資金安全，當您帳戶安全策略變更、密碼修改、使用新地址提幣，我們會對提幣進行人工審核，請耐心等待工作人員電話或郵件聯繫。"
+  },
+  "lf0jjv": {
+    "string": "个人简介"
+  },
+  "lfsX8H": {
+    "string": "质押记录"
+  },
+  "lgUZ5i": {
+    "string": "《商家服務協議》"
+  },
+  "lj1YNw": {
+    "string": "付款確認"
+  },
+  "lksvRW": {
+    "string": "請輸入划轉數量"
+  },
+  "lrlCJ8": {
+    "string": "輸入跟單倍數不能大於{maxMultiNum}"
+  },
+  "lxxud1": {
+    "string": "成員"
+  },
+  "m6ypg2": {
+    "string": "提幣幣種:"
+  },
+  "mCDkHz": {
+    "string": "六個月"
+  },
+  "mDJb9E": {
+    "string": "从"
+  },
+  "mGf323": {
+    "string": "普通平倉"
+  },
+  "meMA+Y": {
+    "string": "申購失敗轉換({a}-{b})"
+  },
+  "mjDNUB": {
+    "string": "質押數量"
+  },
+  "mpjnyE": {
+    "string": "男"
+  },
+  "n/ayb0": {
+    "string": "實收款"
+  },
+  "nGQJ81": {
+    "string": "推薦"
+  },
+  "nIpnLv": {
+    "string": "付款時間剩餘"
+  },
+  "nLab+i": {
+    "string": "開倉方向"
+  },
   "ntWvUZ": {
     "string": "可用(USDT)"
+  },
+  "o3hkNu": {
+    "string": "涨跌颜色"
+  },
+  "oAdm61": {
+    "string": "刪除"
+  },
+  "oR5wwN": {
+    "string": "忘記了？找回密碼"
+  },
+  "oRPjgd": {
+    "string": "止盈設置"
+  },
+  "oVSEVM": {
+    "string": "写些什么吧...(140个字以内)"
+  },
+  "ofc1Jv": {
+    "string": "確定"
+  },
+  "ohYFAy": {
+    "string": "手"
+  },
+  "oslZjc": {
+    "string": "請選擇申訴理由"
+  },
+  "p8CmvE": {
+    "string": "填入"
+  },
+  "pHNoba": {
+    "string": "申請商家認證"
+  },
+  "pKUW2A": {
+    "string": "最小"
   },
   "pYPgzH": {
     "string": "量"
   },
+  "pZSIhq": {
+    "string": "出售中"
+  },
+  "pecEGk": {
+    "string": "注销"
+  },
+  "q+hue1": {
+    "string": "跟單人數"
+  },
+  "q+on8I": {
+    "string": "綁定成功"
+  },
+  "qGoxr9": {
+    "string": "確認出售"
+  },
+  "qNUf+q": {
+    "string": "跟單交易記錄"
+  },
+  "qSm4kD": {
+    "string": "申訴"
+  },
+  "qTCfxl": {
+    "string": "驗證碼已發送至，{phone}"
+  },
+  "qZzRwu": {
+    "string": "已綁定"
+  },
+  "qxIFeG": {
+    "string": "實名信息"
+  },
+  "qxdWh5": {
+    "string": "後自動取消"
+  },
+  "qzi2dl": {
+    "string": "價格"
+  },
+  "r0/TUu": {
+    "string": "确定"
+  },
   "r1IImU": {
     "string": "知道了"
+  },
+  "r2AYLr": {
+    "string": "確認發佈"
+  },
+  "r2dEd/": {
+    "string": "重置"
+  },
+  "rQ+HPv": {
+    "string": "输入提币数量"
+  },
+  "rpJLsF": {
+    "string": "參數錯誤"
+  },
+  "rv8bFi": {
+    "string": "可用餘額(USDT)"
+  },
+  "s/KbuC": {
+    "string": "数量 USDT"
+  },
+  "s4hJju": {
+    "string": "详情"
+  },
+  "s7aJO6": {
+    "string": "银行卡号"
+  },
+  "s9xFxt": {
+    "string": "和"
+  },
+  "sCpxK3": {
+    "string": "請務必確認電腦及瀏覽器安全，防止信息被篡改或洩露。"
+  },
+  "sNmNjz": {
+    "string": "向賣家付款"
+  },
+  "sVgCxu": {
+    "string": "可用数量："
+  },
+  "sY5/oP": {
+    "string": "買入"
+  },
+  "sofNEv": {
+    "string": "無設置"
+  },
+  "srNPrw": {
+    "string": "請輸入原密碼"
+  },
+  "t+gJ2j": {
+    "string": "划转记录"
+  },
+  "t/1bpl": {
+    "string": "輸入跟單倍數不能小於{minMultiNum}"
+  },
+  "tI511i": {
+    "string": "验证身份"
+  },
+  "tNR1ps": {
+    "string": "方式（可多選）"
+  },
+  "tVv3c7": {
+    "string": "驗證成功"
+  },
+  "tY3163": {
+    "string": "提幣數量:"
+  },
+  "twArjt": {
+    "string": "續費"
+  },
+  "u/gk22": {
+    "string": "止盈價"
+  },
+  "u1D872": {
+    "string": "申诉"
+  },
+  "uHUP9v": {
+    "string": "完成"
+  },
+  "udpXUo": {
+    "string": "限價委托"
+  },
+  "ulKN6p": {
+    "string": "請輸入新郵箱"
+  },
+  "un5/HP": {
+    "string": "选择账户"
+  },
+  "usmupP": {
+    "string": "雷達圖説明"
+  },
+  "uvUV8g": {
+    "string": "看跌"
   },
   "uwCp/4": {
     "string": "凍結"
   },
+  "uy59Hz": {
+    "string": "看跌(做空)"
+  },
   "v0r9Fg": {
     "string": "OTC交易"
+  },
+  "v2G+NV": {
+    "string": "買入價"
+  },
+  "v3RYvu": {
+    "string": "修改綁定手機"
+  },
+  "v5SgYb": {
+    "string": "真實姓名"
+  },
+  "vOLb7H": {
+    "string": "剩余{countdown}秒"
+  },
+  "vgGksF": {
+    "string": "實名認證"
+  },
+  "vo78d9": {
+    "string": "申請成功提交"
+  },
+  "w2IUbz": {
+    "string": "您可以寫下您申訴的詳細情況～～（限300字）"
+  },
+  "wAPEnf": {
+    "string": "登錄"
+  },
+  "wNYTXq": {
+    "string": "未使用"
+  },
+  "wbTfN9": {
+    "string": "提幣數量"
   },
   "wwOQz6": {
     "string": "綫上客服"
   },
+  "wzY6eO": {
+    "string": "作為廣告方保證資產，且同意"
+  },
+  "x9w/Fu": {
+    "string": "凍結保證金"
+  },
+  "xCJREC": {
+    "string": "可開{maxHand}手"
+  },
+  "xE1H+X": {
+    "string": "设置"
+  },
+  "xExi0z": {
+    "string": "請選擇商家收款方式"
+  },
+  "xKofLL": {
+    "string": "留言內容"
+  },
+  "xPkCfU": {
+    "string": "持倉保證金(USDT)"
+  },
+  "xiR+G9": {
+    "string": "跟單類型"
+  },
+  "xra9PO": {
+    "string": "手数"
+  },
+  "xwo0Ao": {
+    "string": "質押周期"
+  },
+  "yGpmXF": {
+    "string": "確定申請取消商家認證？"
+  },
   "yPig5i": {
     "string": "跟單機构："
   },
+  "ySnXcv": {
+    "string": "確認購買"
+  },
+  "yZDfS/": {
+    "string": "預期收益"
+  },
   "ymJBTR": {
     "string": "名稱代碼"
+  },
+  "ypMY0M": {
+    "string": "获取验证码"
+  },
+  "yz8Bd8": {
+    "string": "已绑定手机号："
+  },
+  "yzF0zK": {
+    "string": "安全驗證"
+  },
+  "yzNVN7": {
+    "string": "短信验证码已经发送至{phoneNumber}"
+  },
+  "z8a9KR": {
+    "string": "請重新登錄"
+  },
+  "zGwnHi": {
+    "string": "限額"
+  },
+  "zH7h1q": {
+    "string": "历史记录"
+  },
+  "zJbCuR": {
+    "string": "绿涨红跌"
+  },
+  "zL7URC": {
+    "string": "个人设置"
+  },
+  "zeTkGR": {
+    "string": "申購成功轉換({a}-{b})"
+  },
+  "zlZigq": {
+    "string": "昵称"
+  },
+  "zldodU": {
+    "string": "到賬數量"
+  },
+  "zqkaAr": {
+    "string": "獎勵(TFU)"
+  },
+  "zv2r2Q": {
+    "string": "訂閲"
+  },
+  "zznr09": {
+    "string": "已撤销"
   }
 }
