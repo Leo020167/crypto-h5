@@ -1,3 +1,4 @@
+import { useIntl } from 'react-intl';
 import { ProOrderQueryListResponseAllOfDataAllOfDataItem } from '../../api/model';
 import { ReactComponent as Arrow } from '../../assets/ic_svg_arrow_2.svg';
 import { stringDateFormat } from '../../utils/date';
@@ -9,6 +10,8 @@ interface RecordProps {
 
 const Record = ({ data }: RecordProps) => {
   const isCanceled = data.closeState === 'canceled';
+
+  const intl = useIntl();
 
   return (
     <div>
@@ -25,16 +28,24 @@ const Record = ({ data }: RecordProps) => {
       </div>
       <div className="mt-2 flex">
         <div className="flex-[1.2] flex flex-col">
-          <span className="text-xs text-[#663D3A50]">手数</span>
+          <span className="text-xs text-[#663D3A50]">
+            {intl.formatMessage({ defaultMessage: '手数', id: 'xra9PO' })}
+          </span>
           <span className="text-[#3D3A50] mt-1">{data.openHand}</span>
         </div>
         <div className="flex-1 flex flex-col items-center">
-          <span className="text-xs text-[#663D3A50]">{isCanceled ? '委託價' : '開倉價'}</span>
+          <span className="text-xs text-[#663D3A50]">
+            {isCanceled
+              ? intl.formatMessage({ defaultMessage: '委託價', id: 'EN7oPQ' })
+              : intl.formatMessage({ defaultMessage: '開倉價', id: 'ClVjxw' })}
+          </span>
           <span className="text-[#3D3A50] mt-1">{data.price}</span>
         </div>
         <div className="flex-1 flex flex-col items-end">
           <span className="text-xs text-[#663D3A50]">
-            {isCanceled ? '開倉保證金' : '盈利(USDT)'}
+            {isCanceled
+              ? intl.formatMessage({ defaultMessage: '開倉保證金', id: 'H4vld2' })
+              : intl.formatMessage({ defaultMessage: '盈利(USDT)', id: 'aaQVo1' })}
           </span>
           <span className="text-[#3D3A50] mt-1">
             {isCanceled

@@ -1,6 +1,7 @@
 import { List, NavBar, Popup, Radio } from 'antd-mobile';
 import { useAtom } from 'jotai';
 import { range } from 'lodash-es';
+import { useIntl } from 'react-intl';
 import { refreshRateAtom } from '../../atoms';
 
 interface RefreshRateListProps {
@@ -12,12 +13,18 @@ const values = range(1, 6);
 
 const RefreshRateList = ({ open, onClose }: RefreshRateListProps) => {
   const [refreshRate, setRefreshRate] = useAtom(refreshRateAtom);
+
+  const intl = useIntl();
   return (
     <Popup position="right" visible={open} onClose={onClose}>
       <div className="w-screen h-screen">
-        <NavBar onBack={onClose}>刷新频率设置</NavBar>
+        <NavBar onBack={onClose}>
+          {intl.formatMessage({ defaultMessage: '刷新频率设置', id: 'E7wFmB' })}
+        </NavBar>
         <div className="px-4 py-2">
-          <div className="text-[#b4b4b4]">行情刷新频率设置</div>
+          <div className="text-[#b4b4b4]">
+            {intl.formatMessage({ defaultMessage: '行情刷新频率设置', id: '/4Nsnx' })}
+          </div>
         </div>
 
         <Radio.Group

@@ -1,5 +1,6 @@
 import { Input, Toast } from 'antd-mobile';
 import { forwardRef, useCallback, useImperativeHandle, useRef, useState } from 'react';
+import { useIntl } from 'react-intl';
 import { useInterval } from 'react-use';
 import { getSms } from '../utils/api';
 import SwipeImageValidator from './SwipeImageValidator';
@@ -42,6 +43,8 @@ const Countdown = forwardRef<
     },
   }));
 
+  const intl = useIntl();
+
   useInterval(
     () => {
       const newValue = countdown - 1;
@@ -61,14 +64,14 @@ const Countdown = forwardRef<
 
   const renderText = () => {
     if (isDirty && status === 'stopped') {
-      return '重新获取';
+      return intl.formatMessage({ defaultMessage: '重新获取', id: '8p3RD/' });
     }
 
     if (status === 'stopped') {
-      return '获取验证码';
+      return intl.formatMessage({ defaultMessage: '获取验证码', id: 'ypMY0M' });
     }
 
-    return `剩余${countdown}秒`;
+    return intl.formatMessage({ defaultMessage: '剩余{countdown}秒', id: 'vOLb7H' }, { countdown });
   };
 
   return (
@@ -92,6 +95,8 @@ const SmsCodeInput = ({
 
   const countdownRef = useRef<CountdownAction>(null);
 
+  const intl = useIntl();
+
   const handleSuccess = useCallback(
     (locationx: number, dragImgKey: string) => {
       getSms({
@@ -106,11 +111,19 @@ const SmsCodeInput = ({
 
       if (phoneNumber) {
         const phone = phoneNumber.substring(0, 3) + '****' + phoneNumber.substring(7);
-        Toast.show(`短信验证码已经发送至${phone}`);
+        Toast.show(
+          intl.formatMessage(
+            {
+              defaultMessage: '短信验证码已经发送至{phone}',
+              id: 'YcfcO0',
+            },
+            { phone },
+          ),
+        );
       }
       countdownRef.current?.restart();
     },
-    [countryCode, phoneNumber],
+    [countryCode, intl, phoneNumber],
   );
 
   return (
@@ -122,7 +135,12 @@ const SmsCodeInput = ({
           if (status === 'started') return;
 
           if (!phoneNumber || !phoneNumber.trim().length) {
-            Toast.show('请输入手机号');
+            Toast.show(
+              intl.formatMessage({
+                defaultMessage: '请输入手机号',
+                id: 'KBVp8X',
+              }),
+            );
             return;
           }
           setOpen(true);

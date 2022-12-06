@@ -1,4 +1,5 @@
 import { List, Popup } from 'antd-mobile';
+import { useIntl } from 'react-intl';
 import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import { useOtcFindMyPaymentList } from '../../api/endpoints/transformer';
@@ -21,11 +22,13 @@ const LegalQuickSellDialog = ({ open, onClose, onSelect }: LegalQuickSellDialogP
 
   const history = useHistory();
 
+  const intl = useIntl();
+
   return (
     <Container visible={open} onClose={onClose} closeOnMaskClick>
       <div className="flex flex-col">
         <span className="h-16 flex items-center px-4 text-base font-bold text-[#3D3A50]">
-          收款方式
+          {intl.formatMessage({ defaultMessage: '收款方式', id: 'UA7E9h' })}
         </span>
         <List className="mb-4">
           {data?.data?.myPaymentList?.map((v, i) => (
@@ -47,7 +50,7 @@ const LegalQuickSellDialog = ({ open, onClose, onSelect }: LegalQuickSellDialogP
                 history.push('/add-receipt');
               }}
             >
-              新增收款方式
+              {intl.formatMessage({ defaultMessage: '新增收款方式', id: '0vuz1g' })}
             </List.Item>
           )}
         </List>

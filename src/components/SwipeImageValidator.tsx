@@ -1,6 +1,7 @@
 import { Mask, SpinLoading } from 'antd-mobile';
 import { CloseOutline } from 'antd-mobile-icons';
 import { TouchEvent, useCallback, useEffect, useRef, useState } from 'react';
+import { useIntl } from 'react-intl';
 import styled from 'styled-components';
 import dragMove from '../assets/dragMove.png';
 import dragS from '../assets/dragS.png';
@@ -263,6 +264,8 @@ const SwipeImageValidator = ({
     getVerifyImage();
   }, [getVerifyImage]);
 
+  const intl = useIntl();
+
   return (
     <Mask visible={open} destroyOnClose>
       <div
@@ -313,7 +316,9 @@ const SwipeImageValidator = ({
             </div>
 
             <div className="w-full text-right mt-4">
-              <span onClick={renew}>换一张</span>
+              <span onClick={renew}>
+                {intl.formatMessage({ defaultMessage: '换一张', id: 'Lj6xLm' })}
+              </span>
             </div>
           </Container>
         </div>

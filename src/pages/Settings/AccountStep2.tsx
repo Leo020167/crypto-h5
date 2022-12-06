@@ -1,5 +1,6 @@
 import { Button, Form, Toast } from 'antd-mobile';
 import { useState } from 'react';
+import { useIntl } from 'react-intl';
 import styled from 'styled-components';
 
 import CountryPhoneNumber from '../../components/CountryPhoneNumber';
@@ -23,12 +24,14 @@ const AccountStep2 = ({ oldSmsCode, onStepCompleted }: AccountStepProps) => {
 
   const [phone, setPhone] = useState<string>('');
 
+  const intl = useIntl();
+
   return (
     <Container>
       <Form
         onFinish={() => {
           if (!smsCode || !smsCode.trim().length) {
-            Toast.show('请输入验证码');
+            Toast.show(intl.formatMessage({ defaultMessage: '请输入验证码', id: '9UZxwP' }));
             return;
           }
 
@@ -37,7 +40,7 @@ const AccountStep2 = ({ oldSmsCode, onStepCompleted }: AccountStepProps) => {
         footer={
           <div>
             <Button color="primary" type="submit" size="large" block>
-              下一步
+              {intl.formatMessage({ defaultMessage: '下一步', id: '6Y0p2/' })}
             </Button>
           </div>
         }
@@ -48,7 +51,7 @@ const AccountStep2 = ({ oldSmsCode, onStepCompleted }: AccountStepProps) => {
             onCountryChange={setCountry}
             value={phone}
             onChange={setPhone}
-            placeholder="请输入新手机号码"
+            placeholder={intl.formatMessage({ defaultMessage: '请输入新手机号码', id: 'Uamdul' })}
           />
         </Form.Item>
 
@@ -58,7 +61,7 @@ const AccountStep2 = ({ oldSmsCode, onStepCompleted }: AccountStepProps) => {
             countryCode={country.code}
             value={smsCode}
             onChange={setSmsCode}
-            placeholder="请输入验证码"
+            placeholder={intl.formatMessage({ defaultMessage: '请输入验证码', id: '9UZxwP' })}
           />
         </Form.Item>
       </Form>

@@ -2,6 +2,7 @@ import { Button, Form, Input, NavBar, Toast } from 'antd-mobile';
 import { DownFill } from 'antd-mobile-icons';
 import { useAtom } from 'jotai';
 import { useEffect, useState } from 'react';
+import { useIntl } from 'react-intl';
 import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import { countryAtom } from '../../atoms';
@@ -27,6 +28,8 @@ const Signup = () => {
     }
   }, [form, value]);
 
+  const intl = useIntl();
+
   return (
     <Container className="h-screen bg-white">
       <NavBar
@@ -36,21 +39,25 @@ const Signup = () => {
       />
 
       <div className="p-8">
-        <h1 className="text-2xl font-bold ">注册</h1>
+        <h1 className="text-2xl font-bold ">
+          {intl.formatMessage({ defaultMessage: '注册', id: 'MmsEyp' })}
+        </h1>
         <Form
           form={form}
           layout="horizontal"
           onFinish={(values) => {
             if (value.type === 1) {
               if (!values.phone || !values.phone.trim().length) {
-                Toast.show('手機號碼不能為空');
+                Toast.show(
+                  intl.formatMessage({ defaultMessage: '手機號碼不能為空', id: 'B+KT/l' }),
+                );
                 return;
               }
             }
 
             if (value.type === 2) {
               if (!values.email) {
-                Toast.show('請輸入郵箱號');
+                Toast.show(intl.formatMessage({ defaultMessage: '請輸入郵箱號', id: 'NlcysC' }));
                 return;
               }
             }
@@ -65,19 +72,19 @@ const Signup = () => {
             <div>
               {value.type === 1 && (
                 <div className="text-[#cdcdcd]">
-                  注册即代表你已同意并接受
+                  {intl.formatMessage({ defaultMessage: '注册即代表你已同意并接受', id: 'A20Ity' })}
                   <a href="" target="_blank" className="text-[#6277b0]">
-                    《FireUP用户协议》
+                    {intl.formatMessage({ defaultMessage: '《FireUP用户协议》', id: 'JVHhgb' })}
                   </a>
-                  和
+                  {intl.formatMessage({ defaultMessage: '和', id: 's9xFxt' })}
                   <a href="" target="_blank" className="text-[#6277b0]">
-                    《FireUp隐私条款》
+                    {intl.formatMessage({ defaultMessage: '《FireUp隐私条款》', id: 'XR6wlA' })}
                   </a>
                 </div>
               )}
 
               <Button block type="submit" color="primary" className="rounded-none mt-8 ">
-                注册
+                {intl.formatMessage({ defaultMessage: '注册', id: 'MmsEyp' })}
               </Button>
 
               <div className="text-center mt-4">
@@ -88,7 +95,7 @@ const Signup = () => {
                       setValue({ ...value, type: 2 });
                     }}
                   >
-                    邮箱注册
+                    {intl.formatMessage({ defaultMessage: '邮箱注册', id: 'eMnHfD' })}
                   </a>
                 ) : (
                   <a
@@ -97,7 +104,7 @@ const Signup = () => {
                       setValue({ ...value, type: 1 });
                     }}
                   >
-                    手机注册
+                    {intl.formatMessage({ defaultMessage: '手机注册', id: 'dfT5lg' })}
                   </a>
                 )}
               </div>
@@ -126,23 +133,51 @@ const Signup = () => {
                 }
                 className="phone"
               >
-                <Input placeholder="请输入手机号码" />
+                <Input
+                  placeholder={intl.formatMessage({
+                    defaultMessage: '请输入手机号码',
+                    id: 'ejs0A3',
+                  })}
+                />
               </Form.Item>
             </>
           ) : (
             <Form.Item name="email">
-              <Input type="email" placeholder="邮箱" />
+              <Input
+                type="email"
+                placeholder={intl.formatMessage({
+                  defaultMessage: '邮箱',
+                  id: 'hDx3/S',
+                })}
+              />
             </Form.Item>
           )}
 
           <Form.Item name="userPass">
-            <Input type="password" placeholder="密必须是8 -16位字、字母组合" />
+            <Input
+              type="password"
+              placeholder={intl.formatMessage({
+                defaultMessage: '密必须是8 -16位字、字母组合',
+                id: '2cS2Q3',
+              })}
+            />
           </Form.Item>
           <Form.Item name="configUserPass">
-            <Input type="password" placeholder="请再次输入密码" />
+            <Input
+              type="password"
+              placeholder={intl.formatMessage({
+                defaultMessage: '请再次输入密码',
+                id: 'MPJViy',
+              })}
+            />
           </Form.Item>
           <Form.Item name="inviteCode">
-            <Input placeholder="请输入邀请码(选填)" />
+            <Input
+              placeholder={intl.formatMessage({
+                defaultMessage: '请输入邀请码(选填)',
+                id: 'VU6g7c',
+              })}
+            />
           </Form.Item>
         </Form>
       </div>

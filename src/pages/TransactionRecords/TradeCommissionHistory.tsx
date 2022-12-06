@@ -1,6 +1,7 @@
 import { useInfiniteQuery } from '@tanstack/react-query';
 import { Dialog, InfiniteScroll, Toast } from 'antd-mobile';
 import { useMemo } from 'react';
+import { useIntl } from 'react-intl';
 import {
   getDepositListQueryKey,
   proOrderQueryList,
@@ -51,8 +52,14 @@ const TradeCommissionHistory = ({ accountType }: { accountType?: string }) => {
     },
   });
 
+  const intl = useIntl();
+
   if (dataSource.length === 0) {
-    return <span className="flex items-center justify-center p-10">暫無數據</span>;
+    return (
+      <span className="flex items-center justify-center p-10">
+        {intl.formatMessage({ defaultMessage: '暫無數據', id: 'dqhJYx' })}
+      </span>
+    );
   }
 
   return (
@@ -77,8 +84,8 @@ const TradeCommissionHistory = ({ accountType }: { accountType?: string }) => {
                 className=" h-6 w-12 border flex items-center justify-center text-xs text-[#969696]"
                 onClick={() => {
                   Dialog.confirm({
-                    content: '確定撤銷訂單',
-                    confirmText: '確定',
+                    content: intl.formatMessage({ defaultMessage: '確定撤銷訂單', id: 'UXkrvR' }),
+                    confirmText: intl.formatMessage({ defaultMessage: '確定', id: 'ofc1Jv' }),
                     onConfirm() {
                       proOrderCancel.mutate({
                         data: {
@@ -89,20 +96,26 @@ const TradeCommissionHistory = ({ accountType }: { accountType?: string }) => {
                   });
                 }}
               >
-                撤銷
+                {intl.formatMessage({ defaultMessage: '撤銷', id: 'hEtJ5h' })}
               </a>
             </div>
             <div className="flex mt-2.5">
               <div className="flex flex-col w-1/3">
-                <span className="text-xs text-gray-400">手數</span>
+                <span className="text-xs text-gray-400">
+                  {intl.formatMessage({ defaultMessage: '手數', id: 'g4FQPM' })}
+                </span>
                 <span className="text-sm text-[#3d3a50]">{v.openHand}</span>
               </div>
               <div className="flex flex-col w-1/3 items-center">
-                <span className="text-xs text-gray-400">委托價</span>
+                <span className="text-xs text-gray-400">
+                  {intl.formatMessage({ defaultMessage: '委托價', id: 'ehbGQt' })}
+                </span>
                 <span className="text-sm text-[#3d3a50]">{v.price}</span>
               </div>
               <div className="flex flex-col w-1/3 items-end">
-                <span className="text-xs text-gray-400">開倉保證金</span>
+                <span className="text-xs text-gray-400">
+                  {intl.formatMessage({ defaultMessage: '開倉保證金', id: 'H4vld2' })}
+                </span>
                 <span className="text-sm text-[#3d3a50]">{v.openBail}</span>
               </div>
             </div>

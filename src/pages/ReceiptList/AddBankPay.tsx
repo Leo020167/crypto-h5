@@ -1,5 +1,6 @@
 import { Button, Form, Input, Toast } from 'antd-mobile';
 import { useCallback, useState } from 'react';
+import { useIntl } from 'react-intl';
 import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import { StringParam, useQueryParam, withDefault } from 'use-query-params';
@@ -30,17 +31,19 @@ const AddBankPay = () => {
     },
   });
 
+  const intl = useIntl();
+
   const handleFinish = useCallback(() => {
     if (!name || !name.trim().length) {
-      Toast.show('請輸入姓名');
+      Toast.show(intl.formatMessage({ defaultMessage: '請輸入姓名', id: 'ddZtfx' }));
       return;
     }
     if (!bankNumber || !bankNumber.trim().length) {
-      Toast.show('請輸入銀行卡號');
+      Toast.show(intl.formatMessage({ defaultMessage: '請輸入銀行卡號', id: 'Y2Ed0L' }));
       return;
     }
     if (!bankName || !bankName.trim().length) {
-      Toast.show('請輸入開戶銀行名稱');
+      Toast.show(intl.formatMessage({ defaultMessage: '請輸入開戶銀行名稱', id: 'bwg6o7' }));
       return;
     }
 
@@ -54,33 +57,75 @@ const AddBankPay = () => {
         qrCodeUrl: '',
       },
     });
-  }, [bankName, bankNumber, name, otcPaymentSave, receiptType]);
+  }, [bankName, bankNumber, intl, name, otcPaymentSave, receiptType]);
 
   return (
     <Screen
-      headerTitle="添加银行卡"
+      headerTitle={intl.formatMessage({ defaultMessage: '添加银行卡', id: '42lMqW' })}
       footer={
         <div className="px-4">
           <div className=" h-14 px-4 bg-[#fef7ef] flex items-center border border-dashed rounded border-blue-600 text-[#6175AE] text-xs">
             <img alt="" src={ic_warning} width="15" className="mr-2" />
-            請務必使用與您註冊手機號碼一致的實名賬號
+            {intl.formatMessage({
+              defaultMessage: '請務必使用與您註冊手機號碼一致的實名賬號',
+              id: 'S7E2WU',
+            })}
           </div>
           <Button block color="primary" className="my-6" onClick={handleFinish}>
-            保存
+            {intl.formatMessage({
+              defaultMessage: '保存',
+              id: 'b5l2vN',
+            })}
           </Button>
         </div>
       }
     >
       <Container>
         <Form className="px-4" layout="vertical">
-          <Form.Item label="开户姓名">
-            <Input placeholder="请输入姓名" name={name} onChange={setName} />
+          <Form.Item
+            label={intl.formatMessage({
+              defaultMessage: '开户姓名',
+              id: '9piGP6',
+            })}
+          >
+            <Input
+              placeholder={intl.formatMessage({
+                defaultMessage: '请输入姓名',
+                id: 'RtJnaj',
+              })}
+              name={name}
+              onChange={setName}
+            />
           </Form.Item>
-          <Form.Item label="开户银行">
-            <Input placeholder="请输入开户银行" name={bankNumber} onChange={setBankNumber} />
+          <Form.Item
+            label={intl.formatMessage({
+              defaultMessage: '开户银行',
+              id: 'LaFd5t',
+            })}
+          >
+            <Input
+              placeholder={intl.formatMessage({
+                defaultMessage: '请输入开户银行',
+                id: 'Au/GQB',
+              })}
+              name={bankNumber}
+              onChange={setBankNumber}
+            />
           </Form.Item>
-          <Form.Item label="银行卡号">
-            <Input placeholder="请输入银行卡号" name={bankName} onChange={setBankName} />
+          <Form.Item
+            label={intl.formatMessage({
+              defaultMessage: '银行卡号',
+              id: 's7aJO6',
+            })}
+          >
+            <Input
+              placeholder={intl.formatMessage({
+                defaultMessage: '请输入银行卡号',
+                id: 'MGGEAi',
+              })}
+              name={bankName}
+              onChange={setBankName}
+            />
           </Form.Item>
         </Form>
       </Container>

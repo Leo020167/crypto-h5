@@ -1,6 +1,7 @@
 import { Button, List, Toast } from 'antd-mobile';
 import { stringify } from 'query-string';
 import { useCallback, useMemo } from 'react';
+import { useIntl } from 'react-intl';
 import { Link, useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import { StringParam, useQueryParam } from 'use-query-params';
@@ -97,17 +98,19 @@ const LegalOrderInfo = () => {
     [order?.buyUserId, userInfo?.userId],
   );
 
+  const intl = useIntl();
+
   const names = useMemo(() => {
     return isBuyer
       ? {
-          nickName: '賣家暱稱',
-          name: '賣家姓名',
+          nickName: intl.formatMessage({ defaultMessage: '賣家暱稱', id: 'Qka2kz' }),
+          name: intl.formatMessage({ defaultMessage: '賣家姓名', id: '3Ced22' }),
         }
       : {
-          nickName: '買家暱稱',
-          name: '參數錯誤',
+          nickName: intl.formatMessage({ defaultMessage: '買家暱稱', id: 'Tq9EwF' }),
+          name: intl.formatMessage({ defaultMessage: '參數錯誤', id: 'rpJLsF' }),
         };
-  }, [isBuyer]);
+  }, [intl, isBuyer]);
 
   const history = useHistory();
 
@@ -117,7 +120,7 @@ const LegalOrderInfo = () => {
         return (
           <div className="flex p-4">
             <Button block onClick={() => setAction('cancel', 'replaceIn')}>
-              取消訂單
+              {intl.formatMessage({ defaultMessage: '取消訂單', id: 'NNH82R' })}
             </Button>
             <Button
               block
@@ -134,7 +137,7 @@ const LegalOrderInfo = () => {
                 });
               }}
             >
-              去付款
+              {intl.formatMessage({ defaultMessage: '去付款', id: 'KAHC21' })}
             </Button>
           </div>
         );
@@ -142,7 +145,7 @@ const LegalOrderInfo = () => {
         return (
           <div className="flex p-4">
             <Button key="receivedConfirm" block color="primary" disabled>
-              我確認收到付款
+              {intl.formatMessage({ defaultMessage: '我確認收到付款', id: '+9Acwm' })}
             </Button>
           </div>
         );
@@ -162,26 +165,35 @@ const LegalOrderInfo = () => {
                 })
               }
             >
-              申訴
+              {intl.formatMessage({ defaultMessage: '申訴', id: 'qSm4kD' })}
             </Button>
           </div>
         );
       } else {
         <div className="flex p-4">
           <Button block color="primary" className="ml-4">
-            我確認收到付款
+            {intl.formatMessage({ defaultMessage: '我確認收到付款', id: '+9Acwm' })}
           </Button>
         </div>;
       }
     }
 
     return null;
-  }, [history, isBuyer, order?.showUserId, order?.state, orderId, receipt?.paymentId, setAction]);
+  }, [
+    history,
+    intl,
+    isBuyer,
+    order?.showUserId,
+    order?.state,
+    orderId,
+    receipt?.paymentId,
+    setAction,
+  ]);
 
   const handleTimeout = useCallback(() => {
-    Toast.show('訂單已經超時');
+    Toast.show(intl.formatMessage({ defaultMessage: '訂單已經超時', id: '9x6bNN' }));
     refetch();
-  }, [refetch]);
+  }, [intl, refetch]);
 
   const header = useMemo(() => {
     return (
@@ -234,7 +246,7 @@ const LegalOrderInfo = () => {
           </span>
           <List className="mt-4">
             <List.Item
-              title="總價"
+              title={intl.formatMessage({ defaultMessage: '總價', id: 'XkGx1k' })}
               extra={
                 <span className="text-[#6175AE] font-bold text-xl">
                   {order?.currencySign}
@@ -243,7 +255,7 @@ const LegalOrderInfo = () => {
               }
             />
             <List.Item
-              title="價格"
+              title={intl.formatMessage({ defaultMessage: '價格', id: 'qzi2dl' })}
               extra={
                 <span>
                   {order?.currencySign}
@@ -251,9 +263,12 @@ const LegalOrderInfo = () => {
                 </span>
               }
             />
-            <List.Item title="數量" extra={order?.amount + ' USDT'} />
             <List.Item
-              title="訂單號"
+              title={intl.formatMessage({ defaultMessage: '數量', id: 'YYra8Q' })}
+              extra={order?.amount + ' USDT'}
+            />
+            <List.Item
+              title={intl.formatMessage({ defaultMessage: '訂單號', id: 'DSV3lz' })}
               extra={
                 <div className="flex items-center">
                   <span className="mr-2">{order?.orderId}</span>
@@ -261,7 +276,10 @@ const LegalOrderInfo = () => {
                 </div>
               }
             />
-            <List.Item title="訂單時間" extra={stringDateFormat(order?.createTime)} />
+            <List.Item
+              title={intl.formatMessage({ defaultMessage: '訂單時間', id: '42JqYW' })}
+              extra={stringDateFormat(order?.createTime)}
+            />
             <List.Item
               title={names.nickName}
               extra={
@@ -278,7 +296,7 @@ const LegalOrderInfo = () => {
             />
             <List.Item title={names.name} extra={order?.showRealName} />
             <List.Item
-              title="收款方式"
+              title={intl.formatMessage({ defaultMessage: '收款方式', id: 'UA7E9h' })}
               extra={
                 !!receipt && (
                   <div className="flex items-center">

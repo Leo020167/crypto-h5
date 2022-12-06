@@ -1,5 +1,6 @@
 import { FloatingPanel, Mask } from 'antd-mobile';
 import { useCallback, useState } from 'react';
+import { useIntl } from 'react-intl';
 import styled from 'styled-components';
 
 import symbol_selection_png from '../../assets/floating-panel-bg.png';
@@ -29,6 +30,8 @@ const CoinSymbolSelectDialog = ({
     setSelected(v);
   }, []);
 
+  const intl = useIntl();
+
   return (
     <Container visible={open} onMaskClick={onClose} destroyOnClose>
       <FloatingPanel
@@ -44,7 +47,9 @@ const CoinSymbolSelectDialog = ({
           className="flex flex-col min-h-0 ease-in-out duration-300 symbol-list"
           style={{ height }}
         >
-          <div className="mb-7 text-base px-5 font-bold">選擇幣種</div>
+          <div className="mb-7 text-base px-5 font-bold">
+            {intl.formatMessage({ defaultMessage: '選擇幣種', id: 'jJ0rDY' })}
+          </div>
           <div className="flex-1 overflow-y-auto">
             {symbols.map((v) => (
               <a
@@ -60,7 +65,7 @@ const CoinSymbolSelectDialog = ({
           </div>
           <div className="p-4">
             <a className="btn-purple" onClick={() => onSelect?.(selected)}>
-              確定
+              {intl.formatMessage({ defaultMessage: '確定', id: 'ofc1Jv' })}
             </a>
           </div>
         </div>

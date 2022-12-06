@@ -1,5 +1,6 @@
 import { Button, Form, Input, Toast } from 'antd-mobile';
 import { useCallback, useMemo, useRef, useState } from 'react';
+import { useIntl } from 'react-intl';
 import { useHistory } from 'react-router-dom';
 import { useIdentityGet, useIdentitySubmit } from '../../api/endpoints/transformer';
 import aPng from '../../assets/a.png';
@@ -45,6 +46,8 @@ const Verified = () => {
     },
   });
 
+  const intl = useIntl();
+
   const identitySubmit = useIdentitySubmit({
     mutation: {
       onSuccess(data) {
@@ -57,19 +60,19 @@ const Verified = () => {
   });
   const handleFinish = useCallback(() => {
     if (!name || !name.trim().length) {
-      Toast.show('請輸入證件姓名');
+      Toast.show(intl.formatMessage({ defaultMessage: '請輸入證件姓名', id: 'kEQh1G' }));
       return;
     }
     if (!cardNo || !cardNo.trim().length) {
-      Toast.show('請輸入身份證號碼');
+      Toast.show(intl.formatMessage({ defaultMessage: '請輸入身份證號碼', id: 'UkiaYk' }));
       return;
     }
     if (!frontImgFile || !frontImgFile.trim().length) {
-      Toast.show('請上傳人像照');
+      Toast.show(intl.formatMessage({ defaultMessage: '請上傳人像照', id: 'eD3Ul5' }));
       return;
     }
     if (!backImgFile || !backImgFile.trim().length) {
-      Toast.show('請上傳國徽照');
+      Toast.show(intl.formatMessage({ defaultMessage: '請上傳國徽照', id: '+ulzus' }));
       return;
     }
 
@@ -81,7 +84,7 @@ const Verified = () => {
         name,
       },
     });
-  }, [backImgFile, cardNo, frontImgFile, identitySubmit, name]);
+  }, [backImgFile, cardNo, frontImgFile, identitySubmit, intl, name]);
 
   const identityAuth = useMemo(() => data?.data?.identityAuth, [data?.data?.identityAuth]);
 
@@ -92,7 +95,7 @@ const Verified = () => {
 
   return (
     <Screen
-      headerTitle="实名认证"
+      headerTitle={intl.formatMessage({ defaultMessage: '实名认证', id: 'Yy75R8' })}
       footer={
         <div className="p-4">
           <Button
@@ -102,7 +105,7 @@ const Verified = () => {
             loading={identitySubmit.isLoading}
             disabled={isValid}
           >
-            完成
+            {intl.formatMessage({ defaultMessage: '完成', id: 'uHUP9v' })}
           </Button>
         </div>
       }
@@ -130,18 +133,38 @@ const Verified = () => {
 
       {!!data?.data?.identityAuth && (
         <div className="text-xs py-1 px-4 bg-[#FE5400] text-white">
-          {`狀態: ${identityAuth?.stateDesc} ${
-            !isValid ? `(參數錯誤: ${identityAuth?.checkMsg})` : ''
+          {`${intl.formatMessage({ defaultMessage: '狀態: ', id: 'BHh721' })}${
+            identityAuth?.stateDesc
+          } ${
+            !isValid
+              ? intl.formatMessage(
+                  {
+                    defaultMessage: '(參數錯誤: {checkMsg})',
+                    id: 'eJ3fDL',
+                  },
+                  {
+                    checkMsg: identityAuth?.checkMsg,
+                  },
+                )
+              : ''
           }`}
         </div>
       )}
 
       <div className="h-full flex flex-col overflow-y-auto">
-        <div className=" border-l-4 border-[#fa4b1b] px-2.5 mx-4 mt-4 text-base">輸入證件資訊</div>
+        <div className=" border-l-4 border-[#fa4b1b] px-2.5 mx-4 mt-4 text-base">
+          {intl.formatMessage({
+            defaultMessage: '輸入證件資訊',
+            id: 'U99CrO',
+          })}
+        </div>
         <Form className="mt-2.5 px-4">
           <Form.Item>
             <Input
-              placeholder="請輸入證件姓名"
+              placeholder={intl.formatMessage({
+                defaultMessage: '請輸入證件姓名',
+                id: 'kEQh1G',
+              })}
               value={name}
               onChange={setName}
               readOnly={isValid}
@@ -149,7 +172,10 @@ const Verified = () => {
           </Form.Item>
           <Form.Item>
             <Input
-              placeholder="請輸入證件號"
+              placeholder={intl.formatMessage({
+                defaultMessage: '請輸入證件號',
+                id: 'MXqXyk',
+              })}
               value={cardNo}
               onChange={setCardNo}
               readOnly={isValid}
@@ -157,7 +183,12 @@ const Verified = () => {
           </Form.Item>
         </Form>
 
-        <div className="border-l-4 border-[#fa4b1b] px-2.5 mx-4 mt-4 text-base">輸入證件資訊</div>
+        <div className="border-l-4 border-[#fa4b1b] px-2.5 mx-4 mt-4 text-base">
+          {intl.formatMessage({
+            defaultMessage: '輸入證件資訊',
+            id: 'U99CrO',
+          })}
+        </div>
 
         <div className="flex items-center justify-center flex-col">
           <div>
@@ -174,7 +205,12 @@ const Verified = () => {
                 </a>
               )}
             </div>
-            <div className="text-base mt-4 text-[#232323]">選擇正面</div>
+            <div className="text-base mt-4 text-[#232323]">
+              {intl.formatMessage({
+                defaultMessage: '選擇正面',
+                id: 'Dq6c3S',
+              })}
+            </div>
           </div>
 
           <div>
@@ -191,7 +227,13 @@ const Verified = () => {
                 </a>
               )}
             </div>
-            <div className="text-base mt-4 text-[#232323]">選擇反面</div>
+            <div className="text-base mt-4 text-[#232323]">
+              {' '}
+              {intl.formatMessage({
+                defaultMessage: '選擇反面',
+                id: '5qldgM',
+              })}
+            </div>
           </div>
         </div>
       </div>

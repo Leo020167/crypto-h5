@@ -22,7 +22,6 @@ const IsLeverParam = withDefault(NumberParam, 1);
 const Market = () => {
   const [symbol] = useQueryParam('symbol', StringParam);
   const [isLever] = useQueryParam('isLever', IsLeverParam);
-  // const [accountType] = useQueryParam('accountType', StringParam);
 
   const [marketPeriod, setMarketPeriod] = useAtom(marketPeriodAtom);
 
@@ -38,17 +37,6 @@ const Market = () => {
       },
     },
   );
-
-  // const isOptional = useIsOptional(
-  //   {
-  //     symbol: symbol ?? '',
-  //   },
-  //   {
-  //     query: {
-  //       enabled: !!symbol,
-  //     },
-  //   },
-  // );
 
   const { data: quoteReal } = useQuoteReal(
     {

@@ -1,5 +1,6 @@
 import { Button, Dialog, Input, Popup, Radio, Toast } from 'antd-mobile';
 import { useCallback, useMemo, useState } from 'react';
+import { useIntl } from 'react-intl';
 import { useQueryParam, StringParam } from 'use-query-params';
 import { useApplyForFollow, useGetFollowTypes } from '../../api/endpoints/transformer';
 import { FollowType } from '../../api/model';
@@ -31,17 +32,22 @@ const ApplyBindAccount = () => {
     },
   );
 
-  const getExpireTime = useCallback((t: FollowType) => {
-    if (t.isBind === '1') {
-      return (
-        <div className="flex flex-col">
-          <span>到期時間</span>
-          <span className="text-black">{stringDateFormat(t.expireTime)}</span>
-        </div>
-      );
-    }
-    return null;
-  }, []);
+  const intl = useIntl();
+
+  const getExpireTime = useCallback(
+    (t: FollowType) => {
+      if (t.isBind === '1') {
+        return (
+          <div className="flex flex-col">
+            <span>{intl.formatMessage({ defaultMessage: '到期時間', id: 'LZqmso' })}</span>
+            <span className="text-black">{stringDateFormat(t.expireTime)}</span>
+          </div>
+        );
+      }
+      return null;
+    },
+    [intl],
+  );
 
   const followType = useMemo(
     () => data?.data?.data?.types?.find((v) => v.id === typeId),
@@ -62,19 +68,35 @@ const ApplyBindAccount = () => {
 
   const handleFinish = useCallback(() => {
     if (!multiple || !multiple.trim().length) {
-      Toast.show('請輸入倍數');
+      Toast.show(intl.formatMessage({ defaultMessage: '請輸入倍數', id: 'Bp4Dlk' }));
       return;
     }
 
     const val = Number(multiple);
 
     if (followType?.maxMultiNum && val > Number(followType?.maxMultiNum)) {
-      Toast.show(`輸入跟單倍數不能大於${followType?.maxMultiNum}`);
+      Toast.show(
+        intl.formatMessage(
+          {
+            defaultMessage: '輸入跟單倍數不能大於{maxMultiNum}',
+            id: 'lrlCJ8',
+          },
+          { maxMultiNum: followType?.maxMultiNum },
+        ),
+      );
       return;
     }
 
     if (followType?.minMultiNum && val < Number(followType?.minMultiNum)) {
-      Toast.show(`輸入跟單倍數不能小於${followType?.minMultiNum}`);
+      Toast.show(
+        intl.formatMessage(
+          {
+            defaultMessage: '輸入跟單倍數不能小於{minMultiNum}',
+            id: 't/1bpl',
+          },
+          { maxMultiNum: followType?.minMultiNum },
+        ),
+      );
       return;
     }
 
@@ -85,10 +107,23 @@ const ApplyBindAccount = () => {
         multiNum: multiple,
       },
     });
-  }, [applyForFollow, followType?.maxMultiNum, followType?.minMultiNum, multiple, typeId, userId]);
+  }, [
+    applyForFollow,
+    followType?.maxMultiNum,
+    followType?.minMultiNum,
+    intl,
+    multiple,
+    typeId,
+    userId,
+  ]);
 
   return (
-    <Screen headerTitle="申请绑定">
+    <Screen
+      headerTitle={intl.formatMessage({
+        defaultMessage: '申请绑定',
+        id: 'jB+/k7',
+      })}
+    >
       <div className="flex-1 overflow-y-auto bg-gray-100 p-4">
         <Radio.Group
           value={typeId}
@@ -108,27 +143,71 @@ const ApplyBindAccount = () => {
                     '--gap': '6px',
                   }}
                 >
-                  跟單類型{i + 1}
+                  {intl.formatMessage({
+                    defaultMessage: '跟單類型',
+                    id: 'xiR+G9',
+                  })}
+                  {i + 1}
                 </Radio>
 
                 <div className="flex items-center justify-between">
-                  <span>盈利分成:{v.profitRate}%</span>
-                  <span>虧損補貼:{v.lossRate}%</span>
+                  <span>
+                    {intl.formatMessage({
+                      defaultMessage: '盈利分成:',
+                      id: '9+4/A7',
+                    })}
+                    {v.profitRate}%
+                  </span>
+                  <span>
+                    {intl.formatMessage({
+                      defaultMessage: '虧損補貼:',
+                      id: 'HpbXNh',
+                    })}
+                    {v.lossRate}%
+                  </span>
                 </div>
                 <div className="flex items-center justify-between mt-4">
-                  <span>最高倍數:{v.maxMultiNum}</span>
-                  <span>消耗TFU:{v.tokenAmount}</span>
+                  <span>
+                    {intl.formatMessage({
+                      defaultMessage: '最高倍數:',
+                      id: 'Snj6vy',
+                    })}
+                    {v.maxMultiNum}
+                  </span>
+                  <span>
+                    {intl.formatMessage({
+                      defaultMessage: '最高倍消耗TFU:',
+                      id: 'guM4xe',
+                    })}
+                    {v.tokenAmount}
+                  </span>
                 </div>
                 <div className="flex items-center justify-between">
                   <div className="flex flex-col">
-                    <span>最低金額</span>
+                    <span>
+                      {intl.formatMessage({
+                        defaultMessage: '最低金額',
+                        id: '2S6+KD',
+                      })}
+                    </span>
                     <span className="text-black">{v.limit}USDT</span>
                   </div>
                   {getExpireTime(v)}
                   {!!v.duration && (
                     <div className="flex flex-col items-end">
-                      <span>時間</span>
-                      <span className="text-black">{v.duration}天</span>
+                      <span>
+                        {intl.formatMessage({
+                          defaultMessage: '時間',
+                          id: 'W6smHj',
+                        })}
+                      </span>
+                      <span className="text-black">
+                        {v.duration}
+                        {intl.formatMessage({
+                          defaultMessage: '天',
+                          id: '0B0jPm',
+                        })}
+                      </span>
                     </div>
                   )}
                 </div>
@@ -143,25 +222,37 @@ const ApplyBindAccount = () => {
               className="bg-[#ff6b1b] h-10 flex items-center justify-center text-white rounded-md"
               onClick={() => {
                 Dialog.alert({
-                  title: '風險提示書',
+                  title: intl.formatMessage({
+                    defaultMessage: '風險提示書',
+                    id: 'A3Awd7',
+                  }),
                   closeOnMaskClick: true,
                   content: (
                     <div className="h-64">
                       <iframe
                         className="w-full h-full overflow-y-auto"
-                        title="風險提示書"
+                        title={intl.formatMessage({
+                          defaultMessage: '風險提示書',
+                          id: 'A3Awd7',
+                        })}
                         src="http://api.piglobalexchanges.com/procoin/article/#/passgeDetail?article_id=66"
                       />
                     </div>
                   ),
-                  confirmText: '我已閲讀並同意',
+                  confirmText: intl.formatMessage({
+                    defaultMessage: '我已閲讀並同意',
+                    id: '/EvoLI',
+                  }),
                   onConfirm() {
                     setOpen(true);
                   },
                 });
               }}
             >
-              確定
+              {intl.formatMessage({
+                defaultMessage: '確定',
+                id: 'ofc1Jv',
+              })}
             </a>
           </div>
         )}
@@ -169,10 +260,20 @@ const ApplyBindAccount = () => {
 
       <Popup position="bottom" visible={open} onClose={() => setOpen(false)} closeOnMaskClick>
         <div className="p-4">
-          <div className=" h-16 text-base">跟單倍數設置</div>
+          <div className=" h-16 text-base">
+            {intl.formatMessage({
+              defaultMessage: '跟單倍數設置',
+              id: 'KzQKst',
+            })}
+          </div>
 
           <div className="flex items-center text-base">
-            <span className="text-gray-400">倍數</span>
+            <span className="text-gray-400">
+              {intl.formatMessage({
+                defaultMessage: '倍數',
+                id: 'Vt3fSC',
+              })}
+            </span>
             <Input
               value={multiple}
               onChange={setMultiple}
@@ -181,13 +282,24 @@ const ApplyBindAccount = () => {
               min={0}
               step={1}
               maxLength={15}
-              placeholder="請輸入正整數"
+              placeholder={intl.formatMessage({
+                defaultMessage: '請輸入正整數',
+                id: '84nlVd',
+              })}
             />
-            <span className="text-gray-400">倍</span>
+            <span className="text-gray-400">
+              {intl.formatMessage({
+                defaultMessage: '倍',
+                id: 'Nlt2yU',
+              })}
+            </span>
           </div>
 
           <Button block color="primary" className="my-8" onClick={handleFinish}>
-            確定
+            {intl.formatMessage({
+              defaultMessage: '確定',
+              id: 'ofc1Jv',
+            })}
           </Button>
         </div>
       </Popup>

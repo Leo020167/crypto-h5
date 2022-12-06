@@ -1,6 +1,8 @@
 import { DotLoading } from 'antd-mobile';
+import { useIntl } from 'react-intl';
 
 const InfiniteScrollContent = ({ hasMore }: { hasMore?: boolean }) => {
+  const intl = useIntl();
   return (
     <>
       {hasMore ? (
@@ -9,7 +11,9 @@ const InfiniteScrollContent = ({ hasMore }: { hasMore?: boolean }) => {
           <DotLoading />
         </>
       ) : (
-        <span className="font-bold text-black">已加载全部</span>
+        <span className="font-bold text-black">
+          {intl.formatMessage({ defaultMessage: '已加载全部', id: '2a4k+m' })}
+        </span>
       )}
     </>
   );

@@ -1,4 +1,5 @@
 import { Popover, Toast } from 'antd-mobile';
+import { useIntl } from 'react-intl';
 import { useHistory } from 'react-router-dom';
 import { useOtcGetCertificationInfo } from '../../api/endpoints/transformer';
 
@@ -12,25 +13,27 @@ const LegalMore = () => {
 
   const { data } = useOtcGetCertificationInfo();
 
+  const intl = useIntl();
+
   return (
     <Popover.Menu
       actions={[
         {
           key: 'scan1',
           icon: <MyPublish className="h-5" />,
-          text: '我的廣告',
+          text: intl.formatMessage({ defaultMessage: '我的廣告', id: '64eliW' }),
           onClick() {
             if (data?.data?.otcCertification) {
               history.push('/my-ad-list');
             } else {
-              Toast.show('請先進行商家認證');
+              Toast.show(intl.formatMessage({ defaultMessage: '請先進行商家認證', id: 'IFXGBR' }));
             }
           },
         },
         {
           key: 'scan2',
           icon: <Authentication className="h-5" />,
-          text: '商家認證',
+          text: intl.formatMessage({ defaultMessage: '商家認證', id: 'O3jk1+' }),
           onClick() {
             history.push('/merchant-authentication');
           },
@@ -38,7 +41,7 @@ const LegalMore = () => {
         {
           key: 'scan3',
           icon: <ReceiptManager className="h-5" />,
-          text: '收款管理',
+          text: intl.formatMessage({ defaultMessage: '收款管理', id: 'WLF2E0' }),
           onClick() {
             history.push('/receipt-list');
           },

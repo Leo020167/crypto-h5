@@ -1,5 +1,6 @@
 import { Button, NavBar } from 'antd-mobile';
 import { stringify } from 'query-string';
+import { useIntl } from 'react-intl';
 import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import { useQueryParam } from 'use-query-params';
@@ -14,15 +15,17 @@ const EmailAuth = () => {
 
   const { userInfo } = useAuthStore();
 
+  const intl = useIntl();
+
   return (
     <Container className="bg-[#F0F1F7] h-full">
       <NavBar onBack={() => history.goBack()} className="bg-white mb-8">
-        安全验证
+        {intl.formatMessage({ defaultMessage: '安全驗證', id: 'yzF0zK' })}
       </NavBar>
 
       <div className="p-4">
         <div className="text-center text-[#898a8e] text-base mb-8">
-          为了保证你的账号安全，请验证身份
+          {intl.formatMessage({ defaultMessage: '爲了保證你的賬號安全，請驗證身份', id: 'cbYoMn' })}
         </div>
 
         <div className="text-center text-base font-bold mb-8">{userInfo?.email}</div>
@@ -37,7 +40,7 @@ const EmailAuth = () => {
             }
           }}
         >
-          发送验证码
+          {intl.formatMessage({ defaultMessage: '發送驗證碼', id: 'MYqUqI' })}
         </Button>
       </div>
     </Container>

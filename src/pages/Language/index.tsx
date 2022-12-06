@@ -1,6 +1,7 @@
 import { CheckList } from 'antd-mobile';
 import { useAtom } from 'jotai';
 import { useState } from 'react';
+import { useIntl } from 'react-intl';
 import { useHistory } from 'react-router-dom';
 import { localeAtom } from '../../atoms';
 import Screen from '../../components/Screen';
@@ -47,9 +48,11 @@ const Language = () => {
 
   const history = useHistory();
 
+  const intl = useIntl();
+
   return (
     <Screen
-      headerTitle="設置語言"
+      headerTitle={intl.formatMessage({ defaultMessage: '設置語言', id: 'kIQ/Xp' })}
       footer={
         <div className="p-4 bg-[#F4F6F4]">
           <a
@@ -59,7 +62,7 @@ const Language = () => {
               history.goBack();
             }}
           >
-            保存語言設置
+            {intl.formatMessage({ defaultMessage: '保存語言設置', id: 'BXndbT' })}
           </a>
         </div>
       }

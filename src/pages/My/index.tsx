@@ -1,6 +1,7 @@
 import { Badge, List } from 'antd-mobile';
 import { stringify } from 'query-string';
 import { useState } from 'react';
+import { useIntl } from 'react-intl';
 import { Link, useHistory } from 'react-router-dom';
 import { useMount } from 'react-use';
 import styled from 'styled-components';
@@ -42,6 +43,8 @@ const My = () => {
 
   const { data } = useGetUnreadCount();
 
+  const intl = useIntl();
+
   return (
     <Container className="bg-[#F0F1F7] h-full">
       <div className="bg-white pt-4">
@@ -68,19 +71,19 @@ const My = () => {
             <div className="bg-[#f0f1f5] w-12 h-12 mb-2 rounded-lg">
               <img alt="" src={ic_svg_recharge_coin} />
             </div>
-            <span>充币</span>
+            <span>{intl.formatMessage({ defaultMessage: '充幣', id: 'kGK1/L' })}</span>
           </Link>
           <Link className="flex-1 flex flex-col items-center" to="/take-coin">
             <div className="bg-[#f0f1f5] w-12 h-12 mb-2 rounded-lg">
               <img alt="" src={ic_svg_take_coin} />
             </div>
-            <span>提币</span>
+            <span>{intl.formatMessage({ defaultMessage: '提幣', id: 'andeZs' })}</span>
           </Link>
           <Link className="flex-1 flex flex-col items-center" to="/transfer-coin">
             <div className="bg-[#f0f1f5] w-12 h-12 mb-2 rounded-lg">
               <img alt="" src={ic_svg_transfer_coin} />
             </div>
-            <span>划转</span>
+            <span>{intl.formatMessage({ defaultMessage: '劃轉', id: 'QLilYb' })}</span>
           </Link>
 
           <Link className="flex-1 flex flex-col items-center" to="/legal-money">
@@ -88,7 +91,7 @@ const My = () => {
               <div className="bg-[#f0f1f5] w-12 h-12 mb-2 rounded-lg">
                 <img alt="" src={ic_svg_legal_coin} />
               </div>
-              <span>法币买卖</span>
+              <span>{intl.formatMessage({ defaultMessage: '法幣買賣', id: 'UWUjVA' })}</span>
             </Badge>
           </Link>
         </div>
@@ -102,7 +105,7 @@ const My = () => {
             history.push('/transaction-records');
           }}
         >
-          交易记录
+          {intl.formatMessage({ defaultMessage: '交易記錄', id: 'b6Krbb' })}
         </List.Item>
       </List>
 
@@ -114,7 +117,7 @@ const My = () => {
             history.push('/notifications');
           }}
         >
-          系统通知
+          {intl.formatMessage({ defaultMessage: '系統通知', id: 'DobpJi' })}
         </List.Item>
 
         <List.Item
@@ -126,7 +129,7 @@ const My = () => {
             }
           }}
         >
-          帮助中心
+          {intl.formatMessage({ defaultMessage: '幫助中心', id: 'BRtAE8' })}
         </List.Item>
       </List>
 
@@ -138,7 +141,7 @@ const My = () => {
             history.push('/chat');
           }}
         >
-          客服
+          {intl.formatMessage({ defaultMessage: '客服', id: '2lQGkw' })}
         </List.Item>
 
         <List.Item
@@ -148,7 +151,7 @@ const My = () => {
             history.push('/settings');
           }}
         >
-          设置
+          {intl.formatMessage({ defaultMessage: '設置', id: '+eQ50+' })}
         </List.Item>
 
         <List.Item
@@ -162,7 +165,7 @@ const My = () => {
             }
           }}
         >
-          实名认证
+          {intl.formatMessage({ defaultMessage: '實名認證', id: 'vgGksF' })}
         </List.Item>
 
         <List.Item
@@ -176,7 +179,7 @@ const My = () => {
             }
           }}
         >
-          绑定邮箱
+          {intl.formatMessage({ defaultMessage: '綁定郵箱', id: '+PkU4R' })}
         </List.Item>
       </List>
     </Container>

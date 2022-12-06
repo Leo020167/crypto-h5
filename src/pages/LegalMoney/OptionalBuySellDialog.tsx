@@ -1,5 +1,6 @@
 import { Button, Input, InputRef, List, Popup, Toast } from 'antd-mobile';
 import { useMemo, useRef, useState } from 'react';
+import { useIntl } from 'react-intl';
 import { useInterval } from 'react-use';
 import styled from 'styled-components';
 import { useAccountOutHoldAmount } from '../../api/endpoints/transformer';
@@ -18,12 +19,24 @@ const OptionalBuySellDialog = ({
   onClose,
   onSubmit,
 }: OptionalBuySellDialogProps) => {
-  const isBuyer = useMemo(() => 'buy' === optionalOrder?.buySell, [optionalOrder?.buySell]);
-  const title = isBuyer ? '出售USDT' : '購買USDT';
-  const amountHint = isBuyer ? '請輸入出售數量' : '請輸入購買數量';
-  const all = isBuyer ? '全部出售' : '全部買入';
+  const intl = useIntl();
 
-  const payWay = isBuyer ? '實收款' : '實付款';
+  const isBuyer = useMemo(() => 'buy' === optionalOrder?.buySell, [optionalOrder?.buySell]);
+  const title = isBuyer
+    ? intl.formatMessage({ defaultMessage: '出售USDT', id: 'Bj/Ifv' })
+    : intl.formatMessage({ defaultMessage: '購買USDT', id: 'HeL/t7' });
+
+  const amountHint = isBuyer
+    ? intl.formatMessage({ defaultMessage: '請輸入出售數量', id: 'RXYW6s' })
+    : intl.formatMessage({ defaultMessage: '請輸入購買數量', id: 'ap+l4f' });
+
+  const all = isBuyer
+    ? intl.formatMessage({ defaultMessage: '全部出售', id: 'V4Iau9' })
+    : intl.formatMessage({ defaultMessage: '全部買入', id: 'CTWCcu' });
+
+  const payWay = isBuyer
+    ? intl.formatMessage({ defaultMessage: '實收款', id: 'n/ayb0' })
+    : intl.formatMessage({ defaultMessage: '實付款', id: 'Qg/P8m' });
 
   const ref = useRef<InputRef>(null);
 
@@ -83,11 +96,13 @@ const OptionalBuySellDialog = ({
 
         <div className="mt-2 text-[#9A9A9A] text-xs">
           <span className="mt-1" key="limit">
-            限額{optionalOrder?.minCny}USDT-{optionalOrder?.maxCny}USDT
+            {intl.formatMessage({ defaultMessage: '限額', id: 'zGwnHi' })}
+            {optionalOrder?.minCny}USDT-{optionalOrder?.maxCny}USDT
           </span>
           {isBuyer && (
             <span className="ml-4 mt-1" key="balance">
-              餘額{holdAmount}USDT
+              {intl.formatMessage({ defaultMessage: '餘額', id: 'hPHyre' })}
+              {holdAmount}USDT
             </span>
           )}
         </div>
@@ -95,7 +110,7 @@ const OptionalBuySellDialog = ({
         <div className=" mt-8">
           <List>
             <List.Item
-              title="單價"
+              title={intl.formatMessage({ defaultMessage: '單價', id: 'WyPuru' })}
               extra={
                 <span>
                   {optionalOrder?.price}
@@ -103,7 +118,10 @@ const OptionalBuySellDialog = ({
                 </span>
               }
             />
-            <List.Item title="數量" extra={<span>----</span>} />
+            <List.Item
+              title={intl.formatMessage({ defaultMessage: '數量', id: 'YYra8Q' })}
+              extra={<span>----</span>}
+            />
             <List.Item
               title={payWay}
               extra={<span className="text-[#c6175ae] text-xl font-bold">----</span>}
@@ -117,7 +135,7 @@ const OptionalBuySellDialog = ({
               <Countdown
                 defaultCount={Number(optionalOrder?.timeLimit ?? 0)}
                 onFinish={() => {
-                  Toast.show('操作超時');
+                  Toast.show(intl.formatMessage({ defaultMessage: '操作超時', id: 'VqH7F0' }));
                 }}
               />
             )}
@@ -139,7 +157,7 @@ const OptionalBuySellDialog = ({
               }
             }}
           >
-            下單
+            {intl.formatMessage({ defaultMessage: '下單', id: 'PHMSxi' })}
           </Button>
         </div>
       </div>
@@ -160,7 +178,13 @@ const Countdown = ({ defaultCount, onFinish }: { defaultCount: number; onFinish?
     },
     count ? 1000 : null,
   );
-  return <span>{count}後自動取消</span>;
+  const intl = useIntl();
+  return (
+    <span>
+      {count}
+      {intl.formatMessage({ defaultMessage: '後自動取消', id: 'qxdWh5' })}
+    </span>
+  );
 };
 
 const Container = styled(Popup)`

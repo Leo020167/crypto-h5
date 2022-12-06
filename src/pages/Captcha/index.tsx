@@ -1,5 +1,6 @@
 import { Button, Form, Input, NavBar, Toast } from 'antd-mobile';
 import { useState } from 'react';
+import { useIntl } from 'react-intl';
 import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -16,6 +17,8 @@ const Captcha = () => {
 
   const { value } = useSignUpStore();
 
+  const intl = useIntl();
+
   return (
     <Container className="h-screen bg-white">
       <NavBar
@@ -25,8 +28,12 @@ const Captcha = () => {
       />
 
       <div className="p-8">
-        <h1 className=" text-3xl font-bold mb-2">输入验证码</h1>
-        <div className="mb-8">请获取短信验证</div>
+        <h1 className=" text-3xl font-bold mb-2">
+          {intl.formatMessage({ defaultMessage: '输入验证码', id: '4FDcHK' })}
+        </h1>
+        <div className="mb-8">
+          {intl.formatMessage({ defaultMessage: '请获取短信验证', id: 'LC8/+u' })}
+        </div>
 
         <Form
           layout="horizontal"
@@ -42,7 +49,7 @@ const Captcha = () => {
               disabled={smsCode.length !== 6}
               onClick={() => setRegisterOpen(true)}
             >
-              完成验证
+              {intl.formatMessage({ defaultMessage: '完成验证', id: 'jAROVC' })}
             </Button>
           }
         >
@@ -53,11 +60,14 @@ const Captcha = () => {
                 className=" border-[#dcb585] border-2 rounded text-[#dcb585] text-sm px-2 py-1"
                 onClick={() => setOpen(true)}
               >
-                获取验证码
+                {intl.formatMessage({ defaultMessage: '获取验证码', id: 'ypMY0M' })}
               </a>
             }
           >
-            <Input placeholder="请输入验证码" onChange={setSmsCode} />
+            <Input
+              placeholder={intl.formatMessage({ defaultMessage: '请输入验证码', id: '9UZxwP' })}
+              onChange={setSmsCode}
+            />
           </Form.Item>
         </Form>
       </div>
@@ -101,8 +111,18 @@ const Captcha = () => {
           });
 
           if (value?.phone) {
-            const phone = value.phone.substring(0, 3) + '****' + value.phone.substring(7);
-            Toast.show(`短信验证码已经发送至${phone}`);
+            const phoneNumber = value.phone.substring(0, 3) + '****' + value.phone.substring(7);
+            Toast.show(
+              intl.formatMessage(
+                {
+                  defaultMessage: '短信验证码已经发送至{phoneNumber}',
+                  id: 'yzNVN7',
+                },
+                {
+                  phoneNumber,
+                },
+              ),
+            );
           }
 
           setOpen(false);

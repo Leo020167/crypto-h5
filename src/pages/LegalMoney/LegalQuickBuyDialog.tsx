@@ -1,6 +1,7 @@
 import { Button, List, Popup, Toast } from 'antd-mobile';
 import currency from 'currency.js';
 import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useIntl } from 'react-intl';
 import styled from 'styled-components';
 import { useOtcCreateOrder } from '../../api/endpoints/transformer';
 import { OtcFindAdListItem, Receipt } from '../../api/model';
@@ -46,11 +47,13 @@ const LegalQuickBuyDialog = ({
     },
   });
 
+  const intl = useIntl();
+
   const handleFinish = useCallback(() => {
     if (!optionalOrder) return;
 
-    if (selectedPayWay?.receiptType === -1) {
-      Toast.show('請選擇商家收款方式');
+    if (selectedPayWay?.receiptType === '-1') {
+      Toast.show(intl.formatMessage({ defaultMessage: '請選擇商家收款方式', id: 'xExi0z' }));
       return;
     }
 
@@ -63,12 +66,14 @@ const LegalQuickBuyDialog = ({
         showReceiptType: selectedPayWay?.receiptType,
       },
     });
-  }, [amount, optionalOrder, otcCreateOrder, selectedPayWay?.receiptType]);
+  }, [amount, intl, optionalOrder, otcCreateOrder, selectedPayWay?.receiptType]);
 
   return (
     <Container position="bottom" visible={open} onClose={onClose} destroyOnClose closeOnMaskClick>
       <div className="flex flex-col px-4">
-        <span className=" h-16 flex items-center text-base font-bold text-[#3D3A50]">確認購買</span>
+        <span className=" h-16 flex items-center text-base font-bold text-[#3D3A50]">
+          {intl.formatMessage({ defaultMessage: '確認購買', id: 'ySnXcv' })}
+        </span>
         <div className="h-14 relative overflow-x-auto">
           <div className="h-full flex absolute">
             {options.map((v, i) => (
@@ -87,7 +92,9 @@ const LegalQuickBuyDialog = ({
                 </div>
 
                 <div className="flex items-center justify-between h-full">
-                  <span className="text-[#6175AE] py-[2px] px-1 scale-[0.85]">價格最優</span>
+                  <span className="text-[#6175AE] py-[2px] px-1 scale-[0.85]">
+                    {intl.formatMessage({ defaultMessage: '價格最優', id: 'EYBWHx' })}
+                  </span>
                   <SelectedSvg className="w-3.5 h-3.5" />
                 </div>
               </div>
@@ -96,8 +103,14 @@ const LegalQuickBuyDialog = ({
         </div>
 
         <List className="mt-4">
-          <List.Item title="價格" extra={optionalOrder?.price + symbol + '/USDT'} />
-          <List.Item title="數量" extra={`${amount} USDT`} />
+          <List.Item
+            title={intl.formatMessage({ defaultMessage: '價格', id: 'qzi2dl' })}
+            extra={optionalOrder?.price + symbol + '/USDT'}
+          />
+          <List.Item
+            title={intl.formatMessage({ defaultMessage: '數量', id: 'YYra8Q' })}
+            extra={`${amount} USDT`}
+          />
         </List>
 
         <div className="mt-4 text-center">
@@ -110,7 +123,7 @@ const LegalQuickBuyDialog = ({
 
         <div className="px-4 my-6">
           <Button block color="primary" onClick={handleFinish} loading={otcCreateOrder.isLoading}>
-            確認購買
+            {intl.formatMessage({ defaultMessage: '確認購買', id: 'ySnXcv' })}
           </Button>
         </div>
       </div>

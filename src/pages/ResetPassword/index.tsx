@@ -2,6 +2,7 @@ import { Button, Form, Input, NavBar, Toast } from 'antd-mobile';
 import { DownFill } from 'antd-mobile-icons';
 import { useAtom } from 'jotai';
 import { useState } from 'react';
+import { useIntl } from 'react-intl';
 import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import { countryAtom } from '../../atoms';
@@ -26,6 +27,8 @@ const ResetPassword = () => {
 
   const [form] = Form.useForm();
 
+  const intl = useIntl();
+
   return (
     <Container className="h-screen bg-white">
       <NavBar
@@ -35,13 +38,15 @@ const ResetPassword = () => {
       />
 
       <div className="p-8">
-        <h1 className="text-2xl font-bold ">重置密码</h1>
+        <h1 className="text-2xl font-bold ">
+          {intl.formatMessage({ defaultMessage: '重置密码', id: 'gsk33w' })}
+        </h1>
         <Form
           form={form}
           layout="horizontal"
           onFinish={(values) => {
             if (!values.phone || !values.phone.trim().length) {
-              Toast.show('手機號碼不能為空');
+              Toast.show(intl.formatMessage({ defaultMessage: '手機號碼不能為空', id: 'B+KT/l' }));
               return;
             }
 
@@ -54,7 +59,7 @@ const ResetPassword = () => {
           footer={
             <div>
               <Button block type="submit" color="primary" className="rounded-none mt-8 ">
-                完成
+                {intl.formatMessage({ defaultMessage: '完成', id: 'uHUP9v' })}
               </Button>
             </div>
           }
@@ -73,7 +78,10 @@ const ResetPassword = () => {
             }
             className="phone"
           >
-            <Input placeholder="请输入手机号码" onChange={setPhone} />
+            <Input
+              placeholder={intl.formatMessage({ defaultMessage: '请输入手机号码', id: 'ejs0A3' })}
+              onChange={setPhone}
+            />
           </Form.Item>
 
           <Form.Item
@@ -82,23 +90,35 @@ const ResetPassword = () => {
                 className=" border-[#dcb585] border-2 rounded text-[#dcb585] text-sm px-2 py-1"
                 onClick={() => setOpenSmsCodeVerity(true)}
               >
-                获取验证码
+                {intl.formatMessage({ defaultMessage: '获取验证码', id: 'ypMY0M' })}
               </a>
             }
           >
-            <Input placeholder="请输入验证码" onChange={setSmsCode} />
+            <Input
+              placeholder={intl.formatMessage({ defaultMessage: '请输入验证码', id: '9UZxwP' })}
+              onChange={setSmsCode}
+            />
           </Form.Item>
 
           <Form.Item name="userPass">
             <Input
               type="password"
-              placeholder="密必须是8-16位字、字母组合"
+              placeholder={intl.formatMessage({
+                defaultMessage: '密必须是8-16位字、字母组合',
+                id: 'MTyrlB',
+              })}
               onChange={setPassword}
             />
           </Form.Item>
 
           <Form.Item name="configUserPass">
-            <Input type="password" placeholder="请再次输入密码" />
+            <Input
+              type="password"
+              placeholder={intl.formatMessage({
+                defaultMessage: '请再次输入密码',
+                id: 'MPJViy',
+              })}
+            />
           </Form.Item>
         </Form>
       </div>

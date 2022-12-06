@@ -1,17 +1,13 @@
 import { Input, Selector, Toast } from 'antd-mobile';
 import currency from 'currency.js';
 import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useIntl } from 'react-intl';
 import { Link } from 'react-router-dom';
 import Select, { StylesConfig } from 'react-select';
 import styled from 'styled-components';
 import { useProOrderCheckOut, useProOrderOpen } from '../../api/endpoints/transformer';
 import { ProOrderConfigResponseAllOfData } from '../../api/model';
 import { QuoteReal } from '../../market/model';
-
-const orderTypeOptions = [
-  { value: 'market', label: '市價委托' },
-  { value: 'limit', label: '限價委托' },
-];
 
 const colourStyles: StylesConfig = {
   container: (styles) => ({ ...styles, padding: 0 }),
@@ -51,6 +47,15 @@ const TradeLeverDetails = ({
   config,
   onCreateOrderSuccess,
 }: TradeLeverDetailsProps) => {
+  const intl = useIntl();
+  const orderTypeOptions = useMemo(
+    () => [
+      { value: 'market', label: intl.formatMessage({ defaultMessage: '市價委托', id: 'NQroRs' }) },
+      { value: 'limit', label: intl.formatMessage({ defaultMessage: '限價委托', id: 'udpXUo' }) },
+    ],
+    [intl],
+  );
+
   const [orderTypeOption, setOrderTypeOption] = useState<any>(orderTypeOptions[0]);
   const [multiNumOption, setMultiNumOption] = useState<any>();
   const [multiNumOptions, setMultiNumOptions] = useState<any[]>([]);
@@ -146,7 +151,7 @@ const TradeLeverDetails = ({
           options={orderTypeOptions}
           styles={colourStyles}
           className="w-1/2"
-          placeholder="請選擇"
+          placeholder={intl.formatMessage({ defaultMessage: '請選擇', id: 'fINI3k' })}
         />
 
         {config?.accountType !== 'stock' && (
@@ -156,20 +161,20 @@ const TradeLeverDetails = ({
             options={multiNumOptions}
             styles={colourStyles}
             className="w-1/2"
-            placeholder="請選擇"
+            placeholder={intl.formatMessage({ defaultMessage: '請選擇', id: 'fINI3k' })}
           />
         )}
       </div>
 
       {orderTypeOption.value === 'market' ? (
         <div className="flex items-center justify-center text-xs text-[#666175ae] h-10 mt-2 bg-[#f2f2f2]">
-          以當前最優價格交易
+          {intl.formatMessage({ defaultMessage: '以當前最優價格交易', id: 'VXMi89' })}
         </div>
       ) : (
         <div className="mt-2.5 flex items-center border border-gray-300">
           <Input
             type="number"
-            placeholder="價格"
+            placeholder={intl.formatMessage({ defaultMessage: '價格', id: 'qzi2dl' })}
             maxLength={18}
             className="flex-1 pl-2.5"
             value={price}
@@ -210,20 +215,30 @@ const TradeLeverDetails = ({
           onChange={setHand}
           type="number"
           className="text-sm font-bold"
-          placeholder="請輸入手數"
+          placeholder={intl.formatMessage({ defaultMessage: '請輸入手數', id: 'Tw8y2o' })}
           maxLength={18}
         />
-        <span className="text-[#666175ae]">手</span>
+        <span className="text-[#666175ae]">
+          {intl.formatMessage({ defaultMessage: '手', id: 'ohYFAy' })}
+        </span>
       </div>
 
       <div className="mt-1 text-xs flex items-center justify-between">
         <div>
-          <div className="text-[#6175ae]">可開{orderCheckOut?.data?.maxHand}手</div>
-          <div className="text-gray-400 mt-3">開倉保證金{orderCheckOut?.data?.openBail}</div>
+          <div className="text-[#6175ae]">
+            {intl.formatMessage(
+              { defaultMessage: '可開{maxHand}手', id: 'xCJREC' },
+              { maxHand: orderCheckOut?.data?.maxHand },
+            )}
+          </div>
+          <div className="text-gray-400 mt-3">
+            {intl.formatMessage({ defaultMessage: '開倉保證金', id: 'H4vld2' })}
+            {orderCheckOut?.data?.openBail}
+          </div>
         </div>
 
         <Link to="/transfer-coin" className="bg-[#6175ae] text-center text-white py-1.5 w-12">
-          划轉
+          {intl.formatMessage({ defaultMessage: '划轉', id: 'UD6XMk' })}
         </Link>
       </div>
 
@@ -233,7 +248,7 @@ const TradeLeverDetails = ({
           style={{ backgroundColor: buySell === 1 ? '#E2214E' : '#00AD88' }}
           onClick={() => {
             if (orderTypeOption.value === 'limit' && !calcPrice) {
-              Toast.show('請輸入價格');
+              Toast.show(intl.formatMessage({ defaultMessage: '請輸入價格', id: 'bW0/mN' }));
               return;
             }
 
@@ -249,7 +264,9 @@ const TradeLeverDetails = ({
             });
           }}
         >
-          {buySell === 1 ? '看漲(做多)' : '看跌(做空)'}
+          {buySell === 1
+            ? intl.formatMessage({ defaultMessage: '看漲(做多)', id: 'cBWJI5' })
+            : intl.formatMessage({ defaultMessage: '看跌(做空)', id: 'uy59Hz' })}
         </a>
       </div>
     </Container>

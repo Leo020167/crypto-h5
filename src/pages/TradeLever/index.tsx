@@ -1,6 +1,7 @@
 import { Dialog, Toast } from 'antd-mobile';
 import { stringify } from 'query-string';
 import { useState } from 'react';
+import { useIntl } from 'react-intl';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { NumberParam, StringParam, useQueryParam, withDefault } from 'use-query-params';
@@ -77,6 +78,8 @@ const TradeLever = () => {
     },
   });
 
+  const intl = useIntl();
+
   return (
     <Screen headerTitle={symbol}>
       <div className="flex-1 overflow-y-auto bg-gray-100">
@@ -87,13 +90,13 @@ const TradeLever = () => {
                 isSelected={buySell === 1}
                 onClick={() => setBuySell(1, 'replaceIn')}
               >
-                看漲
+                {intl.formatMessage({ defaultMessage: '看漲', id: 'cjFoGi' })}
               </SelectorSwitchBuy>
               <SelectorSwitchSell
                 isSelected={buySell === -1}
                 onClick={() => setBuySell(-1, 'replaceIn')}
               >
-                看跌
+                {intl.formatMessage({ defaultMessage: '看跌', id: 'uvUV8g' })}
               </SelectorSwitchSell>
             </div>
             <TradeLeverDetails
@@ -119,13 +122,13 @@ const TradeLever = () => {
                 className={`flex items-center ${selected !== '0' ? 'text-sm text-gray-400' : ''}`}
                 onClick={() => setSelected('0')}
               >
-                當前開倉
+                {intl.formatMessage({ defaultMessage: '當前開倉', id: 'KyuHZw' })}
               </a>
               <a
                 className={`flex items-center ${selected !== '1' ? 'text-sm text-gray-400' : ''}`}
                 onClick={() => setSelected('1')}
               >
-                當前委托
+                {intl.formatMessage({ defaultMessage: '當前委托', id: 'Mj7nsK' })}
               </a>
             </div>
 
@@ -136,7 +139,7 @@ const TradeLever = () => {
               }}
               className="flex items-center text-gray-400 text-xs font-bold"
             >
-              全部
+              {intl.formatMessage({ defaultMessage: '全部', id: 'dGBGbt' })}
             </Link>
           </div>
         </div>
@@ -149,8 +152,8 @@ const TradeLever = () => {
               data={proOrderQueryList?.data?.data}
               onCancel={(orderId) => {
                 Dialog.confirm({
-                  content: '確定撤銷訂單',
-                  confirmText: '確定',
+                  content: intl.formatMessage({ defaultMessage: '確定撤銷訂單', id: 'UXkrvR' }),
+                  confirmText: intl.formatMessage({ defaultMessage: '確定', id: 'ofc1Jv' }),
                   onConfirm() {
                     proOrderCancel.mutate({
                       data: {

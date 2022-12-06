@@ -1,5 +1,6 @@
 import { Button, Form, Input, NavBar, Toast } from 'antd-mobile';
 import { useCallback } from 'react';
+import { useIntl } from 'react-intl';
 import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import { useQueryParam, StringParam } from 'use-query-params';
@@ -17,10 +18,12 @@ const BindEmailCode = () => {
 
   const { getUserInfo } = useAuthStore();
 
+  const intl = useIntl();
+
   const handleFinish = useCallback(
     (values: { code?: string }) => {
       if (!values.code || !values.code.trim().length) {
-        Toast.show('請輸入郵箱驗證碼');
+        Toast.show(intl.formatMessage({ defaultMessage: '請輸入郵箱驗證碼', id: 'Y+Wlw4' }));
         return;
       }
 
@@ -28,7 +31,7 @@ const BindEmailCode = () => {
         if (res.code === '200') {
           getUserInfo();
 
-          Toast.show('綁定成功');
+          Toast.show(intl.formatMessage({ defaultMessage: '綁定成功', id: 'q+on8I' }));
 
           if (type === 1 && redirectUrl) {
             history.replace({ pathname: redirectUrl }, { state: { success: true } });
@@ -40,16 +43,18 @@ const BindEmailCode = () => {
         }
       });
     },
-    [email, getUserInfo, history, redirectUrl, type],
+    [email, getUserInfo, history, intl, redirectUrl, type],
   );
 
   return (
     <Container className="bg-[#F0F1F7] h-full">
       <NavBar onBack={() => history.goBack()} className="bg-white mb-8">
-        郵箱驗證碼
+        {intl.formatMessage({ defaultMessage: '郵箱驗證碼', id: '56o47p' })}
       </NavBar>
 
-      <div className="text-center mb-4 text-[#78797d]">{`驗證碼已發送至，${email}`}</div>
+      <div className="text-center mb-4 text-[#78797d]">
+        {intl.formatMessage({ defaultMessage: '驗證碼已發送至，{email}', id: 'Jgy7GK' }, { email })}
+      </div>
 
       <Form
         onFinish={handleFinish}
@@ -58,13 +63,16 @@ const BindEmailCode = () => {
         footer={
           <div className="mt-4">
             <Button type="submit" block size="large" className="submit">
-              下一步
+              {intl.formatMessage({ defaultMessage: '下一步', id: '6Y0p2/' })}
             </Button>
           </div>
         }
       >
         <Form.Item name="code">
-          <Input type="text" placeholder="請輸入郵箱驗證碼" />
+          <Input
+            type="text"
+            placeholder={intl.formatMessage({ defaultMessage: '請輸入郵箱驗證碼', id: 'Y+Wlw4' })}
+          />
         </Form.Item>
       </Form>
     </Container>

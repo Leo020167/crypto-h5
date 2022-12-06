@@ -1,4 +1,5 @@
 import { Form, NavBar, Toast } from 'antd-mobile';
+import { useIntl } from 'react-intl';
 import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import Password from '../../../components/Password';
@@ -11,6 +12,8 @@ const ChangePassword = () => {
 
   const [form] = Form.useForm();
 
+  const intl = useIntl();
+
   return (
     <Container className="h-screen bg-[#f0f1f5]">
       <NavBar
@@ -21,7 +24,7 @@ const ChangePassword = () => {
             onClick={() => {
               form.validateFields().then((values: ChangePasswordInput) => {
                 if (!values.oldUserPass || !values.oldUserPass.trim().length) {
-                  Toast.show('請輸入原密碼');
+                  Toast.show(intl.formatMessage({ defaultMessage: '請輸入原密碼', id: 'srNPrw' }));
                   return;
                 }
 
@@ -46,15 +49,27 @@ const ChangePassword = () => {
 
       <Form form={form}>
         <Form.Item name="oldUserPass">
-          <Password placeholder="输入旧密码" />
+          <Password
+            placeholder={intl.formatMessage({ defaultMessage: '輸入舊密碼', id: 'FXys9B' })}
+          />
         </Form.Item>
 
         <Form.Item name="newUserPass">
-          <Password placeholder="设置新密码(8-16位字、字母组合)" />
+          <Password
+            placeholder={intl.formatMessage({
+              defaultMessage: '設置新密碼(8-16位字、字母組合)',
+              id: '6zlqMT',
+            })}
+          />
         </Form.Item>
 
         <Form.Item name="configUserPass">
-          <Password placeholder="确认新密码" />
+          <Password
+            placeholder={intl.formatMessage({
+              defaultMessage: '確認新密碼',
+              id: 'VbE2gD',
+            })}
+          />
         </Form.Item>
       </Form>
     </Container>

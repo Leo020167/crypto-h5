@@ -1,3 +1,4 @@
+import { useIntl } from 'react-intl';
 import useSwitchColor from '../../hooks/useSwitchColor';
 import { QuoteReal } from '../../market/model';
 
@@ -6,11 +7,17 @@ const TradeLeverPrices = ({ data }: { data?: QuoteReal }) => {
 
   const color = getColor(Number(data?.rate));
 
+  const intl = useIntl();
+
   return (
     <div className="text-xs">
       <div className="text-[#bebebe] flex items-center">
-        <span className="flex-1">價格({data?.currency})</span>
-        <span className="flex-1 ml-4">數量(手)</span>
+        <span className="flex-1">
+          {intl.formatMessage({ defaultMessage: '價格', id: 'qzi2dl' })}({data?.currency})
+        </span>
+        <span className="flex-1 ml-4">
+          {intl.formatMessage({ defaultMessage: '數量(手)', id: '+ZvENE' })}
+        </span>
       </div>
 
       <div className="mt-4">

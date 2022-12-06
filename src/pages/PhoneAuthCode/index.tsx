@@ -1,6 +1,7 @@
 import { Button, Input, Toast } from 'antd-mobile';
 import { stringify } from 'query-string';
 import { useCallback, useState } from 'react';
+import { useIntl } from 'react-intl';
 import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import { withDefault, NumberParam, useQueryParam, StringParam } from 'use-query-params';
@@ -25,9 +26,11 @@ const PhoneAuthCode = () => {
 
   const smsGet = useSmsGet();
 
+  const intl = useIntl();
+
   const handleImageValidator = useCallback(
     (locationx: number, dragImgKey: string) => {
-      Toast.show('獲取成功');
+      Toast.show(intl.formatMessage({ defaultMessage: '獲取成功', id: '672nEV' }));
 
       smsGet.mutate({
         data: {
@@ -39,7 +42,7 @@ const PhoneAuthCode = () => {
         },
       });
     },
-    [email, phone, smsGet, userInfo?.countryCode],
+    [email, intl, phone, smsGet, userInfo?.countryCode],
   );
 
   const [code, setCode] = useState<string>();
@@ -85,7 +88,7 @@ const PhoneAuthCode = () => {
 
   const handleFinish = useCallback(() => {
     if (!code || !code.trim().length) {
-      Toast.show('請輸入短信驗證碼');
+      Toast.show(intl.formatMessage({ defaultMessage: '請輸入短信驗證碼', id: '+2zznO' }));
       return;
     }
 
@@ -94,26 +97,40 @@ const PhoneAuthCode = () => {
     } else {
       // TODO 邮箱
     }
-  }, [code, phone]);
+  }, [code, intl, phone]);
 
   return (
-    <Screen headerTitle={phone ? '短信驗證碼' : '郵箱驗證碼'}>
+    <Screen
+      headerTitle={
+        phone
+          ? intl.formatMessage({ defaultMessage: '短信驗證碼', id: 'C8HXvQ' })
+          : intl.formatMessage({ defaultMessage: '郵箱驗證碼', id: '56o47p' })
+      }
+    >
       <Container>
         <div className="mt-16 text-[#666666] text-center">
-          {phone ? `驗證碼已發送至，${phone}` : `驗證碼已發送至，${email}`}
+          {phone
+            ? intl.formatMessage(
+                { defaultMessage: '驗證碼已發送至，{phone}', id: 'qTCfxl' },
+                { phone },
+              )
+            : intl.formatMessage(
+                { defaultMessage: '驗證碼已發送至，{email}', id: 'Jgy7GK' },
+                { email },
+              )}
         </div>
         <div className="p-4">
           <Input
             value={code}
             onChange={setCode}
             className="border h-10 px-3 border-slate-700 rounded text-sm"
-            placeholder="請輸入驗證碼"
+            placeholder={intl.formatMessage({ defaultMessage: '請輸入驗證碼', id: 'Bzq9W2' })}
           />
         </div>
 
         <div className="p-4">
           <Button block onClick={handleFinish}>
-            下一步
+            {intl.formatMessage({ defaultMessage: '下一步', id: '6Y0p2/' })}
           </Button>
         </div>
       </Container>

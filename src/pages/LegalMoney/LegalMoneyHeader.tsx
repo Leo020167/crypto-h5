@@ -1,4 +1,5 @@
 import { Badge } from 'antd-mobile';
+import { useIntl } from 'react-intl';
 import { Link } from 'react-router-dom';
 import { useGetUnreadCount } from '../../api/endpoints/transformer';
 import { ReactComponent as LegalHistory } from '../../assets/ic_svg_legal_history.svg';
@@ -14,6 +15,7 @@ interface LegalMoneyHeaderProps {
 const LegalMoneyHeader = ({ value, onChange }: LegalMoneyHeaderProps) => {
   const { data } = useGetUnreadCount();
 
+  const intl = useIntl();
   return (
     <div className="h-16 bg-[#6175AE] flex items-center px-5 text-[#CBCBCB] justify-between">
       <div>
@@ -21,13 +23,13 @@ const LegalMoneyHeader = ({ value, onChange }: LegalMoneyHeaderProps) => {
           className={value === 'buy' ? selectedClassNames : unselectedClassNames}
           onClick={() => onChange('buy')}
         >
-          我要买
+          {intl.formatMessage({ defaultMessage: '我要买', id: 'cx0QNu' })}
         </a>
         <a
           className={`ml-5 ${value === 'sell' ? selectedClassNames : unselectedClassNames}`}
           onClick={() => onChange('sell')}
         >
-          我要卖
+          {intl.formatMessage({ defaultMessage: '我要卖', id: 'LEah6f' })}
         </a>
       </div>
 

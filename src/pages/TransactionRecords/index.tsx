@@ -14,6 +14,7 @@ import {
 } from 'antd-mobile';
 import { DownFill, DownOutline } from 'antd-mobile-icons';
 import { useMemo, useRef, useState } from 'react';
+import { useIntl } from 'react-intl';
 import styled from 'styled-components';
 import { StringParam, useQueryParam, withDefault } from 'use-query-params';
 import { useProOrderQuerySum } from '../../api/endpoints/transformer';
@@ -25,17 +26,6 @@ interface AccountType {
   value: string;
   label: string;
 }
-const accountTypes: AccountType[] = [
-  { value: 'follow', label: '跟單交易記錄' },
-  { value: 'stock', label: '全球期指交易記錄' },
-  { value: 'digital', label: '合約交易記錄' },
-  { value: 'spot', label: '幣幣交易記錄' },
-];
-
-const tabItems = [
-  { key: '1', title: '委托记录' },
-  { key: '2', title: '历史记录' },
-];
 
 const proOrderQuerySumKeys = ['stock', 'digital'];
 
@@ -53,9 +43,41 @@ const TransactionRecords = () => {
 
   const [accountType, setAccountType] = useQueryParam('accountType', AccountTypeParam);
 
+  const intl = useIntl();
+
+  const accountTypes: AccountType[] = useMemo(
+    () => [
+      {
+        value: 'follow',
+        label: intl.formatMessage({ defaultMessage: '跟單交易記錄', id: 'qNUf+q' }),
+      },
+      {
+        value: 'stock',
+        label: intl.formatMessage({ defaultMessage: '全球期指交易記錄', id: 'HDx5DM' }),
+      },
+      {
+        value: 'digital',
+        label: intl.formatMessage({ defaultMessage: '合約交易記錄', id: 'MG99Vk' }),
+      },
+      {
+        value: 'spot',
+        label: intl.formatMessage({ defaultMessage: '幣幣交易記錄', id: 'RXCFfg' }),
+      },
+    ],
+    [intl],
+  );
+
+  const tabItems = useMemo(
+    () => [
+      { key: '1', title: intl.formatMessage({ defaultMessage: '委托记录', id: '9wuU2o' }) },
+      { key: '2', title: intl.formatMessage({ defaultMessage: '历史记录', id: 'zH7h1q' }) },
+    ],
+    [intl],
+  );
+
   const accountTypeOption = useMemo(
     () => accountTypes.find((v) => v.value === accountType),
-    [accountType],
+    [accountType, accountTypes],
   );
 
   const { data: proOrderQuerySum } = useProOrderQuerySum(
@@ -86,13 +108,19 @@ const TransactionRecords = () => {
           <div className="flex justify-end">
             {activeIndex === 1 && (
               <Dropdown ref={ref} arrow={<DownOutline />}>
-                <Dropdown.Item key="sorter" title="筛选">
+                <Dropdown.Item
+                  key="sorter"
+                  title={intl.formatMessage({ defaultMessage: '筛选', id: 'C8ZFaR' })}
+                >
                   <div className="p-4">
                     <div className="flex-1 flex flex-col">
                       <div className="text-[#1D3155] text-base text-left">币种</div>
                       <Input
                         className="bg-[#f9fafd] rounded h-10 pl-2.5 mt-2.5"
-                        placeholder="請輸入幣種"
+                        placeholder={intl.formatMessage({
+                          defaultMessage: '請輸入幣種',
+                          id: '9ErIMe',
+                        })}
                       />
                     </div>
 
@@ -103,8 +131,20 @@ const TransactionRecords = () => {
                         columns={3}
                         showCheckMark={false}
                         options={[
-                          { label: '已成交', value: 'filled' },
-                          { label: '已撤销', value: 'canceled' },
+                          {
+                            label: intl.formatMessage({
+                              defaultMessage: '已成交',
+                              id: 'KLriKo',
+                            }),
+                            value: 'filled',
+                          },
+                          {
+                            label: intl.formatMessage({
+                              defaultMessage: '已撤销',
+                              id: 'zznr09',
+                            }),
+                            value: 'canceled',
+                          },
                         ]}
                         value={orderState}
                         onChange={setOrderState}
@@ -122,7 +162,10 @@ const TransactionRecords = () => {
                             historyRef.current?.refetch();
                           }}
                         >
-                          重置
+                          {intl.formatMessage({
+                            defaultMessage: '重置',
+                            id: 'r2dEd/',
+                          })}
                         </Button>
                       </Grid.Item>
                       <Grid.Item>
@@ -134,7 +177,10 @@ const TransactionRecords = () => {
                             historyRef.current?.refetch();
                           }}
                         >
-                          确定
+                          {intl.formatMessage({
+                            defaultMessage: '确定',
+                            id: 'r0/TUu',
+                          })}
                         </Button>
                       </Grid.Item>
                     </Grid>
@@ -165,11 +211,21 @@ const TransactionRecords = () => {
           {proOrderQuerySumKeys.includes(accountType) && (
             <div className="flex-1 flex items-center justify-end px-4">
               <div className="flex flex-col">
-                <span className="text-xs text-[#999999]">總交易手數</span>
+                <span className="text-xs text-[#999999]">
+                  {intl.formatMessage({
+                    defaultMessage: '總交易手數',
+                    id: 'EXoXnp',
+                  })}
+                </span>
                 <span className="text-xs text-[#666666]">{proOrderQuerySum?.data?.sumCount}</span>
               </div>
               <div className="flex flex-col ml-4">
-                <span className="text-xs text-[#999999]">獲得FireCoin</span>
+                <span className="text-xs text-[#999999]">
+                  {intl.formatMessage({
+                    defaultMessage: '獲得FireCoin',
+                    id: 'GKRXXt',
+                  })}
+                </span>
                 <span className="text-xs text-[#666666]">{proOrderQuerySum?.data?.sumToken}</span>
               </div>
             </div>
@@ -203,7 +259,12 @@ const TransactionRecords = () => {
 
       <Popup visible={visible} position="right">
         <div className="h-screen w-screen bg-white">
-          <NavBar onBack={() => setVisible(false)}>選擇交易類型</NavBar>
+          <NavBar onBack={() => setVisible(false)}>
+            {intl.formatMessage({
+              defaultMessage: '選擇交易類型',
+              id: 'bpymDW',
+            })}
+          </NavBar>
           <List>
             {accountTypes.map((v) => (
               <List.Item

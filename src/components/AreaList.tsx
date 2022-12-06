@@ -1,6 +1,7 @@
 import { List, Popup, SearchBar } from 'antd-mobile';
 import { useAtomValue } from 'jotai';
 import { useState } from 'react';
+import { useIntl } from 'react-intl';
 import { areaListAtom } from '../atoms';
 import { AreaListItem } from '../model';
 
@@ -24,6 +25,8 @@ const AreaList = ({ open, onClose, onSelect }: AreaListProps) => {
     return true;
   });
 
+  const intl = useIntl();
+
   return (
     <Popup
       position="right"
@@ -35,7 +38,10 @@ const AreaList = ({ open, onClose, onSelect }: AreaListProps) => {
     >
       <div className="phone-prefix-number flex flex-col w-full">
         <div className="mb-4 px-4">
-          <SearchBar placeholder="搜索家或地区" onChange={setSearch} />
+          <SearchBar
+            placeholder={intl.formatMessage({ defaultMessage: '搜索家或地区', id: 'H0Cdjg' })}
+            onChange={setSearch}
+          />
         </div>
 
         <div className="flex-1 overflow-y-auto">

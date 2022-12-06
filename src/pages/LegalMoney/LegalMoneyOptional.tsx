@@ -12,6 +12,7 @@ import {
 } from 'antd-mobile';
 import { stringify } from 'query-string';
 import { useCallback, useMemo, useRef, useState } from 'react';
+import { useIntl } from 'react-intl';
 import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import { withDefault, StringParam, useQueryParam } from 'use-query-params';
@@ -27,25 +28,6 @@ import LegalMoneyHeader from './LegalMoneyHeader';
 import OptionalBuySellDialog from './OptionalBuySellDialog';
 import OptionalCurrencies from './OptionalCurrencies';
 
-const filterPayWays = [
-  {
-    label: '全部',
-    value: '0',
-  },
-  {
-    label: '支付寶',
-    value: '1',
-  },
-  {
-    label: '微信',
-    value: '2',
-  },
-  {
-    label: '銀行卡',
-    value: '3',
-  },
-];
-
 const TypeParam = withDefault(StringParam, 'buy');
 
 const LegalMoneyOptional = () => {
@@ -58,6 +40,8 @@ const LegalMoneyOptional = () => {
   const [filterPayWay, setFilterPayWay] = useState<string>('');
 
   const dropdownRef = useRef<DropdownRef>(null);
+
+  const intl = useIntl();
 
   const {
     data,
@@ -104,9 +88,9 @@ const LegalMoneyOptional = () => {
         setAction('buy');
       } else {
         Dialog.alert({
-          title: '提示',
-          content: '賬戶未實名',
-          confirmText: '去認證',
+          title: intl.formatMessage({ defaultMessage: '提示', id: 'kCh5Jz' }),
+          content: intl.formatMessage({ defaultMessage: '賬戶未實名', id: '98NP8A' }),
+          confirmText: intl.formatMessage({ defaultMessage: '去認證', id: 'jefLBO' }),
           closeOnMaskClick: true,
           onConfirm() {
             history.push('/verified');
@@ -114,7 +98,7 @@ const LegalMoneyOptional = () => {
         });
       }
     },
-    [history, identityAuth?.state, setAction],
+    [history, identityAuth?.state, intl],
   );
 
   const otcCreateOrder = useOtcCreateOrder({
@@ -132,12 +116,37 @@ const LegalMoneyOptional = () => {
     },
   });
 
+  const filterPayWays = useMemo(
+    () => [
+      {
+        label: intl.formatMessage({ defaultMessage: '全部', id: 'dGBGbt' }),
+        value: '0',
+      },
+      {
+        label: intl.formatMessage({ defaultMessage: '支付寶', id: '2FTlRq' }),
+        value: '1',
+      },
+      {
+        label: intl.formatMessage({ defaultMessage: '微信', id: 'g6V3he' }),
+        value: '2',
+      },
+      {
+        label: intl.formatMessage({ defaultMessage: '銀行卡', id: '1sn0tp' }),
+        value: '3',
+      },
+    ],
+    [intl],
+  );
+
   return (
     <Container className="flex-1 flex flex-col min-h-0">
       <LegalMoneyHeader value={type} onChange={(value) => setType(value, 'replaceIn')} />
       <div className="border-b">
         <Dropdown ref={dropdownRef}>
-          <Dropdown.Item key="sorter" title="支付方式">
+          <Dropdown.Item
+            key="sorter"
+            title={intl.formatMessage({ defaultMessage: '支付方式', id: 'TZUB/k' })}
+          >
             <div className="p-4">
               <Selector
                 defaultValue={['0']}
@@ -152,14 +161,20 @@ const LegalMoneyOptional = () => {
               />
             </div>
           </Dropdown.Item>
-          <Dropdown.Item key="bizop" title="交易金額">
+          <Dropdown.Item
+            key="bizop"
+            title={intl.formatMessage({ defaultMessage: '交易金額', id: 'A7hKV4' })}
+          >
             <div className="p-4">
               <div className="relative flex items-center">
                 <Input
                   type="number"
                   value={filterCny}
                   onChange={setFilterCny}
-                  placeholder="系統會為您篩選包含目標金額的商品"
+                  placeholder={intl.formatMessage({
+                    defaultMessage: '系統會為您篩選包含目標金額的商品',
+                    id: '8TceES',
+                  })}
                   className="border border-[#465B98] h-10 px-4"
                 />
                 <span className="absolute right-0">
@@ -197,7 +212,10 @@ const LegalMoneyOptional = () => {
                     refetch();
                   }}
                 >
-                  重置
+                  {intl.formatMessage({
+                    defaultMessage: '重置',
+                    id: 'r2dEd/',
+                  })}
                 </Button>
               </Grid.Item>
               <Grid.Item>
@@ -209,7 +227,10 @@ const LegalMoneyOptional = () => {
                     refetch();
                   }}
                 >
-                  确定
+                  {intl.formatMessage({
+                    defaultMessage: '确定',
+                    id: 'r0/TUu',
+                  })}
                 </Button>
               </Grid.Item>
             </Grid>

@@ -1,5 +1,6 @@
 import { Button, Dialog, ErrorBlock, List, Toast } from 'antd-mobile';
 import { stringify } from 'query-string';
+import { useIntl } from 'react-intl';
 import { useHistory } from 'react-router-dom';
 import {
   useOtcDelMyAd,
@@ -37,9 +38,12 @@ const MyAdList = () => {
       },
     },
   });
+
+  const intl = useIntl();
+
   return (
     <Screen
-      headerTitle="我的廣告"
+      headerTitle={intl.formatMessage({ defaultMessage: '我的廣告', id: '64eliW' })}
       footer={
         <div className="p-4">
           <Button
@@ -49,7 +53,7 @@ const MyAdList = () => {
               history.push('/add-ad');
             }}
           >
-            添加廣告
+            {intl.formatMessage({ defaultMessage: '添加廣告', id: 'ASHrJh' })}
           </Button>
         </div>
       }
@@ -63,8 +67,11 @@ const MyAdList = () => {
                   data={v}
                   onSetOnline={(data: AdItem) => {
                     Dialog.confirm({
-                      content: data.isOnline === '0' ? '是否確定上架?' : '是否確定下架?',
-                      confirmText: '確定',
+                      content:
+                        data.isOnline === '0'
+                          ? intl.formatMessage({ defaultMessage: '是否確定上架?', id: 'HmiIeC' })
+                          : intl.formatMessage({ defaultMessage: '是否確定下架?', id: '8Jc445' }),
+                      confirmText: intl.formatMessage({ defaultMessage: '確定', id: 'ofc1Jv' }),
                       onConfirm() {
                         otcSetOnline.mutate({
                           data: {
@@ -80,8 +87,8 @@ const MyAdList = () => {
                   }}
                   onDelete={(data: AdItem) => {
                     Dialog.confirm({
-                      content: '確定刪除?',
-                      confirmText: '刪除',
+                      content: intl.formatMessage({ defaultMessage: '確定刪除?', id: '/7LMEm' }),
+                      confirmText: intl.formatMessage({ defaultMessage: '刪除', id: 'oAdm61' }),
                       onConfirm() {
                         otcDelMyAd.mutate({
                           data: {
@@ -101,7 +108,7 @@ const MyAdList = () => {
             image={ic_my_ad_no_data}
             status="empty"
             title=""
-            description="您暫未發佈廣告～"
+            description={intl.formatMessage({ defaultMessage: '您暫未發佈廣告～', id: 'R0bpcH' })}
           />
         )}
       </div>

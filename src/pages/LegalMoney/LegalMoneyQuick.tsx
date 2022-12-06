@@ -4,6 +4,7 @@ import { atomWithReset } from 'jotai/utils';
 import { first } from 'lodash-es';
 import { stringify } from 'query-string';
 import { useCallback, useRef, useState } from 'react';
+import { useIntl } from 'react-intl';
 import { useHistory } from 'react-router-dom';
 import { StringParam, useQueryParam, withDefault } from 'use-query-params';
 import {
@@ -63,11 +64,17 @@ const LegalMoneyQuick = () => {
 
   const history = useHistory();
 
+  const intl = useIntl();
+
   const handleFinish = useCallback(() => {
     if (!otcFindAdListItem) return;
 
     if (!amount || !amount.trim().length || !Number(amount)) {
-      Toast.show(type === 'buy' ? '請輸入購買數量' : '請輸入賣出數量');
+      Toast.show(
+        type === 'buy'
+          ? intl.formatMessage({ defaultMessage: '請輸入購買數量', id: 'ap+l4f' })
+          : intl.formatMessage({ defaultMessage: '請輸入賣出數量', id: '9DlDCO' }),
+      );
       return;
     }
 
@@ -75,15 +82,23 @@ const LegalMoneyQuick = () => {
       setAction(type);
     } else {
       Dialog.confirm({
-        title: '提示',
-        content: '帳戶未實名',
-        confirmText: '去認證',
+        title: intl.formatMessage({ defaultMessage: '提示', id: 'kCh5Jz' }),
+        content: intl.formatMessage({ defaultMessage: '帳戶未實名', id: 'ans63b' }),
+        confirmText: intl.formatMessage({ defaultMessage: '去認證', id: 'jefLBO' }),
         onConfirm() {
           history.push('/verified');
         },
       });
     }
-  }, [amount, history, identityGet?.data?.identityAuth?.state, otcFindAdListItem, setAction, type]);
+  }, [
+    amount,
+    history,
+    identityGet?.data?.identityAuth?.state,
+    intl,
+    otcFindAdListItem,
+    setAction,
+    type,
+  ]);
 
   const [receipt, setReceipt] = useState<Receipt>();
 
@@ -94,7 +109,9 @@ const LegalMoneyQuick = () => {
       <div className="px-4 mt-4">
         <div className="flex items-center">
           <span className="text-base font-bold text-[#3D3A50] flex-1">
-            {type === 'sell' ? '出售数量' : '购买数量'}
+            {type === 'sell'
+              ? intl.formatMessage({ defaultMessage: '出售數量', id: 'S/yKCZ' })
+              : intl.formatMessage({ defaultMessage: '購買數量', id: '3s7D9W' })}
           </span>
 
           {type === 'sell' && <Transfer />}
@@ -107,7 +124,7 @@ const LegalMoneyQuick = () => {
         <div className="flex items-center relative h-12">
           <Input
             type="number"
-            placeholder="输入数量"
+            placeholder={intl.formatMessage({ defaultMessage: '輸入數量', id: 'KCC04w' })}
             className="text-xl font-bold border-b h-full"
             value={amount}
             onChange={setAmount}
@@ -133,24 +150,28 @@ const LegalMoneyQuick = () => {
       <div className="px-4 mt-4">
         <div className="text-[#9A9A9A] text-xs flex items-center justify-between">
           <div>
-            价格约
+            {intl.formatMessage({ defaultMessage: '價格約', id: 'FqoFLn' })}
             <span className="text-sm text-[#6175AE]">{otcFindAdListItem?.price ?? '0.00'}</span>
             <span>{unit}</span>
           </div>
 
           {type === 'sell' && !!accountOutHoldAmount?.data && (
-            <span className="mx-4">余额{`${holdAmount} USDT`}</span>
+            <span className="mx-4">
+              {intl.formatMessage({ defaultMessage: '餘額', id: 'hPHyre' })}
+              {`${holdAmount} USDT`}
+            </span>
           )}
         </div>
 
         <div className="mt-4 text-[#9A9A9A] text-xs">
-          限额{`${otcFindAdListItem?.minCny}USDT-${otcFindAdListItem?.maxCny}USDT`}
+          {intl.formatMessage({ defaultMessage: '限額', id: 'zGwnHi' })}
+          {`${otcFindAdListItem?.minCny}USDT-${otcFindAdListItem?.maxCny}USDT`}
         </div>
       </div>
 
       <div className="px-4 mt-12">
         <Button block color="primary" onClick={handleFinish}>
-          0手续费购买
+          {intl.formatMessage({ defaultMessage: '0手續費購買', id: 'NxOp7s' })}
         </Button>
       </div>
 

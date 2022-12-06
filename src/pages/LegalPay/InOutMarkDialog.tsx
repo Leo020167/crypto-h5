@@ -1,5 +1,6 @@
 import { Modal } from 'antd-mobile';
 import { useMemo } from 'react';
+import { useIntl } from 'react-intl';
 import styled from 'styled-components';
 
 interface InOutMarkDialogProps {
@@ -8,30 +9,35 @@ interface InOutMarkDialogProps {
   onSubmit: () => void;
 }
 const InOutMarkDialog = ({ open, onClose, onSubmit }: InOutMarkDialogProps) => {
+  const intl = useIntl();
   const actions = useMemo(
     () => [
       {
         key: 'cancel',
-        text: '取消',
+        text: intl.formatMessage({ defaultMessage: '取消', id: '2QzYmY' }),
         onClick: onClose,
       },
       {
         key: 'ok',
-        text: '確定',
+        text: intl.formatMessage({ defaultMessage: '確定', id: 'ofc1Jv' }),
         onClick: onSubmit,
       },
     ],
-    [onClose, onSubmit],
+    [intl, onClose, onSubmit],
   );
 
   return (
     <Container
-      title="付款確認"
+      title={intl.formatMessage({ defaultMessage: '付款確認', id: 'lj1YNw' })}
       visible={open}
       content={
         <div className="flex flex-col text-black  ">
-          <span className="text-sm">請確認您已向賣家付款</span>
-          <span className="mt-2 text-[#6175AE] text-xs">惡意點擊將直接凍結賬戶</span>
+          <span className="text-sm">
+            {intl.formatMessage({ defaultMessage: '請確認您已向賣家付款', id: 'bKoTT3' })}
+          </span>
+          <span className="mt-2 text-[#6175AE] text-xs">
+            {intl.formatMessage({ defaultMessage: '惡意點擊將直接凍結賬戶', id: 'cQiVhL' })}
+          </span>
         </div>
       }
       actions={actions}

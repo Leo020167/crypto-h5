@@ -1,4 +1,5 @@
 import { Modal, PasscodeInput } from 'antd-mobile';
+import { useIntl } from 'react-intl';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -8,11 +9,12 @@ interface PaymentPasswordDialogProps {
   onFill?: (val: string) => void;
 }
 const PaymentPasswordDialog = ({ open, onClose, onFill }: PaymentPasswordDialogProps) => {
+  const intl = useIntl();
   return (
     <Container
       visible={open}
       onClose={onClose}
-      title="请输入交易密码"
+      title={intl.formatMessage({ defaultMessage: '请输入交易密码', id: 'Qyvn9e' })}
       closeOnMaskClick
       destroyOnClose
       content={
@@ -23,7 +25,7 @@ const PaymentPasswordDialog = ({ open, onClose, onFill }: PaymentPasswordDialogP
 
           <div className="pl-2 mt-4">
             <Link to="" className="text-[#6175AE] text-sm">
-              交易密码管理
+              {intl.formatMessage({ defaultMessage: '交易密码管理', id: 'lK7IeZ' })}
             </Link>
           </div>
         </div>

@@ -1,6 +1,7 @@
 import { Button, List, Toast } from 'antd-mobile';
 import { stringify } from 'query-string';
 import { useMemo } from 'react';
+import { useIntl } from 'react-intl';
 import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import { StringParam, useQueryParam } from 'use-query-params';
@@ -73,6 +74,8 @@ const LegalPay = () => {
     },
   });
 
+  const intl = useIntl();
+
   return (
     <Screen
       footer={
@@ -84,14 +87,16 @@ const LegalPay = () => {
               setAction('confirm', 'replaceIn');
             }}
           >
-            我已付款成功
+            {intl.formatMessage({ defaultMessage: '我已付款成功', id: 'XWzDpA' })}
           </Button>
         </div>
       }
     >
       <Container className="flex-1 flex flex-col  overflow-y-auto">
         <div className="border-b py-4">
-          <div className="text-[#1A1717] text-center">向賣家付款</div>
+          <div className="text-[#1A1717] text-center">
+            {intl.formatMessage({ defaultMessage: '向賣家付款', id: 'sNmNjz' })}
+          </div>
           <div className="flex items-center justify-center">
             <span className="text-[#3D3A50] text-4xl font-bold">
               {payResult?.currencySign ?? ''}
@@ -101,12 +106,14 @@ const LegalPay = () => {
           </div>
 
           <div className="mt-2 text-center">
-            <span className="text-xs text-[#3D3A50]">付款時間剩餘</span>
+            <span className="text-xs text-[#3D3A50]">
+              {intl.formatMessage({ defaultMessage: '付款時間剩餘', id: 'nIpnLv' })}
+            </span>
             <span className="text-[#6175AE] ml-1">
               <Countdown
                 orderPaySecondTime={payResult?.paySecondTime}
                 onFinish={() => {
-                  Toast.show('訂單已經超時');
+                  Toast.show(intl.formatMessage({ defaultMessage: '訂單已經超時', id: '9x6bNN' }));
                 }}
               />
             </span>
@@ -144,7 +151,7 @@ const LegalPay = () => {
 
         <List>
           <List.Item
-            title="買家姓名"
+            title={intl.formatMessage({ defaultMessage: '買家姓名', id: '1y6X+M' })}
             extra={
               <div className="flex items-center">
                 {payResult?.showRealName}
@@ -153,7 +160,10 @@ const LegalPay = () => {
             }
           />
           <List.Item
-            title={`${payResult?.receiptTypeValue}號`}
+            title={intl.formatMessage(
+              { defaultMessage: '{receiptTypeValue}號', id: 'HEzFXJ' },
+              { receiptTypeValue: payResult?.receiptTypeValue },
+            )}
             extra={
               <div className="flex items-center">
                 {payResult?.receiptNo}
@@ -162,7 +172,7 @@ const LegalPay = () => {
             }
           />
           <List.Item
-            title="開戶銀行"
+            title={intl.formatMessage({ defaultMessage: '開戶銀行', id: 'Telt8H' })}
             extra={
               <div className="flex items-center">
                 {payResult?.bankName}

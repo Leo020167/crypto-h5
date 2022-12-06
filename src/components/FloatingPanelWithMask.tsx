@@ -1,5 +1,6 @@
 import { Button, FloatingPanel, Mask } from 'antd-mobile';
 import { useCallback, useState } from 'react';
+import { useIntl } from 'react-intl';
 import styled from 'styled-components';
 
 import floating_panel_bg_png from '../assets/floating-panel-bg.png';
@@ -25,6 +26,8 @@ const FloatingPanelWithMask = ({
 
   const handleConfirm = useCallback(() => onConfirm?.(), [onConfirm]);
 
+  const intl = useIntl();
+
   return (
     <Container visible={open} onMaskClick={onClose} destroyOnClose>
       <FloatingPanel
@@ -43,7 +46,7 @@ const FloatingPanelWithMask = ({
           <div className="flex-1 overflow-y-auto">{children}</div>
           <div className="p-4 pb-8">
             <Button block className="btn-purple" onClick={handleConfirm} loading={loading}>
-              確定
+              {intl.formatMessage({ defaultMessage: '確定', id: 'ofc1Jv' })}
             </Button>
           </div>
         </div>

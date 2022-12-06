@@ -1,25 +1,12 @@
 import { useInfiniteQuery } from '@tanstack/react-query';
 import { InfiniteScroll, List } from 'antd-mobile';
-import { useMemo } from 'react';
+import { useCallback, useMemo } from 'react';
+import { useIntl } from 'react-intl';
 import { depositList, getDepositListQueryKey } from '../../api/endpoints/transformer';
 import { DepositWithdrawListItem } from '../../api/model';
 import InfiniteScrollContent from '../../components/InfiniteScrollContent';
 import { stringDateFormat } from '../../utils/date';
 
-const getName = (data: DepositWithdrawListItem) => {
-  switch (data.inOut) {
-    case '1':
-      return '充幣';
-    case '2':
-      return `申購凍結(${data.subSymbol}-${data.subTitle})`;
-    case '3':
-      return `申購成功轉換(${data.subSymbol}-${data.subTitle})`;
-    case '4':
-      return `申購失敗轉換(${data.subSymbol}-${data.subTitle})`;
-    default:
-      return '提幣';
-  }
-};
 const FinancialList = () => {
   const {
     data,
@@ -43,6 +30,44 @@ const FinancialList = () => {
     [data?.pages],
   );
 
+  const intl = useIntl();
+
+  const getName = useCallback(
+    (data: DepositWithdrawListItem) => {
+      switch (data.inOut) {
+        case '1':
+          return intl.formatMessage({ defaultMessage: '充幣', id: 'kGK1/L' });
+        case '2':
+          return intl.formatMessage(
+            { defaultMessage: '申購凍結({a}-{b})', id: 'MeeLjX' },
+            {
+              a: data.subSymbol,
+              b: data.subTitle,
+            },
+          );
+        case '3':
+          return intl.formatMessage(
+            { defaultMessage: '申購成功轉換({a}-{b})', id: 'zeTkGR' },
+            {
+              a: data.subSymbol,
+              b: data.subTitle,
+            },
+          );
+        case '4':
+          return intl.formatMessage(
+            { defaultMessage: '申購失敗轉換({a}-{b})', id: 'meMA+Y' },
+            {
+              a: data.subSymbol,
+              b: data.subTitle,
+            },
+          );
+        default:
+          return intl.formatMessage({ defaultMessage: '提幣', id: 'andeZs' });
+      }
+    },
+    [intl],
+  );
+
   return (
     <div>
       <List>
@@ -52,18 +77,18 @@ const FinancialList = () => {
               <div className="text-[#c6175ae]">{getName(v)}</div>
               <div className="mt-3 flex items-center justify-between">
                 <div className="text-xs text-gray-400">
-                  <div>數量</div>
+                  <div>{intl.formatMessage({ defaultMessage: '數量', id: 'YYra8Q' })}</div>
                   <div className="text-black">{v.amount}</div>
                 </div>
                 <div className="text-xs text-gray-400 text-right">
-                  <div>狀態</div>
+                  <div>{intl.formatMessage({ defaultMessage: '狀態', id: 'NL+iCs' })}</div>
                   <div className="text-black">{v.stateDesc}</div>
                 </div>
               </div>
               <div className="flex items-center  justify-between">
                 {v.inOut === '2' ? (
                   <div className="text-xs text-gray-400">
-                    <div>申購時間</div>
+                    <div>{intl.formatMessage({ defaultMessage: '申購時間', id: 'PUWCuy' })}</div>
                     <div className="text-black">{stringDateFormat(v.createTime)}</div>
                   </div>
                 ) : (
@@ -71,7 +96,7 @@ const FinancialList = () => {
                 )}
 
                 <div className="text-xs text-gray-400 text-right">
-                  <div>解倉時間</div>
+                  <div>{intl.formatMessage({ defaultMessage: '解倉時間', id: '/AVS2G' })}</div>
                   <div className="text-black">{stringDateFormat(v.transferTime)}</div>
                 </div>
               </div>

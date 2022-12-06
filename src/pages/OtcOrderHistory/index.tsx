@@ -3,6 +3,7 @@ import { Badge, Button, Dropdown, DropdownRef, Grid, List, Selector } from 'antd
 import { keyBy } from 'lodash-es';
 import { stringify } from 'query-string';
 import { useMemo, useRef, useState } from 'react';
+import { useIntl } from 'react-intl';
 import { useHistory } from 'react-router-dom';
 import {
   getOtcFindOrderListQueryKey,
@@ -60,26 +61,30 @@ const OtcOrderHistory = () => {
     return {};
   }, [getUnreadCount?.data?.otcList]);
 
+  const intl = useIntl();
+
   return (
     <ScreenWithInfiniteScroll
-      headerTitle="订单记录"
+      headerTitle={intl.formatMessage({ defaultMessage: '订单记录', id: 'VvurtK' })}
       navBarProps={{
         right: (
           <Dropdown ref={ref}>
             <Dropdown.Item key="sorter" title="筛选">
               <div className="p-4">
                 <div className="flex-1 flex flex-col">
-                  <div className="text-[#1D3155] text-base">类型选择</div>
+                  <div className="text-[#1D3155] text-base">
+                    {intl.formatMessage({ defaultMessage: '类型选择', id: 'B6j8h5' })}
+                  </div>
                   <Selector
                     className="mt-1.5 mb-8"
                     columns={4}
                     options={[
                       {
-                        label: '購買',
+                        label: intl.formatMessage({ defaultMessage: '購買', id: 'eXPzpx' }),
                         value: 'buy',
                       },
                       {
-                        label: '出售',
+                        label: intl.formatMessage({ defaultMessage: '出售', id: '5zfR27' }),
                         value: 'sell',
                       },
                     ]}
@@ -99,7 +104,7 @@ const OtcOrderHistory = () => {
                         refetch();
                       }}
                     >
-                      重置
+                      {intl.formatMessage({ defaultMessage: '重置', id: 'r2dEd/' })}
                     </Button>
                   </Grid.Item>
                   <Grid.Item>
@@ -111,7 +116,7 @@ const OtcOrderHistory = () => {
                         refetch();
                       }}
                     >
-                      确定
+                      {intl.formatMessage({ defaultMessage: '確定', id: 'ofc1Jv' })}
                     </Button>
                   </Grid.Item>
                 </Grid>
@@ -147,17 +152,28 @@ const OtcOrderHistory = () => {
 
               <div className="flex-1 flex justify-between">
                 <div className="flex flex-col text-xs w-1/3">
-                  <div className="text-[#BEBEBE]">時間</div>
+                  <div className="text-[#BEBEBE]">
+                    {intl.formatMessage({ defaultMessage: '時間', id: 'W6smHj' })}
+                  </div>
                   <div className="text-[#3D3A50] mt-1">{stringDateFormat(item.createTime)}</div>
                 </div>
 
                 <div className="flex flex-col text-xs w-1/3 items-center">
-                  <div className="text-[#BEBEBE]">數量</div>
+                  <div className="text-[#BEBEBE]">
+                    {intl.formatMessage({ defaultMessage: '數量', id: 'YYra8Q' })}
+                  </div>
                   <div className="text-[#3D3A50] mt-1">{item.amount ?? '--'}</div>
                 </div>
 
                 <div className="flex flex-col text-xs w-1/3 items-end">
-                  <div className="text-[#BEBEBE]">{`交易金額(${item.currencySign})`}</div>
+                  <div className="text-[#BEBEBE]">
+                    {intl.formatMessage(
+                      { defaultMessage: '交易金額({currencySign})', id: '5UBWei' },
+                      {
+                        currencySign: item.currencySign,
+                      },
+                    )}
+                  </div>
                   <div className="text-[#3D3A50] mt-1">{item.tolPrice ?? '--'}</div>
                 </div>
               </div>

@@ -1,6 +1,7 @@
 import { Selector, Tabs } from 'antd-mobile';
 import { graphic } from 'echarts/core';
 import { useRef, useState } from 'react';
+import { useIntl } from 'react-intl';
 import styled from 'styled-components';
 import { usePersonalTrendChart } from '../../api/endpoints/transformer';
 import { UserRadar } from '../../api/model';
@@ -79,6 +80,8 @@ const Capability = ({ radar }: { radar?: UserRadar }) => {
     ],
   });
 
+  const intl = useIntl();
+
   return (
     <Container className="mt-4 px-4 bg-white flex flex-col">
       <Tabs
@@ -99,26 +102,26 @@ const Capability = ({ radar }: { radar?: UserRadar }) => {
             }}
             options={[
               {
-                label: '一個月',
+                label: intl.formatMessage({ defaultMessage: '一個月', id: '+sZUWv' }),
                 value: 'month',
               },
               {
-                label: '三個月',
+                label: intl.formatMessage({ defaultMessage: '三個月', id: 'UgHO9l' }),
                 value: 'month3',
               },
               {
-                label: '六個月',
+                label: intl.formatMessage({ defaultMessage: '六個月', id: 'mCDkHz' }),
                 value: 'month6',
               },
               {
-                label: '一年内',
+                label: intl.formatMessage({ defaultMessage: '一年内', id: 'HMxoED' }),
                 value: 'year',
               },
             ]}
             showCheckMark={false}
           />
         </Tabs.Tab>
-        <Tabs.Tab title="跟單人氣" key="2">
+        <Tabs.Tab title={intl.formatMessage({ defaultMessage: '跟單人氣', id: 'P8YUAQ' })} key="2">
           <Selector
             value={[timeType]}
             onChange={(value) => {
@@ -128,26 +131,26 @@ const Capability = ({ radar }: { radar?: UserRadar }) => {
             }}
             options={[
               {
-                label: '一個月',
+                label: intl.formatMessage({ defaultMessage: '一個月', id: '+sZUWv' }),
                 value: 'month',
               },
               {
-                label: '三個月',
+                label: intl.formatMessage({ defaultMessage: '三個月', id: 'UgHO9l' }),
                 value: 'month3',
               },
               {
-                label: '六個月',
+                label: intl.formatMessage({ defaultMessage: '六個月', id: 'mCDkHz' }),
                 value: 'month6',
               },
               {
-                label: '一年内',
+                label: intl.formatMessage({ defaultMessage: '一年内', id: 'HMxoED' }),
                 value: 'year',
               },
             ]}
             showCheckMark={false}
           />
         </Tabs.Tab>
-        <Tabs.Tab title="交易次數" key="3">
+        <Tabs.Tab title={intl.formatMessage({ defaultMessage: '交易次數', id: 'XNQjr/' })} key="3">
           <Selector
             value={[timeType]}
             onChange={(value) => {
@@ -157,19 +160,19 @@ const Capability = ({ radar }: { radar?: UserRadar }) => {
             }}
             options={[
               {
-                label: '一個月',
+                label: intl.formatMessage({ defaultMessage: '一個月', id: '+sZUWv' }),
                 value: 'month',
               },
               {
-                label: '三個月',
+                label: intl.formatMessage({ defaultMessage: '三個月', id: 'UgHO9l' }),
                 value: 'month3',
               },
               {
-                label: '六個月',
+                label: intl.formatMessage({ defaultMessage: '六個月', id: 'mCDkHz' }),
                 value: 'month6',
               },
               {
-                label: '一年内',
+                label: intl.formatMessage({ defaultMessage: '一年内', id: 'HMxoED' }),
                 value: 'year',
               },
             ]}

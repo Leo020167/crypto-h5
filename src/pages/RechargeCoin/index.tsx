@@ -2,6 +2,7 @@ import { Button, Input, Selector, Toast } from 'antd-mobile';
 import { AddOutline, DownFill } from 'antd-mobile-icons';
 import { find } from 'lodash-es';
 import { useCallback, useMemo, useState } from 'react';
+import { useIntl } from 'react-intl';
 import { Link, useHistory } from 'react-router-dom';
 import { useCopyToClipboard } from 'react-use';
 import styled from 'styled-components';
@@ -83,11 +84,13 @@ const RechargeCoin = () => {
 
   const [image, setImage] = useState<string>();
 
+  const intl = useIntl();
+
   const chargeSubmit = useChargeSubmit({
     mutation: {
       onSuccess(data) {
         if (data.code === '200') {
-          Toast.show('提交申請成功');
+          Toast.show(intl.formatMessage({ defaultMessage: '提交申請成功', id: '0UBtXx' }));
           history.goBack();
         } else {
           Toast.show(data.msg);
@@ -98,12 +101,12 @@ const RechargeCoin = () => {
 
   const handleFinish = useCallback(() => {
     if (!amount || !amount.trim().length) {
-      Toast.show('請輸入充值金額');
+      Toast.show(intl.formatMessage({ defaultMessage: '請輸入充值金額', id: '45GFMc' }));
       return;
     }
 
     if (!image) {
-      Toast.show('請先上傳充值截圖');
+      Toast.show(intl.formatMessage({ defaultMessage: '請先上傳充值截圖', id: '3vyRBa' }));
       return;
     }
 
@@ -116,25 +119,31 @@ const RechargeCoin = () => {
         chainType: chainType ?? '',
       },
     });
-  }, [amount, image, chargeSubmit, currentAddress?.address, symbol, chainType]);
+  }, [amount, image, chargeSubmit, currentAddress?.address, symbol, chainType, intl]);
 
   return (
     <Screen
-      headerTitle="充幣"
+      headerTitle={intl.formatMessage({ defaultMessage: '充幣', id: 'kGK1/L' })}
       navBarProps={{
-        right: <Link to="/take-coin-history">记录</Link>,
+        right: (
+          <Link to="/take-coin-history">
+            {intl.formatMessage({ defaultMessage: '记录', id: 'YvriPY' })}
+          </Link>
+        ),
       }}
     >
       <Container className="p-4 bg-[#F4F6F4] flex-1 overflow-y-auto">
         <div className="rounded-xl shadow-md shadow-black/5 p-5 bg-white">
           <div className="text-[#A2A9BC] flex items-center justify-between text-sm">
-            <span>可用餘額（USDT）</span>
+            <span>{intl.formatMessage({ defaultMessage: '可用餘額(USDT)', id: 'rv8bFi' })}</span>
             <span className="text-[#3E4660] text-lg">
               {chargeConfigs?.data?.availableAmount ?? '0.00'}
             </span>
           </div>
           <div className="text-[#A2A9BC] flex items-center justify-between text-sm">
-            <span>最小充值金額（USDT）</span>
+            <span>
+              {intl.formatMessage({ defaultMessage: '最小充值金額(USDT)', id: 'EmziDl' })}
+            </span>
             <span className="text-[#00BAB8] text-lg">
               {chargeConfigs?.data?.minChargeAmount ?? '0.00'}
             </span>
@@ -144,7 +153,9 @@ const RechargeCoin = () => {
         <div className="rounded-xl shadow-md shadow-black/5 p-5 bg-white mt-4">
           <div className="flex items-start justify-between">
             <div>
-              <span className="text-[#3E4660]">選擇幣種</span>
+              <span className="text-[#3E4660]">
+                {intl.formatMessage({ defaultMessage: '選擇幣種', id: 'jJ0rDY' })}
+              </span>
               <div className="mt-4">
                 <a
                   className="flex items-center justify-center border border-[#3E4660] rounded h-8 px-2"
@@ -159,7 +170,9 @@ const RechargeCoin = () => {
             </div>
             {symbol === 'USDT' && (
               <div className="text-right">
-                <span className="text-[#3E4660]">選擇充幣網絡</span>
+                <span className="text-[#3E4660]">
+                  {intl.formatMessage({ defaultMessage: '選擇充幣網絡', id: '8Pdrch' })}
+                </span>
                 <Selector
                   className="mt-4"
                   columns={3}
@@ -187,15 +200,17 @@ const RechargeCoin = () => {
 
           <div className="flex justify-center mt-8">
             <span className="bg-[#6175AE] text-white rounded-2xl px-3 py-2 text-xs">
-              只允許充值{symbol}
+              {intl.formatMessage({ defaultMessage: '只允許充值', id: 'Zhkpb8' })}
+              {symbol}
             </span>
           </div>
 
           <div className="mt-12 text-sm text-[#3E4660] flex justify-between">
-            <span>充幣地址</span>
+            <span>{intl.formatMessage({ defaultMessage: '充幣地址', id: 'Q4foHv' })}</span>
             {symbol === 'USDT' && (
               <span>
-                當前鏈路：<span className="text-[#00BAB8]">{chainType}</span>
+                {intl.formatMessage({ defaultMessage: '當前鏈路：', id: '6T3Qx4' })}
+                <span className="text-[#00BAB8]">{chainType}</span>
               </span>
             )}
           </div>
@@ -210,11 +225,13 @@ const RechargeCoin = () => {
                 onClick={() => {
                   if (currentAddress?.address) {
                     copyToClipboard(currentAddress?.address);
-                    Toast.show('已複製到粘貼板');
+                    Toast.show(
+                      intl.formatMessage({ defaultMessage: '已複製到粘貼板', id: 'GBuUew' }),
+                    );
                   }
                 }}
               >
-                複製
+                {intl.formatMessage({ defaultMessage: '複製', id: 'Dw4KtW' })}
               </a>
             )}
           </div>
@@ -222,7 +239,9 @@ const RechargeCoin = () => {
 
         <div className="rounded-xl shadow-md shadow-black/5 p-5 bg-white mt-4">
           <div>
-            <span className="text-xs text-[#A2A9BC]">充值數量</span>
+            <span className="text-xs text-[#A2A9BC]">
+              {intl.formatMessage({ defaultMessage: '充值數量', id: 'AC5dLK' })}
+            </span>
             <Input
               type="number"
               maxLength={18}
@@ -234,7 +253,9 @@ const RechargeCoin = () => {
           </div>
 
           <div className="mt-4">
-            <span className="text-xs text-[#A2A9BC]">充值數量</span>
+            <span className="text-xs text-[#A2A9BC]">
+              {intl.formatMessage({ defaultMessage: '充值數量', id: 'AC5dLK' })}
+            </span>
 
             <div className="mt-1">
               <ImagePicker
@@ -266,7 +287,7 @@ const RechargeCoin = () => {
             block
             loading={chargeSubmit.isLoading}
           >
-            充值確認
+            {intl.formatMessage({ defaultMessage: '充值確認', id: 'Gx5Krn' })}
           </Button>
         </div>
 

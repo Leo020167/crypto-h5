@@ -1,6 +1,7 @@
 import { Input, List, Modal, NavBar, TextArea, Toast } from 'antd-mobile';
 import { CheckOutline } from 'antd-mobile-icons';
 import { useCallback, useState } from 'react';
+import { useIntl } from 'react-intl';
 import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import { getUserInfo } from '../../api/endpoints/transformer';
@@ -24,16 +25,17 @@ const Personal = () => {
 
   const [action, setAction] = useState<'edit-userName' | 'edit-describes'>();
 
+  const intl = useIntl();
   const updateUserInfo = useCallback(() => {
     userUpdateUserInfo({ sex, userName, describes }).then((res: any) => {
       if (res.code === '200') {
         getUserInfo();
 
-        Toast.show('更新信息成功');
+        Toast.show(intl.formatMessage({ defaultMessage: '更新信息成功', id: 'LTp8Pi' }));
         history.replace('/my');
       }
     });
-  }, [describes, history, sex, userName]);
+  }, [describes, history, intl, sex, userName]);
 
   return (
     <Container className="bg-[#F0F1F7] h-full">
@@ -48,7 +50,7 @@ const Personal = () => {
           </div>
         }
       >
-        个人设置
+        {intl.formatMessage({ defaultMessage: '个人设置', id: 'zL7URC' })}
       </NavBar>
 
       <List className="mb-2">
@@ -60,7 +62,7 @@ const Personal = () => {
             </div>
           }
         >
-          头像
+          {intl.formatMessage({ defaultMessage: '头像', id: '65CX2o' })}
         </List.Item>
         <List.Item
           arrow={<Arrow />}
@@ -69,7 +71,7 @@ const Personal = () => {
             setAction('edit-userName');
           }}
         >
-          昵称
+          {intl.formatMessage({ defaultMessage: '昵称', id: 'zlZigq' })}
         </List.Item>
         <List.Item arrow={null} extra={<div className="mr-4">{userInfo?.userId}</div>}>
           ID
@@ -84,7 +86,7 @@ const Personal = () => {
                 }`}
                 onClick={() => setSex('0')}
               >
-                男
+                {intl.formatMessage({ defaultMessage: '男', id: 'mpjnyE' })}
               </a>
               <a
                 className={`rounded px-5 py-1.5 bg-[#f6f6f6] text-xs ${
@@ -92,24 +94,33 @@ const Personal = () => {
                 }`}
                 onClick={() => setSex('1')}
               >
-                女
+                {intl.formatMessage({ defaultMessage: '女', id: 'fKknPq' })}
               </a>
             </div>
           }
         >
-          性别
+          {intl.formatMessage({ defaultMessage: '性别', id: 'O4KgNk' })}
         </List.Item>
-        <List.Item arrow={<Arrow />} extra={<div className="mr-4">未设置</div>}>
-          生日
+        <List.Item
+          arrow={<Arrow />}
+          extra={
+            <div className="mr-4">
+              {intl.formatMessage({ defaultMessage: '未设置', id: 'ag8LxW' })}
+            </div>
+          }
+        >
+          {intl.formatMessage({ defaultMessage: '生日', id: 'j5arhs' })}
         </List.Item>
       </List>
 
       <List>
         <List.Item arrow={<Arrow />} onClick={() => setAction('edit-describes')}>
-          个人简介
+          {intl.formatMessage({ defaultMessage: '个人简介', id: 'lf0jjv' })}
         </List.Item>
         <List.Item arrow={null} onClick={() => setAction('edit-describes')}>
-          <span className="text-[#afafaf]">{describes ?? '请编辑个人简介'}</span>
+          <span className="text-[#afafaf]">
+            {describes ?? intl.formatMessage({ defaultMessage: '请编辑个人简介', id: 'dfCJ6D' })}
+          </span>
         </List.Item>
       </List>
 
@@ -119,14 +130,14 @@ const Personal = () => {
         actions={[
           {
             key: 'cancel',
-            text: '取消',
+            text: intl.formatMessage({ defaultMessage: '取消', id: '2QzYmY' }),
             onClick() {
               setAction(undefined);
             },
           },
           {
             key: 'confirm',
-            text: '确定',
+            text: intl.formatMessage({ defaultMessage: '确定', id: 'r0/TUu' }),
             onClick() {
               setUserName(holderUserName ?? '');
               setAction(undefined);
@@ -143,21 +154,30 @@ const Personal = () => {
             value={holderDescribes}
             onChange={setHolderDescribes}
             maxLength={140}
-            placeholder="写些什么吧...(140个字以内)"
+            placeholder={intl.formatMessage({
+              defaultMessage: '写些什么吧...(140个字以内)',
+              id: 'oVSEVM',
+            })}
             className="text-sm"
           />
         }
         actions={[
           {
             key: 'cancel',
-            text: '取消',
+            text: intl.formatMessage({
+              defaultMessage: '取消',
+              id: '2QzYmY',
+            }),
             onClick() {
               setAction(undefined);
             },
           },
           {
             key: 'confirm',
-            text: '确定',
+            text: intl.formatMessage({
+              defaultMessage: '确定',
+              id: 'r0/TUu',
+            }),
             onClick() {
               setDescribes(holderDescribes ?? '');
               setAction(undefined);

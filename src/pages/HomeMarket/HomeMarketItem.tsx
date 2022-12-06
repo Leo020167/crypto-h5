@@ -1,5 +1,6 @@
 import { useAtom } from 'jotai';
 import { useMemo } from 'react';
+import { useIntl } from 'react-intl';
 import { switchColorValueAtom } from '../../atoms';
 import { Quote } from '../../market/model';
 import { getOriginSymbol, getUnitSymbol } from '../TransactionRecords/utils';
@@ -24,6 +25,8 @@ const HomeMarketItem = ({ data }: { data: Quote }) => {
 
   const ratePrefix = rate >= 0 ? '+' : '';
 
+  const intl = useIntl();
+
   return (
     <div className="text-[#666175ae] flex items-center justify-between text-center h-10 px-4 text-xs">
       <div className="min-w-[100px] flex flex-col text-left">
@@ -37,7 +40,10 @@ const HomeMarketItem = ({ data }: { data: Quote }) => {
       </div>
       <div className="flex-1">
         <div className="text-base font-bold text-[#1d3155]">{data.price}</div>
-        <div>量{data.amount ?? '--'}</div>
+        <div>
+          {intl.formatMessage({ defaultMessage: 'intl', id: 'Q9qgiz' })}
+          {data.amount ?? '--'}
+        </div>
       </div>
       <div className="min-w-[80px] text-sm text-white">
         <div

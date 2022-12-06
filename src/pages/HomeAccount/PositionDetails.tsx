@@ -1,6 +1,7 @@
 import { Button, Form, Input, Popup, Toast } from 'antd-mobile';
 import { stringify } from 'query-string';
 import { useCallback, useState } from 'react';
+import { useIntl } from 'react-intl';
 import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import { StringParam, useQueryParam } from 'use-query-params';
@@ -56,6 +57,8 @@ const PositionDetails = () => {
     },
   });
 
+  const intl = useIntl();
+
   return (
     <Screen
       headerTitle={symbol}
@@ -65,36 +68,40 @@ const PositionDetails = () => {
             className=" h-10 flex-1 flex items-center justify-center text-base text-white bg-[#00ad88]"
             onClick={() => toBuySellPage(1)}
           >
-            買入
+            {intl.formatMessage({ defaultMessage: '買入', id: 'sY5/oP' })}
           </a>
           <a
             className=" h-10 flex-1 flex items-center justify-center text-base text-white bg-[#e2214e]"
             onClick={() => toBuySellPage(-1)}
           >
-            賣出
+            {intl.formatMessage({ defaultMessage: '賣出', id: 'EOWvn9' })}
           </a>
         </div>
       }
     >
       <div className="py-8 border-b">
-        <div className="text-center text-sm">總資產</div>
+        <div className="text-center text-sm">
+          {intl.formatMessage({ defaultMessage: '總資產', id: 'IoCgCq' })}
+        </div>
         <div className="text-center text-3xl text-[#3d3a50]">{data?.data?.data?.amount}</div>
       </div>
 
       <div className="mt-4 px-4 text-[#3d3a50] ">
         <div className="flex justify-between">
-          <span className="text-sm">可用</span>
+          <span className="text-sm">
+            {intl.formatMessage({ defaultMessage: '可用', id: '7C3q18' })}
+          </span>
           <span>{data?.data?.data?.availableAmount}</span>
         </div>
         <div className="flex justify-between mt-2">
-          <span>委托</span>
+          <span>{intl.formatMessage({ defaultMessage: '委托', id: 'CKdped' })}</span>
           <span>{data?.data?.data?.usdtAmount}</span>
         </div>
       </div>
 
       <div className="p-4">
         <Button block color="primary" onClick={() => setOpen(true)}>
-          設置止盈止損
+          {intl.formatMessage({ defaultMessage: '設置止盈止損', id: 'keuHvr' })}
         </Button>
       </div>
 
@@ -117,7 +124,7 @@ const PositionDetails = () => {
                 size="large"
                 loading={proOrderOpen.isLoading}
               >
-                確定
+                {intl.formatMessage({ defaultMessage: '確定', id: 'ofc1Jv' })}
               </Button>
             </div>
           }
@@ -133,12 +140,26 @@ const PositionDetails = () => {
             });
           }}
         >
-          <Form.Header>設定止盈止損</Form.Header>
-          <Form.Item label="價格" name="price">
-            <Input type="number" placeholder="请输入" />
+          <Form.Header>
+            {intl.formatMessage({ defaultMessage: '設定止盈止損', id: 'TT0rUo' })}
+          </Form.Header>
+          <Form.Item
+            label={intl.formatMessage({ defaultMessage: '價格', id: 'qzi2dl' })}
+            name="price"
+          >
+            <Input
+              type="number"
+              placeholder={intl.formatMessage({ defaultMessage: '请输入價格', id: 'UZappM' })}
+            />
           </Form.Item>
-          <Form.Item label="數量" name="hand">
-            <Input type="number" placeholder="请输入" />
+          <Form.Item
+            label={intl.formatMessage({ defaultMessage: '數量', id: 'YYra8Q' })}
+            name="hand"
+          >
+            <Input
+              type="number"
+              placeholder={intl.formatMessage({ defaultMessage: '请输入數量', id: 'HCvPwM' })}
+            />
           </Form.Item>
         </Form>
       </PopupWrapper>

@@ -2,6 +2,7 @@ import { TextArea } from 'antd-mobile';
 import { orderBy } from 'lodash-es';
 import moment from 'moment';
 import { useCallback, useMemo, useState } from 'react';
+import { useIntl } from 'react-intl';
 import { Virtuoso } from 'react-virtuoso';
 import styled from 'styled-components';
 import {
@@ -30,6 +31,8 @@ const Content = ({ type, say }: { type?: string; say?: string }) => {
 };
 
 const Chat = () => {
+  const intl = useIntl();
+
   const { data, refetch } = useFindStaffChatList();
 
   const { userInfo } = useAuthStore();
@@ -110,7 +113,7 @@ const Chat = () => {
   }, []);
 
   return (
-    <Screen headerTitle="綫上客服">
+    <Screen headerTitle={intl.formatMessage({ defaultMessage: '綫上客服', id: 'wwOQz6' })}>
       <Container className="h-full flex flex-col">
         <Virtuoso
           className="flex-1"
@@ -133,7 +136,7 @@ const Chat = () => {
                 className=" w-[45px] h-8  flex items-center justify-center bg-[#06be04] text-white rounded"
                 onClick={sendMessage}
               >
-                發送
+                {intl.formatMessage({ defaultMessage: '發送', id: '9V7qTC' })}
               </a>
             ) : (
               <img alt="" src={type_select_btn_nor} className="w-8 h-8" />

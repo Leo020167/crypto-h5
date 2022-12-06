@@ -1,5 +1,6 @@
 import { List, Toast } from 'antd-mobile';
 import { stringify } from 'query-string';
+import { useIntl } from 'react-intl';
 import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import { useQueryParam, StringParam } from 'use-query-params';
@@ -13,8 +14,10 @@ const AddReceipt = () => {
 
   const { data } = useOtcFindMyPaymentList({});
 
+  const intl = useIntl();
+
   return (
-    <Container headerTitle="添加賬戶類型">
+    <Container headerTitle={intl.formatMessage({ defaultMessage: '添加賬戶類型', id: 'QInuMW' })}>
       <List>
         {data?.data?.myPaymentList?.map((v, i) => (
           <List.Item
@@ -30,7 +33,7 @@ const AddReceipt = () => {
                   search: stringify({ receiptType, from }),
                 });
               } else {
-                Toast.show('未知類型');
+                Toast.show(intl.formatMessage({ defaultMessage: '未知類型', id: 'cuM+vo' }));
               }
             }}
           >

@@ -1,8 +1,10 @@
 import { useRef } from 'react';
+import { useIntl } from 'react-intl';
 import { UserRadar } from '../../api/model';
 import useECharts from '../../hooks/useECharts';
 
 const TradableTargetChart = ({ radar }: { radar?: UserRadar }) => {
+  const intl = useIntl();
   const ref = useRef<HTMLDivElement>(null);
   useECharts(ref, {
     grid: {
@@ -11,11 +13,36 @@ const TradableTargetChart = ({ radar }: { radar?: UserRadar }) => {
     radar: [
       {
         indicator: [
-          { text: `跟單盈利額\n${radar?.radarFollowBalance}`, max: radar?.radarFollowBalance },
-          { text: `人氣指數\n${radar?.radarFollowNum}`, max: radar?.radarFollowNum },
-          { text: `跟單勝率\n${radar?.radarFollowWinRate}%`, max: 100 },
-          { text: `跟單收益率\n${radar?.radarFollowProfitRate}%`, max: 100 },
-          { text: `盈利能力\n${radar?.radarProfitRate}%`, max: 100 },
+          {
+            text: `${intl.formatMessage({ defaultMessage: '跟單盈利額', id: 'bi/Yk/' })}\n${
+              radar?.radarFollowBalance
+            }`,
+            max: radar?.radarFollowBalance,
+          },
+          {
+            text: `${intl.formatMessage({ defaultMessage: '人氣指數', id: 'G0ISee' })}\n${
+              radar?.radarFollowNum
+            }`,
+            max: radar?.radarFollowNum,
+          },
+          {
+            text: `${intl.formatMessage({ defaultMessage: '跟單勝率', id: 'AlC2M4' })}\n${
+              radar?.radarFollowWinRate
+            }%`,
+            max: 100,
+          },
+          {
+            text: `${intl.formatMessage({ defaultMessage: '跟單收益率', id: '6Dthl9' })}\n${
+              radar?.radarFollowProfitRate
+            }%`,
+            max: 100,
+          },
+          {
+            text: `${intl.formatMessage({ defaultMessage: '盈利能力', id: 'hJ1meP' })}\n${
+              radar?.radarProfitRate
+            }%`,
+            max: 100,
+          },
         ],
         radius: 80,
         center: ['50%', '60%'],

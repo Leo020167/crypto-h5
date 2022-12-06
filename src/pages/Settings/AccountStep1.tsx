@@ -1,5 +1,6 @@
 import { Button, Form, Toast } from 'antd-mobile';
 import { useState } from 'react';
+import { useIntl } from 'react-intl';
 import SmsCodeInput from '../../components/SmsCodeInput';
 import SwipeImageValidator from '../../components/SwipeImageValidator';
 import { useAuthStore } from '../../stores/auth';
@@ -15,9 +16,14 @@ const AccountStep1 = ({ onStepCompleted }: AccountStepProps) => {
 
   const { userInfo } = useAuthStore();
 
+  const intl = useIntl();
+
   return (
     <div>
-      <div className="border-b p-4">已绑定手机号：{userInfo?.phone}</div>
+      <div className="border-b p-4">
+        {intl.formatMessage({ defaultMessage: '已绑定手机号：', id: 'yz8Bd8' })}
+        {userInfo?.phone}
+      </div>
       <Form
         onFinish={() => {
           setOpenSmsCodeVerity(true);
@@ -25,7 +31,7 @@ const AccountStep1 = ({ onStepCompleted }: AccountStepProps) => {
         footer={
           <div>
             <Button color="primary" type="submit" size="large" block>
-              下一步
+              {intl.formatMessage({ defaultMessage: '下一步', id: '6Y0p2/' })}
             </Button>
           </div>
         }
@@ -36,7 +42,7 @@ const AccountStep1 = ({ onStepCompleted }: AccountStepProps) => {
             countryCode={userInfo?.countryCode ?? ''}
             value={smsCode}
             onChange={setSmsCode}
-            placeholder="请输入验证码"
+            placeholder={intl.formatMessage({ defaultMessage: '请输入验证码', id: '9UZxwP' })}
           />
         </Form.Item>
       </Form>
@@ -77,7 +83,12 @@ const AccountStep1 = ({ onStepCompleted }: AccountStepProps) => {
 
           if (userInfo?.phone) {
             const phone = userInfo.phone.substring(0, 3) + '****' + userInfo.phone.substring(7);
-            Toast.show(`短信验证码已经发送至${phone}`);
+            Toast.show(
+              intl.formatMessage(
+                { defaultMessage: '短信验证码已经发送至{phone}', id: 'YcfcO0' },
+                { phone },
+              ),
+            );
           }
 
           setOpen(false);

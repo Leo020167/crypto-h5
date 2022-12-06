@@ -1,4 +1,5 @@
 import { stringify } from 'query-string';
+import { useIntl } from 'react-intl';
 import { Link } from 'react-router-dom';
 import { Position } from '../../api/model';
 import ic_arrow from '../../assets/ic_arrow.png';
@@ -6,6 +7,8 @@ import useSwitchColor from '../../hooks/useSwitchColor';
 
 const TradePositionList = ({ data = [] }: { data?: Position[] }) => {
   const getColor = useSwitchColor();
+
+  const intl = useIntl();
 
   return (
     <div className="flex flex-col">
@@ -29,15 +32,21 @@ const TradePositionList = ({ data = [] }: { data?: Position[] }) => {
           </div>
           <div className="flex mt-2.5">
             <div className="flex flex-col w-1/3">
-              <span className="text-xs text-gray-400">手數</span>
+              <span className="text-xs text-gray-400">
+                {intl.formatMessage({ defaultMessage: '手數', id: 'g4FQPM' })}
+              </span>
               <span className="text-sm text-[#3d3a50]">{v.openHand}</span>
             </div>
             <div className="flex flex-col w-1/3 items-center">
-              <span className="text-xs text-gray-400">開倉價</span>
+              <span className="text-xs text-gray-400">
+                {intl.formatMessage({ defaultMessage: '開倉價', id: 'ClVjxw' })}
+              </span>
               <span className="text-sm text-[#3d3a50]">{v.openPrice}</span>
             </div>
             <div className="flex flex-col w-1/3 items-end">
-              <span className="text-xs text-gray-400">盈虧(USDT)</span>
+              <span className="text-xs text-gray-400">
+                {intl.formatMessage({ defaultMessage: '盈虧(USDT)', id: '/k9TmU' })}
+              </span>
               <span className="text-sm text-[#3d3a50]" style={{ color: getColor(v.profit) }}>
                 {Number(v.profit) >= 0 ? '+' : ''}
                 {v.profit}

@@ -1,5 +1,6 @@
 import { Modal, Radio } from 'antd-mobile';
 import { useMemo } from 'react';
+import { useIntl } from 'react-intl';
 import styled from 'styled-components';
 
 interface OrderCancelDialogProps {
@@ -8,33 +9,48 @@ interface OrderCancelDialogProps {
   onSubmit: () => void;
 }
 const OrderCancelDialog = ({ open, onClose, onSubmit }: OrderCancelDialogProps) => {
+  const intl = useIntl();
+
   const actions = useMemo(
     () => [
       {
         key: 'cancel',
-        text: '我再想想',
+        text: intl.formatMessage({ defaultMessage: '我再想想', id: 'KF8CBJ' }),
         onClick: onClose,
       },
       {
         key: 'ok',
-        text: '確定',
+        text: intl.formatMessage({ defaultMessage: '確定', id: 'ofc1Jv' }),
         onClick: onSubmit,
       },
     ],
-    [onClose, onSubmit],
+    [intl, onClose, onSubmit],
   );
 
   return (
     <Container
-      title="確認取消訂單"
+      title={intl.formatMessage({ defaultMessage: '確認取消訂單', id: 'ZbI0hT' })}
       visible={open}
       content={
         <div className="flex flex-col text-xs text-[#6175AE]">
-          <span>如您已經向賣家付款，請不要取消訂單</span>
-          <span className="text-black mt-1">
-            取消規則：買家當日累計4筆取消， 會限制當日買入功能。
+          <span>
+            {intl.formatMessage({
+              defaultMessage: '如您已經向賣家付款，請不要取消訂單',
+              id: '3tf3AE',
+            })}
           </span>
-          <Radio className="mt-2">我確認還沒有付款給對方</Radio>
+          <span className="text-black mt-1">
+            {intl.formatMessage({
+              defaultMessage: '取消規則：買家當日累計4筆取消， 會限制當日買入功能。',
+              id: '7WxsZY',
+            })}
+          </span>
+          <Radio className="mt-2">
+            {intl.formatMessage({
+              defaultMessage: '我確認還沒有付款給對方',
+              id: 'f2BEYr',
+            })}
+          </Radio>
         </div>
       }
       actions={actions}

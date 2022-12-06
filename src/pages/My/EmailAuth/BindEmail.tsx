@@ -1,6 +1,7 @@
 import { Button, Form, Input, NavBar, Toast } from 'antd-mobile';
 import { stringify } from 'query-string';
 import { useCallback } from 'react';
+import { useIntl } from 'react-intl';
 import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import { useQueryParam, StringParam } from 'use-query-params';
@@ -14,10 +15,12 @@ const BindEmail = () => {
   const [email] = useQueryParam('email', StringParam);
   const [redirectUrl] = useQueryParam('redirectUrl', StringParam);
 
+  const intl = useIntl();
+
   const handleFinish = useCallback(
     (values: { email?: string }) => {
       if (!values.email || !values.email.trim().length) {
-        Toast.show('請輸入郵箱');
+        Toast.show(intl.formatMessage({ defaultMessage: '請輸入郵箱', id: 'NZTO6Y' }));
         return;
       }
 
@@ -32,17 +35,22 @@ const BindEmail = () => {
         }
       });
     },
-    [email, history, redirectUrl, type],
+    [email, history, intl, redirectUrl, type],
   );
 
   return (
     <Container className="bg-[#F0F1F7] h-full">
       <NavBar onBack={() => history.goBack()} className="bg-white mb-8">
-        請輸入新郵箱
+        {intl.formatMessage({ defaultMessage: '請輸入新郵箱', id: 'ulKN6p' })}
       </NavBar>
 
       {email && (
-        <div className="text-center mb-4 text-[#78797d]">{`您目前的郵箱是${email}，想要把它更新為？`}</div>
+        <div className="text-center mb-4 text-[#78797d]">
+          {intl.formatMessage(
+            { defaultMessage: '您目前的郵箱是{email}，想要把它更新為？', id: 'HcSaEz' },
+            { email },
+          )}
+        </div>
       )}
 
       <Form
@@ -52,13 +60,16 @@ const BindEmail = () => {
         footer={
           <div className="mt-4">
             <Button type="submit" block size="large" className="submit">
-              发送验证码
+              {intl.formatMessage({ defaultMessage: '發送驗證碼', id: 'MYqUqI' })}
             </Button>
           </div>
         }
       >
         <Form.Item name="email">
-          <Input type="email" placeholder="请输入邮箱" />
+          <Input
+            type="email"
+            placeholder={intl.formatMessage({ defaultMessage: '請輸入郵箱', id: 'NZTO6Y' })}
+          />
         </Form.Item>
       </Form>
     </Container>

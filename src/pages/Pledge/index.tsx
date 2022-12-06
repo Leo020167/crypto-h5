@@ -1,6 +1,7 @@
 import { Grid, Input, Toast } from 'antd-mobile';
 import currency from 'currency.js';
 import { useState } from 'react';
+import { useIntl } from 'react-intl';
 import { Link, useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import { useListPledges, usePledgeCommit } from '../../api/endpoints/transformer';
@@ -28,9 +29,11 @@ const Pledge = () => {
     },
   });
 
+  const intl = useIntl();
+
   return (
     <Screen
-      headerTitle="质押生息"
+      headerTitle={intl.formatMessage({ defaultMessage: '质押生息', id: 'WKYPpM' })}
       right={
         <div className="flex justify-end">
           <Link to="/pledge-history">
@@ -48,15 +51,24 @@ const Pledge = () => {
             <div className="text-[#6175AE] text-lg">{v.symbol}</div>
             <Grid className="mt-2" columns={4}>
               <Grid.Item className="text-center">
-                <div className="text-[#A2A9BC] text-xs">最小質押數量</div>
+                <div className="text-[#A2A9BC] text-xs">
+                  {intl.formatMessage({ defaultMessage: '最小質押數量', id: 'GDglvI' })}
+                </div>
                 <div className="text-[#3E4660] text-base">{v.minCount}</div>
               </Grid.Item>
               <Grid.Item className="text-center">
-                <div className="text-[#A2A9BC] text-xs">質押周期</div>
-                <div className="text-[#3E4660] text-base">{v.duration}天</div>
+                <div className="text-[#A2A9BC] text-xs">
+                  {intl.formatMessage({ defaultMessage: '質押周期', id: 'xwo0Ao' })}
+                </div>
+                <div className="text-[#3E4660] text-base">
+                  {v.duration}
+                  {intl.formatMessage({ defaultMessage: '天', id: '0B0jPm' })}
+                </div>
               </Grid.Item>
               <Grid.Item className="text-center">
-                <div className="text-[#A2A9BC] text-xs">預計收益</div>
+                <div className="text-[#A2A9BC] text-xs">
+                  {intl.formatMessage({ defaultMessage: '預計收益', id: '/slM7z' })}
+                </div>
                 <div className="text-[#3E4660] text-base">
                   {currency(Number(v.minCount) * Number(v.profitRate) * 0.01, {
                     symbol: '',
@@ -65,7 +77,9 @@ const Pledge = () => {
                 </div>
               </Grid.Item>
               <Grid.Item className="text-center">
-                <div className="text-[#A2A9BC] text-xs">每日利息</div>
+                <div className="text-[#A2A9BC] text-xs">
+                  {intl.formatMessage({ defaultMessage: '每日利息', id: '/T0l4z' })}
+                </div>
                 <div className="text-[#3E4660] text-base">{v.profitRate}</div>
               </Grid.Item>
             </Grid>
@@ -78,7 +92,7 @@ const Pledge = () => {
                 setOpen(true);
               }}
             >
-              質押
+              {intl.formatMessage({ defaultMessage: '質押', id: '161suA' })}
             </a>
           </div>
         ))}
@@ -98,12 +112,19 @@ const Pledge = () => {
         }}
       >
         <div className="px-5">
-          <div className="text-black text-base font-bold ">參與質押</div>
+          <div className="text-black text-base font-bold ">
+            {intl.formatMessage({ defaultMessage: '參與質押', id: 'PA9DRl' })}
+          </div>
           <Grid columns={2} gap={20} className="mt-5">
             <Grid.Item>
               <Card className="flex flex-col items-center justify-center">
-                <div className="text-[#6175AE] text-2xl">{pledge?.duration}天</div>
-                <div className="text-black text-xs">質押周期</div>
+                <div className="text-[#6175AE] text-2xl">
+                  {pledge?.duration}
+                  {intl.formatMessage({ defaultMessage: '天', id: '0B0jPm' })}
+                </div>
+                <div className="text-black text-xs">
+                  {intl.formatMessage({ defaultMessage: '質押周期', id: 'xwo0Ao' })}
+                </div>
               </Card>
             </Grid.Item>
             <Grid.Item>
@@ -115,15 +136,20 @@ const Pledge = () => {
                   }).format()}
                   <span className="text-base ml-1">{pledge?.symbol}</span>
                 </div>
-                <div className="text-black text-xs">預期收益</div>
+                <div className="text-black text-xs">
+                  {intl.formatMessage({ defaultMessage: '預期收益', id: 'yZDfS/' })}
+                </div>
               </Card>
             </Grid.Item>
           </Grid>
 
           <div className="mt-5 text-xs flex items-center justify-between">
-            <span className="text-[#A2A9BC]">質押數量</span>
+            <span className="text-[#A2A9BC]">
+              {intl.formatMessage({ defaultMessage: '質押數量', id: 'mjDNUB' })}
+            </span>
             <span className="text-[#6175AE]">
-              最小質押數量{pledge?.minCount}
+              {intl.formatMessage({ defaultMessage: '最小質押數量', id: 'GDglvI' })}
+              {pledge?.minCount}
               {pledge?.symbol}
             </span>
           </div>
@@ -134,7 +160,7 @@ const Pledge = () => {
             maxLength={18}
             value={count}
             onChange={setCount}
-            placeholder="請輸入質押數量"
+            placeholder={intl.formatMessage({ defaultMessage: '請輸入質押數量', id: 'EVLNlH' })}
             className="mt-2.5 bg-[#F6F7F9] h-12 px-5 py-4 text-xl"
           />
         </div>

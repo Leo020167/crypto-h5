@@ -1,5 +1,6 @@
 import { NavBar, Steps, Toast } from 'antd-mobile';
 import { useMemo, useState } from 'react';
+import { useIntl } from 'react-intl';
 import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import { useAuthStore } from '../../stores/auth';
@@ -15,6 +16,8 @@ const Account = () => {
 
   const authStore = useAuthStore();
 
+  const intl = useIntl();
+
   const content = useMemo(() => {
     switch (current) {
       case 1:
@@ -24,7 +27,7 @@ const Account = () => {
             onStepCompleted={() => {
               setCurrent(2);
               authStore.logout();
-              Toast.show('請重新登錄');
+              Toast.show(intl.formatMessage({ defaultMessage: '請重新登錄', id: 'z8a9KR' }));
               history.replace('/login');
             }}
           />
@@ -39,18 +42,18 @@ const Account = () => {
           />
         );
     }
-  }, [authStore, current, history, oldSmsCode]);
+  }, [authStore, current, history, intl, oldSmsCode]);
 
   return (
     <Container className="h-screen bg-white">
       <NavBar onBack={() => history.goBack()} className="mb-2">
-        更换手机号码
+        {intl.formatMessage({ defaultMessage: '更换手机号码', id: '2Y1clI' })}
       </NavBar>
 
       <Steps current={current}>
-        <Steps.Step title="验证身份" />
-        <Steps.Step title="更改手机号" />
-        <Steps.Step title="完成" />
+        <Steps.Step title={intl.formatMessage({ defaultMessage: '验证身份', id: 'tI511i' })} />
+        <Steps.Step title={intl.formatMessage({ defaultMessage: '更改手机号', id: 'iVpb9N' })} />
+        <Steps.Step title={intl.formatMessage({ defaultMessage: '完成', id: 'uHUP9v' })} />
       </Steps>
 
       <div className="px-4">{content}</div>

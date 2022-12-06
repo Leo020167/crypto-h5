@@ -1,6 +1,7 @@
 import { Button, Input, InputRef, List, Popup, Toast } from 'antd-mobile';
 import { RightOutline } from 'antd-mobile-icons';
 import { useCallback, useRef, useState } from 'react';
+import { useIntl } from 'react-intl';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import {
@@ -89,15 +90,17 @@ const TransferCoin = () => {
     },
   });
 
+  const intl = useIntl();
+
   const handleFinish = useCallback(() => {
     if (!amount || !amount.trim().length) {
-      Toast.show('請輸入划轉數量');
+      Toast.show(intl.formatMessage({ defaultMessage: '請輸入划轉數量', id: 'lksvRW' }));
       return;
     }
 
     if (accountTypeFrom && accountTypeTo) {
       if (accountTypeFrom.accountType === accountTypeTo.accountType) {
-        Toast.show('相同賬戶之間不能划轉');
+        Toast.show(intl.formatMessage({ defaultMessage: '相同賬戶之間不能划轉', id: 'Snhxet' }));
         return;
       }
 
@@ -110,7 +113,7 @@ const TransferCoin = () => {
         },
       });
     }
-  }, [accountTransfer, accountTypeFrom, accountTypeTo, amount, userInfo?.userId]);
+  }, [accountTransfer, accountTypeFrom, accountTypeTo, amount, intl, userInfo?.userId]);
 
   const handleChange = useCallback(() => {
     const placeholder = accountTypeTo;
@@ -120,14 +123,14 @@ const TransferCoin = () => {
 
   return (
     <Container
-      headerTitle="划转"
+      headerTitle={intl.formatMessage({ defaultMessage: '划转', id: 'fGSeaa' })}
       navBarProps={{
         right: <Link to="/transfer-coin-history">记录</Link>,
       }}
       footer={
         <div className="px-4 mb-4">
           <Button block color="primary" onClick={handleFinish}>
-            划转
+            {intl.formatMessage({ defaultMessage: '划转', id: 'fGSeaa' })}
           </Button>
         </div>
       }
@@ -140,7 +143,9 @@ const TransferCoin = () => {
 
           <div className="flex-1 ml-4 h-full flex flex-col">
             <div className="border-b flex items-center flex-1">
-              <span className="text-[#663D3A50]">从</span>
+              <span className="text-[#663D3A50]">
+                {intl.formatMessage({ defaultMessage: '从', id: 'mDJb9E' })}
+              </span>
               <a
                 className="flex-1 flex items-center justify-between px-4"
                 onClick={() => setAction('from')}
@@ -150,7 +155,9 @@ const TransferCoin = () => {
               </a>
             </div>
             <div className=" flex items-center flex-1">
-              <span className="text-[#663D3A50]">到</span>
+              <span className="text-[#663D3A50]">
+                {intl.formatMessage({ defaultMessage: '到', id: 'ChK/7j' })}
+              </span>
               <a
                 className="flex-1 flex  items-center justify-between px-4"
                 onClick={() => setAction('to')}
@@ -177,7 +184,9 @@ const TransferCoin = () => {
       </div>
 
       <div className="mt-4 px-4">
-        <div className="text-[#1D3155]">划转数量</div>
+        <div className="text-[#1D3155]">
+          {intl.formatMessage({ defaultMessage: '划转数量', id: 'LRqmws' })}
+        </div>
         <div className="relative flex items-center">
           <Input
             type="number"
@@ -185,7 +194,7 @@ const TransferCoin = () => {
             value={amount}
             onChange={setAmount}
             maxLength={18}
-            placeholder="输入划转数量"
+            placeholder={intl.formatMessage({ defaultMessage: '输入划转数量', id: 'TByK7F' })}
             ref={inputRef}
           />
           <div className="absolute right-12 text-[#666175AE]">{symbol}</div>
@@ -196,23 +205,30 @@ const TransferCoin = () => {
               inputRef.current?.focus();
             }}
           >
-            全部
+            {intl.formatMessage({ defaultMessage: '全部', id: 'dGBGbt' })}
           </a>
         </div>
         <div className="text-[#666175AE] mt-1 text-xs">
-          可用数量：{symbolMaxAmount?.data ?? '--' + symbol}
+          {intl.formatMessage({ defaultMessage: '可用数量：', id: 'sVgCxu' })}
+          {symbolMaxAmount?.data ?? '--' + symbol}
         </div>
       </div>
 
       <div className="mt-4 px-4">
         <div className="bg-[#F2F2F2] p-2 text-[#663D3A50]">
-          只有將資產划轉到相對應的賬戶才可以進行交易。賬戶間的划轉不收取手續費
+          {intl.formatMessage({
+            defaultMessage: '只有將資產划轉到相對應的賬戶才可以進行交易。賬戶間的划轉不收取手續費',
+            id: 'K9kVz9',
+          })}
         </div>
       </div>
 
       <Popup visible={action === 'symbols'} position="right">
         <Screen
-          headerTitle="选择账户"
+          headerTitle={intl.formatMessage({
+            defaultMessage: '选择账户',
+            id: 'un5/HP',
+          })}
           navBarProps={{
             onBack() {
               setAction(undefined);
@@ -238,7 +254,10 @@ const TransferCoin = () => {
 
       <Popup visible={action === 'from' || action === 'to'} position="right">
         <Screen
-          headerTitle="选择账户"
+          headerTitle={intl.formatMessage({
+            defaultMessage: '选择账户',
+            id: 'un5/HP',
+          })}
           navBarProps={{
             onBack() {
               setAction(undefined);

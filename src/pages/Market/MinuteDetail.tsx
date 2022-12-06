@@ -1,5 +1,6 @@
 import { reverse } from 'lodash-es';
 import { useMemo } from 'react';
+import { useIntl } from 'react-intl';
 import styled from 'styled-components';
 import { QuoteReal } from '../../market/model';
 
@@ -9,16 +10,24 @@ const MinuteDetail = ({ real }: { real?: QuoteReal }) => {
     return reverse([...result]);
   }, [real?.sells]);
 
+  const intl = useIntl();
+
   return (
     <Container className="flex flex-col text-[#626073] my-4 text-xs">
       <div className="flex items-center gap-2">
         <div className="flex-1 flex">
-          <div className="flex-1 ml-2">数量(手)</div>
-          <div className="text-right">買入價</div>
+          <div className="flex-1 ml-2">
+            {intl.formatMessage({ defaultMessage: '數量(手)', id: '+ZvENE' })}
+          </div>
+          <div className="text-right">
+            {intl.formatMessage({ defaultMessage: '買入價', id: 'v2G+NV' })}
+          </div>
         </div>
         <div className="flex-1 flex">
-          <div>賣出價</div>
-          <div className="flex-1 text-right mr-2">数量(手)</div>
+          <div>{intl.formatMessage({ defaultMessage: '賣出價', id: 'JuFr3z' })}</div>
+          <div className="flex-1 text-right mr-2">
+            {intl.formatMessage({ defaultMessage: '數量(手)', id: '+ZvENE' })}
+          </div>
         </div>
       </div>
 

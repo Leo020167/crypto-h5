@@ -2,6 +2,7 @@ import { Button, Input, InputRef, Selector, Toast } from 'antd-mobile';
 import { DownFill } from 'antd-mobile-icons';
 import md5 from 'js-md5';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { useIntl } from 'react-intl';
 import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import { withDefault, StringParam, useQueryParam } from 'use-query-params';
@@ -77,6 +78,8 @@ const AddressAdd = () => {
 
   const inputRef = useRef<InputRef>(null);
 
+  const intl = useIntl();
+
   const history = useHistory();
   const addAddress = useAddAddress({
     mutation: {
@@ -84,7 +87,7 @@ const AddressAdd = () => {
         if (data.code === '200') {
           setOpen(false);
           Toast.show(data.msg);
-          history.replace('/address-management');
+          history.replace('/addresses');
         }
       },
     },
@@ -92,22 +95,26 @@ const AddressAdd = () => {
 
   const handleFinish = useCallback(() => {
     if (!address || !address.trim().length) {
-      Toast.show('請輸入地址');
+      Toast.show(intl.formatMessage({ defaultMessage: '請輸入地址', id: '2fmtw4' }));
       return;
     }
 
     setOpen(true);
-  }, [address]);
+  }, [address, intl]);
 
   return (
     <Screen headerTitle="添加提幣地址">
       <Container className="flex-1 overflow-y-auto bg-[#F4F6F4] p-4">
-        <div className="text-[#3E4660] text-sm mb-4">添加提幣地址</div>
+        <div className="text-[#3E4660] text-sm mb-4">
+          {intl.formatMessage({ defaultMessage: '添加提幣地址', id: 'GO/P/E' })}
+        </div>
 
         <div className=" bg-white rounded-lg shadow-md shadow-black/5 p-4">
           <div className="flex items-start justify-between">
             <div>
-              <span className="text-[#3E4660]">選擇幣種</span>
+              <span className="text-[#3E4660]">
+                {intl.formatMessage({ defaultMessage: '選擇幣種', id: 'jJ0rDY' })}
+              </span>
               <div className="mt-4">
                 <a
                   className="flex items-center justify-center border border-[#3E4660] rounded h-8 px-2"
@@ -122,7 +129,9 @@ const AddressAdd = () => {
             </div>
             {symbol === 'USDT' && (
               <div className="text-right">
-                <span className="text-[#3E4660]">選擇充幣網絡</span>
+                <span className="text-[#3E4660]">
+                  {intl.formatMessage({ defaultMessage: '選擇充幣網絡', id: '8Pdrch' })}
+                </span>
                 <Selector
                   className="mt-4"
                   columns={3}
@@ -140,13 +149,15 @@ const AddressAdd = () => {
           </div>
 
           <div className="mt-4">
-            <div className="text-sm text-[#3E4660]">提幣地址</div>
+            <div className="text-sm text-[#3E4660]">
+              {intl.formatMessage({ defaultMessage: '提幣地址', id: 'NUeill' })}
+            </div>
             <div className="mt-4 relative flex items-center">
               <Input
                 ref={inputRef}
                 value={address}
                 onChange={setAddress}
-                placeholder="請輸入地址"
+                placeholder={intl.formatMessage({ defaultMessage: '請輸入地址', id: '2fmtw4' })}
                 className="flex items-center h-11 bg-[#EDF3FA] text-[#6175AE] px-2.5 rounded-md overflow-x-auto pr-12 w-full"
               />
 
@@ -158,18 +169,20 @@ const AddressAdd = () => {
                     inputRef.current?.focus();
                   }}
                 >
-                  粘貼
+                  {intl.formatMessage({ defaultMessage: '粘貼', id: 'Brhkdh' })}
                 </a>
               )}
             </div>
           </div>
           <div className="mt-4">
-            <div className="text-sm text-[#3E4660]">備注</div>
+            <div className="text-sm text-[#3E4660]">
+              {intl.formatMessage({ defaultMessage: '備注', id: 'Be30m1' })}
+            </div>
             <div className="mt-4 relative flex items-center">
               <Input
                 value={remark}
                 onChange={setRemark}
-                placeholder="請輸入備註"
+                placeholder={intl.formatMessage({ defaultMessage: '請輸入備註', id: 'fLMjGv' })}
                 className="flex items-center h-11 bg-[#EDF3FA] text-[#6175AE] px-2.5 rounded-md overflow-x-auto pr-12 w-full"
               />
             </div>
@@ -181,7 +194,7 @@ const AddressAdd = () => {
             onClick={handleFinish}
             loading={addAddress.isLoading}
           >
-            添加
+            {intl.formatMessage({ defaultMessage: '添加', id: 'UH1kCc' })}
           </Button>
         </div>
       </Container>

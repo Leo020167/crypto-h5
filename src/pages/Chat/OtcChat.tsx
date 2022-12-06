@@ -2,6 +2,7 @@ import { Grid, TextArea } from 'antd-mobile';
 import { orderBy } from 'lodash-es';
 import moment from 'moment';
 import { useCallback, useMemo, useState } from 'react';
+import { useIntl } from 'react-intl';
 import { Virtuoso } from 'react-virtuoso';
 import styled from 'styled-components';
 import { StringParam, useQueryParam } from 'use-query-params';
@@ -31,6 +32,8 @@ const Content = ({ type, say }: { type?: string; say?: string }) => {
 
 const OtcChat = () => {
   const [orderId] = useQueryParam('orderId', StringParam);
+
+  const intl = useIntl();
 
   const { data, refetch } = useFindOtcChatList(
     { orderId: orderId ?? '' },
@@ -133,7 +136,7 @@ const OtcChat = () => {
   const [visible, setVisible] = useState(false);
 
   return (
-    <Screen headerTitle="綫上客服">
+    <Screen headerTitle={intl.formatMessage({ defaultMessage: '綫上客服', id: 'wwOQz6' })}>
       <Container className="min-h-0 flex-1 flex flex-col pb-10">
         <Virtuoso
           className="flex-1"
@@ -161,7 +164,7 @@ const OtcChat = () => {
                   className=" w-[45px] h-8  flex items-center justify-center bg-[#06be04] text-white rounded"
                   onClick={sendText}
                 >
-                  發送
+                  {intl.formatMessage({ defaultMessage: '發送', id: '9V7qTC' })}
                 </a>
               ) : (
                 <a onClick={() => setVisible(!visible)}>
@@ -188,7 +191,7 @@ const OtcChat = () => {
                 >
                   <a className="flex flex-col items-center justify-center border rounded ">
                     <img alt="" src={ic_circle_chat_fragment_more_pic} className="w-10 h-10" />
-                    <div>图片</div>
+                    <div>{intl.formatMessage({ defaultMessage: '圖片', id: '0asaCS' })}</div>
                   </a>
                 </ImagePicker>
               </Grid.Item>

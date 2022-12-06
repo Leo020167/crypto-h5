@@ -2,6 +2,7 @@ import { Button, Form, Input } from 'antd-mobile';
 import { EyeInvisibleOutline, EyeOutline } from 'antd-mobile-icons';
 import md5 from 'js-md5';
 import { useState } from 'react';
+import { useIntl } from 'react-intl';
 import { Link, useHistory } from 'react-router-dom';
 import { useLocation } from 'react-use';
 import styled from 'styled-components';
@@ -22,37 +23,46 @@ const Login = () => {
 
   const authStore = useAuthStore();
 
+  const intl = useIntl();
+
   return (
     <div className="h-screen bg-white px-4 py-4">
       <div className="text-right pb-2 border-b">
         <Link to="/signup" className="text-black">
-          注册账户
+          {intl.formatMessage({ defaultMessage: '注冊賬號', id: '3cuhJj' })}
         </Link>
       </div>
       <Container className="px-4">
-        <h1 className="py-8 text-2xl">登录</h1>
+        <h1 className="py-8 text-2xl">
+          {intl.formatMessage({ defaultMessage: '登錄', id: 'wAPEnf' })}
+        </h1>
         <div>
           <Form
             onFinish={() => setOpen(true)}
             footer={
               <div>
                 <Button block type="submit" color="primary" className="rounded-none">
-                  登录
+                  {intl.formatMessage({ defaultMessage: '登錄', id: 'wAPEnf' })}
                 </Button>
                 <div className="text-center mt-4">
-                  <Link to="/reset-password">忘记了？找回密码</Link>
+                  <Link to="/reset-password">
+                    {intl.formatMessage({ defaultMessage: '忘記了？找回密碼', id: 'oR5wwN' })}
+                  </Link>
                 </div>
               </div>
             }
           >
             <Form.Item name="username">
-              <Input placeholder="邮箱或手机" onChange={setUsername} />
+              <Input
+                placeholder={intl.formatMessage({ defaultMessage: '郵箱或手機', id: 'DNlbBz' })}
+                onChange={setUsername}
+              />
             </Form.Item>
             <Form.Item name="password">
               <div className="password">
                 <Input
                   className="input"
-                  placeholder="请输入密码"
+                  placeholder={intl.formatMessage({ defaultMessage: '請輸入密碼', id: '63r2yf' })}
                   type={visible ? 'text' : 'password'}
                   onChange={setPassword}
                 />
@@ -69,7 +79,10 @@ const Login = () => {
         </div>
       </Container>
       <SwipeImageValidator
-        title="拖动图片完成验证"
+        title={intl.formatMessage({
+          defaultMessage: '拖動圖片完成驗證',
+          id: 'Xr6MgR',
+        })}
         open={open}
         onClose={() => setOpen(false)}
         onSuccess={(locationx, dragImgKey) => {

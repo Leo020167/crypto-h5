@@ -2,6 +2,7 @@ import { useInfiniteQuery } from '@tanstack/react-query';
 import { Button, Dropdown, DropdownRef, Grid, Selector } from 'antd-mobile';
 import { DownOutline } from 'antd-mobile-icons';
 import { useMemo, useRef, useState } from 'react';
+import { useIntl } from 'react-intl';
 import {
   accountQueryTransferList,
   getAccountQueryTransferListQueryKey,
@@ -58,15 +59,22 @@ const TransferCoinHistory = () => {
     [data?.pages],
   );
 
+  const intl = useIntl();
+
   const navBarProps = useMemo(() => {
     return {
       right: (
         <div className="flex justify-end">
           <Dropdown ref={ref} arrow={<DownOutline />}>
-            <Dropdown.Item key="sorter" title="筛选">
+            <Dropdown.Item
+              key="sorter"
+              title={intl.formatMessage({ defaultMessage: '筛选', id: 'C8ZFaR' })}
+            >
               <div className="p-4">
                 <div className="flex-1 flex flex-col">
-                  <div className="text-[#1D3155] text-base text-left">转出账户选择</div>
+                  <div className="text-[#1D3155] text-base text-left">
+                    {intl.formatMessage({ defaultMessage: '转出账户选择', id: 'V1f0Zb' })}
+                  </div>
                   <Selector
                     className="mt-1.5 mb-8"
                     columns={3}
@@ -78,7 +86,9 @@ const TransferCoinHistory = () => {
                 </div>
 
                 <div className="flex-1 flex flex-col">
-                  <div className="text-[#1D3155] text-base text-left">转入账户选择</div>
+                  <div className="text-[#1D3155] text-base text-left">
+                    {intl.formatMessage({ defaultMessage: '转入账户选择', id: 'h24vu5' })}
+                  </div>
                   <Selector
                     className="mt-1.5 mb-8"
                     columns={3}
@@ -102,7 +112,7 @@ const TransferCoinHistory = () => {
                         refetch();
                       }}
                     >
-                      重置
+                      {intl.formatMessage({ defaultMessage: '重置', id: 'r2dEd/' })}
                     </Button>
                   </Grid.Item>
                   <Grid.Item>
@@ -114,7 +124,7 @@ const TransferCoinHistory = () => {
                         refetch();
                       }}
                     >
-                      确定
+                      {intl.formatMessage({ defaultMessage: '确定', id: 'r0/TUu' })}
                     </Button>
                   </Grid.Item>
                 </Grid>
@@ -124,26 +134,32 @@ const TransferCoinHistory = () => {
         </div>
       ),
     };
-  }, [fromAccountType, options, refetch, toAccountType]);
+  }, [fromAccountType, intl, options, refetch, toAccountType]);
 
   return (
     <ScreenWithInfiniteScroll
-      headerTitle="划转记录"
+      headerTitle={intl.formatMessage({ defaultMessage: '划转记录', id: 't+gJ2j' })}
       dataSource={dataSource}
       navBarProps={navBarProps}
       renderItem={(item: QueryTransferListResponseAllOfDataAllOfDataItem, index) => {
         return (
           <div className="border-b border-b-gray-100 p-3" key={index}>
             <div className="flex justify-between mb-1.5 px-3 text-sm">
-              <span className="text-gray-400">数量 USDT</span>
+              <span className="text-gray-400">
+                {intl.formatMessage({ defaultMessage: '数量 USDT', id: 's/KbuC' })}
+              </span>
               <span className="text-xs text-[#4a575f]">{item.amount}</span>
             </div>
             <div className="flex justify-between mb-1.5 px-3 text-sm">
-              <span className="text-gray-400">类型</span>
+              <span className="text-gray-400">
+                {intl.formatMessage({ defaultMessage: '类型', id: '5FboZ/' })}
+              </span>
               <span className="text-xs text-[#4a575f]">{item.typeValue}</span>
             </div>
             <div className="flex justify-between px-3 text-sm">
-              <span className="text-gray-400">时间</span>
+              <span className="text-gray-400">
+                {intl.formatMessage({ defaultMessage: '时间', id: 'DpnauN' })}
+              </span>
               <span className="text-xs text-[#4a575f]">{stringDateFormat(item.createTime)}</span>
             </div>
           </div>

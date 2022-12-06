@@ -1,6 +1,7 @@
 import { useInfiniteQuery } from '@tanstack/react-query';
 import { List } from 'antd-mobile';
 import { useMemo } from 'react';
+import { useIntl } from 'react-intl';
 import { messageFind, getMessageFindQueryKey } from '../../../api/endpoints/transformer';
 import { MessageFindResponseAllOfDataAllOfDataItem } from '../../../api/model';
 
@@ -32,9 +33,11 @@ const NotificationList = () => {
     [data?.pages],
   );
 
+  const intl = useIntl();
+
   return (
     <ScreenWithInfiniteScroll
-      headerTitle="系統消息"
+      headerTitle={intl.formatMessage({ defaultMessage: '系統消息', id: 'VEmd9D' })}
       dataSource={dataSource}
       renderItem={(item: MessageFindResponseAllOfDataAllOfDataItem, index) => {
         return (

@@ -1,5 +1,6 @@
 import { NavBar, Swiper, SwiperRef } from 'antd-mobile';
 import { useMemo, useRef } from 'react';
+import { useIntl } from 'react-intl';
 import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import { NumberParam, useQueryParam, withDefault } from 'use-query-params';
@@ -26,19 +27,21 @@ const Switch = ({ index, onChange }: SwitchProps) => {
     [index],
   );
 
+  const intl = useIntl();
+
   return (
     <div style={styles} className="flex items-center justify-around text-xs bg-no-repeat">
       <a
         onClick={() => onChange(0)}
         className={`${index === 0 ? 'text-[#6175AE]' : 'text-white'} `}
       >
-        快捷区
+        {intl.formatMessage({ defaultMessage: '快捷区', id: 'ST/9QH' })}
       </a>
       <a
         onClick={() => onChange(1)}
         className={`${index === 1 ? 'text-[#6175AE]' : 'text-white'} `}
       >
-        自选区
+        {intl.formatMessage({ defaultMessage: '自选区', id: '3Zwkix' })}
       </a>
     </div>
   );

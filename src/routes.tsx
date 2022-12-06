@@ -16,15 +16,14 @@ const ApplyBindAccount = lazy(() => import('./pages/UserHome/ApplyBindAccount'))
 const RadarSummary = lazy(() => import('./pages/UserHome/RadarSummary'));
 const UserHome = lazy(() => import('./pages/UserHome'));
 const Institution = lazy(() => import('./pages/Institution'));
-const AddressAdd = lazy(() => import('./pages/AddressManagement/AddressAdd'));
-const AddressManagement = lazy(() => import('./pages/AddressManagement'));
+const AddressAdd = lazy(() => import('./pages/Addresses/AddressAdd'));
 const Addresses = lazy(() => import('./pages/Addresses'));
 const PositionDetails = lazy(() => import('./pages/HomeAccount/PositionDetails'));
 const PledgeHistory = lazy(() => import('./pages/Pledge/PledgeHistory'));
 const Pledge = lazy(() => import('./pages/Pledge'));
 const Language = lazy(() => import('./pages/Language'));
 const TradeLever = lazy(() => import('./pages/TradeLever'));
-const Trade = lazy(() => import('./pages/Trade'));
+
 const Market = lazy(() => import('./pages/Market'));
 const AddAd = lazy(() => import('./pages/MyAdList/AddAd'));
 const MyAdList = lazy(() => import('./pages/MyAdList'));
@@ -200,19 +199,13 @@ export const Routes = () => {
         </Suspense>
       </Route>
 
-      <Route path="/addresses">
+      <Route path="/addresses" exact>
         <Suspense fallback={<div>Loading...</div>}>
           <Addresses />
         </Suspense>
       </Route>
 
-      <Route path="/address-management" exact>
-        <Suspense fallback={<div>Loading...</div>}>
-          <AddressManagement />
-        </Suspense>
-      </Route>
-
-      <Route path="/address-management/add">
+      <Route path="/addresses/add">
         <Suspense fallback={<div>Loading...</div>}>
           <AddressAdd />
         </Suspense>
@@ -245,12 +238,6 @@ export const Routes = () => {
       <Route path="/trade-lever">
         <Suspense fallback={<div>Loading...</div>}>
           <TradeLever />
-        </Suspense>
-      </Route>
-
-      <Route path="/trade">
-        <Suspense fallback={<div>Loading...</div>}>
-          <Trade />
         </Suspense>
       </Route>
 

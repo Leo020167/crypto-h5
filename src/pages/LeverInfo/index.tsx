@@ -1,6 +1,7 @@
 import { Button, Dialog, Form, Input, List, Popup, Toast } from 'antd-mobile';
 import { stringify } from 'query-string';
 import { useMemo, useState } from 'react';
+import { useIntl } from 'react-intl';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { StringParam, useQueryParam } from 'use-query-params';
@@ -107,21 +108,26 @@ const LeverInfo = () => {
     },
   });
 
+  const intl = useIntl();
+
   return (
     <Screen
       headerTitle={order?.symbol}
       footer={
         <div className="flex gap-4 p-4">
           <Button block onClick={() => setOpenClosePosition(true)}>
-            普通平倉
+            {intl.formatMessage({ defaultMessage: '普通平倉', id: 'mGf323' })}
           </Button>
           <Button
             block
             color="primary"
             onClick={() => {
               Dialog.confirm({
-                content: `是否以當前市價平倉${order?.openHand}？`,
-                confirmText: '確定',
+                content: intl.formatMessage(
+                  { defaultMessage: '是否以當前市價平倉{openHand}？', id: 'KCMRBl' },
+                  { openHand: order?.openHand },
+                ),
+                confirmText: intl.formatMessage({ defaultMessage: '確定', id: 'ofc1Jv' }),
                 onConfirm() {
                   proOrderClose.mutate({
                     data: {
@@ -140,7 +146,9 @@ const LeverInfo = () => {
     >
       <Container className="flex-1 overflow-y-auto">
         <div className=" py-8 text-center text-[#3d3a50]">
-          <div className="text-sm ">盈利(USDT)</div>
+          <div className="text-sm ">
+            {intl.formatMessage({ defaultMessage: '盈利(USDT)', id: 'aaQVo1' })}
+          </div>
           <div className="text-3xl font-bold" style={{ color }}>
             {Number(order?.profit) >= 0 ? '+' : ''}
             {order?.profit}
@@ -153,54 +161,90 @@ const LeverInfo = () => {
 
         <div className="px-4">
           <List>
-            <List.Item title="開倉價" extra={order?.openPrice} />
             <List.Item
-              title="開倉方向"
+              title={intl.formatMessage({ defaultMessage: '盈開倉價', id: '8OyLEv' })}
+              extra={order?.openPrice}
+            />
+            <List.Item
+              title={intl.formatMessage({ defaultMessage: '開倉方向', id: 'nLab+i' })}
               extra={
                 <span style={{ color: getColor(order?.buySell === 'buy' ? 1 : -1) }}>
                   {order?.buySellValue}
                 </span>
               }
             />
-            <List.Item title="持倉保證金" extra={order?.openBail} />
-            <List.Item title="持倉手數" extra={order?.openHand} />
-            <List.Item title="開倉手續費" extra={order?.openFee} />
-            <List.Item title="開倉時間" extra={stringDateFormat(order?.openTime)} />
+            <List.Item
+              title={intl.formatMessage({ defaultMessage: '持倉保證金', id: 'KyHiY3' })}
+              extra={order?.openBail}
+            />
+            <List.Item
+              title={intl.formatMessage({ defaultMessage: '持倉手數', id: 'KNgmr/' })}
+              extra={order?.openHand}
+            />
+            <List.Item
+              title={intl.formatMessage({ defaultMessage: '開倉手續費', id: 'YJwfmY' })}
+              extra={order?.openFee}
+            />
+            <List.Item
+              title={intl.formatMessage({ defaultMessage: '開倉時間', id: 'W+d7SX' })}
+              extra={stringDateFormat(order?.openTime)}
+            />
             <List.Item
               title={
                 <div className="flex items-center">
-                  止盈價格
+                  {intl.formatMessage({ defaultMessage: '止盈價格', id: 'cde9b7' })}
                   <a
                     onClick={() => setOpenStopWin(true)}
                     className="w-11 ml-4 bg-[#E2214E] text-white rounded text-xs h-5 flex items-center justify-center"
                   >
-                    設置
+                    {intl.formatMessage({ defaultMessage: '設置', id: '+eQ50+' })}
                   </a>
                 </div>
               }
-              extra={order?.stopWinPrice === '0' ? '無設置' : order?.stopWinPrice}
+              extra={
+                order?.stopWinPrice === '0'
+                  ? intl.formatMessage({ defaultMessage: '無設置', id: 'sofNEv' })
+                  : order?.stopWinPrice
+              }
             />
             <List.Item
               title={
                 <div className="flex items-center">
-                  止損價格
+                  {intl.formatMessage({ defaultMessage: '止損價格', id: 'dhfg6B' })}
                   <a
                     onClick={() => setOpenSetLoss(true)}
                     className="w-11 ml-4 bg-[#00AD88] text-white rounded text-xs h-5 flex items-center justify-center"
                   >
-                    設置
+                    {intl.formatMessage({ defaultMessage: '設置', id: '+eQ50+' })}
                   </a>
                 </div>
               }
-              extra={order?.stopLossPrice === '0' ? '無設置' : order?.stopLossPrice}
+              extra={
+                order?.stopLossPrice === '0'
+                  ? intl.formatMessage({ defaultMessage: '無設置', id: 'sofNEv' })
+                  : order?.stopLossPrice
+              }
             />
-            <List.Item title="開倉狀態" extra={order?.nowStateDesc} />
-            <List.Item title={order?.symbol + '現價'} extra={nowPrice} />
+            <List.Item
+              title={intl.formatMessage({ defaultMessage: '開倉狀態', id: 'egvBG/' })}
+              extra={order?.nowStateDesc}
+            />
+            <List.Item
+              title={intl.formatMessage(
+                { defaultMessage: '{symbol}現價', id: 'DRC113' },
+                {
+                  symbol: order?.symbol,
+                },
+              )}
+              extra={nowPrice}
+            />
           </List>
         </div>
 
         <div className="py-5 px-4">
-          <div className="text-lg font-bold text-[#3d3a50]">平倉明細</div>
+          <div className="text-lg font-bold text-[#3d3a50]">
+            {intl.formatMessage({ defaultMessage: '平倉明細', id: '4V3iak' })}
+          </div>
         </div>
       </Container>
 
@@ -222,18 +266,20 @@ const LeverInfo = () => {
           }}
           footer={
             <Button block type="submit" color="primary" size="large">
-              提交
+              {intl.formatMessage({ defaultMessage: '提交', id: 'ENPgS/' })}
             </Button>
           }
         >
-          <Form.Header>止盈設置</Form.Header>
-          <Form.Item label="止盈價">
+          <Form.Header>
+            {intl.formatMessage({ defaultMessage: '止盈設置', id: 'oRPjgd' })}
+          </Form.Header>
+          <Form.Item label={intl.formatMessage({ defaultMessage: '止盈價', id: 'u/gk22' })}>
             <Input
               type="number"
               maxLength={18}
               value={stopWin}
               onChange={setStopWin}
-              placeholder="請輸入止盈價"
+              placeholder={intl.formatMessage({ defaultMessage: '請輸入止盈價', id: '2yjenl' })}
             />
           </Form.Item>
         </Form>
@@ -257,18 +303,20 @@ const LeverInfo = () => {
           }}
           footer={
             <Button block type="submit" color="primary" size="large">
-              提交
+              {intl.formatMessage({ defaultMessage: '提交', id: 'ENPgS/' })}
             </Button>
           }
         >
-          <Form.Header>止損設置</Form.Header>
-          <Form.Item label="止損價">
+          <Form.Header>
+            {intl.formatMessage({ defaultMessage: '止損設置', id: 'ep7sPi' })}
+          </Form.Header>
+          <Form.Item label={intl.formatMessage({ defaultMessage: '止損價', id: '5nalmK' })}>
             <Input
               type="number"
               maxLength={18}
               value={loss}
               onChange={setLoss}
-              placeholder="請輸入止損價"
+              placeholder={intl.formatMessage({ defaultMessage: '請輸入止損價', id: 'kCvDNl' })}
             />
           </Form.Item>
         </Form>
@@ -297,13 +345,17 @@ const LeverInfo = () => {
           }}
           footer={
             <Button block type="submit" color="primary" size="large">
-              提交
+              {intl.formatMessage({ defaultMessage: '提交', id: 'ENPgS/' })}
             </Button>
           }
         >
           <Form.Header>
-            <span className="text-black">普通平倉</span>
-            <span className="text-xs">(以當前市價成交)</span>
+            <span className="text-black">
+              {intl.formatMessage({ defaultMessage: '普通平倉', id: 'mGf323' })}
+            </span>
+            <span className="text-xs">
+              {intl.formatMessage({ defaultMessage: '(以當前市價成交)', id: 'B+wVLW' })}
+            </span>
           </Form.Header>
           <div className="flex items-center mt-4">
             <Input
@@ -312,12 +364,19 @@ const LeverInfo = () => {
               maxLength={18}
               value={closeHand}
               onChange={setCloseHand}
-              placeholder="請輸入平倉手數"
+              placeholder={intl.formatMessage({ defaultMessage: '請輸入平倉手數', id: 'ZP7om0' })}
               className="border-b h-10"
             />
-            <span className="text-sm">手</span>
+            <span className="text-sm">
+              {intl.formatMessage({ defaultMessage: '手', id: 'ohYFAy' })}
+            </span>
           </div>
-          <div className="text-gray-400 text-xs mt-2">持倉手數{order?.openHand}</div>
+          <div className="text-gray-400 text-xs mt-2">
+            {intl.formatMessage(
+              { defaultMessage: '持倉手數{openHand}', id: '91IYT/' },
+              { opeenHand: order?.openHand },
+            )}
+          </div>
         </Form>
       </Popup>
     </Screen>
