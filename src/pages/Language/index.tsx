@@ -3,7 +3,7 @@ import { useAtom } from 'jotai';
 import { useState } from 'react';
 import { useIntl } from 'react-intl';
 import { useHistory } from 'react-router-dom';
-import { localeAtom } from '../../atoms';
+import { localeStateAtom } from '../../atoms';
 import Screen from '../../components/Screen';
 
 const languages = [
@@ -42,9 +42,9 @@ const languages = [
 ];
 
 const Language = () => {
-  const [locale, setLocal] = useAtom(localeAtom);
+  const [state, setState] = useAtom(localeStateAtom);
 
-  const [language, setLanguage] = useState<string[]>([locale]);
+  const [language, setLanguage] = useState<string[]>([state.locale]);
 
   const history = useHistory();
 
@@ -58,7 +58,7 @@ const Language = () => {
           <a
             className="btn-purple"
             onClick={() => {
-              setLocal(language[0]);
+              setState({ locale: language[0] });
               history.goBack();
             }}
           >

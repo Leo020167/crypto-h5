@@ -15,14 +15,14 @@ import tab1_menu4 from '../../assets/tab1_menu4.png';
 import tab1_menu5 from '../../assets/tab1_menu5.png';
 import tab2_2 from '../../assets/tab2_2.png';
 import xiaolaba from '../../assets/xiaolaba.png';
-import { localeAtom, switchColorValueAtom } from '../../atoms';
+import { localeStateAtom, switchColorValueAtom } from '../../atoms';
 import { useMarketData, useQuoteHomePage } from '../../market/endpoints/marketWithTransformer';
 import { Quote } from '../../market/model';
 import { useAuthStore } from '../../stores/auth';
 import { getOriginSymbol, getUnitSymbol } from '../TransactionRecords/utils';
 
 const Home = () => {
-  const locale = useAtomValue(localeAtom);
+  const localeState = useAtomValue(localeStateAtom);
 
   const { userInfo } = useAuthStore();
 
@@ -72,7 +72,11 @@ const Home = () => {
         </div>
 
         <Link to="/languages">
-          <img alt="" src={`/languages/${locale}.png`} className="w-6 h-6 rounded-full" />
+          <img
+            alt=""
+            src={`/languages/${localeState.locale}.png`}
+            className="w-6 h-6 rounded-full"
+          />
         </Link>
       </div>
 

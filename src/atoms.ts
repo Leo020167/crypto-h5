@@ -1,9 +1,11 @@
 import { atom } from 'jotai';
+import { atomWithStore } from 'jotai-zustand';
 import { atomWithStorage } from 'jotai/utils';
 import { AreaListItem } from './model';
+import { useLocaleStore } from './stores/locale';
 import { getAreaList } from './utils/api';
 
-export const localeAtom = atom<string>('en');
+export const localeStateAtom = atomWithStore(useLocaleStore);
 
 export const areaListAtom = atom(async () => {
   const res: any = await getAreaList();

@@ -8,7 +8,7 @@ import { QueryParamProvider } from 'use-query-params';
 import { ReactRouter5Adapter } from 'use-query-params/adapters/react-router-5';
 import GlobalStyle from './GlobalStyle';
 import Routes from './Routes';
-import { localeAtom } from './atoms';
+import { localeStateAtom } from './atoms';
 import { useAuthStore } from './stores/auth';
 
 const queryClient = new QueryClient({
@@ -26,16 +26,16 @@ const options = {
 };
 
 function App() {
-  const locale = useAtomValue(localeAtom);
+  const localeState = useAtomValue(localeStateAtom);
 
   const [messages, setMessages] = useState<Record<string, string>>();
 
   useEffect(() => {
     (async () => {
-      const mod = await import(`./lang/${locale}.json`);
+      const mod = await import(`./lang/${localeState.locale}.json`);
       setMessages(mod.default);
     })();
-  }, [locale]);
+  }, [localeState.locale]);
 
   const mounted = useRef<boolean>(false);
 
@@ -48,7 +48,12 @@ function App() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <IntlProvider locale={locale} defaultLocale="en" key={locale} messages={messages}>
+      <IntlProvider
+        locale={localeState.locale}
+        defaultLocale="en"
+        key={localeState.locale}
+        messages={messages}
+      >
         <HashRouter>
           <QueryParamProvider adapter={ReactRouter5Adapter} options={options}>
             <Routes />

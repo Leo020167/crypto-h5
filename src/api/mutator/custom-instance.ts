@@ -1,6 +1,8 @@
 import { Toast } from 'antd-mobile';
 import Axios, { AxiosError, AxiosRequestConfig } from 'axios';
 import { useAuthStore } from '../../stores/auth';
+import { useLocaleStore } from '../../stores/locale';
+import { localeHash } from '../../utils/locale';
 import { signParameters } from '../../utils/signature';
 
 export const AXIOS_UPLOAD_INSTANCE = Axios.create({ baseURL: '/procoin-file' });
@@ -38,7 +40,10 @@ export const customInstance = <T>(config: AxiosRequestConfig): Promise<T> => {
 
   const promise = AXIOS_INSTANCE({
     ...config,
-    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded',
+      lang: localeHash[useLocaleStore.getState().locale],
+    },
     data: formData,
     cancelToken: source.token,
   }).then(({ data }) => data);
