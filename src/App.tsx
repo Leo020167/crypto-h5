@@ -25,10 +25,26 @@ const options = {
   objectToSearchString: stringify,
 };
 
+interface StructuredMessage {
+  string: string;
+}
+
+type LocaleMessages = Record<string, StructuredMessage>;
+
+function getKeyValueJson(messages: LocaleMessages): Record<string, string> | undefined {
+  if (messages) {
+    const keyValueMessages: Record<string, string> = {};
+    return Object.entries(messages).reduce((acc, [id, msg]) => {
+      acc[id] = msg.string;
+      return acc;
+    }, keyValueMessages);
+  }
+}
+
 function App() {
   const localeState = useAtomValue(localeStateAtom);
 
-  const [messages, setMessages] = useState<Record<string, string>>();
+  const [messages, setMessages] = useState<LocaleMessages>({});
 
   useEffect(() => {
     (async () => {
@@ -52,7 +68,7 @@ function App() {
         locale={localeState.locale}
         defaultLocale="en"
         key={localeState.locale}
-        messages={messages}
+        messages={getKeyValueJson(messages)}
       >
         <HashRouter>
           <QueryParamProvider adapter={ReactRouter5Adapter} options={options}>
