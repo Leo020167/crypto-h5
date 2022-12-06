@@ -15,16 +15,16 @@ const HomeMarket = () => {
   const intl = useIntl();
   const tabItems = useMemo(
     () => [
-      { key: '0', title: intl.$t({ id: 'home.market.globalFutures' }) },
-      { key: '1', title: intl.$t({ id: 'home.market.contracts' }) },
-      { key: '2', title: intl.$t({ id: 'home.market.currency' }) },
+      { key: '0', title: intl.formatMessage({ defaultMessage: '全球期指', id: 'RwgA6k' }) },
+      { key: '1', title: intl.formatMessage({ defaultMessage: '合約', id: '6ExJHy' }) },
+      { key: '2', title: intl.formatMessage({ defaultMessage: '幣幣', id: 'UT6tN2' }) },
     ],
     [intl],
   );
 
   return (
     <Container className="flex-1 flex flex-col min-h-0 bg-white">
-      <NavBar back={null}>{intl.$t({ id: 'home.market' })}</NavBar>
+      <NavBar back={null}>{intl.formatMessage({ defaultMessage: '行情', id: 'Hv1Nr8' })}</NavBar>
 
       <Tabs
         className="flex items-center justify-center"

@@ -1,6 +1,7 @@
 import { Dialog } from 'antd-mobile';
 import { stringify } from 'query-string';
 import { useMemo } from 'react';
+import { useIntl } from 'react-intl';
 import { Link } from 'react-router-dom';
 import { useAllConfig } from '../../api/endpoints/transformer';
 import { AccountInfo, FollowDv } from '../../api/model';
@@ -15,12 +16,14 @@ interface HomeFollowAccountProps {
 const HomeFollowAccount = ({ account, followDv }: HomeFollowAccountProps) => {
   const { data } = useAllConfig();
 
+  const intl = useIntl();
+
   const follow = useMemo(() => {
     if (followDv) {
       return (
         <div className="flex items-center bg-gray-100 px-4 py-2 mb-4 text-xs">
           <div className="flex-1 flex items-center">
-            <span>跟單機构:</span>
+            <span>{intl.formatMessage({ defaultMessage: '跟單機构：', id: 'yPig5i' })}</span>
             <img
               alt=""
               src={followDv.dvHeadUrl ?? ic_default_head}
@@ -33,7 +36,7 @@ const HomeFollowAccount = ({ account, followDv }: HomeFollowAccountProps) => {
             to={{ pathname: '/user-home', search: stringify({ userId: followDv.dvUid }) }}
             className="bg-white rounded-xl py-1 px-2"
           >
-            查看機構
+            {intl.formatMessage({ defaultMessage: '跟單機构', id: 'UX7lUm' })}
           </Link>
         </div>
       );
@@ -42,23 +45,25 @@ const HomeFollowAccount = ({ account, followDv }: HomeFollowAccountProps) => {
     return (
       <div className="flex items-center bg-gray-100 px-4 py-2 mb-4 text-sm">
         <div className="flex-1 flex items-center">
-          <span>跟單機构:</span>
-          <span>未綁定</span>
+          <span>{intl.formatMessage({ defaultMessage: '跟單機构：', id: 'yPig5i' })}</span>
+          <span>{intl.formatMessage({ defaultMessage: '未綁定', id: 'ReRVZ/' })}</span>
         </div>
 
         <Link to="/institution" className="bg-white rounded-xl py-1 px-2">
-          去綁定
+          {intl.formatMessage({ defaultMessage: '去綁定', id: '1cJMw5' })}
         </Link>
       </div>
     );
-  }, [followDv]);
+  }, [followDv, intl]);
 
   return (
     <div className="p-4 text-xs bg-white">
       {follow}
       <div className="flex items-center justify-between">
         <div>
-          <div className="text-gray-400">總資產(USDT)</div>
+          <div className="text-gray-400">
+            {intl.formatMessage({ defaultMessage: '總資產(USDT)', id: 'IbtpXH' })}
+          </div>
           <div className="mt-1">
             <span className="text-[#c1d3155] text-base">{account?.assets ?? '0'}</span>
             <span className="ml-1">{account?.assetsCny ?? '≈HK$0.00'}</span>
@@ -71,11 +76,11 @@ const HomeFollowAccount = ({ account, followDv }: HomeFollowAccountProps) => {
             onClick={() => {
               Dialog.alert({
                 content: data?.data?.riskRateDesc,
-                confirmText: '知道了',
+                confirmText: intl.formatMessage({ defaultMessage: '知道了', id: 'r1IImU' }),
               });
             }}
           >
-            <span>風險率</span>
+            <span>{intl.formatMessage({ defaultMessage: '風險率', id: '7iWsp4' })}</span>
             <img alt="" src={ic_question_mark} className="w-3.5 h-3.5 ml-1 -mt-[2px]" />
           </a>
           <div>{account?.riskRate}%</div>
@@ -84,11 +89,15 @@ const HomeFollowAccount = ({ account, followDv }: HomeFollowAccountProps) => {
 
       <div className="mt-3 flex items-center justify-between text-[#c1d3155]">
         <div>
-          <div className="text-gray-400">可用保證金(USDT)</div>
+          <div className="text-gray-400">
+            {intl.formatMessage({ defaultMessage: '可用保證金(USDT)', id: 'ebj6E6' })}
+          </div>
           <div>{account?.eableBail ?? '0'}</div>
         </div>
         <div className="flex flex-col items-end">
-          <div className="text-gray-400">未實現盈虧(USDT)</div>
+          <div className="text-gray-400">
+            {intl.formatMessage({ defaultMessage: '未實現盈虧(USDT)', id: '7AsBpi' })}
+          </div>
           <div>
             {Number(account?.profit) >= 0 ? '+' : ''}
             {account?.profit ?? '0'}
@@ -98,11 +107,15 @@ const HomeFollowAccount = ({ account, followDv }: HomeFollowAccountProps) => {
 
       <div className="mt-3 flex items-center justify-between text-[#c1d3155]">
         <div>
-          <div className="text-gray-400">持倉保證金(USDT)</div>
+          <div className="text-gray-400">
+            {intl.formatMessage({ defaultMessage: '未實現盈虧(USDT)', id: '7AsBpi' })}
+          </div>
           <div>{account?.openBail ?? '0'}</div>
         </div>
         <div className="flex flex-col items-end">
-          <div className="text-gray-400">跟單凍結資產</div>
+          <div className="text-gray-400">
+            {intl.formatMessage({ defaultMessage: '跟單凍結資產', id: 'UBT8f1' })}
+          </div>
           <div>{account?.disableAmount ?? '0'}</div>
         </div>
       </div>

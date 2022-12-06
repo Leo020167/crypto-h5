@@ -161,15 +161,21 @@ const Market = () => {
 
           <div className="text-xs flex flex-col gap-2">
             <div className="flex justify-between">
-              <span className="w-8 text-gray-400">{intl.$t({ id: 'high' })}</span>
+              <span className="w-8 text-gray-400">
+                {intl.formatMessage({ defaultMessage: '高', id: 'hBkLmp' })}
+              </span>
               <span className="text-white">{real?.high ?? '0.00'}</span>
             </div>
             <div className="flex justify-between">
-              <span className="w-8 text-gray-400">{intl.$t({ id: 'low' })}</span>
+              <span className="w-8 text-gray-400">
+                {intl.formatMessage({ defaultMessage: '低', id: '5kTIPB' })}
+              </span>
               <span className="text-white">{real?.low ?? '0.00'}</span>
             </div>
             <div className="flex justify-between">
-              <span className="w-8 text-gray-400">{intl.$t({ id: 'volume' })}</span>
+              <span className="w-8 text-gray-400">
+                {intl.formatMessage({ defaultMessage: '量', id: 'pYPgzH' })}
+              </span>
               <span className="text-white">{real?.amount ?? '0'}</span>
             </div>
           </div>

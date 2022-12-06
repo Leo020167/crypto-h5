@@ -6,6 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
+    "extract-json-messages": "formatjs extract \"src/**/*.{ts,tsx}\" --ignore=\"**/*.d.ts\" --out-file src/lang/zh-TW.json --format scripts/formatter.js",
+    "extract-messages": "npm run extract-json-messages",
     "preview": "vite preview",
     "lint": "eslint . --ext .ts,.tsx"
   },
@@ -38,6 +40,7 @@
     "zustand": "^4.1.5"
   },
   "devDependencies": {
+    "@formatjs/cli": "^5.1.7",
     "@types/js-md5": "^0.4.3",
     "@types/lodash-es": "^4.17.6",
     "@types/qs": "^6.9.7",
@@ -53,6 +56,7 @@
     "eslint": "^8.29.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-import-resolver-typescript": "^3.5.2",
+    "eslint-plugin-formatjs": "^4.3.8",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-jsx-a11y": "^6.6.1",
     "eslint-plugin-prettier": "^4.2.1",

@@ -23,24 +23,25 @@ const HomeAccount = () => {
   const intl = useIntl();
   const tabItems = useMemo(
     () => [
-      { key: '0', title: intl.$t({ id: 'balance' }) },
-      { key: '1', title: intl.$t({ id: 'TFU' }) },
-      { key: '2', title: '跟單帳戶' },
-      { key: '3', title: '全球期指帳戶' },
-      { key: '4', title: '合約帳戶' },
-      { key: '5', title: '幣幣帳戶' },
+      { key: '0', title: intl.formatMessage({ defaultMessage: '餘額', id: 'hPHyre' }) },
+      { key: '1', title: intl.formatMessage({ defaultMessage: 'TFU', id: '20MJBj' }) },
+      { key: '2', title: intl.formatMessage({ defaultMessage: '跟單帳戶', id: 'WDcvta' }) },
+      { key: '3', title: intl.formatMessage({ defaultMessage: '全球期指帳戶', id: 'L2Dpi5' }) },
+      { key: '4', title: intl.formatMessage({ defaultMessage: '合約帳戶', id: 'VYKM4q' }) },
+      { key: '5', title: intl.formatMessage({ defaultMessage: '幣幣帳戶', id: 'l9VaC8' }) },
     ],
     [intl],
   );
 
-  // TODO 什麽情況下會定時更新
   useInterval(() => refetch(), 1000);
 
   return (
     <Container className="h-screen min-h-0 relative flex flex-col bg-gray-100">
       <div className="flex-1 overflow-y-auto">
         <div className="flex flex-col pt-10 px-4 pb-6 bg-[#4D4CE6] text-white">
-          <div className="text-xs text-gray-200">賬戶總資產(USDT)</div>
+          <div className="text-xs text-gray-200">
+            {intl.formatMessage({ defaultMessage: '餘額賬戶總資產(USDT)', id: 'dKX04w' })}
+          </div>
           <div className=" font-bold text-4xl my-1">{data?.data?.tolAssets ?? '0.00'}</div>
           <div className="text-base">{data?.data?.tolAssetsCny ?? '0.00'}</div>
 
@@ -49,25 +50,25 @@ const HomeAccount = () => {
               to="/recharge-coin"
               className="bg-[#6f6fe7] h-full flex flex-1 items-center justify-center rounded"
             >
-              充幣
+              {intl.formatMessage({ defaultMessage: '充幣', id: 'kGK1/L' })}
             </Link>
             <Link
               to="/take-coin"
               className="bg-[#6f6fe7] h-full flex flex-1 items-center justify-center rounded"
             >
-              提幣
+              {intl.formatMessage({ defaultMessage: '提幣', id: 'andeZs' })}
             </Link>
             <Link
               to="/transfer-coin"
               className="bg-[#6f6fe7] h-full flex flex-1 items-center justify-center rounded"
             >
-              划轉
+              {intl.formatMessage({ defaultMessage: '划轉', id: 'UD6XMk' })}
             </Link>
             <Link
               to="/legal-money"
               className="bg-[#6f6fe7] h-full flex flex-1 items-center justify-center rounded"
             >
-              法幣購買
+              {intl.formatMessage({ defaultMessage: '法幣購買', id: 'JI87J/' })}
             </Link>
           </div>
         </div>

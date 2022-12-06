@@ -84,27 +84,27 @@ const HomeTabs = () => {
     () => [
       {
         key: '/home',
-        title: intl.$t({ id: 'app.home' }),
+        title: intl.formatMessage({ defaultMessage: '首頁', id: 'bsSd3V' }),
         icon: <HomeTabSvg className="h-6" />,
       },
       {
         key: '/home/market',
-        title: intl.$t({ id: 'app.market' }),
+        title: intl.formatMessage({ defaultMessage: '行情', id: 'Hv1Nr8' }),
         icon: <HomeTabMarkSvg className="h-6" />,
       },
       {
         key: '/home/account',
-        title: intl.$t({ id: 'app.account' }),
+        title: intl.formatMessage({ defaultMessage: '賬戶', id: 'R4Ww2H' }),
         icon: <HomeTabAccount className="h-6" />,
       },
       {
         key: '/home/community',
-        title: intl.$t({ id: 'app.community' }),
+        title: intl.formatMessage({ defaultMessage: '社區', id: 'LJ33pi' }),
         icon: <HomeTabFollow className="h-6" />,
       },
       {
         key: '/home/my',
-        title: intl.$t({ id: 'app.my' }),
+        title: intl.formatMessage({ defaultMessage: '我的', id: '/I+pby' }),
         icon: <HomeTabMineSvg className="h-6" />,
       },
     ],

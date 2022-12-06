@@ -21,13 +21,13 @@ const HomeStockDigitalMarket = ({ tab }: { tab: string }) => {
     <Container className="h-full flex flex-col text-xs">
       <div className="text-[#666175ae] flex items-center justify-between text-center h-10 px-4">
         <div className="min-w-[100px] text-left">
-          <span>{intl.$t({ id: 'home.market.nameCode' })}</span>
+          <span>{intl.formatMessage({ defaultMessage: '名稱代碼', id: 'ymJBTR' })}</span>
         </div>
         <div className="flex-1">
-          <span>{intl.$t({ id: 'latestPrice' })}</span>
+          <span>{intl.formatMessage({ defaultMessage: '最新價', id: 'iipjBw' })}</span>
         </div>
         <div className="min-w-[80px]">
-          <span>{intl.$t({ id: 'quoteChange' })}</span>
+          <span>{intl.formatMessage({ defaultMessage: '漲跌幅', id: 'gA15gF' })}</span>
         </div>
       </div>
       <div className="flex-1 overflow-y-auto">

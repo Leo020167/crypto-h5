@@ -1,29 +1,161 @@
 {
-  "app.home": "首页",
-  "app.market": "行情",
-  "app.account": "账户",
-  "app.community": "社区",
-  "app.my": "我的",
-  "home.institution": "金牌机构",
-  "home.innovation": "创新试验区",
-  "home.otcTransaction": "OTC交易",
-  "home.customerService": "线上客服",
-  "home.pledge": "质押生息",
-  "home.gainList": "涨幅榜",
-  "home.dropList": "跌幅榜",
-  "home.latestPrice": "最新价",
-  "home.quoteChange": "涨跌幅",
-  "home.market": "行情",
-  "home.market.globalFutures": "全球期指",
-  "home.market.contracts": "合约",
-  "home.market.currency": "币币",
-  "home.market.nameCode": "名称代码",
-  "name": "名称",
-  "high": "高",
-  "low": "低",
-  "volume": "量",
-  "latestPrice": "最新价",
-  "quoteChange": "涨跌幅",
-  "balance": "余额",
-  "TFU": "TFU"
+  "/I+pby": {
+    "string": "我的"
+  },
+  "1cJMw5": {
+    "string": "去綁定"
+  },
+  "20MJBj": {
+    "string": "TFU"
+  },
+  "4ivSMB": {
+    "string": "總資產(TFU)"
+  },
+  "5kTIPB": {
+    "string": "低"
+  },
+  "6ExJHy": {
+    "string": "合約"
+  },
+  "7AsBpi": {
+    "string": "未實現盈虧(USDT)"
+  },
+  "7iWsp4": {
+    "string": "風險率"
+  },
+  "DsGgac": {
+    "string": "跌幅榜"
+  },
+  "G9QNOq": {
+    "string": "創新實驗區"
+  },
+  "Hv1Nr8": {
+    "string": "行情"
+  },
+  "IbtpXH": {
+    "string": "總資產(USDT)"
+  },
+  "JI87J/": {
+    "string": "法幣購買"
+  },
+  "KC9/eD": {
+    "string": "可用資產"
+  },
+  "L2Dpi5": {
+    "string": "全球期指帳戶"
+  },
+  "LJ33pi": {
+    "string": "社區"
+  },
+  "Ls3qou": {
+    "string": "金牌機構"
+  },
+  "NdxUVx": {
+    "string": "查看如何獲取TFU"
+  },
+  "P+t8ta": {
+    "string": "折合(USDT)"
+  },
+  "R3Xfcn": {
+    "string": "質押生息"
+  },
+  "R4Ww2H": {
+    "string": "賬戶"
+  },
+  "RHvMTR": {
+    "string": "市值(USDT)"
+  },
+  "ReRVZ/": {
+    "string": "未綁定"
+  },
+  "RwgA6k": {
+    "string": "全球期指"
+  },
+  "Rx1AtW": {
+    "string": "凍結(USDT)"
+  },
+  "UBT8f1": {
+    "string": "跟單凍結資產"
+  },
+  "UD6XMk": {
+    "string": "划轉"
+  },
+  "UT6tN2": {
+    "string": "幣幣"
+  },
+  "UX7lUm": {
+    "string": "跟單機构"
+  },
+  "VYKM4q": {
+    "string": "合約帳戶"
+  },
+  "WDcvta": {
+    "string": "跟單帳戶"
+  },
+  "XddKO7": {
+    "string": "隐藏0资产"
+  },
+  "ZH7DS8": {
+    "string": "漲幅榜"
+  },
+  "ZU9FqB": {
+    "string": "名稱"
+  },
+  "andeZs": {
+    "string": "提幣"
+  },
+  "bsSd3V": {
+    "string": "首頁"
+  },
+  "dKX04w": {
+    "string": "餘額賬戶總資產(USDT)"
+  },
+  "ebj6E6": {
+    "string": "可用保證金(USDT)"
+  },
+  "gA15gF": {
+    "string": "漲跌幅"
+  },
+  "gtC59I": {
+    "string": "財務記錄"
+  },
+  "hBkLmp": {
+    "string": "高"
+  },
+  "hPHyre": {
+    "string": "餘額"
+  },
+  "iipjBw": {
+    "string": "最新價"
+  },
+  "kGK1/L": {
+    "string": "充幣"
+  },
+  "l9VaC8": {
+    "string": "幣幣帳戶"
+  },
+  "ntWvUZ": {
+    "string": "可用(USDT)"
+  },
+  "pYPgzH": {
+    "string": "量"
+  },
+  "r1IImU": {
+    "string": "知道了"
+  },
+  "uwCp/4": {
+    "string": "凍結"
+  },
+  "v0r9Fg": {
+    "string": "OTC交易"
+  },
+  "wwOQz6": {
+    "string": "綫上客服"
+  },
+  "yPig5i": {
+    "string": "跟單機构："
+  },
+  "ymJBTR": {
+    "string": "名稱代碼"
+  }
 }

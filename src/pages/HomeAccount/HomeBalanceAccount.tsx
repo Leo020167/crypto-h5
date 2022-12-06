@@ -1,5 +1,6 @@
 import { Checkbox, Grid } from 'antd-mobile';
 import { useMemo, useState } from 'react';
+import { useIntl } from 'react-intl';
 import styled from 'styled-components';
 import { AccountInfo } from '../../api/model';
 
@@ -19,21 +20,29 @@ const HomeBalanceAccount = ({ account }: HomeBalanceAccountProps) => {
     return symbols;
   }, [account?.symbolList, hidden0Assets]);
 
+  const intl = useIntl();
+
   return (
     <Container className="bg-gray-100">
       <div className="p-4 bg-white">
-        <div className="text-gray-400">餘額賬戶總資產(USDT)</div>
+        <div className="text-gray-400">
+          {intl.formatMessage({ defaultMessage: '餘額賬戶總資產(USDT)', id: 'dKX04w' })}
+        </div>
         <div className="mt-1 text-xs">
           <span className="text-[#c1d3155]">{account?.assets ?? '0'}</span>
           <span className="ml-1">{account?.assetsCny ?? '≈HK$0.00'}</span>
         </div>
         <div className="mt-3 flex items-center justify-between text-[#c1d3155]">
           <div>
-            <div className="text-gray-400">可用(USDT)</div>
+            <div className="text-gray-400">
+              {intl.formatMessage({ defaultMessage: '可用(USDT)', id: 'ntWvUZ' })}
+            </div>
             <div>{account?.holdAmount ?? '0'}</div>
           </div>
           <div className="flex flex-col items-end">
-            <div className="text-gray-400">凍結(USDT)</div>
+            <div className="text-gray-400">
+              {intl.formatMessage({ defaultMessage: '凍結(USDT)', id: 'Rx1AtW' })}
+            </div>
             <div>{account?.frozenAmount ?? '0'}</div>
           </div>
         </div>
@@ -41,7 +50,7 @@ const HomeBalanceAccount = ({ account }: HomeBalanceAccountProps) => {
       <div className="mt-2">
         <div className="flex items-center justify-between text-xs bg-white p-4">
           <Checkbox checked={hidden0Assets} onChange={setHidden0Assets}>
-            隐藏0资产
+            {intl.formatMessage({ defaultMessage: '隐藏0资产', id: 'XddKO7' })}
           </Checkbox>
         </div>
         {assets.map((v) => (
@@ -51,15 +60,21 @@ const HomeBalanceAccount = ({ account }: HomeBalanceAccountProps) => {
             </div>
             <Grid columns={3} className="mt-2.5 text-xs">
               <Grid.Item>
-                <div className="text-[#A2A9BC]">可用資產</div>
+                <div className="text-[#A2A9BC]">
+                  {intl.formatMessage({ defaultMessage: '可用資產', id: 'KC9/eD' })}
+                </div>
                 <div className="text-[#3E4660] mt-1">{v.holdAmount}</div>
               </Grid.Item>
               <Grid.Item className="text-center">
-                <div className="text-[#A2A9BC]">凍結</div>
+                <div className="text-[#A2A9BC]">
+                  {intl.formatMessage({ defaultMessage: '凍結', id: 'uwCp/4' })}
+                </div>
                 <div className="text-[#3E4660] mt-1">{v.frozenAmount}</div>
               </Grid.Item>
               <Grid.Item className="text-right">
-                <div className="text-[#A2A9BC]">折合(USDT)</div>
+                <div className="text-[#A2A9BC]">
+                  {intl.formatMessage({ defaultMessage: '折合(USDT)', id: 'P+t8ta' })}
+                </div>
                 <div className="text-[#3E4660] mt-1">{v.usdtAmount}</div>
               </Grid.Item>
             </Grid>

@@ -132,27 +132,33 @@ const Home = () => {
       <div className="text-sm font-bold mt-3 shadow-md shadow-black/5 bg-white rounded-lg overflow-hidden h-[100px] px-2.5 flex items-center">
         <Link to="/institution" className="flex flex-col items-center justify-center w-1/5">
           <img alt="" src={tab1_menu1} className="w-9 h-9" />
-          <div className="mt-2.5 text-xs text-[#666666]">{intl.$t({ id: 'home.institution' })}</div>
+          <div className="mt-2.5 text-xs text-[#666666]">
+            {intl.formatMessage({ defaultMessage: '金牌機構', id: 'Ls3qou' })}
+          </div>
         </Link>
         <Link to="" className="flex flex-col items-center justify-center w-1/5">
           <img alt="" src={tab1_menu2} className="w-9 h-9" />
-          <div className="mt-2.5 text-xs text-[#666666]">{intl.$t({ id: 'home.innovation' })}</div>
+          <div className="mt-2.5 text-xs text-[#666666]">
+            {intl.formatMessage({ defaultMessage: '創新實驗區', id: 'G9QNOq' })}
+          </div>
         </Link>
         <Link to="/legal-money" className="flex flex-col items-center justify-center w-1/5">
           <img alt="" src={tab1_menu3} className="w-9 h-9" />
           <div className="mt-2.5 text-xs text-[#666666]">
-            {intl.$t({ id: 'home.otcTransaction' })}
+            {intl.formatMessage({ defaultMessage: 'OTC交易', id: 'v0r9Fg' })}
           </div>
         </Link>
         <Link to="/chat" className="flex flex-col items-center justify-center w-1/5">
           <img alt="" src={tab1_menu4} className="w-9 h-9" />
           <div className="mt-2.5 text-xs text-[#666666]">
-            {intl.$t({ id: 'home.customerService' })}
+            {intl.formatMessage({ defaultMessage: '綫上客服', id: 'wwOQz6' })}
           </div>
         </Link>
         <Link to="/pledge" className="flex flex-col items-center justify-center w-1/5">
           <img alt="" src={tab1_menu5} className="w-9 h-9" />
-          <div className="mt-2.5 text-xs text-[#666666]">{intl.$t({ id: 'home.pledge' })}</div>
+          <div className="mt-2.5 text-xs text-[#666666]">
+            {intl.formatMessage({ defaultMessage: '質押生息', id: 'R3Xfcn' })}
+          </div>
         </Link>
       </div>
 
@@ -164,23 +170,54 @@ const Home = () => {
           }}
         >
           <Tabs.Tab
-            title={intl.$t({ id: 'home.gainList' })}
+            title={intl.formatMessage({ defaultMessage: '漲幅榜', id: 'ZH7DS8' })}
             key="1"
             className="text-[#A2A9BC]"
             destroyOnClose
           >
             <div className="flex items-center px-3">
-              <div className="text-sm w-1/3">{intl.$t({ id: 'name' })}</div>
-              <div className="text-sm w-1/3 text-center">{intl.$t({ id: 'latestPrice' })}</div>
-              <div className="text-sm w-1/3 text-right">{intl.$t({ id: 'quoteChange' })}</div>
+              <div className="text-sm w-1/3">
+                {intl.formatMessage({ defaultMessage: '名稱', id: 'ZU9FqB' })}
+              </div>
+              <div className="text-sm w-1/3 text-center">
+                {intl.formatMessage({
+                  id: 'iipjBw',
+                  defaultMessage: '最新價',
+                })}
+              </div>
+              <div className="text-sm w-1/3 text-right">
+                {intl.formatMessage({
+                  id: 'gA15gF',
+                  defaultMessage: '漲跌幅',
+                })}
+              </div>
             </div>
             <Symbols quotes={marketData?.data?.quotes} />
           </Tabs.Tab>
-          <Tabs.Tab title={intl.$t({ id: 'home.dropList' })} key="2" destroyOnClose>
+          <Tabs.Tab
+            title={intl.formatMessage({ defaultMessage: '跌幅榜', id: 'DsGgac' })}
+            key="2"
+            destroyOnClose
+          >
             <div className="flex items-center px-3">
-              <div className="text-sm w-1/3">{intl.$t({ id: 'name' })}</div>
-              <div className="text-sm w-1/3 text-center">{intl.$t({ id: 'latestPrice' })}</div>
-              <div className="text-sm w-1/3 text-right">{intl.$t({ id: 'quoteChange' })}</div>
+              <div className="text-sm w-1/3">
+                {intl.formatMessage({
+                  id: 'ZU9FqB',
+                  defaultMessage: '名稱',
+                })}
+              </div>
+              <div className="text-sm w-1/3 text-center">
+                {intl.formatMessage({
+                  id: 'iipjBw',
+                  defaultMessage: '最新價',
+                })}
+              </div>
+              <div className="text-sm w-1/3 text-right">
+                {intl.formatMessage({
+                  id: 'gA15gF',
+                  defaultMessage: '漲跌幅',
+                })}
+              </div>
             </div>
             <Symbols quotes={marketData?.data?.quotes} />
           </Tabs.Tab>
