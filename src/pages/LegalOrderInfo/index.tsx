@@ -36,13 +36,13 @@ const HeaderRight = ({
     if (isBuyer) {
       return <SvgTime className="w-10 h-10" />;
     } else {
-      return <Clock orderPaySecondTime={order.paySecondTime} onFinish={onFinish} />;
+      return <Clock time={order.paySecondTime} onFinish={onFinish} />;
     }
   }
 
   if (OtcOrderState.mark === order.state) {
     if (isBuyer) {
-      return <Clock orderPaySecondTime={order.paySecondTime} onFinish={onFinish} />;
+      return <Clock time={order.paySecondTime} onFinish={onFinish} />;
     } else {
       return <SvgTime className="w-10 h-10" />;
     }
@@ -204,7 +204,7 @@ const LegalOrderInfo = () => {
             {tips}
             {order?.state === OtcOrderState.wait && isBuyer && (
               <span className="text-[#6175AE]">
-                <Countdown orderPaySecondTime={order.paySecondTime} onFinish={handleTimeout} />
+                <Countdown time={order.paySecondTime} onFinish={handleTimeout} />
               </span>
             )}
           </div>

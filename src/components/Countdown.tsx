@@ -4,12 +4,12 @@ import { useInterval } from 'react-use';
 
 export interface CountdownProps {
   className?: string;
-  orderPaySecondTime?: string;
+  time?: string;
   onFinish: () => void;
 }
 
-const Countdown = ({ orderPaySecondTime, onFinish }: CountdownProps) => {
-  const [count, setCount] = useState<number>(Number(orderPaySecondTime ?? 0));
+const Countdown = ({ time, onFinish }: CountdownProps) => {
+  const [count, setCount] = useState<number>(Number(time ?? 0));
   const ref = useRef<Moment>(moment().startOf('day').add(count, 'second'));
 
   useInterval(

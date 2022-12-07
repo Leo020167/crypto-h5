@@ -111,7 +111,7 @@ const LegalPay = () => {
             </span>
             <span className="text-[#6175AE] ml-1">
               <Countdown
-                orderPaySecondTime={payResult?.paySecondTime}
+                time={payResult?.paySecondTime}
                 onFinish={() => {
                   Toast.show(intl.formatMessage({ defaultMessage: '訂單已經超時', id: '9x6bNN' }));
                 }}

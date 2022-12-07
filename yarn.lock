@@ -4523,6 +4523,7 @@ __metadata:
     query-string: ^7.1.3
     react: ^18.2.0
     react-advanced-news-ticker: ^1.0.1
+    react-countdown: ^2.3.5
     react-dom: ^18.2.0
     react-intl: ^6.2.5
     react-router-dom: 5.3.4
@@ -7136,6 +7137,18 @@ __metadata:
     prop-types: ^15.7.2
     react: ^16.13.1
   checksum: 69c09bd41cd048b0ab1e01c9ab95c053229f32d1d48c196f684bc3cbf8f0e072e04fa4c0cfb5d10d0db2f15e16e30949eeb26eb327a79668c631e2f7844564f3
+  languageName: node
+  linkType: hard
+
+"react-countdown@npm:^2.3.5":
+  version: 2.3.5
+  resolution: "react-countdown@npm:2.3.5"
+  dependencies:
+    prop-types: ^15.7.2
+  peerDependencies:
+    react: ">= 15"
+    react-dom: ">= 15"
+  checksum: 24289f40591e88003052270e4eb9f7a87838e403ec2036fbd5ef99d57851c8d9739dae619d65f339494e582e34e2691c033a975bd8f7416730fc9beaf76a2b4b
   languageName: node
   linkType: hard
 

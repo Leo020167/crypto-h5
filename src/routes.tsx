@@ -11,6 +11,8 @@ import { ReactComponent as HomeTabMarkSvg } from './assets/home_tab_mark.svg';
 import { ReactComponent as HomeTabMineSvg } from './assets/home_tab_mine.svg';
 import PrivateRoute from './auth/PrivateRoute';
 
+const SubscribeDetail = lazy(() => import('./pages/Subscribe/SubscribeDetail'));
+const Subscribe = lazy(() => import('./pages/Subscribe'));
 const LeverInfo = lazy(() => import('./pages/LeverInfo'));
 const ApplyBindAccount = lazy(() => import('./pages/UserHome/ApplyBindAccount'));
 const RadarSummary = lazy(() => import('./pages/UserHome/RadarSummary'));
@@ -167,6 +169,18 @@ export const Routes = () => {
 
       <Route path="/home">
         <HomeTabs />
+      </Route>
+
+      <Route path="/subscribe-detail">
+        <Suspense fallback={<div>Loading...</div>}>
+          <SubscribeDetail />
+        </Suspense>
+      </Route>
+
+      <Route path="/subscribe">
+        <Suspense fallback={<div>Loading...</div>}>
+          <Subscribe />
+        </Suspense>
       </Route>
 
       <Route path="/lever-info">

@@ -15,6 +15,12 @@ import type {
 } from '@tanstack/react-query';
 import type {
   CommonResponse,
+  ApplySubscribeBody,
+  GetSubscribeListResponse,
+  GetSubscribeDetailResponse,
+  GetSubscribeDetailBody,
+  AllInSubscribe200,
+  AllInSubscribeBody,
   SendOtcChatBody,
   SendSayBody,
   GetUnreadCount200,
@@ -132,6 +138,179 @@ import type {
 } from '../model';
 import { customInstance } from '../mutator/custom-instance';
 import type { ErrorType } from '../mutator/custom-instance';
+
+/**
+ * http發送文字聊天
+ */
+export const applySubscribe = (applySubscribeBody: ApplySubscribeBody) => {
+  return customInstance<CommonResponse>({
+    url: `/subscribe/apply.do`,
+    method: 'post',
+    headers: { 'Content-Type': 'application/json' },
+    data: applySubscribeBody,
+  });
+};
+
+export type ApplySubscribeMutationResult = NonNullable<Awaited<ReturnType<typeof applySubscribe>>>;
+export type ApplySubscribeMutationBody = ApplySubscribeBody;
+export type ApplySubscribeMutationError = ErrorType<unknown>;
+
+export const useApplySubscribe = <TError = ErrorType<unknown>, TContext = unknown>(options?: {
+  mutation?: UseMutationOptions<
+    Awaited<ReturnType<typeof applySubscribe>>,
+    TError,
+    { data: ApplySubscribeBody },
+    TContext
+  >;
+}) => {
+  const { mutation: mutationOptions } = options ?? {};
+
+  const mutationFn: MutationFunction<
+    Awaited<ReturnType<typeof applySubscribe>>,
+    { data: ApplySubscribeBody }
+  > = (props) => {
+    const { data } = props ?? {};
+
+    return applySubscribe(data);
+  };
+
+  return useMutation<
+    Awaited<ReturnType<typeof applySubscribe>>,
+    TError,
+    { data: ApplySubscribeBody },
+    TContext
+  >(mutationFn, mutationOptions);
+};
+
+/**
+ * http發送文字聊天
+ */
+export const getSubscribeList = () => {
+  return customInstance<GetSubscribeListResponse>({ url: `/subscribe/getList.do`, method: 'post' });
+};
+
+export const getGetSubscribeListQueryKey = () => [`/subscribe/getList.do`];
+
+export type GetSubscribeListQueryResult = NonNullable<Awaited<ReturnType<typeof getSubscribeList>>>;
+export type GetSubscribeListQueryError = ErrorType<unknown>;
+
+export const useGetSubscribeList = <
+  TData = Awaited<ReturnType<typeof getSubscribeList>>,
+  TError = ErrorType<unknown>,
+>(options?: {
+  query?: UseQueryOptions<Awaited<ReturnType<typeof getSubscribeList>>, TError, TData>;
+}): UseQueryResult<TData, TError> & { queryKey: QueryKey } => {
+  const { query: queryOptions } = options ?? {};
+
+  const queryKey = queryOptions?.queryKey ?? getGetSubscribeListQueryKey();
+
+  const queryFn: QueryFunction<Awaited<ReturnType<typeof getSubscribeList>>> = () =>
+    getSubscribeList();
+
+  const query = useQuery<Awaited<ReturnType<typeof getSubscribeList>>, TError, TData>(
+    queryKey,
+    queryFn,
+    queryOptions,
+  ) as UseQueryResult<TData, TError> & { queryKey: QueryKey };
+
+  query.queryKey = queryKey;
+
+  return query;
+};
+
+/**
+ * http發送文字聊天
+ */
+export const getSubscribeDetail = (getSubscribeDetailBody: GetSubscribeDetailBody) => {
+  return customInstance<GetSubscribeDetailResponse>({
+    url: `/subscribe/getDetail.do`,
+    method: 'post',
+    headers: { 'Content-Type': 'application/json' },
+    data: getSubscribeDetailBody,
+  });
+};
+
+export const getGetSubscribeDetailQueryKey = (getSubscribeDetailBody: GetSubscribeDetailBody) => [
+  `/subscribe/getDetail.do`,
+  getSubscribeDetailBody,
+];
+
+export type GetSubscribeDetailQueryResult = NonNullable<
+  Awaited<ReturnType<typeof getSubscribeDetail>>
+>;
+export type GetSubscribeDetailQueryError = ErrorType<unknown>;
+
+export const useGetSubscribeDetail = <
+  TData = Awaited<ReturnType<typeof getSubscribeDetail>>,
+  TError = ErrorType<unknown>,
+>(
+  getSubscribeDetailBody: GetSubscribeDetailBody,
+  options?: {
+    query?: UseQueryOptions<Awaited<ReturnType<typeof getSubscribeDetail>>, TError, TData>;
+  },
+): UseQueryResult<TData, TError> & { queryKey: QueryKey } => {
+  const { query: queryOptions } = options ?? {};
+
+  const queryKey = queryOptions?.queryKey ?? getGetSubscribeDetailQueryKey(getSubscribeDetailBody);
+
+  const queryFn: QueryFunction<Awaited<ReturnType<typeof getSubscribeDetail>>> = () =>
+    getSubscribeDetail(getSubscribeDetailBody);
+
+  const query = useQuery<Awaited<ReturnType<typeof getSubscribeDetail>>, TError, TData>(
+    queryKey,
+    queryFn,
+    queryOptions,
+  ) as UseQueryResult<TData, TError> & { queryKey: QueryKey };
+
+  query.queryKey = queryKey;
+
+  return query;
+};
+
+/**
+ * http發送文字聊天
+ */
+export const allInSubscribe = (allInSubscribeBody: AllInSubscribeBody) => {
+  return customInstance<AllInSubscribe200>({
+    url: `/subscribe/allIn.do`,
+    method: 'post',
+    headers: { 'Content-Type': 'application/json' },
+    data: allInSubscribeBody,
+  });
+};
+
+export const getAllInSubscribeQueryKey = (allInSubscribeBody: AllInSubscribeBody) => [
+  `/subscribe/allIn.do`,
+  allInSubscribeBody,
+];
+
+export type AllInSubscribeQueryResult = NonNullable<Awaited<ReturnType<typeof allInSubscribe>>>;
+export type AllInSubscribeQueryError = ErrorType<unknown>;
+
+export const useAllInSubscribe = <
+  TData = Awaited<ReturnType<typeof allInSubscribe>>,
+  TError = ErrorType<unknown>,
+>(
+  allInSubscribeBody: AllInSubscribeBody,
+  options?: { query?: UseQueryOptions<Awaited<ReturnType<typeof allInSubscribe>>, TError, TData> },
+): UseQueryResult<TData, TError> & { queryKey: QueryKey } => {
+  const { query: queryOptions } = options ?? {};
+
+  const queryKey = queryOptions?.queryKey ?? getAllInSubscribeQueryKey(allInSubscribeBody);
+
+  const queryFn: QueryFunction<Awaited<ReturnType<typeof allInSubscribe>>> = () =>
+    allInSubscribe(allInSubscribeBody);
+
+  const query = useQuery<Awaited<ReturnType<typeof allInSubscribe>>, TError, TData>(
+    queryKey,
+    queryFn,
+    queryOptions,
+  ) as UseQueryResult<TData, TError> & { queryKey: QueryKey };
+
+  query.queryKey = queryKey;
+
+  return query;
+};
 
 /**
  * http發送文字聊天

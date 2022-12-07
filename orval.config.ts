@@ -59,6 +59,21 @@ export default defineConfig({
           name: 'customInstance',
         },
         operations: {
+          getSubscribeDetail: {
+            query: {
+              useQuery: true,
+            },
+          },
+          allInSubscribe: {
+            query: {
+              useQuery: true,
+            },
+          },
+          getSubscribeList: {
+            query: {
+              useQuery: true,
+            },
+          },
           getUnreadCount: {
             query: {
               useQuery: true,

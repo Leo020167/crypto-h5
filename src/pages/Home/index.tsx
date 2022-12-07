@@ -140,10 +140,10 @@ const Home = () => {
             {intl.formatMessage({ defaultMessage: '金牌機構', id: 'Ls3qou' })}
           </div>
         </Link>
-        <Link to="" className="flex flex-col items-center justify-center w-1/5">
+        <Link to="/subscribe" className="flex flex-col items-center justify-center w-1/5">
           <img alt="" src={tab1_menu2} className="w-9 h-9" />
           <div className="mt-2.5 text-xs text-[#666666]">
-            {intl.formatMessage({ defaultMessage: '創新實驗區', id: 'G9QNOq' })}
+            {intl.formatMessage({ defaultMessage: '創新試驗區', id: 'TsbBR+' })}
           </div>
         </Link>
         <Link to="/legal-money" className="flex flex-col items-center justify-center w-1/5">

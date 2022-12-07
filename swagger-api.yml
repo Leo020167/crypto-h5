@@ -5,6 +5,84 @@ info:
 servers:
   - url: http://api.piglobalexchanges.com
 paths:
+  /subscribe/apply.do:
+    post:
+      operationId: 'applySubscribe'
+      description: 'http發送文字聊天'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                subscribeId:
+                  type: string
+                count:
+                  type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CommonResponse'
+
+  /subscribe/getList.do:
+    post:
+      operationId: 'getSubscribeList'
+      description: 'http發送文字聊天'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetSubscribeListResponse'
+
+  /subscribe/getDetail.do:
+    post:
+      operationId: 'getSubscribeDetail'
+      description: 'http發送文字聊天'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                id:
+                  type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetSubscribeDetailResponse'
+
+  /subscribe/allIn.do:
+    post:
+      operationId: 'allInSubscribe'
+      description: 'http發送文字聊天'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                subscribeId:
+                  type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/CommonResponse'
+                  - properties:
+                      data:
+                        type: object
+                        properties:
+                          maxCount:
+                            type: string
+
   /chat/otc/sendOtcChat.do:
     post:
       operationId: 'sendOtcChat'
@@ -1940,6 +2018,99 @@ paths:
 
 components:
   schemas:
+    SubscribeDetail:
+      type: object
+      properties:
+        alCount:
+          type: string
+        allSum:
+          type: string
+        authorSummary:
+          type: string
+        condition:
+          type: string
+        content:
+          type: string
+        description:
+          type: string
+        endTime:
+          type: string
+        expCountry:
+          type: string
+        image:
+          type: string
+        liftBanTime:
+          type: string
+        min:
+          type: string
+        rate:
+          type: string
+        startTime:
+          type: string
+        state:
+          type: string
+        sum:
+          type: string
+        sumAlCount:
+          type: string
+        summary:
+          type: string
+        symbol:
+          type: string
+        title:
+          type: string
+        tradeTime:
+          type: string
+        userCount:
+          type: string
+        warning:
+          type: string
+
+    GetSubscribeDetailResponse:
+      allOf:
+        - $ref: '#/components/schemas/CommonResponse'
+        - properties:
+            data:
+              type: object
+              properties:
+                detail:
+                  $ref: '#/components/schemas/SubscribeDetail'
+
+    GetSubscribeListItem:
+      type: object
+      properties:
+        alAmount:
+          type: string
+        amount:
+          type: string
+        endTime:
+          type: string
+        id:
+          type: string
+        image:
+          type: string
+        startTime:
+          type: string
+        state:
+          type: string
+        sumAmount:
+          type: string
+        summary:
+          type: string
+        symbol:
+          type: string
+        title:
+          type: string
+
+    GetSubscribeListResponse:
+      allOf:
+        - $ref: '#/components/schemas/CommonResponse'
+        - properties:
+            data:
+              type: array
+              items:
+                $ref: '#/components/schemas/GetSubscribeListItem'
+
     CustomerServiceStaff:
       type: object
       properties:
