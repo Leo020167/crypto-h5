@@ -90,7 +90,7 @@ const Home = () => {
         </Swiper>
       </div>
 
-      <div className="flex items-center mt-3 px-4 shadow-md shadow-black/5 bg-white rounded-lg overflow-hidden h-12">
+      <div className="flex items-center justify-between mt-3 px-4 shadow-md shadow-black/5 bg-white rounded-lg overflow-hidden h-12">
         <img alt="" src={xiaolaba} className="w-5 h-5" />
         <Swiper
           direction="vertical"

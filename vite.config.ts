@@ -8,20 +8,20 @@ import svgr from 'vite-plugin-svgr';
 // https://vitejs.dev/config/
 export default defineConfig({
   server: {
-    proxy: {
-      '/procoin-market': {
-        target: 'http://market.piglobalexchanges.com',
-        changeOrigin: true,
-      },
-      '/procoin-file': {
-        target: 'http://upload.piglobalexchanges.com',
-        changeOrigin: true,
-      },
-      '/procoin': {
-        target: 'http://api.piglobalexchanges.com',
-        changeOrigin: true,
-      },
-    },
+    // proxy: {
+    //   '/procoin-market': {
+    //     target: 'http://market.piglobalexchanges.com',
+    //     changeOrigin: true,
+    //   },
+    //   '/procoin-file': {
+    //     target: 'http://upload.piglobalexchanges.com',
+    //     changeOrigin: true,
+    //   },
+    //   '/procoin': {
+    //     target: 'http://api.piglobalexchanges.com',
+    //     changeOrigin: true,
+    //   },
+    // },
   },
   plugins: [
     react({

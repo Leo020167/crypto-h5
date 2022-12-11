@@ -6,7 +6,6 @@ import { useHistory } from 'react-router-dom';
 import { getProOrderQueryListQueryKey, proOrderQueryList } from '../../api/endpoints/transformer';
 import InfiniteScrollContent from '../../components/InfiniteScrollContent';
 import Record from './Record';
-import Spot from './Spot';
 
 export interface TradeLeverHistoryRef {
   refetch: () => void;
@@ -67,7 +66,7 @@ const TradeLeverHistory = forwardRef<TradeLeverHistoryRef, TradeLeverHistoryProp
                 })
               }
             >
-              {accountType === '2' ? <Spot data={v} /> : <Record data={v} />}
+              <Record data={v} />
             </List.Item>
           ))}
         </List>

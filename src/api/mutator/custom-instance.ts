@@ -5,10 +5,10 @@ import { useLocaleStore } from '../../stores/locale';
 import { localeHash } from '../../utils/locale';
 import { signParameters } from '../../utils/signature';
 
-export const AXIOS_UPLOAD_INSTANCE = Axios.create({ baseURL: '/procoin-file' });
+export const AXIOS_UPLOAD_INSTANCE = Axios.create({ baseURL: import.meta.env.VITE_API_UPLOAD_URL });
 
 export const AXIOS_INSTANCE = Axios.create({
-  baseURL: '/procoin',
+  baseURL: import.meta.env.VITE_API_BASE_URL,
 });
 
 AXIOS_INSTANCE.interceptors.response.use(

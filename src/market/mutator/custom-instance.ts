@@ -5,10 +5,8 @@ import { useLocaleStore } from '../../stores/locale';
 import { localeHash } from '../../utils/locale';
 import { signParameters } from '../../utils/signature';
 
-// http://market.piglobalexchanges.com 正式域名
-
 export const AXIOS_INSTANCE = Axios.create({
-  baseURL: '/procoin-market',
+  baseURL: import.meta.env.VITE_API_MARKET_URL,
 });
 
 AXIOS_INSTANCE.interceptors.response.use(

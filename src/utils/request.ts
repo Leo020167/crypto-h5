@@ -1,10 +1,8 @@
 import axios from 'axios';
 import { signParameters } from './signature';
 
-const BASE_URL = '/procoin'; // TODO env
-
 const instance = axios.create({
-  baseURL: BASE_URL,
+  baseURL: import.meta.env.VITE_API_BASE_URL,
 });
 
 export const apiPost = (
