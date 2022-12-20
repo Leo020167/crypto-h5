@@ -226,8 +226,8 @@ const TransferCoin = () => {
       <Popup visible={action === 'symbols'} position="right">
         <Screen
           headerTitle={intl.formatMessage({
-            defaultMessage: '选择账户',
-            id: 'un5/HP',
+            defaultMessage: '选择币种',
+            id: 'BP8aBu',
           })}
           navBarProps={{
             onBack() {

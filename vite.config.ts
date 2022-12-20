@@ -3,27 +3,37 @@ import react from '@vitejs/plugin-react';
 import jotaiDebugLabel from 'jotai/babel/plugin-debug-label';
 import jotaiReactRefresh from 'jotai/babel/plugin-react-refresh';
 import { defineConfig } from 'vite';
+import vitePluginImp from 'vite-plugin-imp';
 import svgr from 'vite-plugin-svgr';
 
 // https://vitejs.dev/config/
 export default defineConfig({
   server: {
-    // proxy: {
-    //   '/procoin-market': {
-    //     target: 'http://market.piglobalexchanges.com',
-    //     changeOrigin: true,
-    //   },
-    //   '/procoin-file': {
-    //     target: 'http://upload.piglobalexchanges.com',
-    //     changeOrigin: true,
-    //   },
-    //   '/procoin': {
-    //     target: 'http://api.piglobalexchanges.com',
-    //     changeOrigin: true,
-    //   },
-    // },
+    proxy: {
+      '/procoin-market': {
+        target: 'http://market.piglobalexchanges.com',
+        changeOrigin: true,
+      },
+      '/procoin-file': {
+        target: 'http://upload.piglobalexchanges.com',
+        changeOrigin: true,
+      },
+      '/procoin': {
+        target: 'http://api.piglobalexchanges.com',
+        changeOrigin: true,
+      },
+    },
   },
   plugins: [
+    vitePluginImp({
+      libList: [
+        {
+          libName: 'antd-mobile',
+          libDirectory: 'es/components',
+          style: () => false,
+        },
+      ],
+    }),
     react({
       babel: { plugins: [jotaiDebugLabel, jotaiReactRefresh] },
     }),

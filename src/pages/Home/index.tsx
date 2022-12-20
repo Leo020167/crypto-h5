@@ -1,5 +1,6 @@
 import { List, Swiper, Tabs } from 'antd-mobile';
 import { useAtomValue } from 'jotai';
+import { stringify } from 'query-string';
 import { useCallback, useMemo, useState } from 'react';
 import { useIntl } from 'react-intl';
 import { Link } from 'react-router-dom';
@@ -80,11 +81,13 @@ const Home = () => {
         </Link>
       </div>
 
-      <div className="mt-3 shadow-md shadow-black/5 bg-white rounded-lg overflow-hidden">
+      <div className="mt-3 shadow-md shadow-black/5 bg-white rounded-lg overflow-hidden h-[150px]">
         <Swiper autoplay loop>
           {homeAccount?.data?.banner?.map((v) => (
-            <Swiper.Item key={v.bannerId} className="h-[150px] flex flex-col">
-              <img alt="" src={v.imageUrl} className="w-full h-full" />
+            <Swiper.Item key={v.bannerId} className=" ">
+              <div className="h-[150px] flex flex-col">
+                <img alt="" src={v.imageUrl} className="w-full h-full" />
+              </div>
             </Swiper.Item>
           ))}
         </Swiper>
@@ -100,10 +103,12 @@ const Home = () => {
           indicator={() => null}
         >
           {homeCropMe?.data?.noticeList?.map((v) => (
-            <Swiper.Item key={v.articleId} className="flex items-center h-12 px-2">
-              <a href={v.url} target="__blank" className="truncate">
-                {v.title}
-              </a>
+            <Swiper.Item key={v.articleId}>
+              <div className="flex items-center h-12 px-2">
+                <a href={v.url} target="__blank" className="truncate">
+                  {v.title}
+                </a>
+              </div>
             </Swiper.Item>
           ))}
         </Swiper>
@@ -112,7 +117,16 @@ const Home = () => {
 
       <div className="text-sm font-bold mt-3 shadow-md shadow-black/5 bg-white rounded-lg overflow-hidden h-28 px-2.5 flex items-center">
         {quotes.map((v, i) => (
-          <div className="flex flex-col items-center w-1/3" key={i}>
+          <Link
+            to={{
+              pathname: '/market',
+              search: stringify({
+                symbol: v.symbol,
+              }),
+            }}
+            className="flex flex-col items-center w-1/3"
+            key={i}
+          >
             <div className="text-xs text-[#0C0C0C]">
               {[v.symbol, v.currency].filter(Boolean).join('/')}
             </div>
@@ -129,7 +143,7 @@ const Home = () => {
               {v.price}
             </div>
             <div className="mt-2 text-xs text-[#888888]">{v.priceCny}</div>
-          </div>
+          </Link>
         ))}
       </div>
 
@@ -248,7 +262,15 @@ const Symbols = ({ quotes = [] }: { quotes?: Quote[] }) => {
     <List className="mt-4">
       {quotes?.map((v, i) => (
         <List.Item key={i}>
-          <div className="flex items-center">
+          <Link
+            to={{
+              pathname: '/market',
+              search: stringify({
+                symbol: v.symbol,
+              }),
+            }}
+            className="flex items-center"
+          >
             <div className="text-sm w-1/3">
               <div className="text-base text-black font-bold">
                 {v.symbol?.includes('/') ? getOriginSymbol(v.symbol) : v.symbol}
@@ -268,7 +290,7 @@ const Symbols = ({ quotes = [] }: { quotes?: Quote[] }) => {
                 {v.rate}%
               </div>
             </div>
-          </div>
+          </Link>
         </List.Item>
       ))}
     </List>

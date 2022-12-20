@@ -87,21 +87,14 @@ const TradeLeverDetails = ({
     return '0';
   }, [orderTypeOption.value, price]);
 
-  const { data: orderCheckOut, refetch: refetchCheckOut } = useProOrderCheckOut(
-    {
-      symbol: symbol ?? '',
-      buySell: buySell === 1 ? 'buy' : 'sell',
-      price: calcPrice,
-      hand: hand ?? '0',
-      multiNum: leverMultiple,
-      orderType: orderTypeOption.value,
-    },
-    {
-      query: {
-        enabled: !!hand,
-      },
-    },
-  );
+  const { data: orderCheckOut, refetch: refetchCheckOut } = useProOrderCheckOut({
+    symbol: symbol ?? '',
+    buySell: buySell === 1 ? 'buy' : 'sell',
+    price: calcPrice,
+    hand: hand || '0',
+    multiNum: leverMultiple,
+    orderType: orderTypeOption.value,
+  });
 
   useEffect(() => {
     if (quote) {

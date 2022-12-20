@@ -27,7 +27,7 @@ const Login = () => {
 
   return (
     <div className="h-screen bg-white px-4 py-4">
-      <div className="text-right pb-2 border-b">
+      <div className="text-right pb-2">
         <Link to="/signup" className="text-black">
           {intl.formatMessage({ defaultMessage: '注冊賬號', id: '3cuhJj' })}
         </Link>

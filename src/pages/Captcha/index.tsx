@@ -2,6 +2,7 @@ import { Button, Form, Input, NavBar, Toast } from 'antd-mobile';
 import { useState } from 'react';
 import { useIntl } from 'react-intl';
 import { useHistory } from 'react-router-dom';
+import { useCounter, useInterval } from 'react-use';
 import styled from 'styled-components';
 
 import SwipeImageValidator from '../../components/SwipeImageValidator';
@@ -19,6 +20,26 @@ const Captcha = () => {
 
   const intl = useIntl();
 
+  const text =
+    value.type === 1
+      ? intl.formatMessage({ defaultMessage: '短信验证', id: 'Uju5sq' })
+      : intl.formatMessage({ defaultMessage: '邮箱验证码', id: 'xry82G' });
+
+  const [send, setSend] = useState(false);
+  const [count, { dec, reset }] = useCounter(60, 60, 0);
+
+  useInterval(
+    () => {
+      if (count > 0) {
+        dec();
+      } else {
+        setSend(false);
+        reset();
+      }
+    },
+    send ? 1000 : null,
+  );
+
   return (
     <Container className="h-screen bg-white">
       <NavBar
@@ -32,7 +53,12 @@ const Captcha = () => {
           {intl.formatMessage({ defaultMessage: '输入验证码', id: '4FDcHK' })}
         </h1>
         <div className="mb-8">
-          {intl.formatMessage({ defaultMessage: '请获取短信验证', id: 'LC8/+u' })}
+          {intl.formatMessage(
+            { defaultMessage: `请获取{text}`, id: 'agICfX' },
+            {
+              text,
+            },
+          )}
         </div>
 
         <Form
@@ -56,12 +82,21 @@ const Captcha = () => {
           <Form.Item
             className="mb-8"
             extra={
-              <a
-                className=" border-[#dcb585] border-2 rounded text-[#dcb585] text-sm px-2 py-1"
-                onClick={() => setOpen(true)}
-              >
-                {intl.formatMessage({ defaultMessage: '获取验证码', id: 'ypMY0M' })}
-              </a>
+              send ? (
+                <a
+                  className=" border-gray-400 border-2 rounded text-gray-400 text-sm px-2 py-1"
+                  onClick={() => setOpen(true)}
+                >
+                  {intl.formatMessage({ defaultMessage: '{count}s', id: '1ix6NP' }, { count })}
+                </a>
+              ) : (
+                <a
+                  className=" border-[#dcb585] border-2 rounded text-[#dcb585] text-sm px-2 py-1"
+                  onClick={() => setOpen(true)}
+                >
+                  {intl.formatMessage({ defaultMessage: '获取验证码', id: 'ypMY0M' })}
+                </a>
+              )
             }
           >
             <Input
@@ -98,6 +133,7 @@ const Captcha = () => {
         open={open}
         onClose={() => setOpen(false)}
         onSuccess={(positionX, dragImgKey) => {
+          setSend(true);
           getSms({
             countryCode: value?.countryCode ?? '',
             dragImgKey: dragImgKey,

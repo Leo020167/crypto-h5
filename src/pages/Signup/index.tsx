@@ -65,8 +65,12 @@ const Signup = () => {
             if (!validPassword(values.userPass, values.configUserPass)) {
               return;
             }
+
             setValue({ ...values, countryCode: country.code });
-            history.push('/captcha');
+
+            history.push({
+              pathname: '/captcha',
+            });
           }}
           footer={
             <div>
@@ -83,9 +87,11 @@ const Signup = () => {
                 </div>
               )}
 
-              <Button block type="submit" color="primary" className="rounded-none mt-8 ">
-                {intl.formatMessage({ defaultMessage: '注册', id: 'MmsEyp' })}
-              </Button>
+              <div className="mt-8">
+                <Button block type="submit" color="primary" className="rounded-none">
+                  {intl.formatMessage({ defaultMessage: '注册', id: 'MmsEyp' })}
+                </Button>
+              </div>
 
               <div className="text-center mt-4">
                 {value.type === 1 ? (
@@ -196,6 +202,9 @@ const Signup = () => {
 };
 
 const Container = styled.div`
+  .adm-nav-bar {
+    border: 0;
+  }
   .adm-form-footer {
     padding: 20px 0;
   }
@@ -204,10 +213,6 @@ const Container = styled.div`
     .adm-list-item-content-main {
       color: #212f51;
     }
-  }
-
-  .adm-nav-bar {
-    border-bottom: 1px solid #f6f6f6;
   }
 
   .adm-list-body {
