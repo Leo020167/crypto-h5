@@ -2,7 +2,7 @@ import currency from 'currency.js';
 import { ECharts } from 'echarts/core';
 import { clamp, isNumber, last, orderBy } from 'lodash-es';
 import moment from 'moment';
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { useIntl } from 'react-intl';
 import useSwitchColor from '../../hooks/useSwitchColor';
 import { useKline } from '../../market/endpoints/marketWithTransformer';
@@ -73,45 +73,22 @@ const KLine = ({
 
   const switchColor = useSwitchColor();
 
-  const [stocks, setStocks] = useState<Stock[]>([]);
-
-  const rawData = useMemo(() => {
-    const rawData = orderBy(stocks, (v) => v.date, ['asc']).map((v, index) => {
-      const format = ['day', 'week'].includes(klineType) ? 'YYYY-MM-DD' : 'YYYY-MM-DD HH:mm';
-      const date = moment(v.date * 1000).format(format);
-
-      let open = v.open;
-      const close = v.close;
-      let lowest = v.lowest;
-      let highest = v.highest;
-      const volume = v.volume;
-
-      if (v.close > 0 && v.open <= 0) {
-        open = v.close;
-        lowest = v.close;
-        highest = v.close;
-      }
-
-      const result = { date, open, close, lowest, highest, volume, rate: 0, amt: 0 };
-      if (index > 0) {
-        let amt = close - stocks[index - 1].close;
-        let rate = (amt * 100) / stocks[index - 1].close;
-        if (rate <= -100) {
-          rate = 0;
-          amt = 0;
-        }
-
-        result.rate = rate;
-        result.amt = amt;
-      }
-      return result;
-    });
-    return rawData;
-  }, [klineType, stocks]);
+  const rawDataRef = useRef<
+    {
+      date: string;
+      open: number;
+      close: number;
+      lowest: number;
+      highest: number;
+      volume: number;
+      rate: number;
+      amt: number;
+    }[]
+  >([]);
 
   const setOptions = useCallback(() => {
-    const dates = rawData.map((v) => v.date);
-    const values = rawData.map((v) => [v.open, v.close, v.lowest, v.highest, v.volume]);
+    const dates = rawDataRef.current.map((v) => v.date);
+    const values = rawDataRef.current.map((v) => [v.open, v.close, v.lowest, v.highest, v.volume]);
     const volumes = values.map((v, i) => [i, v[4], v[0] > v[1] ? 1 : -1]);
 
     const ma5Data = calculateMA(5, values);
@@ -226,11 +203,7 @@ const KLine = ({
 
     setValues();
     setDates();
-  }, [precision, rawData]);
-
-  useEffect(() => {
-    setOptions();
-  }, [rawData, setOptions]);
+  }, [precision]);
 
   useKline(
     {
@@ -259,7 +232,45 @@ const KLine = ({
                 });
               }
             });
-            setStocks(result);
+
+            const stocks = result;
+
+            const rawData = orderBy(stocks, (v) => v.date, ['asc']).map((v, index) => {
+              const format = ['day', 'week'].includes(klineType)
+                ? 'YYYY-MM-DD'
+                : 'YYYY-MM-DD HH:mm';
+              const date = moment(v.date * 1000).format(format);
+
+              let open = v.open;
+              const close = v.close;
+              let lowest = v.lowest;
+              let highest = v.highest;
+              const volume = v.volume;
+
+              if (v.close > 0 && v.open <= 0) {
+                open = v.close;
+                lowest = v.close;
+                highest = v.close;
+              }
+
+              const result = { date, open, close, lowest, highest, volume, rate: 0, amt: 0 };
+              if (index > 0) {
+                let amt = close - stocks[index - 1].close;
+                let rate = (amt * 100) / stocks[index - 1].close;
+                if (rate <= -100) {
+                  rate = 0;
+                  amt = 0;
+                }
+
+                result.rate = rate;
+                result.amt = amt;
+              }
+              return result;
+            });
+
+            rawDataRef.current = rawData;
+
+            setOptions();
           }
         },
       },
@@ -277,6 +288,39 @@ const KLine = ({
   }, []);
 
   const intl = useIntl();
+
+  const date = intl.formatMessage({
+    defaultMessage: '日期',
+    id: 'gQ4+K1',
+  });
+  const open = intl.formatMessage({
+    defaultMessage: '開',
+    id: 'LBC7Kf',
+  });
+  const highest = intl.formatMessage({
+    defaultMessage: '高',
+    id: 'hBkLmp',
+  });
+  const lowest = intl.formatMessage({
+    defaultMessage: '低',
+    id: '5kTIPB',
+  });
+  const close = intl.formatMessage({
+    defaultMessage: '收',
+    id: 'gTNZNZ',
+  });
+  const amt = intl.formatMessage({
+    defaultMessage: '漲跌額',
+    id: 'kckDfZ',
+  });
+  const rate = intl.formatMessage({
+    defaultMessage: '漲跌幅',
+    id: 'gA15gF',
+  });
+  const volume = intl.formatMessage({
+    defaultMessage: '成交量',
+    id: 'uC1tZ7',
+  });
 
   useEffect(() => {
     if (!myChartRef.current) return;
@@ -307,46 +351,13 @@ const KLine = ({
             return obj;
           },
           formatter(params: any) {
-            const item = rawData[params[0].dataIndex];
+            const item = rawDataRef.current[params[0].dataIndex];
             const FMT = (value: string | number) =>
               currency(value, {
                 separator: '',
                 symbol: '',
                 precision,
               });
-
-            const date = intl.formatMessage({
-              defaultMessage: '日期',
-              id: 'gQ4+K1',
-            });
-            const open = intl.formatMessage({
-              defaultMessage: '開',
-              id: 'LBC7Kf',
-            });
-            const highest = intl.formatMessage({
-              defaultMessage: '高',
-              id: 'hBkLmp',
-            });
-            const lowest = intl.formatMessage({
-              defaultMessage: '低',
-              id: '5kTIPB',
-            });
-            const close = intl.formatMessage({
-              defaultMessage: '收',
-              id: 'gTNZNZ',
-            });
-            const amt = intl.formatMessage({
-              defaultMessage: '漲跌額',
-              id: 'kckDfZ',
-            });
-            const rate = intl.formatMessage({
-              defaultMessage: '漲跌幅',
-              id: 'gA15gF',
-            });
-            const vol = intl.formatMessage({
-              defaultMessage: '成交量',
-              id: 'uC1tZ7',
-            });
 
             const color = switchColor(item.rate);
 
@@ -370,7 +381,7 @@ const KLine = ({
               `<div class="flex justify-between">${rate}<span class="ml-2" style="color: ${color}">${item.rate.toFixed(
                 2,
               )}%</span></div>`,
-              `<div class="flex justify-between">${vol}<span class="ml-2">${item.volume}</span></div>`,
+              `<div class="flex justify-between">${volume}<span class="ml-2">${item.volume}</span></div>`,
             ].join('');
           },
         },
@@ -551,8 +562,9 @@ const KLine = ({
           },
         ],
       },
-      true,
+      false,
     );
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [intl, precision]);
 

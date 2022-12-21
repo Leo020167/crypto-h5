@@ -41,6 +41,9 @@
   "/AVS2G": {
     "string": "解倉時間"
   },
+  "/ErIar": {
+    "string": "交易"
+  },
   "/EvoLI": {
     "string": "我已閲讀並同意"
   },
@@ -49,6 +52,9 @@
   },
   "/T0l4z": {
     "string": "每日利息"
+  },
+  "/jAa8w": {
+    "string": "{maxHand}{symbol}"
   },
   "/k9TmU": {
     "string": "盈虧(USDT)"
@@ -83,6 +89,9 @@
   "1cJMw5": {
     "string": "去綁定"
   },
+  "1ix6NP": {
+    "string": "{count}s"
+  },
   "1sn0tp": {
     "string": "銀行卡"
   },
@@ -91,9 +100,6 @@
   },
   "2+1H1y": {
     "string": "是否訂閲該用戶？"
-  },
-  "20MJBj": {
-    "string": "TFU"
   },
   "297aFF": {
     "string": "保證金比例"
@@ -179,8 +185,14 @@
   "4V3iak": {
     "string": "平倉明細"
   },
+  "4hv39Z": {
+    "string": "方向"
+  },
   "4ivSMB": {
     "string": "總資產(TFU)"
+  },
+  "4zwWgi": {
+    "string": "可賣"
   },
   "56o47p": {
     "string": "郵箱驗證碼"
@@ -374,6 +386,9 @@
   "BO7t+j": {
     "string": "前往實名"
   },
+  "BP8aBu": {
+    "string": "选择币种"
+  },
   "BRtAE8": {
     "string": "幫助中心"
   },
@@ -421,6 +436,9 @@
   },
   "CTWCcu": {
     "string": "全部買入"
+  },
+  "CarZOU": {
+    "string": "日K"
   },
   "CbGK63": {
     "string": "當前購買最高價"
@@ -572,6 +590,9 @@
   "HcSaEz": {
     "string": "您目前的郵箱是{email}，想要把它更新為？"
   },
+  "HdFt0P": {
+    "string": "可買"
+  },
   "HeL/t7": {
     "string": "購買USDT"
   },
@@ -586,6 +607,12 @@
   },
   "I/5B/d": {
     "string": "新幣申購"
+  },
+  "I0saGO": {
+    "string": "搜索代碼"
+  },
+  "IAX0f0": {
+    "string": "1小時"
   },
   "IFXGBR": {
     "string": "請先進行商家認證"
@@ -653,6 +680,9 @@
   "KNgmr/": {
     "string": "持倉手數"
   },
+  "KSTxH2": {
+    "string": "15分鐘"
+  },
   "KshKCt": {
     "string": "距離本輪申購開始還剩"
   },
@@ -671,8 +701,8 @@
   "L2Dpi5": {
     "string": "全球期指帳戶"
   },
-  "LC8/+u": {
-    "string": "请获取短信验证"
+  "LBC7Kf": {
+    "string": "開"
   },
   "LEah6f": {
     "string": "我要卖"
@@ -887,6 +917,9 @@
   "S/yKCZ": {
     "string": "出售數量"
   },
+  "S3V2J5": {
+    "string": "分時"
+  },
   "S7E2WU": {
     "string": "請務必使用與您註冊手機號碼一致的實名賬號"
   },
@@ -985,6 +1018,9 @@
   },
   "UgHO9l": {
     "string": "三個月"
+  },
+  "Uju5sq": {
+    "string": "短信验证"
   },
   "UkiaYk": {
     "string": "請輸入身份證號碼"
@@ -1147,6 +1183,9 @@
   },
   "ag8LxW": {
     "string": "未设置"
+  },
+  "agICfX": {
+    "string": "请获取{text}"
   },
   "anbdi0": {
     "string": "買入點差"
@@ -1319,6 +1358,12 @@
   "gA15gF": {
     "string": "漲跌幅"
   },
+  "gQ4+K1": {
+    "string": "日期"
+  },
+  "gTNZNZ": {
+    "string": "收"
+  },
   "gVKoa9": {
     "string": "同意凍結"
   },
@@ -1357,6 +1402,9 @@
   },
   "htEymu": {
     "string": "申訴理由"
+  },
+  "hxj1V+": {
+    "string": "清空歷史"
   },
   "i3xGD8": {
     "string": "提交申訴"
@@ -1414,6 +1462,9 @@
   },
   "kSaqSM": {
     "string": "留言長度不能大於140個字符"
+  },
+  "kckDfZ": {
+    "string": "漲跌額"
   },
   "keuHvr": {
     "string": "設置止盈止損"
@@ -1505,6 +1556,9 @@
   "oRPjgd": {
     "string": "止盈設置"
   },
+  "oV1YAL": {
+    "string": "周K"
+  },
   "oVSEVM": {
     "string": "写些什么吧...(140个字以内)"
   },
@@ -1525,6 +1579,9 @@
   },
   "pKUW2A": {
     "string": "最小"
+  },
+  "pPa5HI": {
+    "string": "5分鐘"
   },
   "pYPgzH": {
     "string": "量"
@@ -1555,6 +1612,9 @@
   },
   "qZzRwu": {
     "string": "已綁定"
+  },
+  "qx86Ow": {
+    "string": "簡介"
   },
   "qxIFeG": {
     "string": "實名信息"
@@ -1631,6 +1691,9 @@
   "t/1bpl": {
     "string": "輸入跟單倍數不能小於{minMultiNum}"
   },
+  "tAG5jn": {
+    "string": "歷史記錄"
+  },
   "tI511i": {
     "string": "验证身份"
   },
@@ -1651,6 +1714,9 @@
   },
   "u1D872": {
     "string": "申诉"
+  },
+  "uC1tZ7": {
+    "string": "成交量"
   },
   "uHUP9v": {
     "string": "完成"
@@ -1742,6 +1808,9 @@
   "xra9PO": {
     "string": "手数"
   },
+  "xry82G": {
+    "string": "邮箱验证码"
+  },
   "xwo0Ao": {
     "string": "質押周期"
   },
@@ -1786,6 +1855,9 @@
   },
   "zL7URC": {
     "string": "个人设置"
+  },
+  "zR07Wc": {
+    "string": "深度"
   },
   "zS9FwU": {
     "string": "上市交易時間"
