@@ -2,6 +2,52 @@ const upColor = '#08a886';
 const downColor = '#e1234d';
 export const options = {
   animation: false,
+  tooltip: {
+    trigger: 'axis',
+    axisPointer: {
+      type: 'cross',
+    },
+    borderWidth: 1,
+    borderColor: 'rgb(34, 43, 58)',
+    padding: 10,
+    textStyle: {
+      color: '#fff',
+      fontSize: 12,
+      width: 100,
+    },
+
+    backgroundColor: 'rgb(18, 27, 42, 0.8)',
+    position: function (pos: any, params: any, el: any, elRect: any, size: any) {
+      const obj: any = {
+        top: 10,
+      };
+      obj[['left', 'right'][+(pos[0] < size.viewSize[0] / 2)]] = 30;
+      return obj;
+    },
+    formatter(params: any) {
+      console.log(params);
+      return [
+        `<div class="flex justify-between">日期<span class="ml-2">${params[0].axisValue}</span></div>`,
+        `<div class="flex justify-between">开<span class="ml-2">${params[0].value[1]}</span></div>`,
+        `<div class="flex justify-between">高<span class="ml-2">${params[0].value[2]}</span></div>`,
+        `<div class="flex justify-between">低<span class="ml-2">${params[0].value[3]}</span></div>`,
+        `<div class="flex justify-between">收<span class="ml-2">${params[0].value[4]}</span></div>`,
+        `<div class="flex justify-between">漲跌額<span class="ml-2">${params[0].value[4]}</span></div>`,
+        `<div class="flex justify-between">漲跌幅<span class="ml-2">${params[0].value[4]}</span></div>`,
+        `<div class="flex justify-between">成交量<span class="ml-2">${params[0].value[5]}</span></div>`,
+      ].join('');
+    },
+  },
+  axisPointer: {
+    link: [
+      {
+        xAxisIndex: 'all',
+      },
+    ],
+    label: {
+      backgroundColor: '#777',
+    },
+  },
   visualMap: {
     show: false,
     seriesIndex: 4,
@@ -61,7 +107,10 @@ export const options = {
       axisLine: { show: false },
       axisTick: { show: false },
       splitLine: {
-        show: false,
+        show: true,
+        lineStyle: {
+          color: '#222c38',
+        },
       },
     },
     {
@@ -71,31 +120,11 @@ export const options = {
       axisLine: { show: false },
       axisTick: { show: false },
       splitLine: {
-        show: false,
-      },
-    },
-    {
-      axisLine: { show: false },
-      axisTick: { show: false },
-      axisLabel: { show: false },
-      splitLine: {
         show: true,
         lineStyle: {
           color: '#222c38',
         },
       },
-      data: [1, 2, 3, 4],
-    },
-    {
-      gridIndex: 1,
-      axisLabel: { show: false },
-      splitLine: {
-        show: true,
-        lineStyle: {
-          color: '#222c38',
-        },
-      },
-      data: [1, 2],
     },
   ],
   dataZoom: [
