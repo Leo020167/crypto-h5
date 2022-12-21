@@ -14,6 +14,8 @@ import type {
   QueryKey,
 } from '@tanstack/react-query';
 import type {
+  SearchCoinResponse,
+  SearchCoinBody,
   CommonResponse,
   ApplySubscribeBody,
   GetSubscribeListResponse,
@@ -138,6 +140,51 @@ import type {
 } from '../model';
 import { customInstance } from '../mutator/custom-instance';
 import type { ErrorType } from '../mutator/custom-instance';
+
+/**
+ * http發送文字聊天
+ */
+export const searchCoin = (searchCoinBody: SearchCoinBody) => {
+  return customInstance<SearchCoinResponse>({
+    url: `/search/coin.do`,
+    method: 'post',
+    headers: { 'Content-Type': 'application/json' },
+    data: searchCoinBody,
+  });
+};
+
+export const getSearchCoinQueryKey = (searchCoinBody: SearchCoinBody) => [
+  `/search/coin.do`,
+  searchCoinBody,
+];
+
+export type SearchCoinQueryResult = NonNullable<Awaited<ReturnType<typeof searchCoin>>>;
+export type SearchCoinQueryError = ErrorType<unknown>;
+
+export const useSearchCoin = <
+  TData = Awaited<ReturnType<typeof searchCoin>>,
+  TError = ErrorType<unknown>,
+>(
+  searchCoinBody: SearchCoinBody,
+  options?: { query?: UseQueryOptions<Awaited<ReturnType<typeof searchCoin>>, TError, TData> },
+): UseQueryResult<TData, TError> & { queryKey: QueryKey } => {
+  const { query: queryOptions } = options ?? {};
+
+  const queryKey = queryOptions?.queryKey ?? getSearchCoinQueryKey(searchCoinBody);
+
+  const queryFn: QueryFunction<Awaited<ReturnType<typeof searchCoin>>> = () =>
+    searchCoin(searchCoinBody);
+
+  const query = useQuery<Awaited<ReturnType<typeof searchCoin>>, TError, TData>(
+    queryKey,
+    queryFn,
+    queryOptions,
+  ) as UseQueryResult<TData, TError> & { queryKey: QueryKey };
+
+  query.queryKey = queryKey;
+
+  return query;
+};
 
 /**
  * http發送文字聊天

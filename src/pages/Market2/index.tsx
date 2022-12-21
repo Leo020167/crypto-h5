@@ -14,7 +14,8 @@ import KLine from '../../components/KLine';
 import { useQuoteReal } from '../../market/endpoints/marketWithTransformer';
 import { QuoteReal } from '../../market/model';
 import { useAuthStore } from '../../stores/auth';
-import CoinSummary from './CoinSummary';
+
+import DealList from './DealList';
 import MinuteDetail from './MinuteDetail';
 import MinuteDigitalTimeLineChart from './MinuteDigitalTimeLineChart';
 
@@ -97,7 +98,7 @@ const Market = () => {
           });
         } else {
           history.push({
-            pathname: '/trade-lever',
+            pathname: '/trade-lever2',
             search: stringify({
               symbol,
               buySell,
@@ -214,11 +215,11 @@ const Market = () => {
           stretch={false}
           className="flex flex-col items-center justify-center px-1.5"
         >
-          <Tabs.Tab title={intl.formatMessage({ defaultMessage: '交易', id: '/ErIar' })} key="1">
+          <Tabs.Tab title={intl.formatMessage({ defaultMessage: '深度', id: 'zR07Wc' })} key="1">
             <MinuteDetail real={real} />
           </Tabs.Tab>
-          <Tabs.Tab title={intl.formatMessage({ defaultMessage: '簡介', id: 'qx86Ow' })} key="2">
-            <CoinSummary coin={coin} />
+          <Tabs.Tab title={intl.formatMessage({ defaultMessage: '交易', id: '/ErIar' })} key="2">
+            <DealList real={real} />
           </Tabs.Tab>
         </Tabs>
       </div>
@@ -227,13 +228,13 @@ const Market = () => {
           className="flex-1 bg-[#E2214E] h-10 flex items-center justify-center text-base"
           onClick={() => handleBuySell(1)}
         >
-          {intl.formatMessage({ defaultMessage: '看漲(做多)', id: 'cBWJI5' })}
+          {intl.formatMessage({ defaultMessage: '買入', id: 'sY5/oP' })}
         </a>
         <a
           className="flex-1 bg-[#00AD88] h-10 flex items-center justify-center text-base"
           onClick={() => handleBuySell(-1)}
         >
-          {intl.formatMessage({ defaultMessage: '看跌(做空)', id: 'uy59Hz' })}
+          {intl.formatMessage({ defaultMessage: '賣出', id: 'EOWvn9' })}
         </a>
       </div>
     </Container>

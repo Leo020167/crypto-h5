@@ -36,14 +36,24 @@ const HomeStockDigitalMarket = ({ tab }: { tab: string }) => {
             <List.Item
               key={i}
               onClick={() => {
-                history.push({
-                  pathname: '/market',
-                  search: stringify({
-                    symbol: v.symbol,
-                    isLever: '',
-                    accountType: tab,
-                  }),
-                });
+                if (tab === 'spot') {
+                  history.push({
+                    pathname: '/market2',
+                    search: stringify({
+                      symbol: v.symbol,
+                      isLever: 1,
+                    }),
+                  });
+                } else {
+                  history.push({
+                    pathname: '/market',
+                    search: stringify({
+                      symbol: v.symbol,
+                      isLever: 1,
+                      accountType: tab,
+                    }),
+                  });
+                }
               }}
               arrow={null}
             >

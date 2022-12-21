@@ -59,6 +59,11 @@ export default defineConfig({
           name: 'customInstance',
         },
         operations: {
+          searchCoin: {
+            query: {
+              useQuery: true,
+            },
+          },
           getSubscribeDetail: {
             query: {
               useQuery: true,

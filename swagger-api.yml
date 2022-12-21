@@ -5,6 +5,25 @@ info:
 servers:
   - url: http://api.piglobalexchanges.com
 paths:
+  /search/coin.do:
+    post:
+      operationId: 'searchCoin'
+      description: 'http發送文字聊天'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                symbol:
+                  type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchCoinResponse'
+
   /subscribe/apply.do:
     post:
       operationId: 'applySubscribe'
@@ -2018,6 +2037,34 @@ paths:
 
 components:
   schemas:
+    SearchResultListItem:
+      type: object
+      properties:
+        marketType:
+          type: string
+        name:
+          type: string
+        prefixType:
+          type: string
+        symbol:
+          type: string
+        symbolPair:
+          type: string
+        type:
+          type: string
+
+    SearchCoinResponse:
+      allOf:
+        - $ref: '#/components/schemas/CommonResponse'
+        - properties:
+            data:
+              type: object
+              properties:
+                searchResultList:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/SearchResultListItem'
+
     SubscribeDetail:
       type: object
       properties:

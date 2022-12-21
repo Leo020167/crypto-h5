@@ -11,6 +11,7 @@ import { ReactComponent as HomeTabMarkSvg } from './assets/home_tab_mark.svg';
 import { ReactComponent as HomeTabMineSvg } from './assets/home_tab_mine.svg';
 import PrivateRoute from './auth/PrivateRoute';
 
+const SearchCoin = lazy(() => import('./pages/SearchCoin'));
 const SubscribeDetail = lazy(() => import('./pages/Subscribe/SubscribeDetail'));
 const Subscribe = lazy(() => import('./pages/Subscribe'));
 const LeverInfo = lazy(() => import('./pages/LeverInfo'));
@@ -24,8 +25,10 @@ const PositionDetails = lazy(() => import('./pages/HomeAccount/PositionDetails')
 const PledgeHistory = lazy(() => import('./pages/Pledge/PledgeHistory'));
 const Pledge = lazy(() => import('./pages/Pledge'));
 const Language = lazy(() => import('./pages/Language'));
+const TradeLever2 = lazy(() => import('./pages/TradeLever2'));
 const TradeLever = lazy(() => import('./pages/TradeLever'));
 
+const Market2 = lazy(() => import('./pages/Market2'));
 const Market = lazy(() => import('./pages/Market'));
 const AddAd = lazy(() => import('./pages/MyAdList/AddAd'));
 const MyAdList = lazy(() => import('./pages/MyAdList'));
@@ -171,6 +174,12 @@ export const Routes = () => {
         <HomeTabs />
       </Route>
 
+      <Route path="/search-coin">
+        <Suspense fallback={<div>Loading...</div>}>
+          <SearchCoin />
+        </Suspense>
+      </Route>
+
       <Route path="/subscribe-detail">
         <Suspense fallback={<div>Loading...</div>}>
           <SubscribeDetail />
@@ -249,12 +258,23 @@ export const Routes = () => {
         </Suspense>
       </Route>
 
+      <Route path="/trade-lever2">
+        <Suspense fallback={<div>Loading...</div>}>
+          <TradeLever2 />
+        </Suspense>
+      </Route>
+
       <Route path="/trade-lever">
         <Suspense fallback={<div>Loading...</div>}>
           <TradeLever />
         </Suspense>
       </Route>
 
+      <Route path="/market2">
+        <Suspense fallback={<div>Loading...</div>}>
+          <Market2 />
+        </Suspense>
+      </Route>
       <Route path="/market">
         <Suspense fallback={<div>Loading...</div>}>
           <Market />

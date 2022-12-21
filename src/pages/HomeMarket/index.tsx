@@ -1,6 +1,8 @@
 import { NavBar, Swiper, SwiperRef, Tabs } from 'antd-mobile';
+import { SearchOutline } from 'antd-mobile-icons';
 import { useMemo, useRef } from 'react';
 import { useIntl } from 'react-intl';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { NumberParam, useQueryParam, withDefault } from 'use-query-params';
 import HomeStockDigitalMarket from './HomeStockDigitalMarket';
@@ -24,7 +26,18 @@ const HomeMarket = () => {
 
   return (
     <Container className="flex-1 flex flex-col min-h-0 bg-white">
-      <NavBar back={null}>{intl.formatMessage({ defaultMessage: '行情', id: 'Hv1Nr8' })}</NavBar>
+      <NavBar
+        back={null}
+        right={
+          <div className="flex justify-end">
+            <Link to="/search-coin">
+              <SearchOutline fontSize={16} />
+            </Link>
+          </div>
+        }
+      >
+        {intl.formatMessage({ defaultMessage: '行情', id: 'Hv1Nr8' })}
+      </NavBar>
 
       <Tabs
         className="flex items-center justify-center"

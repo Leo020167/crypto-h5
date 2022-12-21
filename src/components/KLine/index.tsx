@@ -280,6 +280,7 @@ const KLine = ({
 
   useEffect(() => {
     if (!myChartRef.current) return;
+
     myChartRef.current.setOption(
       {
         animation: false,
@@ -350,7 +351,7 @@ const KLine = ({
             const color = switchColor(item.rate);
 
             return [
-              `<div class="flex justify-between">${date}<span class="ml-2">${item.date}</span></div>`,
+              `<div class="flex justify-between">${date}<span class="ml-2">${params[0].axisValue}</span></div>`,
               `<div class="flex justify-between">${open}<span class="ml-2">${FMT(
                 item.open,
               ).format()}</span></div>`,
@@ -553,7 +554,7 @@ const KLine = ({
       true,
     );
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [intl, precision]);
 
   return (
     <div>
