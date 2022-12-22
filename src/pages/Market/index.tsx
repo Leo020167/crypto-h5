@@ -5,7 +5,6 @@ import { stringify } from 'query-string';
 import { useCallback, useMemo } from 'react';
 import { useIntl } from 'react-intl';
 import { useHistory } from 'react-router-dom';
-import { useInterval } from 'react-use';
 import styled from 'styled-components';
 import { NumberParam, StringParam, useQueryParam, withDefault } from 'use-query-params';
 import { useCoinInfo } from '../../api/endpoints/transformer';
@@ -39,7 +38,7 @@ const Market = () => {
     },
   );
 
-  const { data: quoteReal, refetch } = useQuoteReal(
+  const { data: quoteReal } = useQuoteReal(
     {
       symbol: symbol ?? '',
       depth: 30,
@@ -121,7 +120,7 @@ const Market = () => {
           <span className="text-xs text-[#cbcbcb] leading-3">{symbol}</span>
         </div>
       </NavBar>
-      <div className="flex-1 overflow-y-auto bg-[#131e31]">
+      <div className="flex-1 overflow-y-auto bg-[#131e31] pb-20">
         <div className="flex items-center justify-between px-4">
           <div>
             <div>
@@ -222,7 +221,7 @@ const Market = () => {
           </Tabs.Tab>
         </Tabs>
       </div>
-      <div className="p-4 bg-[#131e31] flex items-center gap-2">
+      <div className="p-4 bg-[#131e31] flex items-center absolute w-full bottom-0 z-10">
         <a
           className="flex-1 bg-[#E2214E] h-10 flex items-center justify-center text-base"
           onClick={() => handleBuySell(1)}
@@ -230,7 +229,7 @@ const Market = () => {
           {intl.formatMessage({ defaultMessage: '看漲(做多)', id: 'cBWJI5' })}
         </a>
         <a
-          className="flex-1 bg-[#00AD88] h-10 flex items-center justify-center text-base"
+          className="flex-1 bg-[#00AD88] h-10 flex items-center justify-center text-base ml-2"
           onClick={() => handleBuySell(-1)}
         >
           {intl.formatMessage({ defaultMessage: '看跌(做空)', id: 'uy59Hz' })}
