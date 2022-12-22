@@ -300,6 +300,7 @@ export * from './searchCoinResponseAllOfData';
 export * from './searchResultListItem';
 export * from './sendOtcChatBody';
 export * from './sendSayBody';
+export * from './setPayPassBody';
 export * from './smsGetBody';
 export * from './subscribeDetail';
 export * from './symbolListItem';

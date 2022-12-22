@@ -5,6 +5,35 @@ info:
 servers:
   - url: http://api.piglobalexchanges.com
 paths:
+  /user/security/setPayPass.do:
+    post:
+      operationId: 'setPayPass'
+      description: '設置交易密碼'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                oldPhone:
+                  type: string
+                oldSmsCode:
+                  type: string
+                dragImgKey:
+                  type: string
+                locationx:
+                  type: number
+                payPass:
+                  type: string
+                configPayPass:
+                  type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CommonResponse'
+
   /search/coin.do:
     post:
       operationId: 'searchCoin'
@@ -3762,6 +3791,8 @@ components:
         passErrNum:
           type: string
         phone:
+          type: string
+        payPass:
           type: string
         regPlatform:
           type: string

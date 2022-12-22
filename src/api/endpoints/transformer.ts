@@ -14,9 +14,10 @@ import type {
   QueryKey,
 } from '@tanstack/react-query';
 import type {
+  CommonResponse,
+  SetPayPassBody,
   SearchCoinResponse,
   SearchCoinBody,
-  CommonResponse,
   ApplySubscribeBody,
   GetSubscribeListResponse,
   GetSubscribeDetailResponse,
@@ -140,6 +141,49 @@ import type {
 } from '../model';
 import { customInstance } from '../mutator/custom-instance';
 import type { ErrorType } from '../mutator/custom-instance';
+
+/**
+ * 設置交易密碼
+ */
+export const setPayPass = (setPayPassBody: SetPayPassBody) => {
+  return customInstance<CommonResponse>({
+    url: `/user/security/setPayPass.do`,
+    method: 'post',
+    headers: { 'Content-Type': 'application/json' },
+    data: setPayPassBody,
+  });
+};
+
+export type SetPayPassMutationResult = NonNullable<Awaited<ReturnType<typeof setPayPass>>>;
+export type SetPayPassMutationBody = SetPayPassBody;
+export type SetPayPassMutationError = ErrorType<unknown>;
+
+export const useSetPayPass = <TError = ErrorType<unknown>, TContext = unknown>(options?: {
+  mutation?: UseMutationOptions<
+    Awaited<ReturnType<typeof setPayPass>>,
+    TError,
+    { data: SetPayPassBody },
+    TContext
+  >;
+}) => {
+  const { mutation: mutationOptions } = options ?? {};
+
+  const mutationFn: MutationFunction<
+    Awaited<ReturnType<typeof setPayPass>>,
+    { data: SetPayPassBody }
+  > = (props) => {
+    const { data } = props ?? {};
+
+    return setPayPass(data);
+  };
+
+  return useMutation<
+    Awaited<ReturnType<typeof setPayPass>>,
+    TError,
+    { data: SetPayPassBody },
+    TContext
+  >(mutationFn, mutationOptions);
+};
 
 /**
  * http發送文字聊天

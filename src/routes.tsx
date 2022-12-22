@@ -11,6 +11,7 @@ import { ReactComponent as HomeTabMarkSvg } from './assets/home_tab_mark.svg';
 import { ReactComponent as HomeTabMineSvg } from './assets/home_tab_mine.svg';
 import PrivateRoute from './auth/PrivateRoute';
 
+const SettingPayPassword = lazy(() => import('./pages/SettingPayPassword'));
 const SearchCoin = lazy(() => import('./pages/SearchCoin'));
 const SubscribeDetail = lazy(() => import('./pages/Subscribe/SubscribeDetail'));
 const Subscribe = lazy(() => import('./pages/Subscribe'));
@@ -172,6 +173,12 @@ export const Routes = () => {
 
       <Route path="/home">
         <HomeTabs />
+      </Route>
+
+      <Route path="/setting-pay-password">
+        <Suspense fallback={<div>Loading...</div>}>
+          <SettingPayPassword />
+        </Suspense>
       </Route>
 
       <Route path="/search-coin">

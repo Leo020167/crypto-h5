@@ -24,6 +24,7 @@ export interface UserInfo {
   memberCode?: string;
   passErrNum?: string;
   phone?: string;
+  payPass?: string;
   regPlatform?: string;
   sex?: string;
   synSign?: string;

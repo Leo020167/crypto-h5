@@ -28,7 +28,10 @@ const Settings = () => {
           {intl.formatMessage({ defaultMessage: '登錄密碼', id: '958kN+' })}
         </List.Item>
         <List.Item arrow={<Arrow />} onClick={() => history.push('/account')}>
-          {intl.formatMessage({ defaultMessage: '修改綁定手機', id: 'v3RYvu' })}
+          {intl.formatMessage({ defaultMessage: '綁定手機', id: 'VT023k' })}
+        </List.Item>
+        <List.Item arrow={<Arrow />} onClick={() => history.push('/setting-pay-password')}>
+          {intl.formatMessage({ defaultMessage: '設置交易密碼', id: 'obugXD' })}
         </List.Item>
         <List.Item arrow={<Arrow />} onClick={() => history.push('/languages')}>
           {intl.formatMessage({ defaultMessage: '更換語言', id: 'WrleG5' })}
