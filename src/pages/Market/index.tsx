@@ -78,9 +78,9 @@ const Market = () => {
     }
   }, [rate, switchColorValue]);
 
-  useInterval(() => {
-    refetch();
-  }, 2000);
+  // useInterval(() => {
+  //   refetch();
+  // }, 2000);
 
   const history = useHistory();
 
