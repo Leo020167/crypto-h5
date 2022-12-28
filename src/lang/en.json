@@ -1,1 +1,1817 @@
-{}
+{
+  "+2zznO": {
+    "string": "Please enter the SMS verification code"
+  },
+  "+4lD9e": {
+    "string": "Name"
+  },
+  "+9Acwm": {
+    "string": "I confirm receipt of payment"
+  },
+  "+JdgDW": {
+    "string": "In progress"
+  },
+  "+PkU4R": {
+    "string": "Tied mailbox"
+  },
+  "+ZvENE": {
+    "string": "Quantity (hands)"
+  },
+  "+eQ50+": {
+    "string": "Setup"
+  },
+  "+prpsi": {
+    "string": "Number of Subscriptions"
+  },
+  "+sZUWv": {
+    "string": "One Month"
+  },
+  "+ulzus": {
+    "string": "Please upload a photo of the national emblem"
+  },
+  "/+9l+X": {
+    "string": "Grievance Reminder"
+  },
+  "/4Nsnx": {
+    "string": "Market refresh frequency settings"
+  },
+  "/7LMEm": {
+    "string": "Confirm deletion?"
+  },
+  "/AVS2G": {
+    "string": "Liquidation time"
+  },
+  "/EvoLI": {
+    "string": "I have read and agree"
+  },
+  "/I+pby": {
+    "string": "mine"
+  },
+  "/T0l4z": {
+    "string": "Daily Interest"
+  },
+  "/k9TmU": {
+    "string": "profit and loss(USDT)"
+  },
+  "/nvKfb": {
+    "string": "After filing a complaint, the assets will be frozen and the Ombudsman will intervene in the transaction until the complaint is closed. A malicious complaint is an act that disrupts the normal operation of the platform and will result in the freezing of the account in serious cases."
+  },
+  "/slM7z": {
+    "string": "Projected Revenue"
+  },
+  "0B0jPm": {
+    "string": "day"
+  },
+  "0UBtXx": {
+    "string": "Submit Application Success"
+  },
+  "0asaCS": {
+    "string": "Pictures"
+  },
+  "0vuz1g": {
+    "string": "Add a payment method"
+  },
+  "10mXat": {
+    "string": "Please enter the purchase quantity"
+  },
+  "12rpup": {
+    "string": "Full purchase"
+  },
+  "161suA": {
+    "string": "Pledge"
+  },
+  "1cJMw5": {
+    "string": "Binding"
+  },
+  "1sn0tp": {
+    "string": "Bank Card"
+  },
+  "1y6X+M": {
+    "string": "Buyer's name"
+  },
+  "2+1H1y": {
+    "string": "Whether to subscribe to this user？"
+  },
+  "20MJBj": {
+    "string": "TFU"
+  },
+  "297aFF": {
+    "string": "Margin Ratio"
+  },
+  "2FTlRq": {
+    "string": "Alipay"
+  },
+  "2QzYmY": {
+    "string": "Cancellation"
+  },
+  "2S6+KD": {
+    "string": "Minimum Amount"
+  },
+  "2Y1clI": {
+    "string": "Change of cell phone number"
+  },
+  "2a4k+m": {
+    "string": "All loaded"
+  },
+  "2cS2Q3": {
+    "string": "Password must be a combination of 8 -16 characters and letters"
+  },
+  "2fmtw4": {
+    "string": "Please enter the address"
+  },
+  "2lQGkw": {
+    "string": "Customer Service"
+  },
+  "2yjenl": {
+    "string": "Please input the Stop Loss price"
+  },
+  "3Ced22": {
+    "string": "Seller's Name"
+  },
+  "3Zwkix": {
+    "string": "Self-selection area"
+  },
+  "3a7HVy": {
+    "string": "Are buying"
+  },
+  "3cuhJj": {
+    "string": "Registered Account Number"
+  },
+  "3gspHW": {
+    "string": "Frozen amount of money"
+  },
+  "3s7D9W": {
+    "string": "Number of Purchases"
+  },
+  "3tf3AE": {
+    "string": "If you have already paid the seller, please do not cancel your order"
+  },
+  "3vyRBa": {
+    "string": "Please upload the recharge screenshot first"
+  },
+  "3yGSyj": {
+    "string": "Please enter the minimum limit"
+  },
+  "42JqYW": {
+    "string": "Time of order"
+  },
+  "42lMqW": {
+    "string": "Add a bank card"
+  },
+  "42lXMM": {
+    "string": "Withdrawal of digital currency"
+  },
+  "45GFMc": {
+    "string": "Please enter the recharge amount"
+  },
+  "4FDcHK": {
+    "string": "Enter the verification code"
+  },
+  "4NqD9g": {
+    "string": "Has succeeded"
+  },
+  "4Oh5kb": {
+    "string": "Trading proceeds"
+  },
+  "4Qsef4": {
+    "string": "Explanation: The number of followers in the last 30 days, the larger the value, the more followers and the higher the popularity."
+  },
+  "4V3iak": {
+    "string": "close a position"
+  },
+  "4ivSMB": {
+    "string": "Total Assets(TFU)"
+  },
+  "56o47p": {
+    "string": "Mailbox Verification Code"
+  },
+  "5FboZ/": {
+    "string": "Type"
+  },
+  "5UBWei": {
+    "string": "Transaction Amount({currencySign})"
+  },
+  "5kTIPB": {
+    "string": "Low"
+  },
+  "5nalmK": {
+    "string": "Stop Loss Price"
+  },
+  "5qldgM": {
+    "string": "Select the reverse side"
+  },
+  "5zfR27": {
+    "string": "For Sale"
+  },
+  "63r2yf": {
+    "string": "Please enter the password"
+  },
+  "64eliW": {
+    "string": "My Advertisement"
+  },
+  "65CX2o": {
+    "string": "Avatar"
+  },
+  "672nEV": {
+    "string": "Get Success"
+  },
+  "6Dthl9": {
+    "string": "Follow Order Yield"
+  },
+  "6EjbHU": {
+    "string": "Details"
+  },
+  "6ExJHy": {
+    "string": "Contracts"
+  },
+  "6T3Qx4": {
+    "string": "Current link.："
+  },
+  "6Y0p2/": {
+    "string": "Next step"
+  },
+  "6jT3zt": {
+    "string": "Are you sure you want to write off?"
+  },
+  "6w/mMH": {
+    "string": "Red up, green down"
+  },
+  "6zlqMT": {
+    "string": "Set new password (8-16 digit word and letter combination)"
+  },
+  "7AsBpi": {
+    "string": "Unrealized gains and losses(USDT)"
+  },
+  "7C3q18": {
+    "string": "Available"
+  },
+  "7IlbnR": {
+    "string": "Apply to cancel merchant authentication"
+  },
+  "7KOsNC": {
+    "string": "About Us"
+  },
+  "7Km8jt": {
+    "string": "Please write down what you want to say to the seller/buyer! (Limit 140 characters)"
+  },
+  "7WxsZY": {
+    "string": "Cancellation rules: The buyer's cumulative 4 cancellations that day will limit the buying function of the day."
+  },
+  "7iWsp4": {
+    "string": "Risk Rate"
+  },
+  "7oGHtt": {
+    "string": "Please select the payment and receipt method"
+  },
+  "7rLwaw": {
+    "string": "My coin withdrawal address"
+  },
+  "7xCHrU": {
+    "string": "Total Profit and Loss(USDT)"
+  },
+  "84nlVd": {
+    "string": "Please enter a positive integer"
+  },
+  "8Jc445": {
+    "string": "Is it confirmed to be taken off the shelves?"
+  },
+  "8OyLEv": {
+    "string": "Opening price"
+  },
+  "8Pdrch": {
+    "string": "Select a top-up digital currency network"
+  },
+  "8TceES": {
+    "string": "The system will screen for you products that contain the target amount"
+  },
+  "8p3RD/": {
+    "string": "Reacquire"
+  },
+  "9+4/A7": {
+    "string": "Profit Sharing:"
+  },
+  "91IYT/": {
+    "string": "option position Lot{openHand}"
+  },
+  "91nAu+": {
+    "string": "Insufficient amount of digital currency to withdraw"
+  },
+  "92MTUG": {
+    "string": "Certificate Number"
+  },
+  "958kN+": {
+    "string": "Login Password"
+  },
+  "98NP8A": {
+    "string": "Account not in real name"
+  },
+  "9DlDCO": {
+    "string": "Please enter the quantity to be sold"
+  },
+  "9ErIMe": {
+    "string": "Please enter the type of digital currency"
+  },
+  "9UZxwP": {
+    "string": "Please enter the verification code"
+  },
+  "9V7qTC": {
+    "string": "Send"
+  },
+  "9piGP6": {
+    "string": "Account Opening Name"
+  },
+  "9wuU2o": {
+    "string": "Commissioning records"
+  },
+  "9x6bNN": {
+    "string": "The order has been overdue"
+  },
+  "A20Ity": {
+    "string": "By registering, you agree and accept"
+  },
+  "A2jxOW": {
+    "string": "My Community"
+  },
+  "A3Awd7": {
+    "string": "Risk reminder book"
+  },
+  "A53KYY": {
+    "string": "Please check the withdrawal currency address information carefully before confirming to avoid unnecessary property loss."
+  },
+  "A7hKV4": {
+    "string": "Transaction Amount"
+  },
+  "A8sxJT": {
+    "string": "Subscribed"
+  },
+  "AC5dLK": {
+    "string": "Quantity of recharge"
+  },
+  "ASHrJh": {
+    "string": "Add ads"
+  },
+  "AlC2M4": {
+    "string": "Winning Rate of Followers"
+  },
+  "Au/GQB": {
+    "string": "Please enter the account bank"
+  },
+  "B+KT/l": {
+    "string": "Cell phone number cannot be empty"
+  },
+  "B+YBvr": {
+    "string": "Sign out"
+  },
+  "B+wVLW": {
+    "string": "(Sold at current market price)"
+  },
+  "B6j8h5": {
+    "string": "Type selection"
+  },
+  "BHh721": {
+    "string": "State:"
+  },
+  "BO7t+j": {
+    "string": "Go to real name"
+  },
+  "BRtAE8": {
+    "string": "Help Center"
+  },
+  "BSPQ7h": {
+    "string": "Maximum"
+  },
+  "BXndbT": {
+    "string": "Save language settings"
+  },
+  "BbSb0z": {
+    "string": "Modification"
+  },
+  "Be30m1": {
+    "string": "Remark"
+  },
+  "Bj/Ifv": {
+    "string": "Sale USDT"
+  },
+  "Bp4Dlk": {
+    "string": "Please enter the multiplier"
+  },
+  "Brhkdh": {
+    "string": "paste"
+  },
+  "BsrEsf": {
+    "string": "Number of people in the community："
+  },
+  "BxvrdK": {
+    "string": "Are you sure you want to delete the address?"
+  },
+  "Bzq9W2": {
+    "string": "Please enter the verification code"
+  },
+  "C8HXvQ": {
+    "string": "Text Message Verification Code"
+  },
+  "C8ZFaR": {
+    "string": "Screening"
+  },
+  "CBgsGP": {
+    "string": "Preheating"
+  },
+  "CKdped": {
+    "string": "Entrust"
+  },
+  "CTWCcu": {
+    "string": "Buy All"
+  },
+  "CbGK63": {
+    "string": "Highest price for current purchase"
+  },
+  "ChK/7j": {
+    "string": "arrive"
+  },
+  "ClVjxw": {
+    "string": "Opening Price"
+  },
+  "CuGKWh": {
+    "string": "Please enter the quantity"
+  },
+  "DNlbBz": {
+    "string": "Mailbox or cell phone"
+  },
+  "DQq3pD": {
+    "string": "Project Participation Requirements"
+  },
+  "DRC113": {
+    "string": "{symbol}Current price"
+  },
+  "DSV3lz": {
+    "string": "order number"
+  },
+  "DobpJi": {
+    "string": "system notification"
+  },
+  "DpnauN": {
+    "string": "time"
+  },
+  "Dq6c3S": {
+    "string": "Select Front"
+  },
+  "DsGgac": {
+    "string": "drop list"
+  },
+  "Du+HBZ": {
+    "string": "You have passed real -name authentication"
+  },
+  "Dw4KtW": {
+    "string": "copy"
+  },
+  "E5sgW+": {
+    "string": "Transaction target"
+  },
+  "E7wFmB": {
+    "string": "Refresh the frequency settings"
+  },
+  "EMjkQg": {
+    "string": "Please enter the phone number"
+  },
+  "EN7oPQ": {
+    "string": "Commission price"
+  },
+  "ENPgS/": {
+    "string": "submit"
+  },
+  "EOWvn9": {
+    "string": "Sell"
+  },
+  "ETWocP": {
+    "string": "Number of invitation code："
+  },
+  "EVLNlH": {
+    "string": "Please enter the number of stakes"
+  },
+  "EXoXnp": {
+    "string": "Total number of lots traded"
+  },
+  "EYBWHx": {
+    "string": "Best price"
+  },
+  "EZtA6l": {
+    "string": "Please select the payout currency address"
+  },
+  "EmziDl": {
+    "string": "Minimum top-up amount(USDT)"
+  },
+  "FLp81s": {
+    "string": "Purchase"
+  },
+  "FXys9B": {
+    "string": "Enter the old password"
+  },
+  "FqoFLn": {
+    "string": "Price approx"
+  },
+  "G0ISee": {
+    "string": "Popularity index"
+  },
+  "G5BgHI": {
+    "string": "Request binding"
+  },
+  "GBuUew": {
+    "string": "Copied to the pasteboard"
+  },
+  "GDglvI": {
+    "string": "Minimum pledge amount"
+  },
+  "GFzduc": {
+    "string": "Appeal message (optional)"
+  },
+  "GKRXXt": {
+    "string": "obtain FireCoin"
+  },
+  "GO/P/E": {
+    "string": "Add the withdrawal currency address"
+  },
+  "GSpULh": {
+    "string": "Total revenue(USDT)"
+  },
+  "GVXj0E": {
+    "string": "Exit successful"
+  },
+  "Gx5Krn": {
+    "string": "Recharge Confirmation"
+  },
+  "H+7dPx": {
+    "string": "Explanation: The average rate of return per trade for the last 30 days for users who follow the master. The higher the value, the better the return for the user following the master."
+  },
+  "H0Cdjg": {
+    "string": "Search Home or Region"
+  },
+  "H4vld2": {
+    "string": "Opening Margin"
+  },
+  "HBqJuk": {
+    "string": "Already real name"
+  },
+  "HCvPwM": {
+    "string": "Please enter the quantity"
+  },
+  "HDx5DM": {
+    "string": "Global Futures Trading Record"
+  },
+  "HEzFXJ": {
+    "string": "{receiptTypeValue}Number"
+  },
+  "HMxoED": {
+    "string": "Within one year"
+  },
+  "HaILNu": {
+    "string": "Uploaded"
+  },
+  "HbPiga": {
+    "string": "Have been removed"
+  },
+  "HcSaEz": {
+    "string": "Your current mailbox is {email}, do you want to update it?"
+  },
+  "HeL/t7": {
+    "string": "Buy USDT"
+  },
+  "HmiIeC": {
+    "string": "Is it sure to upload?"
+  },
+  "HpbXNh": {
+    "string": "Loss allowance:"
+  },
+  "Hv1Nr8": {
+    "string": "Market Conditions"
+  },
+  "I/5B/d": {
+    "string": "New Currency Subscription"
+  },
+  "IFXGBR": {
+    "string": "Please verify your merchant credentials first"
+  },
+  "IRtvek": {
+    "string": "Ended"
+  },
+  "IbtpXH": {
+    "string": "Total Assets(USDT)"
+  },
+  "IoCgCq": {
+    "string": "Total Assets"
+  },
+  "IudShd": {
+    "string": "Not Started"
+  },
+  "J1sdOC": {
+    "string": "Pledge End Time"
+  },
+  "J5FSqv": {
+    "string": "Free Subscription"
+  },
+  "JI87J/": {
+    "string": "Legal tender purchases"
+  },
+  "JVHhgb": {
+    "string": "《FireUP User Agreement》"
+  },
+  "JYhyDW": {
+    "string": "Stayed for {days} days"
+  },
+  "Jgy7GK": {
+    "string": "The verification code has been sent to，{email}"
+  },
+  "JuFr3z": {
+    "string": "Selling Price"
+  },
+  "K9M/Ln": {
+    "string": "Type"
+  },
+  "K9kVz9": {
+    "string": "Only transferred assets to the corresponding account can be traded. Do not charge the handling fee between the accounts between the account"
+  },
+  "KAHC21": {
+    "string": "Pay"
+  },
+  "KBVp8X": {
+    "string": "Please enter phone number"
+  },
+  "KC9/eD": {
+    "string": "Available assets"
+  },
+  "KCC04w": {
+    "string": "Quantity"
+  },
+  "KCMRBl": {
+    "string": "Whether to close the current market price{openHand}？"
+  },
+  "KF8CBJ": {
+    "string": "let me think again"
+  },
+  "KLriKo": {
+    "string": "Deal done"
+  },
+  "KNgmr/": {
+    "string": "Number of positions"
+  },
+  "KshKCt": {
+    "string": "Started from the start of this round of purchase"
+  },
+  "KuONpk": {
+    "string": "Please enter the amount of withdrawal currency"
+  },
+  "KyHiY3": {
+    "string": "Holding deposit"
+  },
+  "KyuHZw": {
+    "string": "Current opening"
+  },
+  "KzQKst": {
+    "string": "Order multiplier setting"
+  },
+  "L2Dpi5": {
+    "string": "Global Futures Account"
+  },
+  "LC8/+u": {
+    "string": "Please get SMS verification"
+  },
+  "LEah6f": {
+    "string": "I want to sell"
+  },
+  "LJ33pi": {
+    "string": "Community"
+  },
+  "LLn6Tg": {
+    "string": "Please enter the maximum limit"
+  },
+  "LOwS8B": {
+    "string": "Not real name"
+  },
+  "LRqmws": {
+    "string": "Number of Transfers"
+  },
+  "LTp8Pi": {
+    "string": "Update information successfully"
+  },
+  "LZqmso": {
+    "string": "Expiration Time"
+  },
+  "LaFd5t": {
+    "string": "Bank of deposit"
+  },
+  "Lj6xLm": {
+    "string": "change one"
+  },
+  "Ls3qou": {
+    "string": "Gold medal institution"
+  },
+  "MG99Vk": {
+    "string": "Contract Transaction History"
+  },
+  "MGGEAi": {
+    "string": "Please enter the bank card number"
+  },
+  "MN40Dh": {
+    "string": " Credential number"
+  },
+  "MPJViy": {
+    "string": "Please enter the password again"
+  },
+  "MQKv1T": {
+    "string": "Community Total Reward(TFU)"
+  },
+  "MTyrlB": {
+    "string": "The secret must be 8-16-bit words, letters combination"
+  },
+  "MXqXyk": {
+    "string": "Please enter the ID numbe"
+  },
+  "MYqUqI": {
+    "string": "Send the verification code"
+  },
+  "Ma2fRl": {
+    "string": "Pledge start time"
+  },
+  "MeeLjX": {
+    "string": "Subscription freeze({a}-{b})"
+  },
+  "Mj7nsK": {
+    "string": "current commission"
+  },
+  "MmsEyp": {
+    "string": "register"
+  },
+  "MxAApV": {
+    "string": "I have subscribed"
+  },
+  "NH0fE1": {
+    "string": "Ranking of gold medal institutions"
+  },
+  "NL+iCs": {
+    "string": "State"
+  },
+  "NNH82R": {
+    "string": "Cancel the order"
+  },
+  "NQroRs": {
+    "string": "Market orders"
+  },
+  "NUeill": {
+    "string": "Withdrawal currency address"
+  },
+  "NZTO6Y": {
+    "string": "please input your mailbox"
+  },
+  "NdxUVx": {
+    "string": "Check how to get TFU"
+  },
+  "NlcysC": {
+    "string": "Please enter the mailbox number"
+  },
+  "Nlt2yU": {
+    "string": "multiple"
+  },
+  "NxOp7s": {
+    "string": "0 handling fees buy"
+  },
+  "O1q1uh": {
+    "string": "Redeem Invitation Code"
+  },
+  "O3bb/6": {
+    "string": "manner"
+  },
+  "O3jk1+": {
+    "string": "Merchant authentication"
+  },
+  "O4KgNk": {
+    "string": "gender"
+  },
+  "OTiy6F": {
+    "string": "Withdrawal currency address management"
+  },
+  "Otg9/k": {
+    "string": "End time"
+  },
+  "OxlDIl": {
+    "string": "Rise and fall color settings"
+  },
+  "P+t8ta": {
+    "string": "convert into(USDT)"
+  },
+  "P8YUAQ": {
+    "string": "Follower popularity"
+  },
+  "PA9DRl": {
+    "string": "Participate in pledge"
+  },
+  "PHMSxi": {
+    "string": "Place an order"
+  },
+  "PUWCuy": {
+    "string": "Subscription time"
+  },
+  "PYgwg0": {
+    "string": "The message cannot exceed 300 characters"
+  },
+  "Pcqs8N": {
+    "string": "Subscription Instructions"
+  },
+  "Pg99aL": {
+    "string": "Confirm the deletion"
+  },
+  "Q4foHv": {
+    "string": "Top-up currency address"
+  },
+  "Q9qgiz": {
+    "string": "intl"
+  },
+  "QInuMW": {
+    "string": "Add an account type"
+  },
+  "QKyNXd": {
+    "string": "Subscription price"
+  },
+  "QLilYb": {
+    "string": "Transfer"
+  },
+  "QQdpxX": {
+    "string": "The margin is used to post advertisements for selling or buying USDT, and the submission of authentication information is frozen from the asset balance in real time."
+  },
+  "QWavza": {
+    "string": "expire:"
+  },
+  "Qg/P8m": {
+    "string": "Actual payment"
+  },
+  "Qka2kz": {
+    "string": "Seller nickname"
+  },
+  "Qyvn9e": {
+    "string": "Please enter the transaction password"
+  },
+  "R0bpcH": {
+    "string": "You haven't advertised yet～"
+  },
+  "R3Xfcn": {
+    "string": "Interest generated by pledge"
+  },
+  "R4Ww2H": {
+    "string": "account"
+  },
+  "RDdf7n": {
+    "string": "Explanation: The probability of following a master to make a profit. The larger the value, the higher the possibility of copying a profit."
+  },
+  "RGKUXx": {
+    "string": "Please enter the exchange amount"
+  },
+  "RHvMTR": {
+    "string": "market value(USDT)"
+  },
+  "RXCFfg": {
+    "string": "Currency and currency trading record"
+  },
+  "RXYW6s": {
+    "string": "Please enter the sales quantity"
+  },
+  "ReRVZ/": {
+    "string": "unbound"
+  },
+  "RtJnaj": {
+    "string": "Please type in  name"
+  },
+  "RwgA6k": {
+    "string": " Global index futures"
+  },
+  "Rx1AtW": {
+    "string": "freeze(USDT)"
+  },
+  "S/yKCZ": {
+    "string": "Number of sale"
+  },
+  "S7E2WU": {
+    "string": "Please be sure to use the real -name account that is consistent with your mobile phone number"
+  },
+  "ST/9QH": {
+    "string": "Quick zone"
+  },
+  "SaqkUp": {
+    "string": "Quotation currency"
+  },
+  "Sj3tff": {
+    "string": "This round has been purchased"
+  },
+  "Snhxet": {
+    "string": "Can't transfer between the same account"
+  },
+  "Snj6vy": {
+    "string": "Maximum multiple:"
+  },
+  "StIa2l": {
+    "string": "Brief introduction:"
+  },
+  "Sz8zFH": {
+    "string": "Explanation: The average rate of return of each transaction in the last 30 days of high masters. The larger the value, the stronger the personal profitability."
+  },
+  "T8RXyP": {
+    "string": "Project Introduction"
+  },
+  "TByK7F": {
+    "string": "Input transfer quantity"
+  },
+  "THckAT": {
+    "string": "Subscribe to expire"
+  },
+  "TPc2/L": {
+    "string": "The total amount of purchase can be purchased in this round"
+  },
+  "TT0rUo": {
+    "string": "Set up profit and stop loss"
+  },
+  "TZUB/k": {
+    "string": "payment method"
+  },
+  "Telt8H": {
+    "string": "Bank of deposit"
+  },
+  "Tq9EwF": {
+    "string": "Buyer nickname"
+  },
+  "TsbBR+": {
+    "string": "Innovation Pilot Zone"
+  },
+  "Tw8y2o": {
+    "string": "Please enter the board lot"
+  },
+  "U99CrO": {
+    "string": "Enter document information"
+  },
+  "UA7E9h": {
+    "string": "payment method"
+  },
+  "UBT8f1": {
+    "string": "Freeze assets following orders"
+  },
+  "UD6XMk": {
+    "string": "Transfer"
+  },
+  "UH1kCc": {
+    "string": "Add to"
+  },
+  "UQ2ett": {
+    "string": "Listing clearance time"
+  },
+  "UT6tN2": {
+    "string": "CurrencyCurrency"
+  },
+  "UVGoM9": {
+    "string": "Last month's earnings(USDT)"
+  },
+  "UWUjVA": {
+    "string": "Legal tender"
+  },
+  "UX7lUm": {
+    "string": "follow order agency"
+  },
+  "UXkrvR": {
+    "string": "Confirm order cancellation"
+  },
+  "UXyFaa": {
+    "string": "Handling fee"
+  },
+  "UZappM": {
+    "string": "Please enter the price"
+  },
+  "Uamdul": {
+    "string": "Please enter the new mobile phone number"
+  },
+  "UgHO9l": {
+    "string": "Three months"
+  },
+  "UkiaYk": {
+    "string": "Please enter the ID number"
+  },
+  "UvWwpv": {
+    "string": "Real -name authentication"
+  },
+  "Uw5tn0": {
+    "string": "Certification date"
+  },
+  "V1f0Zb": {
+    "string": "Turn out the account for selection"
+  },
+  "V4Iau9": {
+    "string": "All sell"
+  },
+  "VEmd9D": {
+    "string": "system information"
+  },
+  "VU6g7c": {
+    "string": "Please enter the invitation code (select)"
+  },
+  "VXMi89": {
+    "string": "Trade at the current optimal price"
+  },
+  "VYKM4q": {
+    "string": "Contract account"
+  },
+  "VbE2gD": {
+    "string": "Confirm the new password"
+  },
+  "VldACD": {
+    "string": "Real -name certification"
+  },
+  "VqH7F0": {
+    "string": "Operation timeout"
+  },
+  "Vt3fSC": {
+    "string": "Multiplier"
+  },
+  "VvurtK": {
+    "string": "Order Record"
+  },
+  "W+d7SX": {
+    "string": "Open Time"
+  },
+  "W6smHj": {
+    "string": "Time"
+  },
+  "WDcvta": {
+    "string": "Follower Account"
+  },
+  "WKCB03": {
+    "string": "Redeerate quantity："
+  },
+  "WKYPpM": {
+    "string": "Pledge generates interest"
+  },
+  "WLF2E0": {
+    "string": "Receipt management"
+  },
+  "WTYv3l": {
+    "string": "（Hong Kong time）"
+  },
+  "Wmlj/H": {
+    "string": "Total purchase"
+  },
+  "WrleG5": {
+    "string": "Change language"
+  },
+  "Wrputc": {
+    "string": "Explanation: The total amount of profits and losses of users who follow masters in the last 30 days."
+  },
+  "WyPuru": {
+    "string": "unit price"
+  },
+  "X/X8Ge": {
+    "string": "Amount entrusted(USDT)"
+  },
+  "XJfx+x": {
+    "string": "Applying for canceling merchant certification"
+  },
+  "XNQjr/": {
+    "string": "Number of transactions"
+  },
+  "XNz8uP": {
+    "string": "Available Balance"
+  },
+  "XR6wlA": {
+    "string": "《FireUp Privacy Policy》"
+  },
+  "XWzDpA": {
+    "string": "I have paid success"
+  },
+  "Xagh1G": {
+    "string": "Lower shelf"
+  },
+  "XddKO7": {
+    "string": "Hidden 0 assets"
+  },
+  "Xj/GCF": {
+    "string": "Certification status"
+  },
+  "XkGx1k": {
+    "string": "Total Price"
+  },
+  "Xr6MgR": {
+    "string": "Drag the image to complete the verification"
+  },
+  "Y+Wlw4": {
+    "string": "Please enter email verification code"
+  },
+  "Y2Ed0L": {
+    "string": "Please enter the bank card number"
+  },
+  "YJwfmY": {
+    "string": "Opening fee"
+  },
+  "YYra8Q": {
+    "string": "Quantity"
+  },
+  "YcfcO0": {
+    "string": "SMS verification code has been sent to{phone}"
+  },
+  "YvriPY": {
+    "string": "Record"
+  },
+  "Yy75R8": {
+    "string": "Verified"
+  },
+  "ZH7DS8": {
+    "string": "Increasing List"
+  },
+  "ZOabtQ": {
+    "string": "Grievance Screenshot (optional)"
+  },
+  "ZP7om0": {
+    "string": "Please enter the number of closed positions"
+  },
+  "ZU9FqB": {
+    "string": "Name"
+  },
+  "ZbI0hT": {
+    "string": "Confirm the cancel order"
+  },
+  "Zg9Cm+": {
+    "string": "Unreal name cannot apply for merchant certification"
+  },
+  "Zhkpb8": {
+    "string": "Only allow recharge"
+  },
+  "aD/9at": {
+    "string": "quantity(TFU)"
+  },
+  "aOp/5l": {
+    "string": "If the real name cannot be applied for merchant certification, please submit a business certification application after the real -name authentication."
+  },
+  "aaQVo1": {
+    "string": "profit(USDT)"
+  },
+  "ag8LxW": {
+    "string": "Not set"
+  },
+  "anbdi0": {
+    "string": "Poor buying point"
+  },
+  "andeZs": {
+    "string": "Extraction currency"
+  },
+  "ans63b": {
+    "string": "Account is not verified"
+  },
+  "ap+l4f": {
+    "string": "Please enter the purchase quantity"
+  },
+  "b5Yvc8": {
+    "string": "certification"
+  },
+  "b5l2vN": {
+    "string": "save"
+  },
+  "b6Krbb": {
+    "string": "Transaction Record"
+  },
+  "bBKCBS": {
+    "string": "Currency introduction"
+  },
+  "bKoTT3": {
+    "string": "Please confirm that you have paid the seller"
+  },
+  "bOeVuL": {
+    "string": "Has settled in {days} day"
+  },
+  "bW0/mN": {
+    "string": "Please enter the price"
+  },
+  "bi/Yk/": {
+    "string": "Documentary profit"
+  },
+  "bpymDW": {
+    "string": "Choose a transaction type"
+  },
+  "brzlNv": {
+    "string": "Security Deposit"
+  },
+  "bsSd3V": {
+    "string": "Home"
+  },
+  "bwIAbr": {
+    "string": "No account added"
+  },
+  "bweeFF": {
+    "string": "Real name certification cente"
+  },
+  "bwg6o7": {
+    "string": "Please enter the bank name"
+  },
+  "c6kvxO": {
+    "string": "Used"
+  },
+  "cBWJI5": {
+    "string": "Bullish (long)"
+  },
+  "cQiVhL": {
+    "string": "Malicious clicks will directly freeze the account"
+  },
+  "cbYoMn": {
+    "string": "In order to ensure your account security, please verify your identity"
+  },
+  "cde9b7": {
+    "string": "Take Profit Price"
+  },
+  "cjFoGi": {
+    "string": "Bullish"
+  },
+  "cuM+vo": {
+    "string": "Unknown type"
+  },
+  "cx0QNu": {
+    "string": "I want to buy"
+  },
+  "dGBGbt": {
+    "string": "all"
+  },
+  "dKX04w": {
+    "string": "Total assets of balance accounts(USDT)"
+  },
+  "ddZtfx": {
+    "string": "Please type in your name"
+  },
+  "dfCJ6D": {
+    "string": "Please edit personal profile"
+  },
+  "dfT5lg": {
+    "string": "Mobile Registration"
+  },
+  "dhfg6B": {
+    "string": "Stop Loss Price"
+  },
+  "dqhJYx": {
+    "string": "No data available"
+  },
+  "eBTG87": {
+    "string": "End of the current round of subscription time"
+  },
+  "eD3Ul5": {
+    "string": "Please upload portrait photos"
+  },
+  "eHNb85": {
+    "string": "The current minimum selling price"
+  },
+  "eJ3fDL": {
+    "string": "(Parameter error: {checkMsg})"
+  },
+  "eMnHfD": {
+    "string": "email registration"
+  },
+  "eXPzpx": {
+    "string": "Buy"
+  },
+  "ebj6E6": {
+    "string": "Available margin(USDT)"
+  },
+  "egvBG/": {
+    "string": "Opening status"
+  },
+  "ehbGQt": {
+    "string": "Commission price"
+  },
+  "ejs0A3": {
+    "string": "Please enter the phone number"
+  },
+  "ep7sPi": {
+    "string": "Stop loss setting"
+  },
+  "etRUXu": {
+    "string": "Minimum volatility"
+  },
+  "etzvPz": {
+    "string": "I think"
+  },
+  "f2BEYr": {
+    "string": "I confirmed that I haven't paid the other party yet"
+  },
+  "fGSeaa": {
+    "string": "transfe"
+  },
+  "fINI3k": {
+    "string": "please choose"
+  },
+  "fKknPq": {
+    "string": "Women"
+  },
+  "fLMjGv": {
+    "string": "Please enter the remarks"
+  },
+  "fftT6p": {
+    "string": "When selling USDT, the system will freeze this part of the funds from the balance account"
+  },
+  "fu1KIo": {
+    "string": "Progress"
+  },
+  "fzPv+C": {
+    "string": "Statistical revenue"
+  },
+  "g4FQPM": {
+    "string": " lots"
+  },
+  "g6V3he": {
+    "string": "WeChat"
+  },
+  "gA15gF": {
+    "string": "Rise and fall"
+  },
+  "gVKoa9": {
+    "string": "Agree to freeze"
+  },
+  "ga4StX": {
+    "string": "Basic Information"
+  },
+  "gsk33w": {
+    "string": "Reset Password"
+  },
+  "gtC59I": {
+    "string": "Financial record"
+  },
+  "guM4xe": {
+    "string": "Maximum times consumption TFU:"
+  },
+  "gx0XBL": {
+    "string": "Subscribe"
+  },
+  "h24vu5": {
+    "string": "Transfer to account selection"
+  },
+  "hBkLmp": {
+    "string": "High"
+  },
+  "hDx3/S": {
+    "string": "Mailbox"
+  },
+  "hEtJ5h": {
+    "string": "Revocation"
+  },
+  "hJ1meP": {
+    "string": "Profitability"
+  },
+  "hPHyre": {
+    "string": "Balance"
+  },
+  "htEymu": {
+    "string": "Reason for Complaint"
+  },
+  "i3xGD8": {
+    "string": "Submit a complaint"
+  },
+  "iCZI8W": {
+    "string": "Number of contracts"
+  },
+  "iVpb9N": {
+    "string": "Change cell phone number"
+  },
+  "iipjBw": {
+    "string": "Latest Price"
+  },
+  "ikrDph": {
+    "string": "There is still left by the end of this round of purchase"
+  },
+  "j5arhs": {
+    "string": "Birthday"
+  },
+  "jAROVC": {
+    "string": "Complete verification"
+  },
+  "jB+/k7": {
+    "string": "Apply for binding"
+  },
+  "jJ0rDY": {
+    "string": "Select currency"
+  },
+  "jPTst4": {
+    "string": "Accuracy"
+  },
+  "jefLBO": {
+    "string": "Verify"
+  },
+  "jnrXEJ": {
+    "string": "Minimum fluctuation profit or loss"
+  },
+  "k/qXgT": {
+    "string": "option position"
+  },
+  "kCh5Jz": {
+    "string": "hint"
+  },
+  "kCvDNl": {
+    "string": "Please enter the stop loss price"
+  },
+  "kEQh1G": {
+    "string": "Please enter the ID name"
+  },
+  "kGK1/L": {
+    "string": "Recharge currency"
+  },
+  "kIQ/Xp": {
+    "string": "language setting"
+  },
+  "kSaqSM": {
+    "string": "The length of the message cannot be greater than 140 characters"
+  },
+  "keuHvr": {
+    "string": "Set up profit and stop loss"
+  },
+  "l+7dfj": {
+    "string": "Please select the address"
+  },
+  "l9VaC8": {
+    "string": "Currency account"
+  },
+  "lK7IeZ": {
+    "string": "Transaction password management"
+  },
+  "lKbaKq": {
+    "string": "Minimum purchase volume"
+  },
+  "lc43/w": {
+    "string": "Invitation code"
+  },
+  "ldyl/D": {
+    "string": "In order to ensure the security of funds, when your account security strategy is changed, the password is modified, and the use of the new address withdrawal, we will conduct artificial review of the bill of billing. Please wait patiently for the staff to contact the staff phone or email."
+  },
+  "lf0jjv": {
+    "string": "Personal profile"
+  },
+  "lfsX8H": {
+    "string": "pledge record"
+  },
+  "lgUZ5i": {
+    "string": "《Merchant service protocol》"
+  },
+  "lj1YNw": {
+    "string": "Payment confirmation"
+  },
+  "lksvRW": {
+    "string": "Please enter the number of transfers"
+  },
+  "lrlCJ8": {
+    "string": "Enter follow order multiples cannot be greater than{maxMultiNum}"
+  },
+  "lxxud1": {
+    "string": "Members"
+  },
+  "m6ypg2": {
+    "string": "Currency currency species:"
+  },
+  "mCDkHz": {
+    "string": "Six months"
+  },
+  "mDJb9E": {
+    "string": "from"
+  },
+  "mGf323": {
+    "string": "Ordinary closing position"
+  },
+  "meMA+Y": {
+    "string": "Submission failure conversion({a}-{b})"
+  },
+  "mjDNUB": {
+    "string": "Pledge amount"
+  },
+  "mpjnyE": {
+    "string": "man"
+  },
+  "n/ayb0": {
+    "string": "Actual Receipts"
+  },
+  "nGQJ81": {
+    "string": "recommend"
+  },
+  "nIpnLv": {
+    "string": "Payment time remaining"
+  },
+  "nLab+i": {
+    "string": "Opening direction"
+  },
+  "ntWvUZ": {
+    "string": "Available(USDT)"
+  },
+  "o3hkNu": {
+    "string": "Colors of ups and downs"
+  },
+  "oAdm61": {
+    "string": "delete"
+  },
+  "oR5wwN": {
+    "string": "forgotten? Retrieve the password"
+  },
+  "oRPjgd": {
+    "string": "Stop profit setting"
+  },
+  "oVSEVM": {
+    "string": "What to write ... (within 140 words)"
+  },
+  "ofc1Jv": {
+    "string": "OK"
+  },
+  "ohYFAy": {
+    "string": "board lot"
+  },
+  "oslZjc": {
+    "string": "Please select the reason for appeal"
+  },
+  "p8CmvE": {
+    "string": "Fill in"
+  },
+  "pHNoba": {
+    "string": "Apply for merchant certification"
+  },
+  "pKUW2A": {
+    "string": "Minimum"
+  },
+  "pYPgzH": {
+    "string": "quantity"
+  },
+  "pZSIhq": {
+    "string": "For Sale"
+  },
+  "pecEGk": {
+    "string": "Cancellation"
+  },
+  "q+hue1": {
+    "string": "Number of people following the order"
+  },
+  "q+on8I": {
+    "string": "Binding Success"
+  },
+  "qGoxr9": {
+    "string": "Confirm Sale"
+  },
+  "qNUf+q": {
+    "string": "Follow the order transaction history"
+  },
+  "qSm4kD": {
+    "string": "Appeal"
+  },
+  "qTCfxl": {
+    "string": "The verification code has been sent to.{phone}"
+  },
+  "qZzRwu": {
+    "string": "Bind"
+  },
+  "qxIFeG": {
+    "string": "Real -name information"
+  },
+  "qxdWh5": {
+    "string": "Automatically cancel"
+  },
+  "qzi2dl": {
+    "string": "price"
+  },
+  "r0/TUu": {
+    "string": "Sure"
+  },
+  "r1IImU": {
+    "string": "understood"
+  },
+  "r2AYLr": {
+    "string": "Confirm the release"
+  },
+  "r2dEd/": {
+    "string": "Reset"
+  },
+  "rEYIpu": {
+    "string": "Initiating Members"
+  },
+  "rQ+HPv": {
+    "string": "Enter the amount of currency to be withdrawn"
+  },
+  "rpJLsF": {
+    "string": "Parameter Error"
+  },
+  "rv8bFi": {
+    "string": "Available Balance(USDT)"
+  },
+  "s/KbuC": {
+    "string": "Quantity USDT"
+  },
+  "s2XXAu": {
+    "string": "Remaining subscriptions in this round"
+  },
+  "s4hJju": {
+    "string": "Detail"
+  },
+  "s7aJO6": {
+    "string": "Bank card number"
+  },
+  "s9xFxt": {
+    "string": "and"
+  },
+  "sCpxK3": {
+    "string": "Be sure to confirm the security of the computer and browser to prevent the information from being tampered with or leaked."
+  },
+  "sNmNjz": {
+    "string": "Pay to seller"
+  },
+  "sVgCxu": {
+    "string": "Quantity Available："
+  },
+  "sY5/oP": {
+    "string": "Buy"
+  },
+  "sbEmQh": {
+    "string": "Application in progress"
+  },
+  "sofNEv": {
+    "string": "No set up"
+  },
+  "srNPrw": {
+    "string": "Please enter the original password"
+  },
+  "t+gJ2j": {
+    "string": "Transfer records"
+  },
+  "t/1bpl": {
+    "string": "Enter the order multiple of the order cannot be smaller than{minMultiNum}"
+  },
+  "tI511i": {
+    "string": "Verification of identity"
+  },
+  "tNR1ps": {
+    "string": "Mode (multiple options available)"
+  },
+  "tVv3c7": {
+    "string": "Verify success"
+  },
+  "tY3163": {
+    "string": "Extract the number of currencies:"
+  },
+  "twArjt": {
+    "string": "Renewal"
+  },
+  "u/gk22": {
+    "string": "Stop profit price"
+  },
+  "u1D872": {
+    "string": "Complaint"
+  },
+  "uHUP9v": {
+    "string": "finish"
+  },
+  "udpXUo": {
+    "string": "Limit orders"
+  },
+  "ulKN6p": {
+    "string": "Please enter a new email address"
+  },
+  "un5/HP": {
+    "string": "Select Account"
+  },
+  "usmupP": {
+    "string": "Radar chart helps"
+  },
+  "uvUV8g": {
+    "string": "Bearish"
+  },
+  "uwCp/4": {
+    "string": "freeze"
+  },
+  "uy59Hz": {
+    "string": "Bearish (short)"
+  },
+  "v0r9Fg": {
+    "string": "OTC trade"
+  },
+  "v2G+NV": {
+    "string": "buying price"
+  },
+  "v3RYvu": {
+    "string": "Modify the bound phone"
+  },
+  "v5SgYb": {
+    "string": "Real name"
+  },
+  "vOLb7H": {
+    "string": "remainder{countdown}seconds"
+  },
+  "vgGksF": {
+    "string": "Real name authentication"
+  },
+  "vo78d9": {
+    "string": "The application was successfully submitted"
+  },
+  "w2IUbz": {
+    "string": "You can write down the details of your appeal ~~ (limited to 300 words)"
+  },
+  "wAPEnf": {
+    "string": "login"
+  },
+  "wNYTXq": {
+    "string": "Not used"
+  },
+  "waMjSH": {
+    "string": "The subscription period starts in this round"
+  },
+  "wbTfN9": {
+    "string": "The amount of currency withdrawn"
+  },
+  "wwOQz6": {
+    "string": "Online customer service"
+  },
+  "wzY6eO": {
+    "string": "As an advertiser, you guarantee the assets and agree"
+  },
+  "x9w/Fu": {
+    "string": "Freeze the margin"
+  },
+  "xCJREC": {
+    "string": "Open{maxHand}board lot "
+  },
+  "xE1H+X": {
+    "string": "Set up"
+  },
+  "xExi0z": {
+    "string": "Choose a merchant payout method"
+  },
+  "xKofLL": {
+    "string": "Message content"
+  },
+  "xPkCfU": {
+    "string": "Position margin(USDT)"
+  },
+  "xiR+G9": {
+    "string": "Follow the order type"
+  },
+  "xra9PO": {
+    "string": "board lot"
+  },
+  "xwo0Ao": {
+    "string": "pledge cycle"
+  },
+  "yGpmXF": {
+    "string": "Are you sure you want to cancel your merchant certification?"
+  },
+  "yPig5i": {
+    "string": "Follow the order agency："
+  },
+  "ySnXcv": {
+    "string": "Confirm the purchase"
+  },
+  "yZDfS/": {
+    "string": "Expected benefits"
+  },
+  "ymJBTR": {
+    "string": "Name code"
+  },
+  "ypMY0M": {
+    "string": "Get a verification code"
+  },
+  "yz8Bd8": {
+    "string": "Bound mobile phone number:"
+  },
+  "yzF0zK": {
+    "string": "safety verification"
+  },
+  "yzNVN7": {
+    "string": "The SMS verification code has been sent to{phoneNumber}"
+  },
+  "z8a9KR": {
+    "string": "Please log in again"
+  },
+  "zGwnHi": {
+    "string": "Limit"
+  },
+  "zH7h1q": {
+    "string": "History"
+  },
+  "zJbCuR": {
+    "string": "green up red down"
+  },
+  "zL7URC": {
+    "string": "Personal settings"
+  },
+  "zS9FwU": {
+    "string": "Time to market"
+  },
+  "zVPdxg": {
+    "string": "Start time"
+  },
+  "zeTkGR": {
+    "string": "The subscription was successfully converted({a}-{b})"
+  },
+  "zlZigq": {
+    "string": "nickname"
+  },
+  "zldodU": {
+    "string": "Quantity received"
+  },
+  "zqkaAr": {
+    "string": "reward(TFU)"
+  },
+  "zv2r2Q": {
+    "string": "Subscribe"
+  },
+  "zxYcWZ": {
+    "string": "Risk Warning"
+  },
+  "zznr09": {
+    "string": "Revoked"
+  }
+}

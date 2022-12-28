@@ -278,7 +278,7 @@ const SwipeImageValidator = ({
         </Close>
 
         <div className="m-auto">
-          <h1 className="text-white text-xl mb-4 text-left">{title}</h1>
+          <h1 className="text-white text-xl mb-4 text-left px-4">{title}</h1>
 
           <Container className="relative" style={commonStyle}>
             {loading && (

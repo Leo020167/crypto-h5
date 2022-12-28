@@ -1,5 +1,5 @@
-import { Button, Input, Selector, Toast } from 'antd-mobile';
-import { AddOutline, DownFill } from 'antd-mobile-icons';
+import { Selector, Toast } from 'antd-mobile';
+import { DownFill } from 'antd-mobile-icons';
 import { find } from 'lodash-es';
 import { useCallback, useMemo, useState } from 'react';
 import { useIntl } from 'react-intl';
@@ -12,9 +12,7 @@ import {
   useGetChargeConfigs,
   useGetCoinList,
 } from '../../api/endpoints/transformer';
-import ImagePicker from '../../components/ImagePicker';
 import Screen from '../../components/Screen';
-import { uploadImage } from '../../utils/upload';
 import CoinSymbolSelectDialog from './CoinSymbolSelectDialog';
 
 const SymbolParam = withDefault(StringParam, 'USDT');
@@ -237,7 +235,7 @@ const RechargeCoin = () => {
           </div>
         </div>
 
-        <div className="rounded-xl shadow-md shadow-black/5 p-5 bg-white mt-4">
+        {/* <div className="rounded-xl shadow-md shadow-black/5 p-5 bg-white mt-4">
           <div>
             <span className="text-xs text-[#A2A9BC]">
               {intl.formatMessage({ defaultMessage: '充值數量', id: 'AC5dLK' })}
@@ -281,15 +279,17 @@ const RechargeCoin = () => {
             </div>
           </div>
 
-          <Button
-            className="btn-purple mt-5"
-            onClick={handleFinish}
-            block
-            loading={chargeSubmit.isLoading}
-          >
-            {intl.formatMessage({ defaultMessage: '充值確認', id: 'Gx5Krn' })}
-          </Button>
-        </div>
+          <div className="mt-5">
+            <Button
+              className="btn-purple "
+              onClick={handleFinish}
+              block
+              loading={chargeSubmit.isLoading}
+            >
+              {intl.formatMessage({ defaultMessage: '充值確認', id: 'Gx5Krn' })}
+            </Button>
+          </div>
+        </div> */}
 
         <CoinSymbolSelectDialog
           symbols={coinList?.data?.coinList}

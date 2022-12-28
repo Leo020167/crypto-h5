@@ -1,1 +1,1817 @@
-{}
+{
+  "+2zznO": {
+    "string": "Veuillez entrer le code de vérification du SMS"
+  },
+  "+4lD9e": {
+    "string": "Nom"
+  },
+  "+9Acwm": {
+    "string": "Je confirme la réception du paiement"
+  },
+  "+JdgDW": {
+    "string": "En cours"
+  },
+  "+PkU4R": {
+    "string": "Boîte aux lettres de reliure"
+  },
+  "+ZvENE": {
+    "string": "Quantité (lots)"
+  },
+  "+eQ50+": {
+    "string": "Mettre en place"
+  },
+  "+prpsi": {
+    "string": "Nombre d'abonnements"
+  },
+  "+sZUWv": {
+    "string": "Un mois"
+  },
+  "+ulzus": {
+    "string": "Veuillez télécharger une photo de votre emblème national"
+  },
+  "/+9l+X": {
+    "string": "Rappel des plaintes"
+  },
+  "/4Nsnx": {
+    "string": "Réglage de la fréquence de rafraîchissement"
+  },
+  "/7LMEm": {
+    "string": "Vous êtes sûr de vouloir supprimer ?"
+  },
+  "/AVS2G": {
+    "string": "Temps de déroulement"
+  },
+  "/EvoLI": {
+    "string": "J'ai lu et j'accepte"
+  },
+  "/I+pby": {
+    "string": "Mon"
+  },
+  "/T0l4z": {
+    "string": "Intérêt quotidien"
+  },
+  "/k9TmU": {
+    "string": "Profit/perte (USDT)"
+  },
+  "/nvKfb": {
+    "string": "Lorsqu'une plainte est déposée, les actifs sont gelés et le Médiateur intervient dans la transaction jusqu'à ce que la plainte soit close. Les plaintes malveillantes sont considérées comme une perturbation du fonctionnement normal de la plateforme et entraîneront le gel du compte dans les cas graves."
+  },
+  "/slM7z": {
+    "string": "Rendement attendu"
+  },
+  "0B0jPm": {
+    "string": "Jours"
+  },
+  "0UBtXx": {
+    "string": "Soumettre une demande réussie"
+  },
+  "0asaCS": {
+    "string": "Image"
+  },
+  "0vuz1g": {
+    "string": "Ajouter une nouvelle méthode de paiement"
+  },
+  "10mXat": {
+    "string": "Veuillez indiquer le nombre d'abonnements"
+  },
+  "12rpup": {
+    "string": "Montant total"
+  },
+  "161suA": {
+    "string": "Engagement"
+  },
+  "1cJMw5": {
+    "string": "Debind"
+  },
+  "1sn0tp": {
+    "string": "Carte bancaire"
+  },
+  "1y6X+M": {
+    "string": "Nom de l'acheteur"
+  },
+  "2+1H1y": {
+    "string": "Cet utilisateur est-il abonné ?"
+  },
+  "20MJBj": {
+    "string": "TFU"
+  },
+  "297aFF": {
+    "string": "Ratio de marge"
+  },
+  "2FTlRq": {
+    "string": "Alipay"
+  },
+  "2QzYmY": {
+    "string": "Annulation"
+  },
+  "2S6+KD": {
+    "string": "Montant minimum"
+  },
+  "2Y1clI": {
+    "string": "Modifier le numéro de téléphone mobile"
+  },
+  "2a4k+m": {
+    "string": "Chargé Tout"
+  },
+  "2cS2Q3": {
+    "string": "Le mot de passe doit être une combinaison de mots et de lettres de 8 à 16 chiffres."
+  },
+  "2fmtw4": {
+    "string": "Veuillez entrer votre adresse"
+  },
+  "2lQGkw": {
+    "string": "Service à la clientèle"
+  },
+  "2yjenl": {
+    "string": "Veuillez entrer le prix du Stop Loss"
+  },
+  "3Ced22": {
+    "string": "Nom du vendeur"
+  },
+  "3Zwkix": {
+    "string": "Sélectionnez votre région"
+  },
+  "3a7HVy": {
+    "string": "Acheter maintenant"
+  },
+  "3cuhJj": {
+    "string": "Numéro de compte enregistré"
+  },
+  "3gspHW": {
+    "string": "Montant du gel"
+  },
+  "3s7D9W": {
+    "string": "Quantité achetée"
+  },
+  "3tf3AE": {
+    "string": "Si vous avez déjà payé le vendeur, n'annulez pas votre commande."
+  },
+  "3vyRBa": {
+    "string": "Veuillez d'abord télécharger une capture d'écran de votre recharge."
+  },
+  "3yGSyj": {
+    "string": "Veuillez indiquer un montant minimum"
+  },
+  "42JqYW": {
+    "string": "Délai de commande"
+  },
+  "42lMqW": {
+    "string": "Ajoutez votre carte bancaire"
+  },
+  "42lXMM": {
+    "string": "Retirer de la monnaie"
+  },
+  "45GFMc": {
+    "string": "Veuillez entrer le montant de la recharge"
+  },
+  "4FDcHK": {
+    "string": "Entrez le code de vérification"
+  },
+  "4NqD9g": {
+    "string": "Succède à"
+  },
+  "4Oh5kb": {
+    "string": "Revenus commerciaux"
+  },
+  "4Qsef4": {
+    "string": "Explication : le nombre de followers au cours des 30 derniers jours. Plus la valeur est élevée, plus le nombre de followers est important et plus la popularité est élevée."
+  },
+  "4V3iak": {
+    "string": "Fermez votre position"
+  },
+  "4ivSMB": {
+    "string": "Total des actifs (USDT)"
+  },
+  "56o47p": {
+    "string": "Code de vérification de la boîte aux lettres"
+  },
+  "5FboZ/": {
+    "string": "Type"
+  },
+  "5UBWei": {
+    "string": "Montant de la transaction({currencySign})"
+  },
+  "5kTIPB": {
+    "string": "Faible"
+  },
+  "5nalmK": {
+    "string": "Prix du Stop Loss"
+  },
+  "5qldgM": {
+    "string": "Sélectionnez le verso"
+  },
+  "5zfR27": {
+    "string": "Vendez"
+  },
+  "63r2yf": {
+    "string": "Veuillez entrer votre mot de passe"
+  },
+  "64eliW": {
+    "string": "Mon annonce"
+  },
+  "65CX2o": {
+    "string": "Avatar"
+  },
+  "672nEV": {
+    "string": "Obtenir le succès"
+  },
+  "6Dthl9": {
+    "string": "Rendement des commandes de suivi"
+  },
+  "6EjbHU": {
+    "string": "Détails"
+  },
+  "6ExJHy": {
+    "string": "Contrats"
+  },
+  "6T3Qx4": {
+    "string": "Lien actuel："
+  },
+  "6Y0p2/": {
+    "string": "Étape suivante"
+  },
+  "6jT3zt": {
+    "string": "Vous êtes sûr de vouloir amortir ?"
+  },
+  "6w/mMH": {
+    "string": "Le rouge monte et le vert tombe"
+  },
+  "6zlqMT": {
+    "string": "Establecer una nueva contraseña (combinación de 8-16 dígitos de palabras y letras)"
+  },
+  "7AsBpi": {
+    "string": "Profit ou perte non réalisé (USDT)"
+  },
+  "7C3q18": {
+    "string": "Disponible sur"
+  },
+  "7IlbnR": {
+    "string": "Demande d'annulation de votre compte marchand"
+  },
+  "7KOsNC": {
+    "string": "A propos de nous"
+  },
+  "7Km8jt": {
+    "string": "Veuillez écrire ce que vous aimeriez dire au vendeur Acheteur ! (limite 140 caractères)"
+  },
+  "7WxsZY": {
+    "string": "Règles d’annulation: Les acheteurs ont un total de 4 annulations le même jour, ce qui limitera la fonction d’achat du jour."
+  },
+  "7iWsp4": {
+    "string": "Taux de risque"
+  },
+  "7oGHtt": {
+    "string": "Veuillez choisir votre mode de paiement"
+  },
+  "7rLwaw": {
+    "string": "Mon adresse de retrait"
+  },
+  "7xCHrU": {
+    "string": "Total des profits/pertes (USDT)"
+  },
+  "84nlVd": {
+    "string": "Veuillez entrer un nombre entier positif"
+  },
+  "8Jc445": {
+    "string": "Le retrait est-il confirmé ?"
+  },
+  "8OyLEv": {
+    "string": "Prix de la position ouverte"
+  },
+  "8Pdrch": {
+    "string": "Choisir un réseau de pièces"
+  },
+  "8TceES": {
+    "string": "Le système filtrera les articles qui contiennent le montant cible pour vous."
+  },
+  "8p3RD/": {
+    "string": "Recapture"
+  },
+  "9+4/A7": {
+    "string": "Participation aux bénéfices :"
+  },
+  "91IYT/": {
+    "string": "Nombre de lots détenus{openHand}"
+  },
+  "91nAu+": {
+    "string": "Retraits insuffisants"
+  },
+  "92MTUG": {
+    "string": "Numéro de certificat"
+  },
+  "958kN+": {
+    "string": "Mot de passe de connexion"
+  },
+  "98NP8A": {
+    "string": "Compte pas dans le vrai nom"
+  },
+  "9DlDCO": {
+    "string": "Veuillez indiquer la quantité vendue"
+  },
+  "9ErIMe": {
+    "string": "Veuillez entrer la devise"
+  },
+  "9UZxwP": {
+    "string": "Veuillez entrer le code de vérification"
+  },
+  "9V7qTC": {
+    "string": "Envoyer"
+  },
+  "9piGP6": {
+    "string": "Nom du compte"
+  },
+  "9wuU2o": {
+    "string": "Fiche de consignation"
+  },
+  "9x6bNN": {
+    "string": "La commande a expiré"
+  },
+  "A20Ity": {
+    "string": "En vous inscrivant, vous reconnaissez et acceptez"
+  },
+  "A2jxOW": {
+    "string": "Ma communauté"
+  },
+  "A3Awd7": {
+    "string": "Formulaire de divulgation des risques"
+  },
+  "A53KYY": {
+    "string": "Veuillez vérifier soigneusement votre adresse de retrait avant de confirmer afin d'éviter tout dommage matériel inutile."
+  },
+  "A7hKV4": {
+    "string": "Montant de la transaction"
+  },
+  "A8sxJT": {
+    "string": "Abonné"
+  },
+  "AC5dLK": {
+    "string": "Nombre d'accusations"
+  },
+  "ASHrJh": {
+    "string": "Ajouter une annonce"
+  },
+  "AlC2M4": {
+    "string": "Taux de réussite des commandes"
+  },
+  "Au/GQB": {
+    "string": "Veuillez entrer votre banque"
+  },
+  "B+KT/l": {
+    "string": "Le numéro de mobile ne peut pas être vide"
+  },
+  "B+YBvr": {
+    "string": "Déconnexion"
+  },
+  "B+wVLW": {
+    "string": "(Vendu au prix courant du marché)"
+  },
+  "B6j8h5": {
+    "string": "Sélectionnez le type"
+  },
+  "BHh721": {
+    "string": "Statut :"
+  },
+  "BO7t+j": {
+    "string": "Aller au nom réel"
+  },
+  "BRtAE8": {
+    "string": "Centre d'aide"
+  },
+  "BSPQ7h": {
+    "string": "Max"
+  },
+  "BXndbT": {
+    "string": "Sauvegarder les paramètres de langue"
+  },
+  "BbSb0z": {
+    "string": "Modifier"
+  },
+  "Be30m1": {
+    "string": "Notes"
+  },
+  "Bj/Ifv": {
+    "string": "Vente USDT"
+  },
+  "Bp4Dlk": {
+    "string": "Veuillez entrer un multiplicateur"
+  },
+  "Brhkdh": {
+    "string": "Sticky"
+  },
+  "BsrEsf": {
+    "string": "Taille de la communauté："
+  },
+  "BxvrdK": {
+    "string": "Êtes-vous sûr de vouloir supprimer cette adresse ?"
+  },
+  "Bzq9W2": {
+    "string": "Veuillez entrer le code de vérification"
+  },
+  "C8HXvQ": {
+    "string": "Code de vérification par SMS"
+  },
+  "C8ZFaR": {
+    "string": "Filtre"
+  },
+  "CBgsGP": {
+    "string": "Préchauffage"
+  },
+  "CKdped": {
+    "string": "Consigner"
+  },
+  "CTWCcu": {
+    "string": "Acheter tout"
+  },
+  "CbGK63": {
+    "string": "Prix d'achat actuel le plus élevé"
+  },
+  "ChK/7j": {
+    "string": "à"
+  },
+  "ClVjxw": {
+    "string": "Prix ouvert"
+  },
+  "CuGKWh": {
+    "string": "Veuillez entrer la quantité"
+  },
+  "DNlbBz": {
+    "string": "Boîte aux lettres ou mobile"
+  },
+  "DQq3pD": {
+    "string": "Critères de participation au projet"
+  },
+  "DRC113": {
+    "string": "{symbol}Prix actuel"
+  },
+  "DSV3lz": {
+    "string": "Numéro de commande"
+  },
+  "DobpJi": {
+    "string": "Notification du système"
+  },
+  "DpnauN": {
+    "string": "Temps"
+  },
+  "Dq6c3S": {
+    "string": "Sélectionnez Positif"
+  },
+  "DsGgac": {
+    "string": "Liste basse"
+  },
+  "Du+HBZ": {
+    "string": "Vous êtes authentifié par votre nom réel"
+  },
+  "Dw4KtW": {
+    "string": "Copie"
+  },
+  "E5sgW+": {
+    "string": "Cibles négociables"
+  },
+  "E7wFmB": {
+    "string": "Réglage de la fréquence de rafraîchissement"
+  },
+  "EMjkQg": {
+    "string": "Veuillez entrer votre numéro de téléphone mobile"
+  },
+  "EN7oPQ": {
+    "string": "Prix de la commande"
+  },
+  "ENPgS/": {
+    "string": "Soumettre"
+  },
+  "EOWvn9": {
+    "string": "Vendez"
+  },
+  "ETWocP": {
+    "string": "Nombre de codes d'invitation："
+  },
+  "EVLNlH": {
+    "string": "Veuillez indiquer le nombre de promesses de dons"
+  },
+  "EXoXnp": {
+    "string": "Nombre total de lots échangés"
+  },
+  "EYBWHx": {
+    "string": "Meilleur prix"
+  },
+  "EZtA6l": {
+    "string": "Veuillez sélectionner une adresse de retrait"
+  },
+  "EmziDl": {
+    "string": "Montant minimum de la recharge (USDT)"
+  },
+  "FLp81s": {
+    "string": "Commandez"
+  },
+  "FXys9B": {
+    "string": "Entrez l'ancien mot de passe"
+  },
+  "FqoFLn": {
+    "string": "Prix approx."
+  },
+  "G0ISee": {
+    "string": "Indice de popularité"
+  },
+  "G5BgHI": {
+    "string": "Postulez pour le service de reliure"
+  },
+  "GBuUew": {
+    "string": "Copié sur le tableau des autocollants"
+  },
+  "GDglvI": {
+    "string": "Nombre minimum de promesses de dons"
+  },
+  "GFzduc": {
+    "string": "Message de plainte (facultatif)"
+  },
+  "GKRXXt": {
+    "string": "Obtenir FireCoin"
+  },
+  "GO/P/E": {
+    "string": "Ajouter l'adresse de retrait"
+  },
+  "GSpULh": {
+    "string": "Produit total (USDT)"
+  },
+  "GVXj0E": {
+    "string": "Retrait réussi"
+  },
+  "Gx5Krn": {
+    "string": "Confirmation de la recharge"
+  },
+  "H+7dPx": {
+    "string": "Explication: Le rendement moyen par transaction des utilisateurs qui suivent le maître au cours des 30 derniers jours. Plus la valeur est élevée, meilleur est le revenu de l’utilisateur de suivre le maître."
+  },
+  "H0Cdjg": {
+    "string": "Recherche par maison ou région"
+  },
+  "H4vld2": {
+    "string": "Marge ouverte"
+  },
+  "HBqJuk": {
+    "string": "Nom réel"
+  },
+  "HCvPwM": {
+    "string": "Veuillez entrer la quantité"
+  },
+  "HDx5DM": {
+    "string": "Historique du commerce des contrats à terme"
+  },
+  "HEzFXJ": {
+    "string": "{receiptTypeValue}nombre"
+  },
+  "HMxoED": {
+    "string": "Dans un délai d'un an"
+  },
+  "HaILNu": {
+    "string": "Téléchargé sur"
+  },
+  "HbPiga": {
+    "string": "Supprimé"
+  },
+  "HcSaEz": {
+    "string": "Votre adresse électronique actuelle est {e-mail} et vous souhaitez la mettre à jour en ?"
+  },
+  "HeL/t7": {
+    "string": "Acheter USDT"
+  },
+  "HmiIeC": {
+    "string": "Est-il confirmé sur l'étagère ?"
+  },
+  "HpbXNh": {
+    "string": "Perte de la subvention :"
+  },
+  "Hv1Nr8": {
+    "string": "Citation"
+  },
+  "I/5B/d": {
+    "string": "Nouvel ordre monétaire"
+  },
+  "IFXGBR": {
+    "string": "Veuillez d'abord vérifier votre compte marchand"
+  },
+  "IRtvek": {
+    "string": "Fermé"
+  },
+  "IbtpXH": {
+    "string": "Total des actifs (USDT)"
+  },
+  "IoCgCq": {
+    "string": "Total des actifs"
+  },
+  "IudShd": {
+    "string": "Pas encore commencé"
+  },
+  "J1sdOC": {
+    "string": "Heure de fin de l'engagement"
+  },
+  "J5FSqv": {
+    "string": "Abonnement gratuit"
+  },
+  "JI87J/": {
+    "string": "Achat en monnaie fiduciaire"
+  },
+  "JVHhgb": {
+    "string": "《Accord d'utilisation de FireUp》"
+  },
+  "JYhyDW": {
+    "string": "Resté{days} jours"
+  },
+  "Jgy7GK": {
+    "string": "Le code de vérification a été envoyé à,{email}"
+  },
+  "JuFr3z": {
+    "string": "Prix d'achat"
+  },
+  "K9M/Ln": {
+    "string": "Type"
+  },
+  "K9kVz9": {
+    "string": "Les transactions ne peuvent être effectuées qu'en transférant des actifs sur le compte correspondant. Il n'y a pas de frais de gestion pour les transferts entre comptes"
+  },
+  "KAHC21": {
+    "string": "Aller au paiement"
+  },
+  "KBVp8X": {
+    "string": "Veuillez entrer votre numéro de téléphone mobile"
+  },
+  "KC9/eD": {
+    "string": "Actifs disponibles"
+  },
+  "KCC04w": {
+    "string": "Entrez la quantité"
+  },
+  "KCMRBl": {
+    "string": "La position est-elle fermée au prix actuel du marché {openHand}？"
+  },
+  "KF8CBJ": {
+    "string": "Laissez-moi réfléchir à nouveau."
+  },
+  "KLriKo": {
+    "string": "Négocié"
+  },
+  "KNgmr/": {
+    "string": "Nombre de lots détenus"
+  },
+  "KshKCt": {
+    "string": "Restant jusqu'au début de cette série d'abonnements"
+  },
+  "KuONpk": {
+    "string": "Veuillez indiquer le nombre de retraits"
+  },
+  "KyHiY3": {
+    "string": "Marge"
+  },
+  "KyuHZw": {
+    "string": "Postes actuellement ouverts"
+  },
+  "KzQKst": {
+    "string": "Réglage du multiplicateur de commande"
+  },
+  "L2Dpi5": {
+    "string": "Compte Global Futures"
+  },
+  "LC8/+u": {
+    "string": "Veuillez obtenir la vérification par SMS"
+  },
+  "LEah6f": {
+    "string": "Je veux vendre"
+  },
+  "LJ33pi": {
+    "string": "Communauté"
+  },
+  "LLn6Tg": {
+    "string": "Veuillez indiquer la limite maximale"
+  },
+  "LOwS8B": {
+    "string": "Pas de nom"
+  },
+  "LRqmws": {
+    "string": "Nombre de transferts"
+  },
+  "LTp8Pi": {
+    "string": "Mise à jour des informations avec succès"
+  },
+  "LZqmso": {
+    "string": "Heure d'expiration"
+  },
+  "LaFd5t": {
+    "string": "Banque du compte"
+  },
+  "Lj6xLm": {
+    "string": "Changez-en un"
+  },
+  "Ls3qou": {
+    "string": "Institution or"
+  },
+  "MG99Vk": {
+    "string": "Historique des transactions du contrat"
+  },
+  "MGGEAi": {
+    "string": "Veuillez entrer votre numéro de carte bancaire"
+  },
+  "MN40Dh": {
+    "string": "Numéro d'identification"
+  },
+  "MPJViy": {
+    "string": "Veuillez entrer à nouveau votre mot de passe"
+  },
+  "MQKv1T": {
+    "string": "Prix communautaire total (TFU)"
+  },
+  "MTyrlB": {
+    "string": "Le secret doit être une combinaison de 8 à 16 caractères et lettres"
+  },
+  "MXqXyk": {
+    "string": "Veuillez entrer votre numéro d'identification"
+  },
+  "MYqUqI": {
+    "string": "Envoi du code de vérification"
+  },
+  "Ma2fRl": {
+    "string": "Heure de début de l'engagement"
+  },
+  "MeeLjX": {
+    "string": "Gel des commandes ({a}-{b})"
+  },
+  "Mj7nsK": {
+    "string": "Commission actuelle"
+  },
+  "MmsEyp": {
+    "string": "Inscription"
+  },
+  "MxAApV": {
+    "string": "J'ai demandé"
+  },
+  "NH0fE1": {
+    "string": "Classement des institutions Gold"
+  },
+  "NL+iCs": {
+    "string": "Statut"
+  },
+  "NNH82R": {
+    "string": "Annuler la commande"
+  },
+  "NQroRs": {
+    "string": "Ordre du marché"
+  },
+  "NUeill": {
+    "string": "Adresse de retrait"
+  },
+  "NZTO6Y": {
+    "string": "Veuillez entrer votre adresse e-mail"
+  },
+  "NdxUVx": {
+    "string": "Voir comment obtenir TFU"
+  },
+  "NlcysC": {
+    "string": "Veuillez entrer votre code postal"
+  },
+  "Nlt2yU": {
+    "string": "Times"
+  },
+  "NxOp7s": {
+    "string": "0 commission à l’achat"
+  },
+  "O1q1uh": {
+    "string": "Rédiger le code d'invitation"
+  },
+  "O3bb/6": {
+    "string": "Méthode"
+  },
+  "O3jk1+": {
+    "string": "Vérification du commerçant"
+  },
+  "O4KgNk": {
+    "string": "Genre"
+  },
+  "OTiy6F": {
+    "string": "Gestion des adresses de retrait de pièces"
+  },
+  "Otg9/k": {
+    "string": "Fin du temps"
+  },
+  "OxlDIl": {
+    "string": "Haut/Bas Réglage de la couleur"
+  },
+  "P+t8ta": {
+    "string": "Conversion (USDT)"
+  },
+  "P8YUAQ": {
+    "string": "Suivez la popularité de votre commande"
+  },
+  "PA9DRl": {
+    "string": "Promesses de participation"
+  },
+  "PHMSxi": {
+    "string": "Passer une commande"
+  },
+  "PUWCuy": {
+    "string": "Temps de commande"
+  },
+  "PYgwg0": {
+    "string": "Le message ne peut pas dépasser 300 caractères"
+  },
+  "Pcqs8N": {
+    "string": "Instructions de commande"
+  },
+  "Pg99aL": {
+    "string": "Confirmer la suppression"
+  },
+  "Q4foHv": {
+    "string": "Adresse de la recharge"
+  },
+  "Q9qgiz": {
+    "string": "intl"
+  },
+  "QInuMW": {
+    "string": "Ajouter un type de compte"
+  },
+  "QKyNXd": {
+    "string": "Prix de la commande"
+  },
+  "QLilYb": {
+    "string": "Crossover"
+  },
+  "QQdpxX": {
+    "string": "La marge est utilisée pour publier des annonces pour la vente ou l’achat d’USDT, et la soumission des informations d’authentification est gelée du solde de l’actif en temps réel."
+  },
+  "QWavza": {
+    "string": "Expiration :"
+  },
+  "Qg/P8m": {
+    "string": "Paiement effectif"
+  },
+  "Qka2kz": {
+    "string": "Surnom du vendeur"
+  },
+  "Qyvn9e": {
+    "string": "Veuillez entrer votre mot de passe de transaction"
+  },
+  "R0bpcH": {
+    "string": "Vous n'avez pas encore publié d'annonce～"
+  },
+  "R3Xfcn": {
+    "string": "Intérêts sur les gages"
+  },
+  "R4Ww2H": {
+    "string": "Compte"
+  },
+  "RDdf7n": {
+    "string": "Explication : la probabilité de réaliser un bénéfice en suivant un maître. Plus la valeur est élevée, plus les chances de réaliser un bénéfice sont grandes."
+  },
+  "RGKUXx": {
+    "string": "Veuillez entrer le montant de la conversion"
+  },
+  "RHvMTR": {
+    "string": "Valeur du marché (USDT)"
+  },
+  "RXCFfg": {
+    "string": "Historique des transactions en devises"
+  },
+  "RXYW6s": {
+    "string": "Veuillez indiquer la quantité vendue"
+  },
+  "ReRVZ/": {
+    "string": "Non consolidé"
+  },
+  "RtJnaj": {
+    "string": "Veuillez entrer votre nom"
+  },
+  "RwgA6k": {
+    "string": "Avenirs mondiaux"
+  },
+  "Rx1AtW": {
+    "string": "Gel (USDT)"
+  },
+  "S/yKCZ": {
+    "string": "Quantité à vendre"
+  },
+  "S7E2WU": {
+    "string": "Veillez à utiliser le même nom de compte que le numéro de téléphone mobile que vous avez enregistré."
+  },
+  "ST/9QH": {
+    "string": "Zone express"
+  },
+  "SaqkUp": {
+    "string": "Monnaie de cotation"
+  },
+  "Sj3tff": {
+    "string": "Commandé ce tour"
+  },
+  "Snhxet": {
+    "string": "Pas de transferts entre comptes identiques"
+  },
+  "Snj6vy": {
+    "string": "Multiplicateur maximal :"
+  },
+  "StIa2l": {
+    "string": "Description :"
+  },
+  "Sz8zFH": {
+    "string": "Explication: Le rendement moyen par transaction du maître supérieur au cours des 30 derniers jours. Plus le nombre est élevé, plus la rentabilité de l’individu est forte."
+  },
+  "T8RXyP": {
+    "string": "Description de l'article"
+  },
+  "TByK7F": {
+    "string": "Entrez le nombre de transferts"
+  },
+  "THckAT": {
+    "string": "L'abonnement a expiré"
+  },
+  "TPc2/L": {
+    "string": "Nombre total d'abonnements disponibles pour ce cycle"
+  },
+  "TT0rUo": {
+    "string": "Définir le Stop Loss et le Take Profit"
+  },
+  "TZUB/k": {
+    "string": "Mode de paiement"
+  },
+  "Telt8H": {
+    "string": "Banque d'ouverture de compte"
+  },
+  "Tq9EwF": {
+    "string": "Surnom de l'acheteur"
+  },
+  "TsbBR+": {
+    "string": "Zone pilote d'innovation"
+  },
+  "Tw8y2o": {
+    "string": "Veuillez saisir la taille de votre lot"
+  },
+  "U99CrO": {
+    "string": "Saisir les informations du document"
+  },
+  "UA7E9h": {
+    "string": "Mode de paiement"
+  },
+  "UBT8f1": {
+    "string": "Gel de la commande"
+  },
+  "UD6XMk": {
+    "string": "Transfert"
+  },
+  "UH1kCc": {
+    "string": "Ajouter"
+  },
+  "UQ2ett": {
+    "string": "Heure de publication de la liste"
+  },
+  "UT6tN2": {
+    "string": "Devise"
+  },
+  "UVGoM9": {
+    "string": "Les gains du mois dernier (USDT)"
+  },
+  "UWUjVA": {
+    "string": "Négociation en monnaie fiduciaire"
+  },
+  "UX7lUm": {
+    "string": "Suivi des commandes"
+  },
+  "UXkrvR": {
+    "string": "Confirmation de l'annulation de la commande"
+  },
+  "UXyFaa": {
+    "string": "Frais de manutention"
+  },
+  "UZappM": {
+    "string": "Veuillez entrer un prix"
+  },
+  "Uamdul": {
+    "string": "Veuillez entrer votre nouveau numéro de téléphone mobile"
+  },
+  "UgHO9l": {
+    "string": "3 mois"
+  },
+  "UkiaYk": {
+    "string": "Veuillez entrer votre numéro d'identification"
+  },
+  "UvWwpv": {
+    "string": "Vérification du nom réel réussie"
+  },
+  "Uw5tn0": {
+    "string": "Date de l'authentification"
+  },
+  "V1f0Zb": {
+    "string": "Sélection du compte de transfert vers l'extérieur"
+  },
+  "V4Iau9": {
+    "string": "Vendre tout"
+  },
+  "VEmd9D": {
+    "string": "Message du système"
+  },
+  "VU6g7c": {
+    "string": "Veuillez entrer le code d'invitation (facultatif)"
+  },
+  "VXMi89": {
+    "string": "Négocier au meilleur prix actuel"
+  },
+  "VYKM4q": {
+    "string": "Compte du contrat"
+  },
+  "VbE2gD": {
+    "string": "Confirmer le nouveau mot de passe"
+  },
+  "VldACD": {
+    "string": "Authentifié"
+  },
+  "VqH7F0": {
+    "string": "Délai d'attente"
+  },
+  "Vt3fSC": {
+    "string": "Multiplicateur"
+  },
+  "VvurtK": {
+    "string": "Historique des commandes"
+  },
+  "W+d7SX": {
+    "string": "Heure d'ouverture"
+  },
+  "W6smHj": {
+    "string": "Temps"
+  },
+  "WDcvta": {
+    "string": "Compte de suivi"
+  },
+  "WKCB03": {
+    "string": "Quantité rachetable："
+  },
+  "WKYPpM": {
+    "string": "Gage d'intérêt"
+  },
+  "WLF2E0": {
+    "string": "Gestion des collections"
+  },
+  "WTYv3l": {
+    "string": "（Heure de Hong Kong）"
+  },
+  "Wmlj/H": {
+    "string": "Nombre total d'abonnements"
+  },
+  "WrleG5": {
+    "string": "Changer de langue"
+  },
+  "Wrputc": {
+    "string": "Explication: Le montant total des profits et pertes des utilisateurs qui suivent le maître au cours des 30 derniers jours."
+  },
+  "WyPuru": {
+    "string": "Prix unitaire"
+  },
+  "X/X8Ge": {
+    "string": "montant de la commission (USDT)"
+  },
+  "XJfx+x": {
+    "string": "Demande d'annulation en cours"
+  },
+  "XNQjr/": {
+    "string": "Nombre de transactions"
+  },
+  "XNz8uP": {
+    "string": "Solde disponible"
+  },
+  "XR6wlA": {
+    "string": "《Politique de confidentialité de FireUp》"
+  },
+  "XWzDpA": {
+    "string": "J'ai payé avec succès"
+  },
+  "Xagh1G": {
+    "string": "Take Down"
+  },
+  "XddKO7": {
+    "string": "Masquer 0 actif"
+  },
+  "Xj/GCF": {
+    "string": "Statut de certification"
+  },
+  "XkGx1k": {
+    "string": "Prix total"
+  },
+  "Xr6MgR": {
+    "string": "Faites glisser l'image pour compléter la vérification"
+  },
+  "Y+Wlw4": {
+    "string": "Veuillez entrer le code de vérification de la boîte aux lettres"
+  },
+  "Y2Ed0L": {
+    "string": "Veuillez entrer votre numéro de carte bancaire"
+  },
+  "YJwfmY": {
+    "string": "Frais d'ouverture"
+  },
+  "YYra8Q": {
+    "string": "Quantité"
+  },
+  "YcfcO0": {
+    "string": " Le code de vérification par SMS a été envoyé à {phone}"
+  },
+  "YvriPY": {
+    "string": "Dossier"
+  },
+  "Yy75R8": {
+    "string": "Vérification du nom réel"
+  },
+  "ZH7DS8": {
+    "string": "Liste ascendante"
+  },
+  "ZOabtQ": {
+    "string": "Capture d'écran de la plainte (facultatif)"
+  },
+  "ZP7om0": {
+    "string": "Veuillez indiquer le nombre de lots fermés"
+  },
+  "ZU9FqB": {
+    "string": "Nom"
+  },
+  "ZbI0hT": {
+    "string": "Confirmer l'annulation de la commande"
+  },
+  "Zg9Cm+": {
+    "string": "Vous ne pouvez pas demander une vérification des commerçants sans un vrai nom."
+  },
+  "Zhkpb8": {
+    "string": "Seules les recharges sont autorisées"
+  },
+  "aD/9at": {
+    "string": "Quantité (TFU)"
+  },
+  "aOp/5l": {
+    "string": "Vous ne pouvez pas demander la vérification des commerçants sans un nom réel. Veuillez vérifier votre nom réel avant de soumettre votre demande de vérification des commerçants."
+  },
+  "aaQVo1": {
+    "string": "Profit (USDT)"
+  },
+  "ag8LxW": {
+    "string": "Non défini"
+  },
+  "anbdi0": {
+    "string": "Spreads d'achat"
+  },
+  "andeZs": {
+    "string": "Retrait"
+  },
+  "ans63b": {
+    "string": "Compte pas dans le vrai nom"
+  },
+  "ap+l4f": {
+    "string": "Veuillez entrer la quantité d'achat"
+  },
+  "b5Yvc8": {
+    "string": "Authentification en cours"
+  },
+  "b5l2vN": {
+    "string": "Sauvez"
+  },
+  "b6Krbb": {
+    "string": "Historique des transactions"
+  },
+  "bBKCBS": {
+    "string": "Description de la monnaie"
+  },
+  "bKoTT3": {
+    "string": "Veuillez confirmer que vous avez payé le vendeur"
+  },
+  "bOeVuL": {
+    "string": "Vous êtes là depuis{days}jours"
+  },
+  "bW0/mN": {
+    "string": "Veuillez entrer un prix"
+  },
+  "bi/Yk/": {
+    "string": "Profit de la commande"
+  },
+  "bpymDW": {
+    "string": "Sélectionnez le type de transaction"
+  },
+  "brzlNv": {
+    "string": "Marge"
+  },
+  "bsSd3V": {
+    "string": "Accueil"
+  },
+  "bwIAbr": {
+    "string": "Aucun compte ajouté"
+  },
+  "bweeFF": {
+    "string": "Centre de vérification des noms réels"
+  },
+  "bwg6o7": {
+    "string": "Veuillez entrer le nom de votre banque"
+  },
+  "c6kvxO": {
+    "string": "Utilisé"
+  },
+  "cBWJI5": {
+    "string": "Haussier (Long)"
+  },
+  "cQiVhL": {
+    "string": "Les clics malveillants entraîneront un gel direct de votre compte."
+  },
+  "cbYoMn": {
+    "string": "Pour garantir la sécurité de votre compte, veuillez vérifier votre identité."
+  },
+  "cde9b7": {
+    "string": "Prix du Stop Out"
+  },
+  "cjFoGi": {
+    "string": "En hausse"
+  },
+  "cuM+vo": {
+    "string": "Type inconnu"
+  },
+  "cx0QNu": {
+    "string": "Je veux acheter"
+  },
+  "dGBGbt": {
+    "string": "Tous"
+  },
+  "dKX04w": {
+    "string": "Actif total du compte de solde (USDT)"
+  },
+  "ddZtfx": {
+    "string": "Veuillez entrer votre nom"
+  },
+  "dfCJ6D": {
+    "string": "Veuillez modifier votre profil"
+  },
+  "dfT5lg": {
+    "string": "Enregistrement mobile"
+  },
+  "dhfg6B": {
+    "string": "Prix du Stop Out"
+  },
+  "dqhJYx": {
+    "string": "Aucune donnée disponible pour le moment"
+  },
+  "eBTG87": {
+    "string": "Heure de clôture pour cette série de candidatures"
+  },
+  "eD3Ul5": {
+    "string": "Veuillez télécharger une photo de portrait"
+  },
+  "eHNb85": {
+    "string": "Prix actuel le plus bas"
+  },
+  "eJ3fDL": {
+    "string": "(Erreur dans le paramètre : {checkMsg})"
+  },
+  "eMnHfD": {
+    "string": "Inscription par courriel"
+  },
+  "eXPzpx": {
+    "string": "Acheter"
+  },
+  "ebj6E6": {
+    "string": "Marge disponible (USDT) "
+  },
+  "egvBG/": {
+    "string": "Statut du poste ouvert"
+  },
+  "ehbGQt": {
+    "string": "Prix du mandat"
+  },
+  "ejs0A3": {
+    "string": "Veuillez entrer votre numéro de téléphone mobile"
+  },
+  "ep7sPi": {
+    "string": "Paramètres du Stop Loss"
+  },
+  "etRUXu": {
+    "string": "Fluctuation minimale"
+  },
+  "etzvPz": {
+    "string": "Je voudrais"
+  },
+  "f2BEYr": {
+    "string": "Je confirme que je n'ai pas payé l'autre partie."
+  },
+  "fGSeaa": {
+    "string": "Transfert"
+  },
+  "fINI3k": {
+    "string": "Veuillez sélectionner"
+  },
+  "fKknPq": {
+    "string": "Femme"
+  },
+  "fLMjGv": {
+    "string": "Veuillez entrer un commentaire"
+  },
+  "fftT6p": {
+    "string": "Lors de la vente de USDT, le système gèle les fonds du compte de solde."
+  },
+  "fu1KIo": {
+    "string": "Progrès"
+  },
+  "fzPv+C": {
+    "string": "Gains supplémentaires"
+  },
+  "g4FQPM": {
+    "string": "lots"
+  },
+  "g6V3he": {
+    "string": "WeChat"
+  },
+  "gA15gF": {
+    "string": "Augmentation ou diminution"
+  },
+  "gVKoa9": {
+    "string": "Gel du consentement"
+  },
+  "ga4StX": {
+    "string": "Informations de base"
+  },
+  "gsk33w": {
+    "string": "Réinitialiser le mot de passe"
+  },
+  "gtC59I": {
+    "string": "Historique financier"
+  },
+  "guM4xe": {
+    "string": "Consommation maximale TFU:"
+  },
+  "gx0XBL": {
+    "string": "S'abonner à"
+  },
+  "h24vu5": {
+    "string": "Sélection du transfert vers le compte"
+  },
+  "hBkLmp": {
+    "string": "Haut"
+  },
+  "hDx3/S": {
+    "string": "Boîte aux lettres"
+  },
+  "hEtJ5h": {
+    "string": "Retrait"
+  },
+  "hJ1meP": {
+    "string": "Rentabilité"
+  },
+  "hPHyre": {
+    "string": "Balance"
+  },
+  "htEymu": {
+    "string": "Motifs de la plainte"
+  },
+  "i3xGD8": {
+    "string": "Plaintes soumises"
+  },
+  "iCZI8W": {
+    "string": "Nombre de contrats"
+  },
+  "iVpb9N": {
+    "string": "Changement de numéro de téléphone mobile"
+  },
+  "iipjBw": {
+    "string": "Dernier prix"
+  },
+  "ikrDph": {
+    "string": "Restant jusqu'à la fin de cette série d'abonnements"
+  },
+  "j5arhs": {
+    "string": "Anniversaire"
+  },
+  "jAROVC": {
+    "string": "Vérification complète"
+  },
+  "jB+/k7": {
+    "string": "Postuler pour la reliure"
+  },
+  "jJ0rDY": {
+    "string": "Sélectionnez la devise"
+  },
+  "jPTst4": {
+    "string": "Précision"
+  },
+  "jefLBO": {
+    "string": "Dé-vérifier"
+  },
+  "jnrXEJ": {
+    "string": "Fluctuation minimale Profit/Perte"
+  },
+  "k/qXgT": {
+    "string": "Position"
+  },
+  "kCh5Jz": {
+    "string": "Conseil"
+  },
+  "kCvDNl": {
+    "string": "Veuillez entrer un prix stop loss"
+  },
+  "kEQh1G": {
+    "string": "Veuillez entrer le nom du document"
+  },
+  "kGK1/L": {
+    "string": "Devise"
+  },
+  "kIQ/Xp": {
+    "string": "Définir la langue"
+  },
+  "kSaqSM": {
+    "string": "La longueur du message ne doit pas dépasser 140 caractères"
+  },
+  "keuHvr": {
+    "string": "Définir le Stop Loss et le Take Profit"
+  },
+  "l+7dfj": {
+    "string": "Veuillez sélectionner une adresse"
+  },
+  "l9VaC8": {
+    "string": "Compte en devises"
+  },
+  "lK7IeZ": {
+    "string": "Gestion des mots de passe"
+  },
+  "lKbaKq": {
+    "string": "Taille minimale de la commande"
+  },
+  "lc43/w": {
+    "string": "Code d'invitation"
+  },
+  "ldyl/D": {
+    "string": "Pour protéger la sécurité de vos fonds, lorsque vous modifiez la politique de sécurité de votre compte, changez votre mot de passe ou retirez des pièces à partir d'une nouvelle adresse, nous effectuons un examen manuel de vos retraits."
+  },
+  "lf0jjv": {
+    "string": "Profil personnel"
+  },
+  "lfsX8H": {
+    "string": "Histoire de l'engagement"
+  },
+  "lgUZ5i": {
+    "string": "《Accord sur les services aux commerçants》"
+  },
+  "lj1YNw": {
+    "string": "Confirmation de paiement"
+  },
+  "lksvRW": {
+    "string": "Veuillez saisir le montant à transférer"
+  },
+  "lrlCJ8": {
+    "string": "Entrez un multiplicateur qui ne soit pas supérieur à{maxMultiNum}"
+  },
+  "lxxud1": {
+    "string": "Membre"
+  },
+  "m6ypg2": {
+    "string": "Monnaie de retrait :"
+  },
+  "mCDkHz": {
+    "string": "6 mois"
+  },
+  "mDJb9E": {
+    "string": "De"
+  },
+  "mGf323": {
+    "string": "Position de fermeture normale"
+  },
+  "meMA+Y": {
+    "string": "Échec de la conversion({a}-{b})"
+  },
+  "mjDNUB": {
+    "string": "Nombre de promesses de dons"
+  },
+  "mpjnyE": {
+    "string": "Homme"
+  },
+  "n/ayb0": {
+    "string": "Recettes réelles"
+  },
+  "nGQJ81": {
+    "string": "Recommander"
+  },
+  "nIpnLv": {
+    "string": "Temps de paiement restant"
+  },
+  "nLab+i": {
+    "string": "Sens d'ouverture"
+  },
+  "ntWvUZ": {
+    "string": "Disponible (USDT)"
+  },
+  "o3hkNu": {
+    "string": "Couleur vers le haut ou vers le bas"
+  },
+  "oAdm61": {
+    "string": "Supprimer"
+  },
+  "oR5wwN": {
+    "string": "Oublié ? Récupérer le mot de passe"
+  },
+  "oRPjgd": {
+    "string": "Paramètres d'arrêt"
+  },
+  "oVSEVM": {
+    "string": "Écrivez quelque chose... (140 caractères ou moins)"
+  },
+  "ofc1Jv": {
+    "string": "Confirmer"
+  },
+  "ohYFAy": {
+    "string": "Main"
+  },
+  "oslZjc": {
+    "string": "Veuillez sélectionner le motif de votre plainte"
+  },
+  "p8CmvE": {
+    "string": "Remplir"
+  },
+  "pHNoba": {
+    "string": "Demande de certification de commerçant"
+  },
+  "pKUW2A": {
+    "string": "Minimum"
+  },
+  "pYPgzH": {
+    "string": "Quantité"
+  },
+  "pZSIhq": {
+    "string": "En vente"
+  },
+  "pecEGk": {
+    "string": "Annulé"
+  },
+  "q+hue1": {
+    "string": "Nombre d'adeptes"
+  },
+  "q+on8I": {
+    "string": "Reliure réussie"
+  },
+  "qGoxr9": {
+    "string": "Vente confirmée"
+  },
+  "qNUf+q": {
+    "string": "Historique des commandes"
+  },
+  "qSm4kD": {
+    "string": "Plainte"
+  },
+  "qTCfxl": {
+    "string": "Le code de vérification a été envoyé à{phone}"
+  },
+  "qZzRwu": {
+    "string": "Lié"
+  },
+  "qxIFeG": {
+    "string": "Informations sur le nom réel"
+  },
+  "qxdWh5": {
+    "string": "Annulé automatiquement"
+  },
+  "qzi2dl": {
+    "string": "Prix"
+  },
+  "r0/TUu": {
+    "string": "Déterminer"
+  },
+  "r1IImU": {
+    "string": "Je l'ai eu."
+  },
+  "r2AYLr": {
+    "string": "Confirmer l'affichage"
+  },
+  "r2dEd/": {
+    "string": "Réinitialiser"
+  },
+  "rEYIpu": {
+    "string": "Membre de lancement"
+  },
+  "rQ+HPv": {
+    "string": "Entrez le nombre de pièces à retirer"
+  },
+  "rpJLsF": {
+    "string": "Erreur de paramètre"
+  },
+  "rv8bFi": {
+    "string": "Solde disponible(USDT)"
+  },
+  "s/KbuC": {
+    "string": "Quantité USDT"
+  },
+  "s2XXAu": {
+    "string": "Abonnements restants pour ce tour"
+  },
+  "s4hJju": {
+    "string": "Détails"
+  },
+  "s7aJO6": {
+    "string": "Numéro de la carte bancaire"
+  },
+  "s9xFxt": {
+    "string": "et"
+  },
+  "sCpxK3": {
+    "string": "Veuillez vous assurer que votre ordinateur et votre navigateur sont sécurisés afin d'éviter toute falsification ou fuite d'informations."
+  },
+  "sNmNjz": {
+    "string": "Paiement au vendeur"
+  },
+  "sVgCxu": {
+    "string": "Quantité disponible："
+  },
+  "sY5/oP": {
+    "string": "Acheter"
+  },
+  "sbEmQh": {
+    "string": "Sur commande"
+  },
+  "sofNEv": {
+    "string": "Aucun réglage"
+  },
+  "srNPrw": {
+    "string": "Veuillez entrer le mot de passe original"
+  },
+  "t+gJ2j": {
+    "string": "Dossier de transfert"
+  },
+  "t/1bpl": {
+    "string": "Entrez un multiplicateur qui ne soit pas inférieur à{minMultiNum}"
+  },
+  "tI511i": {
+    "string": "Vérification de l'identité"
+  },
+  "tNR1ps": {
+    "string": "Méthode (plusieurs sélections possibles)"
+  },
+  "tVv3c7": {
+    "string": "Vérifier avec succès"
+  },
+  "tY3163": {
+    "string": "Nombre de pièces retirées :"
+  },
+  "twArjt": {
+    "string": "Frais de renouvellement"
+  },
+  "u/gk22": {
+    "string": "Prix du Stop Out"
+  },
+  "u1D872": {
+    "string": "Plainte"
+  },
+  "uHUP9v": {
+    "string": "Compléter"
+  },
+  "udpXUo": {
+    "string": "Ordre à cours limité"
+  },
+  "ulKN6p": {
+    "string": "Veuillez entrer une nouvelle adresse e-mail"
+  },
+  "un5/HP": {
+    "string": "Sélectionnez un compte"
+  },
+  "usmupP": {
+    "string": "Aide sur les graphiques radar"
+  },
+  "uvUV8g": {
+    "string": "Baissière"
+  },
+  "uwCp/4": {
+    "string": "Geler"
+  },
+  "uy59Hz": {
+    "string": "Baissier (Short)"
+  },
+  "v0r9Fg": {
+    "string": "OTC Commerce"
+  },
+  "v2G+NV": {
+    "string": "Acheter le prix"
+  },
+  "v3RYvu": {
+    "string": "Modifier le mobile cautionné"
+  },
+  "v5SgYb": {
+    "string": "Nom réel"
+  },
+  "vOLb7H": {
+    "string": "reste{countdown}deuxième"
+  },
+  "vgGksF": {
+    "string": "Vérification du nom réel"
+  },
+  "vo78d9": {
+    "string": "Demande soumise avec succès"
+  },
+  "w2IUbz": {
+    "string": "Vous pouvez écrire les détails de votre plainte ~~（ 300 mots maximum)"
+  },
+  "wAPEnf": {
+    "string": "Registre"
+  },
+  "wNYTXq": {
+    "string": "Non utilisé"
+  },
+  "waMjSH": {
+    "string": "Heure de départ pour ce tour"
+  },
+  "wbTfN9": {
+    "string": "Nombre de pièces retirées"
+  },
+  "wwOQz6": {
+    "string": "Service clientèle en ligne"
+  },
+  "wzY6eO": {
+    "string": "En tant qu'actif garanti pour l'annonceur, et s'engage à"
+  },
+  "x9w/Fu": {
+    "string": "Gel de la marge"
+  },
+  "xCJREC": {
+    "string": "Peut être ouvert{maxHand}lost"
+  },
+  "xE1H+X": {
+    "string": "Paramètres"
+  },
+  "xExi0z": {
+    "string": "Veuillez sélectionner un mode de paiement marchand"
+  },
+  "xKofLL": {
+    "string": "Message"
+  },
+  "xPkCfU": {
+    "string": "Marge de position (USDT)"
+  },
+  "xiR+G9": {
+    "string": "Type de commande"
+  },
+  "xra9PO": {
+    "string": "Taille du terrain"
+  },
+  "xwo0Ao": {
+    "string": "Période d'engagement"
+  },
+  "yGpmXF": {
+    "string": "Êtes-vous sûr de vouloir annuler votre accréditation de commerçant ?"
+  },
+  "yPig5i": {
+    "string": "Agence de placement des commandes:"
+  },
+  "ySnXcv": {
+    "string": "Confirmation d'achat"
+  },
+  "yZDfS/": {
+    "string": "Recettes attendues"
+  },
+  "ymJBTR": {
+    "string": "Code du nom"
+  },
+  "ypMY0M": {
+    "string": "Obtenir le code de vérification"
+  },
+  "yz8Bd8": {
+    "string": "Numéro de téléphone mobile de Bound:"
+  },
+  "yzF0zK": {
+    "string": "Vérification de la sécurité"
+  },
+  "yzNVN7": {
+    "string": "Le code de vérification du SMS a été envoyé à{phoneNumber}"
+  },
+  "z8a9KR": {
+    "string": "Veuillez vous reconnecter"
+  },
+  "zGwnHi": {
+    "string": "Limite"
+  },
+  "zH7h1q": {
+    "string": "Histoire"
+  },
+  "zJbCuR": {
+    "string": "Le vert monte et le rouge tombe"
+  },
+  "zL7URC": {
+    "string": "Paramètres personnels"
+  },
+  "zS9FwU": {
+    "string": "Heures d'ouverture"
+  },
+  "zVPdxg": {
+    "string": "Heure de début"
+  },
+  "zeTkGR": {
+    "string": "Conversion réussie({a}-{b})"
+  },
+  "zlZigq": {
+    "string": "Surnom"
+  },
+  "zldodU": {
+    "string": "Quantité"
+  },
+  "zqkaAr": {
+    "string": "Récompense (TFU)"
+  },
+  "zv2r2Q": {
+    "string": "Commandez"
+  },
+  "zxYcWZ": {
+    "string": "Avertissement de risque"
+  },
+  "zznr09": {
+    "string": "Retiré"
+  }
+}

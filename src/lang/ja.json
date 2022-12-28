@@ -1,1 +1,1817 @@
-{}
+{
+  "+2zznO": {
+    "string": "メッセージ認証コードを入力してください"
+  },
+  "+4lD9e": {
+    "string": "の名前をあげる"
+  },
+  "+9Acwm": {
+    "string": "支払いを受けたことを確認します"
+  },
+  "+JdgDW": {
+    "string": "進行中"
+  },
+  "+PkU4R": {
+    "string": "バインドされたメールボックス"
+  },
+  "+ZvENE": {
+    "string": "数量(手)"
+  },
+  "+eQ50+": {
+    "string": "インストーラ"
+  },
+  "+prpsi": {
+    "string": "購読数"
+  },
+  "+sZUWv": {
+    "string": "一ヶ月"
+  },
+  "+ulzus": {
+    "string": "国章の写真をアップロードしてください"
+  },
+  "/+9l+X": {
+    "string": "訴え注意"
+  },
+  "/4Nsnx": {
+    "string": "市場リフレッシュ頻度の設定"
+  },
+  "/7LMEm": {
+    "string": "削除を確認しますか？"
+  },
+  "/AVS2G": {
+    "string": "清算時間"
+  },
+  "/EvoLI": {
+    "string": "読んで同意しました"
+  },
+  "/I+pby": {
+    "string": "こう"
+  },
+  "/T0l4z": {
+    "string": "日次利息"
+  },
+  "/k9TmU": {
+    "string": "損益(USDT)"
+  },
+  "/nvKfb": {
+    "string": "苦情を提出すると、資産は凍結され、監査役は苦情が終わるまで取引に介入する。悪意のあるクレームはプラットフォームの正常な動作を妨害する行為であり、深刻な場合はアカウントの凍結を招く。"
+  },
+  "/slM7z": {
+    "string": "予想収益"
+  },
+  "0B0jPm": {
+    "string": "昼"
+  },
+  "0UBtXx": {
+    "string": "購買依頼の発行に成功しました"
+  },
+  "0asaCS": {
+    "string": "画像"
+  },
+  "0vuz1g": {
+    "string": "支払方法の追加"
+  },
+  "10mXat": {
+    "string": "購買数量を入力してください"
+  },
+  "12rpup": {
+    "string": "全額購入"
+  },
+  "161suA": {
+    "string": "誓いを立てる"
+  },
+  "1cJMw5": {
+    "string": "けつごう"
+  },
+  "1sn0tp": {
+    "string": "銀行カード"
+  },
+  "1y6X+M": {
+    "string": "買い手名"
+  },
+  "2+1H1y": {
+    "string": "このユーザーを購読するかどうか"
+  },
+  "20MJBj": {
+    "string": "TFU"
+  },
+  "297aFF": {
+    "string": "保証金比率"
+  },
+  "2FTlRq": {
+    "string": "アリペイ"
+  },
+  "2QzYmY": {
+    "string": "キャンセル"
+  },
+  "2S6+KD": {
+    "string": "申し込む"
+  },
+  "2Y1clI": {
+    "string": "携帯電話番号の変更"
+  },
+  "2a4k+m": {
+    "string": "すべてロードされています"
+  },
+  "2cS2Q3": {
+    "string": "パスワードは8〜16文字と文字の組み合わせでなければなりません"
+  },
+  "2fmtw4": {
+    "string": "住所を入力してください"
+  },
+  "2lQGkw": {
+    "string": "顧客サービス"
+  },
+  "2yjenl": {
+    "string": "ストップロス価格を入力してください"
+  },
+  "3Ced22": {
+    "string": "売り手の名前"
+  },
+  "3Zwkix": {
+    "string": "自己選択エリア"
+  },
+  "3a7HVy": {
+    "string": "購入しています"
+  },
+  "3cuhJj": {
+    "string": "登録アカウント番号"
+  },
+  "3gspHW": {
+    "string": "冷凍金額"
+  },
+  "3s7D9W": {
+    "string": "購入数"
+  },
+  "3tf3AE": {
+    "string": "すでに売り手に支払っている場合は、ご注文をキャンセルしないでください"
+  },
+  "3vyRBa": {
+    "string": "最初にリチャージスクリーンショットをアップロードしてください"
+  },
+  "3yGSyj": {
+    "string": "最小制限を入力してください"
+  },
+  "42JqYW": {
+    "string": "秩序の時間"
+  },
+  "42lMqW": {
+    "string": "銀行カードを追加します"
+  },
+  "42lXMM": {
+    "string": "デジタル通貨の撤回"
+  },
+  "45GFMc": {
+    "string": "リチャージ額を入力してください"
+  },
+  "4FDcHK": {
+    "string": "確認コードを入力します"
+  },
+  "4NqD9g": {
+    "string": "成功しました"
+  },
+  "4Oh5kb": {
+    "string": "取引収益"
+  },
+  "4Qsef4": {
+    "string": "説明：過去30日間のフォロワーの数が多いほど、値が大きくなるほど、フォロワーが増え、人気が高くなります。"
+  },
+  "4V3iak": {
+    "string": "位置を閉じます"
+  },
+  "4ivSMB": {
+    "string": "総資産(TFU)"
+  },
+  "56o47p": {
+    "string": "メールボックス検証コード"
+  },
+  "5FboZ/": {
+    "string": "タイプ"
+  },
+  "5UBWei": {
+    "string": "トランザクション額（{currencySign}）"
+  },
+  "5kTIPB": {
+    "string": "低い"
+  },
+  "5nalmK": {
+    "string": "損失価格を停止します"
+  },
+  "5qldgM": {
+    "string": "裏側を選択します"
+  },
+  "5zfR27": {
+    "string": "販売のため"
+  },
+  "63r2yf": {
+    "string": "パスワードを入力してください"
+  },
+  "64eliW": {
+    "string": "私の広告"
+  },
+  "65CX2o": {
+    "string": "アバター"
+  },
+  "672nEV": {
+    "string": "成功します"
+  },
+  "6Dthl9": {
+    "string": "注文利回りに従ってください"
+  },
+  "6EjbHU": {
+    "string": "詳細"
+  },
+  "6ExJHy": {
+    "string": "契約"
+  },
+  "6T3Qx4": {
+    "string": "現在のリンク："
+  },
+  "6Y0p2/": {
+    "string": "次のステップ"
+  },
+  "6jT3zt": {
+    "string": "償却したいですか？"
+  },
+  "6w/mMH": {
+    "string": "赤は上、緑は下"
+  },
+  "6zlqMT": {
+    "string": "新しいパスワードの設定（8～16桁の単語と英字の組み合わせ）"
+  },
+  "7AsBpi": {
+    "string": "未実現損益(USDT)"
+  },
+  "7C3q18": {
+    "string": "利用可能"
+  },
+  "7IlbnR": {
+    "string": "マーチャント認証の取り消しを申請する"
+  },
+  "7KOsNC": {
+    "string": "私たちについて"
+  },
+  "7Km8jt": {
+    "string": "売り手/買い手に言いたいことを書いてください！（最大140文字）"
+  },
+  "7WxsZY": {
+    "string": "キャンセル規則：購入者が当日に累計4回キャンセルすると、当日の購入機能が制限されます。"
+  },
+  "7iWsp4": {
+    "string": "リスク率"
+  },
+  "7oGHtt": {
+    "string": "支払方法と入金方法を選択してください"
+  },
+  "7rLwaw": {
+    "string": "私の外貨受取先"
+  },
+  "7xCHrU": {
+    "string": "損益総額(USDT)"
+  },
+  "84nlVd": {
+    "string": "正の整数を入力してください"
+  },
+  "8Jc445": {
+    "string": "棚から降ろされたことが確認されましたか。"
+  },
+  "8OyLEv": {
+    "string": "寄り付き相場"
+  },
+  "8Pdrch": {
+    "string": "チャージデジタル通貨ネットワークの選択"
+  },
+  "8TceES": {
+    "string": "ターゲット金額を含む製品がフィルタされます"
+  },
+  "8p3RD/": {
+    "string": "再取得"
+  },
+  "9+4/A7": {
+    "string": "利益の共有:"
+  },
+  "91IYT/": {
+    "string": "オプション位置ロット{openHand}"
+  },
+  "91nAu+": {
+    "string": "撤回するためのデジタル通貨の量が不十分です"
+  },
+  "92MTUG": {
+    "string": "証明書番号"
+  },
+  "958kN+": {
+    "string": "ログインパスワード"
+  },
+  "98NP8A": {
+    "string": "本名ではないアカウント"
+  },
+  "9DlDCO": {
+    "string": "販売する数量を入力してください"
+  },
+  "9ErIMe": {
+    "string": "デジタル通貨の種類を入力してください"
+  },
+  "9UZxwP": {
+    "string": "確認コードを入力してください"
+  },
+  "9V7qTC": {
+    "string": "郵便で送る"
+  },
+  "9piGP6": {
+    "string": "口座開設名"
+  },
+  "9wuU2o": {
+    "string": "デバッグレコード"
+  },
+  "9x6bNN": {
+    "string": "オーダーの期限切れ"
+  },
+  "A20Ity": {
+    "string": "登録すると同意して承諾します"
+  },
+  "A2jxOW": {
+    "string": "マイコミュニティ"
+  },
+  "A3Awd7": {
+    "string": "リスク提示書"
+  },
+  "A53KYY": {
+    "string": "確認する前に、不必要な財産損失が発生しないように、出金通貨の住所情報をよくチェックしてください。"
+  },
+  "A7hKV4": {
+    "string": "トランザクション金額"
+  },
+  "A8sxJT": {
+    "string": "購読済み"
+  },
+  "AC5dLK": {
+    "string": "チャージ数量"
+  },
+  "ASHrJh": {
+    "string": "広告の追加"
+  },
+  "AlC2M4": {
+    "string": "フォロワーの勝率"
+  },
+  "Au/GQB": {
+    "string": "口座銀行を入力してください"
+  },
+  "B+KT/l": {
+    "string": "携帯電話番号を空にすることはできません"
+  },
+  "B+YBvr": {
+    "string": "終了"
+  },
+  "B+wVLW": {
+    "string": "(現在の市場価格で販売)"
+  },
+  "B6j8h5": {
+    "string": "タイプの選択"
+  },
+  "BHh721": {
+    "string": "ステータス:"
+  },
+  "BO7t+j": {
+    "string": "実名に移動"
+  },
+  "BRtAE8": {
+    "string": "ヘルプセンター"
+  },
+  "BSPQ7h": {
+    "string": "最大"
+  },
+  "BXndbT": {
+    "string": "言語設定を保存します"
+  },
+  "BbSb0z": {
+    "string": "モディフィケーション"
+  },
+  "Be30m1": {
+    "string": "述べる"
+  },
+  "Bj/Ifv": {
+    "string": "セール USDT"
+  },
+  "Bp4Dlk": {
+    "string": "乗数を入力してください"
+  },
+  "Brhkdh": {
+    "string": "ペースト"
+  },
+  "BsrEsf": {
+    "string": "コミュニティの人々の数："
+  },
+  "BxvrdK": {
+    "string": "アドレスを削除したいですか？"
+  },
+  "Bzq9W2": {
+    "string": "確認コードを入力してください"
+  },
+  "C8HXvQ": {
+    "string": "テキストメッセージ検証コード"
+  },
+  "C8ZFaR": {
+    "string": "ふるい分け"
+  },
+  "CBgsGP": {
+    "string": "よねつ"
+  },
+  "CKdped": {
+    "string": "委ねる"
+  },
+  "CTWCcu": {
+    "string": "すべて購入"
+  },
+  "CbGK63": {
+    "string": "現在購入されている最高価格"
+  },
+  "ChK/7j": {
+    "string": "に到着"
+  },
+  "ClVjxw": {
+    "string": "寄り付き相場"
+  },
+  "CuGKWh": {
+    "string": "数量を入力してください"
+  },
+  "DNlbBz": {
+    "string": "メールボックスまたは携帯電話"
+  },
+  "DQq3pD": {
+    "string": "プロジェクト参加要件"
+  },
+  "DRC113": {
+    "string": "{symbol}現在の価格"
+  },
+  "DSV3lz": {
+    "string": "オーダー番号"
+  },
+  "DobpJi": {
+    "string": "システム通知"
+  },
+  "DpnauN": {
+    "string": "時間"
+  },
+  "Dq6c3S": {
+    "string": "前面を選択"
+  },
+  "DsGgac": {
+    "string": "ドロップダウンリスト"
+  },
+  "Du+HBZ": {
+    "string": "実名認証を取得しています"
+  },
+  "Dw4KtW": {
+    "string": "レプリケーション"
+  },
+  "E5sgW+": {
+    "string": "取引先"
+  },
+  "E7wFmB": {
+    "string": "リフレッシュ頻度の設定"
+  },
+  "EMjkQg": {
+    "string": "電話番号を入力してください"
+  },
+  "EN7oPQ": {
+    "string": "コミシエンプライス"
+  },
+  "ENPgS/": {
+    "string": "参加する"
+  },
+  "EOWvn9": {
+    "string": "売る"
+  },
+  "ETWocP": {
+    "string": "招待コード番号："
+  },
+  "EVLNlH": {
+    "string": "賭け金の数を入力してください"
+  },
+  "EXoXnp": {
+    "string": "総取引ロット数"
+  },
+  "EYBWHx": {
+    "string": "ベストプライス"
+  },
+  "EZtA6l": {
+    "string": "支払い通貨の住所を選択してください"
+  },
+  "EmziDl": {
+    "string": "最小トップアップ量(USDT)"
+  },
+  "FLp81s": {
+    "string": "購入"
+  },
+  "FXys9B": {
+    "string": "古いパスワードを入力します"
+  },
+  "FqoFLn": {
+    "string": "価格約"
+  },
+  "G0ISee": {
+    "string": "人気インデックス"
+  },
+  "G5BgHI": {
+    "string": "バインディングをリクエストします"
+  },
+  "GBuUew": {
+    "string": "ペーストボードにコピーされました"
+  },
+  "GDglvI": {
+    "string": "最低誓約額"
+  },
+  "GFzduc": {
+    "string": "アピールメッセージ（オプション）"
+  },
+  "GKRXXt": {
+    "string": "Firecoinを入手してください"
+  },
+  "GO/P/E": {
+    "string": "引き出し通貨アドレスを追加します"
+  },
+  "GSpULh": {
+    "string": "総収入(USDT)"
+  },
+  "GVXj0E": {
+    "string": "成功しました"
+  },
+  "Gx5Krn": {
+    "string": "チャージ確認"
+  },
+  "H+7dPx": {
+    "string": "摘要：マスターを追跡したユーザーの過去30日間の1取引当たりの平均収益率。この値が高いほど、ユーザーはホストに従うことができます。"
+  },
+  "H0Cdjg": {
+    "string": "ホームページまたは地域の検索"
+  },
+  "H4vld2": {
+    "string": "オープニングマージン"
+  },
+  "HBqJuk": {
+    "string": "すでに本名"
+  },
+  "HCvPwM": {
+    "string": "数量を入力してください"
+  },
+  "HDx5DM": {
+    "string": "グローバル先物取引記録"
+  },
+  "HEzFXJ": {
+    "string": "{receptionTypevalue}番号"
+  },
+  "HMxoED": {
+    "string": "1年以内"
+  },
+  "HaILNu": {
+    "string": "アップロード"
+  },
+  "HbPiga": {
+    "string": "削除されました"
+  },
+  "HcSaEz": {
+    "string": "あなたの現在のメールボックスは{電子メール}です、あなたはそれを更新しますか？"
+  },
+  "HeL/t7": {
+    "string": "買う USDT"
+  },
+  "HmiIeC": {
+    "string": "アップロードしてもいいですか？"
+  },
+  "HpbXNh": {
+    "string": "損失引当金："
+  },
+  "Hv1Nr8": {
+    "string": "市場状況"
+  },
+  "I/5B/d": {
+    "string": "新しい通貨登録"
+  },
+  "IFXGBR": {
+    "string": "まず取引先の証明書を検証してください"
+  },
+  "IRtvek": {
+    "string": "終わった"
+  },
+  "IbtpXH": {
+    "string": "総資産の増加(USDT)"
+  },
+  "IoCgCq": {
+    "string": "総資産の増加"
+  },
+  "IudShd": {
+    "string": "開始していません"
+  },
+  "J1sdOC": {
+    "string": "質権押下終了時間"
+  },
+  "J5FSqv": {
+    "string": "無料購読"
+  },
+  "JI87J/": {
+    "string": "合法的な入札購入"
+  },
+  "JVHhgb": {
+    "string": "《FireUP ユーザプロトコル》"
+  },
+  "JYhyDW": {
+    "string": "滞留時間 {days} 日"
+  },
+  "Jgy7GK": {
+    "string": "認証コードがに送信されました{email}"
+  },
+  "JuFr3z": {
+    "string": "販売価格"
+  },
+  "K9M/Ln": {
+    "string": "タイプ"
+  },
+  "K9kVz9": {
+    "string": "対応するアカウントに転送された資産のみを取引できます。 アカウント間のアカウント間で手数料を請求しないでください"
+  },
+  "KAHC21": {
+    "string": "支払い"
+  },
+  "KBVp8X": {
+    "string": "電話番号を入力してください"
+  },
+  "KC9/eD": {
+    "string": "利用可能な資産"
+  },
+  "KCC04w": {
+    "string": "量"
+  },
+  "KCMRBl": {
+    "string": "現在の市場価格を閉じるかどうか{OpenHand}"
+  },
+  "KF8CBJ": {
+    "string": "もう一度考えさせてください"
+  },
+  "KLriKo": {
+    "string": "取引が完了しました"
+  },
+  "KNgmr/": {
+    "string": "職階数"
+  },
+  "KshKCt": {
+    "string": "今回の購入から"
+  },
+  "KuONpk": {
+    "string": "出金通貨金額を入力してください"
+  },
+  "KyHiY3": {
+    "string": "保有保証金"
+  },
+  "KyuHZw": {
+    "string": "現在のオープン時間"
+  },
+  "KzQKst": {
+    "string": "受注乗数の設定"
+  },
+  "L2Dpi5": {
+    "string": "グローバル先物口座"
+  },
+  "LC8/+u": {
+    "string": "メッセージの検証を取得してください"
+  },
+  "LEah6f": {
+    "string": "私は売りたい"
+  },
+  "LJ33pi": {
+    "string": "コミュニティ"
+  },
+  "LLn6Tg": {
+    "string": "最大制限を入力してください"
+  },
+  "LOwS8B": {
+    "string": "本名ではありません"
+  },
+  "LRqmws": {
+    "string": "譲渡数量"
+  },
+  "LTp8Pi": {
+    "string": "情報を正常に更新します"
+  },
+  "LZqmso": {
+    "string": "有効期限"
+  },
+  "LaFd5t": {
+    "string": "口座開設銀行"
+  },
+  "Lj6xLm": {
+    "string": "取り替える"
+  },
+  "Ls3qou": {
+    "string": "金メダル機構"
+  },
+  "MG99Vk": {
+    "string": "契約トランザクション"
+  },
+  "MGGEAi": {
+    "string": "銀行カード番号を入力してください"
+  },
+  "MN40Dh": {
+    "string": " 買掛伝票番号"
+  },
+  "MPJViy": {
+    "string": "パスワードを再入力してください"
+  },
+  "MQKv1T": {
+    "string": "コミュニティの総報酬(TFU)"
+  },
+  "MTyrlB": {
+    "string": "秘密は8～16桁の単語、アルファベットの組み合わせでなければなりません"
+  },
+  "MXqXyk": {
+    "string": "身分証明書番号を入力してください"
+  },
+  "MYqUqI": {
+    "string": "確認コードを送信します"
+  },
+  "Ma2fRl": {
+    "string": "誓約開始時間"
+  },
+  "MeeLjX": {
+    "string": "サブスクリプションフリーズ({a}-{b})"
+  },
+  "Mj7nsK": {
+    "string": "現在のコミッション"
+  },
+  "MmsEyp": {
+    "string": "登録する"
+  },
+  "MxAApV": {
+    "string": "購読しました"
+  },
+  "NH0fE1": {
+    "string": "金メダル機関のランキング"
+  },
+  "NL+iCs": {
+    "string": "状態"
+  },
+  "NNH82R": {
+    "string": "注文をキャンセルする"
+  },
+  "NQroRs": {
+    "string": "市場注文"
+  },
+  "NUeill": {
+    "string": "引き出し通貨アドレス"
+  },
+  "NZTO6Y": {
+    "string": "メールボックスを入力してください"
+  },
+  "NdxUVx": {
+    "string": "取得方法を確認してくださいTFU"
+  },
+  "NlcysC": {
+    "string": "メールボックス番号を入力してください"
+  },
+  "Nlt2yU": {
+    "string": "倍数"
+  },
+  "NxOp7s": {
+    "string": "0処理料金の購入"
+  },
+  "O1q1uh": {
+    "string": "招待状コードを引き換えます"
+  },
+  "O3bb/6": {
+    "string": "マナー"
+  },
+  "O3jk1+": {
+    "string": "マーチャント認証"
+  },
+  "O4KgNk": {
+    "string": "性別"
+  },
+  "OTiy6F": {
+    "string": "引き出し通貨アドレス管理"
+  },
+  "Otg9/k": {
+    "string": "終了時間"
+  },
+  "OxlDIl": {
+    "string": "上下の色の設定"
+  },
+  "P+t8ta": {
+    "string": "に変換します(USDT)"
+  },
+  "P8YUAQ": {
+    "string": "フォロワーの人気"
+  },
+  "PA9DRl": {
+    "string": "誓約に参加します"
+  },
+  "PHMSxi": {
+    "string": "注文する"
+  },
+  "PUWCuy": {
+    "string": "サブスクリプション時間"
+  },
+  "PYgwg0": {
+    "string": "メッセージは300文字を超えることはできません"
+  },
+  "Pcqs8N": {
+    "string": "サブスクリプションの手順"
+  },
+  "Pg99aL": {
+    "string": "削除を確認します"
+  },
+  "Q4foHv": {
+    "string": "トップアップ通貨アドレス"
+  },
+  "Q9qgiz": {
+    "string": "インタール"
+  },
+  "QInuMW": {
+    "string": "勘定科目タイプの追加"
+  },
+  "QKyNXd": {
+    "string": "サブスクリプション価格"
+  },
+  "QLilYb": {
+    "string": "トランスファ"
+  },
+  "QQdpxX": {
+    "string": "保証金は、USDTを販売または購入するための広告を発行し、資産残高の認証情報の提出をリアルタイムで凍結するために使用されます。"
+  },
+  "QWavza": {
+    "string": "期限切れ："
+  },
+  "Qg/P8m": {
+    "string": "実際の支払い"
+  },
+  "Qka2kz": {
+    "string": "売り手のニックネーム"
+  },
+  "Qyvn9e": {
+    "string": "トランザクションパスワードを入力してください"
+  },
+  "R0bpcH": {
+    "string": "あなたはまだ宣伝していません～"
+  },
+  "R3Xfcn": {
+    "string": "誓約によって生み出される利益"
+  },
+  "R4Ww2H": {
+    "string": "アカウント"
+  },
+  "RDdf7n": {
+    "string": "説明：マスターをフォローして利益を上げる確率。 値が大きいほど、利益をコピーする可能性が高くなります。"
+  },
+  "RGKUXx": {
+    "string": "交換金額を入力してください"
+  },
+  "RHvMTR": {
+    "string": "市場価格(USDT)"
+  },
+  "RXCFfg": {
+    "string": "通貨および通貨トランザクション"
+  },
+  "RXYW6s": {
+    "string": "販売数量を入力してください"
+  },
+  "ReRVZ/": {
+    "string": "バインドされていない"
+  },
+  "RtJnaj": {
+    "string": "名前を入力してください"
+  },
+  "RwgA6k": {
+    "string": " グローバルインデックス先物"
+  },
+  "Rx1AtW": {
+    "string": "とうけつ(USDT)"
+  },
+  "S/yKCZ": {
+    "string": "販売数量"
+  },
+  "S7E2WU": {
+    "string": "携帯電話番号と一致する実名アカウントを必ずご利用ください"
+  },
+  "ST/9QH": {
+    "string": "クイック領域"
+  },
+  "SaqkUp": {
+    "string": "見積通貨"
+  },
+  "Sj3tff": {
+    "string": "このラウンドは購入済みです"
+  },
+  "Snhxet": {
+    "string": "同じアカウント間での振替に失敗しました"
+  },
+  "Snj6vy": {
+    "string": "最大倍数:"
+  },
+  "StIa2l": {
+    "string": "概要："
+  },
+  "Sz8zFH": {
+    "string": "説明：ハイマスターの過去30日間の取引当たりの平均収益率。価値が大きいほど、個人の収益性が高くなります。"
+  },
+  "T8RXyP": {
+    "string": "プロジェクトの概要"
+  },
+  "TByK7F": {
+    "string": "転送数量の入力"
+  },
+  "THckAT": {
+    "string": "期限切れの購読"
+  },
+  "TPc2/L": {
+    "string": "今回購入可能な合計金額"
+  },
+  "TT0rUo": {
+    "string": "利益と減損の設定"
+  },
+  "TZUB/k": {
+    "string": "お支払い方法"
+  },
+  "Telt8H": {
+    "string": "預金銀行"
+  },
+  "Tq9EwF": {
+    "string": "バイヤーのニックネーム"
+  },
+  "TsbBR+": {
+    "string": "イノベーションパイロットゾーン"
+  },
+  "Tw8y2o": {
+    "string": "ボードロットを入力してください"
+  },
+  "U99CrO": {
+    "string": "文書情報の入力"
+  },
+  "UA7E9h": {
+    "string": "お支払い方法"
+  },
+  "UBT8f1": {
+    "string": "注文後の資産の凍結"
+  },
+  "UD6XMk": {
+    "string": "移転"
+  },
+  "UH1kCc": {
+    "string": "增"
+  },
+  "UQ2ett": {
+    "string": "出品クリアランス時間"
+  },
+  "UT6tN2": {
+    "string": "通貨"
+  },
+  "UVGoM9": {
+    "string": "先月の収益(USDT)"
+  },
+  "UWUjVA": {
+    "string": "法定通貨"
+  },
+  "UX7lUm": {
+    "string": "注文機関をフォローしてください"
+  },
+  "UXkrvR": {
+    "string": "注文キャンセルを確認します"
+  },
+  "UXyFaa": {
+    "string": "手数料"
+  },
+  "UZappM": {
+    "string": "価格を入力してください"
+  },
+  "Uamdul": {
+    "string": "新しい携帯番号を入力してください"
+  },
+  "UgHO9l": {
+    "string": "三ヶ月"
+  },
+  "UkiaYk": {
+    "string": "身分証明書番号を入力してください"
+  },
+  "UvWwpv": {
+    "string": "実名認証"
+  },
+  "Uw5tn0": {
+    "string": "資格認定日"
+  },
+  "V1f0Zb": {
+    "string": "選択する勘定科目を閉じる"
+  },
+  "V4Iau9": {
+    "string": "すべて販売"
+  },
+  "VEmd9D": {
+    "string": "システム情報"
+  },
+  "VU6g7c": {
+    "string": "招待コードを入力してください（選択）"
+  },
+  "VXMi89": {
+    "string": "現在最高の価格で取引"
+  },
+  "VYKM4q": {
+    "string": "契約アカウント"
+  },
+  "VbE2gD": {
+    "string": "新しいパスワードの確認"
+  },
+  "VldACD": {
+    "string": "実名認証"
+  },
+  "VqH7F0": {
+    "string": "オペレーションタイムアウト"
+  },
+  "Vt3fSC": {
+    "string": "じょうすう"
+  },
+  "VvurtK": {
+    "string": "オーダーレコード"
+  },
+  "W+d7SX": {
+    "string": "オープンタイム"
+  },
+  "W6smHj": {
+    "string": "時間"
+  },
+  "WDcvta": {
+    "string": "フォロワーアカウント"
+  },
+  "WKCB03": {
+    "string": "補償数量："
+  },
+  "WKYPpM": {
+    "string": "誓約は関心を生み出します"
+  },
+  "WLF2E0": {
+    "string": "領収書管理"
+  },
+  "WTYv3l": {
+    "string": "（香港の時間）"
+  },
+  "Wmlj/H": {
+    "string": "合計購入"
+  },
+  "WrleG5": {
+    "string": "言語を変更"
+  },
+  "Wrputc": {
+    "string": "説明：過去30日間でマスターをフォローしているユーザーの利益と損失の総額。"
+  },
+  "WyPuru": {
+    "string": "単価"
+  },
+  "X/X8Ge": {
+    "string": "委任金額(USDT)"
+  },
+  "XJfx+x": {
+    "string": "マーチャント認証の取り消しを申請する"
+  },
+  "XNQjr/": {
+    "string": "トランザクション数"
+  },
+  "XNz8uP": {
+    "string": "使用可能残高"
+  },
+  "XR6wlA": {
+    "string": "《FireUpプライバシーポリシー》"
+  },
+  "XWzDpA": {
+    "string": "私は成功を収めた"
+  },
+  "Xagh1G": {
+    "string": "下部フレーム"
+  },
+  "XddKO7": {
+    "string": "0資産の非表示"
+  },
+  "Xj/GCF": {
+    "string": "資格認定ステータス"
+  },
+  "XkGx1k": {
+    "string": "合計価格"
+  },
+  "Xr6MgR": {
+    "string": "画像をドラッグして検証を完了"
+  },
+  "Y+Wlw4": {
+    "string": "電子メール認証コードを入力してください"
+  },
+  "Y2Ed0L": {
+    "string": "銀行カード番号を入力してください"
+  },
+  "YJwfmY": {
+    "string": "開業費"
+  },
+  "YYra8Q": {
+    "string": "はかる"
+  },
+  "YcfcO0": {
+    "string": "SMS認証コードがに送信されました{phone}"
+  },
+  "YvriPY": {
+    "string": "レコード破り"
+  },
+  "Yy75R8": {
+    "string": "実証済み"
+  },
+  "ZH7DS8": {
+    "string": "追加リスト"
+  },
+  "ZOabtQ": {
+    "string": "訴えのスクリーンショット（オプション）"
+  },
+  "ZP7om0": {
+    "string": "閉じた位置の数を入力してください"
+  },
+  "ZU9FqB": {
+    "string": "名前"
+  },
+  "ZbI0hT": {
+    "string": "キャンセル注文を確認します"
+  },
+  "Zg9Cm+": {
+    "string": "非現実的な名前は、商人認定を申請できません"
+  },
+  "Zhkpb8": {
+    "string": "充電のみを許可します"
+  },
+  "aD/9at": {
+    "string": "量(TFU)"
+  },
+  "aOp/5l": {
+    "string": "商人認定に本名を適用できない場合は、実際の認証の後にビジネス認定申請書を提出してください。"
+  },
+  "aaQVo1": {
+    "string": "利潤(USDT)"
+  },
+  "ag8LxW": {
+    "string": "未設定"
+  },
+  "anbdi0": {
+    "string": "購買ポイント差"
+  },
+  "andeZs": {
+    "string": "通貨の抽出"
+  },
+  "ans63b": {
+    "string": "アカウントが検証されていません"
+  },
+  "ap+l4f": {
+    "string": "購買数量を入力してください"
+  },
+  "b5Yvc8": {
+    "string": "アテステーション"
+  },
+  "b5l2vN": {
+    "string": "保存"
+  },
+  "b6Krbb": {
+    "string": "トランザクションレコード"
+  },
+  "bBKCBS": {
+    "string": "通貨紹介"
+  },
+  "bKoTT3": {
+    "string": "売り手に支払ったことを確認してください"
+  },
+  "bOeVuL": {
+    "string": "落ち着いた{days} 日"
+  },
+  "bW0/mN": {
+    "string": "価格を入力してください"
+  },
+  "bi/Yk/": {
+    "string": "ドキュメンタリーの利益"
+  },
+  "bpymDW": {
+    "string": "トランザクションタイプを選択します"
+  },
+  "brzlNv": {
+    "string": "セキュリティデポジット"
+  },
+  "bsSd3V": {
+    "string": "トップページ"
+  },
+  "bwIAbr": {
+    "string": "アカウントは追加されていません"
+  },
+  "bweeFF": {
+    "string": "実名認証センター"
+  },
+  "bwg6o7": {
+    "string": "銀行名を入力してください"
+  },
+  "c6kvxO": {
+    "string": "に慣れる"
+  },
+  "cBWJI5": {
+    "string": "強気（長い）"
+  },
+  "cQiVhL": {
+    "string": "悪意のあるクリックは、アカウントを直接フリーズします"
+  },
+  "cbYoMn": {
+    "string": "アカウントのセキュリティを確保するために、あなたの身元を確認してください"
+  },
+  "cde9b7": {
+    "string": "利益価格を取る"
+  },
+  "cjFoGi": {
+    "string": "強気"
+  },
+  "cuM+vo": {
+    "string": "不明なタイプ"
+  },
+  "cx0QNu": {
+    "string": "私が購入したい"
+  },
+  "dGBGbt": {
+    "string": "全て"
+  },
+  "dKX04w": {
+    "string": "残高口座の総資産(USDT)"
+  },
+  "ddZtfx": {
+    "string": "名前を入力してください"
+  },
+  "dfCJ6D": {
+    "string": "個人的なプロフィールを編集してください"
+  },
+  "dfT5lg": {
+    "string": "モバイル登録"
+  },
+  "dhfg6B": {
+    "string": "損失価格を停止します"
+  },
+  "dqhJYx": {
+    "string": "データなし"
+  },
+  "eBTG87": {
+    "string": "サブスクリプション時間の現在のラウンドの終了"
+  },
+  "eD3Ul5": {
+    "string": "ポートレートの写真をアップロードしてください"
+  },
+  "eHNb85": {
+    "string": "現在の最低販売価格"
+  },
+  "eJ3fDL": {
+    "string": "(パラメーターエラー：{checkMsg})"
+  },
+  "eMnHfD": {
+    "string": "メール登録"
+  },
+  "eXPzpx": {
+    "string": "買う"
+  },
+  "ebj6E6": {
+    "string": "利用可能なマージン(USDT)"
+  },
+  "egvBG/": {
+    "string": "オープニングステータス"
+  },
+  "ehbGQt": {
+    "string": "委員会の価格"
+  },
+  "ejs0A3": {
+    "string": "電話番号を入力してください"
+  },
+  "ep7sPi": {
+    "string": "ストップロス設定"
+  },
+  "etRUXu": {
+    "string": "さいしょうへんどうりつ"
+  },
+  "etzvPz": {
+    "string": "と思います"
+  },
+  "f2BEYr": {
+    "string": "私はまだ相手に支払いをしていないことを確認します"
+  },
+  "fGSeaa": {
+    "string": "トランス"
+  },
+  "fINI3k": {
+    "string": "選択してください"
+  },
+  "fKknPq": {
+    "string": "女"
+  },
+  "fLMjGv": {
+    "string": "コメントを入力してください"
+  },
+  "fftT6p": {
+    "string": "USDTを売却する際、システムは残高口座のこの資金の一部を凍結する"
+  },
+  "fu1KIo": {
+    "string": "進歩"
+  },
+  "fzPv+C": {
+    "string": "統計収入"
+  },
+  "g4FQPM": {
+    "string": " 多すぎる"
+  },
+  "g6V3he": {
+    "string": "微信"
+  },
+  "gA15gF": {
+    "string": "上がり下がり"
+  },
+  "gVKoa9": {
+    "string": "凍結することに同意します"
+  },
+  "ga4StX": {
+    "string": "基本情報"
+  },
+  "gsk33w": {
+    "string": "パスワードのリセット"
+  },
+  "gtC59I": {
+    "string": "財務実績"
+  },
+  "guM4xe": {
+    "string": "最大時間消費TFU："
+  },
+  "gx0XBL": {
+    "string": "申し込む"
+  },
+  "h24vu5": {
+    "string": "アカウント選択に転送します"
+  },
+  "hBkLmp": {
+    "string": "高い"
+  },
+  "hDx3/S": {
+    "string": "メールボックス"
+  },
+  "hEtJ5h": {
+    "string": "取り消し"
+  },
+  "hJ1meP": {
+    "string": "収益性"
+  },
+  "hPHyre": {
+    "string": "バランス"
+  },
+  "htEymu": {
+    "string": "苦情の理由"
+  },
+  "i3xGD8": {
+    "string": "苦情を提出します"
+  },
+  "iCZI8W": {
+    "string": "契約数"
+  },
+  "iVpb9N": {
+    "string": "携帯電話番号を変更します"
+  },
+  "iipjBw": {
+    "string": "最新の価格"
+  },
+  "ikrDph": {
+    "string": "この購入ラウンドの終わりまでに残っています"
+  },
+  "j5arhs": {
+    "string": "誕生日"
+  },
+  "jAROVC": {
+    "string": "完全な検証"
+  },
+  "jB+/k7": {
+    "string": "バインディングを申請します"
+  },
+  "jJ0rDY": {
+    "string": "通貨を選択します"
+  },
+  "jPTst4": {
+    "string": "正確さ"
+  },
+  "jefLBO": {
+    "string": "確認"
+  },
+  "jnrXEJ": {
+    "string": "最小変動の利益または損失"
+  },
+  "k/qXgT": {
+    "string": "オプション位置"
+  },
+  "kCh5Jz": {
+    "string": "ヒント"
+  },
+  "kCvDNl": {
+    "string": "ストップロス価格を入力してください"
+  },
+  "kEQh1G": {
+    "string": "ID名を入力してください"
+  },
+  "kGK1/L": {
+    "string": "通貨を充電します"
+  },
+  "kIQ/Xp": {
+    "string": "言語設定"
+  },
+  "kSaqSM": {
+    "string": "メッセージの長さは140文字を超えることはできません"
+  },
+  "keuHvr": {
+    "string": "利益と停止損失を設定します"
+  },
+  "l+7dfj": {
+    "string": "アドレスを選択してください"
+  },
+  "l9VaC8": {
+    "string": "通貨アカウント"
+  },
+  "lK7IeZ": {
+    "string": "トランザクションパスワード管理"
+  },
+  "lKbaKq": {
+    "string": "最小購入ボリューム"
+  },
+  "lc43/w": {
+    "string": "招待コード"
+  },
+  "ldyl/D": {
+    "string": "資金のセキュリティを確保するために、アカウントのセキュリティ戦略が変更されると、パスワードが変更され、新しい住所撤回の使用が請求書の人為的レビューを実施します。 スタッフがスタッフの電話またはメールに連絡するのを辛抱強く待ってください。"
+  },
+  "lf0jjv": {
+    "string": "個人的なプロフィール"
+  },
+  "lfsX8H": {
+    "string": "誓約記録"
+  },
+  "lgUZ5i": {
+    "string": "《マーチャントサービスプロトコル》"
+  },
+  "lj1YNw": {
+    "string": "支払い確認"
+  },
+  "lksvRW": {
+    "string": "転送の数を入力してください"
+  },
+  "lrlCJ8": {
+    "string": "フォローオーダーの入力倍数はそれ以上大きくすることはできません{maxMultiNum}"
+  },
+  "lxxud1": {
+    "string": "メンバー"
+  },
+  "m6ypg2": {
+    "string": "通貨通貨種："
+  },
+  "mCDkHz": {
+    "string": "六ヶ月"
+  },
+  "mDJb9E": {
+    "string": "から"
+  },
+  "mGf323": {
+    "string": "通常の閉鎖位置"
+  },
+  "meMA+Y": {
+    "string": "提出障害変換({a}-{b})"
+  },
+  "mjDNUB": {
+    "string": "誓約額"
+  },
+  "mpjnyE": {
+    "string": "男"
+  },
+  "n/ayb0": {
+    "string": "実際の領収書"
+  },
+  "nGQJ81": {
+    "string": "お勧め"
+  },
+  "nIpnLv": {
+    "string": "残りの支払い時間"
+  },
+  "nLab+i": {
+    "string": "開く方向"
+  },
+  "ntWvUZ": {
+    "string": "利用可能(USDT)"
+  },
+  "o3hkNu": {
+    "string": "浮き沈みの色"
+  },
+  "oAdm61": {
+    "string": "削除"
+  },
+  "oR5wwN": {
+    "string": "忘れられた？パスワードの取得"
+  },
+  "oRPjgd": {
+    "string": "利益設定を停止します"
+  },
+  "oVSEVM": {
+    "string": "何を書くか...（140語以内）"
+  },
+  "ofc1Jv": {
+    "string": "わかった"
+  },
+  "ohYFAy": {
+    "string": "ボードロット"
+  },
+  "oslZjc": {
+    "string": "アピールの理由を選択してください"
+  },
+  "p8CmvE": {
+    "string": "埋める"
+  },
+  "pHNoba": {
+    "string": "マーチャント認定を申請します"
+  },
+  "pKUW2A": {
+    "string": "最小"
+  },
+  "pYPgzH": {
+    "string": "量"
+  },
+  "pZSIhq": {
+    "string": "販売のため"
+  },
+  "pecEGk": {
+    "string": "キャンセル"
+  },
+  "q+hue1": {
+    "string": "注文後の人の数"
+  },
+  "q+on8I": {
+    "string": "バインド成功"
+  },
+  "qGoxr9": {
+    "string": "販売の確認"
+  },
+  "qNUf+q": {
+    "string": "受注トランザクションの追跡"
+  },
+  "qSm4kD": {
+    "string": "上訴する"
+  },
+  "qTCfxl": {
+    "string": "認証コードがに送信されました。{phone}"
+  },
+  "qZzRwu": {
+    "string": "バインド"
+  },
+  "qxIFeG": {
+    "string": "実名制情報"
+  },
+  "qxdWh5": {
+    "string": "自動キャンセル"
+  },
+  "qzi2dl": {
+    "string": "価格"
+  },
+  "r0/TUu": {
+    "string": "もちろん"
+  },
+  "r1IImU": {
+    "string": "理解する"
+  },
+  "r2AYLr": {
+    "string": "リリースの確認"
+  },
+  "r2dEd/": {
+    "string": "リセットt"
+  },
+  "rEYIpu": {
+    "string": "開始メンバー"
+  },
+  "rQ+HPv": {
+    "string": "抽出する通貨金額を入力"
+  },
+  "rpJLsF": {
+    "string": "パラメータエラー"
+  },
+  "rv8bFi": {
+    "string": "使用可能残高(USDT)"
+  },
+  "s/KbuC": {
+    "string": "はかるUSDT"
+  },
+  "s2XXAu": {
+    "string": "このラウンドの残りのサブスクリプション数"
+  },
+  "s4hJju": {
+    "string": "詳細"
+  },
+  "s7aJO6": {
+    "string": "銀行カード番号"
+  },
+  "s9xFxt": {
+    "string": "と"
+  },
+  "sCpxK3": {
+    "string": "情報の改ざんや流出を防ぐために、コンピュータやブラウザのセキュリティを確認してください。"
+  },
+  "sNmNjz": {
+    "string": "売り手に支払う"
+  },
+  "sVgCxu": {
+    "string": "使用可能な数量："
+  },
+  "sY5/oP": {
+    "string": "購入する"
+  },
+  "sbEmQh": {
+    "string": "アプリケーションが進行中です"
+  },
+  "sofNEv": {
+    "string": "設定なし"
+  },
+  "srNPrw": {
+    "string": "元のパスワードを入力してください"
+  },
+  "t+gJ2j": {
+    "string": "トランスファレコード"
+  },
+  "t/1bpl": {
+    "string": "入力オーダーの倍数は以下の値にすることはできません{minMultiNum}"
+  },
+  "tI511i": {
+    "string": "認証"
+  },
+  "tNR1ps": {
+    "string": "モード（複数のオプションが使用可能）"
+  },
+  "tVv3c7": {
+    "string": "検証に成功しました"
+  },
+  "tY3163": {
+    "string": "通貨数の抽出:"
+  },
+  "twArjt": {
+    "string": "リカバリ"
+  },
+  "u/gk22": {
+    "string": "利益価格の停止"
+  },
+  "u1D872": {
+    "string": "不平を言う"
+  },
+  "uHUP9v": {
+    "string": "終了"
+  },
+  "udpXUo": {
+    "string": "価格制限注文"
+  },
+  "ulKN6p": {
+    "string": "新しいメールアドレスを入力してください"
+  },
+  "un5/HP": {
+    "string": "勘定科目の選択"
+  },
+  "usmupP": {
+    "string": "レーダ図ヘルプ"
+  },
+  "uvUV8g": {
+    "string": "クマ頭"
+  },
+  "uwCp/4": {
+    "string": "とうけつ"
+  },
+  "uy59Hz": {
+    "string": "クマ（短い）"
+  },
+  "v0r9Fg": {
+    "string": "OTC貿易"
+  },
+  "v2G+NV": {
+    "string": "買い取り価格"
+  },
+  "v3RYvu": {
+    "string": "バインド電話の変更"
+  },
+  "v5SgYb": {
+    "string": "実名"
+  },
+  "vOLb7H": {
+    "string": "剰余＃カウントダウン＃秒"
+  },
+  "vgGksF": {
+    "string": "実名認証"
+  },
+  "vo78d9": {
+    "string": "購買依頼は正常に発行されました"
+  },
+  "w2IUbz": {
+    "string": "上告の詳細を書くことができます~~(300字に限る)"
+  },
+  "wAPEnf": {
+    "string": "ログイン＃ログイン＃"
+  },
+  "wNYTXq": {
+    "string": "未使用"
+  },
+  "waMjSH": {
+    "string": "定期購読は今回から開始"
+  },
+  "wbTfN9": {
+    "string": "抽出された通貨金額"
+  },
+  "wwOQz6": {
+    "string": "オンラインカスタマーサービス"
+  },
+  "wzY6eO": {
+    "string": "広告主として、資産を保証し、同意する"
+  },
+  "x9w/Fu": {
+    "string": "フリーズマージン"
+  },
+  "xCJREC": {
+    "string": "開く{maxHand}手 "
+  },
+  "xE1H+X": {
+    "string": "設定"
+  },
+  "xExi0z": {
+    "string": "マーチャントペイアウト方法を選択してください"
+  },
+  "xKofLL": {
+    "string": "メッセージコンテンツ"
+  },
+  "xPkCfU": {
+    "string": "位置マージン(USDT)"
+  },
+  "xiR+G9": {
+    "string": "注文タイプに従ってください"
+  },
+  "xra9PO": {
+    "string": "ボードロット"
+  },
+  "xwo0Ao": {
+    "string": "誓約サイクル"
+  },
+  "yGpmXF": {
+    "string": "マーチャント認定をキャンセルしたいですか？"
+  },
+  "yPig5i": {
+    "string": "注文機関に従ってください："
+  },
+  "ySnXcv": {
+    "string": "購入を確認します"
+  },
+  "yZDfS/": {
+    "string": "予想されるメリット"
+  },
+  "ymJBTR": {
+    "string": "名前コード"
+  },
+  "ypMY0M": {
+    "string": "確認コードを取得します"
+  },
+  "yz8Bd8": {
+    "string": "バインドされた携帯電話番号："
+  },
+  "yzF0zK": {
+    "string": "安全検証"
+  },
+  "yzNVN7": {
+    "string": "SMS検証コードが送信されました{phoneNumber}"
+  },
+  "z8a9KR": {
+    "string": "もう一度ログインしてください"
+  },
+  "zGwnHi": {
+    "string": "制限"
+  },
+  "zH7h1q": {
+    "string": "歴史"
+  },
+  "zJbCuR": {
+    "string": "緑色の赤く緑"
+  },
+  "zL7URC": {
+    "string": "個人的な設定"
+  },
+  "zS9FwU": {
+    "string": "市場までの時間"
+  },
+  "zVPdxg": {
+    "string": "始まる時間"
+  },
+  "zeTkGR": {
+    "string": "サブスクリプションは正常に変換されました({a}-{b})"
+  },
+  "zlZigq": {
+    "string": "ニックネーム"
+  },
+  "zldodU": {
+    "string": "受け取った数量"
+  },
+  "zqkaAr": {
+    "string": "褒美(TFU)"
+  },
+  "zv2r2Q": {
+    "string": "申し込む"
+  },
+  "zxYcWZ": {
+    "string": "リスク警告"
+  },
+  "zznr09": {
+    "string": "取り消された"
+  }
+}

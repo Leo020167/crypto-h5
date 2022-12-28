@@ -147,34 +147,34 @@ const Home = () => {
         ))}
       </div>
 
-      <div className="text-sm font-bold mt-3 shadow-md shadow-black/5 bg-white rounded-lg overflow-hidden h-[100px] px-2.5 flex items-center">
-        <Link to="/institution" className="flex flex-col items-center justify-center w-1/5">
+      <div className="text-sm font-bold mt-3 shadow-md shadow-black/5 bg-white rounded-lg overflow-hidden py-2.5 px-2.5 flex items-stretch gap-1">
+        <Link to="/institution" className="flex flex-col items-center  w-1/5">
           <img alt="" src={tab1_menu1} className="w-9 h-9" />
-          <div className="mt-2.5 text-xs text-[#666666]">
+          <div className="mt-2.5 text-xs text-[#666666] break-all">
             {intl.formatMessage({ defaultMessage: '金牌機構', id: 'Ls3qou' })}
           </div>
         </Link>
-        <Link to="/subscribe" className="flex flex-col items-center justify-center w-1/5">
+        <Link to="/subscribe" className="flex flex-col items-center  w-1/5">
           <img alt="" src={tab1_menu2} className="w-9 h-9" />
-          <div className="mt-2.5 text-xs text-[#666666]">
+          <div className="mt-2.5 text-xs text-[#666666] break-all">
             {intl.formatMessage({ defaultMessage: '創新試驗區', id: 'TsbBR+' })}
           </div>
         </Link>
-        <Link to="/legal-money" className="flex flex-col items-center justify-center w-1/5">
+        <Link to="/legal-money" className="flex flex-col items-center w-1/5">
           <img alt="" src={tab1_menu3} className="w-9 h-9" />
-          <div className="mt-2.5 text-xs text-[#666666]">
+          <div className="mt-2.5 text-xs text-[#666666] break-all">
             {intl.formatMessage({ defaultMessage: 'OTC交易', id: 'v0r9Fg' })}
           </div>
         </Link>
-        <Link to="/chat" className="flex flex-col items-center justify-center w-1/5">
+        <Link to="/chat" className="flex flex-col items-center w-1/5">
           <img alt="" src={tab1_menu4} className="w-9 h-9" />
-          <div className="mt-2.5 text-xs text-[#666666]">
+          <div className="mt-2.5 text-xs text-[#666666] break-all">
             {intl.formatMessage({ defaultMessage: '綫上客服', id: 'wwOQz6' })}
           </div>
         </Link>
-        <Link to="/pledge" className="flex flex-col items-center justify-center w-1/5">
+        <Link to="/pledge" className="flex flex-col items-center justify-start w-1/5">
           <img alt="" src={tab1_menu5} className="w-9 h-9" />
-          <div className="mt-2.5 text-xs text-[#666666]">
+          <div className="mt-2.5 text-xs text-[#666666] break-all">
             {intl.formatMessage({ defaultMessage: '質押生息', id: 'R3Xfcn' })}
           </div>
         </Link>

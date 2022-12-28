@@ -50,6 +50,14 @@ const GlobalStyle = styled.createGlobalStyle`
     background-color: var(--background-color);
   }
 
+  .btn-purple {
+    background: linear-gradient(360deg, #4d4bda 0%, #7270f8 100%);
+    box-shadow: 0px 0px 10px 0px rgba(252, 192, 84, 0.3);
+    color: #fff;
+    height: 44px;
+    border-radius: 6px;
+  }
+
   .adm-nav-bar {
     border-bottom: 1px solid #f6f6f6;
   }

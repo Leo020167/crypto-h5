@@ -3,9 +3,7 @@ import { useCallback, useMemo, useRef, useState } from 'react';
 import { useIntl } from 'react-intl';
 import { useHistory } from 'react-router-dom';
 import { useIdentityGet, useIdentitySubmit } from '../../api/endpoints/transformer';
-import aPng from '../../assets/a.png';
 import addPng from '../../assets/add.png';
-import bPng from '../../assets/b.png';
 import Screen from '../../components/Screen';
 import { uploadImage } from '../../utils/upload';
 /**
@@ -185,15 +183,23 @@ const Verified = () => {
 
         <div className="border-l-4 border-[#fa4b1b] px-2.5 mx-4 mt-4 text-base">
           {intl.formatMessage({
-            defaultMessage: '輸入證件資訊',
-            id: 'U99CrO',
+            defaultMessage: '上傳圖片',
+            id: 'ZRv4FU',
           })}
         </div>
 
         <div className="flex items-center justify-center flex-col">
           <div>
-            <div className="w-72 mt-10 relative flex items-center justify-center">
-              <img alt="" src={frontImgFile ?? aPng} className="w-full" />
+            <div className="text-base mt-4 text-[#232323]">
+              {intl.formatMessage({
+                defaultMessage: '選擇正面',
+                id: 'Dq6c3S',
+              })}
+            </div>
+            <div className="w-72 h-40 border rounded mt-4 relative flex items-center justify-center">
+              {frontImgFile && (
+                <img alt="" src={frontImgFile} className="w-full h-full object-fill" />
+              )}
               {!isValid && (
                 <a
                   className="absolute"
@@ -205,17 +211,19 @@ const Verified = () => {
                 </a>
               )}
             </div>
-            <div className="text-base mt-4 text-[#232323]">
-              {intl.formatMessage({
-                defaultMessage: '選擇正面',
-                id: 'Dq6c3S',
-              })}
-            </div>
           </div>
 
           <div>
-            <div className="w-72 mt-10 relative flex items-center justify-center">
-              <img alt="" src={backImgFile ?? bPng} className="w-full" />
+            <div className="text-base mt-4 text-[#232323]">
+              {intl.formatMessage({
+                defaultMessage: '選擇反面',
+                id: '5qldgM',
+              })}
+            </div>
+            <div className="w-72 h-40 border rounded mt-4 relative flex items-center justify-center">
+              {backImgFile && (
+                <img alt="" src={backImgFile} className="w-full h-full object-fill" />
+              )}
               {!isValid && (
                 <a
                   className="absolute"
@@ -227,13 +235,14 @@ const Verified = () => {
                 </a>
               )}
             </div>
-            <div className="text-base mt-4 text-[#232323]">
-              {' '}
-              {intl.formatMessage({
-                defaultMessage: '選擇反面',
-                id: '5qldgM',
-              })}
-            </div>
+          </div>
+
+          <div className="mt-10 px-4 text-gray-400">
+            {intl.formatMessage({
+              defaultMessage:
+                '上傳的證件照片將進行防盜水印處理，我們嚴格遵照法律法規，保護您的個人隱私。',
+              id: 'R4j16W',
+            })}
           </div>
         </div>
       </div>

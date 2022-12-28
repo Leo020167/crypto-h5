@@ -1,13 +1,13 @@
 import create from 'zustand';
 import { persist } from 'zustand/middleware';
 import { getUserInfo, login, logout } from '../api/endpoints/transformer';
-import { LoginBody, UserInfo } from '../api/model';
+import { Login200, LoginBody, UserInfo } from '../api/model';
 
 export const useAuthStore = create(
   persist<{
     token?: string;
     userInfo?: UserInfo;
-    login: (data: LoginBody) => Promise<void>;
+    login: (data: LoginBody) => Promise<Login200>;
     logout: () => void;
     getUserInfo: () => Promise<void>;
   }>(
@@ -17,6 +17,7 @@ export const useAuthStore = create(
         if (res.code === '200') {
           set({ token: res.data?.token, userInfo: res.data?.user });
         }
+        return res;
       },
       logout() {
         logout();

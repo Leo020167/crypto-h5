@@ -284,8 +284,6 @@ paths:
                   type: number
                 userPass:
                   type: string
-              required:
-                - 'dragImgKey'
 
       responses:
         '200':

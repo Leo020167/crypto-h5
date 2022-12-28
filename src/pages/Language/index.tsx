@@ -25,7 +25,7 @@ const languages = [
   },
   {
     name: 'Русский язык',
-    key: 'ru',
+    key: 'ru-RU',
   },
   {
     name: 'Français',
@@ -35,10 +35,10 @@ const languages = [
     name: 'Español',
     key: 'es',
   },
-  {
-    name: 'Português',
-    key: 'pt',
-  },
+  // {
+  //   name: 'Português',
+  //   key: 'pt',
+  // },
 ];
 
 const Language = () => {

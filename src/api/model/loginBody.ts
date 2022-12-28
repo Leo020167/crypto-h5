@@ -6,7 +6,7 @@
  */
 
 export type LoginBody = {
-  dragImgKey: string;
+  dragImgKey?: string;
   email?: string;
   locationx?: number;
   phone?: string;

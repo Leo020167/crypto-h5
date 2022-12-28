@@ -44,28 +44,28 @@ const HomeAccount = () => {
           <div className=" font-bold text-4xl my-1">{data?.data?.tolAssets ?? '0.00'}</div>
           <div className="text-base">{data?.data?.tolAssetsCny ?? '0.00'}</div>
 
-          <div className="h-10 mt-4 gap-2 flex">
+          <div className="mt-4 gap-2 flex">
             <Link
               to="/recharge-coin"
-              className="bg-[#6f6fe7] h-full flex flex-1 items-center justify-center rounded"
+              className="bg-[#6f6fe7] h-full flex flex-1 items-center justify-center rounded min-h-[40px] px-2"
             >
               {intl.formatMessage({ defaultMessage: '充幣', id: 'kGK1/L' })}
             </Link>
             <Link
               to="/take-coin"
-              className="bg-[#6f6fe7] h-full flex flex-1 items-center justify-center rounded"
+              className="bg-[#6f6fe7] h-full flex flex-1 items-center justify-center rounded min-h-[40px] px-2"
             >
               {intl.formatMessage({ defaultMessage: '提幣', id: 'andeZs' })}
             </Link>
             <Link
               to="/transfer-coin"
-              className="bg-[#6f6fe7] h-full flex flex-1 items-center justify-center rounded"
+              className="bg-[#6f6fe7] h-full flex flex-1 items-center justify-center rounded min-h-[40px] px-2"
             >
               {intl.formatMessage({ defaultMessage: '划轉', id: 'UD6XMk' })}
             </Link>
             <Link
               to="/legal-money"
-              className="bg-[#6f6fe7] h-full flex flex-1 items-center justify-center rounded"
+              className="bg-[#6f6fe7] h-full flex flex-1 items-center justify-center rounded min-h-[40px] px-2"
             >
               {intl.formatMessage({ defaultMessage: '法幣購買', id: 'JI87J/' })}
             </Link>
