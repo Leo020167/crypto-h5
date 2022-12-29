@@ -108,7 +108,6 @@ const Chat = () => {
   const sorted = useMemo(() => orderBy(data?.data ?? [], ['createTime'], 'asc'), [data?.data]);
 
   const followOutput = useCallback((isAtBottom: boolean) => {
-    console.log('MessagesList: followOutput isAtBottom', isAtBottom);
     return isAtBottom ? 'smooth' : false;
   }, []);
 

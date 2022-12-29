@@ -72,7 +72,6 @@ const RechargeCoin = () => {
 
   const currentAddress = useMemo(() => {
     return find(addressList, (v) => {
-      console.log(v);
       if (symbol === 'USDT') {
         return v.chainType === chainType;
       }
@@ -83,8 +82,6 @@ const RechargeCoin = () => {
   const [, copyToClipboard] = useCopyToClipboard();
 
   const [image, setImage] = useState<string>();
-
-  console.log(currentAddress);
 
   const intl = useIntl();
 

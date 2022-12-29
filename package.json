@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "build:staging": "tsc && vite build --mode staging",
-    "extract-json-messages": "formatjs extract \"src/**/*.{ts,tsx}\" --ignore=\"**/*.d.ts\" --out-file src/lang/zh-TW.json --format scripts/formatter.js",
+    "extract-json-messages": "formatjs extract \"src/**/*.{ts,tsx}\" --ignore=\"**/*.d.ts\" --out-file src/lang/default-messages.json --format scripts/formatter.js",
     "extract-messages": "npm run extract-json-messages",
     "preview": "vite preview",
     "lint": "eslint . --ext .ts,.tsx"

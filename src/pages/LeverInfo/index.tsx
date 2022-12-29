@@ -35,7 +35,6 @@ const LeverInfo = () => {
       query: {
         enabled: !!orderId,
         onSuccess(data) {
-          console.log(data.data?.order?.stopWinPrice);
           setStopWin(data.data?.order?.stopWinPrice);
         },
       },

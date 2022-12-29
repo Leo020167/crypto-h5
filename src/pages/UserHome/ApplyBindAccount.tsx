@@ -128,7 +128,6 @@ const ApplyBindAccount = () => {
         <Radio.Group
           value={typeId}
           onChange={(val) => {
-            console.log(val);
             setTypeId(val as string);
           }}
         >

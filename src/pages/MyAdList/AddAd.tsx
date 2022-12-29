@@ -187,7 +187,6 @@ const AddAd = () => {
             ]}
             showCheckMark={false}
             onChange={(value) => {
-              console.log(value);
               if (value.length) {
                 setBuySell(value[0] as string);
               }

@@ -25,7 +25,6 @@ export const options = {
       return obj;
     },
     formatter(params: any) {
-      console.log(params);
       return [
         `<div class="flex justify-between">日期<span class="ml-2">${params[0].axisValue}</span></div>`,
         `<div class="flex justify-between">开<span class="ml-2">${params[0].value[1]}</span></div>`,
