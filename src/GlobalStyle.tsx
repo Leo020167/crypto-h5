@@ -56,6 +56,10 @@ const GlobalStyle = styled.createGlobalStyle`
     color: #fff;
     height: 44px;
     border-radius: 6px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .adm-nav-bar {

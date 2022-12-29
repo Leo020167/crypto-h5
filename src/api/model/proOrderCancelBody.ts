@@ -7,4 +7,5 @@
 
 export type ProOrderCancelBody = {
   orderId?: string;
+  type?: string;
 };

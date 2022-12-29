@@ -358,6 +358,8 @@ paths:
               properties:
                 orderId:
                   type: string
+                type:
+                  type: string
 
       responses:
         '200':
@@ -2764,9 +2766,7 @@ components:
           type: string
         address:
           type: string
-        qrcode:
-          type: string
-        chainTpe:
+        chainType:
           type: string
 
     ChargeConfig:

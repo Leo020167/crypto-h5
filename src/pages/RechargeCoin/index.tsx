@@ -1,6 +1,7 @@
 import { Selector, Toast } from 'antd-mobile';
 import { DownFill } from 'antd-mobile-icons';
 import { find } from 'lodash-es';
+import { QRCodeCanvas } from 'qrcode.react';
 import { useCallback, useMemo, useState } from 'react';
 import { useIntl } from 'react-intl';
 import { Link, useHistory } from 'react-router-dom';
@@ -41,15 +42,6 @@ const RechargeCoin = () => {
     },
   );
 
-  const options = useMemo(
-    () =>
-      coinList?.data?.chainTypeList?.map((v) => ({
-        value: v,
-        label: v,
-      })) ?? [],
-    [coinList?.data?.chainTypeList],
-  );
-
   const { data: chargeConfigs } = useGetChargeConfigs(
     { symbol },
     {
@@ -64,6 +56,15 @@ const RechargeCoin = () => {
     },
   );
 
+  const options = useMemo(
+    () =>
+      chargeConfigs?.data?.addressList?.map((v) => ({
+        value: v.chainType ?? '',
+        label: v.chainType ?? '',
+      })) ?? [],
+    [chargeConfigs?.data?.addressList],
+  );
+
   const addressList = useMemo(
     () => chargeConfigs?.data?.addressList ?? [],
     [chargeConfigs?.data?.addressList],
@@ -71,8 +72,9 @@ const RechargeCoin = () => {
 
   const currentAddress = useMemo(() => {
     return find(addressList, (v) => {
+      console.log(v);
       if (symbol === 'USDT') {
-        return v.chainTpe === chainType && v.symbol === symbol;
+        return v.chainType === chainType;
       }
       return v.symbol === symbol;
     });
@@ -81,6 +83,8 @@ const RechargeCoin = () => {
   const [, copyToClipboard] = useCopyToClipboard();
 
   const [image, setImage] = useState<string>();
+
+  console.log(currentAddress);
 
   const intl = useIntl();
 
@@ -189,11 +193,9 @@ const RechargeCoin = () => {
           <div className="border-t border-dashed border-[#E2E4F0] mt-5"></div>
 
           <div className="flex items-center justify-center mt-8">
-            <div className="w-[180px] h-[180px]">
-              {currentAddress?.qrcode && (
-                <img alt="" src={currentAddress?.qrcode} className="w-full h-full" />
-              )}
-            </div>
+            {!!currentAddress?.address && (
+              <QRCodeCanvas value={currentAddress?.address} width={180} height={180} />
+            )}
           </div>
 
           <div className="flex justify-center mt-8">

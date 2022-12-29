@@ -8,6 +8,5 @@
 export interface ChargeConfigAddress {
   symbol?: string;
   address?: string;
-  qrcode?: string;
-  chainTpe?: string;
+  chainType?: string;
 }

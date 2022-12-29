@@ -41,15 +41,15 @@ const TradeCurrentOpenPosition = ({ data = [] }: { data?: PaginationResponseData
           <div className="flex mt-2.5">
             <div className="flex flex-col w-1/3">
               <span className="text-xs text-gray-400">
-                {intl.formatMessage({ defaultMessage: '手數', id: 'g4FQPM' })}
+                {intl.formatMessage({ defaultMessage: '数量', id: 'fFmyYM' })}
               </span>
-              <span className="text-sm text-[#3d3a50]">{v.openHand}</span>
+              <span className="text-sm text-[#3d3a50]">{v.amount}</span>
             </div>
             <div className="flex flex-col w-1/3 items-center">
               <span className="text-xs text-gray-400">
-                {intl.formatMessage({ defaultMessage: '開倉價', id: 'ClVjxw' })}
+                {intl.formatMessage({ defaultMessage: '成本', id: '27fLgJ' })}
               </span>
-              <span className="text-sm text-[#3d3a50]">{v.openPrice}</span>
+              <span className="text-sm text-[#3d3a50]">{v.price}</span>
             </div>
             <div className="flex flex-col w-1/3 items-end">
               <span className="text-xs text-gray-400">

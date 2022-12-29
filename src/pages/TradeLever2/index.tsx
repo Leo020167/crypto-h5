@@ -3,6 +3,7 @@ import { stringify } from 'query-string';
 import { useState } from 'react';
 import { useIntl } from 'react-intl';
 import { Link } from 'react-router-dom';
+import { useInterval } from 'react-use';
 import styled from 'styled-components';
 import { NumberParam, StringParam, useQueryParam, withDefault } from 'use-query-params';
 import {
@@ -57,8 +58,9 @@ const TradeLever = () => {
       accountType: orderConfig?.data?.accountType,
       buySell: '',
       pageNo: '1',
-      orderState: '',
-      isDone: selected === '0' ? '1' : '0',
+      orderState: selected === '0' ? '1' : '0',
+      isDone: selected,
+      type: '2',
     },
     {
       query: {
@@ -66,6 +68,10 @@ const TradeLever = () => {
       },
     },
   );
+
+  useInterval(() => {
+    refetch();
+  }, 2000);
 
   const proOrderCancel = useProOrderCancel({
     mutation: {
@@ -158,6 +164,7 @@ const TradeLever = () => {
                     proOrderCancel.mutate({
                       data: {
                         orderId,
+                        type: '2',
                       },
                     });
                   },
