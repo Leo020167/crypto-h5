@@ -43,7 +43,7 @@ const TradeLever = () => {
   const quote = data?.data?.[symbol ?? ''];
 
   const { data: orderConfig } = useProOrderConfig(
-    { symbol: symbol ?? '' },
+    { symbol: symbol ?? '', type: '2' },
     {
       query: {
         enabled: !!symbol,

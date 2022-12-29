@@ -19,6 +19,8 @@
     "antd-mobile-icons": "^0.3.0",
     "axios": "^1.2.1",
     "currency.js": "^2.0.4",
+    "d3-interpolate": "^3.0.1",
+    "d3-scale": "^4.0.2",
     "echarts": "^5.4.1",
     "immer": "^9.0.16",
     "jotai": "^1.12.0",
@@ -45,6 +47,8 @@
   },
   "devDependencies": {
     "@formatjs/cli": "^5.1.12",
+    "@types/d3-interpolate": "^3.0.1",
+    "@types/d3-scale": "^4.0.2",
     "@types/js-md5": "^0.7.0",
     "@types/lodash-es": "^4.17.6",
     "@types/qs": "^6.9.7",

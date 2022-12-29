@@ -76,6 +76,7 @@ const TradeLeverDetails = ({
     hand: hand || '0',
     multiNum: '',
     orderType: orderTypeOption.value,
+    type: '2',
   });
 
   useEffect(() => {
@@ -209,6 +210,7 @@ const TradeLeverDetails = ({
                 hand: hand || '0',
                 multiNum: '',
                 orderType: orderTypeOption.value,
+                type: '2',
               },
             });
           }}

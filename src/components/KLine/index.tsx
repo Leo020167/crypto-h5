@@ -1,15 +1,18 @@
 import currency from 'currency.js';
+
+import { scaleLinear } from 'd3-scale';
 import { ECharts } from 'echarts/core';
 import { clamp, isNumber, last, orderBy } from 'lodash-es';
 import moment from 'moment';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { useIntl } from 'react-intl';
 import useSwitchColor from '../../hooks/useSwitchColor';
-import { useKline } from '../../market/endpoints/marketWithTransformer';
+import { kline } from '../../market/endpoints/marketWithTransformer';
 import myECharts from '../../my-echarts';
-
 const upColor = '#08a886';
 const downColor = '#e1234d';
+
+const scale = scaleLinear().domain([0, 250, 350]).range([0, 70, 85]);
 
 export interface Stock {
   date: number;
@@ -97,39 +100,48 @@ const KLine = ({
     const vma5Data = calculateMA(5, values, 4);
     const vma10Data = calculateMA(10, values, 4);
 
-    myChartRef.current?.setOption({
-      xAxis: [
-        {
-          data: dates,
-        },
-        {
-          data: dates,
-        },
-      ],
-      series: [
-        {
-          data: values,
-        },
-        {
-          data: ma5Data,
-        },
-        {
-          data: ma10Data,
-        },
-        {
-          data: ma30Data,
-        },
-        {
-          data: volumes,
-        },
-        {
-          data: vma5Data,
-        },
-        {
-          data: vma10Data,
-        },
-      ],
-    });
+    myChartRef.current?.setOption(
+      {
+        dataZoom: [
+          {
+            start: scale(rawDataRef.current.length),
+            end: 100,
+          },
+        ],
+        xAxis: [
+          {
+            data: dates,
+          },
+          {
+            data: dates,
+          },
+        ],
+        series: [
+          {
+            data: values,
+          },
+          {
+            data: ma5Data,
+          },
+          {
+            data: ma10Data,
+          },
+          {
+            data: ma30Data,
+          },
+          {
+            data: volumes,
+          },
+          {
+            data: vma5Data,
+          },
+          {
+            data: vma10Data,
+          },
+        ],
+      },
+      false,
+    );
 
     myChartRef.current?.on('datazoom', (params: any) => {
       const start = params.batch[0].start;
@@ -205,77 +217,69 @@ const KLine = ({
     setDates();
   }, [precision]);
 
-  useKline(
-    {
-      symbol: symbol ?? '',
-      klineType: klineType,
-      timestamp: '',
-      type: 'v',
-    },
-    {
-      query: {
-        onSuccess(data) {
-          if (Number(data.code) === 200) {
-            const result: Stock[] = [];
-            data?.data?.kline?.split(';').map((v) => {
-              // 1558713600,0.08163400,0.08278000,0.07951000,0.08131500,60550314.39726961;
-              // 1日期,2开盘,3最高,4最低,5收盘(最近成交),成交量
-              const d = v.split(',');
-              if (d.length === 6) {
-                result.push({
-                  date: Number(d[0]),
-                  open: Number(d[1]),
-                  highest: Number(d[2]),
-                  lowest: Number(d[3]),
-                  close: Number(d[4]),
-                  volume: Number(d[5]),
-                });
-              }
+  const refetch = useCallback(() => {
+    kline({ symbol: symbol ?? '', klineType: klineType, timestamp: '', type: 'v' }).then((data) => {
+      if (Number(data.code) === 200) {
+        const result: Stock[] = [];
+        data?.data?.kline?.split(';').map((v) => {
+          // 1558713600,0.08163400,0.08278000,0.07951000,0.08131500,60550314.39726961;
+          // 1日期,2开盘,3最高,4最低,5收盘(最近成交),成交量
+          const d = v.split(',');
+          if (d.length === 6) {
+            result.push({
+              date: Number(d[0]),
+              open: Number(d[1]),
+              highest: Number(d[2]),
+              lowest: Number(d[3]),
+              close: Number(d[4]),
+              volume: Number(d[5]),
             });
-
-            const stocks = result;
-
-            const rawData = orderBy(stocks, (v) => v.date, ['asc']).map((v, index) => {
-              const format = ['day', 'week'].includes(klineType)
-                ? 'YYYY-MM-DD'
-                : 'YYYY-MM-DD HH:mm';
-              const date = moment(v.date * 1000).format(format);
-
-              let open = v.open;
-              const close = v.close;
-              let lowest = v.lowest;
-              let highest = v.highest;
-              const volume = v.volume;
-
-              if (v.close > 0 && v.open <= 0) {
-                open = v.close;
-                lowest = v.close;
-                highest = v.close;
-              }
-
-              const result = { date, open, close, lowest, highest, volume, rate: 0, amt: 0 };
-              if (index > 0) {
-                let amt = close - stocks[index - 1].close;
-                let rate = (amt * 100) / stocks[index - 1].close;
-                if (rate <= -100) {
-                  rate = 0;
-                  amt = 0;
-                }
-
-                result.rate = rate;
-                result.amt = amt;
-              }
-              return result;
-            });
-
-            rawDataRef.current = rawData;
-
-            setOptions();
           }
-        },
-      },
-    },
-  );
+        });
+
+        const stocks = result;
+
+        const rawData = orderBy(stocks, (v) => v.date, ['asc']).map((v, index) => {
+          const format = ['day', 'week'].includes(klineType) ? 'YYYY-MM-DD' : 'YYYY-MM-DD HH:mm';
+          const date = moment(v.date * 1000).format(format);
+
+          let open = v.open;
+          const close = v.close;
+          let lowest = v.lowest;
+          let highest = v.highest;
+          const volume = v.volume;
+
+          if (v.close > 0 && v.open <= 0) {
+            open = v.close;
+            lowest = v.close;
+            highest = v.close;
+          }
+
+          const result = { date, open, close, lowest, highest, volume, rate: 0, amt: 0 };
+          if (index > 0) {
+            let amt = close - stocks[index - 1].close;
+            let rate = (amt * 100) / stocks[index - 1].close;
+            if (rate <= -100) {
+              rate = 0;
+              amt = 0;
+            }
+
+            result.rate = rate;
+            result.amt = amt;
+          }
+          return result;
+        });
+
+        rawDataRef.current = rawData;
+
+        setOptions();
+      }
+    });
+  }, [klineType, setOptions, symbol]);
+
+  useEffect(() => {
+    refetch();
+  }, [refetch]);
 
   useEffect(() => {
     if (ref.current) {
@@ -478,7 +482,7 @@ const KLine = ({
           {
             type: 'inside',
             xAxisIndex: [0, 1],
-            start: 86,
+            start: rawDataRef.current.length < 150 ? 15 : 86,
             end: 100,
           },
         ],

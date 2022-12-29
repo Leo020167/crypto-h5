@@ -4,7 +4,7 @@ import { stringDateFormat } from '../../utils/date';
 
 const DealList = ({ real }: { real?: QuoteReal }) => {
   const intl = useIntl();
-  console.log(real);
+
   return (
     <div className=" mt-2">
       <div className="flex items-center">

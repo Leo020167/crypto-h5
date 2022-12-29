@@ -12,4 +12,5 @@ export type ProOrderCheckOutBody = {
   hand?: string;
   multiNum?: string;
   orderType?: string;
+  type?: string;
 };

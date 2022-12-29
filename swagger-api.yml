@@ -520,6 +520,8 @@ paths:
               properties:
                 symbol:
                   type: string
+                type:
+                  type: string
 
       responses:
         '200':
@@ -549,6 +551,8 @@ paths:
                 multiNum:
                   type: string
                 orderType:
+                  type: string
+                type:
                   type: string
 
       responses:

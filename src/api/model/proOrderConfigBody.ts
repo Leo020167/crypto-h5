@@ -7,4 +7,5 @@
 
 export type ProOrderConfigBody = {
   symbol?: string;
+  type?: string;
 };

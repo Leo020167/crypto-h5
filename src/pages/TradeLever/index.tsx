@@ -3,6 +3,7 @@ import { stringify } from 'query-string';
 import { useState } from 'react';
 import { useIntl } from 'react-intl';
 import { Link } from 'react-router-dom';
+import { useInterval } from 'react-use';
 import styled from 'styled-components';
 import { NumberParam, StringParam, useQueryParam, withDefault } from 'use-query-params';
 import {
@@ -66,6 +67,10 @@ const TradeLever = () => {
       },
     },
   );
+
+  useInterval(() => {
+    refetch();
+  }, 2000);
 
   const proOrderCancel = useProOrderCancel({
     mutation: {
