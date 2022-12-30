@@ -15,6 +15,7 @@ import type {
 } from '@tanstack/react-query';
 import type {
   CommonResponse,
+  SetPayPass200,
   SetPayPassBody,
   SearchCoinResponse,
   SearchCoinBody,
@@ -145,8 +146,43 @@ import type { ErrorType } from '../mutator/custom-instance';
 /**
  * 設置交易密碼
  */
+export const homeConfig = () => {
+  return customInstance<CommonResponse>({ url: `/home/config.do`, method: 'post' });
+};
+
+export const getHomeConfigQueryKey = () => [`/home/config.do`];
+
+export type HomeConfigQueryResult = NonNullable<Awaited<ReturnType<typeof homeConfig>>>;
+export type HomeConfigQueryError = ErrorType<unknown>;
+
+export const useHomeConfig = <
+  TData = Awaited<ReturnType<typeof homeConfig>>,
+  TError = ErrorType<unknown>,
+>(options?: {
+  query?: UseQueryOptions<Awaited<ReturnType<typeof homeConfig>>, TError, TData>;
+}): UseQueryResult<TData, TError> & { queryKey: QueryKey } => {
+  const { query: queryOptions } = options ?? {};
+
+  const queryKey = queryOptions?.queryKey ?? getHomeConfigQueryKey();
+
+  const queryFn: QueryFunction<Awaited<ReturnType<typeof homeConfig>>> = () => homeConfig();
+
+  const query = useQuery<Awaited<ReturnType<typeof homeConfig>>, TError, TData>(
+    queryKey,
+    queryFn,
+    queryOptions,
+  ) as UseQueryResult<TData, TError> & { queryKey: QueryKey };
+
+  query.queryKey = queryKey;
+
+  return query;
+};
+
+/**
+ * 設置交易密碼
+ */
 export const setPayPass = (setPayPassBody: SetPayPassBody) => {
-  return customInstance<CommonResponse>({
+  return customInstance<SetPayPass200>({
     url: `/user/security/setPayPass.do`,
     method: 'post',
     headers: { 'Content-Type': 'application/json' },

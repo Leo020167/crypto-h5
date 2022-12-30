@@ -5,6 +5,19 @@ info:
 servers:
   - url: http://api.piglobalexchanges.com
 paths:
+  /home/config.do:
+    post:
+      operationId: 'homeConfig'
+      description: '設置交易密碼'
+
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CommonResponse'
+
   /user/security/setPayPass.do:
     post:
       operationId: 'setPayPass'
@@ -32,7 +45,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/CommonResponse'
+                allOf:
+                  - $ref: '#/components/schemas/CommonResponse'
+                  - properties:
+                      data:
+                        type: object
+                        properties:
+                          downloadUrl:
+                            type: string
 
   /search/coin.do:
     post:
@@ -2309,6 +2329,10 @@ components:
                   type: string
                 usdtRate:
                   type: string
+                openRateList:
+                  type: array
+                  items:
+                    type: number
 
     GetFollowTypesResponse:
       allOf:

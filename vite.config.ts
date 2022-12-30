@@ -10,16 +10,18 @@ import svgr from 'vite-plugin-svgr';
 export default defineConfig({
   server: {
     proxy: {
+      // http://api.piglobalexchanges.com/procoin/swagger/index.html#/
+      // http://api.worldcoinservice.com/procoin/swagger/index.html#/
       '/procoin-market': {
-        target: 'http://market.piglobalexchanges.com',
+        target: 'http://market.worldcoinservice.com',
         changeOrigin: true,
       },
       '/procoin-file': {
-        target: 'http://upload.piglobalexchanges.com',
+        target: 'http://upload.worldcoinservice.com',
         changeOrigin: true,
       },
       '/procoin': {
-        target: 'http://api.piglobalexchanges.com',
+        target: 'http://api.worldcoinservice.com',
         changeOrigin: true,
       },
     },

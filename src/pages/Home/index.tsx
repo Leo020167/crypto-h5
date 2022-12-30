@@ -1,11 +1,12 @@
 import { List, Swiper, Tabs } from 'antd-mobile';
+import { ArrowDownCircleOutline } from 'antd-mobile-icons';
 import { useAtomValue } from 'jotai';
 import { stringify } from 'query-string';
 import { useCallback, useMemo, useState } from 'react';
 import { useIntl } from 'react-intl';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { useHomeAccount, useHomeCropMe } from '../../api/endpoints/transformer';
+import { useHomeAccount, useHomeConfig, useHomeCropMe } from '../../api/endpoints/transformer';
 import ic_default_head from '../../assets/ic_default_head.png';
 import lvjiantou from '../../assets/lvjiantou.png';
 
@@ -14,7 +15,7 @@ import tab1_menu2 from '../../assets/tab1_menu2.png';
 import tab1_menu3 from '../../assets/tab1_menu3.png';
 import tab1_menu4 from '../../assets/tab1_menu4.png';
 import tab1_menu5 from '../../assets/tab1_menu5.png';
-import tab2_2 from '../../assets/tab2_2.png';
+
 import xiaolaba from '../../assets/xiaolaba.png';
 import { localeStateAtom, switchColorValueAtom } from '../../atoms';
 import { useMarketData, useQuoteHomePage } from '../../market/endpoints/marketWithTransformer';
@@ -30,6 +31,8 @@ const Home = () => {
   const { data: homeAccount } = useHomeAccount();
 
   const { data: homeCropMe } = useHomeCropMe();
+
+  const { data: homeConfig } = useHomeConfig();
 
   const { data: quoteHomePage } = useQuoteHomePage();
 
@@ -68,17 +71,23 @@ const Home = () => {
           />
         </Link>
 
-        <div className="flex-1 flex justify-center">
-          <img alt="" src={tab2_2} className="w-[76px] h-[31px] " />
-        </div>
+        <div className="flex-1 flex justify-center"></div>
 
-        <Link to="/languages">
-          <img
-            alt=""
-            src={`/languages/${localeState.locale}.png`}
-            className="w-6 h-6 rounded-full"
-          />
-        </Link>
+        <div className="flex items-center">
+          {homeConfig?.data?.downloadUrl && (
+            <a target="_blank" href={homeConfig?.data?.downloadUrl} rel="noreferrer">
+              <ArrowDownCircleOutline className="text-2xl mr-4 " color="rgb(0, 186, 118)" />
+            </a>
+          )}
+
+          <Link to="/languages">
+            <img
+              alt=""
+              src={`/languages/${localeState.locale}.png`}
+              className="w-6 h-6 rounded-full"
+            />
+          </Link>
+        </div>
       </div>
 
       <div className="mt-3 shadow-md shadow-black/5 bg-white rounded-lg overflow-hidden h-[150px]">

@@ -73,7 +73,7 @@ const TradeLeverDetails = ({
     symbol: symbol ?? '',
     buySell: buySell === 1 ? 'buy' : 'sell',
     price: calcPrice,
-    hand: hand || '0',
+    hand: '0',
     multiNum: '',
     orderType: orderTypeOption.value,
     type: '2',
@@ -119,7 +119,7 @@ const TradeLeverDetails = ({
   );
 
   return (
-    <Container>
+    <Container buySell={buySell ?? 1}>
       <div className="flex text-sm gap-2">
         <Select
           value={orderTypeOption}
@@ -174,7 +174,29 @@ const TradeLeverDetails = ({
         <span className="text-[#666175ae]">{symbol}</span>
       </div>
 
-      <div className="mt-1 text-xs flex items-center justify-between">
+      <div className="flex mt-2 border-[#efefef]">
+        {config?.openRateList?.map((v, i) => (
+          <a
+            className="flex-1 py-2 flex items-center justify-center active:border-green-600 hand"
+            key={i}
+            onClick={() => {
+              const precision = Number(orderCheckOut?.data?.maxHand?.split('.')?.[1]?.length ?? 2);
+
+              setHand(
+                currency(orderCheckOut?.data?.maxHand ?? '0', {
+                  symbol: '',
+                  separator: '',
+                  precision,
+                })
+                  .multiply(v / 100)
+                  .format(),
+              );
+            }}
+          >{`${v}%`}</a>
+        ))}
+      </div>
+
+      <div className="mt-3 text-xs flex items-center justify-between">
         <div>
           <div className="text-[#6175ae]">
             {buySell === 1
@@ -194,7 +216,7 @@ const TradeLeverDetails = ({
 
       <div>
         <a
-          className="flex items-center justify-center h-12 text-white mt-4 text-sm"
+          className="flex items-center justify-center h-12 text-white mt-2 text-sm"
           style={{ backgroundColor: buySell === 1 ? '#00AD88' : '#E2214E' }}
           onClick={() => {
             if (orderTypeOption.value === 'limit' && !calcPrice) {
@@ -224,7 +246,17 @@ const TradeLeverDetails = ({
   );
 };
 
-const Container = styled.div`
+const Container = styled.div<{ buySell: number }>`
+  .hand {
+    border: 1px solid #f3f3f3;
+    &:active {
+      border-color: ${(props) => (props.buySell === 1 ? '#00AD88' : '#E2214E')};
+      color: ${(props) => (props.buySell === 1 ? '#00AD88' : '#E2214E')};
+    }
+    &:not(:last-child) {
+      margin-right: -1px;
+    }
+  }
   .adm-input-element {
     &::placeholder {
       color: #c8c8c8;

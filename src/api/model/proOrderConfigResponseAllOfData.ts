@@ -13,4 +13,5 @@ export type ProOrderConfigResponseAllOfData = {
   openFeeScale?: string;
   priceDecimals?: string;
   usdtRate?: string;
+  openRateList?: number[];
 };

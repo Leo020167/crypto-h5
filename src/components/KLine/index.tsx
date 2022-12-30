@@ -27,7 +27,7 @@ function calculateMA(dayCount: number, values: number[][], cursor = 1) {
   const result = [];
   for (let i = 0, len = values.length; i < len; i++) {
     if (i < dayCount) {
-      result.push('-');
+      result.push('');
       continue;
     }
     let sum = 0;

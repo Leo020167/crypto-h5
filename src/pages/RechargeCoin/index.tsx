@@ -1,6 +1,6 @@
 import { Selector, Toast } from 'antd-mobile';
 import { DownFill } from 'antd-mobile-icons';
-import { find } from 'lodash-es';
+import { find, first } from 'lodash-es';
 import { QRCodeCanvas } from 'qrcode.react';
 import { useCallback, useMemo, useState } from 'react';
 import { useIntl } from 'react-intl';
@@ -27,20 +27,9 @@ const RechargeCoin = () => {
 
   const [amount, setAmount] = useState<string>();
 
-  const { data: coinList } = useGetCoinList(
-    {
-      inOut: 1,
-    },
-    {
-      query: {
-        onSuccess(data) {
-          if (data.code === '200') {
-            setChainType(data.data?.chainTypeList?.[0], 'replaceIn');
-          }
-        },
-      },
-    },
-  );
+  const { data: coinList } = useGetCoinList({
+    inOut: 1,
+  });
 
   const { data: chargeConfigs } = useGetChargeConfigs(
     { symbol },
@@ -50,6 +39,11 @@ const RechargeCoin = () => {
         onSuccess(data) {
           if (data.code === '200') {
             setAmount(data.data?.minChargeAmount);
+
+            const address = first(data.data?.addressList);
+            if (address) {
+              setChainType(address.chainType, 'replaceIn');
+            }
           }
         },
       },

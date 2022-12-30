@@ -89,7 +89,7 @@ const TradeLever = () => {
   return (
     <Screen headerTitle={symbol}>
       <div className="flex-1 overflow-y-auto bg-gray-100">
-        <div className="flex bg-white p-4 gap-4">
+        <div className="flex bg-white py-4 px-2 gap-4">
           <div className="w-3/5">
             <div className="flex items-center mb-2">
               <SelectorSwitchBuy

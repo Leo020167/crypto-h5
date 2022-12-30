@@ -1,4 +1,4 @@
-import { Button, Form, Input, Toast } from 'antd-mobile';
+import { Button, Form, Input } from 'antd-mobile';
 import { EyeInvisibleOutline, EyeOutline } from 'antd-mobile-icons';
 import md5 from 'js-md5';
 import { useState } from 'react';
@@ -6,9 +6,11 @@ import { useIntl } from 'react-intl';
 import { Link, useHistory } from 'react-router-dom';
 import { useLocation } from 'react-use';
 import styled from 'styled-components';
+import SwipeImageValidator from '../../components/SwipeImageValidator';
 import { useAuthStore } from '../../stores/auth';
 
 const Login = () => {
+  const [open, setOpen] = useState(false);
   const [visible, setVisible] = useState(false);
 
   const [username, setUsername] = useState<string>('');
@@ -19,7 +21,6 @@ const Login = () => {
   const location = useLocation();
   const from = location.state?.from?.pathname || '/home';
 
-  const [loading, setLoading] = useState(false);
   const authStore = useAuthStore();
 
   const intl = useIntl();
@@ -37,38 +38,10 @@ const Login = () => {
         </h1>
         <div>
           <Form
-            onFinish={() => {
-              setLoading(true);
-              const isEmail =
-                /^\w+((.\w+)|(-\w+))@[A-Za-z0-9]+((.|-)[A-Za-z0-9]+).[A-Za-z0-9]+$/.test(username);
-
-              authStore
-                .login({
-                  phone: isEmail ? '' : username,
-                  type: isEmail ? 2 : 1,
-                  email: isEmail ? username : '',
-                  userPass: md5(password ?? ''),
-                  platform: 'web',
-                  smsCode: '',
-                })
-                .then(async (data) => {
-                  if (data.code === '200') {
-                    history.replace(from);
-                  } else {
-                    Toast.show(data.msg);
-                  }
-                })
-                .finally(() => setLoading(false));
-            }}
+            onFinish={() => setOpen(true)}
             footer={
               <div>
-                <Button
-                  block
-                  type="submit"
-                  color="primary"
-                  className="rounded-none"
-                  loading={loading}
-                >
+                <Button block type="submit" color="primary" className="rounded-none">
                   {intl.formatMessage({ defaultMessage: '登錄', id: 'wAPEnf' })}
                 </Button>
                 <div className="text-center mt-4">
@@ -105,6 +78,36 @@ const Login = () => {
           </Form>
         </div>
       </Container>
+      <SwipeImageValidator
+        title={intl.formatMessage({
+          defaultMessage: '拖動圖片完成驗證',
+          id: 'Xr6MgR',
+        })}
+        open={open}
+        onClose={() => setOpen(false)}
+        onSuccess={(locationx, dragImgKey) => {
+          const isEmail = /^\w+((.\w+)|(-\w+))@[A-Za-z0-9]+((.|-)[A-Za-z0-9]+).[A-Za-z0-9]+$/.test(
+            username,
+          );
+
+          authStore
+            .login({
+              locationx,
+              dragImgKey,
+              phone: isEmail ? '' : username,
+              type: isEmail ? 2 : 1,
+              email: isEmail ? username : '',
+              userPass: md5(password ?? ''),
+              platform: 'web',
+              smsCode: '',
+            })
+            .then(async () => {
+              history.replace(from);
+            });
+
+          setOpen(false);
+        }}
+      />
     </div>
   );
 };

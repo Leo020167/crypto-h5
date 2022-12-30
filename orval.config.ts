@@ -59,6 +59,11 @@ export default defineConfig({
           name: 'customInstance',
         },
         operations: {
+          homeConfig: {
+            query: {
+              useQuery: true,
+            },
+          },
           searchCoin: {
             query: {
               useQuery: true,
