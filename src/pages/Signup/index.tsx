@@ -30,6 +30,10 @@ const Signup = () => {
 
   const intl = useIntl();
 
+  useEffect(() => {
+    setValue({ type: 1 });
+  }, [setValue]);
+
   return (
     <Container className="h-screen bg-white">
       <NavBar
@@ -66,7 +70,7 @@ const Signup = () => {
               return;
             }
 
-            setValue({ ...values, countryCode: country.code });
+            setValue({ ...value, ...values, countryCode: country.code });
 
             history.push({
               pathname: '/captcha',
