@@ -67,7 +67,7 @@ const TakeCoin = () => {
           return;
         }
 
-        if (data.code === '40031') {
+        if (Number(data.code) === 40031) {
           Dialog.confirm({
             content: intl.formatMessage({ defaultMessage: '未設置交易密碼', id: 'Ck6JdO' }),
             confirmText: intl.formatMessage({ defaultMessage: '去設置', id: 'COl7RF' }),
@@ -75,6 +75,7 @@ const TakeCoin = () => {
               history.push('/setting-pay-password');
             },
           });
+          return;
         }
       },
     },
