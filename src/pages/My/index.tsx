@@ -9,8 +9,8 @@ import { useGetUnreadCount, useIdentityGet } from '../../api/endpoints/transform
 import defaultHead from '../../assets/ic_default_head.png';
 import ic_home_mine_help from '../../assets/ic_home_mine_help.png';
 import ic_home_mine_kefu from '../../assets/ic_home_mine_kefu.png';
-import ic_home_mine_setting from '../../assets/ic_home_mine_kefu.png';
 import ic_home_mine_notice from '../../assets/ic_home_mine_notice.png';
+import ic_home_mine_setting from '../../assets/ic_home_mine_setting.png';
 import ic_home_mine_shiming from '../../assets/ic_home_mine_shiming.png';
 import ic_home_mine_stock from '../../assets/ic_home_mine_stock.png';
 import ic_home_mine_youxiang from '../../assets/ic_home_mine_youxiang.png';

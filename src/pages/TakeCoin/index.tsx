@@ -1,22 +1,20 @@
 import { Button, Dialog, Input, Popup, Selector, Toast } from 'antd-mobile';
 import { DownFill, RightOutline } from 'antd-mobile-icons';
-import { stringify } from 'query-string';
 import { useState, useMemo, useCallback } from 'react';
 import { useIntl } from 'react-intl';
 import { Link, useHistory } from 'react-router-dom';
-import { useLocation } from 'react-use';
 import styled from 'styled-components';
 import { withDefault, StringParam, useQueryParam } from 'use-query-params';
 import {
   useAddressList,
   useGetCoinList,
   useGetWithdrawConfigs,
+  useIdentityGet,
   useWithdrawSubmit,
 } from '../../api/endpoints/transformer';
 import { Address } from '../../api/model';
 
 import Screen from '../../components/Screen';
-import { useAuthStore } from '../../stores/auth';
 import CoinSymbolSelectDialog from '../RechargeCoin/CoinSymbolSelectDialog';
 
 const SymbolParam = withDefault(StringParam, 'USDT');
@@ -30,12 +28,6 @@ const TakeCoin = () => {
 
   const history = useHistory();
 
-  const { userInfo } = useAuthStore();
-
-  const location = useLocation();
-
-  const isAuthTakeCoin = location.state?.success ?? false;
-
   const { data: configs } = useGetWithdrawConfigs({ symbol: symbol });
 
   const { data: coinList } = useGetCoinList(
@@ -46,7 +38,7 @@ const TakeCoin = () => {
       query: {
         onSuccess(data) {
           if (data.code === '200') {
-            setChainType(data.data?.chainTypeList?.[0]);
+            setChainType(data.data?.chainTypeList?.[0], 'replaceIn');
           }
         },
       },
@@ -72,10 +64,23 @@ const TakeCoin = () => {
       onSuccess(data) {
         if (data.code === '200') {
           Toast.show(intl.formatMessage({ defaultMessage: '申請成功提交', id: 'vo78d9' }));
+          return;
+        }
+
+        if (data.code === '40031') {
+          Dialog.confirm({
+            content: intl.formatMessage({ defaultMessage: '未設置交易密碼', id: 'Ck6JdO' }),
+            confirmText: intl.formatMessage({ defaultMessage: '去設置', id: 'COl7RF' }),
+            onConfirm() {
+              history.push('/setting-pay-password');
+            },
+          });
         }
       },
     },
   });
+
+  const { data: identityGet } = useIdentityGet();
 
   const handleFinish = useCallback(() => {
     if (!address) {
@@ -91,7 +96,9 @@ const TakeCoin = () => {
       return;
     }
 
-    if (isAuthTakeCoin) {
+    // 判断是否实名
+
+    if (identityGet?.data?.identityAuth?.state === '1') {
       Dialog.confirm({
         content: (
           <div>
@@ -122,33 +129,37 @@ const TakeCoin = () => {
         },
       });
     } else {
+      Dialog.confirm({
+        content: intl.formatMessage({ defaultMessage: '未通過實名認證', id: 'ZJkNVt' }),
+        confirmText: intl.formatMessage({ defaultMessage: '去實名', id: '0vdo6W' }),
+        onConfirm() {
+          history.push('/verified');
+        },
+      });
       //如果未通过手机验证
-      if (userInfo?.phone) {
-        history.push({
-          pathname: '/phone-auth-code',
-          search: stringify({
-            type: 1,
-            phone: userInfo?.phone,
-            email: userInfo?.email,
-            redirectUrl: location.pathname,
-          }),
-        });
-      } else {
-        history.push('/bind-phone');
-      }
+      // if (userInfo?.phone) {
+      //   history.push({
+      //     pathname: '/phone-auth-code',
+      //     search: stringify({
+      //       type: 1,
+      //       phone: userInfo?.phone,
+      //       email: userInfo?.email,
+      //       redirectUrl: location.pathname,
+      //     }),
+      //   });
+      // } else {
+      //   history.push('/bind-phone');
+      // }
     }
   }, [
     address,
     amount,
     configs?.data?.fee,
-    isAuthTakeCoin,
+    identityGet?.data?.identityAuth?.state,
     intl,
     symbol,
     withdrawSubmit,
-    userInfo?.phone,
-    userInfo?.email,
     history,
-    location.pathname,
   ]);
 
   const { data: addressList } = useAddressList({ symbol: symbol, chainType: chainType ?? '' });
@@ -301,12 +312,19 @@ const TakeCoin = () => {
             </span>
           </div>
 
-          <Button block className="btn-purple mt-4" onClick={handleFinish}>
-            {intl.formatMessage({
-              defaultMessage: '提币',
-              id: '42lXMM',
-            })}
-          </Button>
+          <div className="mt-4">
+            <Button
+              block
+              className="btn-purple "
+              onClick={handleFinish}
+              loading={withdrawSubmit.isLoading}
+            >
+              {intl.formatMessage({
+                defaultMessage: '提币',
+                id: '42lXMM',
+              })}
+            </Button>
+          </div>
         </div>
       </Container>
 

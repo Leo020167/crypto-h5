@@ -13,7 +13,7 @@
     "lint": "eslint . --ext .ts,.tsx"
   },
   "dependencies": {
-    "@tanstack/react-query": "^4.20.4",
+    "@tanstack/react-query": "^4.20.9",
     "add": "^2.0.6",
     "antd-mobile": "^5.27.0",
     "antd-mobile-icons": "^0.3.0",
@@ -22,7 +22,7 @@
     "d3-interpolate": "^3.0.1",
     "d3-scale": "^4.0.2",
     "echarts": "^5.4.1",
-    "immer": "^9.0.16",
+    "immer": "^9.0.17",
     "jotai": "^1.12.1",
     "jotai-zustand": "^0.1.0",
     "js-md5": "^0.7.3",
@@ -43,7 +43,7 @@
     "styled-components": "^5.3.6",
     "use-query-params": "^2.1.2",
     "yarn": "^1.22.19",
-    "zustand": "^4.1.5"
+    "zustand": "^4.2.0"
   },
   "devDependencies": {
     "@formatjs/cli": "^5.1.12",
@@ -56,13 +56,13 @@
     "@types/react-dom": "^18.0.10",
     "@types/react-router-dom": "^5.3.3",
     "@types/styled-components": "^5.1.26",
-    "@typescript-eslint/eslint-plugin": "^5.47.1",
-    "@typescript-eslint/parser": "^5.47.1",
+    "@typescript-eslint/eslint-plugin": "^5.48.0",
+    "@typescript-eslint/parser": "^5.48.0",
     "@vitejs/plugin-legacy": "^3.0.1",
-    "@vitejs/plugin-react": "^3.0.0",
+    "@vitejs/plugin-react": "^3.0.1",
     "autoprefixer": "^10.4.13",
     "eslint": "^8.31.0",
-    "eslint-config-prettier": "^8.5.0",
+    "eslint-config-prettier": "^8.6.0",
     "eslint-import-resolver-typescript": "^3.5.2",
     "eslint-plugin-formatjs": "^4.3.9",
     "eslint-plugin-import": "^2.26.0",
@@ -76,7 +76,7 @@
     "tailwindcss": "^3.2.4",
     "terser": "^5.16.1",
     "typescript": "^4.9.4",
-    "vite": "^4.0.3",
+    "vite": "^4.0.4",
     "vite-plugin-imp": "^2.3.1",
     "vite-plugin-svgr": "^2.4.0"
   },

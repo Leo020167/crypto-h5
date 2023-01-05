@@ -1,4 +1,13 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { ConfigProvider } from 'antd-mobile';
+import enUS from 'antd-mobile/es/locales/en-US';
+import esES from 'antd-mobile/es/locales/es-ES';
+import frFR from 'antd-mobile/es/locales/fr-FR';
+import jaJP from 'antd-mobile/es/locales/ja-JP';
+import koKR from 'antd-mobile/es/locales/ko-KR';
+import zhCN from 'antd-mobile/es/locales/zh-CN';
+import zhTW from 'antd-mobile/es/locales/zh-TW';
+
 import { useAtomValue } from 'jotai';
 import { parse, stringify } from 'query-string';
 import { useEffect, useRef, useState } from 'react';
@@ -10,6 +19,16 @@ import GlobalStyle from './GlobalStyle';
 import Routes from './Routes';
 import { localeStateAtom } from './atoms';
 import { useAuthStore } from './stores/auth';
+
+const localeMap: { [key: string]: any } = {
+  en: enUS,
+  es: esES,
+  fr: frFR,
+  ja: jaJP,
+  ko: koKR,
+  'zh-CN': zhCN,
+  'zh-TW': zhTW,
+};
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -70,12 +89,14 @@ function App() {
         key={localeState.locale}
         messages={getKeyValueJson(messages)}
       >
-        <HashRouter>
-          <QueryParamProvider adapter={ReactRouter5Adapter} options={options}>
-            <Routes />
-          </QueryParamProvider>
-        </HashRouter>
-        <GlobalStyle />
+        <ConfigProvider locale={localeMap[localeState.locale] ?? enUS}>
+          <HashRouter>
+            <QueryParamProvider adapter={ReactRouter5Adapter} options={options}>
+              <Routes />
+            </QueryParamProvider>
+          </HashRouter>
+          <GlobalStyle />
+        </ConfigProvider>
       </IntlProvider>
     </QueryClientProvider>
   );
