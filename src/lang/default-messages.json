@@ -74,6 +74,9 @@
   "0asaCS": {
     "string": "圖片"
   },
+  "0vdo6W": {
+    "string": "去實名"
+  },
   "0vuz1g": {
     "string": "新增收款方式"
   },
@@ -437,6 +440,9 @@
   "CKdped": {
     "string": "委托"
   },
+  "COl7RF": {
+    "string": "去設置"
+  },
   "CTWCcu": {
     "string": "全部買入"
   },
@@ -448,6 +454,9 @@
   },
   "ChK/7j": {
     "string": "到"
+  },
+  "Ck6JdO": {
+    "string": "未設置交易密碼"
   },
   "ClVjxw": {
     "string": "開倉價"
@@ -1171,6 +1180,9 @@
   },
   "ZH7DS8": {
     "string": "漲幅榜"
+  },
+  "ZJkNVt": {
+    "string": "未通過實名認證"
   },
   "ZOabtQ": {
     "string": "申訴截圖(可選)"
