@@ -170,8 +170,7 @@ const SubscribeDetail = () => {
               style={{ backgroundColor: currentState.color }}
               onClick={() => {
                 if (detailState === '1') {
-                  setVisible(true);
-                } else if (detailState === '2') {
+                  // TODO 確認
                   history.push({
                     pathname: '/market2',
                     search: stringify({ isLever: 1, symbol: detail?.symbol }),

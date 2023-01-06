@@ -20,7 +20,7 @@ const SubscribeList = () => {
 
   const items = useMemo(() => {
     if (data?.data?.length) {
-      return data?.data.filter((v) => v.state === tab); // TODO
+      return data?.data.filter((v) => v.state === tab);
     }
     return [];
   }, [data?.data, tab]);
