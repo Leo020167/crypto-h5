@@ -17,4 +17,6 @@ export interface GetSubscribeListItem {
   summary?: string;
   symbol?: string;
   title?: string;
+  progress?: string;
+  rate?: string;
 }

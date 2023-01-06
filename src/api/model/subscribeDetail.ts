@@ -28,4 +28,5 @@ export interface SubscribeDetail {
   tradeTime?: string;
   userCount?: string;
   warning?: string;
+  progress?: string;
 }

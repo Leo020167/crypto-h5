@@ -310,7 +310,7 @@ export const useApplySubscribe = <TError = ErrorType<unknown>, TContext = unknow
 };
 
 /**
- * http發送文字聊天
+ * 获取数字货币申购列表
  */
 export const getSubscribeList = () => {
   return customInstance<GetSubscribeListResponse>({ url: `/subscribe/getList.do`, method: 'post' });
@@ -346,7 +346,7 @@ export const useGetSubscribeList = <
 };
 
 /**
- * http發送文字聊天
+ * 获取申购数字货币详情
  */
 export const getSubscribeDetail = (getSubscribeDetailBody: GetSubscribeDetailBody) => {
   return customInstance<GetSubscribeDetailResponse>({

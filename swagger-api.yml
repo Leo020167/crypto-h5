@@ -97,7 +97,7 @@ paths:
   /subscribe/getList.do:
     post:
       operationId: 'getSubscribeList'
-      description: 'http發送文字聊天'
+      description: '获取数字货币申购列表'
       responses:
         '200':
           description: OK
@@ -109,7 +109,7 @@ paths:
   /subscribe/getDetail.do:
     post:
       operationId: 'getSubscribeDetail'
-      description: 'http發送文字聊天'
+      description: '获取申购数字货币详情'
       requestBody:
         content:
           application/json:
@@ -2165,6 +2165,8 @@ components:
           type: string
         warning:
           type: string
+        progress:
+          type: string
 
     GetSubscribeDetailResponse:
       allOf:
@@ -2200,6 +2202,10 @@ components:
         symbol:
           type: string
         title:
+          type: string
+        progress:
+          type: string
+        rate:
           type: string
 
     GetSubscribeListResponse:
