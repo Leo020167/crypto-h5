@@ -6,13 +6,13 @@ export const useSubscribeState = () => {
   const stateHash: { [key: string]: { label: string; color: string; button: string } } = useMemo(
     () => ({
       '0': {
-        label: intl.formatMessage({ defaultMessage: '未開始', id: 'IudShd' }),
-        button: intl.formatMessage({ defaultMessage: '預熱中', id: 'CBgsGP' }),
-        color: '#00AD88',
+        label: intl.formatMessage({ defaultMessage: '待開始', id: 'Jf8sT5' }),
+        button: intl.formatMessage({ defaultMessage: '待開始', id: 'Jf8sT5' }),
+        color: '#a6a6a6',
       },
       '1': {
-        label: intl.formatMessage({ defaultMessage: '申購中', id: 'sbEmQh' }),
-        button: intl.formatMessage({ defaultMessage: '申購', id: 'FLp81s' }),
+        label: intl.formatMessage({ defaultMessage: '進行中', id: '+JdgDW' }),
+        button: intl.formatMessage({ defaultMessage: '立即參與', id: 'ZsNueb' }),
         color: '#5FCE64',
       },
       '2': {
