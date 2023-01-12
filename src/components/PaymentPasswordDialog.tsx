@@ -24,7 +24,7 @@ const PaymentPasswordDialog = ({ open, onClose, onFill }: PaymentPasswordDialogP
           </div>
 
           <div className="pl-2 mt-4">
-            <Link to="" className="text-[#6175AE] text-sm">
+            <Link to="/setting-pay-password" className="text-[#6175AE] text-sm">
               {intl.formatMessage({ defaultMessage: '交易密码管理', id: 'lK7IeZ' })}
             </Link>
           </div>

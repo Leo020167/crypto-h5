@@ -2,7 +2,7 @@ import { List, NavBar } from 'antd-mobile';
 import { useIntl } from 'react-intl';
 import { useHistory, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
-import { DepositListResponseAllOfDataAllOfDataItem } from '../../../api/model';
+import { DepositWithdrawListItem } from '../../../api/model';
 import { stringDateFormat } from '../../../utils/date';
 
 const TakeCoinHistoryDetails = () => {
@@ -10,7 +10,7 @@ const TakeCoinHistoryDetails = () => {
 
   const location = useLocation();
 
-  const state: DepositListResponseAllOfDataAllOfDataItem | undefined = location.state as any;
+  const state: DepositWithdrawListItem | undefined = location.state as any;
 
   const intl = useIntl();
 
@@ -22,20 +22,35 @@ const TakeCoinHistoryDetails = () => {
 
       <List className="mt-8">
         <List.Item
-          title={intl.formatMessage({ defaultMessage: '提幣數量', id: 'wbTfN9' })}
-          extra={<span className="text-black">{state?.amount}</span>}
+          title={
+            state?.inOut === '1'
+              ? intl.formatMessage({ defaultMessage: '充幣数量', id: '2+V/xG' })
+              : intl.formatMessage({ defaultMessage: '提幣數量', id: 'wbTfN9' })
+          }
+          extra={
+            <span className="text-black">
+              {state?.amount}
+              {state?.symbol}
+            </span>
+          }
+        />
+
+        <List.Item
+          title={intl.formatMessage({ defaultMessage: '手续费', id: 'XdbxuW' })}
+          extra={
+            <span className="text-black">
+              {state?.fee ?? '--'}
+              {state?.symbol}
+            </span>
+          }
         />
         <List.Item
           title={
             state?.inOut === '1'
-              ? intl.formatMessage({ defaultMessage: '充幣', id: 'kGK1/L' })
-              : intl.formatMessage({ defaultMessage: '提幣', id: 'andeZs' })
+              ? intl.formatMessage({ defaultMessage: '充幣地址', id: 'Q4foHv' })
+              : intl.formatMessage({ defaultMessage: '提幣地址', id: 'NUeill' })
           }
-          extra={<span className="text-black">{state?.fee ?? '--'}</span>}
-        />
-        <List.Item
-          title={intl.formatMessage({ defaultMessage: '提幣地址', id: 'NUeill' })}
-          extra={<span className="text-black"></span>}
+          extra={<div className="text-black overflow-x-auto">{state?.address}</div>}
         />
         <List.Item
           title={intl.formatMessage({ defaultMessage: '狀態', id: 'NL+iCs' })}

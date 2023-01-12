@@ -13,7 +13,6 @@ const Captcha = () => {
   const history = useHistory();
 
   const [open, setOpen] = useState(false);
-  const [registerOpen, setRegisterOpen] = useState(false);
   const [smsCode, setSmsCode] = useState<string>('');
 
   const { value } = useSignUpStore();
@@ -39,6 +38,8 @@ const Captcha = () => {
     },
     send ? 1000 : null,
   );
+
+  const [loading, setLoading] = useState(false);
 
   return (
     <Container className="h-screen bg-white">
@@ -72,8 +73,26 @@ const Captcha = () => {
               type="submit"
               color="primary"
               size="large"
+              loading={loading}
               disabled={smsCode.length !== 6}
-              onClick={() => setRegisterOpen(true)}
+              onClick={() => {
+                setLoading(true);
+                doSecurityRegister({
+                  ...value,
+                  smsCode,
+                  sex: 0,
+                })
+                  .then((res: any) => {
+                    Toast.show(res.msg);
+
+                    if (res.code === '200') {
+                      history.replace('/home');
+                    }
+                  })
+                  .finally(() => {
+                    setLoading(false);
+                  });
+              }}
             >
               {intl.formatMessage({ defaultMessage: '完成验证', id: 'jAROVC' })}
             </Button>
@@ -106,28 +125,6 @@ const Captcha = () => {
           </Form.Item>
         </Form>
       </div>
-
-      <SwipeImageValidator
-        open={registerOpen}
-        onClose={() => setRegisterOpen(false)}
-        onSuccess={(positionX, dragImgKey) => {
-          doSecurityRegister({
-            ...value,
-            locationx: positionX,
-            dragImgKey,
-            smsCode,
-            sex: 0,
-          }).then((res: any) => {
-            Toast.show(res.msg);
-
-            if (res.code === '200') {
-              history.replace('/home');
-            }
-          });
-
-          setRegisterOpen(false);
-        }}
-      />
 
       <SwipeImageValidator
         open={open}

@@ -13,9 +13,9 @@
     "lint": "eslint . --ext .ts,.tsx"
   },
   "dependencies": {
-    "@tanstack/react-query": "^4.20.9",
+    "@tanstack/react-query": "^4.22.0",
     "add": "^2.0.6",
-    "antd-mobile": "^5.27.0",
+    "antd-mobile": "^5.28.0",
     "antd-mobile-icons": "^0.3.0",
     "axios": "^1.2.1",
     "currency.js": "^2.0.4",
@@ -65,8 +65,8 @@
     "eslint-config-prettier": "^8.6.0",
     "eslint-import-resolver-typescript": "^3.5.3",
     "eslint-plugin-formatjs": "^4.3.9",
-    "eslint-plugin-import": "^2.26.0",
-    "eslint-plugin-jsx-a11y": "^6.7.0",
+    "eslint-plugin-import": "^2.27.4",
+    "eslint-plugin-jsx-a11y": "^6.7.1",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.32.0",
     "eslint-plugin-react-hooks": "^4.6.0",

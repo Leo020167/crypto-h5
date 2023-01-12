@@ -1,5 +1,6 @@
 import { Button, Dialog, Input, Popup, Selector, Toast } from 'antd-mobile';
 import { DownFill, RightOutline } from 'antd-mobile-icons';
+import currency from 'currency.js';
 import { useState, useMemo, useCallback } from 'react';
 import { useIntl } from 'react-intl';
 import { Link, useHistory } from 'react-router-dom';
@@ -165,6 +166,23 @@ const TakeCoin = () => {
 
   const { data: addressList } = useAddressList({ symbol: symbol, chainType: chainType ?? '' });
 
+  const precision = useMemo(
+    () => configs?.data?.availableAmount?.split('.')[1].length || 8,
+    [configs?.data?.availableAmount],
+  );
+
+  const account = useMemo(() => {
+    const fee = Number(configs?.data?.fee);
+
+    if (amount && Number(amount) >= fee) {
+      return currency(Number(amount) - fee, {
+        separator: '',
+        symbol: '',
+        precision,
+      }).format();
+    }
+    return '--';
+  }, [amount, configs?.data?.fee, precision]);
   return (
     <Screen
       headerTitle={intl.formatMessage({ defaultMessage: '提幣', id: 'andeZs' })}
@@ -296,7 +314,7 @@ const TakeCoin = () => {
               ({symbol})
             </span>
             <span className="text-base text-[#6175AE]">
-              {Number(configs?.data?.fee ?? 0).toFixed(2)}
+              {currency(configs?.data?.fee || 0, { precision, separator: '', symbol: '' }).format()}
             </span>
           </div>
 
@@ -308,9 +326,7 @@ const TakeCoin = () => {
               })}
               ({symbol})
             </span>
-            <span className="text-base text-[#6175AE]">
-              {amount ? (Number(amount) - Number(configs?.data?.fee)).toFixed(2) : '0.00'}
-            </span>
+            <span className="text-base text-[#6175AE]">{account}</span>
           </div>
 
           <div className="mt-4">

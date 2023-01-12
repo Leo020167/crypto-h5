@@ -5,7 +5,7 @@ import { QRCodeCanvas } from 'qrcode.react';
 import { useCallback, useMemo, useState } from 'react';
 import { useIntl } from 'react-intl';
 import { Link, useHistory } from 'react-router-dom';
-import { useCopyToClipboard } from 'react-use';
+import { useCopyToClipboard, useInterval } from 'react-use';
 import styled from 'styled-components';
 import { StringParam, useQueryParam, withDefault } from 'use-query-params';
 import {
@@ -31,7 +31,7 @@ const RechargeCoin = () => {
     inOut: 1,
   });
 
-  const { data: chargeConfigs } = useGetChargeConfigs(
+  const { data: chargeConfigs, refetch } = useGetChargeConfigs(
     { symbol },
     {
       query: {
@@ -49,6 +49,10 @@ const RechargeCoin = () => {
       },
     },
   );
+
+  useInterval(() => {
+    refetch();
+  }, 5000);
 
   const options = useMemo(
     () =>

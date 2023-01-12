@@ -67,7 +67,12 @@ const TakeCoinHistory = () => {
             <div className="flex text-xs mt-2">
               <div className="flex flex-col w-1/3">
                 <span className="text-[#b0b5ba]">
-                  {intl.formatMessage({ defaultMessage: '數量', id: 'YYra8Q' })}
+                  {intl.formatMessage(
+                    { defaultMessage: '數量({symbol})', id: 'MkphXA' },
+                    {
+                      symbol: item.symbol,
+                    },
+                  )}
                 </span>
                 <span className="text-[#4e5963] mt-1">{item.amount}</span>
               </div>

@@ -62,7 +62,7 @@ export function signParameters(json: any = {}) {
 
   if (user && token) {
     json['token'] = token;
-    json['userId'] = user.userId ? user.userId : '';
+    json['userId'] = user.userId;
   } else {
     json['token'] = '';
     json['userId'] = '';
