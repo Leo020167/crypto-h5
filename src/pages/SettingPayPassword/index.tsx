@@ -6,7 +6,6 @@ import styled from 'styled-components';
 import { useSetPayPass } from '../../api/endpoints/transformer';
 import SwipeImageValidator from '../../components/SwipeImageValidator';
 import { useAuthStore } from '../../stores/auth';
-import AccountStep1 from './AccountStep1';
 import AccountStep2 from './AccountStep2';
 import AccountStep3 from './AccountStep3';
 
@@ -14,8 +13,6 @@ const SettingPayPassword = () => {
   const history = useHistory();
 
   const [current, setCurrent] = useState<number>(0);
-
-  const [oldSmsCode, setOldSmsCode] = useState<string>('');
 
   const intl = useIntl();
 
@@ -26,7 +23,7 @@ const SettingPayPassword = () => {
 
   const content = useMemo(() => {
     switch (current) {
-      case 2:
+      case 1:
         return (
           <AccountStep3
             onStepCompleted={(configPayPass) => {
@@ -35,20 +32,11 @@ const SettingPayPassword = () => {
             }}
           />
         );
-      case 1:
+      default:
         return (
           <AccountStep2
             onStepCompleted={(payPass) => {
               setPayPass(payPass);
-              setCurrent(2);
-            }}
-          />
-        );
-      default:
-        return (
-          <AccountStep1
-            onStepCompleted={(smsCode) => {
-              setOldSmsCode(smsCode);
               setCurrent(1);
             }}
           />
@@ -78,7 +66,6 @@ const SettingPayPassword = () => {
       </NavBar>
 
       <Steps current={current}>
-        <Steps.Step title={intl.formatMessage({ defaultMessage: '驗證身份', id: 'YNzfBk' })} />
         <Steps.Step title={intl.formatMessage({ defaultMessage: '設置密碼', id: 'Ks5Olr' })} />
         <Steps.Step title={intl.formatMessage({ defaultMessage: '確認密碼', id: 'NBRkJQ' })} />
       </Steps>
@@ -92,7 +79,6 @@ const SettingPayPassword = () => {
           setPayPassMutation.mutate({
             data: {
               oldPhone: auth.userInfo?.phone,
-              oldSmsCode,
               dragImgKey,
               locationx,
               payPass,
