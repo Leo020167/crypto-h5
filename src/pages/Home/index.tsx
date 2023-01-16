@@ -169,6 +169,12 @@ const Home = () => {
             {intl.formatMessage({ defaultMessage: '創新試驗區', id: 'TsbBR+' })}
           </div>
         </Link>
+        <Link to="/pledge" className="flex flex-col items-center justify-start w-1/5">
+          <img alt="" src={tab1_menu5} className="w-9 h-9" />
+          <div className="mt-2.5 text-xs text-[#666666] break-all">
+            {intl.formatMessage({ defaultMessage: '質押生息', id: 'R3Xfcn' })}
+          </div>
+        </Link>
         <Link to="/legal-money" className="flex flex-col items-center w-1/5">
           <img alt="" src={tab1_menu3} className="w-9 h-9" />
           <div className="mt-2.5 text-xs text-[#666666] break-all">
@@ -179,12 +185,6 @@ const Home = () => {
           <img alt="" src={tab1_menu4} className="w-9 h-9" />
           <div className="mt-2.5 text-xs text-[#666666] break-all">
             {intl.formatMessage({ defaultMessage: '綫上客服', id: 'wwOQz6' })}
-          </div>
-        </Link>
-        <Link to="/pledge" className="flex flex-col items-center justify-start w-1/5">
-          <img alt="" src={tab1_menu5} className="w-9 h-9" />
-          <div className="mt-2.5 text-xs text-[#666666] break-all">
-            {intl.formatMessage({ defaultMessage: '質押生息', id: 'R3Xfcn' })}
           </div>
         </Link>
       </div>

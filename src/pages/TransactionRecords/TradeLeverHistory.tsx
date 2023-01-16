@@ -18,21 +18,25 @@ interface TradeLeverHistoryProps {
 
 const TradeLeverHistory = forwardRef<TradeLeverHistoryRef, TradeLeverHistoryProps>(
   ({ accountType, symbol = '', orderState = '' }, ref) => {
+    const params = useMemo(
+      () => ({
+        isDone: '-1',
+        symbol: symbol ?? '',
+        orderState: orderState ?? '',
+        type: accountType === 'spot' ? '2' : '',
+      }),
+      [accountType, orderState, symbol],
+    );
+
     const {
       data,
       hasNextPage = false,
       fetchNextPage,
       refetch,
     } = useInfiniteQuery({
-      queryKey: getProOrderQueryListQueryKey({}),
+      queryKey: getProOrderQueryListQueryKey(params),
       queryFn: async ({ pageParam = 1 }) => {
-        const res = await proOrderQueryList({
-          pageNo: pageParam,
-          isDone: '-1',
-          symbol: symbol ?? '',
-          orderState: orderState ?? '',
-          type: accountType === 'spot' ? '2' : '',
-        });
+        const res = await proOrderQueryList({ pageNo: pageParam, ...params });
         return res.data;
       },
       getNextPageParam: (lastPage) => {
@@ -57,14 +61,24 @@ const TradeLeverHistory = forwardRef<TradeLeverHistoryRef, TradeLeverHistoryProp
           {dataSource.map((v, index) => (
             <List.Item
               key={index}
-              onClick={() =>
-                history.push({
-                  pathname: '/lever-info',
-                  search: stringify({
-                    orderId: v.orderId,
-                  }),
-                })
-              }
+              arrow={false}
+              onClick={() => {
+                if (accountType === 'spot') {
+                  history.push({
+                    pathname: '/position-details',
+                    search: stringify({
+                      symbol: v.symbol,
+                    }),
+                  });
+                } else {
+                  history.push({
+                    pathname: '/lever-info',
+                    search: stringify({
+                      orderId: v.orderId,
+                    }),
+                  });
+                }
+              }}
             >
               <Record data={v} />
             </List.Item>

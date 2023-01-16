@@ -3,7 +3,7 @@ import { Dialog, InfiniteScroll, Toast } from 'antd-mobile';
 import { useMemo } from 'react';
 import { useIntl } from 'react-intl';
 import {
-  getDepositListQueryKey,
+  getProOrderQueryListQueryKey,
   proOrderQueryList,
   useProOrderCancel,
 } from '../../api/endpoints/transformer';
@@ -11,21 +11,29 @@ import InfiniteScrollContent from '../../components/InfiniteScrollContent';
 import { stringDateFormat } from '../../utils/date';
 
 const TradeCommissionHistory = ({ accountType }: { accountType?: string }) => {
+  const params = useMemo(
+    () => ({
+      isDone: '0',
+      symbol: '',
+      accountType: accountType,
+      buySell: '',
+      orderState: '',
+      type: accountType === 'spot' ? '2' : '1',
+    }),
+    [accountType],
+  );
+
   const {
     data,
     hasNextPage = false,
     fetchNextPage,
     refetch,
   } = useInfiniteQuery({
-    queryKey: getDepositListQueryKey({}),
+    queryKey: getProOrderQueryListQueryKey(params),
     queryFn: async ({ pageParam = 1 }) => {
       const res = await proOrderQueryList({
         pageNo: pageParam,
-        isDone: '0',
-        symbol: '',
-        accountType: accountType,
-        buySell: '',
-        orderState: '',
+        ...params,
       });
       return res.data;
     },

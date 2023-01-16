@@ -16,7 +16,7 @@ import { DownFill, DownOutline } from 'antd-mobile-icons';
 import { useMemo, useRef, useState } from 'react';
 import { useIntl } from 'react-intl';
 import styled from 'styled-components';
-import { StringParam, useQueryParam, withDefault } from 'use-query-params';
+import { NumberParam, StringParam, useQueryParam, withDefault } from 'use-query-params';
 import { useProOrderQuerySum } from '../../api/endpoints/transformer';
 import Screen from '../../components/Screen';
 import TradeCommissionHistory from './TradeCommissionHistory';
@@ -30,18 +30,18 @@ interface AccountType {
 const proOrderQuerySumKeys = ['stock', 'digital'];
 
 const AccountTypeParam = withDefault(StringParam, 'follow');
+const ActiveIndexParam = withDefault(NumberParam, 0);
 
 const TransactionRecords = () => {
   const [visible, setVisible] = useState(false);
 
   const swiperRef = useRef<SwiperRef>(null);
 
-  const [activeIndex, setActiveIndex] = useState(0);
-
   const [symbol, setSymbol] = useState<string>();
   const [orderState, setOrderState] = useState<string[]>([]);
 
   const [accountType, setAccountType] = useQueryParam('accountType', AccountTypeParam);
+  const [activeIndex, setActiveIndex] = useQueryParam('activeIndex', ActiveIndexParam);
 
   const intl = useIntl();
 
@@ -199,7 +199,7 @@ const TransactionRecords = () => {
             activeKey={tabItems[activeIndex].key}
             onChange={(key) => {
               const index = tabItems.findIndex((item) => item.key === key);
-              setActiveIndex(index);
+              setActiveIndex(index, 'replaceIn');
               swiperRef.current?.swipeTo(index);
             }}
           >
@@ -239,7 +239,7 @@ const TransactionRecords = () => {
           ref={swiperRef}
           defaultIndex={activeIndex}
           onIndexChange={(index) => {
-            setActiveIndex(index);
+            setActiveIndex(index, 'replaceIn');
           }}
         >
           <Swiper.Item>
@@ -248,6 +248,7 @@ const TransactionRecords = () => {
 
           <Swiper.Item>
             <TradeLeverHistory
+              key="trade-lever-history"
               ref={historyRef}
               accountType={accountType}
               symbol={symbol}
@@ -271,7 +272,7 @@ const TransactionRecords = () => {
                 arrow={null}
                 key={v.value}
                 onClick={() => {
-                  setAccountType(v.value);
+                  setAccountType(v.value, 'replaceIn');
                   setVisible(false);
                 }}
               >

@@ -1780,8 +1780,6 @@ paths:
                 smsCode:
                   type: string
               required:
-                - dragImgKey
-                - locationx
                 - phone
                 - smsCode
       responses:
@@ -1812,8 +1810,6 @@ paths:
                   type: number
               required:
                 - countryCode
-                - dragImgKey
-                - locationx
                 - sendAddr
                 - type
       responses:
@@ -1868,11 +1864,14 @@ paths:
                   type: string
                 userId:
                   type: string
+                symbol:
+                  type: string
               required:
                 - amount
                 - fromAccountType
                 - toAccountType
                 - userId
+                - symbol
       responses:
         '200':
           description: OK

@@ -4,7 +4,6 @@ import { useIntl } from 'react-intl';
 import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import { useSetPayPass } from '../../api/endpoints/transformer';
-import SwipeImageValidator from '../../components/SwipeImageValidator';
 import { useAuthStore } from '../../stores/auth';
 import AccountStep2 from './AccountStep2';
 import AccountStep3 from './AccountStep3';
@@ -17,18 +16,31 @@ const SettingPayPassword = () => {
   const intl = useIntl();
 
   const [payPass, setPayPass] = useState<string>('');
-  const [configPayPass, setConfigPayPass] = useState<string>('');
 
-  const [visible, setVisible] = useState(false);
-
+  const auth = useAuthStore();
+  const setPayPassMutation = useSetPayPass({
+    mutation: {
+      onSuccess(data) {
+        if (data.code === '200') {
+          Toast.show(data.msg);
+          history.replace({ pathname: '/settings' });
+        }
+      },
+    },
+  });
   const content = useMemo(() => {
     switch (current) {
       case 1:
         return (
           <AccountStep3
             onStepCompleted={(configPayPass) => {
-              setConfigPayPass(configPayPass);
-              setVisible(true);
+              setPayPassMutation.mutate({
+                data: {
+                  oldPhone: auth.userInfo?.phone,
+                  payPass,
+                  configPayPass,
+                },
+              });
             }}
           />
         );
@@ -42,20 +54,7 @@ const SettingPayPassword = () => {
           />
         );
     }
-  }, [current]);
-
-  const auth = useAuthStore();
-
-  const setPayPassMutation = useSetPayPass({
-    mutation: {
-      onSuccess(data) {
-        if (data.code === '200') {
-          Toast.show(data.msg);
-          history.replace({ pathname: '/settings' });
-        }
-      },
-    },
-  });
+  }, [auth.userInfo?.phone, current, payPass, setPayPassMutation]);
 
   return (
     <Container className="h-screen bg-white">
@@ -71,22 +70,6 @@ const SettingPayPassword = () => {
       </Steps>
 
       <div className="px-4">{content}</div>
-
-      <SwipeImageValidator
-        open={visible}
-        onClose={() => setVisible(false)}
-        onSuccess={(locationx, dragImgKey) => {
-          setPayPassMutation.mutate({
-            data: {
-              oldPhone: auth.userInfo?.phone,
-              dragImgKey,
-              locationx,
-              payPass,
-              configPayPass,
-            },
-          });
-        }}
-      />
     </Container>
   );
 };

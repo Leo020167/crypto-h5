@@ -23,9 +23,9 @@ const TradeCurrentOpenPosition = ({ data = [] }: { data?: PaginationResponseData
       {data.map((v, i) => (
         <Link
           to={{
-            pathname: '/lever-info',
+            pathname: '/position-details',
             search: stringify({
-              orderId: v.orderId,
+              symbol: v.symbol,
             }),
           }}
           key={i}

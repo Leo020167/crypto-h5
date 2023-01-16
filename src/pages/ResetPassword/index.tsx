@@ -1,15 +1,17 @@
 import { Button, Form, Input, NavBar, Toast } from 'antd-mobile';
 import { DownFill } from 'antd-mobile-icons';
 import { useAtom } from 'jotai';
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import { useIntl } from 'react-intl';
 import { useHistory } from 'react-router-dom';
+import { useCounter, useInterval } from 'react-use';
 import styled from 'styled-components';
+import { useSmsGet } from '../../api/endpoints/transformer';
 import { countryAtom } from '../../atoms';
 import AreaList from '../../components/AreaList';
-import SwipeImageValidator from '../../components/SwipeImageValidator';
+
 import { AreaListItem } from '../../model';
-import { doSecurityForgetPass, getSms } from '../../utils/api';
+import { doSecurityForgetPass } from '../../utils/api';
 import { validPassword } from '../../utils/validation';
 
 const ResetPassword = () => {
@@ -18,8 +20,6 @@ const ResetPassword = () => {
   const [country, setCountry] = useAtom(countryAtom);
 
   const [open, setOpen] = useState(false);
-  const [openSmsCodeVerity, setOpenSmsCodeVerity] = useState(false);
-  const [openCompleteVerity, setOpenCompleteVerity] = useState(false);
 
   const [phone, setPhone] = useState<string>('');
   const [password, setPassword] = useState<string>('');
@@ -28,6 +28,37 @@ const ResetPassword = () => {
   const [form] = Form.useForm();
 
   const intl = useIntl();
+
+  const smsGet = useSmsGet();
+
+  const [send, setSend] = useState(false);
+  const [count, { dec, reset }] = useCounter(60, 60, 0);
+
+  useInterval(
+    () => {
+      if (count > 0) {
+        dec();
+      } else {
+        setSend(false);
+        reset();
+      }
+    },
+    send ? 1000 : null,
+  );
+
+  const handleSendSms = useCallback(() => {
+    setSend(true);
+
+    smsGet.mutate({
+      data: {
+        countryCode: country.code,
+        sendAddr: phone,
+        type: 1,
+        locationx: 0,
+        dragImgKey: '',
+      },
+    });
+  }, [country.code, phone, smsGet]);
 
   return (
     <Container className="h-screen bg-white">
@@ -54,7 +85,17 @@ const ResetPassword = () => {
               return;
             }
 
-            setOpenCompleteVerity(true);
+            doSecurityForgetPass({
+              phone: phone,
+              smsCode: smsCode,
+              userPass: password,
+            }).then((res: any) => {
+              Toast.show(res.msg);
+
+              if (res.code === '200') {
+                history.replace('/login');
+              }
+            });
           }}
           footer={
             <div>
@@ -86,12 +127,18 @@ const ResetPassword = () => {
 
           <Form.Item
             extra={
-              <a
-                className=" border-[#dcb585] border-2 rounded text-[#dcb585] text-sm px-2 py-1"
-                onClick={() => setOpenSmsCodeVerity(true)}
-              >
-                {intl.formatMessage({ defaultMessage: '获取验证码', id: 'ypMY0M' })}
-              </a>
+              send ? (
+                <a className=" border-gray-400 border-2 rounded text-gray-400 text-sm px-2 py-1">
+                  {intl.formatMessage({ defaultMessage: '{count}s', id: '1ix6NP' }, { count })}
+                </a>
+              ) : (
+                <a
+                  className=" border-[#dcb585] border-2 rounded text-[#dcb585] text-sm px-2 py-1"
+                  onClick={handleSendSms}
+                >
+                  {intl.formatMessage({ defaultMessage: '获取验证码', id: 'ypMY0M' })}
+                </a>
+              )
             }
           >
             <Input
@@ -130,52 +177,6 @@ const ResetPassword = () => {
           setCountry({ code: area.areaCode, name: area.tcName });
 
           setOpen(false);
-        }}
-      />
-
-      <SwipeImageValidator
-        key="completeVerity"
-        open={openCompleteVerity}
-        onClose={() => setOpenCompleteVerity(false)}
-        onSuccess={(locationX: number, dragImgKey: string) => {
-          doSecurityForgetPass({
-            locationx: locationX,
-            dragImgKey,
-            phone: phone,
-            smsCode: smsCode,
-            userPass: password,
-          })
-            .then((res: any) => {
-              Toast.show(res.msg);
-
-              if (res.code === '200') {
-                history.replace('/login');
-              }
-            })
-            .finally(() => {
-              setOpenCompleteVerity(false);
-            });
-        }}
-      />
-
-      <SwipeImageValidator
-        key="smsCodeVerity"
-        open={openSmsCodeVerity}
-        onClose={() => setOpenSmsCodeVerity(false)}
-        onSuccess={(locationX: number, dragImgKey: string) => {
-          getSms({
-            countryCode: country.code,
-            dragImgKey: dragImgKey,
-            locationx: locationX,
-            sendAddr: phone,
-            type: 1,
-          })
-            .then((res: any) => {
-              Toast.show(res.msg);
-            })
-            .finally(() => {
-              setOpenSmsCodeVerity(false);
-            });
         }}
       />
     </Container>

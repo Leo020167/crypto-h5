@@ -98,22 +98,31 @@ const TransferCoin = () => {
       return;
     }
 
-    if (accountTypeFrom && accountTypeTo) {
-      if (accountTypeFrom.accountType === accountTypeTo.accountType) {
-        Toast.show(intl.formatMessage({ defaultMessage: '相同賬戶之間不能划轉', id: 'Snhxet' }));
-        return;
-      }
-
-      accountTransfer.mutate({
-        data: {
-          amount: amount ?? '',
-          fromAccountType: accountTypeFrom?.accountType ?? '',
-          toAccountType: accountTypeTo?.accountType ?? '',
-          userId: userInfo?.userId ?? '',
-        },
-      });
+    if (!accountTypeFrom || !accountTypeTo) {
+      Toast.show(intl.formatMessage({ defaultMessage: '請選擇劃轉賬戶', id: 'qSqDA5' }));
+      return;
     }
-  }, [accountTransfer, accountTypeFrom, accountTypeTo, amount, intl, userInfo?.userId]);
+
+    if (!symbol) {
+      Toast.show(intl.formatMessage({ defaultMessage: '請選擇幣種', id: '//08m+' }));
+      return;
+    }
+
+    if (accountTypeFrom.accountType === accountTypeTo.accountType) {
+      Toast.show(intl.formatMessage({ defaultMessage: '相同賬戶之間不能划轉', id: 'Snhxet' }));
+      return;
+    }
+
+    accountTransfer.mutate({
+      data: {
+        amount: amount ?? '',
+        fromAccountType: accountTypeFrom?.accountType ?? '',
+        toAccountType: accountTypeTo?.accountType ?? '',
+        userId: userInfo?.userId ?? '',
+        symbol: symbol ?? '',
+      },
+    });
+  }, [accountTransfer, accountTypeFrom, accountTypeTo, amount, intl, symbol, userInfo?.userId]);
 
   const handleChange = useCallback(() => {
     const placeholder = accountTypeTo;

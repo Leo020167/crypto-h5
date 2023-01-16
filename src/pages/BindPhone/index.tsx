@@ -7,7 +7,6 @@ import { useUserSecurityUpdatePhone } from '../../api/endpoints/transformer';
 import CountryPhoneNumber from '../../components/CountryPhoneNumber';
 import Screen from '../../components/Screen';
 import SmsCodeInput from '../../components/SmsCodeInput';
-import SwipeImageValidator from '../../components/SwipeImageValidator';
 import { Country } from '../../model';
 
 const BindPhone = () => {
@@ -47,8 +46,6 @@ const BindPhone = () => {
     });
   }, [intl, phone, smsCode, userSecurityUpdatePhone]);
 
-  const [open, setOpen] = useState(false);
-
   return (
     <Screen headerTitle={intl.formatMessage({ defaultMessage: '请输入手机号码', id: 'ejs0A3' })}>
       <div className="p-4">
@@ -70,13 +67,16 @@ const BindPhone = () => {
               onChange={setSmsCode}
             />
           </Form.Item>
-          <ButtonWrapper block className="mt-8" onClick={() => setOpen(true)}>
+          <ButtonWrapper
+            block
+            className="mt-8"
+            onClick={handleFinish}
+            loading={userSecurityUpdatePhone.isLoading}
+          >
             {intl.formatMessage({ defaultMessage: '确定', id: 'r0/TUu' })}
           </ButtonWrapper>
         </Form>
       </div>
-
-      <SwipeImageValidator open={open} onClose={() => setOpen(false)} onSuccess={handleFinish} />
     </Screen>
   );
 };

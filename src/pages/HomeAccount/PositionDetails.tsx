@@ -32,7 +32,7 @@ const PositionDetails = () => {
     (buySell: number) => {
       if (userInfo) {
         history.push({
-          pathname: '/trade-lever',
+          pathname: '/trade-lever2',
           search: stringify({
             symbol,
             buySell,
@@ -136,6 +136,7 @@ const PositionDetails = () => {
                 orderType: 'limit',
                 price: values.price?.trim() ?? '0.0',
                 hand: values.hand?.trim() ?? '0.0',
+                type: '2',
               },
             });
           }}

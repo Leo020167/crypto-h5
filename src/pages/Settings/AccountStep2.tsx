@@ -5,7 +5,6 @@ import styled from 'styled-components';
 
 import CountryPhoneNumber from '../../components/CountryPhoneNumber';
 import SmsCodeInput from '../../components/SmsCodeInput';
-import SwipeImageValidator from '../../components/SwipeImageValidator';
 import { Country } from '../../model';
 import { useAuthStore } from '../../stores/auth';
 import { changePhoneTwo } from '../../utils/api';
@@ -15,7 +14,6 @@ interface AccountStepProps {
   onStepCompleted: () => void;
 }
 const AccountStep2 = ({ oldSmsCode, onStepCompleted }: AccountStepProps) => {
-  const [openChangePhoneVerity, setOpenChangePhoneVerity] = useState(false);
   const [smsCode, setSmsCode] = useState<string>('');
 
   const { userInfo } = useAuthStore();
@@ -34,8 +32,17 @@ const AccountStep2 = ({ oldSmsCode, onStepCompleted }: AccountStepProps) => {
             Toast.show(intl.formatMessage({ defaultMessage: '请输入验证码', id: '9UZxwP' }));
             return;
           }
-
-          setOpenChangePhoneVerity(true);
+          changePhoneTwo({
+            newCountryCode: country.code,
+            newPhone: phone,
+            newSmsCode: smsCode,
+            oldPhone: userInfo?.phone ?? '',
+            oldSmsCode,
+          }).then((res) => {
+            if (res.code === '200') {
+              onStepCompleted();
+            }
+          });
         }}
         footer={
           <div>
@@ -65,27 +72,6 @@ const AccountStep2 = ({ oldSmsCode, onStepCompleted }: AccountStepProps) => {
           />
         </Form.Item>
       </Form>
-
-      <SwipeImageValidator
-        open={openChangePhoneVerity}
-        onClose={() => setOpenChangePhoneVerity(false)}
-        onSuccess={(locationx, dragImgKey) => {
-          changePhoneTwo({
-            dragImgKey,
-            locationx,
-            newCountryCode: country.code,
-            newPhone: phone,
-            newSmsCode: smsCode,
-            oldPhone: userInfo?.phone ?? '',
-            oldSmsCode,
-          }).then((res) => {
-            if (res.code === '200') {
-              onStepCompleted();
-              setOpenChangePhoneVerity(false);
-            }
-          });
-        }}
-      />
     </Container>
   );
 };

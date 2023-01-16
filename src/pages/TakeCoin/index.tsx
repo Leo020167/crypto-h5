@@ -138,20 +138,6 @@ const TakeCoin = () => {
           history.push('/verified');
         },
       });
-      //如果未通过手机验证
-      // if (userInfo?.phone) {
-      //   history.push({
-      //     pathname: '/phone-auth-code',
-      //     search: stringify({
-      //       type: 1,
-      //       phone: userInfo?.phone,
-      //       email: userInfo?.email,
-      //       redirectUrl: location.pathname,
-      //     }),
-      //   });
-      // } else {
-      //   history.push('/bind-phone');
-      // }
     }
   }, [
     address,

@@ -2,16 +2,13 @@ import { Button, Form, Toast } from 'antd-mobile';
 import { useState } from 'react';
 import { useIntl } from 'react-intl';
 import SmsCodeInput from '../../components/SmsCodeInput';
-import SwipeImageValidator from '../../components/SwipeImageValidator';
 import { useAuthStore } from '../../stores/auth';
-import { checkIdentity, getSms } from '../../utils/api';
+import { checkIdentity } from '../../utils/api';
 
 interface AccountStepProps {
   onStepCompleted: (smsCode: string) => void;
 }
 const AccountStep1 = ({ onStepCompleted }: AccountStepProps) => {
-  const [open, setOpen] = useState(false);
-  const [openSmsCodeVerity, setOpenSmsCodeVerity] = useState(false);
   const [smsCode, setSmsCode] = useState<string>('');
 
   const { userInfo } = useAuthStore();
@@ -26,7 +23,18 @@ const AccountStep1 = ({ onStepCompleted }: AccountStepProps) => {
       </div>
       <Form
         onFinish={() => {
-          setOpenSmsCodeVerity(true);
+          checkIdentity({
+            phone: userInfo?.phone ?? '',
+            smsCode,
+            dragImgKey: '',
+            locationx: 0,
+          }).then((res) => {
+            if (res.code === '200') {
+              onStepCompleted(smsCode);
+            } else {
+              Toast.show(res.msg);
+            }
+          });
         }}
         footer={
           <div>
@@ -46,57 +54,6 @@ const AccountStep1 = ({ onStepCompleted }: AccountStepProps) => {
           />
         </Form.Item>
       </Form>
-
-      <SwipeImageValidator
-        open={openSmsCodeVerity}
-        onClose={() => setOpenSmsCodeVerity(false)}
-        onSuccess={(locationx, dragImgKey) => {
-          checkIdentity({
-            phone: userInfo?.phone ?? '',
-            smsCode,
-            dragImgKey,
-            locationx,
-          }).then((res) => {
-            setOpenSmsCodeVerity(false);
-
-            if (res.code === '200') {
-              onStepCompleted(smsCode);
-            } else {
-              Toast.show(res.msg);
-            }
-          });
-        }}
-      />
-
-      <SwipeImageValidator
-        open={open}
-        onClose={() => setOpen(false)}
-        onSuccess={(positionX, dragImgKey) => {
-          getSms({
-            countryCode: userInfo?.countryCode ?? '',
-            dragImgKey: dragImgKey,
-            locationx: positionX,
-            sendAddr: userInfo?.phone ?? '',
-            type: 1,
-          }).then((res) => {
-            if (res.code !== '200') {
-              Toast.show(res.msg);
-            }
-          });
-
-          if (userInfo?.phone) {
-            const phone = userInfo.phone.substring(0, 3) + '****' + userInfo.phone.substring(7);
-            Toast.show(
-              intl.formatMessage(
-                { defaultMessage: '短信验证码已经发送至{phone}', id: 'YcfcO0' },
-                { phone },
-              ),
-            );
-          }
-
-          setOpen(false);
-        }}
-      />
     </div>
   );
 };

@@ -1,18 +1,17 @@
 import { Button, Form, Input, NavBar, Toast } from 'antd-mobile';
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import { useIntl } from 'react-intl';
 import { useHistory } from 'react-router-dom';
 import { useCounter, useInterval } from 'react-use';
 import styled from 'styled-components';
+import { useSmsGet } from '../../api/endpoints/transformer';
 
-import SwipeImageValidator from '../../components/SwipeImageValidator';
 import { useSignUpStore } from '../../stores/signup';
-import { doSecurityRegister, getSms } from '../../utils/api';
+import { doSecurityRegister } from '../../utils/api';
 
 const Captcha = () => {
   const history = useHistory();
 
-  const [open, setOpen] = useState(false);
   const [smsCode, setSmsCode] = useState<string>('');
 
   const { value } = useSignUpStore();
@@ -40,6 +39,37 @@ const Captcha = () => {
   );
 
   const [loading, setLoading] = useState(false);
+
+  const smsGet = useSmsGet();
+
+  const handleSendSms = useCallback(() => {
+    setSend(true);
+
+    smsGet.mutate({
+      data: {
+        countryCode: value?.countryCode ?? '',
+        sendAddr: value?.type === 1 ? value?.phone ?? '' : value?.email ?? '',
+        type: value?.type ?? 1,
+        locationx: 0,
+        dragImgKey: '',
+      },
+    });
+
+    if (value?.phone) {
+      const phoneNumber = value.phone.substring(0, 3) + '****' + value.phone.substring(7);
+      Toast.show(
+        intl.formatMessage(
+          {
+            defaultMessage: '短信验证码已经发送至{phoneNumber}',
+            id: 'yzNVN7',
+          },
+          {
+            phoneNumber,
+          },
+        ),
+      );
+    }
+  }, [intl, smsGet, value?.countryCode, value?.email, value.phone, value?.type]);
 
   return (
     <Container className="h-screen bg-white">
@@ -102,16 +132,13 @@ const Captcha = () => {
             className="mb-8"
             extra={
               send ? (
-                <a
-                  className=" border-gray-400 border-2 rounded text-gray-400 text-sm px-2 py-1"
-                  onClick={() => setOpen(true)}
-                >
+                <a className=" border-gray-400 border-2 rounded text-gray-400 text-sm px-2 py-1">
                   {intl.formatMessage({ defaultMessage: '{count}s', id: '1ix6NP' }, { count })}
                 </a>
               ) : (
                 <a
                   className=" border-[#dcb585] border-2 rounded text-[#dcb585] text-sm px-2 py-1"
-                  onClick={() => setOpen(true)}
+                  onClick={handleSendSms}
                 >
                   {intl.formatMessage({ defaultMessage: '获取验证码', id: 'ypMY0M' })}
                 </a>
@@ -125,42 +152,6 @@ const Captcha = () => {
           </Form.Item>
         </Form>
       </div>
-
-      <SwipeImageValidator
-        open={open}
-        onClose={() => setOpen(false)}
-        onSuccess={(positionX, dragImgKey) => {
-          setSend(true);
-          getSms({
-            countryCode: value?.countryCode ?? '',
-            dragImgKey: dragImgKey,
-            locationx: positionX,
-            sendAddr: value?.type === 1 ? value?.phone ?? '' : value?.email ?? '',
-            type: value?.type ?? 1,
-          }).then((res: any) => {
-            if (res.code !== '200') {
-              Toast.show(res.msg);
-            }
-          });
-
-          if (value?.phone) {
-            const phoneNumber = value.phone.substring(0, 3) + '****' + value.phone.substring(7);
-            Toast.show(
-              intl.formatMessage(
-                {
-                  defaultMessage: '短信验证码已经发送至{phoneNumber}',
-                  id: 'yzNVN7',
-                },
-                {
-                  phoneNumber,
-                },
-              ),
-            );
-          }
-
-          setOpen(false);
-        }}
-      />
     </Container>
   );
 };

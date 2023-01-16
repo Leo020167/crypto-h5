@@ -2,8 +2,7 @@ import { Input, Toast } from 'antd-mobile';
 import { forwardRef, useCallback, useImperativeHandle, useRef, useState } from 'react';
 import { useIntl } from 'react-intl';
 import { useInterval } from 'react-use';
-import { getSms } from '../utils/api';
-import SwipeImageValidator from './SwipeImageValidator';
+import { useSmsGet } from '../api/endpoints/transformer';
 
 interface SmsCodeInputProps {
   phoneNumber: string;
@@ -91,40 +90,37 @@ const SmsCodeInput = ({
   countryCode,
   ...rest
 }: SmsCodeInputProps) => {
-  const [open, setOpen] = useState(false);
-
   const countdownRef = useRef<CountdownAction>(null);
 
   const intl = useIntl();
 
-  const handleSuccess = useCallback(
-    (locationx: number, dragImgKey: string) => {
-      getSms({
+  const smsGet = useSmsGet();
+
+  const handleSuccess = useCallback(() => {
+    smsGet.mutate({
+      data: {
         countryCode,
-        dragImgKey,
-        locationx,
         sendAddr: phoneNumber,
         type: 1,
-      });
+        locationx: 0,
+        dragImgKey: '',
+      },
+    });
 
-      setOpen(false);
-
-      if (phoneNumber) {
-        const phone = phoneNumber.substring(0, 3) + '****' + phoneNumber.substring(7);
-        Toast.show(
-          intl.formatMessage(
-            {
-              defaultMessage: '短信验证码已经发送至{phone}',
-              id: 'YcfcO0',
-            },
-            { phone },
-          ),
-        );
-      }
-      countdownRef.current?.restart();
-    },
-    [countryCode, intl, phoneNumber],
-  );
+    if (phoneNumber) {
+      const phone = phoneNumber.substring(0, 3) + '****' + phoneNumber.substring(7);
+      Toast.show(
+        intl.formatMessage(
+          {
+            defaultMessage: '短信验证码已经发送至{phone}',
+            id: 'YcfcO0',
+          },
+          { phone },
+        ),
+      );
+    }
+    countdownRef.current?.restart();
+  }, [countryCode, intl, phoneNumber, smsGet]);
 
   return (
     <div className="flex items-center">
@@ -143,10 +139,9 @@ const SmsCodeInput = ({
             );
             return;
           }
-          setOpen(true);
+          handleSuccess();
         }}
       />
-      <SwipeImageValidator open={open} onClose={() => setOpen(false)} onSuccess={handleSuccess} />
     </div>
   );
 };

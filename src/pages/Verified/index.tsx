@@ -49,9 +49,9 @@ const Verified = () => {
   const identitySubmit = useIdentitySubmit({
     mutation: {
       onSuccess(data) {
-        if (data.code) {
+        if (data.code === '200') {
           Toast.show(data.msg);
-          history.replace({ pathname: '/my' });
+          history.replace({ pathname: '/home/my' });
         }
       },
     },

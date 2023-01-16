@@ -42,7 +42,6 @@ const Chat = lazy(() => import('./pages/Chat'));
 const VerifiedResult = lazy(() => import('./pages/Verified/VerifiedResult'));
 const Verified = lazy(() => import('./pages/Verified'));
 const TransactionRecords = lazy(() => import('./pages/TransactionRecords'));
-const PhoneAuthCode = lazy(() => import('./pages/PhoneAuthCode'));
 const BindPhone = lazy(() => import('./pages/BindPhone'));
 const Community = lazy(() => import('./pages/Community'));
 const SettingAccount = lazy(() => import('./pages/Settings/Account'));
@@ -501,12 +500,6 @@ export const Routes = () => {
       <Route path="/bind-phone">
         <Suspense fallback={<div>Loading...</div>}>
           <BindPhone />
-        </Suspense>
-      </Route>
-
-      <Route path="/phone-auth-code">
-        <Suspense fallback={<div>Loading...</div>}>
-          <PhoneAuthCode />
         </Suspense>
       </Route>
     </Switch>
