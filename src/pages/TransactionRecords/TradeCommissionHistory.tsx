@@ -18,7 +18,6 @@ const TradeCommissionHistory = ({ accountType }: { accountType?: string }) => {
       accountType: accountType,
       buySell: '',
       orderState: '',
-      type: accountType === 'spot' ? '2' : '1',
     }),
     [accountType],
   );
@@ -84,7 +83,7 @@ const TradeCommissionHistory = ({ accountType }: { accountType?: string }) => {
             <div className="flex items-center">
               <div className="flex items-center flex-1">
                 <span className="text-base font-bold text-[#3d3a50]">{v.symbol}</span>
-                <span className="text-xs text-gray-400 ml-2">{v.buySellValue}</span>
+                <span className="text-xs text-gray-400 ml-2">{'•' + v.buySellValue}</span>
                 <span className="text-xs text-gray-400 ml-2">{stringDateFormat(v.openTime)}</span>
               </div>
 

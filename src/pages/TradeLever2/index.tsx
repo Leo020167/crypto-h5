@@ -7,9 +7,9 @@ import { useInterval } from 'react-use';
 import styled from 'styled-components';
 import { NumberParam, StringParam, useQueryParam, withDefault } from 'use-query-params';
 import {
+  useHomeAccount,
   useProOrderCancel,
   useProOrderConfig,
-  useProOrderQueryList,
 } from '../../api/endpoints/transformer';
 import ic_switch_sell_selected from '../../assets/ic_switch_buy_selected.9.png';
 import ic_switch_sell_unselected from '../../assets/ic_switch_buy_unselected.9.png';
@@ -52,22 +52,24 @@ const TradeLever = () => {
   );
 
   const [selected, setSelected] = useState<string>('0');
-  const { data: proOrderQueryList, refetch } = useProOrderQueryList(
-    {
-      symbol: '',
-      accountType: orderConfig?.data?.accountType,
-      buySell: '',
-      pageNo: '1',
-      orderState: selected === '0' ? '1' : '0',
-      isDone: selected,
-      type: '2',
-    },
-    {
-      query: {
-        enabled: !!orderConfig?.data?.accountType,
-      },
-    },
-  );
+  // const { data: proOrderQueryList, refetch } = useProOrderQueryList(
+  //   {
+  //     symbol: '',
+  //     accountType: orderConfig?.data?.accountType,
+  //     buySell: '',
+  //     pageNo: '1',
+  //     orderState: selected === '0' ? '1' : '0',
+  //     isDone: selected,
+  //     type: '2',
+  //   },
+  //   {
+  //     query: {
+  //       enabled: !!orderConfig?.data?.accountType,
+  //     },
+  //   },
+  // );
+
+  const { data: proOrderQueryList, refetch } = useHomeAccount();
 
   useInterval(() => {
     refetch();
@@ -152,7 +154,7 @@ const TradeLever = () => {
 
         <div className="flex flex-col gap-2">
           {selected === '0' ? (
-            <TradeCurrentOpenPosition data={proOrderQueryList?.data?.data} />
+            <TradeCurrentOpenPosition data={proOrderQueryList?.data?.spotAccount?.openList} />
           ) : (
             <TradeCurrentCommission
               data={proOrderQueryList?.data?.data}

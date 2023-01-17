@@ -41,23 +41,22 @@ const TradeCurrentOpenPosition = ({ data = [] }: { data?: PaginationResponseData
           <div className="flex mt-2.5">
             <div className="flex flex-col w-1/3">
               <span className="text-xs text-gray-400">
-                {intl.formatMessage({ defaultMessage: '数量', id: 'fFmyYM' })}
+                {intl.formatMessage({ defaultMessage: '可用', id: '7C3q18' })}
               </span>
-              <span className="text-sm text-[#3d3a50]">{v.amount}</span>
+              <span className="text-sm text-[#3d3a50]">{v.availableAmount}</span>
             </div>
             <div className="flex flex-col w-1/3 items-center">
               <span className="text-xs text-gray-400">
-                {intl.formatMessage({ defaultMessage: '成本', id: '27fLgJ' })}
+                {intl.formatMessage({ defaultMessage: '委托', id: 'CKdped' })}
               </span>
-              <span className="text-sm text-[#3d3a50]">{v.price}</span>
+              <span className="text-sm text-[#3d3a50]">{v.frozenAmount}</span>
             </div>
             <div className="flex flex-col w-1/3 items-end">
               <span className="text-xs text-gray-400">
-                {intl.formatMessage({ defaultMessage: '盈虧(USDT)', id: '/k9TmU' })}
+                {intl.formatMessage({ defaultMessage: '折合(USDT)', id: 'P+t8ta' })}
               </span>
               <span className="text-sm text-[#3d3a50]" style={{ color: getColor(v.profit) }}>
-                {Number(v.profit) >= 0 ? '+' : ''}
-                {v.profit}
+                {v.usdtAmount}
               </span>
             </div>
           </div>
