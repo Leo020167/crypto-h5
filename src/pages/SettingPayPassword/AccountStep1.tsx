@@ -1,32 +1,78 @@
-import { Button, Form, Toast } from 'antd-mobile';
-import { useState } from 'react';
+import { Button, Form, Modal, Toast } from 'antd-mobile';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { useIntl } from 'react-intl';
+import { useHistory } from 'react-router-dom';
+import styled from 'styled-components';
+import { useUserSecurityCheckIdentity } from '../../api/endpoints/transformer';
 import SmsCodeInput from '../../components/SmsCodeInput';
-import SwipeImageValidator from '../../components/SwipeImageValidator';
 import { useAuthStore } from '../../stores/auth';
-import { checkIdentity, getSms } from '../../utils/api';
 
 interface AccountStepProps {
   onStepCompleted: (smsCode: string) => void;
 }
 const AccountStep1 = ({ onStepCompleted }: AccountStepProps) => {
-  const [open, setOpen] = useState(false);
-  const [openSmsCodeVerity, setOpenSmsCodeVerity] = useState(false);
   const [smsCode, setSmsCode] = useState<string>('');
 
   const { userInfo } = useAuthStore();
 
   const intl = useIntl();
 
+  const userSecurityCheckIdentity = useUserSecurityCheckIdentity({
+    mutation: {
+      onSuccess(data) {
+        if (data.code === '200') {
+          onStepCompleted(smsCode);
+        } else {
+          Toast.show(data.msg);
+        }
+      },
+    },
+  });
+
+  const phoneNumber = useMemo(() => {
+    if (userInfo?.phone) {
+      return userInfo?.phone?.substring(0, 3) + '****' + userInfo?.phone?.substring(7);
+    }
+    return '';
+  }, [userInfo?.phone]);
+
+  const history = useHistory();
+
+  const mounted = useRef(false);
+  useEffect(() => {
+    if (!phoneNumber && !mounted.current) {
+      mounted.current = true;
+      Modal.confirm({
+        className: 'phone-bind-alert',
+        title: intl.formatMessage({ defaultMessage: '提示', id: 'kCh5Jz' }),
+        content: intl.formatMessage({ defaultMessage: '未綁定手機', id: '5OrGa0' }),
+        confirmText: intl.formatMessage({ defaultMessage: '去绑定', id: 'UdsGuw' }),
+        onConfirm() {
+          history.push({ pathname: '/account' });
+        },
+        onClose() {
+          history.goBack();
+        },
+      });
+    }
+  }, [history, intl, phoneNumber]);
+
   return (
-    <div>
+    <Container>
       <div className="border-b p-4">
         {intl.formatMessage({ defaultMessage: '已綁定手機號：', id: 'EGAOia' })}
-        {userInfo?.phone?.substring(0, 3) + '****' + userInfo?.phone?.substring(7)}
+        {phoneNumber}
       </div>
       <Form
         onFinish={() => {
-          setOpenSmsCodeVerity(true);
+          userSecurityCheckIdentity.mutate({
+            data: {
+              phone: userInfo?.phone ?? '',
+              smsCode,
+              dragImgKey: '',
+              locationx: 0,
+            },
+          });
         }}
         footer={
           <div>
@@ -46,59 +92,10 @@ const AccountStep1 = ({ onStepCompleted }: AccountStepProps) => {
           />
         </Form.Item>
       </Form>
-
-      <SwipeImageValidator
-        open={openSmsCodeVerity}
-        onClose={() => setOpenSmsCodeVerity(false)}
-        onSuccess={(locationx, dragImgKey) => {
-          checkIdentity({
-            phone: userInfo?.phone ?? '',
-            smsCode,
-            dragImgKey,
-            locationx,
-          }).then((res) => {
-            setOpenSmsCodeVerity(false);
-
-            if (res.code === '200') {
-              onStepCompleted(smsCode);
-            } else {
-              Toast.show(res.msg);
-            }
-          });
-        }}
-      />
-
-      <SwipeImageValidator
-        open={open}
-        onClose={() => setOpen(false)}
-        onSuccess={(positionX, dragImgKey) => {
-          getSms({
-            countryCode: userInfo?.countryCode ?? '',
-            dragImgKey: dragImgKey,
-            locationx: positionX,
-            sendAddr: userInfo?.phone ?? '',
-            type: 1,
-          }).then((res) => {
-            if (res.code !== '200') {
-              Toast.show(res.msg);
-            }
-          });
-
-          if (userInfo?.phone) {
-            const phone = userInfo.phone.substring(0, 3) + '****' + userInfo.phone.substring(7);
-            Toast.show(
-              intl.formatMessage(
-                { defaultMessage: '短信验证码已经发送至{phone}', id: 'YcfcO0' },
-                { phone },
-              ),
-            );
-          }
-
-          setOpen(false);
-        }}
-      />
-    </div>
+    </Container>
   );
 };
+
+const Container = styled.div``;
 
 export default AccountStep1;

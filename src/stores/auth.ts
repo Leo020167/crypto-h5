@@ -1,4 +1,4 @@
-import create from 'zustand';
+import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 import { getUserInfo, login, logout } from '../api/endpoints/transformer';
 import { Login200, LoginBody, UserInfo } from '../api/model';
@@ -7,11 +7,15 @@ export const useAuthStore = create(
   persist<{
     token?: string;
     userInfo?: UserInfo;
+    signup: (data: { token?: string; user?: any }) => void;
     login: (data: LoginBody) => Promise<Login200>;
     logout: () => void;
     getUserInfo: () => Promise<void>;
   }>(
     (set, get) => ({
+      signup(data) {
+        set({ token: data.token, userInfo: data.user });
+      },
       async login(data) {
         const res = await login(data);
         if (res.code === '200') {

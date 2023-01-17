@@ -1,13 +1,14 @@
 import { Button, Form, Input, NavBar, Toast } from 'antd-mobile';
+import md5 from 'js-md5';
 import { useCallback, useState } from 'react';
 import { useIntl } from 'react-intl';
 import { useHistory } from 'react-router-dom';
 import { useCounter, useInterval } from 'react-use';
 import styled from 'styled-components';
-import { useSmsGet } from '../../api/endpoints/transformer';
+import { useRegister, useSmsGet } from '../../api/endpoints/transformer';
+import { useAuthStore } from '../../stores/auth';
 
 import { useSignUpStore } from '../../stores/signup';
-import { doSecurityRegister } from '../../utils/api';
 
 const Captcha = () => {
   const history = useHistory();
@@ -15,6 +16,8 @@ const Captcha = () => {
   const [smsCode, setSmsCode] = useState<string>('');
 
   const { value } = useSignUpStore();
+
+  const auth = useAuthStore();
 
   const intl = useIntl();
 
@@ -37,8 +40,6 @@ const Captcha = () => {
     },
     send ? 1000 : null,
   );
-
-  const [loading, setLoading] = useState(false);
 
   const smsGet = useSmsGet();
 
@@ -71,6 +72,19 @@ const Captcha = () => {
     }
   }, [intl, smsGet, value?.countryCode, value?.email, value.phone, value?.type]);
 
+  const register = useRegister({
+    mutation: {
+      onSuccess(data) {
+        Toast.show(data.msg);
+
+        if (data.code === '200') {
+          auth.signup({ token: data.data?.token, user: data.data?.user });
+          history.replace('/home');
+        }
+      },
+    },
+  });
+
   return (
     <Container className="h-screen bg-white">
       <NavBar
@@ -95,7 +109,18 @@ const Captcha = () => {
         <Form
           layout="horizontal"
           onFinish={() => {
-            doSecurityRegister({ ...value, smsCode });
+            register.mutate({
+              data: {
+                ...(value as any),
+                inviteCode: value.inviteCode || '',
+                userPass: md5(value.userPass ?? ''),
+                configUserPass: md5(value.configUserPass ?? ''),
+                dragImgKey: '',
+                locationx: 0,
+                smsCode,
+                sex: 0,
+              },
+            });
           }}
           footer={
             <Button
@@ -103,26 +128,8 @@ const Captcha = () => {
               type="submit"
               color="primary"
               size="large"
-              loading={loading}
+              loading={register.isLoading}
               disabled={smsCode.length !== 6}
-              onClick={() => {
-                setLoading(true);
-                doSecurityRegister({
-                  ...value,
-                  smsCode,
-                  sex: 0,
-                })
-                  .then((res: any) => {
-                    Toast.show(res.msg);
-
-                    if (res.code === '200') {
-                      history.replace('/home');
-                    }
-                  })
-                  .finally(() => {
-                    setLoading(false);
-                  });
-              }}
             >
               {intl.formatMessage({ defaultMessage: '完成验证', id: 'jAROVC' })}
             </Button>

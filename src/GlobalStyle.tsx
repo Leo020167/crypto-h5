@@ -176,5 +176,17 @@ const GlobalStyle = styled.createGlobalStyle`
   .adm-button-default.adm-button-fill-none {
     --background-color: #f7f7f7;
   }
+
+  .phone-bind-alert {
+    .adm-button.adm-button-large,
+    .adm-modal-button:not(.adm-modal-button-primary) {
+      padding-top: 4px;
+      padding-bottom: 4px;
+    }
+
+    .adm-modal-button:not(.adm-modal-button-primary) {
+      margin-left: 8px;
+    }
+  }
 `;
 export default GlobalStyle;

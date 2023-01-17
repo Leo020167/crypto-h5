@@ -149,7 +149,7 @@ const HomeTabs = () => {
       <TabBar
         activeKey={location.pathname}
         onChange={history.push}
-        className="layout bottom-0 w-full bg-white absolute z-10"
+        className="layout bottom-0 left-0 right-0 bg-white fixed z-10"
       >
         {tabs.map((item) => (
           <TabBar.Item key={item.key} icon={item.icon} title={item.title} />

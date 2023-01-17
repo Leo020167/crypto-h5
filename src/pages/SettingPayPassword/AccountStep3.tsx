@@ -5,9 +5,10 @@ import { useIntl } from 'react-intl';
 import styled from 'styled-components';
 
 interface AccountStepProps {
+  loading: boolean;
   onStepCompleted: (configPayPass: string) => void;
 }
-const AccountStep3 = ({ onStepCompleted }: AccountStepProps) => {
+const AccountStep3 = ({ loading, onStepCompleted }: AccountStepProps) => {
   const intl = useIntl();
 
   const [configPayPass, setConfigPayPass] = useState<string>('');
@@ -21,7 +22,14 @@ const AccountStep3 = ({ onStepCompleted }: AccountStepProps) => {
         }}
         footer={
           <div>
-            <Button color="primary" type="submit" size="large" block disabled={disabled}>
+            <Button
+              color="primary"
+              type="submit"
+              size="large"
+              block
+              disabled={disabled}
+              loading={loading}
+            >
               {intl.formatMessage({ defaultMessage: '完成', id: 'uHUP9v' })}
             </Button>
           </div>

@@ -23,7 +23,7 @@ const HomeSpotAccount = ({ account }: HomeSpotAccountProps) => {
         <div className="mt-3 flex items-center justify-between text-[#c1d3155]">
           <div>
             <div className="text-gray-400">
-              {intl.formatMessage({ defaultMessage: '總資產(TFU)', id: '4ivSMB' })}
+              {intl.formatMessage({ defaultMessage: '總資產(USDT)', id: 'IbtpXH' })}
             </div>
             <div>
               <span className="text-[#c1d3155] text-base">{account?.assets ?? '0'}</span>
