@@ -2,6 +2,7 @@ lockfileVersion: 5.4
 
 specifiers:
   '@formatjs/cli': ^5.1.12
+  '@react-spring/web': ^9.6.1
   '@tanstack/react-query': ^4.22.0
   '@types/d3-interpolate': ^3.0.1
   '@types/d3-scale': ^4.0.3
@@ -67,6 +68,7 @@ specifiers:
   zustand: ^4.3.2
 
 dependencies:
+  '@react-spring/web': 9.6.1_biqbaboplfbrettd7655fr4n2y
   '@tanstack/react-query': 4.22.0_mm6ssz5t7nsja4qwwvdafuklbu
   add: 2.0.6
   antd-mobile: 5.28.0_biqbaboplfbrettd7655fr4n2y
