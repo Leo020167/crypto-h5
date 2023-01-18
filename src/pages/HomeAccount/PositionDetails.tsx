@@ -95,7 +95,7 @@ const PositionDetails = () => {
         </div>
         <div className="flex justify-between mt-2">
           <span>{intl.formatMessage({ defaultMessage: '委托', id: 'CKdped' })}</span>
-          <span>{data?.data?.data?.usdtAmount}</span>
+          <span>{data?.data?.data?.frozenAmount}</span>
         </div>
       </div>
 

@@ -16,4 +16,5 @@ export interface ProOrderData {
   rate?: string;
   symbol?: string;
   usdtAmount?: string;
+  frozenAmount?: string;
 }

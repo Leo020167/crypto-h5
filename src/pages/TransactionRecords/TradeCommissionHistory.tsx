@@ -13,11 +13,12 @@ import { stringDateFormat } from '../../utils/date';
 const TradeCommissionHistory = ({ accountType }: { accountType?: string }) => {
   const params = useMemo(
     () => ({
-      isDone: '0',
+      isDone: '1',
       symbol: '',
       accountType: accountType,
       buySell: '',
-      orderState: '',
+      orderState: '0',
+      type: accountType === 'spot' ? '2' : '1',
     }),
     [accountType],
   );
@@ -78,12 +79,12 @@ const TradeCommissionHistory = ({ accountType }: { accountType?: string }) => {
       hasMore={hasNextPage}
     >
       <div className="flex flex-col items-center h-full w-full">
-        {dataSource.map((v, i) => (
+        {dataSource.map((v: any, i) => (
           <div key={i} className="bg-white w-full p-4 mb-4 border-b">
             <div className="flex items-center">
               <div className="flex items-center flex-1">
                 <span className="text-base font-bold text-[#3d3a50]">{v.symbol}</span>
-                <span className="text-xs text-gray-400 ml-2">{'•' + v.buySellValue}</span>
+                <span className="text-xs text-gray-400 ml-2">{'• ' + v.buySellValue}</span>
                 <span className="text-xs text-gray-400 ml-2">{stringDateFormat(v.openTime)}</span>
               </div>
 
@@ -111,7 +112,9 @@ const TradeCommissionHistory = ({ accountType }: { accountType?: string }) => {
                 <span className="text-xs text-gray-400">
                   {intl.formatMessage({ defaultMessage: '手數', id: 'g4FQPM' })}
                 </span>
-                <span className="text-sm text-[#3d3a50]">{v.openHand}</span>
+                <span className="text-sm text-[#3d3a50]">
+                  {accountType === 'spot' ? v.amount : v.openHand}
+                </span>
               </div>
               <div className="flex flex-col w-1/3 items-center">
                 <span className="text-xs text-gray-400">
@@ -123,7 +126,9 @@ const TradeCommissionHistory = ({ accountType }: { accountType?: string }) => {
                 <span className="text-xs text-gray-400">
                   {intl.formatMessage({ defaultMessage: '開倉保證金', id: 'H4vld2' })}
                 </span>
-                <span className="text-sm text-[#3d3a50]">{v.openBail}</span>
+                <span className="text-sm text-[#3d3a50]">
+                  {accountType === 'spot' ? v.sum : v.openBail}
+                </span>
               </div>
             </div>
           </div>

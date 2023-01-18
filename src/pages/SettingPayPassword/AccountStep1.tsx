@@ -1,7 +1,6 @@
-import { Button, Form, Modal, Toast } from 'antd-mobile';
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { Button, Form, Toast } from 'antd-mobile';
+import { useMemo, useState } from 'react';
 import { useIntl } from 'react-intl';
-import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import { useUserSecurityCheckIdentity } from '../../api/endpoints/transformer';
 import SmsCodeInput from '../../components/SmsCodeInput';
@@ -35,27 +34,6 @@ const AccountStep1 = ({ onStepCompleted }: AccountStepProps) => {
     }
     return '';
   }, [userInfo?.phone]);
-
-  const history = useHistory();
-
-  const mounted = useRef(false);
-  useEffect(() => {
-    if (!phoneNumber && !mounted.current) {
-      mounted.current = true;
-      Modal.confirm({
-        className: 'phone-bind-alert',
-        title: intl.formatMessage({ defaultMessage: '提示', id: 'kCh5Jz' }),
-        content: intl.formatMessage({ defaultMessage: '未綁定手機', id: '5OrGa0' }),
-        confirmText: intl.formatMessage({ defaultMessage: '去绑定', id: 'UdsGuw' }),
-        onConfirm() {
-          history.push({ pathname: '/account' });
-        },
-        onClose() {
-          history.goBack();
-        },
-      });
-    }
-  }, [history, intl, phoneNumber]);
 
   return (
     <Container>

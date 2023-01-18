@@ -205,7 +205,10 @@ const TradeLeverDetails = ({
             {intl.formatMessage(
               { defaultMessage: '{maxHand}{symbol}', id: '/jAa8w' },
               {
-                maxHand: orderCheckOut?.data?.maxHand,
+                maxHand:
+                  buySell === 1
+                    ? orderCheckOut?.data?.maxHand
+                    : orderCheckOut?.data?.availableAmount,
                 symbol,
               },
             )}

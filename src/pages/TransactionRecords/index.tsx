@@ -136,14 +136,14 @@ const TransactionRecords = () => {
                               defaultMessage: '已成交',
                               id: 'KLriKo',
                             }),
-                            value: 'filled',
+                            value: '1',
                           },
                           {
                             label: intl.formatMessage({
                               defaultMessage: '已撤销',
                               id: 'zznr09',
                             }),
-                            value: 'canceled',
+                            value: '-1',
                           },
                         ]}
                         value={orderState}
@@ -243,17 +243,19 @@ const TransactionRecords = () => {
           }}
         >
           <Swiper.Item>
-            <TradeCommissionHistory accountType={accountType} />
+            {activeIndex === 0 && <TradeCommissionHistory accountType={accountType} />}
           </Swiper.Item>
 
           <Swiper.Item>
-            <TradeLeverHistory
-              key="trade-lever-history"
-              ref={historyRef}
-              accountType={accountType}
-              symbol={symbol}
-              orderState={orderState?.[0]}
-            />
+            {activeIndex === 1 && (
+              <TradeLeverHistory
+                key="trade-lever-history"
+                ref={historyRef}
+                accountType={accountType}
+                symbol={symbol}
+                orderState={orderState?.[0]}
+              />
+            )}
           </Swiper.Item>
         </Swiper>
       </Container>

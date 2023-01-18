@@ -21,10 +21,10 @@ const TradeLeverHistory = forwardRef<TradeLeverHistoryRef, TradeLeverHistoryProp
   ({ accountType, symbol = '', orderState = '' }, ref) => {
     const params = useMemo(
       () => ({
-        isDone: '-1',
+        isDone: '1',
         symbol: symbol ?? '',
-        orderState: orderState ?? '',
-        type: accountType === 'spot' ? '2' : '',
+        orderState: orderState || '1',
+        type: accountType === 'spot' ? '2' : '1',
       }),
       [accountType, orderState, symbol],
     );
@@ -65,12 +65,12 @@ const TradeLeverHistory = forwardRef<TradeLeverHistoryRef, TradeLeverHistoryProp
               arrow={false}
               onClick={() => {
                 if (accountType === 'spot') {
-                  history.push({
-                    pathname: '/position-details',
-                    search: stringify({
-                      symbol: v.symbol,
-                    }),
-                  });
+                  // history.push({
+                  //   pathname: '/position-details',
+                  //   search: stringify({
+                  //     symbol: v.symbol,
+                  //   }),
+                  // });
                 } else {
                   history.push({
                     pathname: '/lever-info',

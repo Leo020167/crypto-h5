@@ -17,9 +17,9 @@ const HomeMarket = () => {
   const intl = useIntl();
   const tabItems = useMemo(
     () => [
-      { key: '0', title: intl.formatMessage({ defaultMessage: '全球期指', id: 'RwgA6k' }) },
+      { key: '0', title: intl.formatMessage({ defaultMessage: '幣幣', id: 'UT6tN2' }) },
       { key: '1', title: intl.formatMessage({ defaultMessage: '合約', id: '6ExJHy' }) },
-      { key: '2', title: intl.formatMessage({ defaultMessage: '幣幣', id: 'UT6tN2' }) },
+      { key: '2', title: intl.formatMessage({ defaultMessage: '全球期指', id: 'RwgA6k' }) },
     ],
     [intl],
   );
@@ -65,13 +65,13 @@ const HomeMarket = () => {
         }}
       >
         <Swiper.Item>
-          <HomeStockDigitalMarket tab="stock" />
+          <HomeStockDigitalMarket tab="spot" />
         </Swiper.Item>
         <Swiper.Item>
           <HomeStockDigitalMarket tab="digital" />
         </Swiper.Item>
         <Swiper.Item>
-          <HomeStockDigitalMarket tab="spot" />
+          <HomeStockDigitalMarket tab="stock" />
         </Swiper.Item>
       </Swiper>
     </Container>

@@ -30,7 +30,16 @@ const Settings = () => {
         <List.Item arrow={<Arrow />} onClick={() => history.push('/account')}>
           {intl.formatMessage({ defaultMessage: '綁定手機', id: 'VT023k' })}
         </List.Item>
-        <List.Item arrow={<Arrow />} onClick={() => history.push('/setting-pay-password')}>
+        <List.Item
+          arrow={<Arrow />}
+          onClick={() => {
+            if (authStore.userInfo?.phone) {
+              history.push('/setting-pay-password');
+            } else {
+              history.push('/account');
+            }
+          }}
+        >
           {intl.formatMessage({ defaultMessage: '設置交易密碼', id: 'obugXD' })}
         </List.Item>
         <List.Item arrow={<Arrow />} onClick={() => history.push('/languages')}>
