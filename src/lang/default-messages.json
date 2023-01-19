@@ -1,7 +1,4 @@
 {
-  "+2zznO": {
-    "string": "請輸入短信驗證碼"
-  },
   "+4lD9e": {
     "string": "姓名"
   },
@@ -34,6 +31,9 @@
   },
   "/+9l+X": {
     "string": "申訴提醒"
+  },
+  "//08m+": {
+    "string": "請選擇幣種"
   },
   "/4Nsnx": {
     "string": "行情刷新频率设置"
@@ -107,8 +107,8 @@
   "2+1H1y": {
     "string": "是否訂閲該用戶？"
   },
-  "27fLgJ": {
-    "string": "成本"
+  "2+V/xG": {
+    "string": "充幣数量"
   },
   "297aFF": {
     "string": "保證金比例"
@@ -235,9 +235,6 @@
   },
   "65CX2o": {
     "string": "头像"
-  },
-  "672nEV": {
-    "string": "獲取成功"
   },
   "6Dthl9": {
     "string": "跟單收益率"
@@ -433,9 +430,6 @@
   },
   "Bzq9W2": {
     "string": "請輸入驗證碼"
-  },
-  "C8HXvQ": {
-    "string": "短信驗證碼"
   },
   "C8ZFaR": {
     "string": "筛选"
@@ -647,6 +641,9 @@
   "JI87J/": {
     "string": "法幣購買"
   },
+  "JVD8BD": {
+    "string": "未成交"
+  },
   "JVHhgb": {
     "string": "《FireUP用户协议》"
   },
@@ -778,6 +775,9 @@
   },
   "Mj7nsK": {
     "string": "當前委托"
+  },
+  "MkphXA": {
+    "string": "數量({symbol})"
   },
   "MmsEyp": {
     "string": "注册"
@@ -1114,6 +1114,9 @@
   },
   "Xagh1G": {
     "string": "下架"
+  },
+  "XdbxuW": {
+    "string": "手续费"
   },
   "XddKO7": {
     "string": "隐藏0资产"
@@ -1622,8 +1625,8 @@
   "qSm4kD": {
     "string": "申訴"
   },
-  "qTCfxl": {
-    "string": "驗證碼已發送至，{phone}"
+  "qSqDA5": {
+    "string": "請選擇劃轉賬戶"
   },
   "qZzRwu": {
     "string": "已綁定"
@@ -1666,6 +1669,9 @@
   },
   "s4hJju": {
     "string": "详情"
+  },
+  "s4hlhW": {
+    "string": "金額(USDT)"
   },
   "s7aJO6": {
     "string": "银行卡号"

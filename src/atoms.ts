@@ -1,6 +1,6 @@
 import { atom } from 'jotai';
-import { atomWithStore } from 'jotai-zustand';
 import { atomWithStorage } from 'jotai/utils';
+import { atomWithStore } from 'jotai-zustand';
 import { AreaListItem } from './model';
 import { useLocaleStore } from './stores/locale';
 import { getAreaList } from './utils/api';
@@ -23,3 +23,4 @@ export const countryAtom = atom<{ code: string; name: string }>({
 export const refreshRateAtom = atomWithStorage<number>('refresh-rate', 1);
 export const switchColorValueAtom = atomWithStorage<string>('switch-color-value', '1');
 export const marketPeriodAtom = atomWithStorage<string>('market-period-value', 'min1');
+export const reportAtom = atomWithStorage<string>('report', '');

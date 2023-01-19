@@ -59,11 +59,24 @@ function getKeyValueJson(messages: LocaleMessages): Record<string, string> | und
     }, keyValueMessages);
   }
 }
+//
 
 function App() {
   const localeState = useAtomValue(localeStateAtom);
 
   const [messages, setMessages] = useState<LocaleMessages>({});
+
+  // useMount(() => {
+  //   reportRequest.post('/gateway.do', {
+  //     service: 'licenceReport',
+  //     appCode: 'WorldCoin',
+  //     appName: 'WorldCoin交易所',
+  //     appGateway: 'http://api.encryptedex.com',
+  //     channel: 'H5',
+  //     clientVersion: 'v1.0.0',
+  //     reportType: 'startup',
+  //   });
+  // });
 
   useEffect(() => {
     (async () => {
