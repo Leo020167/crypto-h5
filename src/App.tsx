@@ -5,6 +5,7 @@ import esES from 'antd-mobile/es/locales/es-ES';
 import frFR from 'antd-mobile/es/locales/fr-FR';
 import jaJP from 'antd-mobile/es/locales/ja-JP';
 import koKR from 'antd-mobile/es/locales/ko-KR';
+
 import zhCN from 'antd-mobile/es/locales/zh-CN';
 import zhTW from 'antd-mobile/es/locales/zh-TW';
 
@@ -18,6 +19,7 @@ import { ReactRouter5Adapter } from 'use-query-params/adapters/react-router-5';
 import GlobalStyle from './GlobalStyle';
 import Routes from './Routes';
 import { localeStateAtom } from './atoms';
+import ruRU from './lang/antd-ru-RU';
 import { useAuthStore } from './stores/auth';
 
 const localeMap: { [key: string]: any } = {
@@ -26,6 +28,7 @@ const localeMap: { [key: string]: any } = {
   fr: frFR,
   ja: jaJP,
   ko: koKR,
+  ru: ruRU,
   'zh-CN': zhCN,
   'zh-TW': zhTW,
 };
