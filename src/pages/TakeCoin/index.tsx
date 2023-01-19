@@ -1,20 +1,21 @@
 import { Button, Dialog, Input, Popup, Selector, Toast } from 'antd-mobile';
 import { DownFill, RightOutline } from 'antd-mobile-icons';
 import currency from 'currency.js';
+import md5 from 'js-md5';
 import { stringify } from 'query-string';
 import { useState, useMemo, useCallback } from 'react';
 import { useIntl } from 'react-intl';
-import { Link, useHistory } from 'react-router-dom';
+import { Link, useHistory, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import { withDefault, StringParam, useQueryParam } from 'use-query-params';
 import {
   useAddressList,
   useGetCoinList,
   useGetWithdrawConfigs,
-  useIdentityGet,
   useWithdrawSubmit,
 } from '../../api/endpoints/transformer';
 import { Address } from '../../api/model';
+import PaymentPasswordDialog from '../../components/PaymentPasswordDialog';
 
 import Screen from '../../components/Screen';
 import { useAuthStore } from '../../stores/auth';
@@ -27,6 +28,7 @@ const TakeCoin = () => {
   const [chainType, setChainType] = useQueryParam('chainType', StringParam);
   const [openSymbol, setOpenSymbol] = useState(false);
 
+  const [open, setOpen] = useState(false);
   const [openAddress, setOpenAddress] = useState(false);
 
   const history = useHistory();
@@ -63,12 +65,25 @@ const TakeCoin = () => {
   const intl = useIntl();
 
   const { userInfo } = useAuthStore();
+  const location = useLocation();
 
   const withdrawSubmit = useWithdrawSubmit({
     mutation: {
       onSuccess(data) {
         if (data.code === '200') {
           Toast.show(intl.formatMessage({ defaultMessage: '申請成功提交', id: 'vo78d9' }));
+          history.replace('/home/account');
+          return;
+        }
+
+        if (data.code === '40090') {
+          Dialog.confirm({
+            content: intl.formatMessage({ defaultMessage: '未通過實名認證', id: 'ZJkNVt' }),
+            confirmText: intl.formatMessage({ defaultMessage: '去實名', id: '0vdo6W' }),
+            onConfirm() {
+              history.push({ pathname: '/verified', state: { from: location } });
+            },
+          });
           return;
         }
 
@@ -85,12 +100,12 @@ const TakeCoin = () => {
             },
           });
           return;
+        } else {
+          Toast.show(data.msg);
         }
       },
     },
   });
-
-  const { data: identityGet } = useIdentityGet();
 
   const handleFinish = useCallback(() => {
     if (!address) {
@@ -106,57 +121,36 @@ const TakeCoin = () => {
       return;
     }
 
-    // 判断是否实名
-
-    if (identityGet?.data?.identityAuth?.state === '1') {
-      Dialog.confirm({
-        content: (
-          <div>
-            <div>
-              {intl.formatMessage({ defaultMessage: '提幣幣種: ', id: 'm6ypg2' })}
-              {symbol}
-            </div>
-            <div>
-              {intl.formatMessage({ defaultMessage: '提幣數量: ', id: 'tY3163' })}
-              {(amount ?? '0.00000000') + symbol}
-            </div>
-            <div>
-              {intl.formatMessage({
-                defaultMessage: '確認前請仔細核對提幣地址信息，以避免造成不必要的財產損失。',
-                id: 'A53KYY',
-              })}
-            </div>
-          </div>
-        ),
-        confirmText: intl.formatMessage({ defaultMessage: '确定', id: 'r0/TUu' }),
-        onConfirm() {
-          withdrawSubmit.mutate({
-            data: {
-              amount,
-              addressId: address?.id,
-            },
-          });
-        },
-      });
-    } else {
-      Dialog.confirm({
-        content: intl.formatMessage({ defaultMessage: '未通過實名認證', id: 'ZJkNVt' }),
-        confirmText: intl.formatMessage({ defaultMessage: '去實名', id: '0vdo6W' }),
-        onConfirm() {
-          history.push('/verified');
-        },
-      });
+    if (!userInfo?.phone) {
+      history.push({ pathname: '/bind-phone', search: stringify({ type: 2 }) });
+      return;
     }
-  }, [
-    address,
-    amount,
-    configs?.data?.fee,
-    identityGet?.data?.identityAuth?.state,
-    intl,
-    symbol,
-    withdrawSubmit,
-    history,
-  ]);
+
+    Dialog.confirm({
+      content: (
+        <div>
+          <div>
+            {intl.formatMessage({ defaultMessage: '提幣幣種: ', id: 'm6ypg2' })}
+            {symbol}
+          </div>
+          <div>
+            {intl.formatMessage({ defaultMessage: '提幣數量: ', id: 'tY3163' })}
+            {(amount ?? '0.00000000') + symbol}
+          </div>
+          <div>
+            {intl.formatMessage({
+              defaultMessage: '確認前請仔細核對提幣地址信息，以避免造成不必要的財產損失。',
+              id: 'A53KYY',
+            })}
+          </div>
+        </div>
+      ),
+      confirmText: intl.formatMessage({ defaultMessage: '确定', id: 'r0/TUu' }),
+      onConfirm() {
+        setOpen(true);
+      },
+    });
+  }, [address, amount, configs?.data?.fee, intl, userInfo?.phone, symbol, history]);
 
   const { data: addressList } = useAddressList({ symbol: symbol, chainType: chainType ?? '' });
 
@@ -338,6 +332,20 @@ const TakeCoin = () => {
           </div>
         </div>
       </Container>
+
+      <PaymentPasswordDialog
+        open={open}
+        onClose={() => setOpen(false)}
+        onFill={(value) => {
+          withdrawSubmit.mutate({
+            data: {
+              amount,
+              addressId: address?.id,
+              payPass: md5(value),
+            },
+          });
+        }}
+      />
 
       <CoinSymbolSelectDialog
         symbols={coinList?.data?.coinList}

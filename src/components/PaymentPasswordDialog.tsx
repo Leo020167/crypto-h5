@@ -1,7 +1,8 @@
 import { Modal, PasscodeInput } from 'antd-mobile';
 import { useIntl } from 'react-intl';
-import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
+import { useAuthStore } from '../stores/auth';
 
 interface PaymentPasswordDialogProps {
   open?: boolean;
@@ -10,6 +11,9 @@ interface PaymentPasswordDialogProps {
 }
 const PaymentPasswordDialog = ({ open, onClose, onFill }: PaymentPasswordDialogProps) => {
   const intl = useIntl();
+
+  const history = useHistory();
+  const authStore = useAuthStore();
   return (
     <Container
       visible={open}
@@ -24,9 +28,18 @@ const PaymentPasswordDialog = ({ open, onClose, onFill }: PaymentPasswordDialogP
           </div>
 
           <div className="pl-2 mt-4">
-            <Link to="/setting-pay-password" className="text-[#6175AE] text-sm">
+            <a
+              onClick={() => {
+                if (authStore.userInfo?.phone) {
+                  history.push('/setting-pay-password');
+                } else {
+                  history.push('/bind-phone');
+                }
+              }}
+              className="text-[#6175AE] text-sm"
+            >
               {intl.formatMessage({ defaultMessage: '交易密码管理', id: 'lK7IeZ' })}
-            </Link>
+            </a>
           </div>
         </div>
       }

@@ -1,7 +1,7 @@
 import { Button, Form, Input, Toast } from 'antd-mobile';
 import { useCallback, useMemo, useRef, useState } from 'react';
 import { useIntl } from 'react-intl';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 import { useIdentityGet, useIdentitySubmit } from '../../api/endpoints/transformer';
 import addPng from '../../assets/add.png';
 import Screen from '../../components/Screen';
@@ -10,6 +10,7 @@ import { uploadImage } from '../../utils/upload';
  * 实名认证
  * @returns
  */
+
 const Verified = () => {
   const ref = useRef<HTMLInputElement>(null);
 
@@ -29,6 +30,7 @@ const Verified = () => {
   const [backImgFile, setBackImgFile] = useState<string>();
 
   const history = useHistory();
+  const location = useLocation<{ from: Location }>();
 
   const { data } = useIdentityGet({
     query: {
@@ -51,7 +53,8 @@ const Verified = () => {
       onSuccess(data) {
         if (data.code === '200') {
           Toast.show(data.msg);
-          history.replace({ pathname: '/home/my' });
+          const { from } = location.state || { from: { pathname: '/home/my' } };
+          history.replace(from);
         }
       },
     },

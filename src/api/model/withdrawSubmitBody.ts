@@ -8,4 +8,5 @@
 export type WithdrawSubmitBody = {
   addressId?: string;
   amount?: string;
+  payPass?: string;
 };

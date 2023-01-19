@@ -1,6 +1,7 @@
-import { Button, Input, InputRef, Selector, Toast } from 'antd-mobile';
+import { Button, Dialog, Input, InputRef, Selector, Toast } from 'antd-mobile';
 import { DownFill } from 'antd-mobile-icons';
 import md5 from 'js-md5';
+import { stringify } from 'query-string';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { useIntl } from 'react-intl';
 import { useHistory } from 'react-router-dom';
@@ -9,6 +10,7 @@ import { withDefault, StringParam, useQueryParam } from 'use-query-params';
 import { useAddAddress, useGetCoinList } from '../../api/endpoints/transformer';
 import PaymentPasswordDialog from '../../components/PaymentPasswordDialog';
 import Screen from '../../components/Screen';
+import { useAuthStore } from '../../stores/auth';
 import CoinSymbolSelectDialog from '../RechargeCoin/CoinSymbolSelectDialog';
 
 const SymbolParam = withDefault(StringParam, 'USDT');
@@ -79,7 +81,7 @@ const AddressAdd = () => {
   const inputRef = useRef<InputRef>(null);
 
   const intl = useIntl();
-
+  const { userInfo } = useAuthStore();
   const history = useHistory();
   const addAddress = useAddAddress({
     mutation: {
@@ -88,6 +90,20 @@ const AddressAdd = () => {
           setOpen(false);
           Toast.show(data.msg);
           history.replace('/addresses');
+        }
+
+        if (Number(data.code) === 40031) {
+          Dialog.confirm({
+            content: intl.formatMessage({ defaultMessage: '未設置交易密碼', id: 'Ck6JdO' }),
+            confirmText: intl.formatMessage({ defaultMessage: '去設置', id: 'COl7RF' }),
+            onConfirm() {
+              if (userInfo?.phone) {
+                history.push('/setting-pay-password');
+              } else {
+                history.push({ pathname: '/bind-phone', search: stringify({ type: 2 }) });
+              }
+            },
+          });
         }
       },
     },
@@ -218,7 +234,7 @@ const AddressAdd = () => {
             data: {
               address,
               chainType: symbol === 'USDT' ? chainType : '',
-              remark,
+              remark: remark || '',
               symbol,
               payPass: md5(value),
             },

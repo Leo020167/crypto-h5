@@ -50,7 +50,8 @@ const GlobalStyle = styled.createGlobalStyle`
     background-color: var(--background-color);
   }
 
-  .btn-purple {
+  .btn-purple,
+  .adm-button.btn-purple {
     background: linear-gradient(360deg, #4d4bda 0%, #7270f8 100%);
     box-shadow: 0px 0px 10px 0px rgba(252, 192, 84, 0.3);
     color: #fff;

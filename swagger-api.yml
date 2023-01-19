@@ -1950,6 +1950,8 @@ paths:
                   type: string
                 amount:
                   type: string
+                payPass:
+                  type: string
       responses:
         '200':
           description: OK
