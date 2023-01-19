@@ -1813,5 +1813,173 @@
   },
   "zznr09": {
     "string": "Retiré"
+  },
+  "/ErIar": {
+    "string": "Transaction"
+  },
+  "27fLgJ": {
+    "string": "Coût"
+  },
+  "4hv39Z": {
+    "string": "direction"
+  },
+  "4kxY/u": {
+    "string": "Veuillez saisir à nouveau le mot de passe de paiement à 6 chiffres"
+  },
+  "4zwWgi": {
+    "string": "Vendable"
+  },
+  "agICfX": {
+    "string": "Veuillez obtenir {text}"
+  },
+  "BP8aBu": {
+    "string": "Sélectionner la devise"
+  },
+  "CarZOU": {
+    "string": "Jour K"
+  },
+  "EGAOia": {
+    "string": "Numéro de téléphone lié :"
+  },
+  "fFmyYM": {
+    "string": "quantité"
+  },
+  "gQ4+K1": {
+    "string": "date"
+  },
+  "gTNZNZ": {
+    "string": "Reçu"
+  },
+  "HdFt0P": {
+    "string": "Disponible à l'achat"
+  },
+  "hxj1V+": {
+    "string": "Effacer l'historique"
+  },
+  "I0saGO": {
+    "string": "Code de recherche"
+  },
+  "IAX0f0": {
+    "string": "1 heure"
+  },
+  "jBc8s4": {
+    "string": "Montant total (USDT)"
+  },
+  "k/3udR": {
+    "string": "Veuillez entrer un mot de passe de paiement à 6 chiffres"
+  },
+  "kckDfZ": {
+    "string": "modifier le montant"
+  },
+  "Ks5Olr": {
+    "string": "Définir le mot de passe"
+  },
+  "KSTxH2": {
+    "string": "15 minutes"
+  },
+  "LBC7Kf": {
+    "string": "sur"
+  },
+  "nAaIBd": {
+    "string": "Modifier le mot de passe de la transaction"
+  },
+  "NBRkJQ": {
+    "string": "Confirmer le mot de passe"
+  },
+  "obugXD": {
+    "string": "Définir le mot de passe de la transaction"
+  },
+  "oV1YAL": {
+    "string": "semaine K"
+  },
+  "pPa5HI": {
+    "string": "5 minutes"
+  },
+  "qx86Ow": {
+    "string": "Introduction"
+  },
+  "R4j16W": {
+    "string": "La photo d'identité téléchargée sera traitée avec un filigrane antivol. Nous respectons strictement les lois et réglementations pour protéger votre vie privée."
+  },
+  "S3V2J5": {
+    "string": "temps partagé"
+  },
+  "tAG5jn": {
+    "string": "Historique"
+  },
+  "uC1tZ7": {
+    "string": "Volume"
+  },
+  "Uju5sq": {
+    "string": "Vérification par SMS"
+  },
+  "VT023k": {
+    "string": "Lier le téléphone"
+  },
+  "xry82G": {
+    "string": "Code de vérification de l'e-mail"
+  },
+  "YNzfBk": {
+    "string": "Vérifier l'identité"
+  },
+  "zR07Wc": {
+    "string": "profondeur"
+  },
+  "ZRv4FU": {
+    "string": "Télécharger l'image"
+  },
+  "0vdo6W": {
+    "string": "Supprimer le vrai nom"
+  },
+  "COl7RF": {
+    "string": "Aller aux paramètres"
+  },
+  "Ck6JdO": {
+    "string": "Aucun mot de passe de transaction défini"
+  },
+  "ZJkNVt": {
+    "string": "Échec de la réussite de l'authentification par nom réel"
+  },
+  "+8cZlc": {
+    "string": "Prix de l'abonnement"
+  },
+  "8gjJxE": {
+    "string": "Devises acceptées"
+  },
+  "Jf8sT5": {
+    "string": "à démarrer"
+  },
+  "T5DLIZ": {
+    "string": "Devise active"
+  },
+  "ZsNueb": {
+    "string": "S'inscrire maintenant"
+  },
+  "mU805N": {
+    "string": "circulation"
+  },
+  "zMxwE3": {
+    "string": "Quantité d'activité"
+  },
+  "//08m+": {
+    "string": "Veuillez sélectionner la devise"
+  },
+  "2+V/xG": {
+    "string": "Montant du dépôt"
+  },
+  "JVD8BD": {
+    "string": "invendu"
+  },
+  "MkphXA": {
+    "string": "Quantité({symbole})"
+  },
+  "XdbxuW": {
+    "string": "frais de traitement"
+  },
+  "qSqDA5": {
+    "string": "Veuillez sélectionner le compte de transfert"
+  },
+  "s4hlhW": {
+    "string": "Montant (USDT)"
   }
 }

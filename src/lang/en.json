@@ -1813,5 +1813,173 @@
   },
   "zznr09": {
     "string": "Revoked"
+  },
+  "/ErIar": {
+    "string": "Transaction"
+  },
+  "27fLgJ": {
+    "string": "Cost"
+  },
+  "4hv39Z": {
+    "string": "direction"
+  },
+  "4kxY/u": {
+    "string": "Please enter the 6-digit payment password again"
+  },
+  "4zwWgi": {
+    "string": "Sellable"
+  },
+  "agICfX": {
+    "string": "Please get {text}"
+  },
+  "BP8aBu": {
+    "string": "Select currency"
+  },
+  "CarZOU": {
+    "string": "Day K"
+  },
+  "EGAOia": {
+    "string": "Bound phone number:"
+  },
+  "fFmyYM": {
+    "string": "quantity"
+  },
+  "gQ4+K1": {
+    "string": "date"
+  },
+  "gTNZNZ": {
+    "string": "Receipt"
+  },
+  "HdFt0P": {
+    "string": "Available to buy"
+  },
+  "hxj1V+": {
+    "string": "Clear history"
+  },
+  "I0saGO": {
+    "string": "Search Code"
+  },
+  "IAX0f0": {
+    "string": "1 hour"
+  },
+  "jBc8s4": {
+    "string": "Total Amount (USDT)"
+  },
+  "k/3udR": {
+    "string": "Please enter a 6-digit payment password"
+  },
+  "kckDfZ": {
+    "string": "change amount"
+  },
+  "Ks5Olr": {
+    "string": "Set Password"
+  },
+  "KSTxH2": {
+    "string": "15 minutes"
+  },
+  "LBC7Kf": {
+    "string": "on"
+  },
+  "nAaIBd": {
+    "string": "Modify transaction password"
+  },
+  "NBRkJQ": {
+    "string": "Confirm password"
+  },
+  "obugXD": {
+    "string": "Set transaction password"
+  },
+  "oV1YAL": {
+    "string": "week K"
+  },
+  "pPa5HI": {
+    "string": "5 minutes"
+  },
+  "qx86Ow": {
+    "string": "Introduction"
+  },
+  "R4j16W": {
+    "string": "The uploaded ID photo will be processed with an anti-theft watermark. We strictly abide by laws and regulations to protect your personal privacy."
+  },
+  "S3V2J5": {
+    "string": "time-sharing"
+  },
+  "tAG5jn": {
+    "string": "History"
+  },
+  "uC1tZ7": {
+    "string": "Volume"
+  },
+  "Uju5sq": {
+    "string": "SMS Verification"
+  },
+  "VT023k": {
+    "string": "Bind phone"
+  },
+  "xry82G": {
+    "string": "Email Verification Code"
+  },
+  "YNzfBk": {
+    "string": "Verify Identity"
+  },
+  "zR07Wc": {
+    "string": "depth"
+  },
+  "ZRv4FU": {
+    "string": "Upload image"
+  },
+  "0vdo6W": {
+    "string": "Go to real name"
+  },
+  "COl7RF": {
+    "string": "Go to setup"
+  },
+  "Ck6JdO": {
+    "string": "No transaction password set"
+  },
+  "ZJkNVt": {
+    "string": "Not passed the real-name authentication"
+  },
+  "+8cZlc": {
+    "string": "Subscription price"
+  },
+  "8gjJxE": {
+    "string": "Accepted currencies"
+  },
+  "Jf8sT5": {
+    "string": "to be started"
+  },
+  "T5DLIZ": {
+    "string": "Active Currency"
+  },
+  "ZsNueb": {
+    "string": "Join now"
+  },
+  "mU805N": {
+    "string": "circulation"
+  },
+  "zMxwE3": {
+    "string": "Amount of activity"
+  },
+  "//08m+": {
+    "string": "Please select currency"
+  },
+  "2+V/xG": {
+    "string": "Deposit amount"
+  },
+  "JVD8BD": {
+    "string": "unsold"
+  },
+  "MkphXA": {
+    "string": "Quantity({symbol})"
+  },
+  "XdbxuW": {
+    "string": "handling fee"
+  },
+  "qSqDA5": {
+    "string": "Please select an account to transfer"
+  },
+  "s4hlhW": {
+    "string": "Amount (USDT)"
   }
 }

@@ -1813,5 +1813,173 @@
   },
   "zznr09": {
     "string": "Retirada"
+  },
+  "/ErIar": {
+    "string": "Transacción"
+  },
+  "27fLgJ": {
+    "string": "Costo"
+  },
+  "4hv39Z": {
+    "string": "dirección"
+  },
+  "4kxY/u": {
+    "string": "Por favor ingrese la contraseña de pago de 6 dígitos nuevamente"
+  },
+  "4zwWgi": {
+    "string": "Vendible"
+  },
+  "agICfX": {
+    "string": "Por favor, obtén {texto}"
+  },
+  "BP8aBu": {
+    "string": "Seleccionar moneda"
+  },
+  "CocheZOU": {
+    "string": "Día K"
+  },
+  "EGAOia": {
+    "string": "Número de teléfono enlazado:"
+  },
+  "fFmyYM": {
+    "string": "cantidad"
+  },
+  "gQ4+K1": {
+    "string": "fecha"
+  },
+  "gTNZNZ": {
+    "string": "Recibo"
+  },
+  "HdFt0P": {
+    "string": "Disponible para comprar"
+  },
+  "hxj1V+": {
+    "string": "Borrar historial"
+  },
+  "I0saGO": {
+    "string": "Código de búsqueda"
+  },
+  "IAX0f0": {
+    "string": "1 hora"
+  },
+  "jBc8s4": {
+    "string": "Cantidad total (USDT)"
+  },
+  "k/3udR": {
+    "string": "Ingrese una contraseña de pago de 6 dígitos"
+  },
+  "kckDfZ": {
+    "string": "cantidad de cambio"
+  },
+  "Ks5Olr": {
+    "string": "Establecer contraseña"
+  },
+  "KSTxH2": {
+    "string": "15 minutos"
+  },
+  "LBC7Kf": {
+    "string": "en"
+  },
+  "nAaIBd": {
+    "string": "Modificar contraseña de transacción"
+  },
+  "NBRkJQ": {
+    "string": "Confirmar contraseña"
+  },
+  "obugXD": {
+    "string": "Establecer contraseña de transacción"
+  },
+  "oV1YAL": {
+    "string": "semana K"
+  },
+  "pPa5HI": {
+    "string": "5 minutos"
+  },
+  "qx86Ow": {
+    "string": "Introducción"
+  },
+  "R4j16W": {
+    "string": "La foto de identificación cargada se procesará con una marca de agua antirrobo. Cumplimos estrictamente las leyes y regulaciones para proteger su privacidad personal"
+  },
+  "S3V2J5": {
+    "string": "tiempo compartido"
+  },
+  "tAG5jn": {
+    "string": "Historial"
+  },
+  "uC1tZ7": {
+    "string": "Volumen"
+  },
+  "Uju5sq": {
+    "string": "Verificación por SMS"
+  },
+  "VT023k": {
+    "string": "Enlazar teléfono"
+  },
+  "xry82G": {
+    "string": "Código de verificación de correo electrónico"
+  },
+  "YNzfBk": {
+    "string": "Verificar identidad"
+  },
+  "zR07Wc": {
+    "string": "profundidad"
+  },
+  "ZRv4FU": {
+    "string": "Subir imagen"
+  },
+  "0vdo6W": {
+    "string": "Quitar nombre real"
+  },
+  "COl7RF": {
+    "string": "Ir a la configuración"
+  },
+  "Ck6JdO": {
+    "string": "No se estableció una contraseña de transacción"
+  },
+  "ZJkNVt": {
+    "string": "Error al pasar la autenticación de nombre real"
+  },
+  "+8cZlc": {
+    "string": "Precio de suscripción"
+  },
+  "8gjJxE": {
+    "string": "Monedas aceptadas"
+  },
+  "Jf8sT5": {
+    "string": "para comenzar"
+  },
+  "T5DLIZ": {
+    "string": "Moneda activa"
+  },
+  "ZsNueb": {
+    "string": "Únete ahora"
+  },
+  "mU805N": {
+    "string": "circulación"
+  },
+  "zMxwE3": {
+    "string": "Cantidad de actividad"
+  },
+  "//08m+": {
+    "string": "Seleccione la moneda"
+  },
+  "2+V/xG": {
+    "string": "Cantidad del depósito"
+  },
+  "JVD8BD": {
+    "string": "sin vender"
+  },
+  "MkphXA": {
+    "string": "Cantidad ({símbolo})"
+  },
+  "XdbxuW": {
+    "string": "tarifa de manejo"
+  },
+  "qSqDA5": {
+    "string": "Por favor seleccione la cuenta de transferencia"
+  },
+  "s4hlhW": {
+    "string": "Cantidad (USDT)"
   }
 }

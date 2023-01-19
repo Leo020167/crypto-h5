@@ -11,8 +11,13 @@ export const useAuthStore = create(
     login: (data: LoginBody) => Promise<Login200>;
     logout: () => void;
     getUserInfo: () => Promise<void>;
+    bindPhone: (phone: string) => void;
   }>(
     (set, get) => ({
+      bindPhone(phone) {
+        const { userInfo } = get();
+        set({ userInfo: { ...userInfo, phone } });
+      },
       signup(data) {
         set({ token: data.token, userInfo: data.user });
       },

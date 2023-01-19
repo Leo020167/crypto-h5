@@ -1813,5 +1813,173 @@
   },
   "zznr09": {
     "string": "已撤销"
+  },
+  "/ErIar": {
+    "string": "交易"
+  },
+  "27fLgJ": {
+    "string": "成本"
+  },
+  "4hv39Z": {
+    "string": "方向"
+  },
+  "4kxY/u": {
+    "string": "请再次输入6位支付密码"
+  },
+  "4zwWgi": {
+    "string": "可卖"
+  },
+  "agICfX": {
+    "string": "请获取{text}"
+  },
+  "BP8aBu": {
+    "string": "选择币种"
+  },
+  "CarZOU": {
+    "string": "日K"
+  },
+  "EGAOia": {
+    "string": "已绑定手机号："
+  },
+  "fFmyYM": {
+    "string": "数量"
+  },
+  "gQ4+K1": {
+    "string": "日期"
+  },
+  "gTNZNZ": {
+    "string": "收"
+  },
+  "HdFt0P": {
+    "string": "可买"
+  },
+  "hxj1V+": {
+    "string": "清空历史"
+  },
+  "I0saGO": {
+    "string": "搜索代码"
+  },
+  "IAX0f0": {
+    "string": "1小时"
+  },
+  "jBc8s4": {
+    "string": "总金额(USDT)"
+  },
+  "k/3udR": {
+    "string": "请输入6位支付密码"
+  },
+  "kckDfZ": {
+    "string": "涨跌额"
+  },
+  "Ks5Olr": {
+    "string": "设置密码"
+  },
+  "KSTxH2": {
+    "string": "15分钟"
+  },
+  "LBC7Kf": {
+    "string": "开"
+  },
+  "nAaIBd": {
+    "string": "修改交易密码"
+  },
+  "NBRkJQ": {
+    "string": "确认密码"
+  },
+  "obugXD": {
+    "string": "设置交易密码"
+  },
+  "oV1YAL": {
+    "string": "周K"
+  },
+  "pPa5HI": {
+    "string": "5分钟"
+  },
+  "qx86Ow": {
+    "string": "简介"
+  },
+  "R4j16W": {
+    "string": "上传的证件照片将进行防盗水印处理，我们严格遵照法律法规，保护您的个人隐私。"
+  },
+  "S3V2J5": {
+    "string": "分时"
+  },
+  "tAG5jn": {
+    "string": "历史记录"
+  },
+  "uC1tZ7": {
+    "string": "成交量"
+  },
+  "Uju5sq": {
+    "string": "短信验证"
+  },
+  "VT023k": {
+    "string": "绑定手机"
+  },
+  "xry82G": {
+    "string": "邮箱验证码"
+  },
+  "YNzfBk": {
+    "string": "验证身份"
+  },
+  "zR07Wc": {
+    "string": "深度"
+  },
+  "ZRv4FU": {
+    "string": "上传图片"
+  },
+  "0vdo6W": {
+    "string": "去实名"
+  },
+  "COl7RF": {
+    "string": "去设置"
+  },
+  "Ck6JdO": {
+    "string": "未设置交易密码"
+  },
+  "ZJkNVt": {
+    "string": "未通过实名认证"
+  },
+  "+8cZlc": {
+    "string": "认购价格"
+  },
+  "8gjJxE": {
+    "string": "接受币种"
+  },
+  "Jf8sT5": {
+    "string": "待开始"
+  },
+  "T5DLIZ": {
+    "string": "活动币种"
+  },
+  "ZsNueb": {
+    "string": "立即参与"
+  },
+  "mU805N": {
+    "string": "发行量"
+  },
+  "zMxwE3": {
+    "string": "活动总量"
+  },
+  "//08m+": {
+    "string": "请选择币种"
+  },
+  "2+V/xG": {
+    "string": "充币数量"
+  },
+  "JVD8BD": {
+    "string": "未成交"
+  },
+  "MkphXA": {
+    "string": "数量({symbol})"
+  },
+  "XdbxuW": {
+    "string": "手续费"
+  },
+  "qSqDA5": {
+    "string": "请选择划转账户"
+  },
+  "s4hlhW": {
+    "string": "金额(USDT)"
   }
 }

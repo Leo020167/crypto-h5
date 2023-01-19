@@ -9,6 +9,7 @@ import CountryPhoneNumber from '../../components/CountryPhoneNumber';
 import Screen from '../../components/Screen';
 import SmsCodeInput from '../../components/SmsCodeInput';
 import { Country } from '../../model';
+import { useAuthStore } from '../../stores/auth';
 
 const typeParam = withDefault(NumberParam, 1);
 const BindPhone = () => {
@@ -19,11 +20,15 @@ const BindPhone = () => {
   const [country, setCountry] = useState<Country>({ code: '+1', name: '美國' });
   const [type] = useQueryParam('type', typeParam);
 
+  const authStore = useAuthStore();
+
   const history = useHistory();
   const userSecurityUpdatePhone = useUserSecurityUpdatePhone({
     mutation: {
       onSuccess(data) {
         if (data.code === '200') {
+          authStore.bindPhone(phone);
+
           Toast.show(data.msg);
           if (type === 1) {
             history.replace('/settings');

@@ -4,11 +4,11 @@ import { Md5 } from 'ts-md5';
 
 let no = 1;
 const instance = axios.create({
-  baseURL: 'https://acooly.cn',
+  baseURL: 'http://190.92.245.81',
 });
 
-const accessKey = '23011814432200340007';
-const secretKey = '9ca84266b574379f7d8045f20fc870e7';
+const accessKey = '23011918131600340030';
+const secretKey = '4c8f89de2a90e68545b1a67167d64dd2';
 
 // 设置报文头和公共参数
 function setHeader(config: any) {
