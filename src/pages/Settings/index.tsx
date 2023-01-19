@@ -27,7 +27,16 @@ const Settings = () => {
         <List.Item arrow={<Arrow />} onClick={() => history.push('/change-password')}>
           {intl.formatMessage({ defaultMessage: '登錄密碼', id: '958kN+' })}
         </List.Item>
-        <List.Item arrow={<Arrow />} onClick={() => history.push('/account')}>
+        <List.Item
+          arrow={<Arrow />}
+          onClick={() => {
+            if (authStore.userInfo?.phone) {
+              history.push('/account');
+            } else {
+              history.push('/bind-phone');
+            }
+          }}
+        >
           {intl.formatMessage({ defaultMessage: '綁定手機', id: 'VT023k' })}
         </List.Item>
         <List.Item
@@ -36,7 +45,7 @@ const Settings = () => {
             if (authStore.userInfo?.phone) {
               history.push('/setting-pay-password');
             } else {
-              history.push('/account');
+              history.push('/bind-phone');
             }
           }}
         >

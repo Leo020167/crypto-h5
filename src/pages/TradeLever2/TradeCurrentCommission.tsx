@@ -1,16 +1,21 @@
 import { useIntl } from 'react-intl';
-import { PaginationResponseDataItem } from '../../api/model';
+import { useProOrderQueryList } from '../../api/endpoints/transformer';
 import { stringDateFormat } from '../../utils/date';
 
-const TradeCurrentCommission = ({
-  data = [],
-  onCancel,
-}: {
-  data?: PaginationResponseDataItem[];
-  onCancel?: (orderId: string) => void;
-}) => {
+const TradeCurrentCommission = ({ onCancel }: { onCancel?: (orderId: string) => void }) => {
   const intl = useIntl();
-  if (data.length === 0) {
+
+  const { data } = useProOrderQueryList({
+    symbol: '',
+    accountType: 'spot',
+    buySell: '',
+    pageNo: '1',
+    orderState: '0',
+    isDone: '1',
+    type: '2',
+  });
+
+  if (data?.data?.data?.length === 0) {
     return (
       <span className="text-center p-10">
         {intl.formatMessage({ defaultMessage: '暫無數據', id: 'dqhJYx' })}
@@ -20,7 +25,7 @@ const TradeCurrentCommission = ({
 
   return (
     <>
-      {data.map((v, i) => (
+      {data?.data?.data?.map((v, i) => (
         <div key={i} className="p-4 bg-white">
           <div className="flex items-center">
             <div className="flex items-center flex-1">
@@ -55,7 +60,7 @@ const TradeCurrentCommission = ({
               <span className="text-xs text-gray-400">
                 {intl.formatMessage({ defaultMessage: '總金額(USDT)', id: 'jBc8s4' })}
               </span>
-              <span className="text-sm text-[#3d3a50]">{Number(v.price) * Number(v.amount)}</span>
+              <span className="text-sm text-[#3d3a50]">{v.sum}</span>
             </div>
           </div>
         </div>

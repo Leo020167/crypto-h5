@@ -17,12 +17,26 @@ const HomeMarket = () => {
   const intl = useIntl();
   const tabItems = useMemo(
     () => [
-      { key: '0', title: intl.formatMessage({ defaultMessage: '幣幣', id: 'UT6tN2' }) },
-      { key: '1', title: intl.formatMessage({ defaultMessage: '合約', id: '6ExJHy' }) },
-      { key: '2', title: intl.formatMessage({ defaultMessage: '全球期指', id: 'RwgA6k' }) },
+      {
+        key: '0',
+        title: intl.formatMessage({ defaultMessage: '幣幣', id: 'UT6tN2' }),
+        tab: 'spot',
+      },
+      {
+        key: '1',
+        title: intl.formatMessage({ defaultMessage: '合約', id: '6ExJHy' }),
+        tab: 'digital',
+      },
+      {
+        key: '2',
+        title: intl.formatMessage({ defaultMessage: '全球期指', id: 'RwgA6k' }),
+        tab: 'stock',
+      },
     ],
     [intl],
   );
+
+  const currentTab = useMemo(() => tabItems[activeIndex], [activeIndex, tabItems]);
 
   return (
     <Container className="flex-1 flex flex-col min-h-0 bg-white">
@@ -65,13 +79,13 @@ const HomeMarket = () => {
         }}
       >
         <Swiper.Item>
-          <HomeStockDigitalMarket tab="spot" />
+          <HomeStockDigitalMarket tab="spot" activeKey={currentTab.tab} />
         </Swiper.Item>
         <Swiper.Item>
-          <HomeStockDigitalMarket tab="digital" />
+          <HomeStockDigitalMarket tab="digital" activeKey={currentTab.tab} />
         </Swiper.Item>
         <Swiper.Item>
-          <HomeStockDigitalMarket tab="stock" />
+          <HomeStockDigitalMarket tab="stock" activeKey={currentTab.tab} />
         </Swiper.Item>
       </Swiper>
     </Container>

@@ -52,22 +52,6 @@ const TradeLever = () => {
   );
 
   const [selected, setSelected] = useState<string>('0');
-  // const { data: proOrderQueryList, refetch } = useProOrderQueryList(
-  //   {
-  //     symbol: '',
-  //     accountType: orderConfig?.data?.accountType,
-  //     buySell: '',
-  //     pageNo: '1',
-  //     orderState: selected === '0' ? '1' : '0',
-  //     isDone: selected,
-  //     type: '2',
-  //   },
-  //   {
-  //     query: {
-  //       enabled: !!orderConfig?.data?.accountType,
-  //     },
-  //   },
-  // );
 
   const { data: proOrderQueryList, refetch } = useHomeAccount();
 
@@ -157,7 +141,6 @@ const TradeLever = () => {
             <TradeCurrentOpenPosition data={proOrderQueryList?.data?.spotAccount?.openList} />
           ) : (
             <TradeCurrentCommission
-              data={proOrderQueryList?.data?.data}
               onCancel={(orderId) => {
                 Dialog.confirm({
                   content: intl.formatMessage({ defaultMessage: '確定撤銷訂單', id: 'UXkrvR' }),

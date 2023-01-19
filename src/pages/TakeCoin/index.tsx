@@ -1,6 +1,7 @@
 import { Button, Dialog, Input, Popup, Selector, Toast } from 'antd-mobile';
 import { DownFill, RightOutline } from 'antd-mobile-icons';
 import currency from 'currency.js';
+import { stringify } from 'query-string';
 import { useState, useMemo, useCallback } from 'react';
 import { useIntl } from 'react-intl';
 import { Link, useHistory } from 'react-router-dom';
@@ -16,6 +17,7 @@ import {
 import { Address } from '../../api/model';
 
 import Screen from '../../components/Screen';
+import { useAuthStore } from '../../stores/auth';
 import CoinSymbolSelectDialog from '../RechargeCoin/CoinSymbolSelectDialog';
 
 const SymbolParam = withDefault(StringParam, 'USDT');
@@ -60,6 +62,8 @@ const TakeCoin = () => {
 
   const intl = useIntl();
 
+  const { userInfo } = useAuthStore();
+
   const withdrawSubmit = useWithdrawSubmit({
     mutation: {
       onSuccess(data) {
@@ -73,7 +77,11 @@ const TakeCoin = () => {
             content: intl.formatMessage({ defaultMessage: '未設置交易密碼', id: 'Ck6JdO' }),
             confirmText: intl.formatMessage({ defaultMessage: '去設置', id: 'COl7RF' }),
             onConfirm() {
-              history.push('/setting-pay-password');
+              if (userInfo?.phone) {
+                history.push('/setting-pay-password');
+              } else {
+                history.push({ pathname: '/bind-phone', search: stringify({ type: 2 }) });
+              }
             },
           });
           return;

@@ -5,12 +5,13 @@ import { stringify } from 'query-string';
 import { useCallback, useMemo } from 'react';
 import { useIntl } from 'react-intl';
 import { useHistory } from 'react-router-dom';
+import { useInterval } from 'react-use';
 import styled from 'styled-components';
 import { switchColorValueAtom } from '../../atoms';
 import { useMarketData } from '../../market/endpoints/marketWithTransformer';
 import HomeMarketItem from './HomeMarketItem';
 
-const HomeStockDigitalMarket = ({ tab }: { tab: string }) => {
+const HomeStockDigitalMarket = ({ tab, activeKey }: { tab: string; activeKey: string }) => {
   const [upDownColor] = useAtom(switchColorValueAtom);
 
   const getBackgroundColor = useCallback(
@@ -28,11 +29,18 @@ const HomeStockDigitalMarket = ({ tab }: { tab: string }) => {
     [upDownColor],
   );
 
-  const { data, isLoading } = useMarketData({
+  const { data, isLoading, refetch } = useMarketData({
     sortField: '',
     sortType: '',
     tab: tab,
   });
+
+  useInterval(
+    () => {
+      refetch();
+    },
+    tab === activeKey ? 3000 : null,
+  );
 
   const history = useHistory();
 

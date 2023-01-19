@@ -6,7 +6,7 @@ import { Country } from '../model';
 import AreaList from './AreaList';
 
 interface CountryPhoneProps {
-  country?: Country;
+  country: Country;
   onCountryChange?: (country: Country) => void;
 
   value?: string;
@@ -24,7 +24,7 @@ const CountryName = ({ countryName, onClick }: { countryName: string; onClick: (
 };
 
 const CountryPhoneNumber = ({
-  country = { code: '+852', name: '香港' },
+  country,
   onCountryChange,
   value,
   onChange,

@@ -3,18 +3,21 @@ import { useCallback, useState } from 'react';
 import { useIntl } from 'react-intl';
 import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
+import { NumberParam, useQueryParam, withDefault } from 'use-query-params';
 import { useUserSecurityUpdatePhone } from '../../api/endpoints/transformer';
 import CountryPhoneNumber from '../../components/CountryPhoneNumber';
 import Screen from '../../components/Screen';
 import SmsCodeInput from '../../components/SmsCodeInput';
 import { Country } from '../../model';
 
+const typeParam = withDefault(NumberParam, 1);
 const BindPhone = () => {
   const intl = useIntl();
 
   const [phone, setPhone] = useState<string>('');
   const [smsCode, setSmsCode] = useState<string>('');
-  const [country, setCountry] = useState<Country>({ code: '+852', name: '香港' });
+  const [country, setCountry] = useState<Country>({ code: '+1', name: '美國' });
+  const [type] = useQueryParam('type', typeParam);
 
   const history = useHistory();
   const userSecurityUpdatePhone = useUserSecurityUpdatePhone({
@@ -22,7 +25,16 @@ const BindPhone = () => {
       onSuccess(data) {
         if (data.code === '200') {
           Toast.show(data.msg);
-          history.replace('/take-coin');
+          if (type === 1) {
+            history.replace('/settings');
+            return;
+          }
+
+          if (type === 2) {
+            // 充幣界面
+            history.replace('/take-coin');
+            return;
+          }
         }
       },
     },
@@ -48,10 +60,11 @@ const BindPhone = () => {
 
   return (
     <Screen headerTitle={intl.formatMessage({ defaultMessage: '请输入手机号码', id: 'ejs0A3' })}>
-      <div className="p-4">
+      <Container className="p-4">
         <Form>
           <Form.Item>
             <CountryPhoneNumber
+              country={country}
               placeholder={intl.formatMessage({ defaultMessage: '请输入手机号码', id: 'ejs0A3' })}
               value={phone}
               onChange={setPhone}
@@ -67,23 +80,27 @@ const BindPhone = () => {
               onChange={setSmsCode}
             />
           </Form.Item>
-          <ButtonWrapper
-            block
-            className="mt-8"
-            onClick={handleFinish}
-            loading={userSecurityUpdatePhone.isLoading}
-          >
-            {intl.formatMessage({ defaultMessage: '确定', id: 'r0/TUu' })}
-          </ButtonWrapper>
+          <div className="mt-8">
+            <Button
+              block
+              className="submit"
+              onClick={handleFinish}
+              loading={userSecurityUpdatePhone.isLoading}
+            >
+              {intl.formatMessage({ defaultMessage: '确定', id: 'r0/TUu' })}
+            </Button>
+          </div>
         </Form>
-      </div>
+      </Container>
     </Screen>
   );
 };
 
-const ButtonWrapper = styled(Button)`
-  background-color: #ff6b1b;
-  color: #fff;
+const Container = styled.div`
+  .submit {
+    background-color: #ff6b1b;
+    color: #fff;
+  }
 `;
 
 export default BindPhone;

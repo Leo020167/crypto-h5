@@ -110,7 +110,9 @@ const TradeCommissionHistory = ({ accountType }: { accountType?: string }) => {
             <div className="flex mt-2.5">
               <div className="flex flex-col w-1/3">
                 <span className="text-xs text-gray-400">
-                  {intl.formatMessage({ defaultMessage: '手數', id: 'g4FQPM' })}
+                  {accountType === 'spot'
+                    ? intl.formatMessage({ defaultMessage: '數量', id: 'YYra8Q' })
+                    : intl.formatMessage({ defaultMessage: '手數', id: 'g4FQPM' })}
                 </span>
                 <span className="text-sm text-[#3d3a50]">
                   {accountType === 'spot' ? v.amount : v.openHand}
@@ -124,7 +126,9 @@ const TradeCommissionHistory = ({ accountType }: { accountType?: string }) => {
               </div>
               <div className="flex flex-col w-1/3 items-end">
                 <span className="text-xs text-gray-400">
-                  {intl.formatMessage({ defaultMessage: '開倉保證金', id: 'H4vld2' })}
+                  {accountType === 'spot'
+                    ? intl.formatMessage({ defaultMessage: '總金額(USDT)', id: 'jBc8s4' })
+                    : intl.formatMessage({ defaultMessage: '開倉保證金', id: 'H4vld2' })}
                 </span>
                 <span className="text-sm text-[#3d3a50]">
                   {accountType === 'spot' ? v.sum : v.openBail}
