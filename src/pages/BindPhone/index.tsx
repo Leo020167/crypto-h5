@@ -25,9 +25,10 @@ const BindPhone = () => {
   const history = useHistory();
   const userSecurityUpdatePhone = useUserSecurityUpdatePhone({
     mutation: {
-      onSuccess(data) {
+      async onSuccess(data) {
         if (data.code === '200') {
           authStore.bindPhone(phone);
+          await authStore.getUserInfo();
 
           Toast.show(data.msg);
           if (type === 1) {
