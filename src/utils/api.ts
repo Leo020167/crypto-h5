@@ -79,13 +79,3 @@ export const checkIdentity = (data: {
 }) => {
   return apiPost('/user/security/checkIdentity.do', data);
 };
-
-export const changePhoneTwo = (data: {
-  newCountryCode: string;
-  newPhone: string;
-  newSmsCode: string;
-  oldPhone: string;
-  oldSmsCode: string;
-}) => {
-  return apiPost('/user/security/changePhoneTwo.do', data);
-};

@@ -8,7 +8,7 @@ import { useUserSecurityUpdatePhone } from '../../api/endpoints/transformer';
 import CountryPhoneNumber from '../../components/CountryPhoneNumber';
 import Screen from '../../components/Screen';
 import SmsCodeInput from '../../components/SmsCodeInput';
-import { Country } from '../../model';
+import useCountry from '../../hooks/useCountry';
 import { useAuthStore } from '../../stores/auth';
 
 const typeParam = withDefault(NumberParam, 1);
@@ -17,7 +17,7 @@ const BindPhone = () => {
 
   const [phone, setPhone] = useState<string>('');
   const [smsCode, setSmsCode] = useState<string>('');
-  const [country, setCountry] = useState<Country>({ code: '+1', name: '美國' });
+  const [country, setCountry] = useCountry();
   const [type] = useQueryParam('type', typeParam);
 
   const authStore = useAuthStore();
@@ -59,9 +59,10 @@ const BindPhone = () => {
       data: {
         phone,
         code: smsCode,
+        countryCode: country.code,
       },
     });
-  }, [intl, phone, smsCode, userSecurityUpdatePhone]);
+  }, [country.code, intl, phone, smsCode, userSecurityUpdatePhone]);
 
   return (
     <Screen headerTitle={intl.formatMessage({ defaultMessage: '请输入手机号码', id: 'ejs0A3' })}>

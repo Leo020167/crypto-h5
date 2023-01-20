@@ -1,14 +1,13 @@
 import { Button, Form, Input, NavBar, Toast } from 'antd-mobile';
 import { DownFill } from 'antd-mobile-icons';
-import { useAtom } from 'jotai';
 import { useCallback, useState } from 'react';
 import { useIntl } from 'react-intl';
 import { useHistory } from 'react-router-dom';
 import { useCounter, useInterval } from 'react-use';
 import styled from 'styled-components';
 import { useSmsGet } from '../../api/endpoints/transformer';
-import { countryAtom } from '../../atoms';
 import AreaList from '../../components/AreaList';
+import useCountry from '../../hooks/useCountry';
 
 import { AreaListItem } from '../../model';
 import { doSecurityForgetPass } from '../../utils/api';
@@ -17,7 +16,7 @@ import { validPassword } from '../../utils/validation';
 const ResetPassword = () => {
   const history = useHistory();
 
-  const [country, setCountry] = useAtom(countryAtom);
+  const [country, setCountry] = useCountry();
 
   const [open, setOpen] = useState(false);
 

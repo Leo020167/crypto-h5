@@ -14,6 +14,7 @@ export const AXIOS_INSTANCE = Axios.create({
 AXIOS_INSTANCE.interceptors.response.use(
   (config) => {
     const code = Number(config.data.code);
+
     if (code !== 200 && ![40030, 40031, 40032].includes(code)) {
       Toast.show(config.data.msg);
     }

@@ -2,12 +2,12 @@ import { Button, Form, Toast } from 'antd-mobile';
 import { useState } from 'react';
 import { useIntl } from 'react-intl';
 import styled from 'styled-components';
+import { useChangePhoneTwo } from '../../api/endpoints/transformer';
 
 import CountryPhoneNumber from '../../components/CountryPhoneNumber';
 import SmsCodeInput from '../../components/SmsCodeInput';
-import { Country } from '../../model';
+import useCountry from '../../hooks/useCountry';
 import { useAuthStore } from '../../stores/auth';
-import { changePhoneTwo } from '../../utils/api';
 
 interface AccountStepProps {
   oldSmsCode: string;
@@ -16,13 +16,23 @@ interface AccountStepProps {
 const AccountStep2 = ({ oldSmsCode, onStepCompleted }: AccountStepProps) => {
   const [smsCode, setSmsCode] = useState<string>('');
 
-  const { userInfo } = useAuthStore();
-
-  const [country, setCountry] = useState<Country>({ code: '+852', name: '香港' });
+  const [country, setCountry] = useCountry();
 
   const [phone, setPhone] = useState<string>('');
 
   const intl = useIntl();
+
+  const { userInfo } = useAuthStore();
+
+  const changePhoneTwo = useChangePhoneTwo({
+    mutation: {
+      onSuccess(data) {
+        if (data.code === '200') {
+          onStepCompleted();
+        }
+      },
+    },
+  });
 
   return (
     <Container>
@@ -32,21 +42,25 @@ const AccountStep2 = ({ oldSmsCode, onStepCompleted }: AccountStepProps) => {
             Toast.show(intl.formatMessage({ defaultMessage: '请输入验证码', id: '9UZxwP' }));
             return;
           }
-          changePhoneTwo({
-            newCountryCode: country.code,
-            newPhone: phone,
-            newSmsCode: smsCode,
-            oldPhone: userInfo?.phone ?? '',
-            oldSmsCode,
-          }).then((res) => {
-            if (res.code === '200') {
-              onStepCompleted();
-            }
+          changePhoneTwo.mutate({
+            data: {
+              newCountryCode: country.code,
+              newPhone: phone,
+              newSmsCode: smsCode,
+              oldPhone: userInfo?.phone ?? '',
+              oldSmsCode,
+            },
           });
         }}
         footer={
           <div>
-            <Button color="primary" type="submit" size="large" block>
+            <Button
+              color="primary"
+              type="submit"
+              size="large"
+              block
+              loading={changePhoneTwo.isLoading}
+            >
               {intl.formatMessage({ defaultMessage: '下一步', id: '6Y0p2/' })}
             </Button>
           </div>

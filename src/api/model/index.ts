@@ -31,6 +31,7 @@ export * from './applySubscribeBody';
 export * from './attentionAddBody';
 export * from './banner';
 export * from './certification';
+export * from './changePhoneTwoBody';
 export * from './chargeConfig';
 export * from './chargeConfigAddress';
 export * from './chargeConfigsResponse';

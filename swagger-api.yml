@@ -1913,6 +1913,33 @@ paths:
               schema:
                 $ref: '#/components/schemas/ListAccountTypeResponse'
 
+  /user/security/changePhoneTwo.do:
+    post:
+      operationId: 'changePhoneTwo'
+      description: '修改手机'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                newCountryCode:
+                  type: string
+                newPhone:
+                  type: string
+                newSmsCode:
+                  type: string
+                oldPhone:
+                  type: string
+                oldSmsCode:
+                  type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CommonResponse'
+
   /user/security/updatePhone.do:
     post:
       operationId: 'userSecurityUpdatePhone'
@@ -1925,6 +1952,8 @@ paths:
                 code:
                   type: string
                 phone:
+                  type: string
+                countryCode:
                   type: string
               required:
                 - code

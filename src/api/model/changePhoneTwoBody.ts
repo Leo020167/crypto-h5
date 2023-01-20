@@ -5,11 +5,10 @@
  * OpenAPI spec version: 1.0
  */
 
-export type SetPayPassBody = {
+export type ChangePhoneTwoBody = {
+  newCountryCode?: string;
+  newPhone?: string;
+  newSmsCode?: string;
   oldPhone?: string;
   oldSmsCode?: string;
-  dragImgKey?: string;
-  locationx?: number;
-  payPass?: string;
-  configPayPass?: string;
 };

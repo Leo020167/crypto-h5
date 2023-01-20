@@ -1,12 +1,11 @@
 import { Button, Form, Input, NavBar, Toast } from 'antd-mobile';
 import { DownFill } from 'antd-mobile-icons';
-import { useAtom } from 'jotai';
 import { useEffect, useState } from 'react';
 import { useIntl } from 'react-intl';
 import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
-import { countryAtom } from '../../atoms';
 import AreaList from '../../components/AreaList';
+import useCountry from '../../hooks/useCountry';
 import { AreaListItem } from '../../model';
 import { useSignUpStore } from '../../stores/signup';
 import { validPassword } from '../../utils/validation';
@@ -14,7 +13,7 @@ import { validPassword } from '../../utils/validation';
 const Signup = () => {
   const history = useHistory();
 
-  const [country, setCountry] = useAtom(countryAtom);
+  const [country, setCountry] = useCountry();
 
   const [open, setOpen] = useState(false);
 
