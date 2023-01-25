@@ -19,7 +19,7 @@ AXIOS_INSTANCE.interceptors.response.use(
       Toast.show(config.data.msg);
     }
 
-    if (config.data.code === 40009) {
+    if (code === 40009) {
       useAuthStore.setState({ token: undefined, userInfo: undefined });
     }
 
