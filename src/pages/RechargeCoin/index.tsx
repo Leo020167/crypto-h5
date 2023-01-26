@@ -1,18 +1,14 @@
 import { Selector, Toast } from 'antd-mobile';
 import { DownFill } from 'antd-mobile-icons';
-import { find, first } from 'lodash-es';
+import { find } from 'lodash-es';
 import { QRCodeCanvas } from 'qrcode.react';
-import { useCallback, useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { useIntl } from 'react-intl';
-import { Link, useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useCopyToClipboard, useInterval } from 'react-use';
 import styled from 'styled-components';
 import { StringParam, useQueryParam, withDefault } from 'use-query-params';
-import {
-  useChargeSubmit,
-  useGetChargeConfigs,
-  useGetCoinList,
-} from '../../api/endpoints/transformer';
+import { useGetChargeConfigs, useGetCoinList } from '../../api/endpoints/transformer';
 import Screen from '../../components/Screen';
 import CoinSymbolSelectDialog from './CoinSymbolSelectDialog';
 
@@ -23,10 +19,6 @@ const RechargeCoin = () => {
   const [symbol, setSymbol] = useQueryParam('symbol', SymbolParam);
   const [openSymbol, setOpenSymbol] = useState(false);
 
-  const history = useHistory();
-
-  const [amount, setAmount] = useState<string>();
-
   const { data: coinList } = useGetCoinList({
     inOut: 1,
   });
@@ -36,23 +28,23 @@ const RechargeCoin = () => {
     {
       query: {
         enabled: !!symbol,
-        onSuccess(data) {
-          if (data.code === '200') {
-            setAmount(data.data?.minChargeAmount);
-
-            const address = first(data.data?.addressList);
-            if (address) {
-              setChainType(address.chainType, 'replaceIn');
-            }
-          }
-        },
       },
     },
   );
 
   useInterval(() => {
     refetch();
-  }, 5000);
+  }, 10000);
+
+  const mounted = useRef(false);
+
+  useEffect(() => {
+    if (mounted.current) return;
+    if (chargeConfigs?.data?.addressList?.length) {
+      setChainType(chargeConfigs?.data?.addressList?.[0]?.chainType, 'replaceIn');
+      mounted.current = true;
+    }
+  }, [chargeConfigs?.data?.addressList, setChainType]);
 
   const options = useMemo(
     () =>
@@ -79,44 +71,7 @@ const RechargeCoin = () => {
 
   const [, copyToClipboard] = useCopyToClipboard();
 
-  const [image, setImage] = useState<string>();
-
   const intl = useIntl();
-
-  const chargeSubmit = useChargeSubmit({
-    mutation: {
-      onSuccess(data) {
-        if (data.code === '200') {
-          Toast.show(intl.formatMessage({ defaultMessage: '提交申請成功', id: '0UBtXx' }));
-          history.goBack();
-        } else {
-          Toast.show(data.msg);
-        }
-      },
-    },
-  });
-
-  const handleFinish = useCallback(() => {
-    if (!amount || !amount.trim().length) {
-      Toast.show(intl.formatMessage({ defaultMessage: '請輸入充值金額', id: '45GFMc' }));
-      return;
-    }
-
-    if (!image) {
-      Toast.show(intl.formatMessage({ defaultMessage: '請先上傳充值截圖', id: '3vyRBa' }));
-      return;
-    }
-
-    chargeSubmit.mutate({
-      data: {
-        amount,
-        address: currentAddress?.address ?? '',
-        image,
-        symbol: symbol,
-        chainType: chainType ?? '',
-      },
-    });
-  }, [amount, image, chargeSubmit, currentAddress?.address, symbol, chainType, intl]);
 
   return (
     <Screen
@@ -231,62 +186,6 @@ const RechargeCoin = () => {
             )}
           </div>
         </div>
-
-        {/* <div className="rounded-xl shadow-md shadow-black/5 p-5 bg-white mt-4">
-          <div>
-            <span className="text-xs text-[#A2A9BC]">
-              {intl.formatMessage({ defaultMessage: '充值數量', id: 'AC5dLK' })}
-            </span>
-            <Input
-              type="number"
-              maxLength={18}
-              className="h-12 bg-[#F6F7F9] mt-2 px-5"
-              min={Number(chargeConfigs?.data?.minChargeAmount ?? 0)}
-              value={amount}
-              onChange={setAmount}
-            />
-          </div>
-
-          <div className="mt-4">
-            <span className="text-xs text-[#A2A9BC]">
-              {intl.formatMessage({ defaultMessage: '充值數量', id: 'AC5dLK' })}
-            </span>
-
-            <div className="mt-1">
-              <ImagePicker
-                onChange={(e) => {
-                  if (e.target.files) {
-                    const formData = new FormData();
-                    formData.append('imageFiles', e.target.files[0]);
-
-                    uploadImage(formData).then((res: any) => {
-                      setImage(res.data.data?.imageUrlList?.[0]);
-                    });
-                  }
-                }}
-              >
-                <div className="w-28 h-28 bg-[#F6F7F9] flex items-center justify-center text-xl font-bold">
-                  {image ? (
-                    <img alt="" src={image} className="w-full h-full" />
-                  ) : (
-                    <AddOutline fontSize={30} color="#C9CDD4" />
-                  )}
-                </div>
-              </ImagePicker>
-            </div>
-          </div>
-
-          <div className="mt-5">
-            <Button
-              className="btn-purple "
-              onClick={handleFinish}
-              block
-              loading={chargeSubmit.isLoading}
-            >
-              {intl.formatMessage({ defaultMessage: '充值確認', id: 'Gx5Krn' })}
-            </Button>
-          </div>
-        </div> */}
 
         <CoinSymbolSelectDialog
           symbols={coinList?.data?.coinList}

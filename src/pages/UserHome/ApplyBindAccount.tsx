@@ -234,7 +234,9 @@ const ApplyBindAccount = () => {
                           defaultMessage: '風險提示書',
                           id: 'A3Awd7',
                         })}
-                        src="http://api.piglobalexchanges.com/procoin/article/#/passgeDetail?article_id=66"
+                        src={`${
+                          import.meta.env.VITE_API_BASE_URL
+                        }/article/#/passgeDetail?article_id=66`}
                       />
                     </div>
                   ),

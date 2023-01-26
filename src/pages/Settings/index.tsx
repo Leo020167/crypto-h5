@@ -69,7 +69,7 @@ const Settings = () => {
           arrow={<Arrow />}
           onClick={() => {
             window.open(
-              'http://api.piglobalexchanges.com/procoin/article/#/passgeDetail?article_id=60',
+              `${import.meta.env.VITE_API_BASE_URL}/article/#/passgeDetail?article_id=60`,
             );
           }}
         >
