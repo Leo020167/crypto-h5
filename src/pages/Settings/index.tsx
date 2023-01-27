@@ -2,6 +2,7 @@ import { Dialog, List, NavBar, Toast } from 'antd-mobile';
 import { useState } from 'react';
 import { useIntl } from 'react-intl';
 import { useHistory } from 'react-router-dom';
+import { useHomeMy } from '../../api/endpoints/transformer';
 
 import { ReactComponent as Arrow } from '../../assets/ic_svg_arrow_2.svg';
 import { useAuthStore } from '../../stores/auth';
@@ -15,6 +16,8 @@ const Settings = () => {
   const [openUpAndDownColor, setOpenUpAndDownColor] = useState(false);
 
   const authStore = useAuthStore();
+
+  const { data: homeMy } = useHomeMy();
 
   const intl = useIntl();
 
@@ -68,9 +71,9 @@ const Settings = () => {
         <List.Item
           arrow={<Arrow />}
           onClick={() => {
-            window.open(
-              `${import.meta.env.VITE_API_BASE_URL}/article/#/passgeDetail?article_id=60`,
-            );
+            if (homeMy?.data?.aboutUsUrl) {
+              window.open(homeMy?.data?.aboutUsUrl);
+            }
           }}
         >
           {intl.formatMessage({ defaultMessage: '关于我们', id: '7KOsNC' })}

@@ -7,6 +7,7 @@
 
 export type HomeMyResponseAllOfData = {
   helpCenterUrl?: string;
+  aboutUsUrl?: string;
   msgCount?: string;
   shareUrl?: string;
 };

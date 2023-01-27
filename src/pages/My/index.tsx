@@ -1,6 +1,5 @@
 import { Badge, List } from 'antd-mobile';
 import { stringify } from 'query-string';
-import { useState } from 'react';
 import { useIntl } from 'react-intl';
 import { Link, useHistory } from 'react-router-dom';
 import styled from 'styled-components';
@@ -26,19 +25,9 @@ const My = () => {
 
   const { userInfo } = useAuthStore();
 
-  const [helpCenterUrl, setHelpCenterUrl] = useState<string>('');
-
   const { data: identityGet } = useIdentityGet();
 
-  useHomeMy({
-    query: {
-      onSuccess(data) {
-        if (data.code === '200') {
-          setHelpCenterUrl(data.data?.helpCenterUrl ?? '');
-        }
-      },
-    },
-  });
+  const { data: homeMy } = useHomeMy();
 
   const { data } = useGetUnreadCount();
 
@@ -123,8 +112,8 @@ const My = () => {
           prefix={<img alt="" src={ic_home_mine_help} className="w-8 h-8" />}
           arrow={<Arrow />}
           onClick={() => {
-            if (helpCenterUrl) {
-              window.open(helpCenterUrl);
+            if (homeMy?.data?.helpCenterUrl) {
+              window.open(homeMy?.data?.helpCenterUrl);
             }
           }}
         >

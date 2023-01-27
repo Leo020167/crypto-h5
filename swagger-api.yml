@@ -3805,6 +3805,8 @@ components:
               properties:
                 helpCenterUrl:
                   type: string
+                aboutUsUrl:
+                  type: string
                 msgCount:
                   type: string
                 shareUrl:
