@@ -1,4 +1,4 @@
-import axios, { AxiosRequestConfig } from 'axios';
+import axios from 'axios';
 import moment from 'moment';
 import { Md5 } from 'ts-md5';
 
@@ -37,15 +37,15 @@ function getSign(data: any, secretKey: any) {
   return Md5.hashStr(signString);
 }
 
-instance.interceptors.request.use(
-  (config: AxiosRequestConfig) => {
-    setHeader(config);
+// instance.interceptors.request.use(
+//   (config: AxiosRequestConfig) => {
+//     setHeader(config);
 
-    return config;
-  },
-  (error) => {
-    return Promise.reject(error);
-  },
-);
+//     return config;
+//   },
+//   (error) => {
+//     return Promise.reject(error);
+//   },
+// );
 
 export default instance;
