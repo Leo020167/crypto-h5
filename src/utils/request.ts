@@ -1,4 +1,6 @@
 import axios from 'axios';
+import { useLocaleStore } from '../stores/locale';
+import { localeHash } from './locale';
 import { signParameters } from './signature';
 
 const instance = axios.create({
@@ -21,6 +23,7 @@ export const apiPost = (
       .post(url, formData, {
         headers: {
           'Cache-Control': 'no-cache',
+          lang: localeHash[useLocaleStore.getState().locale],
         },
       })
       .then((res) => {

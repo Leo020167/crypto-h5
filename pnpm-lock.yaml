@@ -29,7 +29,7 @@ specifiers:
   eslint: ^8.32.0
   eslint-config-prettier: ^8.6.0
   eslint-import-resolver-typescript: ^3.5.3
-  eslint-plugin-formatjs: ^4.3.9
+  eslint-plugin-formatjs: ^4.5.0
   eslint-plugin-import: ^2.27.5
   eslint-plugin-jsx-a11y: ^6.7.1
   eslint-plugin-prettier: ^4.2.1
@@ -50,7 +50,7 @@ specifiers:
   react-advanced-news-ticker: ^1.0.1
   react-countdown: ^2.3.5
   react-dom: ^18.2.0
-  react-intl: ^6.2.5
+  react-intl: ^6.2.6
   react-router-dom: 5.3.4
   react-select: ^5.7.0
   react-spring: ^9.6.1
@@ -91,7 +91,7 @@ dependencies:
   react-advanced-news-ticker: 1.0.1
   react-countdown: 2.3.5_biqbaboplfbrettd7655fr4n2y
   react-dom: 18.2.0_react@18.2.0
-  react-intl: 6.2.5_o77wnou4wwnegu5woljtklrzru
+  react-intl: 6.2.6_o77wnou4wwnegu5woljtklrzru
   react-router-dom: 5.3.4_react@18.2.0
   react-select: 5.7.0_57czaiyk6rdr5iy5tfs5pior4u
   react-spring: 9.6.1_blctzn3uehkgddmq5t4prsmpba
@@ -122,7 +122,7 @@ devDependencies:
   eslint: 8.32.0
   eslint-config-prettier: 8.6.0_eslint@8.32.0
   eslint-import-resolver-typescript: 3.5.3_ps7hf4l2dvbuxvtusmrfhmzsba
-  eslint-plugin-formatjs: 4.3.9_eslint@8.32.0
+  eslint-plugin-formatjs: 4.5.0_eslint@8.32.0
   eslint-plugin-import: 2.27.5_tto3jvfrcbe7ndbi56p7uxhaki
   eslint-plugin-jsx-a11y: 6.7.1_eslint@8.32.0
   eslint-plugin-prettier: 4.2.1_cn4lalcyadplruoxa5mhp7j3dq
@@ -1905,12 +1905,12 @@ packages:
     resolution: {integrity: sha512-SlsbRC/RX+/zg4AApWIFNDdkLtFbkq3LNoZWXZCE/nHVKqoIJyaoQyge/I0Y38vLxowUn9KTtXgusLD91+orbg==}
     dependencies:
       '@formatjs/intl-localematcher': 0.2.32
-      tslib: 2.4.1
+      tslib: 2.5.0
 
-  /@formatjs/fast-memoize/1.2.7:
-    resolution: {integrity: sha512-hPeM5LXUUjtCKPybWOUAWpv8lpja8Xz+uKprFPJcg5F2Rd+/bf1E0UUsLRpaAgOReAf5HMRtoIgv/UcyPICrTQ==}
+  /@formatjs/fast-memoize/1.2.8:
+    resolution: {integrity: sha512-PemNUObyoIZcqdQ1ixTPugzAzhEj7j6AHIyrq/qR6x5BFTvOQeXHYsVZUqBEFduAIscUaDfou+U+xTqOiunJ3Q==}
     dependencies:
-      tslib: 2.4.1
+      tslib: 2.5.0
     dev: false
 
   /@formatjs/icu-messageformat-parser/2.1.14:
@@ -1918,20 +1918,20 @@ packages:
     dependencies:
       '@formatjs/ecma402-abstract': 1.14.3
       '@formatjs/icu-skeleton-parser': 1.3.18
-      tslib: 2.4.1
+      tslib: 2.5.0
 
   /@formatjs/icu-skeleton-parser/1.3.18:
     resolution: {integrity: sha512-ND1ZkZfmLPcHjAH1sVpkpQxA+QYfOX3py3SjKWMUVGDow18gZ0WPqz3F+pJLYQMpS2LnnQ5zYR2jPVYTbRwMpg==}
     dependencies:
       '@formatjs/ecma402-abstract': 1.14.3
-      tslib: 2.4.1
+      tslib: 2.5.0
 
-  /@formatjs/intl-displaynames/6.2.3:
-    resolution: {integrity: sha512-teB0L68MDGM8jEKQg55w7nvFjzeLHE6e3eK/04s+iuEVYYmvjjiHJKHrthKENzcJ0F6mHf/AwXrbX+1mKxT6AQ==}
+  /@formatjs/intl-displaynames/6.2.4:
+    resolution: {integrity: sha512-CmTbSjnmAZHNGuA9vBkWoDHvrcrRauDb0OWc6nk2dAPtesQdadr49Q9N18fr8IV7n3rblgKiYaFVjg68UkRxNg==}
     dependencies:
       '@formatjs/ecma402-abstract': 1.14.3
       '@formatjs/intl-localematcher': 0.2.32
-      tslib: 2.4.1
+      tslib: 2.5.0
     dev: false
 
   /@formatjs/intl-listformat/7.1.7:
@@ -1939,16 +1939,16 @@ packages:
     dependencies:
       '@formatjs/ecma402-abstract': 1.14.3
       '@formatjs/intl-localematcher': 0.2.32
-      tslib: 2.4.1
+      tslib: 2.5.0
     dev: false
 
   /@formatjs/intl-localematcher/0.2.32:
     resolution: {integrity: sha512-k/MEBstff4sttohyEpXxCmC3MqbUn9VvHGlZ8fauLzkbwXmVrEeyzS+4uhrvAk9DWU9/7otYWxyDox4nT/KVLQ==}
     dependencies:
-      tslib: 2.4.1
+      tslib: 2.5.0
 
-  /@formatjs/intl/2.6.3_typescript@4.9.4:
-    resolution: {integrity: sha512-JaVZk14U/GypVfCZPevQ0KdruFkq16FXx7g398/Dm+YEx/W7sRiftbZeDy4wQ7WGryb45e763XycxD9o/vm9BA==}
+  /@formatjs/intl/2.6.4_typescript@4.9.4:
+    resolution: {integrity: sha512-xUuVxcJpyUxRjIaaaaFes3acTRS9T6vkL7onXBmfVT5+HTakVDGeRA7DYQD9u8ZUdzlqxe/4AuIuC+E9zBTngQ==}
     peerDependencies:
       typescript: ^4.7
     peerDependenciesMeta:
@@ -1956,12 +1956,12 @@ packages:
         optional: true
     dependencies:
       '@formatjs/ecma402-abstract': 1.14.3
-      '@formatjs/fast-memoize': 1.2.7
+      '@formatjs/fast-memoize': 1.2.8
       '@formatjs/icu-messageformat-parser': 2.1.14
-      '@formatjs/intl-displaynames': 6.2.3
+      '@formatjs/intl-displaynames': 6.2.4
       '@formatjs/intl-listformat': 7.1.7
-      intl-messageformat: 10.2.5
-      tslib: 2.4.1
+      intl-messageformat: 10.2.6
+      tslib: 2.5.0
       typescript: 4.9.4
     dev: false
 
@@ -1978,7 +1978,7 @@ packages:
       '@types/node': 17.0.45
       chalk: 4.1.2
       json-stable-stringify: 1.0.2
-      tslib: 2.4.1
+      tslib: 2.5.0
       typescript: 4.9.4
     dev: true
 
@@ -2269,7 +2269,7 @@ packages:
       open: 8.4.0
       picocolors: 1.0.0
       tiny-glob: 0.2.9
-      tslib: 2.4.1
+      tslib: 2.5.0
     dev: true
 
   /@rc-component/mini-decimal/1.0.1:
@@ -2735,7 +2735,7 @@ packages:
       fast-memoize: 2.5.2
       immer: 9.0.18
       lodash: 4.17.21
-      tslib: 2.4.1
+      tslib: 2.5.0
       urijs: 1.19.11
     dev: true
 
@@ -2786,7 +2786,7 @@ packages:
       stacktracey: 2.1.8
       strip-ansi: 6.0.1
       text-table: 0.2.0
-      tslib: 2.4.1
+      tslib: 2.5.0
       yargs: 17.3.1
     transitivePeerDependencies:
       - encoding
@@ -2817,7 +2817,7 @@ packages:
       nimma: 0.2.2
       pony-cause: 1.1.1
       simple-eval: 1.0.0
-      tslib: 2.4.1
+      tslib: 2.5.0
     transitivePeerDependencies:
       - encoding
     dev: true
@@ -2829,7 +2829,7 @@ packages:
       '@stoplight/json': 3.20.1
       '@stoplight/spectral-core': 1.16.0
       '@types/json-schema': 7.0.11
-      tslib: 2.4.1
+      tslib: 2.5.0
     transitivePeerDependencies:
       - encoding
     dev: true
@@ -2848,7 +2848,7 @@ packages:
       ajv-errors: 3.0.0_ajv@8.12.0
       ajv-formats: 2.1.1_ajv@8.12.0
       lodash: 4.17.21
-      tslib: 2.4.1
+      tslib: 2.5.0
     transitivePeerDependencies:
       - encoding
     dev: true
@@ -2860,7 +2860,7 @@ packages:
       '@stoplight/json': 3.20.1
       '@stoplight/types': 13.8.0
       '@stoplight/yaml': 4.2.3
-      tslib: 2.4.1
+      tslib: 2.5.0
     dev: true
 
   /@stoplight/spectral-ref-resolver/1.0.2:
@@ -2871,7 +2871,7 @@ packages:
       '@stoplight/json-ref-resolver': 3.1.5
       '@stoplight/spectral-runtime': 1.1.2
       dependency-graph: 0.11.0
-      tslib: 2.4.1
+      tslib: 2.5.0
     transitivePeerDependencies:
       - encoding
     dev: true
@@ -2884,7 +2884,7 @@ packages:
       '@stoplight/json-ref-resolver': 3.1.5
       '@stoplight/spectral-runtime': 1.1.2
       dependency-graph: 0.11.0
-      tslib: 2.4.1
+      tslib: 2.5.0
     transitivePeerDependencies:
       - encoding
     dev: true
@@ -2907,7 +2907,7 @@ packages:
       '@types/node': 18.11.18
       pony-cause: 1.1.1
       rollup: 2.79.1
-      tslib: 2.4.1
+      tslib: 2.5.0
       validate-npm-package-name: 3.0.0
     transitivePeerDependencies:
       - encoding
@@ -2929,7 +2929,7 @@ packages:
       ast-types: 0.14.2
       astring: 1.8.4
       reserved: 0.1.2
-      tslib: 2.4.1
+      tslib: 2.5.0
       validate-npm-package-name: 3.0.0
     transitivePeerDependencies:
       - encoding
@@ -2952,7 +2952,7 @@ packages:
       ajv-formats: 2.1.1_ajv@8.12.0
       json-schema-traverse: 1.0.0
       lodash: 4.17.21
-      tslib: 2.4.1
+      tslib: 2.5.0
     transitivePeerDependencies:
       - encoding
     dev: true
@@ -2967,7 +2967,7 @@ packages:
       abort-controller: 3.0.0
       lodash: 4.17.21
       node-fetch: 2.6.8
-      tslib: 2.4.1
+      tslib: 2.5.0
     transitivePeerDependencies:
       - encoding
     dev: true
@@ -3007,7 +3007,7 @@ packages:
       '@stoplight/ordered-object-literal': 1.0.4
       '@stoplight/types': 13.8.0
       '@stoplight/yaml-ast-parser': 0.0.48
-      tslib: 2.4.1
+      tslib: 2.5.0
     dev: true
 
   /@svgr/babel-plugin-add-jsx-attribute/6.5.1_@babel+core@7.20.12:
@@ -3447,35 +3447,9 @@ packages:
       - supports-color
     dev: true
 
-  /@typescript-eslint/types/5.48.0:
-    resolution: {integrity: sha512-UTe67B0Ypius0fnEE518NB2N8gGutIlTojeTg4nt0GQvikReVkurqxd2LvYa9q9M5MQ6rtpNyWTBxdscw40Xhw==}
-    engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
-    dev: true
-
   /@typescript-eslint/types/5.49.0:
     resolution: {integrity: sha512-7If46kusG+sSnEpu0yOz2xFv5nRz158nzEXnJFCGVEHWnuzolXKwrH5Bsf9zsNlOQkyZuk0BZKKoJQI+1JPBBg==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
-    dev: true
-
-  /@typescript-eslint/typescript-estree/5.48.0_typescript@4.9.4:
-    resolution: {integrity: sha512-7pjd94vvIjI1zTz6aq/5wwE/YrfIyEPLtGJmRfyNR9NYIW+rOvzzUv3Cmq2hRKpvt6e9vpvPUQ7puzX7VSmsEw==}
-    engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
-    peerDependencies:
-      typescript: '*'
-    peerDependenciesMeta:
-      typescript:
-        optional: true
-    dependencies:
-      '@typescript-eslint/types': 5.48.0
-      '@typescript-eslint/visitor-keys': 5.48.0
-      debug: 4.3.4
-      globby: 11.1.0
-      is-glob: 4.0.3
-      semver: 7.3.8
-      tsutils: 3.21.0_typescript@4.9.4
-      typescript: 4.9.4
-    transitivePeerDependencies:
-      - supports-color
     dev: true
 
   /@typescript-eslint/typescript-estree/5.49.0_typescript@4.9.4:
@@ -3517,14 +3491,6 @@ packages:
     transitivePeerDependencies:
       - supports-color
       - typescript
-    dev: true
-
-  /@typescript-eslint/visitor-keys/5.48.0:
-    resolution: {integrity: sha512-5motVPz5EgxQ0bHjut3chzBkJ3Z3sheYVcSwS5BpHZpLqSptSmELNtGixmgj65+rIfhvtQTz5i9OP2vtzdDH7Q==}
-    engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
-    dependencies:
-      '@typescript-eslint/types': 5.48.0
-      eslint-visitor-keys: 3.3.0
     dev: true
 
   /@typescript-eslint/visitor-keys/5.49.0:
@@ -3933,14 +3899,14 @@ packages:
     resolution: {integrity: sha512-x1FCFnFifvYDDzTaLII71vG5uvDwgtmDTEVWAxrgeiR8VjMONcCXJx7E+USjDtHlwFmt9MysbqgF9b9Vjr6w+w==}
     engines: {node: '>=4'}
     dependencies:
-      tslib: 2.4.1
+      tslib: 2.5.0
     dev: true
 
   /ast-types/0.14.2:
     resolution: {integrity: sha512-O0yuUDnZeQDL+ncNGlJ78BiO4jnYI3bvMsD5prT0/nsgijG/LpNBIr63gTjVTNsiGkgQhiyCShTgxt8oXOrklA==}
     engines: {node: '>=4'}
     dependencies:
-      tslib: 2.4.1
+      tslib: 2.5.0
 
   /astral-regex/1.0.0:
     resolution: {integrity: sha512-+Ryf6g3BKoRc7jfp7ad8tM4TtMiaWvbF/1/sQcZPkkS7ag3D5nMBCe2UfOTONtAkaG0tO0ij3C5Lwmf1EiyjHg==}
@@ -4921,7 +4887,7 @@ packages:
     resolution: {integrity: sha512-Kv5nKlh6yRrdrGvxeJ2e5y2eRUpkUosIW4A2AS38zwSz27zu7ufDwQPi5Jhs3XAlGNetl3bmnGhQsMtkKJnj3w==}
     dependencies:
       no-case: 3.0.4
-      tslib: 2.4.1
+      tslib: 2.5.0
     dev: true
 
   /echarts/5.4.1:
@@ -5445,8 +5411,8 @@ packages:
       - supports-color
     dev: true
 
-  /eslint-plugin-formatjs/4.3.9_eslint@8.32.0:
-    resolution: {integrity: sha512-+8kGoTUaNe0qS55eg5XbPDY+eQmeZxnrC8MugQTGUXlqbCyLyG7y4mDsMhAgactVyUMST6Ln1HEm1Tk0KNuIKQ==}
+  /eslint-plugin-formatjs/4.5.0_eslint@8.32.0:
+    resolution: {integrity: sha512-R1vCmEymrYLp6T1JqoWcFGg9D/E4CGmzItHPjMPkJGIZ1/+jE+/xKAn/JFWKXRoc+A0gCtG3TnBBX1iUWMWq8A==}
     peerDependencies:
       eslint: 7 || 8
     dependencies:
@@ -5454,11 +5420,11 @@ packages:
       '@formatjs/ts-transformer': 3.11.5
       '@types/eslint': 8.4.10
       '@types/picomatch': 2.3.0
-      '@typescript-eslint/typescript-estree': 5.48.0_typescript@4.9.4
+      '@typescript-eslint/typescript-estree': 5.49.0_typescript@4.9.4
       emoji-regex: 10.2.1
       eslint: 8.32.0
       picomatch: 2.3.1
-      tslib: 2.4.1
+      tslib: 2.5.0
       typescript: 4.9.4
     transitivePeerDependencies:
       - supports-color
@@ -6477,13 +6443,13 @@ packages:
     resolution: {integrity: sha512-7m1vEcPCxXYI8HqnL8CKI6siDyD+eIWSwgB3DZA+ZTogxk9I4CDnj4wilt9x/+/QbHI4YG5YZNmC6458/e9Ktg==}
     dev: false
 
-  /intl-messageformat/10.2.5:
-    resolution: {integrity: sha512-AievYMN6WLLHwBeCTv4aRKG+w3ZNyZtkObwgsKk3Q7GNTq8zDRvDbJSBQkb2OPeVCcAKcIXvak9FF/bRNavoww==}
+  /intl-messageformat/10.2.6:
+    resolution: {integrity: sha512-qaTfGjXhdgDup5h3O8406GlQjEj0ky3q0cWWu/lL+H6vJA+sY2/8e4l4XrRPbi9vp38Pop0gO5dsrMO0DdEEBw==}
     dependencies:
       '@formatjs/ecma402-abstract': 1.14.3
-      '@formatjs/fast-memoize': 1.2.7
+      '@formatjs/fast-memoize': 1.2.8
       '@formatjs/icu-messageformat-parser': 2.1.14
-      tslib: 2.4.1
+      tslib: 2.5.0
     dev: false
 
   /invariant/2.2.4:
@@ -7342,7 +7308,7 @@ packages:
   /lower-case/2.0.2:
     resolution: {integrity: sha512-7fm3l3NAF9WfN6W3JOmf5drwpVqX78JtoGJ3A6W0a6ZnldM41w2fV5D490psKFTpMds8TJse/eHLFFsNHHjHgg==}
     dependencies:
-      tslib: 2.4.1
+      tslib: 2.5.0
     dev: true
 
   /lru-cache/5.1.1:
@@ -7901,7 +7867,7 @@ packages:
     resolution: {integrity: sha512-fgAN3jGAh+RoxUGZHTSOLJIqUc2wmoBwGR4tbpNAKmmovFoWq0OdRkb0VkldReO2a2iBT/OEulG9XSUc10r3zg==}
     dependencies:
       lower-case: 2.0.2
-      tslib: 2.4.1
+      tslib: 2.5.0
     dev: true
 
   /nocache/3.0.4:
@@ -8331,7 +8297,7 @@ packages:
     resolution: {integrity: sha512-RXlj7zCYokReqWpOPH9oYivUzLYZ5vAPIfEmCTNViosC78F8F0H9y7T7gG2M39ymgutxF5gcFEsyZQSph9Bp3A==}
     dependencies:
       dot-case: 3.0.4
-      tslib: 2.4.1
+      tslib: 2.5.0
     dev: true
 
   /parent-module/1.0.1:
@@ -8366,7 +8332,7 @@ packages:
     resolution: {integrity: sha512-uWlGT3YSnK9x3BQJaOdcZwrnV6hPpd8jFH1/ucpiLRPh/2zCVJKS19E4GvYHvaCcACn3foXZ0cLB9Wrx1KGe5g==}
     dependencies:
       no-case: 3.0.4
-      tslib: 2.4.1
+      tslib: 2.5.0
     dev: true
 
   /pascalcase/0.1.1:
@@ -8729,8 +8695,8 @@ packages:
       scheduler: 0.23.0
     dev: false
 
-  /react-intl/6.2.5_o77wnou4wwnegu5woljtklrzru:
-    resolution: {integrity: sha512-nz21POTKbE0sPEuEJU4o5YTZYY7VlIYCPNJaD6D2+xKyk6Noj6DoUK0LRO9LXuQNUuQ044IZl3m6ymzZRj8XFQ==}
+  /react-intl/6.2.6_o77wnou4wwnegu5woljtklrzru:
+    resolution: {integrity: sha512-GHvcFBvo7erL94qNpwNPZE2wkoKxAcXwXQCXOR6yP+tuNImd/PKJreBbAAu9K4zCWBi07SQBPnxv9jzLssx9yg==}
     peerDependencies:
       react: ^16.6.0 || 17 || 18
       typescript: ^4.7
@@ -8740,15 +8706,15 @@ packages:
     dependencies:
       '@formatjs/ecma402-abstract': 1.14.3
       '@formatjs/icu-messageformat-parser': 2.1.14
-      '@formatjs/intl': 2.6.3_typescript@4.9.4
-      '@formatjs/intl-displaynames': 6.2.3
+      '@formatjs/intl': 2.6.4_typescript@4.9.4
+      '@formatjs/intl-displaynames': 6.2.4
       '@formatjs/intl-listformat': 7.1.7
       '@types/hoist-non-react-statics': 3.3.1
       '@types/react': 18.0.27
       hoist-non-react-statics: 3.3.2
-      intl-messageformat: 10.2.5
+      intl-messageformat: 10.2.6
       react: 18.2.0
-      tslib: 2.4.1
+      tslib: 2.5.0
       typescript: 4.9.4
     dev: false
 
@@ -9126,7 +9092,7 @@ packages:
       ast-types: 0.14.2
       esprima: 4.0.1
       source-map: 0.6.1
-      tslib: 2.4.1
+      tslib: 2.5.0
     dev: false
 
   /reftools/1.1.9:
@@ -9976,7 +9942,7 @@ packages:
     engines: {node: ^14.18.0 || >=16.0.0}
     dependencies:
       '@pkgr/utils': 2.3.1
-      tslib: 2.4.1
+      tslib: 2.5.0
     dev: true
 
   /systemjs/6.13.0:
@@ -10177,6 +10143,10 @@ packages:
 
   /tslib/2.4.1:
     resolution: {integrity: sha512-tGyy4dAjRIEwI7BzsB0lynWgOpfqjUdq91XXAlIWD2OwKBH7oCl/GZG/HT4BOHrTlPMOASlMQ7veyTqpmRcrNA==}
+    dev: false
+
+  /tslib/2.5.0:
+    resolution: {integrity: sha512-336iVw3rtn2BUK7ORdIAHTyxHGRIHVReokCR3XjbckJMK7ms8FysBfhLR8IXnAgy7T0PTPNBWKiH514FOW/WSg==}
 
   /tsutils/3.21.0_typescript@4.9.4:
     resolution: {integrity: sha512-mHKK3iUXL+3UF6xL5k0PEhKRUBKPBCv/+RkEOpjRWxxx27KKRBmmA60A9pgOUvMi8GKhRMPEmjBRPzs2W7O1OA==}

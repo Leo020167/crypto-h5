@@ -35,10 +35,6 @@ export const doSecurityForgetPass = (data: {
   });
 };
 
-export const getHomeMy = () => {
-  return apiPost('/home/my.do', {});
-};
-
 export const userUpdateUserInfo = (data: {
   birthday?: string;
   describes?: string;

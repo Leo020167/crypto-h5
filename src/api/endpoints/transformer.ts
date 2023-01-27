@@ -138,7 +138,6 @@ import type {
   DepositListResponse,
   DepositListBody,
   HomeMyResponse,
-  HomeMyBody,
   UserInfoResponse,
 } from '../model';
 import { customInstance } from '../mutator/custom-instance';
@@ -4030,41 +4029,36 @@ export const useDepositList = <
 /**
  * 我的頁面信息
  */
-export const homeMy = (homeMyBody: HomeMyBody) => {
-  return customInstance<HomeMyResponse>({
-    url: `/home/my.do`,
-    method: 'post',
-    headers: { 'Content-Type': 'application/json' },
-    data: homeMyBody,
-  });
+export const homeMy = () => {
+  return customInstance<HomeMyResponse>({ url: `/home/my.do`, method: 'post' });
 };
 
-export type HomeMyMutationResult = NonNullable<Awaited<ReturnType<typeof homeMy>>>;
-export type HomeMyMutationBody = HomeMyBody;
-export type HomeMyMutationError = ErrorType<unknown>;
+export const getHomeMyQueryKey = () => [`/home/my.do`];
 
-export const useHomeMy = <TError = ErrorType<unknown>, TContext = unknown>(options?: {
-  mutation?: UseMutationOptions<
-    Awaited<ReturnType<typeof homeMy>>,
-    TError,
-    { data: HomeMyBody },
-    TContext
-  >;
-}) => {
-  const { mutation: mutationOptions } = options ?? {};
+export type HomeMyQueryResult = NonNullable<Awaited<ReturnType<typeof homeMy>>>;
+export type HomeMyQueryError = ErrorType<unknown>;
 
-  const mutationFn: MutationFunction<Awaited<ReturnType<typeof homeMy>>, { data: HomeMyBody }> = (
-    props,
-  ) => {
-    const { data } = props ?? {};
+export const useHomeMy = <
+  TData = Awaited<ReturnType<typeof homeMy>>,
+  TError = ErrorType<unknown>,
+>(options?: {
+  query?: UseQueryOptions<Awaited<ReturnType<typeof homeMy>>, TError, TData>;
+}): UseQueryResult<TData, TError> & { queryKey: QueryKey } => {
+  const { query: queryOptions } = options ?? {};
 
-    return homeMy(data);
-  };
+  const queryKey = queryOptions?.queryKey ?? getHomeMyQueryKey();
 
-  return useMutation<Awaited<ReturnType<typeof homeMy>>, TError, { data: HomeMyBody }, TContext>(
-    mutationFn,
-    mutationOptions,
-  );
+  const queryFn: QueryFunction<Awaited<ReturnType<typeof homeMy>>> = () => homeMy();
+
+  const query = useQuery<Awaited<ReturnType<typeof homeMy>>, TError, TData>(
+    queryKey,
+    queryFn,
+    queryOptions,
+  ) as UseQueryResult<TData, TError> & { queryKey: QueryKey };
+
+  query.queryKey = queryKey;
+
+  return query;
 };
 
 /**

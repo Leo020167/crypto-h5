@@ -59,6 +59,12 @@ export default defineConfig({
           name: 'customInstance',
         },
         operations: {
+          homeMy: {
+            query: {
+              useQuery: true,
+            },
+          },
+
           homeConfig: {
             query: {
               useQuery: true,

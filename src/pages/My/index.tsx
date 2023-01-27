@@ -3,9 +3,8 @@ import { stringify } from 'query-string';
 import { useState } from 'react';
 import { useIntl } from 'react-intl';
 import { Link, useHistory } from 'react-router-dom';
-import { useMount } from 'react-use';
 import styled from 'styled-components';
-import { useGetUnreadCount, useIdentityGet } from '../../api/endpoints/transformer';
+import { useGetUnreadCount, useHomeMy, useIdentityGet } from '../../api/endpoints/transformer';
 import defaultHead from '../../assets/ic_default_head.png';
 import ic_home_mine_help from '../../assets/ic_home_mine_help.png';
 import ic_home_mine_kefu from '../../assets/ic_home_mine_kefu.png';
@@ -22,8 +21,6 @@ import ic_svg_take_coin from '../../assets/ic_svg_take_coin.svg';
 import ic_svg_transfer_coin from '../../assets/ic_svg_transfer_coin.svg';
 import { useAuthStore } from '../../stores/auth';
 
-import { getHomeMy } from '../../utils/api';
-
 const My = () => {
   const history = useHistory();
 
@@ -33,12 +30,14 @@ const My = () => {
 
   const { data: identityGet } = useIdentityGet();
 
-  useMount(() => {
-    getHomeMy().then((res) => {
-      if (res.code === '200') {
-        setHelpCenterUrl(res.data.helpCenterUrl);
-      }
-    });
+  useHomeMy({
+    query: {
+      onSuccess(data) {
+        if (data.code === '200') {
+          setHelpCenterUrl(data.data?.helpCenterUrl ?? '');
+        }
+      },
+    },
   });
 
   const { data } = useGetUnreadCount();

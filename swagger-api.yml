@@ -2091,13 +2091,6 @@ paths:
     post:
       operationId: 'homeMy'
       description: '我的頁面信息'
-      requestBody:
-        content:
-          application/json:
-            schema:
-              properties:
-                userId:
-                  type: string
       responses:
         '200':
           description: OK
