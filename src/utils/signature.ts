@@ -36,10 +36,11 @@ const each = function (object: any, callback: any) {
     }
   }
 };
+
 export default each;
 
 export function signParameters(json: any = {}) {
-  const array: any = [];
+  let array: any = [];
   if (!json.platform) {
     json['platform'] = 'web';
   }
@@ -71,7 +72,7 @@ export function signParameters(json: any = {}) {
   each(json, function (key: string) {
     array[array.length] = key;
   });
-
+  array = array.filter((v: string) => v !== 'sign');
   array.sort();
   let sign = '';
   let value;
@@ -84,6 +85,7 @@ export function signParameters(json: any = {}) {
   });
 
   sign = sign + apiSecret;
+
   json['sign'] = md5(sign).toUpperCase();
   return json;
 }

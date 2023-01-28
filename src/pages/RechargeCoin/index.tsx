@@ -34,7 +34,7 @@ const RechargeCoin = () => {
 
   useInterval(() => {
     refetch();
-  }, 10000);
+  }, 2000);
 
   const mounted = useRef(false);
 

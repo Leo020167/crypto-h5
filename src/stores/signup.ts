@@ -1,4 +1,4 @@
-import create from 'zustand';
+import { create } from 'zustand';
 import { Register } from '../model';
 
 export const useSignUpStore = create<{
