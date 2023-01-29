@@ -49,7 +49,7 @@ const AddressManagement = () => {
         {data?.data?.map((v) => (
           <div
             key={v.id}
-            className=" bg-white rounded-lg shadow-md shadow-black/5 px-5 py-4 flex items-center"
+            className=" bg-white rounded-lg shadow-md shadow-black/5 px-5 py-4 flex items-center mb-4"
           >
             <div className="flex-1 flex flex-col min-w-0">
               <div className="text-[#6175AE] text-lg flex items-center justify-between">

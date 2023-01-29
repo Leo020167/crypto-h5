@@ -152,7 +152,10 @@ const TakeCoin = () => {
     });
   }, [address, amount, configs?.data?.fee, intl, userInfo?.phone, symbol, history]);
 
-  const { data: addressList } = useAddressList({ symbol: symbol, chainType: chainType ?? '' });
+  const { data: addressList } = useAddressList({
+    symbol: symbol,
+    chainType: symbol === 'USDT' ? chainType ?? '' : '',
+  });
 
   const precision = useMemo(
     () => configs?.data?.availableAmount?.split('.')[1].length || 8,
