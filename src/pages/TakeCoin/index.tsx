@@ -220,7 +220,7 @@ const TakeCoin = () => {
               </div>
             </div>
             {symbol === 'USDT' && (
-              <div className="text-right">
+              <div className="text-right ml-2">
                 <span className="text-[#3E4660]">
                   {intl.formatMessage({ defaultMessage: '選擇充幣網絡', id: '8Pdrch' })}
                 </span>
@@ -358,6 +358,9 @@ const TakeCoin = () => {
         onSelect={(value) => {
           setOpenSymbol(false);
           setSymbol(value, 'replaceIn');
+          if (value === 'USDT') {
+            setChainType(coinList?.data?.chainTypeList?.[0], 'replaceIn');
+          }
         }}
       />
 
