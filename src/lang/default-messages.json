@@ -71,11 +71,11 @@
   "0B0jPm": {
     "string": "天"
   },
-  "0UBtXx": {
-    "string": "提交申請成功"
-  },
   "0asaCS": {
     "string": "圖片"
+  },
+  "0oAu54": {
+    "string": "{second}秒"
   },
   "0vdo6W": {
     "string": "去實名"
@@ -161,9 +161,6 @@
   "3tf3AE": {
     "string": "如您已經向賣家付款，請不要取消訂單"
   },
-  "3vyRBa": {
-    "string": "請先上傳充值截圖"
-  },
   "3yGSyj": {
     "string": "請輸入最小限額"
   },
@@ -175,9 +172,6 @@
   },
   "42lXMM": {
     "string": "提币"
-  },
-  "45GFMc": {
-    "string": "請輸入充值金額"
   },
   "4FDcHK": {
     "string": "输入验证码"

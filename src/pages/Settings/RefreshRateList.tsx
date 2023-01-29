@@ -42,7 +42,14 @@ const RefreshRateList = ({ open, onClose }: RefreshRateListProps) => {
                     <Radio value={v} />
                   </div>
                 }
-              >{`${v}秒`}</List.Item>
+              >
+                {intl.formatMessage(
+                  { defaultMessage: '{second}秒', id: '0oAu54' },
+                  {
+                    second: v,
+                  },
+                )}
+              </List.Item>
             ))}
           </List>
         </Radio.Group>

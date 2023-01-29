@@ -134,7 +134,11 @@ const TransferCoin = () => {
     <Container
       headerTitle={intl.formatMessage({ defaultMessage: '划转', id: 'fGSeaa' })}
       navBarProps={{
-        right: <Link to="/transfer-coin-history">记录</Link>,
+        right: (
+          <Link to="/transfer-coin-history">
+            {intl.formatMessage({ defaultMessage: '记录', id: 'YvriPY' })}
+          </Link>
+        ),
       }}
       footer={
         <div className="px-4 mb-4">

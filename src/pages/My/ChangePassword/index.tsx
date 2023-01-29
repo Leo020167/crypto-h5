@@ -42,7 +42,7 @@ const ChangePassword = () => {
               });
             }}
           >
-            确定
+            {intl.formatMessage({ defaultMessage: '确定', id: 'r0/TUu' })}
           </a>
         }
       />

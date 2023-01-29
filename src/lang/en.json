@@ -1981,5 +1981,8 @@
   },
   "s4hlhW": {
     "string": "Amount (USDT)"
+  },
+  "0oAu54": {
+    "string": "{second}seconds"
   }
 }
