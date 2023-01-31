@@ -2,15 +2,15 @@ import currency from 'currency.js';
 
 import { scaleLinear } from 'd3-scale';
 import { ECharts } from 'echarts/core';
+import { useAtomValue } from 'jotai';
 import { clamp, isNumber, last, orderBy } from 'lodash-es';
 import moment from 'moment';
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { useIntl } from 'react-intl';
+import { switchColorValueAtom } from '../../atoms';
 import useSwitchColor from '../../hooks/useSwitchColor';
 import { kline } from '../../market/endpoints/marketWithTransformer';
 import myECharts from '../../my-echarts';
-const upColor = '#08a886';
-const downColor = '#e1234d';
 
 const scale = scaleLinear().domain([0, 250, 350]).range([0, 70, 85]);
 
@@ -65,6 +65,14 @@ const KLine = ({
   const [vma10, setVMA10] = useState<number | string>();
 
   const ref = useRef<HTMLDivElement>(null);
+
+  const switchColorValue = useAtomValue(switchColorValueAtom);
+  const { upColor, downColor } = useMemo(() => {
+    if (switchColorValue === '1') {
+      return { upColor: '#08a886', downColor: '#e1234d' };
+    }
+    return { upColor: '#e1234d', downColor: '#08a886' };
+  }, [switchColorValue]);
 
   const myChartRef = useRef<ECharts>();
 

@@ -3,7 +3,7 @@ import { stringify } from 'query-string';
 import { useIntl } from 'react-intl';
 import { Link, useHistory } from 'react-router-dom';
 import styled from 'styled-components';
-import { useGetUnreadCount, useHomeMy, useIdentityGet } from '../../api/endpoints/transformer';
+import { useGetUnreadCount, useIdentityGet } from '../../api/endpoints/transformer';
 import defaultHead from '../../assets/ic_default_head.png';
 import ic_home_mine_help from '../../assets/ic_home_mine_help.png';
 import ic_home_mine_kefu from '../../assets/ic_home_mine_kefu.png';
@@ -26,8 +26,6 @@ const My = () => {
   const { userInfo } = useAuthStore();
 
   const { data: identityGet } = useIdentityGet();
-
-  const { data: homeMy } = useHomeMy();
 
   const { data } = useGetUnreadCount();
 
@@ -112,9 +110,7 @@ const My = () => {
           prefix={<img alt="" src={ic_home_mine_help} className="w-8 h-8" />}
           arrow={<Arrow />}
           onClick={() => {
-            if (homeMy?.data?.helpCenterUrl) {
-              window.open(homeMy?.data?.helpCenterUrl);
-            }
+            history.push('/help-center');
           }}
         >
           {intl.formatMessage({ defaultMessage: '幫助中心', id: 'BRtAE8' })}

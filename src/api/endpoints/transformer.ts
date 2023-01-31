@@ -82,6 +82,8 @@ import type {
   AllConfigResponse,
   AccountRecordListResponse,
   AccountRecordListBody,
+  ArticleHelpListResponse,
+  ArticleHelpListBody,
   HomeAccountResponse,
   OtcDelMyAdBody,
   OtcGetMyAdInfo200,
@@ -2163,6 +2165,51 @@ export const useAccountRecordList = <
     accountRecordList(accountRecordListBody);
 
   const query = useQuery<Awaited<ReturnType<typeof accountRecordList>>, TError, TData>(
+    queryKey,
+    queryFn,
+    queryOptions,
+  ) as UseQueryResult<TData, TError> & { queryKey: QueryKey };
+
+  query.queryKey = queryKey;
+
+  return query;
+};
+
+/**
+ * 帮助中心
+ */
+export const articleHelpList = (articleHelpListBody: ArticleHelpListBody) => {
+  return customInstance<ArticleHelpListResponse>({
+    url: `/article/helpList.do`,
+    method: 'post',
+    headers: { 'Content-Type': 'application/json' },
+    data: articleHelpListBody,
+  });
+};
+
+export const getArticleHelpListQueryKey = (articleHelpListBody: ArticleHelpListBody) => [
+  `/article/helpList.do`,
+  articleHelpListBody,
+];
+
+export type ArticleHelpListQueryResult = NonNullable<Awaited<ReturnType<typeof articleHelpList>>>;
+export type ArticleHelpListQueryError = ErrorType<unknown>;
+
+export const useArticleHelpList = <
+  TData = Awaited<ReturnType<typeof articleHelpList>>,
+  TError = ErrorType<unknown>,
+>(
+  articleHelpListBody: ArticleHelpListBody,
+  options?: { query?: UseQueryOptions<Awaited<ReturnType<typeof articleHelpList>>, TError, TData> },
+): UseQueryResult<TData, TError> & { queryKey: QueryKey } => {
+  const { query: queryOptions } = options ?? {};
+
+  const queryKey = queryOptions?.queryKey ?? getArticleHelpListQueryKey(articleHelpListBody);
+
+  const queryFn: QueryFunction<Awaited<ReturnType<typeof articleHelpList>>> = () =>
+    articleHelpList(articleHelpListBody);
+
+  const query = useQuery<Awaited<ReturnType<typeof articleHelpList>>, TError, TData>(
     queryKey,
     queryFn,
     queryOptions,

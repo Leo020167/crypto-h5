@@ -1103,6 +1103,26 @@ paths:
                 allOf:
                   - $ref: '#/components/schemas/AccountRecordListResponse'
 
+  /article/helpList.do:
+    post:
+      operationId: 'articleHelpList'
+      description: '帮助中心'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                pageNo:
+                  type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/ArticleHelpListResponse'
+
   /home/account.do:
     post:
       operationId: 'homeAccount'
@@ -2903,6 +2923,32 @@ components:
                   type: string
                 riskRateDesc:
                   type: string
+
+    ArticleHelpListResponse:
+      allOf:
+        - $ref: '#/components/schemas/CommonResponse'
+        - properties:
+            data:
+              allOf:
+                - $ref: '#/components/schemas/PaginationResponse'
+                - properties:
+                    data:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          articleId:
+                            type: string
+                          createTime:
+                            type: string
+                          isTop:
+                            type: string
+                          title:
+                            type: string
+                          type:
+                            type: string
+                          url:
+                            type: string
 
     AccountRecordListResponse:
       allOf:

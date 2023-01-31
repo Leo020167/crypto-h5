@@ -1,6 +1,6 @@
 import { useTrail, animated } from '@react-spring/web';
 import { ErrorBlock, SpinLoading } from 'antd-mobile';
-import { useAtom } from 'jotai';
+import { useAtomValue } from 'jotai';
 import { stringify } from 'query-string';
 import { useCallback, useMemo } from 'react';
 import { useIntl } from 'react-intl';
@@ -12,7 +12,7 @@ import { useMarketData } from '../../market/endpoints/marketWithTransformer';
 import HomeMarketItem from './HomeMarketItem';
 
 const HomeStockDigitalMarket = ({ tab, activeKey }: { tab: string; activeKey: string }) => {
-  const [upDownColor] = useAtom(switchColorValueAtom);
+  const upDownColor = useAtomValue(switchColorValueAtom);
 
   const getBackgroundColor = useCallback(
     (rate: number) => {
