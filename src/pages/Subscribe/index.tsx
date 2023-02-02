@@ -10,6 +10,15 @@ import Screen from '../../components/Screen';
 import { stringDateFormat } from '../../utils/date';
 import { useSubscribeState } from './useSubscribeState';
 
+const calcRate = (a: number, b: number) => {
+  let p = 0;
+  if (a !== 0) {
+    p = a / b;
+  }
+
+  return Math.round(p * 100);
+};
+
 const TabParam = withDefault(StringParam, '0');
 
 const SubscribeList = () => {
@@ -71,7 +80,7 @@ const SubscribeList = () => {
 
                 <div className="mt-4">
                   <ProgressBar
-                    percent={Number(v.progress || 0)}
+                    percent={calcRate(Number(v.alAmount), Number(v.amount))}
                     text
                     style={{
                       '--fill-color': state[v.state ?? '0'].color,
@@ -79,28 +88,29 @@ const SubscribeList = () => {
                   />
                 </div>
 
-                <div className="mt-4 text-xs flex items-center">
-                  <div>{intl.formatMessage({ defaultMessage: '發行量', id: 'mU805N' })}</div>
-                  <div className="ml-1">
-                    {v.sumAmount}&nbsp;
-                    {v.symbol}
-                  </div>
+                <div className="mt-4 text-xs">
+                  <div>{intl.formatMessage({ defaultMessage: '申購總量', id: 'Wmlj/H' })}</div>
+                  <div>{v.sumAmount}</div>
                 </div>
-                <div className="mt-2 text-xs flex items-center">
-                  <div>{intl.formatMessage({ defaultMessage: '價格', id: 'qzi2dl' })}</div>
-                  <div className="ml-1">
-                    <span className=" font-bold text-red-500">{v.rate}</span>&nbsp; USDT
-                  </div>
-                </div>
-
                 <div className="mt-2 text-xs">
                   <div>
-                    {[
-                      stringDateFormat(v.startTime, 'YYYY-MM-DD'),
-                      stringDateFormat(v.endTime, 'YYYY-MM-DD'),
-                    ]
-                      .filter(Boolean)
-                      .join(' ~ ')}
+                    {intl.formatMessage({ defaultMessage: '本輪可申購總量', id: 'TPc2/L' })}
+                  </div>
+                  <div>{v.amount}</div>
+                </div>
+                <div className="mt-2 text-xs">
+                  <div>{intl.formatMessage({ defaultMessage: '開始時間', id: 'zVPdxg' })}</div>
+                  <div>
+                    {stringDateFormat(v.startTime)}
+                    {intl.formatMessage({ defaultMessage: '（香港時間）', id: 'WTYv3l' })}
+                  </div>
+                </div>
+                <div className="mt-2 text-xs">
+                  <div>{intl.formatMessage({ defaultMessage: '結束時間', id: 'Otg9/k' })}</div>
+                  <div>
+                    {' '}
+                    {stringDateFormat(v.endTime)}
+                    {intl.formatMessage({ defaultMessage: '（香港時間）', id: 'WTYv3l' })}
                   </div>
                 </div>
               </div>
