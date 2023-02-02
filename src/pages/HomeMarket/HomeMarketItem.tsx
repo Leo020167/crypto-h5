@@ -1,15 +1,16 @@
+import { animated, useSpring } from '@react-spring/web';
 import { useAtom } from 'jotai';
-import { useMemo } from 'react';
+import { useEffect, useMemo, useRef } from 'react';
 import { useIntl } from 'react-intl';
 import { switchColorValueAtom } from '../../atoms';
 import { Quote } from '../../market/model';
 import { getOriginSymbol, getUnitSymbol } from '../TransactionRecords/utils';
 
-const HomeMarketItem = ({ data }: { data: Quote }) => {
+const HomeMarketItem = ({ data, sort }: { data: Quote; sort: number }) => {
   const [upDownColor] = useAtom(switchColorValueAtom);
   const unitSymbol = getUnitSymbol(data.symbol);
 
-  const rate = Number(data.rate);
+  const rate = Number(data.rate ?? 0);
 
   const backgroundColor = useMemo(() => {
     if (upDownColor === '0') {
@@ -27,8 +28,49 @@ const HomeMarketItem = ({ data }: { data: Quote }) => {
 
   const intl = useIntl();
 
+  const [props, api] = useSpring(
+    () => ({
+      from: { opacity: 0.65, backgroundColor },
+      to: { opacity: 0 },
+      config: {
+        duration: 500,
+      },
+    }),
+    [],
+  );
+
+  const prevStateRef = useRef<number>();
+  const startTimeoutRef = useRef<number>();
+  const cancelTimeoutRef = useRef<number>();
+
+  useEffect(() => {
+    if (startTimeoutRef.current) {
+      clearTimeout(startTimeoutRef.current);
+    }
+    if (cancelTimeoutRef.current) {
+      clearTimeout(cancelTimeoutRef.current);
+    }
+
+    if (prevStateRef.current != undefined || prevStateRef.current !== rate) {
+      const duration = sort * 50;
+      startTimeoutRef.current = setTimeout(() => {
+        api.start({ opacity: 0.65, backgroundColor });
+      }, duration);
+
+      cancelTimeoutRef.current = setTimeout(() => {
+        api.start({ opacity: 0 });
+      }, duration + 500);
+    }
+
+    prevStateRef.current = rate;
+  }, [api, backgroundColor, rate, sort]);
+
   return (
-    <div className="text-[#666175ae] flex items-center justify-between text-center h-10 px-4 text-xs">
+    <div className="text-[#666175ae] flex items-center justify-between text-center px-4 py-2 text-xs relative">
+      <animated.div
+        style={props}
+        className=" absolute top-0 right-0 bottom-0 left-0"
+      ></animated.div>
       <div className="min-w-[100px] flex flex-col text-left">
         <div className="text-base font-bold text-[#1d3155]">
           {getOriginSymbol(data.symbol)}

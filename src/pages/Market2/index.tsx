@@ -1,14 +1,15 @@
 import { NavBar, Tabs } from 'antd-mobile';
 import currency from 'currency.js';
-import { useAtom } from 'jotai';
+import { useAtom, useAtomValue } from 'jotai';
 import { stringify } from 'query-string';
 import { useCallback, useMemo } from 'react';
 import { useIntl } from 'react-intl';
 import { useHistory } from 'react-router-dom';
+import { useInterval } from 'react-use';
 import styled from 'styled-components';
 import { NumberParam, StringParam, useQueryParam, withDefault } from 'use-query-params';
 import { useCoinInfo } from '../../api/endpoints/transformer';
-import { marketPeriodAtom, switchColorValueAtom } from '../../atoms';
+import { marketPeriodAtom, refreshRateAtom, switchColorValueAtom } from '../../atoms';
 import KLine from '../../components/KLine';
 import { useQuoteReal } from '../../market/endpoints/marketWithTransformer';
 import { QuoteReal } from '../../market/model';
@@ -39,7 +40,7 @@ const Market = () => {
     },
   );
 
-  const { data: quoteReal } = useQuoteReal(
+  const { data: quoteReal, refetch } = useQuoteReal(
     {
       symbol: symbol ?? '',
       depth: 30,
@@ -51,6 +52,11 @@ const Market = () => {
       },
     },
   );
+
+  const refreshRate = useAtomValue(refreshRateAtom);
+  useInterval(() => {
+    refetch();
+  }, refreshRate * 1000 || 2000);
 
   const coin = coinInfo?.data?.coin;
 
