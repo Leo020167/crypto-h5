@@ -11,6 +11,9 @@ import svgr from 'vite-plugin-svgr';
 export default defineConfig((config) => {
   const env = loadEnv(config.mode, process.cwd());
   return {
+    build: {
+      outDir: `dist/${env.VITE_APP_TITLE}`,
+    },
     server: {
       proxy: {
         // http://api.piglobalexchanges.com/procoin/swagger/index.html#/
