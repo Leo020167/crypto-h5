@@ -7,6 +7,7 @@ import { useAllConfig } from '../../api/endpoints/transformer';
 import { AccountInfo, FollowDv } from '../../api/model';
 import ic_default_head from '../../assets/ic_default_head.png';
 import ic_question_mark from '../../assets/ic_question_mark.png';
+import useSwitchColor from '../../hooks/useSwitchColor';
 import TradePositionList from './TradePositionList';
 
 interface HomeFollowAccountProps {
@@ -17,6 +18,8 @@ const HomeFollowAccount = ({ account, followDv }: HomeFollowAccountProps) => {
   const { data } = useAllConfig();
 
   const intl = useIntl();
+
+  const getColor = useSwitchColor();
 
   const follow = useMemo(() => {
     if (followDv) {
@@ -98,7 +101,7 @@ const HomeFollowAccount = ({ account, followDv }: HomeFollowAccountProps) => {
           <div className="text-gray-400">
             {intl.formatMessage({ defaultMessage: '未實現盈虧(USDT)', id: '7AsBpi' })}
           </div>
-          <div>
+          <div style={{ color: getColor(account?.profit) }}>
             {Number(account?.profit) >= 0 ? '+' : ''}
             {account?.profit ?? '0'}
           </div>
@@ -110,7 +113,7 @@ const HomeFollowAccount = ({ account, followDv }: HomeFollowAccountProps) => {
           <div className="text-gray-400">
             {intl.formatMessage({ defaultMessage: '未實現盈虧(USDT)', id: '7AsBpi' })}
           </div>
-          <div>{account?.openBail ?? '0'}</div>
+          <div style={{ color: getColor(account?.openBail) }}>{account?.openBail ?? '0'}</div>
         </div>
         <div className="flex flex-col items-end">
           <div className="text-gray-400">

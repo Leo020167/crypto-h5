@@ -5,6 +5,7 @@ import { useIntl } from 'react-intl';
 import { Link, useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import { AccountInfo } from '../../api/model';
+import useSwitchColor from '../../hooks/useSwitchColor';
 import FinancialList from './FinancialList';
 import PositionItem from './PositionItem';
 
@@ -17,6 +18,9 @@ const HomeSpotAccount = ({ account }: HomeSpotAccountProps) => {
   const intl = useIntl();
 
   const history = useHistory();
+
+  const getColor = useSwitchColor();
+
   return (
     <Container className="bg-gray-100">
       <div className="p-4 bg-white text-xs">
@@ -34,7 +38,11 @@ const HomeSpotAccount = ({ account }: HomeSpotAccountProps) => {
             <div className="text-gray-400">
               {intl.formatMessage({ defaultMessage: '總盈虧(USDT)', id: '7xCHrU' })}
             </div>
-            <div>{account?.profit ?? '0'}</div>
+            <div style={{ color: getColor(account?.profit) }}>
+              {' '}
+              {Number(account?.profit) >= 0 ? '+' : ''}
+              {account?.profit ?? '0'}
+            </div>
           </div>
         </div>
         <div className="mt-3 flex items-center justify-between text-[#c1d3155]">

@@ -3,6 +3,7 @@ import { useIntl } from 'react-intl';
 import { useAllConfig } from '../../api/endpoints/transformer';
 import { AccountInfo } from '../../api/model';
 import ic_question_mark from '../../assets/ic_question_mark.png';
+import useSwitchColor from '../../hooks/useSwitchColor';
 import TradePositionList from './TradePositionList';
 
 interface HomeStockAccountProps {
@@ -11,6 +12,9 @@ interface HomeStockAccountProps {
 const HomeStockAccount = ({ account }: HomeStockAccountProps) => {
   const { data } = useAllConfig();
   const intl = useIntl();
+
+  const getColor = useSwitchColor();
+
   return (
     <div className="p-4 text-xs bg-white">
       <div className="flex items-center justify-between">
@@ -52,7 +56,7 @@ const HomeStockAccount = ({ account }: HomeStockAccountProps) => {
           <div className="text-gray-400">
             {intl.formatMessage({ defaultMessage: '未實現盈虧(USDT)', id: '7AsBpi' })}
           </div>
-          <div>
+          <div style={{ color: getColor(account?.profit) }}>
             {Number(account?.profit) >= 0 ? '+' : ''}
             {account?.profit ?? '0'}
           </div>
