@@ -69,6 +69,11 @@ const Signup = () => {
               return;
             }
 
+            if (!values.inviteCode?.trim().length) {
+              Toast.show(intl.formatMessage({ defaultMessage: '邀请码不能為空', id: 'X5/jXG' }));
+              return;
+            }
+
             setValue({ ...value, ...values, countryCode: country.code });
 
             history.push({
@@ -183,8 +188,8 @@ const Signup = () => {
           <Form.Item name="inviteCode">
             <Input
               placeholder={intl.formatMessage({
-                defaultMessage: '请输入邀请码(选填)',
-                id: 'VU6g7c',
+                defaultMessage: '请输入邀请码(必填)',
+                id: 'Ie9Vi3',
               })}
             />
           </Form.Item>

@@ -65,7 +65,6 @@ const TradeLeverDetails = ({
     if (orderTypeOption.value === 'limit' && price?.trim().length) {
       return price;
     }
-
     return '0';
   }, [orderTypeOption.value, price]);
 
@@ -73,7 +72,7 @@ const TradeLeverDetails = ({
     symbol: symbol ?? '',
     buySell: buySell === 1 ? 'buy' : 'sell',
     price: calcPrice,
-    hand: '0',
+    hand,
     multiNum: '',
     orderType: orderTypeOption.value,
     type: '2',
@@ -182,15 +181,16 @@ const TradeLeverDetails = ({
             onClick={() => {
               const precision = Number(orderCheckOut?.data?.maxHand?.split('.')?.[1]?.length ?? 2);
 
-              setHand(
-                currency(orderCheckOut?.data?.maxHand ?? '0', {
-                  symbol: '',
-                  separator: '',
-                  precision,
-                })
-                  .multiply(v / 100)
-                  .format(),
-              );
+              const hand = currency(orderCheckOut?.data?.maxHand ?? '0', {
+                symbol: '',
+                separator: '',
+                precision,
+              })
+                .multiply(v / 100)
+                .format();
+
+              setHand(hand);
+              refetchCheckOut();
             }}
           >{`${v}%`}</a>
         ))}
