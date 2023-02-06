@@ -172,7 +172,7 @@ const Home = () => {
         <Link to="/pledge" className="flex flex-col items-center justify-start w-1/5">
           <img alt="" src={tab1_menu5} className="w-9 h-9" />
           <div className="mt-2.5 text-xs text-[#666666] break-all">
-            {intl.formatMessage({ defaultMessage: '質押生息', id: 'R3Xfcn' })}
+            {intl.formatMessage({ defaultMessage: 'Defi专区', id: 'misXZU' })}
           </div>
         </Link>
         <Link to="/legal-money" className="flex flex-col items-center w-1/5">

@@ -33,7 +33,7 @@ const Pledge = () => {
 
   return (
     <Screen
-      headerTitle={intl.formatMessage({ defaultMessage: '质押生息', id: 'WKYPpM' })}
+      headerTitle={intl.formatMessage({ defaultMessage: 'Defi专区', id: 'misXZU' })}
       right={
         <div className="flex justify-end">
           <Link to="/pledge-history">
@@ -78,7 +78,7 @@ const Pledge = () => {
               </Grid.Item>
               <Grid.Item className="text-center">
                 <div className="text-[#A2A9BC] text-xs">
-                  {intl.formatMessage({ defaultMessage: '每日利息', id: '/T0l4z' })}
+                  {intl.formatMessage({ defaultMessage: '每日收益', id: '+CV388' })}
                 </div>
                 <div className="text-[#3E4660] text-base">{v.profitRate}</div>
               </Grid.Item>
