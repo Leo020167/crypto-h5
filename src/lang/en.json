@@ -93,7 +93,7 @@
     "string": "Whether to subscribe to this user？"
   },
   "20MJBj": {
-    "string": "TFU"
+    "string": "TVC"
   },
   "297aFF": {
     "string": "Margin Ratio"
@@ -180,7 +180,7 @@
     "string": "close a position"
   },
   "4ivSMB": {
-    "string": "Total Assets(TFU)"
+    "string": "Total Assets(TVC)"
   },
   "56o47p": {
     "string": "Mailbox Verification Code"
@@ -717,7 +717,7 @@
     "string": "Please enter the password again"
   },
   "MQKv1T": {
-    "string": "Community Total Reward(TFU)"
+    "string": "Community Total Reward(TVC)"
   },
   "MTyrlB": {
     "string": "The secret must be 8-16-bit words, letters combination"
@@ -762,7 +762,7 @@
     "string": "please input your mailbox"
   },
   "NdxUVx": {
-    "string": "Check how to get TFU"
+    "string": "Check how to get TVC"
   },
   "NlcysC": {
     "string": "Please enter the mailbox number"
@@ -1137,7 +1137,7 @@
     "string": "Only allow recharge"
   },
   "aD/9at": {
-    "string": "quantity(TFU)"
+    "string": "quantity(TVC)"
   },
   "aOp/5l": {
     "string": "If the real name cannot be applied for merchant certification, please submit a business certification application after the real -name authentication."
@@ -1332,7 +1332,7 @@
     "string": "Financial record"
   },
   "guM4xe": {
-    "string": "Maximum times consumption TFU:"
+    "string": "Maximum times consumption TVC:"
   },
   "gx0XBL": {
     "string": "Subscribe"
@@ -1803,7 +1803,7 @@
     "string": "Quantity received"
   },
   "zqkaAr": {
-    "string": "reward(TFU)"
+    "string": "reward(TVC)"
   },
   "zv2r2Q": {
     "string": "Subscribe"

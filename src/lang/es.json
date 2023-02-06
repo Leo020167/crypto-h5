@@ -93,7 +93,7 @@
     "string": "¿Está suscrito este usuario?"
   },
   "20MJBj": {
-    "string": "TFU"
+    "string": "TVC"
   },
   "297aFF": {
     "string": "Ratio de margen"
@@ -717,7 +717,7 @@
     "string": "Vuelva a introducir su contraseña"
   },
   "MQKv1T": {
-    "string": "Premio comunitario total(TFU)"
+    "string": "Premio comunitario total(TVC)"
   },
   "MTyrlB": {
     "string": "La contraseña debe ser una combinación de - dígitos y letras"
@@ -762,7 +762,7 @@
     "string": "Introduzca su dirección de correo electrónico"
   },
   "NdxUVx": {
-    "string": "Vea cómo conseguir TFU"
+    "string": "Vea cómo conseguir TVC"
   },
   "NlcysC": {
     "string": "Introduzca su código postal"
@@ -1137,7 +1137,7 @@
     "string": "Sólo se permiten recargas"
   },
   "aD/9at": {
-    "string": "Cantidad (TFU)"
+    "string": "Cantidad (TVC)"
   },
   "aOp/5l": {
     "string": "No puede solicitar la verificación de comerciante sin un nombre real, por favor verifique su nombre real antes de enviar su solicitud de verificación de comerciante."
@@ -1332,7 +1332,7 @@
     "string": "Historia financiera"
   },
   "guM4xe": {
-    "string": "Consumo máximo TFU:"
+    "string": "Consumo máximo TVC:"
   },
   "gx0XBL": {
     "string": "Suscríbase a"
@@ -1803,7 +1803,7 @@
     "string": "Cantidad"
   },
   "zqkaAr": {
-    "string": "Recompensa (TFU)"
+    "string": "Recompensa (TVC)"
   },
   "zv2r2Q": {
     "string": "Pida"

@@ -93,7 +93,7 @@
     "string": "是否订閲该用户？"
   },
   "20MJBj": {
-    "string": "TFU"
+    "string": "TVC"
   },
   "297aFF": {
     "string": "保证金比例"
@@ -180,7 +180,7 @@
     "string": "平仓明细"
   },
   "4ivSMB": {
-    "string": "总资产(TFU)"
+    "string": "总资产(TVC)"
   },
   "56o47p": {
     "string": "邮箱验证码"
@@ -717,7 +717,7 @@
     "string": "请再次输入密码"
   },
   "MQKv1T": {
-    "string": "社区总奖励(TFU)"
+    "string": "社区总奖励(TVC)"
   },
   "MTyrlB": {
     "string": "密必须是8-16位字、字母组合"
@@ -1137,7 +1137,7 @@
     "string": "只允许充值"
   },
   "aD/9at": {
-    "string": "数量(TFU)"
+    "string": "数量(TVC)"
   },
   "aOp/5l": {
     "string": "未实名不能申请商家认证，请实名认证后，在提交商家认证申请。"
@@ -1803,7 +1803,7 @@
     "string": "到账数量"
   },
   "zqkaAr": {
-    "string": "奖励(TFU)"
+    "string": "奖励(TVC)"
   },
   "zv2r2Q": {
     "string": "订閲"

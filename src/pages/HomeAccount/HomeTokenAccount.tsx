@@ -23,7 +23,7 @@ const HomeTokenAccount = ({ account }: HomeTokenAccountProps) => {
         <div className="mt-3 flex items-center justify-between text-[#c1d3155]">
           <div>
             <div className="text-gray-400">
-              {intl.formatMessage({ defaultMessage: '總資產(TFU)', id: '4ivSMB' })}
+              {intl.formatMessage({ defaultMessage: '總資產(TVC)', id: '4ivSMB' })}
             </div>
             <div className="text-base">{account?.assets ?? '0'}</div>
           </div>

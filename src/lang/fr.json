@@ -93,7 +93,7 @@
     "string": "Cet utilisateur est-il abonné ?"
   },
   "20MJBj": {
-    "string": "TFU"
+    "string": "TVC"
   },
   "297aFF": {
     "string": "Ratio de marge"
@@ -717,7 +717,7 @@
     "string": "Veuillez entrer à nouveau votre mot de passe"
   },
   "MQKv1T": {
-    "string": "Prix communautaire total (TFU)"
+    "string": "Prix communautaire total (TVC)"
   },
   "MTyrlB": {
     "string": "Le secret doit être une combinaison de 8 à 16 caractères et lettres"
@@ -762,7 +762,7 @@
     "string": "Veuillez entrer votre adresse e-mail"
   },
   "NdxUVx": {
-    "string": "Voir comment obtenir TFU"
+    "string": "Voir comment obtenir TVC"
   },
   "NlcysC": {
     "string": "Veuillez entrer votre code postal"
@@ -1137,7 +1137,7 @@
     "string": "Seules les recharges sont autorisées"
   },
   "aD/9at": {
-    "string": "Quantité (TFU)"
+    "string": "Quantité (TVC)"
   },
   "aOp/5l": {
     "string": "Vous ne pouvez pas demander la vérification des commerçants sans un nom réel. Veuillez vérifier votre nom réel avant de soumettre votre demande de vérification des commerçants."
@@ -1332,7 +1332,7 @@
     "string": "Historique financier"
   },
   "guM4xe": {
-    "string": "Consommation maximale TFU:"
+    "string": "Consommation maximale TVC:"
   },
   "gx0XBL": {
     "string": "S'abonner à"
@@ -1803,7 +1803,7 @@
     "string": "Quantité"
   },
   "zqkaAr": {
-    "string": "Récompense (TFU)"
+    "string": "Récompense (TVC)"
   },
   "zv2r2Q": {
     "string": "Commandez"
