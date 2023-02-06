@@ -73,7 +73,7 @@ const TradeLeverDetails = ({
     symbol: symbol ?? '',
     buySell: buySell === 1 ? 'buy' : 'sell',
     price: calcPrice,
-    hand: '0',
+    hand,
     multiNum: '',
     orderType: orderTypeOption.value,
     type: '2',
