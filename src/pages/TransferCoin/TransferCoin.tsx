@@ -248,7 +248,7 @@ const TransferCoin = () => {
             },
           }}
         >
-          <List>
+          <List className=" overflow-y-auto">
             {transferSymbols?.data?.map((v) => (
               <List.Item
                 key={v}
@@ -277,7 +277,7 @@ const TransferCoin = () => {
             },
           }}
         >
-          <List>
+          <List className=" overflow-y-auto">
             {data?.data?.accountTypeList?.map((v, index) => (
               <List.Item
                 key={v.accountType ?? '' + index}
