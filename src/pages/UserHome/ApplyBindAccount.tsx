@@ -175,7 +175,7 @@ const ApplyBindAccount = () => {
                   </span>
                   <span>
                     {intl.formatMessage({
-                      defaultMessage: '最高倍消耗TFU:',
+                      defaultMessage: '最高倍消耗TVC:',
                       id: 'guM4xe',
                     })}
                     {v.tokenAmount}

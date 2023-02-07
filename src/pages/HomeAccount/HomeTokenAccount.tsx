@@ -17,7 +17,7 @@ const HomeTokenAccount = ({ account }: HomeTokenAccountProps) => {
       <div className="p-4 bg-white">
         <div className="mb-2 text-gray-400 text-right text-xs">
           <a href="/procoin/article/#/passgeDetail?article_id=222" target="__blank">
-            {intl.formatMessage({ defaultMessage: '查看如何獲取TFU', id: 'NdxUVx' })}
+            {intl.formatMessage({ defaultMessage: '查看如何獲取TVC', id: 'NdxUVx' })}
           </a>
         </div>
         <div className="mt-3 flex items-center justify-between text-[#c1d3155]">
