@@ -1,4 +1,10 @@
 {
+  "Ie9Vi3": {
+    "string": "Please enter the invitation code (required)"
+  },
+  "X5/jXG": {
+    "string": "Invitation code cannot be empty"
+  },
   "+2zznO": {
     "string": "Please enter the SMS verification code"
   },
