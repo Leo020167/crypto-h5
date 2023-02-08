@@ -223,7 +223,7 @@ const TransactionRecords = () => {
                 <span className="text-xs text-[#999999]">
                   {intl.formatMessage({
                     defaultMessage: '獲得TVC',
-                    id: 'GKRXXt',
+                    id: 'Hh3rHP',
                   })}
                 </span>
                 <span className="text-xs text-[#666666]">{proOrderQuerySum?.data?.sumToken}</span>
@@ -253,7 +253,6 @@ const TransactionRecords = () => {
                 ref={historyRef}
                 accountType={accountType}
                 symbol={symbol}
-                orderState={orderState?.[0]}
               />
             )}
           </Swiper.Item>

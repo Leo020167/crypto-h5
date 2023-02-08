@@ -2,11 +2,11 @@
   "+4lD9e": {
     "string": "姓名"
   },
-  "+8cZlc": {
-    "string": "認購價格"
-  },
   "+9Acwm": {
     "string": "我確認收到付款"
+  },
+  "+CV388": {
+    "string": "每日收益"
   },
   "+JdgDW": {
     "string": "進行中"
@@ -52,9 +52,6 @@
   },
   "/I+pby": {
     "string": "我的"
-  },
-  "/T0l4z": {
-    "string": "每日利息"
   },
   "/jAa8w": {
     "string": "{maxHand}{symbol}"
@@ -299,9 +296,6 @@
   "8TceES": {
     "string": "系統會為您篩選包含目標金額的商品"
   },
-  "8gjJxE": {
-    "string": "接受幣種"
-  },
   "8p3RD/": {
     "string": "重新获取"
   },
@@ -428,6 +422,9 @@
   "C8ZFaR": {
     "string": "筛选"
   },
+  "CBgsGP": {
+    "string": "預熱中"
+  },
   "CKdped": {
     "string": "委托"
   },
@@ -457,6 +454,9 @@
   },
   "DNlbBz": {
     "string": "郵箱或手機"
+  },
+  "DQq3pD": {
+    "string": "項目參與條件"
   },
   "DRC113": {
     "string": "{symbol}現價"
@@ -521,6 +521,9 @@
   "EmziDl": {
     "string": "最小充值金額(USDT)"
   },
+  "FLp81s": {
+    "string": "申購"
+  },
   "FXys9B": {
     "string": "輸入舊密碼"
   },
@@ -541,9 +544,6 @@
   },
   "GFzduc": {
     "string": "申訴留言(可選)"
-  },
-  "GKRXXt": {
-    "string": "獲得TVC"
   },
   "GO/P/E": {
     "string": "添加提幣地址"
@@ -592,6 +592,9 @@
   },
   "HeL/t7": {
     "string": "購買USDT"
+  },
+  "Hh3rHP": {
+    "string": "獲得TVC"
   },
   "HmiIeC": {
     "string": "是否確定上架?"
@@ -644,9 +647,6 @@
   "JYhyDW": {
     "string": "已入住{days}天"
   },
-  "Jf8sT5": {
-    "string": "待開始"
-  },
   "Jgy7GK": {
     "string": "驗證碼已發送至，{email}"
   },
@@ -688,6 +688,9 @@
   },
   "Ks5Olr": {
     "string": "設置密碼"
+  },
+  "KshKCt": {
+    "string": "距離本輪申購開始還剩"
   },
   "KuONpk": {
     "string": "請輸入提幣數量"
@@ -776,6 +779,9 @@
   "MmsEyp": {
     "string": "注册"
   },
+  "MxAApV": {
+    "string": "我已申購"
+  },
   "NBRkJQ": {
     "string": "確認密碼"
   },
@@ -848,6 +854,9 @@
   "PYgwg0": {
     "string": "留言不能超過300個字符"
   },
+  "Pcqs8N": {
+    "string": "申購說明"
+  },
   "Pg99aL": {
     "string": "確定刪除"
   },
@@ -859,6 +868,9 @@
   },
   "QInuMW": {
     "string": "添加賬戶類型"
+  },
+  "QKyNXd": {
+    "string": "申購價格"
   },
   "QLilYb": {
     "string": "劃轉"
@@ -880,9 +892,6 @@
   },
   "R0bpcH": {
     "string": "您暫未發佈廣告～"
-  },
-  "R3Xfcn": {
-    "string": "質押生息"
   },
   "R4Ww2H": {
     "string": "賬戶"
@@ -932,6 +941,9 @@
   "SaqkUp": {
     "string": "報價貨幣"
   },
+  "Sj3tff": {
+    "string": "本輪已申購"
+  },
   "Snhxet": {
     "string": "相同賬戶之間不能划轉"
   },
@@ -944,14 +956,17 @@
   "Sz8zFH": {
     "string": "解釋：高高手最近30天平均每筆交易的收益率。數值越大，代表個人盈利能力越強。"
   },
-  "T5DLIZ": {
-    "string": "活動幣種"
+  "T8RXyP": {
+    "string": "項目介紹"
   },
   "TByK7F": {
     "string": "输入划转数量"
   },
   "THckAT": {
     "string": "訂閱已過期"
+  },
+  "TPc2/L": {
+    "string": "本輪可申購總量"
   },
   "TT0rUo": {
     "string": "設定止盈止損"
@@ -985,6 +1000,9 @@
   },
   "UH1kCc": {
     "string": "添加"
+  },
+  "UQ2ett": {
+    "string": "上市解倉時間"
   },
   "UT6tN2": {
     "string": "幣幣"
@@ -1073,11 +1091,14 @@
   "WKCB03": {
     "string": "可兌換數量："
   },
-  "WKYPpM": {
-    "string": "质押生息"
-  },
   "WLF2E0": {
     "string": "收款管理"
+  },
+  "WTYv3l": {
+    "string": "（香港時間）"
+  },
+  "Wmlj/H": {
+    "string": "申購總量"
   },
   "WrleG5": {
     "string": "更換語言"
@@ -1175,9 +1196,6 @@
   "Zhkpb8": {
     "string": "只允許充值"
   },
-  "ZsNueb": {
-    "string": "立即參與"
-  },
   "aD/9at": {
     "string": "數量(TVC)"
   },
@@ -1213,6 +1231,9 @@
   },
   "b6Krbb": {
     "string": "交易記錄"
+  },
+  "bBKCBS": {
+    "string": "幣種介紹"
   },
   "bKoTT3": {
     "string": "請確認您已向賣家付款"
@@ -1288,6 +1309,9 @@
   },
   "dqhJYx": {
     "string": "暫無數據"
+  },
+  "eBTG87": {
+    "string": "本輪結束申購時間"
   },
   "eD3Ul5": {
     "string": "請上傳人像照"
@@ -1421,6 +1445,9 @@
   "iipjBw": {
     "string": "最新價"
   },
+  "ikrDph": {
+    "string": "距離本輪申購結束還剩"
+  },
   "j5arhs": {
     "string": "生日"
   },
@@ -1484,6 +1511,9 @@
   "lK7IeZ": {
     "string": "交易密码管理"
   },
+  "lKbaKq": {
+    "string": "最小申購量"
+  },
   "lc43/w": {
     "string": "邀請碼"
   },
@@ -1523,11 +1553,11 @@
   "mGf323": {
     "string": "普通平倉"
   },
-  "mU805N": {
-    "string": "發行量"
-  },
   "meMA+Y": {
     "string": "申購失敗轉換({a}-{b})"
+  },
+  "misXZU": {
+    "string": "Defi专区"
   },
   "mjDNUB": {
     "string": "質押數量"
@@ -1649,6 +1679,9 @@
   "r2dEd/": {
     "string": "重置"
   },
+  "rEYIpu": {
+    "string": "發起成員"
+  },
   "rQ+HPv": {
     "string": "输入提币数量"
   },
@@ -1660,6 +1693,9 @@
   },
   "s/KbuC": {
     "string": "数量 USDT"
+  },
+  "s2XXAu": {
+    "string": "本輪剩餘申購量"
   },
   "s4hJju": {
     "string": "详情"
@@ -1684,6 +1720,9 @@
   },
   "sY5/oP": {
     "string": "買入"
+  },
+  "sbEmQh": {
+    "string": "申購中"
   },
   "sofNEv": {
     "string": "無設置"
@@ -1775,6 +1814,9 @@
   "wNYTXq": {
     "string": "未使用"
   },
+  "waMjSH": {
+    "string": "本輪開始申購時間"
+  },
   "wbTfN9": {
     "string": "提幣數量"
   },
@@ -1856,11 +1898,11 @@
   "zL7URC": {
     "string": "个人设置"
   },
-  "zMxwE3": {
-    "string": "活動總量"
-  },
   "zR07Wc": {
     "string": "深度"
+  },
+  "zS9FwU": {
+    "string": "上市交易時間"
   },
   "zVPdxg": {
     "string": "開始時間"
@@ -1879,6 +1921,9 @@
   },
   "zv2r2Q": {
     "string": "訂閲"
+  },
+  "zxYcWZ": {
+    "string": "風險提示"
   },
   "zznr09": {
     "string": "已撤销"

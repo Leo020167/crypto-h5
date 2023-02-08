@@ -18,15 +18,16 @@ interface TradeLeverHistoryProps {
 }
 
 const TradeLeverHistory = forwardRef<TradeLeverHistoryRef, TradeLeverHistoryProps>(
-  ({ accountType, symbol = '', orderState = '' }, ref) => {
+  ({ accountType, symbol = '' }, ref) => {
     const params = useMemo(
       () => ({
         isDone: '1',
         symbol: symbol ?? '',
-        orderState: orderState || '1',
+        orderState: '',
+        accountType,
         type: accountType === 'spot' ? '2' : '1',
       }),
-      [accountType, orderState, symbol],
+      [accountType, symbol],
     );
 
     const {
