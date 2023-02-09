@@ -81,7 +81,12 @@ const LegalPay = () => {
     <Screen
       right={
         <div className="flex items-center justify-end">
-          <Link to={{ pathname: '/otc-chat', search: stringify({ orderId }) }}>
+          <Link
+            to={{
+              pathname: '/otc-chat',
+              search: stringify({ orderId, nickName: payResult?.showUserName }),
+            }}
+          >
             <SvgContactOther className=" w-5 h-5" />
           </Link>
         </div>

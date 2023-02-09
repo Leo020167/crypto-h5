@@ -13,11 +13,11 @@ import { stringDateFormat } from '../../utils/date';
 const TradeCommissionHistory = ({ accountType }: { accountType?: string }) => {
   const params = useMemo(
     () => ({
-      isDone: '1',
+      isDone: accountType === 'spot' ? '1' : '0',
       symbol: '',
       accountType: accountType,
       buySell: '',
-      orderState: '0',
+      orderState: '',
       type: accountType === 'spot' ? '2' : '1',
     }),
     [accountType],
