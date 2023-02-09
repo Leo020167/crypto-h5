@@ -8,5 +8,6 @@ import type { FollowType } from './followType';
 
 export type GetFollowTypesResponseAllOfDataData = {
   showBind?: string;
+  statementUrl?: string;
   types?: FollowType[];
 };
