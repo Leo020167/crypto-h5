@@ -1,4 +1,4 @@
-import { Button, Form, Input, Toast } from 'antd-mobile';
+import { Button, Form, Input, NavBar, Toast } from 'antd-mobile';
 import { EyeInvisibleOutline, EyeOutline } from 'antd-mobile-icons';
 import md5 from 'js-md5';
 import { useState } from 'react';
@@ -25,86 +25,95 @@ const Login = () => {
   const intl = useIntl();
 
   return (
-    <div className="h-screen bg-white px-4 py-4">
-      <div className="text-right pb-2">
-        <Link to="/signup" className="text-black">
-          {intl.formatMessage({ defaultMessage: '注冊賬號', id: '3cuhJj' })}
-        </Link>
-      </div>
-      <Container className="px-4">
-        <h1 className="py-8 text-2xl">
-          {intl.formatMessage({ defaultMessage: '登錄', id: 'wAPEnf' })}
-        </h1>
-        <div>
-          <Form
-            onFinish={() => {
-              setLoading(true);
-              const isEmail =
-                /^\w+((.\w+)|(-\w+))@[A-Za-z0-9]+((.|-)[A-Za-z0-9]+).[A-Za-z0-9]+$/.test(username);
+    <div className="bg-white">
+      <NavBar
+        onBack={() => {
+          history.goBack();
+        }}
+        right={
+          <Link to="/signup" className="text-black">
+            {intl.formatMessage({ defaultMessage: '注冊賬號', id: '3cuhJj' })}
+          </Link>
+        }
+      />
+      <div className="h-screen bg-white px-4 py-4">
+        <Container className="px-4">
+          <h1 className="py-8 text-2xl">
+            {intl.formatMessage({ defaultMessage: '登錄', id: 'wAPEnf' })}
+          </h1>
+          <div>
+            <Form
+              onFinish={() => {
+                setLoading(true);
+                const isEmail =
+                  /^\w+((.\w+)|(-\w+))@[A-Za-z0-9]+((.|-)[A-Za-z0-9]+).[A-Za-z0-9]+$/.test(
+                    username,
+                  );
 
-              authStore
-                .login({
-                  phone: isEmail ? '' : username,
-                  type: isEmail ? 2 : 1,
-                  email: isEmail ? username : '',
-                  userPass: md5(password ?? ''),
-                  platform: 'web',
-                  smsCode: '',
-                })
-                .then(async (data) => {
-                  if (data.code === '200') {
-                    history.replace(from);
-                  } else {
-                    Toast.show(data.msg);
-                  }
-                })
-                .finally(() => setLoading(false));
-            }}
-            footer={
-              <div>
-                <Button
-                  block
-                  type="submit"
-                  color="primary"
-                  className="rounded-none"
-                  loading={loading}
-                >
-                  {intl.formatMessage({ defaultMessage: '登錄', id: 'wAPEnf' })}
-                </Button>
-                <div className="text-center mt-4">
-                  <Link to="/reset-password">
-                    {intl.formatMessage({ defaultMessage: '忘記了？找回密碼', id: 'oR5wwN' })}
-                  </Link>
+                authStore
+                  .login({
+                    phone: isEmail ? '' : username,
+                    type: isEmail ? 2 : 1,
+                    email: isEmail ? username : '',
+                    userPass: md5(password ?? ''),
+                    platform: 'web',
+                    smsCode: '',
+                  })
+                  .then(async (data) => {
+                    if (data.code === '200') {
+                      history.replace(from);
+                    } else {
+                      Toast.show(data.msg);
+                    }
+                  })
+                  .finally(() => setLoading(false));
+              }}
+              footer={
+                <div>
+                  <Button
+                    block
+                    type="submit"
+                    color="primary"
+                    className="rounded-none"
+                    loading={loading}
+                  >
+                    {intl.formatMessage({ defaultMessage: '登錄', id: 'wAPEnf' })}
+                  </Button>
+                  <div className="text-center mt-4">
+                    <Link to="/reset-password">
+                      {intl.formatMessage({ defaultMessage: '忘記了？找回密碼', id: 'oR5wwN' })}
+                    </Link>
+                  </div>
                 </div>
-              </div>
-            }
-          >
-            <Form.Item name="username">
-              <Input
-                placeholder={intl.formatMessage({ defaultMessage: '郵箱或手機', id: 'DNlbBz' })}
-                onChange={setUsername}
-              />
-            </Form.Item>
-            <Form.Item name="password">
-              <div className="password">
+              }
+            >
+              <Form.Item name="username">
                 <Input
-                  className="input"
-                  placeholder={intl.formatMessage({ defaultMessage: '請輸入密碼', id: '63r2yf' })}
-                  type={visible ? 'text' : 'password'}
-                  onChange={setPassword}
+                  placeholder={intl.formatMessage({ defaultMessage: '郵箱或手機', id: 'DNlbBz' })}
+                  onChange={setUsername}
                 />
-                <div className="eye">
-                  {!visible ? (
-                    <EyeInvisibleOutline onClick={() => setVisible(true)} />
-                  ) : (
-                    <EyeOutline onClick={() => setVisible(false)} />
-                  )}
+              </Form.Item>
+              <Form.Item name="password">
+                <div className="password">
+                  <Input
+                    className="input"
+                    placeholder={intl.formatMessage({ defaultMessage: '請輸入密碼', id: '63r2yf' })}
+                    type={visible ? 'text' : 'password'}
+                    onChange={setPassword}
+                  />
+                  <div className="eye">
+                    {!visible ? (
+                      <EyeInvisibleOutline onClick={() => setVisible(true)} />
+                    ) : (
+                      <EyeOutline onClick={() => setVisible(false)} />
+                    )}
+                  </div>
                 </div>
-              </div>
-            </Form.Item>
-          </Form>
-        </div>
-      </Container>
+              </Form.Item>
+            </Form>
+          </div>
+        </Container>
+      </div>
     </div>
   );
 };
