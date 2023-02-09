@@ -79,7 +79,7 @@ const LegalQuickBuyDialog = ({
             {options.map((v, i) => (
               <div
                 key={i}
-                className="h-12 w-[110px] flex flex-col justify-center border border-[#6175AE] text-[#F9F9FC] rounded px-2 mr-2"
+                className="h-12 min-w-[110px] flex flex-col justify-center border border-[#6175AE] text-[#F9F9FC] rounded px-2 mr-2"
               >
                 <div className="flex items-center justify-center h-full">
                   <span className="w-4 h-4">

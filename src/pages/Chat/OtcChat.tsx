@@ -32,6 +32,7 @@ const Content = ({ type, say }: { type?: string; say?: string }) => {
 
 const OtcChat = () => {
   const [orderId] = useQueryParam('orderId', StringParam);
+  const [nickName] = useQueryParam('nickName', StringParam);
 
   const intl = useIntl();
 
@@ -68,14 +69,14 @@ const OtcChat = () => {
   const renderItemContent = useCallback(
     (index: number, item: ChatListItem) => {
       return (
-        <div>
+        <div className="mt-2.5">
           <div className="flex justify-center">
             <span className="text-xs text-[#262626] bg-[#f4f4f4] rounded py-1 px-2.5">
               {renderTime(item.createTime)}
             </span>
           </div>
           <div
-            className={`flex gap-2.5 py-2.5 ${
+            className={`flex gap-2.5 p-2.5 ${
               userInfo?.userId === item.userId ? 'justify-end' : 'flex-row-reverse'
             }`}
           >
@@ -136,7 +137,7 @@ const OtcChat = () => {
   const [visible, setVisible] = useState(false);
 
   return (
-    <Screen headerTitle={intl.formatMessage({ defaultMessage: '綫上客服', id: 'wwOQz6' })}>
+    <Screen headerTitle={nickName}>
       <Container className="min-h-0 flex-1 flex flex-col pb-10">
         <Virtuoso
           className="flex-1"

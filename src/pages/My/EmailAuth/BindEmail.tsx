@@ -30,12 +30,16 @@ const BindEmail = () => {
 
           history.push({
             pathname: '/bind-email-code',
-            search: stringify({ type: type === 1 ? 1 : undefined, email, redirectUrl }),
+            search: stringify({
+              type: type === 1 ? 1 : undefined,
+              email: values.email,
+              redirectUrl,
+            }),
           });
         }
       });
     },
-    [email, history, intl, redirectUrl, type],
+    [history, intl, redirectUrl, type],
   );
 
   return (
@@ -65,7 +69,7 @@ const BindEmail = () => {
           </div>
         }
       >
-        <Form.Item name="email">
+        <Form.Item name="email" initialValue={email}>
           <Input
             type="email"
             placeholder={intl.formatMessage({ defaultMessage: '請輸入郵箱', id: 'NZTO6Y' })}

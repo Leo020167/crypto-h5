@@ -2,7 +2,7 @@ import { Button, List, Toast } from 'antd-mobile';
 import { stringify } from 'query-string';
 import { useMemo } from 'react';
 import { useIntl } from 'react-intl';
-import { useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import { StringParam, useQueryParam } from 'use-query-params';
 import {
@@ -11,6 +11,7 @@ import {
   useOtcToPayOrder,
 } from '../../api/endpoints/transformer';
 import { ReactComponent as Arrow } from '../../assets/ic_svg_arrow_2.svg';
+import { ReactComponent as SvgContactOther } from '../../assets/ic_svg_contact_other.svg';
 import { ReactComponent as SvgCopy } from '../../assets/ic_svg_copy.svg';
 import { ReactComponent as SvgOtcMark } from '../../assets/ic_svg_otc_mark.svg';
 import { ReactComponent as SvgOtcShowUserTip } from '../../assets/ic_svg_otc_show_user_tip.svg';
@@ -78,6 +79,13 @@ const LegalPay = () => {
 
   return (
     <Screen
+      right={
+        <div className="flex items-center justify-end">
+          <Link to={{ pathname: '/otc-chat', search: stringify({ orderId }) }}>
+            <SvgContactOther className=" w-5 h-5" />
+          </Link>
+        </div>
+      }
       footer={
         <div className="p-4">
           <Button
