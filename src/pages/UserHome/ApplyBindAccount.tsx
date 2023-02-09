@@ -176,7 +176,7 @@ const ApplyBindAccount = () => {
                   <span>
                     {intl.formatMessage({
                       defaultMessage: '消耗TVC:',
-                      id: 'guM4xe',
+                      id: 'X3UAMm',
                     })}
                     {v.tokenAmount}
                   </span>
@@ -234,9 +234,7 @@ const ApplyBindAccount = () => {
                           defaultMessage: '風險提示書',
                           id: 'A3Awd7',
                         })}
-                        src={`${
-                          import.meta.env.VITE_API_BASE_URL
-                        }/article/#/passgeDetail?article_id=66`}
+                        src={data.data?.data?.statementUrl}
                       />
                     </div>
                   ),

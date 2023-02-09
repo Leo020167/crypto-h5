@@ -2395,6 +2395,8 @@ components:
                   properties:
                     showBind:
                       type: string
+                    statementUrl:
+                      type: string
                     types:
                       type: array
                       items:
