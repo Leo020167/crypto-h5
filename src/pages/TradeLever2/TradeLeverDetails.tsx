@@ -65,7 +65,6 @@ const TradeLeverDetails = ({
     if (orderTypeOption.value === 'limit' && price?.trim().length) {
       return price;
     }
-
     return '0';
   }, [orderTypeOption.value, price]);
 
@@ -73,7 +72,7 @@ const TradeLeverDetails = ({
     symbol: symbol ?? '',
     buySell: buySell === 1 ? 'buy' : 'sell',
     price: calcPrice,
-    hand: '0',
+    hand,
     multiNum: '',
     orderType: orderTypeOption.value,
     type: '2',
@@ -116,6 +115,11 @@ const TradeLeverDetails = ({
       setPrice(currency(d, { separator: '', precision: priceDecimals, symbol: '' }).format());
     },
     [config?.priceDecimals, price],
+  );
+
+  const maxHand = useMemo(
+    () => (buySell === 1 ? orderCheckOut?.data?.maxHand : orderCheckOut?.data?.availableAmount),
+    [buySell, orderCheckOut?.data?.availableAmount, orderCheckOut?.data?.maxHand],
   );
 
   return (
@@ -180,17 +184,18 @@ const TradeLeverDetails = ({
             className="flex-1 py-2 flex items-center justify-center active:border-green-600 hand"
             key={i}
             onClick={() => {
-              const precision = Number(orderCheckOut?.data?.maxHand?.split('.')?.[1]?.length ?? 2);
+              const precision = Number(maxHand?.split('.')?.[1]?.length ?? 2);
 
-              setHand(
-                currency(orderCheckOut?.data?.maxHand ?? '0', {
-                  symbol: '',
-                  separator: '',
-                  precision,
-                })
-                  .multiply(v / 100)
-                  .format(),
-              );
+              const hand = currency(maxHand ?? '0', {
+                symbol: '',
+                separator: '',
+                precision,
+              })
+                .multiply(v / 100)
+                .format();
+
+              setHand(hand);
+              refetchCheckOut();
             }}
           >{`${v}%`}</a>
         ))}
@@ -205,10 +210,7 @@ const TradeLeverDetails = ({
             {intl.formatMessage(
               { defaultMessage: '{maxHand}{symbol}', id: '/jAa8w' },
               {
-                maxHand:
-                  buySell === 1
-                    ? orderCheckOut?.data?.maxHand
-                    : orderCheckOut?.data?.availableAmount,
+                maxHand,
                 symbol,
               },
             )}
