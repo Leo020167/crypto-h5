@@ -54,7 +54,7 @@ const Language = () => {
     <Screen
       headerTitle={intl.formatMessage({ defaultMessage: '設置語言', id: 'kIQ/Xp' })}
       footer={
-        <div className="p-4 bg-[#F4F6F4]">
+        <div className="p-4 bg-[#F4F6F4] fixed bottom-0 left-0 right-0 z-10">
           <a
             className="btn-purple"
             onClick={() => {
@@ -67,7 +67,7 @@ const Language = () => {
         </div>
       }
     >
-      <div className="flex-1 bg-[#F4F6F4]">
+      <div className="flex-1 bg-[#F4F6F4] pb-20">
         <CheckList
           value={language}
           onChange={(value) => {

@@ -1,7 +1,7 @@
-import { Swiper } from 'antd-mobile';
+import { NavBar, Swiper } from 'antd-mobile';
 import { stringify } from 'query-string';
 import { useIntl } from 'react-intl';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { useHomeCropMe } from '../../api/endpoints/transformer';
 
 import ic_default_head from '../../assets/ic_default_head.png';
@@ -9,8 +9,12 @@ import ic_default_head from '../../assets/ic_default_head.png';
 const Institution = () => {
   const { data } = useHomeCropMe();
   const intl = useIntl();
+  const history = useHistory();
   return (
     <div className="h-screen bg-gray-100 min-h-0 flex flex-col">
+      <NavBar onBack={() => history.goBack()} className="bg-white">
+        {intl.formatMessage({ defaultMessage: '金牌機构排行榜', id: 'NH0fE1' })}
+      </NavBar>
       <div className="flex-1 overflow-y-auto">
         <Swiper autoplay>
           {data?.data?.banner?.map((v) => (
@@ -21,10 +25,6 @@ const Institution = () => {
             </Swiper.Item>
           ))}
         </Swiper>
-
-        <div className="p-4 font-bold text-xl bg-white">
-          <div>{intl.formatMessage({ defaultMessage: '金牌機构排行榜', id: 'NH0fE1' })}</div>
-        </div>
 
         {data?.data?.scoreRank?.map((v) => (
           <Link
