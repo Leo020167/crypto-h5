@@ -117,6 +117,11 @@ const TradeLeverDetails = ({
     [config?.priceDecimals, price],
   );
 
+  const maxHand = useMemo(
+    () => (buySell === 1 ? orderCheckOut?.data?.maxHand : orderCheckOut?.data?.availableAmount),
+    [buySell, orderCheckOut?.data?.availableAmount, orderCheckOut?.data?.maxHand],
+  );
+
   return (
     <Container buySell={buySell ?? 1}>
       <div className="flex text-sm gap-2">
@@ -179,9 +184,9 @@ const TradeLeverDetails = ({
             className="flex-1 py-2 flex items-center justify-center active:border-green-600 hand"
             key={i}
             onClick={() => {
-              const precision = Number(orderCheckOut?.data?.maxHand?.split('.')?.[1]?.length ?? 2);
+              const precision = Number(maxHand?.split('.')?.[1]?.length ?? 2);
 
-              const hand = currency(orderCheckOut?.data?.maxHand ?? '0', {
+              const hand = currency(maxHand ?? '0', {
                 symbol: '',
                 separator: '',
                 precision,
@@ -205,10 +210,7 @@ const TradeLeverDetails = ({
             {intl.formatMessage(
               { defaultMessage: '{maxHand}{symbol}', id: '/jAa8w' },
               {
-                maxHand:
-                  buySell === 1
-                    ? orderCheckOut?.data?.maxHand
-                    : orderCheckOut?.data?.availableAmount,
+                maxHand,
                 symbol,
               },
             )}
