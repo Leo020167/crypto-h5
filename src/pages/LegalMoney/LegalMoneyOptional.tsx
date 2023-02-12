@@ -20,6 +20,7 @@ import {
   getOtcFindAdListQueryKey,
   otcFindAdList,
   useIdentityGet,
+  useOtcConfig,
   useOtcCreateOrder,
 } from '../../api/endpoints/transformer';
 import { OtcFindAdListItem } from '../../api/model';
@@ -138,6 +139,17 @@ const LegalMoneyOptional = () => {
     [intl],
   );
 
+  const { data: otcConfig } = useOtcConfig();
+
+  const symbols = useMemo(() => {
+    const result = otcConfig?.data?.currencies?.map((v) => ({ value: v, label: v })) ?? [];
+    result.unshift({
+      label: intl.formatMessage({ defaultMessage: '全部', id: 'dGBGbt' }),
+      value: '',
+    });
+    return result;
+  }, [intl, otcConfig?.data?.currencies]);
+
   return (
     <Container className="flex-1 flex flex-col min-h-0">
       <LegalMoneyHeader value={type} onChange={(value) => setType(value, 'replaceIn')} />
@@ -235,8 +247,28 @@ const LegalMoneyOptional = () => {
               </Grid.Item>
             </Grid>
           </Dropdown.Item>
+
+          <Dropdown.Item
+            key="symbol"
+            title={intl.formatMessage({ defaultMessage: '币种', id: 'i0bc3f' })}
+          >
+            <div className="p-4">
+              <Selector
+                defaultValue={['']}
+                columns={3}
+                onChange={(value) => {
+                  setSymbol(value?.[0] ?? '');
+                  dropdownRef.current?.close();
+                  refetch();
+                }}
+                options={symbols}
+                showCheckMark={false}
+              />
+            </div>
+          </Dropdown.Item>
         </Dropdown>
       </div>
+
       <div className="flex-1 overflow-y-auto">
         <List>
           {dataSource.map((v, i) => (
