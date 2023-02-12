@@ -49,7 +49,7 @@ const Pledge = () => {
             className=" h-40 shadow-md shadow-black/5 bg-white rounded-xl px-5 flex flex-col justify-center mb-4"
           >
             <div className="text-[#6175AE] text-lg">{v.symbol}</div>
-            <Grid className="mt-2" columns={4}>
+            <Grid className="mt-2" columns={3}>
               <Grid.Item className="text-center">
                 <div className="text-[#A2A9BC] text-xs">
                   {intl.formatMessage({ defaultMessage: '最小質押數量', id: 'GDglvI' })}
@@ -65,7 +65,7 @@ const Pledge = () => {
                   {intl.formatMessage({ defaultMessage: '天', id: '0B0jPm' })}
                 </div>
               </Grid.Item>
-              <Grid.Item className="text-center">
+              {/* <Grid.Item className="text-center">
                 <div className="text-[#A2A9BC] text-xs">
                   {intl.formatMessage({ defaultMessage: '預計收益', id: '/slM7z' })}
                 </div>
@@ -75,10 +75,10 @@ const Pledge = () => {
                     separator: '',
                   }).format()}
                 </div>
-              </Grid.Item>
+              </Grid.Item> */}
               <Grid.Item className="text-center">
                 <div className="text-[#A2A9BC] text-xs">
-                  {intl.formatMessage({ defaultMessage: '每日收益', id: '+CV388' })}
+                  {intl.formatMessage({ defaultMessage: '年化收益', id: 'jwVke8' })}
                 </div>
                 <div className="text-[#3E4660] text-base">{v.profitRate}</div>
               </Grid.Item>

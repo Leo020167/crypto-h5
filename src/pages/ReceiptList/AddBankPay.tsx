@@ -71,12 +71,14 @@ const AddBankPay = () => {
               id: 'S7E2WU',
             })}
           </div>
-          <Button block color="primary" className="my-6" onClick={handleFinish}>
-            {intl.formatMessage({
-              defaultMessage: '保存',
-              id: 'b5l2vN',
-            })}
-          </Button>
+          <div className="my-6">
+            <Button block color="primary" onClick={handleFinish}>
+              {intl.formatMessage({
+                defaultMessage: '保存',
+                id: 'b5l2vN',
+              })}
+            </Button>
+          </div>
         </div>
       }
     >

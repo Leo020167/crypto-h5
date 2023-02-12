@@ -59,6 +59,11 @@ export default defineConfig({
           name: 'customInstance',
         },
         operations: {
+          findPaymentOptionList: {
+            query: {
+              useQuery: true,
+            },
+          },
           articleHelpList: {
             query: {
               useQuery: true,
