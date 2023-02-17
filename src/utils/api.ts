@@ -32,6 +32,8 @@ export const doSecurityForgetPass = (data: {
   return apiPost('/security/forgetPass.do', {
     platform: 'web',
     userPass: md5(data.userPass),
+    smsCode: data.smsCode,
+    phone: data.phone,
   });
 };
 
