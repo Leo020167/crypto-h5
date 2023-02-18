@@ -166,7 +166,7 @@ const Home = () => {
         <Link to="/subscribe" className="flex flex-col items-center  w-1/5">
           <img alt="" src={tab1_menu2} className="w-9 h-9" />
           <div className="mt-2.5 text-xs text-[#666666] break-all">
-            {intl.formatMessage({ defaultMessage: '創新試驗區', id: 'TsbBR+' })}
+            {intl.formatMessage({ defaultMessage: '新幣申購', id: 'I/5B/d' })}
           </div>
         </Link>
         <Link to="/pledge" className="flex flex-col items-center justify-start w-1/5">

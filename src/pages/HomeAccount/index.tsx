@@ -67,7 +67,7 @@ const HomeAccount = () => {
               to="/legal-money"
               className="bg-[#6f6fe7] h-full flex flex-1 items-center justify-center rounded min-h-[40px] px-2"
             >
-              {intl.formatMessage({ defaultMessage: '法幣購買', id: 'JI87J/' })}
+              {intl.formatMessage({ defaultMessage: '餘額提現', id: 'CkIqO9' })}
             </Link>
           </div>
         </div>

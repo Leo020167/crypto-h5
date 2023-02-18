@@ -23,13 +23,13 @@ const LegalMoneyHeader = ({ value, onChange }: LegalMoneyHeaderProps) => {
           className={value === 'buy' ? selectedClassNames : unselectedClassNames}
           onClick={() => onChange('buy')}
         >
-          {intl.formatMessage({ defaultMessage: '我要买', id: 'cx0QNu' })}
+          {intl.formatMessage({ defaultMessage: '充值', id: 'HLQK6J' })}
         </a>
         <a
           className={`ml-5 ${value === 'sell' ? selectedClassNames : unselectedClassNames}`}
           onClick={() => onChange('sell')}
         >
-          {intl.formatMessage({ defaultMessage: '我要卖', id: 'LEah6f' })}
+          {intl.formatMessage({ defaultMessage: '提現', id: '0vOXLz' })}
         </a>
       </div>
 
