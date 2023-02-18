@@ -77,6 +77,9 @@
   "0oAu54": {
     "string": "{second}秒"
   },
+  "0vOXLz": {
+    "string": "提現"
+  },
   "0vdo6W": {
     "string": "去實名"
   },
@@ -449,6 +452,9 @@
   "Ck6JdO": {
     "string": "未設置交易密碼"
   },
+  "CkIqO9": {
+    "string": "餘額提現"
+  },
   "ClVjxw": {
     "string": "開倉價"
   },
@@ -575,6 +581,9 @@
   "HEzFXJ": {
     "string": "{receiptTypeValue}號"
   },
+  "HLQK6J": {
+    "string": "充值"
+  },
   "HMxoED": {
     "string": "一年内"
   },
@@ -634,9 +643,6 @@
   },
   "J5FSqv": {
     "string": "免費訂閱"
-  },
-  "JI87J/": {
-    "string": "法幣購買"
   },
   "JVD8BD": {
     "string": "未成交"
@@ -709,9 +715,6 @@
   },
   "LBC7Kf": {
     "string": "開"
-  },
-  "LEah6f": {
-    "string": "我要卖"
   },
   "LJ33pi": {
     "string": "社區"
@@ -968,9 +971,6 @@
   "Tq9EwF": {
     "string": "買家暱稱"
   },
-  "TsbBR+": {
-    "string": "創新試驗區"
-  },
   "Tw8y2o": {
     "string": "請輸入手數"
   },
@@ -994,9 +994,6 @@
   },
   "UVGoM9": {
     "string": "上月收益(USDT)"
-  },
-  "UWUjVA": {
-    "string": "法幣買賣"
   },
   "UX7lUm": {
     "string": "跟單機构"
@@ -1268,9 +1265,6 @@
   "cuM+vo": {
     "string": "未知類型"
   },
-  "cx0QNu": {
-    "string": "我要买"
-  },
   "dGBGbt": {
     "string": "全部"
   },
@@ -1406,6 +1400,9 @@
   "hPHyre": {
     "string": "餘額"
   },
+  "hrMVXB": {
+    "string": "綁定銀行卡"
+  },
   "htEymu": {
     "string": "申訴理由"
   },
@@ -1540,6 +1537,9 @@
   },
   "n/ayb0": {
     "string": "實收款"
+  },
+  "n4OJbo": {
+    "string": "可用(USDT):"
   },
   "nAaIBd": {
     "string": "修改交易密碼"
