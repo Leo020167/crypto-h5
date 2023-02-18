@@ -165,7 +165,7 @@ const LegalMoneyQuick = () => {
 
         <div className="mt-4 text-[#9A9A9A] text-xs">
           {intl.formatMessage({ defaultMessage: '限額', id: 'zGwnHi' })}
-          {`${otcFindAdListItem?.minCny ?? '0.00'}USDT-${otcFindAdListItem?.maxCny ?? '0.00'}USDT`}
+          {`${otcFindAdListItem?.minCny}USDT-${otcFindAdListItem?.maxCny}USDT`}
         </div>
       </div>
 

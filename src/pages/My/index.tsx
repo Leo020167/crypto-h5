@@ -1,4 +1,5 @@
 import { Badge, List } from 'antd-mobile';
+import { stringify } from 'query-string';
 import { useIntl } from 'react-intl';
 import { Link, useHistory } from 'react-router-dom';
 import styled from 'styled-components';
@@ -14,7 +15,6 @@ import ic_home_mine_youxiang from '../../assets/ic_home_mine_youxiang.png';
 import { ReactComponent as Arrow } from '../../assets/ic_svg_arrow_2.svg';
 import ic_svg_edit from '../../assets/ic_svg_edit.svg';
 import ic_svg_legal_coin from '../../assets/ic_svg_legal_coin.svg';
-import ic_svg_receipt_manager from '../../assets/ic_svg_receipt_manager.svg';
 import ic_svg_recharge_coin from '../../assets/ic_svg_recharge_coin.svg';
 import ic_svg_take_coin from '../../assets/ic_svg_take_coin.svg';
 import ic_svg_transfer_coin from '../../assets/ic_svg_transfer_coin.svg';
@@ -32,7 +32,7 @@ const My = () => {
   const intl = useIntl();
 
   return (
-    <Container className="bg-[#F0F1F7] h-full overflow-y-auto pb-11">
+    <Container className="bg-[#F0F1F7] h-full">
       <div className="bg-white pt-4">
         <div className="px-4 py-2">
           <div className="avatar flex">
@@ -47,10 +47,7 @@ const My = () => {
                 <span>{userInfo?.userName}</span>
                 <img alt="" src={ic_svg_edit} className="ml-2 w-5" />
               </div>
-              <span className="text-[#a2abc8]">
-                {intl.formatMessage({ defaultMessage: '可用(USDT): ', id: 'n4OJbo' })}
-                {userInfo?.userId}
-              </span>
+              <span className="text-[#a2abc8]">ID: {userInfo?.userId}</span>
             </div>
           </div>
         </div>
@@ -80,7 +77,7 @@ const My = () => {
               <div className="bg-[#f0f1f5] w-12 h-12 mb-2 rounded-lg">
                 <img alt="" src={ic_svg_legal_coin} />
               </div>
-              <span>{intl.formatMessage({ defaultMessage: '餘額提現', id: 'CkIqO9' })}</span>
+              <span>{intl.formatMessage({ defaultMessage: '法幣買賣', id: 'UWUjVA' })}</span>
             </Badge>
           </Link>
         </div>
@@ -154,25 +151,16 @@ const My = () => {
         >
           {intl.formatMessage({ defaultMessage: '實名認證', id: 'vgGksF' })}
         </List.Item>
-        <List.Item
-          prefix={<img alt="" src={ic_svg_receipt_manager} className="w-8 h-8" />}
-          arrow={<Arrow />}
-          onClick={() => {
-            if (identityGet?.data?.identityAuth?.state === '1') {
-              history.push('/verified-result');
-            } else {
-              history.push('/verified');
-            }
-          }}
-        >
-          {intl.formatMessage({ defaultMessage: '綁定銀行卡', id: 'hrMVXB' })}
-        </List.Item>
 
         <List.Item
           prefix={<img alt="" src={ic_home_mine_youxiang} className="w-8 h-8" />}
           arrow={<Arrow />}
           onClick={() => {
-            history.push('/receipt-list');
+            if (userInfo?.email) {
+              history.push(`/email-auth?${stringify({ mode: 1 })}`);
+            } else {
+              history.push('/bind-email');
+            }
           }}
         >
           {intl.formatMessage({ defaultMessage: '綁定郵箱', id: '+PkU4R' })}
