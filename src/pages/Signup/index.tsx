@@ -82,14 +82,14 @@ const Signup = () => {
                   {intl.formatMessage({ defaultMessage: '注册即代表你已同意并接受', id: 'A20Ity' })}
                   <a href="" target="_blank" className="text-[#6277b0]">
                     {intl.formatMessage({
-                      defaultMessage: '《TradingView用户协议》',
+                      defaultMessage: '《LeaderCoin用户协议》',
                       id: 'JVHhgb',
                     })}
                   </a>
                   {intl.formatMessage({ defaultMessage: '和', id: 's9xFxt' })}
                   <a href="" target="_blank" className="text-[#6277b0]">
                     {intl.formatMessage({
-                      defaultMessage: '《TradingView隐私条款》',
+                      defaultMessage: '《LeaderCoin隐私条款》',
                       id: 'XR6wlA',
                     })}
                   </a>
