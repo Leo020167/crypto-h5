@@ -17,9 +17,9 @@ import { HashRouter } from 'react-router-dom';
 import { QueryParamProvider } from 'use-query-params';
 import { ReactRouter5Adapter } from 'use-query-params/adapters/react-router-5';
 import GlobalStyle from './GlobalStyle';
-import Routes from './Routes';
 import { localeStateAtom } from './atoms';
 import ruRU from './lang/antd-ru-RU';
+import Routes from './routes';
 import { useAuthStore } from './stores/auth';
 
 const localeMap: { [key: string]: any } = {
