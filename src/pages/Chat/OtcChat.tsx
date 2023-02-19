@@ -69,7 +69,7 @@ const OtcChat = () => {
   const renderItemContent = useCallback(
     (index: number, item: ChatListItem) => {
       return (
-        <div className="mt-2.5">
+        <div className="mt-2.5 px-4">
           <div className="flex justify-center">
             <span className="text-xs text-[#262626] bg-[#f4f4f4] rounded py-1 px-2.5">
               {renderTime(item.createTime)}
