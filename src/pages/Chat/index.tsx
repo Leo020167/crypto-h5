@@ -59,7 +59,7 @@ const Chat = () => {
   const renderItemContent = useCallback(
     (index: number, item: ChatListItem) => {
       return (
-        <div>
+        <div className="mt-2.5 px-4">
           <div className="flex justify-center">
             <span className="text-xs text-[#262626] bg-[#f4f4f4] rounded py-1 px-2.5">
               {renderTime(item.createTime)}
@@ -113,7 +113,7 @@ const Chat = () => {
 
   return (
     <Screen headerTitle={intl.formatMessage({ defaultMessage: '綫上客服', id: 'wwOQz6' })}>
-      <Container className="h-full flex flex-col">
+      <Container className="h-full flex flex-col pb-10">
         <Virtuoso
           className="flex-1"
           initialTopMostItemIndex={sorted.length - 1}
@@ -122,24 +122,26 @@ const Chat = () => {
           keyParams="chatId"
           followOutput={followOutput}
         />
-        <div className="bg-[#f7f7f9] px-2.5 flex relative">
-          <TextArea
-            autoSize={{ minRows: 1, maxRows: 4 }}
-            className="mr-[40px]"
-            onChange={setText}
-            value={text}
-          />
-          <div className="absolute right-2.5 bottom-1">
-            {text?.length ? (
-              <a
-                className=" w-[45px] h-8  flex items-center justify-center bg-[#06be04] text-white rounded"
-                onClick={sendMessage}
-              >
-                {intl.formatMessage({ defaultMessage: '發送', id: '9V7qTC' })}
-              </a>
-            ) : (
-              <img alt="" src={type_select_btn_nor} className="w-8 h-8" />
-            )}
+        <div className="fixed bottom-0 right-0 left-0 z-20">
+          <div className="bg-[#f7f7f9] px-2.5 flex relative">
+            <TextArea
+              autoSize={{ minRows: 1, maxRows: 4 }}
+              className="mr-[40px]"
+              onChange={setText}
+              value={text}
+            />
+            <div className="absolute right-2.5 bottom-1">
+              {text?.length ? (
+                <a
+                  className=" w-[45px] h-8  flex items-center justify-center bg-[#06be04] text-white rounded"
+                  onClick={sendMessage}
+                >
+                  {intl.formatMessage({ defaultMessage: '發送', id: '9V7qTC' })}
+                </a>
+              ) : (
+                <img alt="" src={type_select_btn_nor} className="w-8 h-8" />
+              )}
+            </div>
           </div>
         </div>
       </Container>

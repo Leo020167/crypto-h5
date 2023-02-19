@@ -68,7 +68,7 @@ const OtcChat = () => {
   const renderItemContent = useCallback(
     (index: number, item: ChatListItem) => {
       return (
-        <div>
+        <div className="mt-2.5 px-4">
           <div className="flex justify-center">
             <span className="text-xs text-[#262626] bg-[#f4f4f4] rounded py-1 px-2.5">
               {renderTime(item.createTime)}
@@ -137,9 +137,9 @@ const OtcChat = () => {
 
   return (
     <Screen headerTitle={intl.formatMessage({ defaultMessage: '綫上客服', id: 'wwOQz6' })}>
-      <Container className="min-h-0 flex-1 flex flex-col pb-10">
+      <Container className="h-full flex flex-col pb-10">
         <Virtuoso
-          className="flex-1"
+          className="flex-1 "
           initialTopMostItemIndex={sorted.length - 1}
           data={sorted}
           itemContent={renderItemContent}
