@@ -76,7 +76,7 @@ const OtcChat = () => {
           </div>
           <div
             className={`flex gap-2.5 py-2.5 ${
-              userInfo?.userId === item.userId ? 'justify-end' : 'flex-row-reverse'
+              userInfo?.userId === item.userId ? 'justify-end' : 'flex-row-reverse justify-end'
             }`}
           >
             {/* <img alt="" src={ic_chat_resend} className="w-5 h-5 self-center" /> */}
