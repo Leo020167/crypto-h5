@@ -35,7 +35,7 @@ const HomeAccount = () => {
   useInterval(() => refetch(), 1000);
 
   return (
-    <Container className="h-screen min-h-0 relative flex flex-col bg-gray-100">
+    <Container className="h-screen min-h-0 relative flex flex-col bg-white">
       <div className="flex-1 overflow-y-auto">
         <div className="flex flex-col pt-10 px-4 pb-6 bg-[#4D4CE6] text-white">
           <div className="text-xs text-gray-200">
@@ -67,26 +67,27 @@ const HomeAccount = () => {
               to="/legal-money"
               className="bg-[#6f6fe7] h-full flex flex-1 items-center justify-center rounded min-h-[40px] px-2"
             >
-              {intl.formatMessage({ defaultMessage: '法幣購買', id: 'JI87J/' })}
+              {intl.formatMessage({ defaultMessage: '餘額提現', id: 'CkIqO9' })}
             </Link>
           </div>
         </div>
-        <Tabs
-          defaultActiveKey={tab}
-          className="sticky top-0 z-10 bg-white"
-          stretch={false}
-          activeKey={tab}
-          onChange={(key) => {
-            const index = Number(key);
-            setTab(key, 'replaceIn');
+        <div className="sticky top-0 z-10 bg-white">
+          <Tabs
+            defaultActiveKey={tab}
+            stretch={false}
+            activeKey={tab}
+            onChange={(key) => {
+              const index = Number(key);
+              setTab(key, 'replaceIn');
 
-            swiperRef.current?.swipeTo(index);
-          }}
-        >
-          {tabItems.map((item) => (
-            <Tabs.Tab title={item.title} key={item.key} />
-          ))}
-        </Tabs>
+              swiperRef.current?.swipeTo(index);
+            }}
+          >
+            {tabItems.map((item) => (
+              <Tabs.Tab title={item.title} key={item.key} />
+            ))}
+          </Tabs>
+        </div>
 
         <Swiper
           direction="horizontal"

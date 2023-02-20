@@ -22,7 +22,7 @@ const HomeSpotAccount = ({ account }: HomeSpotAccountProps) => {
   const getColor = useSwitchColor();
 
   return (
-    <Container className="bg-gray-100">
+    <Container>
       <div className="p-4 bg-white text-xs">
         <div className="mt-3 flex items-center justify-between text-[#c1d3155]">
           <div>
@@ -39,7 +39,6 @@ const HomeSpotAccount = ({ account }: HomeSpotAccountProps) => {
               {intl.formatMessage({ defaultMessage: '總盈虧(USDT)', id: '7xCHrU' })}
             </div>
             <div style={{ color: getColor(account?.profit) }}>
-              {' '}
               {Number(account?.profit) >= 0 ? '+' : ''}
               {account?.profit ?? '0'}
             </div>
@@ -62,8 +61,8 @@ const HomeSpotAccount = ({ account }: HomeSpotAccountProps) => {
           </div>
         </div>
       </div>
-
-      <div className="mt-2.5 bg-white p-4">
+      <div className="bg-gray-100 h-2.5"></div>
+      <div className=" bg-white py-2.5">
         <div className="text-base text-gray-400 flex items-center">
           <span
             className={`px-4 ${selected === 0 ? ' text-black' : ''}`}
@@ -79,7 +78,7 @@ const HomeSpotAccount = ({ account }: HomeSpotAccountProps) => {
           </span>
 
           {selected === 1 && (
-            <Link to="/take-coin-history" className="flex-1 text-right text-xs">
+            <Link to="/take-coin-history" className="flex-1 text-right text-xs px-4">
               {intl.formatMessage({ defaultMessage: '全部', id: 'dGBGbt' })}
             </Link>
           )}
