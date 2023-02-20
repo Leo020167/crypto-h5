@@ -1,13 +1,16 @@
 import { Button, Form, Input, Popup, Toast } from 'antd-mobile';
 import { stringify } from 'query-string';
-import { useCallback, useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 import { useIntl } from 'react-intl';
 import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import { StringParam, useQueryParam } from 'use-query-params';
 import { useProOrderDetail, useProOrderOpen } from '../../api/endpoints/transformer';
 
+import ic_mark_green from '../../assets/ic_mark_green.png';
+import ic_mark_red from '../../assets/ic_mark_red.png';
 import Screen from '../../components/Screen';
+import useSwitchColor from '../../hooks/useSwitchColor';
 import { useAuthStore } from '../../stores/auth';
 
 const PositionDetails = () => {
@@ -59,6 +62,25 @@ const PositionDetails = () => {
 
   const intl = useIntl();
 
+  const getColor = useSwitchColor();
+
+  const lastPrice = useMemo(() => {
+    if (data?.data?.data?.last) {
+      if (data?.data?.data?.rate) {
+        return [data?.data?.data?.last, data?.data?.data?.rate + '%'].join('    ');
+      }
+      return [data?.data?.data?.last, '0%'].join('    ');
+    }
+    return '0%';
+  }, [data?.data?.data?.last, data?.data?.data?.rate]);
+
+  const mark = useMemo(() => {
+    if (Number(data?.data?.data?.rate) >= 0) {
+      return <img src={ic_mark_red} alt="ic_mark_red" className="h-3 ml-1" />;
+    }
+    return <img src={ic_mark_green} alt="ic_mark_green" className="h-3 ml-1" />;
+  }, [data?.data?.data?.rate]);
+
   return (
     <Screen
       headerTitle={symbol}
@@ -79,23 +101,59 @@ const PositionDetails = () => {
         </div>
       }
     >
-      <div className="py-8 border-b">
+      <div
+        className="py-8 border-b"
+        onClick={() => {
+          history.push({
+            pathname: '/market2',
+            search: stringify({
+              symbol: data?.data?.data?.symbol,
+              isLever: 1,
+            }),
+          });
+        }}
+      >
         <div className="text-center text-sm">
-          {intl.formatMessage({ defaultMessage: '總資產', id: 'IoCgCq' })}
+          {intl.formatMessage({ defaultMessage: '盈利USDT', id: 'KdeDu2' })}
         </div>
-        <div className="text-center text-3xl text-[#3d3a50]">{data?.data?.data?.amount}</div>
+        <div
+          className="text-center text-xl font-bold"
+          style={{ color: getColor(data?.data?.data?.profit) }}
+        >
+          {data?.data?.data?.profit}
+        </div>
+        <div
+          className="text-center text-sm font-bold"
+          style={{ color: getColor(data?.data?.data?.profit) }}
+        >
+          {data?.data?.data?.profitRate ?? 0}%
+        </div>
       </div>
 
       <div className="mt-4 px-4 text-[#3d3a50] ">
         <div className="flex justify-between">
           <span className="text-sm">
-            {intl.formatMessage({ defaultMessage: '可用', id: '7C3q18' })}
+            {intl.formatMessage({ defaultMessage: '成本', id: '27fLgJ' })}
           </span>
-          <span>{data?.data?.data?.availableAmount}</span>
+          <span>{data?.data?.data?.price}</span>
         </div>
         <div className="flex justify-between mt-2">
-          <span>{intl.formatMessage({ defaultMessage: '委托', id: 'CKdped' })}</span>
-          <span>{data?.data?.data?.frozenAmount}</span>
+          <span>{intl.formatMessage({ defaultMessage: '數量/可用', id: 'cofepD' })}</span>
+          <span>
+            {[data?.data?.data?.amount ?? 0, data?.data?.data?.availableAmount ?? 0].join('/')}
+          </span>
+        </div>
+        <div className="flex justify-between mt-2">
+          <span>
+            {intl.formatMessage(
+              { defaultMessage: '{symbol}現價', id: 'DRC113' },
+              { symbol: data?.data?.data?.symbol },
+            )}
+          </span>
+          <span className="flex items-center" style={{ color: getColor(data?.data?.data?.rate) }}>
+            {lastPrice}
+            {mark}
+          </span>
         </div>
       </div>
 

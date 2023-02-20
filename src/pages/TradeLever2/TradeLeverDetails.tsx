@@ -178,29 +178,6 @@ const TradeLeverDetails = ({
         <span className="text-[#666175ae]">{symbol}</span>
       </div>
 
-      <div className="flex mt-2 border-[#efefef]">
-        {config?.openRateList?.map((v, i) => (
-          <a
-            className="flex-1 py-2 flex items-center justify-center active:border-green-600 hand"
-            key={i}
-            onClick={() => {
-              const precision = Number(maxHand?.split('.')?.[1]?.length ?? 2);
-
-              const hand = currency(maxHand ?? '0', {
-                symbol: '',
-                separator: '',
-                precision,
-              })
-                .multiply(v / 100)
-                .format();
-
-              setHand(hand);
-              refetchCheckOut();
-            }}
-          >{`${v}%`}</a>
-        ))}
-      </div>
-
       <div className="mt-3 text-xs flex items-center justify-between">
         <div>
           <div className="text-[#6175ae]">
@@ -215,7 +192,7 @@ const TradeLeverDetails = ({
               },
             )}
           </div>
-          <div className="text-gray-400 mt-3">{orderCheckOut?.data?.openBail}</div>
+          <div className="text-gray-400 mt-3">{orderCheckOut?.data?.openBail ?? '0 USDT'}</div>
         </div>
       </div>
 
