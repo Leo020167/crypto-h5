@@ -8,6 +8,9 @@ import svgr from 'vite-plugin-svgr';
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  build: {
+    outDir: 'dist/LeaderCoin-H5',
+  },
   server: {
     proxy: {
       // http://api.piglobalexchanges.com/procoin/swagger/index.html#/
