@@ -253,6 +253,7 @@ const TransactionRecords = () => {
                 ref={historyRef}
                 accountType={accountType}
                 symbol={symbol}
+                orderState={orderState?.[0]}
               />
             )}
           </Swiper.Item>

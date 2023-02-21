@@ -16,15 +16,15 @@ export default defineConfig({
       // http://api.piglobalexchanges.com/procoin/swagger/index.html#/
       // http://api.worldcoinservice.com/procoin/swagger/index.html#/
       '/procoin-market': {
-        target: 'http://market.bjchjscl.com',
+        target: 'http://market.usefortest0603.com',
         changeOrigin: true,
       },
       '/procoin-file': {
-        target: 'http://upload.bjchjscl.com',
+        target: 'http://upload.usefortest0603.com',
         changeOrigin: true,
       },
       '/procoin': {
-        target: 'http://api.bjchjscl.com',
+        target: 'http://api.usefortest0603.com',
         changeOrigin: true,
       },
     },

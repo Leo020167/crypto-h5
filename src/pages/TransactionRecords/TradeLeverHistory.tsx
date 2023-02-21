@@ -16,18 +16,21 @@ interface TradeLeverHistoryProps {
   symbol?: string;
   orderState?: string;
 }
-
+/**
+ * 歷史記錄，絕對正確參數
+ */
 const TradeLeverHistory = forwardRef<TradeLeverHistoryRef, TradeLeverHistoryProps>(
-  ({ accountType, symbol = '' }, ref) => {
+  ({ accountType, orderState, symbol = '' }, ref) => {
     const params = useMemo(
       () => ({
         isDone: '-1',
         symbol: symbol ?? '',
-        orderState: '',
+        buySell: '',
         accountType,
+        orderState,
         type: accountType === 'spot' ? '2' : '1',
       }),
-      [accountType, symbol],
+      [accountType, orderState, symbol],
     );
 
     const {
