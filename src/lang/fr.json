@@ -3,7 +3,7 @@
     "string": "Monnaie"
   },
   "X3UAMm": {
-    "string": "consommer TVC:"
+    "string": "consommer LCN:"
   },
   "ndT7z1": {
     "string": "Revenu annualisé"
@@ -102,7 +102,7 @@
     "string": "Cet utilisateur est-il abonné ?"
   },
   "20MJBj": {
-    "string": "TVC"
+    "string": "LCN"
   },
   "297aFF": {
     "string": "Ratio de marge"
@@ -534,7 +534,7 @@
     "string": "Message de plainte (facultatif)"
   },
   "GKRXXt": {
-    "string": "Obtenir TVC"
+    "string": "Obtenir LCN"
   },
   "GO/P/E": {
     "string": "Ajouter l'adresse de retrait"
@@ -726,7 +726,7 @@
     "string": "Veuillez entrer à nouveau votre mot de passe"
   },
   "MQKv1T": {
-    "string": "Prix communautaire total (TVC)"
+    "string": "Prix communautaire total (LCN)"
   },
   "MTyrlB": {
     "string": "Le secret doit être une combinaison de 8 à 16 caractères et lettres"
@@ -771,7 +771,7 @@
     "string": "Veuillez entrer votre adresse e-mail"
   },
   "NdxUVx": {
-    "string": "Voir comment obtenir TVC"
+    "string": "Voir comment obtenir LCN"
   },
   "NlcysC": {
     "string": "Veuillez entrer votre code postal"
@@ -1146,7 +1146,7 @@
     "string": "Seules les recharges sont autorisées"
   },
   "aD/9at": {
-    "string": "Quantité (TVC)"
+    "string": "Quantité (LCN)"
   },
   "aOp/5l": {
     "string": "Vous ne pouvez pas demander la vérification des commerçants sans un nom réel. Veuillez vérifier votre nom réel avant de soumettre votre demande de vérification des commerçants."
@@ -1341,7 +1341,7 @@
     "string": "Historique financier"
   },
   "guM4xe": {
-    "string": "Consommer TVC:"
+    "string": "Consommer LCN:"
   },
   "gx0XBL": {
     "string": "S'abonner à"
@@ -1812,7 +1812,7 @@
     "string": "Quantité"
   },
   "zqkaAr": {
-    "string": "Récompense (TVC)"
+    "string": "Récompense (LCN)"
   },
   "zv2r2Q": {
     "string": "Commandez"
@@ -1999,7 +1999,7 @@
   },
 
   "Hh3rHP": {
-    "string": "Obtenir TVC"
+    "string": "Obtenir LCN"
   },
 
   "misXZU": {

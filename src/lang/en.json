@@ -3,7 +3,7 @@
     "string": "Currency"
   },
   "X3UAMm": {
-    "string": "consume TVC:"
+    "string": "consume LCN:"
   },
   "ndT7z1": {
     "string": "Annualized income"
@@ -102,7 +102,7 @@
     "string": "Whether to subscribe to this user？"
   },
   "20MJBj": {
-    "string": "TVC"
+    "string": "LCN"
   },
   "297aFF": {
     "string": "Margin Ratio"
@@ -189,7 +189,7 @@
     "string": "close a position"
   },
   "4ivSMB": {
-    "string": "Total Assets(TVC)"
+    "string": "Total Assets(LCN)"
   },
   "56o47p": {
     "string": "Mailbox Verification Code"
@@ -534,7 +534,7 @@
     "string": "Appeal message (optional)"
   },
   "GKRXXt": {
-    "string": "obtain TVC"
+    "string": "obtain LCN"
   },
   "GO/P/E": {
     "string": "Add the withdrawal currency address"
@@ -726,7 +726,7 @@
     "string": "Please enter the password again"
   },
   "MQKv1T": {
-    "string": "Community Total Reward(TVC)"
+    "string": "Community Total Reward(LCN)"
   },
   "MTyrlB": {
     "string": "The secret must be 8-16-bit words, letters combination"
@@ -771,7 +771,7 @@
     "string": "please input your mailbox"
   },
   "NdxUVx": {
-    "string": "Check how to get TVC"
+    "string": "Check how to get LCN"
   },
   "NlcysC": {
     "string": "Please enter the mailbox number"
@@ -1146,7 +1146,7 @@
     "string": "Only allow recharge"
   },
   "aD/9at": {
-    "string": "quantity(TVC)"
+    "string": "quantity(LCN)"
   },
   "aOp/5l": {
     "string": "If the real name cannot be applied for merchant certification, please submit a business certification application after the real -name authentication."
@@ -1341,7 +1341,7 @@
     "string": "Financial record"
   },
   "guM4xe": {
-    "string": "Consume TVC:"
+    "string": "Consume LCN:"
   },
   "gx0XBL": {
     "string": "Subscribe"
@@ -1812,7 +1812,7 @@
     "string": "Quantity received"
   },
   "zqkaAr": {
-    "string": "reward(TVC)"
+    "string": "reward(LCN)"
   },
   "zv2r2Q": {
     "string": "Subscribe"
@@ -1998,7 +1998,7 @@
     "string": "Daily Earnings"
   },
   "Hh3rHP": {
-    "string": "Get TVC"
+    "string": "Get LCN"
   },
   "misXZU": {
     "string": "Defi zone"

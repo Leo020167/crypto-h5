@@ -189,7 +189,7 @@
     "string": "方向"
   },
   "4ivSMB": {
-    "string": "總資產(TVC)"
+    "string": "總資產(LCN)"
   },
   "4kxY/u": {
     "string": "請再次輸入6位支付密碼"
@@ -747,7 +747,7 @@
     "string": "请再次输入密码"
   },
   "MQKv1T": {
-    "string": "社區總獎勵(TVC)"
+    "string": "社區總獎勵(LCN)"
   },
   "MTyrlB": {
     "string": "密必须是8-16位字、字母组合"
@@ -1191,7 +1191,7 @@
     "string": "只允許充值"
   },
   "aD/9at": {
-    "string": "數量(TVC)"
+    "string": "數量(LCN)"
   },
   "aOp/5l": {
     "string": "未實名不能申請商家認證，請實名認證後，在提交商家認證申請。"
@@ -1926,7 +1926,7 @@
     "string": "到賬數量"
   },
   "zqkaAr": {
-    "string": "獎勵(TVC)"
+    "string": "獎勵(LCN)"
   },
   "zv2r2Q": {
     "string": "訂閲"
