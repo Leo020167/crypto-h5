@@ -50,6 +50,12 @@
   "/I+pby": {
     "string": "我的"
   },
+  "/dHiys": {
+    "string": "《LeaderCoin隐私条款》"
+  },
+  "/ivoWl": {
+    "string": "獎勵(LCN)"
+  },
   "/jAa8w": {
     "string": "{maxHand}{symbol}"
   },
@@ -137,14 +143,14 @@
   "2yjenl": {
     "string": "請輸入止盈價"
   },
+  "2zDiD2": {
+    "string": "保證金用於發佈提現或充值USDT廣告，提交認證信息即時從資產餘額中進行凍結。"
+  },
   "3Ced22": {
     "string": "賣家姓名"
   },
   "3Zwkix": {
     "string": "自选区"
-  },
-  "3a7HVy": {
-    "string": "購買中"
   },
   "3cuhJj": {
     "string": "注冊賬號"
@@ -188,11 +194,11 @@
   "4hv39Z": {
     "string": "方向"
   },
-  "4ivSMB": {
-    "string": "總資產(LCN)"
-  },
   "4kxY/u": {
     "string": "請再次輸入6位支付密碼"
+  },
+  "4otO1b": {
+    "string": "提現中"
   },
   "4zwWgi": {
     "string": "可賣"
@@ -216,7 +222,7 @@
     "string": "選擇反面"
   },
   "5zfR27": {
-    "string": "出售"
+    "string": "提現"
   },
   "63r2yf": {
     "string": "請輸入密碼"
@@ -241,6 +247,9 @@
   },
   "6Y0p2/": {
     "string": "下一步"
+  },
+  "6bJivJ": {
+    "string": "充值USDT"
   },
   "6jT3zt": {
     "string": "你确定要注销吗?"
@@ -377,6 +386,9 @@
   "BHh721": {
     "string": "狀態:"
   },
+  "BLzd0M": {
+    "string": "提現USDT"
+  },
   "BO7t+j": {
     "string": "前往實名"
   },
@@ -397,9 +409,6 @@
   },
   "Be30m1": {
     "string": "備注"
-  },
-  "Bj/Ifv": {
-    "string": "出售USDT"
   },
   "Bp4Dlk": {
     "string": "請輸入倍數"
@@ -518,6 +527,9 @@
   "EmziDl": {
     "string": "最小充值金額(USDT)"
   },
+  "Eqmzsx": {
+    "string": "0手續費充值"
+  },
   "FLp81s": {
     "string": "申購"
   },
@@ -590,9 +602,6 @@
   "HdFt0P": {
     "string": "可買"
   },
-  "HeL/t7": {
-    "string": "購買USDT"
-  },
   "Hh3rHP": {
     "string": "獲得TVC"
   },
@@ -623,6 +632,9 @@
   "IbtpXH": {
     "string": "總資產(USDT)"
   },
+  "IrxrMw": {
+    "string": "盈利"
+  },
   "IudShd": {
     "string": "未開始"
   },
@@ -634,9 +646,6 @@
   },
   "JVD8BD": {
     "string": "未成交"
-  },
-  "JVHhgb": {
-    "string": "《LeaderCoin用户协议》"
   },
   "JYhyDW": {
     "string": "已入住{days}天"
@@ -746,9 +755,6 @@
   "MPJViy": {
     "string": "请再次输入密码"
   },
-  "MQKv1T": {
-    "string": "社區總獎勵(LCN)"
-  },
   "MTyrlB": {
     "string": "密必须是8-16位字、字母组合"
   },
@@ -797,17 +803,11 @@
   "NZTO6Y": {
     "string": "請輸入郵箱"
   },
-  "NdxUVx": {
-    "string": "查看如何獲取TVC"
-  },
   "NlcysC": {
     "string": "請輸入郵箱號"
   },
   "Nlt2yU": {
     "string": "倍"
-  },
-  "NxOp7s": {
-    "string": "0手續費購買"
   },
   "O1q1uh": {
     "string": "兌換邀請碼"
@@ -869,11 +869,14 @@
   "QLilYb": {
     "string": "劃轉"
   },
-  "QQdpxX": {
-    "string": "保證金用於發佈出售或購買USDT廣告，提交認證信息即時從資產餘額中進行凍結。"
-  },
   "QWavza": {
     "string": "到期:"
+  },
+  "QZvy6E": {
+    "string": "數量(LCN)"
+  },
+  "QZzPNv": {
+    "string": "總資產(LCN)"
   },
   "Qg/P8m": {
     "string": "實付款"
@@ -908,9 +911,6 @@
   "RXCFfg": {
     "string": "幣幣交易記錄"
   },
-  "RXYW6s": {
-    "string": "請輸入出售數量"
-  },
   "ReRVZ/": {
     "string": "未綁定"
   },
@@ -922,9 +922,6 @@
   },
   "Rx1AtW": {
     "string": "凍結(USDT)"
-  },
-  "S/yKCZ": {
-    "string": "出售數量"
   },
   "S3V2J5": {
     "string": "分時"
@@ -1037,8 +1034,8 @@
   "V1f0Zb": {
     "string": "转出账户选择"
   },
-  "V4Iau9": {
-    "string": "全部出售"
+  "VC4lRg": {
+    "string": "當前提現最低價"
   },
   "VEmd9D": {
     "string": "系統消息"
@@ -1115,9 +1112,6 @@
   "XNz8uP": {
     "string": "可用餘額"
   },
-  "XR6wlA": {
-    "string": "《LeaderCoin隐私条款》"
-  },
   "XWzDpA": {
     "string": "我已付款成功"
   },
@@ -1190,8 +1184,8 @@
   "Zhkpb8": {
     "string": "只允許充值"
   },
-  "aD/9at": {
-    "string": "數量(LCN)"
+  "ZoBIyE": {
+    "string": "提現數量"
   },
   "aOp/5l": {
     "string": "未實名不能申請商家認證，請實名認證後，在提交商家認證申請。"
@@ -1289,6 +1283,9 @@
   "dKX04w": {
     "string": "餘額賬戶總資產(USDT)"
   },
+  "dNYJcI": {
+    "string": "0手續費提現"
+  },
   "ddZtfx": {
     "string": "請輸入姓名"
   },
@@ -1310,17 +1307,11 @@
   "eD3Ul5": {
     "string": "請上傳人像照"
   },
-  "eHNb85": {
-    "string": "當前出售最低價"
-  },
   "eJ3fDL": {
     "string": "(參數錯誤: {checkMsg})"
   },
   "eMnHfD": {
     "string": "邮箱注册"
-  },
-  "eXPzpx": {
-    "string": "購買"
   },
   "ebj6E6": {
     "string": "可用保證金(USDT)"
@@ -1343,6 +1334,9 @@
   "etzvPz": {
     "string": "我想"
   },
+  "f/UqCh": {
+    "string": "請輸入提現數量"
+  },
   "f2BEYr": {
     "string": "我確認還沒有付款給對方"
   },
@@ -1360,9 +1354,6 @@
   },
   "fLMjGv": {
     "string": "請輸入備註"
-  },
-  "fftT6p": {
-    "string": "出售USDT時系統將會從餘額賬戶中凍結該部分資金"
   },
   "fu1KIo": {
     "string": "進度"
@@ -1415,6 +1406,9 @@
   "hEtJ5h": {
     "string": "撤銷"
   },
+  "hFmEHr": {
+    "string": "社區總獎勵(LCN)"
+  },
   "hJ1meP": {
     "string": "盈利能力"
   },
@@ -1435,6 +1429,9 @@
   },
   "i3xGD8": {
     "string": "提交申訴"
+  },
+  "iBG8Hb": {
+    "string": "查看如何獲取TVC"
   },
   "iCZI8W": {
     "string": "合約份數"
@@ -1496,6 +1493,9 @@
   "kIQ/Xp": {
     "string": "設置語言"
   },
+  "kOFx5M": {
+    "string": "提現USDT時系統將會從餘額賬戶中凍結該部分資金"
+  },
   "kSaqSM": {
     "string": "留言長度不能大於140個字符"
   },
@@ -1504,6 +1504,9 @@
   },
   "keuHvr": {
     "string": "設置止盈止損"
+  },
+  "kkfQaB": {
+    "string": "請輸入充值數量"
   },
   "l+7dfj": {
     "string": "請選擇地址"
@@ -1634,9 +1637,6 @@
   "pYPgzH": {
     "string": "量"
   },
-  "pZSIhq": {
-    "string": "出售中"
-  },
   "pecEGk": {
     "string": "注销"
   },
@@ -1647,7 +1647,7 @@
     "string": "綁定成功"
   },
   "qGoxr9": {
-    "string": "確認出售"
+    "string": "確認提現"
   },
   "qNUf+q": {
     "string": "跟單交易記錄"
@@ -1687,6 +1687,9 @@
   },
   "rEYIpu": {
     "string": "發起成員"
+  },
+  "rOypUK": {
+    "string": "確認充值"
   },
   "rQ+HPv": {
     "string": "输入提币数量"
@@ -1772,6 +1775,9 @@
   "uHUP9v": {
     "string": "完成"
   },
+  "uNcXhA": {
+    "string": "充值中"
+  },
   "udpXUo": {
     "string": "限價委托"
   },
@@ -1835,6 +1841,9 @@
   "x9w/Fu": {
     "string": "凍結保證金"
   },
+  "xC3j3e": {
+    "string": "全部提現"
+  },
   "xCJREC": {
     "string": "可開{maxHand}手"
   },
@@ -1873,6 +1882,9 @@
   },
   "yZDfS/": {
     "string": "預期收益"
+  },
+  "yjgWcm": {
+    "string": "《LeaderCoin用户协议》"
   },
   "ymJBTR": {
     "string": "名稱代碼"
@@ -1924,9 +1936,6 @@
   },
   "zldodU": {
     "string": "到賬數量"
-  },
-  "zqkaAr": {
-    "string": "獎勵(LCN)"
   },
   "zv2r2Q": {
     "string": "訂閲"
