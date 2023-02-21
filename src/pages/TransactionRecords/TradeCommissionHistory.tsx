@@ -10,14 +10,19 @@ import {
 import InfiniteScrollContent from '../../components/InfiniteScrollContent';
 import { stringDateFormat } from '../../utils/date';
 
+/**
+ * 委托記錄，絕對正確參數
+ * @param param0
+ * @returns
+ */
 const TradeCommissionHistory = ({ accountType }: { accountType?: string }) => {
   const params = useMemo(
     () => ({
-      isDone: accountType === 'spot' ? '1' : '0',
+      isDone: '-1',
       symbol: '',
-      accountType: accountType,
       buySell: '',
-      orderState: '',
+      accountType,
+      orderState: '0',
       type: accountType === 'spot' ? '2' : '1',
     }),
     [accountType],

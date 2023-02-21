@@ -83,14 +83,14 @@ const Signup = () => {
                   <a href="" target="_blank" className="text-[#6277b0]">
                     {intl.formatMessage({
                       defaultMessage: '《TradingView用户协议》',
-                      id: 'JVHhgb',
+                      id: 'sMbK5X',
                     })}
                   </a>
                   {intl.formatMessage({ defaultMessage: '和', id: 's9xFxt' })}
                   <a href="" target="_blank" className="text-[#6277b0]">
                     {intl.formatMessage({
                       defaultMessage: '《TradingView隐私条款》',
-                      id: 'XR6wlA',
+                      id: 'zYyvSG',
                     })}
                   </a>
                 </div>
