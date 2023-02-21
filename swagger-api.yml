@@ -3891,6 +3891,8 @@ components:
                   type: string
                 shareUrl:
                   type: string
+                usdtAmount:
+                  type: string
 
     UserInfo:
       type: object

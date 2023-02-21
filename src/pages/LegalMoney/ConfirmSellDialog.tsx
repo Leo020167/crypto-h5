@@ -59,7 +59,7 @@ const ConfirmSellDialog = ({
     <Container visible={open} onClose={onClose} closeOnMaskClick>
       <div className="flex flex-col">
         <span className="h-16 flex items-center px-4 text-base font-bold text-[#3D3A50]">
-          {intl.formatMessage({ defaultMessage: '確認出售', id: 'qGoxr9' })}
+          {intl.formatMessage({ defaultMessage: '確認提現', id: 'qGoxr9' })}
         </span>
 
         <div className="px-2 mb-4">
@@ -92,7 +92,7 @@ const ConfirmSellDialog = ({
         </div>
         <div className="px-4 mb-4">
           <Button block color="primary" onClick={handleFinish}>
-            {intl.formatMessage({ defaultMessage: '確認出售', id: 'qGoxr9' })}
+            {intl.formatMessage({ defaultMessage: '確認提現', id: 'qGoxr9' })}
           </Button>
         </div>
       </div>

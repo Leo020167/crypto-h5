@@ -213,8 +213,8 @@ const MerchantAuthentication = () => {
         <div className="text-[#9A9A9A] text-xs mt-4">
           {intl.formatMessage({
             defaultMessage:
-              '保證金用於發佈出售或購買USDT廣告，提交認證信息即時從資產餘額中進行凍結。',
-            id: 'QQdpxX',
+              '保證金用於發佈提現或充值USDT廣告，提交認證信息即時從資產餘額中進行凍結。',
+            id: '2zDiD2',
           })}
         </div>
 

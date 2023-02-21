@@ -72,7 +72,7 @@ const LegalMoneyQuick = () => {
     if (!amount || !amount.trim().length || !Number(amount)) {
       Toast.show(
         type === 'buy'
-          ? intl.formatMessage({ defaultMessage: '請輸入購買數量', id: 'ap+l4f' })
+          ? intl.formatMessage({ defaultMessage: '請輸入充值數量', id: 'kkfQaB' })
           : intl.formatMessage({ defaultMessage: '請輸入賣出數量', id: '9DlDCO' }),
       );
       return;
@@ -110,7 +110,7 @@ const LegalMoneyQuick = () => {
         <div className="flex items-center">
           <span className="text-base font-bold text-[#3D3A50] flex-1">
             {type === 'sell'
-              ? intl.formatMessage({ defaultMessage: '出售數量', id: 'S/yKCZ' })
+              ? intl.formatMessage({ defaultMessage: '提現數量', id: 'ZoBIyE' })
               : intl.formatMessage({ defaultMessage: '購買數量', id: '3s7D9W' })}
           </span>
 
@@ -171,7 +171,9 @@ const LegalMoneyQuick = () => {
 
       <div className="px-4 mt-12">
         <Button block color="primary" onClick={handleFinish}>
-          {intl.formatMessage({ defaultMessage: '0手續費購買', id: 'NxOp7s' })}
+          {type === 'sell'
+            ? intl.formatMessage({ defaultMessage: '0手續費提現', id: 'dNYJcI' })
+            : intl.formatMessage({ defaultMessage: '0手續費充值', id: 'Eqmzsx' })}
         </Button>
       </div>
 

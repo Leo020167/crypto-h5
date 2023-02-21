@@ -10,4 +10,5 @@ export type HomeMyResponseAllOfData = {
   aboutUsUrl?: string;
   msgCount?: string;
   shareUrl?: string;
+  usdtAmount?: string;
 };

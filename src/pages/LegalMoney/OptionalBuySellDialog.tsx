@@ -23,15 +23,15 @@ const OptionalBuySellDialog = ({
 
   const isBuyer = useMemo(() => 'buy' === optionalOrder?.buySell, [optionalOrder?.buySell]);
   const title = isBuyer
-    ? intl.formatMessage({ defaultMessage: '出售USDT', id: 'Bj/Ifv' })
-    : intl.formatMessage({ defaultMessage: '購買USDT', id: 'HeL/t7' });
+    ? intl.formatMessage({ defaultMessage: '提現USDT', id: 'BLzd0M' })
+    : intl.formatMessage({ defaultMessage: '充值USDT', id: '6bJivJ' });
 
   const amountHint = isBuyer
-    ? intl.formatMessage({ defaultMessage: '請輸入出售數量', id: 'RXYW6s' })
+    ? intl.formatMessage({ defaultMessage: '請輸入提現數量', id: 'f/UqCh' })
     : intl.formatMessage({ defaultMessage: '請輸入購買數量', id: 'ap+l4f' });
 
   const all = isBuyer
-    ? intl.formatMessage({ defaultMessage: '全部出售', id: 'V4Iau9' })
+    ? intl.formatMessage({ defaultMessage: '全部提現', id: 'xC3j3e' })
     : intl.formatMessage({ defaultMessage: '全部買入', id: 'CTWCcu' });
 
   const payWay = isBuyer

@@ -80,11 +80,11 @@ const OtcOrderHistory = () => {
                     columns={4}
                     options={[
                       {
-                        label: intl.formatMessage({ defaultMessage: '購買', id: 'eXPzpx' }),
+                        label: intl.formatMessage({ defaultMessage: '充值', id: 'HLQK6J' }),
                         value: 'buy',
                       },
                       {
-                        label: intl.formatMessage({ defaultMessage: '出售', id: '5zfR27' }),
+                        label: intl.formatMessage({ defaultMessage: '提現', id: '0vOXLz' }),
                         value: 'sell',
                       },
                     ]}

@@ -27,13 +27,13 @@ const AdListItem = ({ data, onSetOnline, onEdit, onDelete }: AdListItemProps) =>
     } else if (data.buySell === 'buy') {
       return (
         <span className="bg-[#E2214E] text-white px-1 py-0.5 rounded scale-75">
-          {intl.formatMessage({ defaultMessage: '購買中', id: '3a7HVy' })}
+          {intl.formatMessage({ defaultMessage: '充值中', id: 'uNcXhA' })}
         </span>
       );
     }
     return (
       <span className="bg-[#00AD88] text-white px-1 py-0.5 rounded scale-75">
-        {intl.formatMessage({ defaultMessage: '出售中', id: 'pZSIhq' })}
+        {intl.formatMessage({ defaultMessage: '提現中', id: '4otO1b' })}
       </span>
     );
   }, [data.buySell, data.isOnline, intl]);
@@ -89,8 +89,8 @@ const AdListItem = ({ data, onSetOnline, onEdit, onDelete }: AdListItemProps) =>
           <span className="flex-1">
             {intl.formatMessage({ defaultMessage: '類型', id: 'K9M/Ln' })}
             {'buy' === data.buySell
-              ? intl.formatMessage({ defaultMessage: '購買', id: 'eXPzpx' })
-              : intl.formatMessage({ defaultMessage: '出售', id: '5zfR27' })}
+              ? intl.formatMessage({ defaultMessage: '充值', id: 'HLQK6J' })
+              : intl.formatMessage({ defaultMessage: '提現', id: '0vOXLz' })}
           </span>
           <div className="flex gap-2">
             <Button className="w-16" onClick={() => onDelete(data)}>

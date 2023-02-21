@@ -72,7 +72,7 @@ const LegalQuickBuyDialog = ({
     <Container position="bottom" visible={open} onClose={onClose} destroyOnClose closeOnMaskClick>
       <div className="flex flex-col px-4">
         <span className=" h-16 flex items-center text-base font-bold text-[#3D3A50]">
-          {intl.formatMessage({ defaultMessage: '確認購買', id: 'ySnXcv' })}
+          {intl.formatMessage({ defaultMessage: '確認充值', id: 'rOypUK' })}
         </span>
         <div className="h-14 relative overflow-x-auto">
           <div className="h-full flex absolute">

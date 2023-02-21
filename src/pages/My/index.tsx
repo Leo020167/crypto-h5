@@ -1,8 +1,9 @@
 import { Badge, List } from 'antd-mobile';
+import { stringify } from 'query-string';
 import { useIntl } from 'react-intl';
 import { Link, useHistory } from 'react-router-dom';
 import styled from 'styled-components';
-import { useGetUnreadCount, useIdentityGet } from '../../api/endpoints/transformer';
+import { useGetUnreadCount, useHomeMy, useIdentityGet } from '../../api/endpoints/transformer';
 import defaultHead from '../../assets/ic_default_head.png';
 import ic_home_mine_help from '../../assets/ic_home_mine_help.png';
 import ic_home_mine_kefu from '../../assets/ic_home_mine_kefu.png';
@@ -29,6 +30,8 @@ const My = () => {
 
   const { data } = useGetUnreadCount();
 
+  const { data: homeMy } = useHomeMy();
+
   const intl = useIntl();
 
   return (
@@ -50,6 +53,7 @@ const My = () => {
               <span className="text-[#a2abc8]">
                 {intl.formatMessage({ defaultMessage: '可用(USDT): ', id: 'n4OJbo' })}
                 {userInfo?.userId}
+                {homeMy?.data?.usdtAmount}
               </span>
             </div>
           </div>
@@ -158,11 +162,7 @@ const My = () => {
           prefix={<img alt="" src={ic_svg_receipt_manager} className="w-8 h-8" />}
           arrow={<Arrow />}
           onClick={() => {
-            if (identityGet?.data?.identityAuth?.state === '1') {
-              history.push('/verified-result');
-            } else {
-              history.push('/verified');
-            }
+            history.push('/receipt-list');
           }}
         >
           {intl.formatMessage({ defaultMessage: '綁定銀行卡', id: 'hrMVXB' })}
@@ -172,7 +172,11 @@ const My = () => {
           prefix={<img alt="" src={ic_home_mine_youxiang} className="w-8 h-8" />}
           arrow={<Arrow />}
           onClick={() => {
-            history.push('/receipt-list');
+            if (userInfo?.email) {
+              history.push(`/email-auth?${stringify({ mode: 1 })}`);
+            } else {
+              history.push('/bind-email');
+            }
           }}
         >
           {intl.formatMessage({ defaultMessage: '綁定郵箱', id: '+PkU4R' })}

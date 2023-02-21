@@ -62,8 +62,8 @@ const OptionalListItem = ({ buySell, data, onClick }: OptionalListItemProps) => 
             onClick={() => onClick?.(data)}
           >
             {buySell === 'buy'
-              ? intl.formatMessage({ defaultMessage: '購買', id: 'eXPzpx' })
-              : intl.formatMessage({ defaultMessage: '出售', id: '5zfR27' })}
+              ? intl.formatMessage({ defaultMessage: '充值', id: 'HLQK6J' })
+              : intl.formatMessage({ defaultMessage: '提現', id: '5zfR27' })}
           </a>
         </div>
       </div>

@@ -177,11 +177,11 @@ const AddAd = () => {
             className="flex-1"
             options={[
               {
-                label: intl.formatMessage({ defaultMessage: '購買', id: 'eXPzpx' }),
+                label: intl.formatMessage({ defaultMessage: '充值', id: 'HLQK6J' }),
                 value: 'buy',
               },
               {
-                label: intl.formatMessage({ defaultMessage: '出售', id: '5zfR27' }),
+                label: intl.formatMessage({ defaultMessage: '提現', id: '0vOXLz' }),
                 value: 'sell',
               },
             ]}
@@ -213,7 +213,7 @@ const AddAd = () => {
         <div className="pl-14 mt-2 text-xs text-[#9A9A9A]">
           {'buy' === buySell
             ? intl.formatMessage({ defaultMessage: '當前購買最高價', id: 'CbGK63' })
-            : intl.formatMessage({ defaultMessage: '當前出售最低價', id: 'eHNb85' })}
+            : intl.formatMessage({ defaultMessage: '當前提現最低價', id: 'VC4lRg' })}
           <span className="mx-1 text-[#6175AE]" key="bestPriceHint">
             {getAdPrice?.data?.price ?? '0.00'}
           </span>
@@ -240,8 +240,8 @@ const AddAd = () => {
 
         <div className="pl-14 mt-2 text-xs text-[#9A9A9A]">
           {intl.formatMessage({
-            defaultMessage: '出售USDT時系統將會從餘額賬戶中凍結該部分資金',
-            id: 'fftT6p',
+            defaultMessage: '提現USDT時系統將會從餘額賬戶中凍結該部分資金',
+            id: 'kOFx5M',
           })}
         </div>
 
