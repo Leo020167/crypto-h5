@@ -52,7 +52,6 @@ const My = () => {
               </div>
               <span className="text-[#a2abc8]">
                 {intl.formatMessage({ defaultMessage: '可用(USDT): ', id: 'n4OJbo' })}
-                {userInfo?.userId}
                 {homeMy?.data?.usdtAmount}
               </span>
             </div>

@@ -178,7 +178,7 @@ const Home = () => {
         <Link to="/legal-money" className="flex flex-col items-center w-1/5">
           <img alt="" src={tab1_menu3} className="w-9 h-9" />
           <div className="mt-2.5 text-xs text-[#666666] break-all">
-            {intl.formatMessage({ defaultMessage: 'OTC交易', id: 'v0r9Fg' })}
+            {intl.formatMessage({ defaultMessage: '餘額提現', id: 'CkIqO9' })}
           </div>
         </Link>
         <Link to="/chat" className="flex flex-col items-center w-1/5">
