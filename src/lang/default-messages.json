@@ -602,9 +602,6 @@
   "HdFt0P": {
     "string": "可買"
   },
-  "Hh3rHP": {
-    "string": "獲得LCN"
-  },
   "HmiIeC": {
     "string": "是否確定上架?"
   },
@@ -1085,6 +1082,9 @@
   "WTYv3l": {
     "string": "（香港時間）"
   },
+  "WX5ynx": {
+    "string": "查看如何獲取LCN"
+  },
   "Wmlj/H": {
     "string": "申購總量"
   },
@@ -1099,9 +1099,6 @@
   },
   "X/X8Ge": {
     "string": "委託金額(USDT)"
-  },
-  "X3UAMm": {
-    "string": "消耗LCN:"
   },
   "XJfx+x": {
     "string": "正在申請取消商家認證"
@@ -1334,6 +1331,9 @@
   "etzvPz": {
     "string": "我想"
   },
+  "ezb262": {
+    "string": "消耗LCN:"
+  },
   "f/UqCh": {
     "string": "請輸入提現數量"
   },
@@ -1429,9 +1429,6 @@
   },
   "i3xGD8": {
     "string": "提交申訴"
-  },
-  "iBG8Hb": {
-    "string": "查看如何獲取LCN"
   },
   "iCZI8W": {
     "string": "合約份數"
@@ -1799,9 +1796,6 @@
   "uy59Hz": {
     "string": "看跌(做空)"
   },
-  "v0r9Fg": {
-    "string": "OTC交易"
-  },
   "v2G+NV": {
     "string": "買入價"
   },
@@ -1819,6 +1813,9 @@
   },
   "w2IUbz": {
     "string": "您可以寫下您申訴的詳細情況～～（限300字）"
+  },
+  "w5EEYA": {
+    "string": "獲得LCN"
   },
   "wAPEnf": {
     "string": "登錄"
