@@ -24,12 +24,14 @@ const Record2 = ({ data }: RecordProps) => {
           <span className="pl-2.5 text-[#661D3155] text-xs">{stringDateFormat(data.openTime)}</span>
         </div>
         <div className="flex items-center text-gray-400 text-xs">
-          <span className="mr-1">
-            {intl.formatMessage({ defaultMessage: '盈利', id: 'IrxrMw' })}
-            <span style={{ color: getColor(data.profit) }} className="ml-1">
-              {data.profit}
+          {data.buySell === 'sell' && (
+            <span className="mr-1">
+              {intl.formatMessage({ defaultMessage: '盈利', id: 'IrxrMw' })}
+              <span style={{ color: getColor(data.profit) }} className="ml-1">
+                {data.profit}
+              </span>
             </span>
-          </span>
+          )}
           <span>
             手續費 <span className="text-black">{data.fee}</span>
           </span>
