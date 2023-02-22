@@ -3,7 +3,7 @@ lockfileVersion: 5.4
 specifiers:
   '@formatjs/cli': ^6.0.3
   '@react-spring/web': ^9.6.1
-  '@tanstack/react-query': ^4.24.9
+  '@tanstack/react-query': ^4.24.10
   '@types/d3-interpolate': ^3.0.1
   '@types/d3-scale': ^4.0.3
   '@types/js-md5': ^0.7.0
@@ -55,14 +55,14 @@ specifiers:
   react-select: ^5.7.0
   react-spring: ^9.6.1
   react-use: ^17.4.0
-  react-virtuoso: ^3.1.5
+  react-virtuoso: ^4.1.0
   styled-components: ^5.3.6
   tailwindcss: ^3.2.7
   terser: ^5.16.4
   ts-md5: ^1.3.1
   typescript: ^4.9.5
   use-query-params: ^2.2.0
-  vite: ^4.1.3
+  vite: ^4.1.4
   vite-plugin-html: ^3.2.0
   vite-plugin-imp: ^2.3.1
   vite-plugin-svgr: ^2.4.0
@@ -71,7 +71,7 @@ specifiers:
 
 dependencies:
   '@react-spring/web': 9.6.1_biqbaboplfbrettd7655fr4n2y
-  '@tanstack/react-query': 4.24.9_bblof3d6od7kdqr2urb3dykbey
+  '@tanstack/react-query': 4.24.10_bblof3d6od7kdqr2urb3dykbey
   add: 2.0.6
   antd-mobile: 5.28.0_biqbaboplfbrettd7655fr4n2y
   antd-mobile-icons: 0.3.0
@@ -97,11 +97,11 @@ dependencies:
   react-select: 5.7.0_etgemzlavky3k4ooobeqgg2miu
   react-spring: 9.6.1_br53atzrahu45owlwmyg4y7xum
   react-use: 17.4.0_biqbaboplfbrettd7655fr4n2y
-  react-virtuoso: 3.1.5_biqbaboplfbrettd7655fr4n2y
+  react-virtuoso: 4.1.0_biqbaboplfbrettd7655fr4n2y
   styled-components: 5.3.6_7i5myeigehqah43i5u7wbekgba
   ts-md5: 1.3.1
   use-query-params: 2.2.0_biqbaboplfbrettd7655fr4n2y
-  vite-plugin-html: 3.2.0_vite@4.1.3
+  vite-plugin-html: 3.2.0_vite@4.1.4
   yarn: 1.22.19
   zustand: 4.3.3_immer@9.0.19+react@18.2.0
 
@@ -118,8 +118,8 @@ devDependencies:
   '@types/styled-components': 5.1.26
   '@typescript-eslint/eslint-plugin': 5.53.0_ny4s7qc6yg74faf3d6xty2ofzy
   '@typescript-eslint/parser': 5.53.0_7kw3g6rralp5ps6mg3uyzz6azm
-  '@vitejs/plugin-legacy': 4.0.1_terser@5.16.4+vite@4.1.3
-  '@vitejs/plugin-react': 3.1.0_vite@4.1.3
+  '@vitejs/plugin-legacy': 4.0.1_terser@5.16.4+vite@4.1.4
+  '@vitejs/plugin-react': 3.1.0_vite@4.1.4
   autoprefixer: 10.4.13_postcss@8.4.21
   eslint: 8.34.0
   eslint-config-prettier: 8.6.0_eslint@8.34.0
@@ -136,9 +136,9 @@ devDependencies:
   tailwindcss: 3.2.7_postcss@8.4.21
   terser: 5.16.4
   typescript: 4.9.5
-  vite: 4.1.3_terser@5.16.4
-  vite-plugin-imp: 2.3.1_vite@4.1.3
-  vite-plugin-svgr: 2.4.0_rollup@2.79.1+vite@4.1.3
+  vite: 4.1.4_terser@5.16.4
+  vite-plugin-imp: 2.3.1_vite@4.1.4
+  vite-plugin-svgr: 2.4.0_rollup@2.79.1+vite@4.1.4
 
 packages:
 
@@ -4236,12 +4236,12 @@ packages:
       - supports-color
     dev: true
 
-  /@tanstack/query-core/4.24.9:
-    resolution: {integrity: sha512-pZQ2NpdaHzx8gPPkAPh06d6zRkjfonUzILSYBXrdHDapP2eaBbGsx5L4/dMF+fyAglFzQZdDDzZgAykbM20QVw==}
+  /@tanstack/query-core/4.24.10:
+    resolution: {integrity: sha512-2QywqXEAGBIUoTdgn1lAB4/C8QEqwXHj2jrCLeYTk2xVGtLiPEUD8jcMoeB2noclbiW2mMt4+Fq7fZStuz3wAQ==}
     dev: false
 
-  /@tanstack/react-query/4.24.9_bblof3d6od7kdqr2urb3dykbey:
-    resolution: {integrity: sha512-6WLwUT9mrngIinRtcZjrWOUENOuLbWvQpKmU6DZCo2iPQVA+qvv3Ji90Amme4AkUyWQ8ZSSRTnAFq8V2tj2ACg==}
+  /@tanstack/react-query/4.24.10_bblof3d6od7kdqr2urb3dykbey:
+    resolution: {integrity: sha512-FY1DixytOcNNCydPQXLxuKEV7VSST32CAuJ55BjhDNqASnMLZn+6c30yQBMrODjmWMNwzfjMZnq0Vw7C62Fwow==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
       react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
@@ -4252,7 +4252,7 @@ packages:
       react-native:
         optional: true
     dependencies:
-      '@tanstack/query-core': 4.24.9
+      '@tanstack/query-core': 4.24.10
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
       react-native: 0.71.3_raab37p3ikkajcivlo24zcd7ie
@@ -4650,21 +4650,7 @@ packages:
       react: 18.2.0
     dev: false
 
-  /@virtuoso.dev/react-urx/0.2.13_react@18.2.0:
-    resolution: {integrity: sha512-MY0ugBDjFb5Xt8v2HY7MKcRGqw/3gTpMlLXId2EwQvYJoC8sP7nnXjAxcBtTB50KTZhO0SbzsFimaZ7pSdApwA==}
-    engines: {node: '>=10'}
-    peerDependencies:
-      react: '>=16'
-    dependencies:
-      '@virtuoso.dev/urx': 0.2.13
-      react: 18.2.0
-    dev: false
-
-  /@virtuoso.dev/urx/0.2.13:
-    resolution: {integrity: sha512-iirJNv92A1ZWxoOHHDYW/1KPoi83939o83iUBQHIim0i3tMeSKEh+bxhJdTHQ86Mr4uXx9xGUTq69cp52ZP8Xw==}
-    dev: false
-
-  /@vitejs/plugin-legacy/4.0.1_terser@5.16.4+vite@4.1.3:
+  /@vitejs/plugin-legacy/4.0.1_terser@5.16.4+vite@4.1.4:
     resolution: {integrity: sha512-/ZV63NagI1c9TB5E4ijGmycY//fNm/2L02nsnXXxACwYaF9W+/OyVlgIW24jYUIS+g0yQRtn+N5hzBc8RLNhGA==}
     engines: {node: ^14.18.0 || >=16.0.0}
     peerDependencies:
@@ -4679,12 +4665,12 @@ packages:
       regenerator-runtime: 0.13.11
       systemjs: 6.13.0
       terser: 5.16.4
-      vite: 4.1.3_terser@5.16.4
+      vite: 4.1.4_terser@5.16.4
     transitivePeerDependencies:
       - supports-color
     dev: true
 
-  /@vitejs/plugin-react/3.1.0_vite@4.1.3:
+  /@vitejs/plugin-react/3.1.0_vite@4.1.4:
     resolution: {integrity: sha512-AfgcRL8ZBhAlc3BFdigClmTUMISmmzHn7sB2h9U1odvc5U/MjWXsAaz18b/WoppUTDBzxOJwo2VdClfUcItu9g==}
     engines: {node: ^14.18.0 || >=16.0.0}
     peerDependencies:
@@ -4695,7 +4681,7 @@ packages:
       '@babel/plugin-transform-react-jsx-source': 7.19.6_@babel+core@7.20.12
       magic-string: 0.27.0
       react-refresh: 0.14.0
-      vite: 4.1.3_terser@5.16.4
+      vite: 4.1.4_terser@5.16.4
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -8773,7 +8759,7 @@ packages:
       connect: 3.7.0
       debug: 2.6.9
       ws: 7.5.9
-      yargs: 17.7.0
+      yargs: 17.7.1
     transitivePeerDependencies:
       - bufferutil
       - supports-color
@@ -9086,7 +9072,7 @@ packages:
       temp: 0.8.3
       throat: 5.0.0
       ws: 7.5.9
-      yargs: 17.7.0
+      yargs: 17.7.1
     transitivePeerDependencies:
       - bufferutil
       - encoding
@@ -10440,15 +10426,13 @@ packages:
       tslib: 2.4.1
     dev: false
 
-  /react-virtuoso/3.1.5_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-Dwf7SGr73UAahfcQNIND+c+MtCb0PeHu+QTZ5ptR7oXxQkupfHXEKGwEDF5lDkLqdGxm+yH4uh/IFCqMKxudJw==}
+  /react-virtuoso/4.1.0_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-Vcq5WXn18PvPT55kdeGQ8BN3K95XyPe7hum8zG6Tx7g1CtUYVsQKN7fouMxBSy+XymEDB5ynGy8JWhuqyLLtPw==}
     engines: {node: '>=10'}
     peerDependencies:
       react: '>=16 || >=17 || >= 18'
       react-dom: '>=16 || >=17 || >= 18'
     dependencies:
-      '@virtuoso.dev/react-urx': 0.2.13_react@18.2.0
-      '@virtuoso.dev/urx': 0.2.13
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
     dev: false
@@ -11832,7 +11816,7 @@ packages:
     engines: {node: '>= 0.8'}
     dev: false
 
-  /vite-plugin-html/3.2.0_vite@4.1.3:
+  /vite-plugin-html/3.2.0_vite@4.1.4:
     resolution: {integrity: sha512-2VLCeDiHmV/BqqNn5h2V+4280KRgQzCFN47cst3WiNK848klESPQnzuC3okH5XHtgwHH/6s1Ho/YV6yIO0pgoQ==}
     peerDependencies:
       vite: '>=2.0.0'
@@ -11849,10 +11833,10 @@ packages:
       html-minifier-terser: 6.1.0
       node-html-parser: 5.4.2
       pathe: 0.2.0
-      vite: 4.1.3_terser@5.16.4
+      vite: 4.1.4_terser@5.16.4
     dev: false
 
-  /vite-plugin-imp/2.3.1_vite@4.1.3:
+  /vite-plugin-imp/2.3.1_vite@4.1.4:
     resolution: {integrity: sha512-Lp0FZBIIfXq/PyTRh+5e5tqgS6vJZewAx/fodgf/Z1Pk1jQzMiKw5gRn0xXqDEbm7A7avz6X1Le01Mp/LYMtoQ==}
     peerDependencies:
       vite: '>= 2.0.0-beta.5'
@@ -11864,26 +11848,26 @@ packages:
       chalk: 4.1.2
       param-case: 3.0.4
       pascal-case: 3.1.2
-      vite: 4.1.3_terser@5.16.4
+      vite: 4.1.4_terser@5.16.4
     transitivePeerDependencies:
       - supports-color
     dev: true
 
-  /vite-plugin-svgr/2.4.0_rollup@2.79.1+vite@4.1.3:
+  /vite-plugin-svgr/2.4.0_rollup@2.79.1+vite@4.1.4:
     resolution: {integrity: sha512-q+mJJol6ThvqkkJvvVFEndI4EaKIjSI0I3jNFgSoC9fXAz1M7kYTVUin8fhUsFojFDKZ9VHKtX6NXNaOLpbsHA==}
     peerDependencies:
       vite: ^2.6.0 || 3 || 4
     dependencies:
       '@rollup/pluginutils': 5.0.2_rollup@2.79.1
       '@svgr/core': 6.5.1
-      vite: 4.1.3_terser@5.16.4
+      vite: 4.1.4_terser@5.16.4
     transitivePeerDependencies:
       - rollup
       - supports-color
     dev: true
 
-  /vite/4.1.3_terser@5.16.4:
-    resolution: {integrity: sha512-0Zqo4/Fr/swSOBmbl+HAAhOjrqNwju+yTtoe4hQX9UsARdcuc9njyOdr6xU0DDnV7YP0RT6mgTTOiRtZgxfCxA==}
+  /vite/4.1.4_terser@5.16.4:
+    resolution: {integrity: sha512-3knk/HsbSTKEin43zHu7jTwYWv81f8kgAL99G5NWBcA1LKvtvcVAC4JjBH1arBunO9kQka+1oGbrMKOjk4ZrBg==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
     peerDependencies:
@@ -12153,8 +12137,8 @@ packages:
       yargs-parser: 21.1.1
     dev: true
 
-  /yargs/17.7.0:
-    resolution: {integrity: sha512-dwqOPg5trmrre9+v8SUo2q/hAwyKoVfu8OC1xPHKJGNdxAvPl4sKxL4vBnh3bQz/ZvvGAFeA5H3ou2kcOY8sQQ==}
+  /yargs/17.7.1:
+    resolution: {integrity: sha512-cwiTb08Xuv5fqF4AovYacTFNxk62th7LKJ6BL9IGUpTJrWoU7/7WdQGTP2SjKf1dUNBGzDd28p/Yfs/GI6JrLw==}
     engines: {node: '>=12'}
     dependencies:
       cliui: 8.0.1
