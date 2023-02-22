@@ -771,7 +771,7 @@
     "string": "メールボックスを入力してください"
   },
   "NdxUVx": {
-    "string": "取得方法を確認してくださいTVC"
+    "string": "取得方法を確認してくださいLCN"
   },
   "NlcysC": {
     "string": "メールボックス番号を入力してください"
@@ -1341,7 +1341,7 @@
     "string": "財務実績"
   },
   "guM4xe": {
-    "string": "消費TVC："
+    "string": "消費LCN："
   },
   "gx0XBL": {
     "string": "申し込む"

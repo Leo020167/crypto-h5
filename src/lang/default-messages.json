@@ -603,7 +603,7 @@
     "string": "可買"
   },
   "Hh3rHP": {
-    "string": "獲得TVC"
+    "string": "獲得LCN"
   },
   "HmiIeC": {
     "string": "是否確定上架?"
@@ -1101,7 +1101,7 @@
     "string": "委託金額(USDT)"
   },
   "X3UAMm": {
-    "string": "消耗TVC:"
+    "string": "消耗LCN:"
   },
   "XJfx+x": {
     "string": "正在申請取消商家認證"
@@ -1431,7 +1431,7 @@
     "string": "提交申訴"
   },
   "iBG8Hb": {
-    "string": "查看如何獲取TVC"
+    "string": "查看如何獲取LCN"
   },
   "iCZI8W": {
     "string": "合約份數"
