@@ -76,6 +76,8 @@ paths:
               properties:
                 symbol:
                   type: string
+                accountType:
+                  type: string
       responses:
         '200':
           description: OK
