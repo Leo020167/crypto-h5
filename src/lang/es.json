@@ -209,9 +209,6 @@
   "5qldgM": {
     "string": "Seleccione el reverso"
   },
-  "5zfR27": {
-    "string": "Vender"
-  },
   "63r2yf": {
     "string": "Introduzca su contraseña"
   },
@@ -859,9 +856,6 @@
   },
   "R0bpcH": {
     "string": "Aún no has publicado ningún anuncio~"
-  },
-  "R3Xfcn": {
-    "string": "Intereses de pignoración"
   },
   "R4Ww2H": {
     "string": "Cuenta"
@@ -1550,9 +1544,6 @@
   "q+on8I": {
     "string": "Encuadernación correcta"
   },
-  "qGoxr9": {
-    "string": "Venta confirmada"
-  },
   "qNUf+q": {
     "string": "Historial de pedidos"
   },
@@ -1826,9 +1817,6 @@
   "/ErIar": {
     "string": "Transacción"
   },
-  "27fLgJ": {
-    "string": "Costo"
-  },
   "4hv39Z": {
     "string": "dirección"
   },
@@ -2008,5 +1996,110 @@
 
   "misXZU": {
     "string": "Zona defi"
+  },
+  "0vOXLz": {
+    "string": "Retirar"
+  },
+  "CkIqO9": {
+    "string": "Retiro de saldo"
+  },
+  "HLQK6J": {
+    "string": "Recargar"
+  },
+  "hrMVXB": {
+    "string": "Enlazar tarjeta bancaria"
+  },
+  "n4OJbo": {
+    "string": "Disponible (USDT):"
+  },
+  "zM3jHk": {
+    "string": "Pérdidas y ganancias"
+  },
+  "KdeDu2": {
+    "string": "Beneficio USDT"
+  },
+  "R3Xfcn": {
+    "string": "Prometer interés"
+  },
+  "cofepD": {
+    "string": "Cantidad/Disponible"
+  },
+  "hDf8uN": {
+    "string": "Moneda"
+  },
+  "27fLgJ": {
+    "string": "Costo"
+  },
+  "/dHiys": {
+    "string": "《Política de privacidad de LeaderCoin》"
+  },
+  "/ivoWl": {
+    "string": "Recompensa (LCN)"
+  },
+  "2zDiD2": {
+    "string": "El margen se usa para publicar el anuncio de retiro o recarga de USDT, y la información de autenticación se congelará del saldo de activos inmediatamente después de enviar la información de autenticación"
+  },
+  "4otO1b": {
+    "string": "retirando"
+  },
+  "5zfR27": {
+    "string": "Retirar"
+  },
+  "6bJivJ": {
+    "string": "Recargar USDT"
+  },
+  "BLzd0M": {
+    "string": "Retirar USDT"
+  },
+  "Eqmzsx": {
+    "string": "0 tarifa de recarga"
+  },
+  "IrxrMw": {
+    "string": "Beneficio"
+  },
+  "QZvy6E": {
+    "string": "Cantidad (LCN)"
+  },
+  "QZzPNv": {
+    "string": "Activos totales (LCN)"
+  },
+  "VC4lRg": {
+    "string": "Precio de retiro mínimo actual"
+  },
+  "ZoBIyE": {
+    "string": "cantidad de retiro"
+  },
+  "dNYJcI": {
+    "string": "0 cuota de retiro"
+  },
+  "f/UqCh": {
+    "string": "Por favor ingrese el monto del retiro"
+  },
+  "hFmEHR": {
+    "string": "Recompensas totales de la comunidad (LCN)"
+  },
+  "iBG8Hb": {
+    "string": "Vea cómo obtener TVC"
+  },
+  "kOFx5M": {
+    "string": "Al retirar USDT, el sistema congelará esta parte de los fondos de la cuenta de saldo"
+  },
+  "kkfQaB": {
+    "string": "Por favor ingrese el monto de la recarga"
+  },
+  "qGoxr9": {
+    "string": "Confirmar retiro"
+  },
+  "rOypUK": {
+    "string": "Confirmar recarga"
+  },
+  "uNcXhA": {
+    "string": "Recargando"
+  },
+  "xC3j3e": {
+    "string": "Retirar todo"
+  },
+  "yjgWcm": {
+    "string": "《Acuerdo de usuario de LeaderCoin》"
   }
 }

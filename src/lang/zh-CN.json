@@ -209,9 +209,6 @@
   "5qldgM": {
     "string": "选择反面"
   },
-  "5zfR27": {
-    "string": "出售"
-  },
   "63r2yf": {
     "string": "请输入密码"
   },
@@ -859,9 +856,6 @@
   },
   "R0bpcH": {
     "string": "您暂未发布广告～"
-  },
-  "R3Xfcn": {
-    "string": "质押生息"
   },
   "R4Ww2H": {
     "string": "账户"
@@ -1550,9 +1544,6 @@
   "q+on8I": {
     "string": "绑定成功"
   },
-  "qGoxr9": {
-    "string": "确认出售"
-  },
   "qNUf+q": {
     "string": "跟单交易记录"
   },
@@ -1826,9 +1817,6 @@
   "/ErIar": {
     "string": "交易"
   },
-  "27fLgJ": {
-    "string": "成本"
-  },
   "4hv39Z": {
     "string": "方向"
   },
@@ -2004,5 +1992,110 @@
 
   "misXZU": {
     "string": "Defi专区"
+  },
+  "0vOXLz": {
+    "string": "提现"
+  },
+  "CkIqO9": {
+    "string": "余额提现"
+  },
+  "HLQK6J": {
+    "string": "充值"
+  },
+  "hrMVXB": {
+    "string": "绑定银行卡"
+  },
+  "n4OJbo": {
+    "string": "可用(USDT):"
+  },
+  "zM3jHk": {
+    "string": "盈亏"
+  },
+  "KdeDu2": {
+    "string": "盈利USDT"
+  },
+  "R3Xfcn": {
+    "string": "质押生息"
+  },
+  "cofepD": {
+    "string": "数量/可用"
+  },
+  "hDf8uN": {
+    "string": "币种"
+  },
+  "27fLgJ": {
+    "string": "成本"
+  },
+  "/dHiys": {
+    "string": "《LeaderCoin隐私条款》"
+  },
+  "/ivoWl": {
+    "string": "奖励(LCN)"
+  },
+  "2zDiD2": {
+    "string": "保证金用于发布提现或充值USDT广告，提交认证信息即时从资产余额中进行冻结。"
+  },
+  "4otO1b": {
+    "string": "提现中"
+  },
+  "5zfR27": {
+    "string": "提现"
+  },
+  "6bJivJ": {
+    "string": "充值USDT"
+  },
+  "BLzd0M": {
+    "string": "提现USDT"
+  },
+  "Eqmzsx": {
+    "string": "0手续费充值"
+  },
+  "IrxrMw": {
+    "string": "盈利"
+  },
+  "QZvy6E": {
+    "string": "数量(LCN)"
+  },
+  "QZzPNv": {
+    "string": "总资产(LCN)"
+  },
+  "VC4lRg": {
+    "string": "当前提现最低价"
+  },
+  "ZoBIyE": {
+    "string": "提现数量"
+  },
+  "dNYJcI": {
+    "string": "0手续费提现"
+  },
+  "f/UqCh": {
+    "string": "请输入提现数量"
+  },
+  "hFmEHr": {
+    "string": "社区总奖励(LCN)"
+  },
+  "iBG8Hb": {
+    "string": "查看如何获取TVC"
+  },
+  "kOFx5M": {
+    "string": "提现USDT时系统将会从余额账户中冻结该部分资金"
+  },
+  "kkfQaB": {
+    "string": "请输入充值数量"
+  },
+  "qGoxr9": {
+    "string": "确认提现"
+  },
+  "rOypUK": {
+    "string": "确认充值"
+  },
+  "uNcXhA": {
+    "string": "充值中"
+  },
+  "xC3j3e": {
+    "string": "全部提现"
+  },
+  "yjgWcm": {
+    "string": "《LeaderCoin用户协议》"
   }
 }

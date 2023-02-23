@@ -1550,9 +1550,6 @@
   "q+on8I": {
     "string": "Binding Success"
   },
-  "qGoxr9": {
-    "string": "Confirm Sale"
-  },
   "qNUf+q": {
     "string": "Follow the order transaction history"
   },
@@ -1826,9 +1823,6 @@
   "/ErIar": {
     "string": "Transaction"
   },
-  "27fLgJ": {
-    "string": "Cost"
-  },
   "4hv39Z": {
     "string": "direction"
   },
@@ -2002,5 +1996,104 @@
   },
   "misXZU": {
     "string": "Defi zone"
+  },
+  "0vOXLz": {
+    "string": "Withdraw"
+  },
+  "CkIqO9": {
+    "string": "Balance withdrawal"
+  },
+  "HLQK6J": {
+    "string": "Recharge"
+  },
+  "hrMVXB": {
+    "string": "Bind bank card"
+  },
+  "n4OJbo": {
+    "string": "Available (USDT):"
+  },
+  "zM3jHk": {
+    "string": "Profit and Loss"
+  },
+  "KdeDu2": {
+    "string": "Profit USDT"
+  },
+  "cofepD": {
+    "string": "Quantity/Available"
+  },
+  "hDf8uN": {
+    "string": "Currency"
+  },
+  "27fLgJ": {
+    "string": "Cost"
+  },
+  "/dHiys": {
+    "string": "《LeaderCoin Privacy Policy》"
+  },
+  "/ivoWl": {
+    "string": "Reward (LCN)"
+  },
+  "2zDiD2": {
+    "string": "The margin is used to publish the withdrawal or recharge USDT advertisement, and the authentication information will be frozen from the asset balance immediately after submitting the authentication information."
+  },
+  "4otO1b": {
+    "string": "withdrawing"
+  },
+  "6bJivJ": {
+    "string": "Recharge USDT"
+  },
+  "BLzd0M": {
+    "string": "Withdraw USDT"
+  },
+  "Eqmzsx": {
+    "string": "0 fee recharge"
+  },
+  "IrxrMw": {
+    "string": "Profit"
+  },
+  "QZvy6E": {
+    "string": "Quantity (LCN)"
+  },
+  "QZzPNv": {
+    "string": "Total assets (LCN)"
+  },
+  "VC4lRg": {
+    "string": "Current minimum withdrawal price"
+  },
+  "ZoBIyE": {
+    "string": "withdrawal amount"
+  },
+  "dNYJcI": {
+    "string": "0 fee withdrawal"
+  },
+  "f/UqCh": {
+    "string": "Please enter the withdrawal amount"
+  },
+  "hFmEHr": {
+    "string": "Total Community Rewards (LCN)"
+  },
+  "iBG8Hb": {
+    "string": "See how to get TVC"
+  },
+  "kOFx5M": {
+    "string": "When withdrawing USDT, the system will freeze this part of the funds from the balance account"
+  },
+  "kkfQaB": {
+    "string": "Please enter the recharge amount"
+  },
+  "qGoxr9": {
+    "string": "Confirm Withdrawal"
+  },
+  "rOypUK": {
+    "string": "Confirm recharge"
+  },
+  "uNcXhA": {
+    "string": "Recharging"
+  },
+  "xC3j3e": {
+    "string": "Withdraw all"
+  },
+  "yjgWcm": {
+    "string": "《LeaderCoin User Agreement》"
   }
 }

@@ -209,9 +209,6 @@
   "5qldgM": {
     "string": "裏側を選択します"
   },
-  "5zfR27": {
-    "string": "販売のため"
-  },
   "63r2yf": {
     "string": "パスワードを入力してください"
   },
@@ -859,9 +856,6 @@
   },
   "R0bpcH": {
     "string": "あなたはまだ宣伝していません～"
-  },
-  "R3Xfcn": {
-    "string": "誓約によって生み出される利益"
   },
   "R4Ww2H": {
     "string": "アカウント"
@@ -1550,9 +1544,6 @@
   "q+on8I": {
     "string": "バインド成功"
   },
-  "qGoxr9": {
-    "string": "販売の確認"
-  },
   "qNUf+q": {
     "string": "受注トランザクションの追跡"
   },
@@ -1826,9 +1817,6 @@
   "/ErIar": {
     "string": "トランザクション"
   },
-  "27fLgJ": {
-    "string": "コスト"
-  },
   "4hv39Z": {
     "string": "方向"
   },
@@ -2004,5 +1992,110 @@
 
   "misXZU": {
     "string": "Defi ゾーン"
+  },
+  "0vOXLz": {
+    "string": "撤回"
+  },
+  "CkIqO9": {
+    "string": "残高出金"
+  },
+  "HLQK6J": {
+    "string": "リチャージ"
+  },
+  "hrMVXB": {
+    "string": "銀行カードをバインド"
+  },
+  "n4OJbo": {
+    "string": "利用可能 (USDT):"
+  },
+  "zM3jHk": {
+    "string": "損益"
+  },
+  "KdeDu2": {
+    "string": "利益 USDT"
+  },
+  "R3Xfcn": {
+    "string": "利子の担保"
+  },
+  "cofepD": {
+    "string": "数量/在庫"
+  },
+  "hdf8uN": {
+    "string": "通貨"
+  },
+  "27fLgJ": {
+    "string": "コスト"
+  },
+  "/dHiys": {
+    "string": "《リーダーコインのプライバシーポリシー》"
+  },
+  "/ivoWl": {
+    "string": "報酬 (LCN)"
+  },
+  "2zDiD2": {
+    "string": "証拠金は,USDT の出金または再チャージの広告を掲載するために使用され,認証情報は,認証情報を送信した直後に資産残高から凍結されます。"
+  },
+  "4otO1b": {
+    "string": "撤回"
+  },
+  "5zfR27": {
+    "string": "撤回"
+  },
+  "6bJivJ": {
+    "string": "USDTをリチャージ"
+  },
+  "BLzd0M": {
+    "string": "USDTを出金"
+  },
+  "Eqmzsx": {
+    "string": "0 手数料リチャージ"
+  },
+  "IrxrMw": {
+    "string": "利益"
+  },
+  "QZvy6E": {
+    "string": "数量 (LCN)"
+  },
+  "QZzPNv": {
+    "string": "総資産 (LCN)"
+  },
+  "VC4lRg": {
+    "string": "現在の最低出金額"
+  },
+  "ZoBIyE": {
+    "string": "出金金額"
+  },
+  "dNYJcI": {
+    "string": "出金手数料0"
+  },
+  "f/UqCh": {
+    "string": "出金額を入力してください"
+  },
+  "hFmEHr": {
+    "string": "合計コミュニティ報酬 (LCN)"
+  },
+  "iBG8Hb": {
+    "string": "TVCの入手方法を見る"
+  },
+  "kOFx5M": {
+    "string": "USDT を引き出す際,システムは残高口座から資金のこの部分を凍結します"
+  },
+  "kkfQaB": {
+    "string": "チャージ金額を入力してください"
+  },
+  "qGoxr9": {
+    "string": "出金確認"
+  },
+  "rOypUK": {
+    "string": "リチャージを確認"
+  },
+  "uNcXhA": {
+    "string": "充電中"
+  },
+  "xC3j3e": {
+    "string": "すべて撤回"
+  },
+  "yjgWcm": {
+    "string": "《LeaderCoin利用規約》"
   }
 }

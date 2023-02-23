@@ -209,9 +209,6 @@
   "5qldgM": {
     "string": "뒷면을 선택하십시오"
   },
-  "5zfR27": {
-    "string": "판매용"
-  },
   "63r2yf": {
     "string": "비밀번호를 입력하십시오"
   },
@@ -859,9 +856,6 @@
   },
   "R0bpcH": {
     "string": "당신은 아직 광고를 하지 않았다.～"
-  },
-  "R3Xfcn": {
-    "string": "질권으로 발생한 이자"
   },
   "R4Ww2H": {
     "string": "계좌"
@@ -1550,9 +1544,6 @@
   "q+on8I": {
     "string": "바인딩 성공"
   },
-  "qGoxr9": {
-    "string": "판매 확인"
-  },
   "qNUf+q": {
     "string": "주문 트랜잭션 기록 추적"
   },
@@ -1826,9 +1817,6 @@
   "/ErIar": {
     "string": "거래"
   },
-  "27fLgJ": {
-    "string": "비용"
-  },
   "4hv39Z": {
     "string": "방향"
   },
@@ -2011,5 +1999,110 @@
   },
   "misXZU": {
     "string": "데피 존"
+  },
+  "0vOXLz": {
+    "string": "철회"
+  },
+  "CkIqO9": {
+    "string": "잔액 출금"
+  },
+  "HLQK6J": {
+    "string": "충전"
+  },
+  "hrMVXB": {
+    "string": "은행 카드 바인딩"
+  },
+  "n4OJbo": {
+    "문자열": "사용 가능(USDT):"
+  },
+  "zM3jHk": {
+    "string": "손익"
+  },
+  "KdeDu2": {
+    "string": "이익 USDT"
+  },
+  "R3Xfcn": {
+    "string": "약정 이자"
+  },
+  "cofepD": {
+    "string": "수량/사용 가능"
+  },
+  "hDf8uN": {
+    "문자열": "통화"
+  },
+  "27fLgJ": {
+    "문자열": "비용"
+  },
+  "/dHiys": {
+    "string": "《LeaderCoin 개인정보 보호정책》"
+  },
+  "/ivoWl": {
+    "string": "보상(LCN)"
+  },
+  "2zDiD2": {
+    "string": "마진은 USDT 출금 또는 충전 광고를 게시하는 데 사용되며 인증 정보를 제출하는 즉시 자산 잔액에서 인증 정보가 동결됩니다."
+  },
+  "4otO1b": {
+    "string": "철회"
+  },
+  "5zfR27": {
+    "string": "철회"
+  },
+  "6bJivJ": {
+    "string": "USDT 충전"
+  },
+  "BLzd0M": {
+    "string": "USDT 출금"
+  },
+  "Eqmzsx": {
+    "string": "0 수수료 재충전"
+  },
+  "IrxrMw": {
+    "string": "이익"
+  },
+  "QZvy6E": {
+    "string": "수량(LCN)"
+  },
+  "QZzPNv": {
+    "string": "총 자산(LCN)"
+  },
+  "VC4lRg": {
+    "string": "현재 최소 인출 가격"
+  },
+  "조비예": {
+    "string": "출금 금액"
+  },
+  "dNYJcI": {
+    "string": "0 수수료 출금"
+  },
+  "f/UqCh": {
+    "string": "출금 금액을 입력하세요"
+  },
+  "hFmEHr": {
+    "string": "총 커뮤니티 보상(LCN)"
+  },
+  "iBG8Hb": {
+    "string": "TVC를 얻는 방법 보기"
+  },
+  "kOFx5M": {
+    "string": "USDT를 인출할 때 시스템은 잔액 계정에서 자금의 이 부분을 동결합니다."
+  },
+  "kkfQaB": {
+    "string": "충전 금액을 입력하세요."
+  },
+  "qGoxr9": {
+    "string": "철회 확인"
+  },
+  "rOypUK": {
+    "string": "충전 확인"
+  },
+  "uNcXhA": {
+    "string": "충전 중"
+  },
+  "xC3j3e": {
+    "string": "모두 출금"
+  },
+  "yjgWcm": {
+    "string": "《LeaderCoin 사용자 계약》"
   }
 }

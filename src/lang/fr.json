@@ -209,9 +209,6 @@
   "5qldgM": {
     "string": "Sélectionnez le verso"
   },
-  "5zfR27": {
-    "string": "Vendez"
-  },
   "63r2yf": {
     "string": "Veuillez entrer votre mot de passe"
   },
@@ -859,9 +856,6 @@
   },
   "R0bpcH": {
     "string": "Vous n'avez pas encore publié d'annonce～"
-  },
-  "R3Xfcn": {
-    "string": "Intérêts sur les gages"
   },
   "R4Ww2H": {
     "string": "Compte"
@@ -1550,9 +1544,6 @@
   "q+on8I": {
     "string": "Reliure réussie"
   },
-  "qGoxr9": {
-    "string": "Vente confirmée"
-  },
   "qNUf+q": {
     "string": "Historique des commandes"
   },
@@ -1826,9 +1817,6 @@
   "/ErIar": {
     "string": "Transaction"
   },
-  "27fLgJ": {
-    "string": "Coût"
-  },
   "4hv39Z": {
     "string": "direction"
   },
@@ -2004,5 +1992,110 @@
 
   "misXZU": {
     "string": "Zone de définition"
+  },
+  "0vOXLz": {
+    "string": "Retirer"
+  },
+  "CkIqO9": {
+    "string": "Retrait du solde"
+  },
+  "HLQK6J": {
+    "string": "Recharger"
+  },
+  "hrMVXB": {
+    "string": "Lier la carte bancaire"
+  },
+  "n4OJbo": {
+    "string": "Disponible (USDT) :"
+  },
+  "zM3jHk": {
+    "string": "Profits et pertes"
+  },
+  "KdeDu2": {
+    "string": "Bénéfice USDT"
+  },
+  "R3Xfcn": {
+    "string": "Intérêts en gage"
+  },
+  "cofepD": {
+    "string": "Quantité/Disponible"
+  },
+  "hDf8uN": {
+    "string": "Devise"
+  },
+  "27fLgJ": {
+    "string": "Coût"
+  },
+  "/dHiys": {
+    "string": "《Politique de confidentialité de LeaderCoin》"
+  },
+  "/ivoWl": {
+    "string": "Récompense (LCN)"
+  },
+  "2zDiD2": {
+    "string": "La marge est utilisée pour publier la publicité de retrait ou de recharge de l'USDT, et les informations d'authentification seront gelées du solde de l'actif immédiatement après la soumission des informations d'authentification."
+  },
+  "4otO1b": {
+    "string": "retrait"
+  },
+  "5zfR27": {
+    "string": "Retirer"
+  },
+  "6bJivJ": {
+    "string": "Recharger USDT"
+  },
+  "BLzd0M": {
+    "string": "Retirer USDT"
+  },
+  "Eqmzsx": {
+    "string": "recharge sans frais"
+  },
+  "IrxrMw": {
+    "string": "Bénéfice"
+  },
+  "QZvy6E": {
+    "string": "Quantité (LCN)"
+  },
+  "QZzPNv": {
+    "string": "Actif total (LCN)"
+  },
+  "VC4lRg": {
+    "string": "Prix de retrait minimum actuel"
+  },
+  "ZoBIyE": {
+    "string": "montant du retrait"
+  },
+  "dNYJcI": {
+    "string": "retrait sans frais"
+  },
+  "f/UqCh": {
+    "string": "Veuillez entrer le montant du retrait"
+  },
+  "hFmEHr": {
+    "string": "Récompenses totales de la communauté (LCN)"
+  },
+  "iBG8Hb": {
+    "string": "Voir comment obtenir TVC"
+  },
+  "kOFx5M": {
+    "string": "Lors du retrait d'USDT, le système gèlera cette partie des fonds du compte de solde"
+  },
+  "kkfQaB": {
+    "string": "Veuillez saisir le montant de la recharge"
+  },
+  "qGoxr9": {
+    "string": "Confirmer le retrait"
+  },
+  "rOypUK": {
+    "string": "Confirmer la recharge"
+  },
+  "uNcXhA": {
+    "string": "Rechargement"
+  },
+  "xC3j3e": {
+    "string": "Tout retirer"
+  },
+  "yjgWcm": {
+    "string": "《Condition d'utilisation de LeaderCoin》"
   }
 }
