@@ -5,6 +5,17 @@ info:
 servers:
   - url: http://api.piglobalexchanges.com
 paths:
+  /otc/payment/findPaymentOptionList.do:
+    post:
+      operationId: 'findPaymentOptionList'
+
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FindPaymentOptionListResponse'
   /home/config.do:
     post:
       operationId: 'homeConfig'
@@ -2135,6 +2146,27 @@ paths:
 
 components:
   schemas:
+    FindPaymentOptionListResponse:
+      allOf:
+        - $ref: '#/components/schemas/CommonResponse'
+        - properties:
+            data:
+              type: object
+              properties:
+                paymentOptionList:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      paymentId:
+                        type: string
+                      receiptLogo:
+                        type: string
+                      receiptType:
+                        type: string
+                      receiptTypeValue:
+                        type: string
+
     SearchResultListItem:
       type: object
       properties:

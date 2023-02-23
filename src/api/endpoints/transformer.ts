@@ -14,6 +14,7 @@ import type {
   QueryKey,
 } from '@tanstack/react-query';
 import type {
+  FindPaymentOptionListResponse,
   CommonResponse,
   SetPayPass200,
   SetPayPassBody,
@@ -144,6 +145,44 @@ import type {
 } from '../model';
 import { customInstance } from '../mutator/custom-instance';
 import type { ErrorType } from '../mutator/custom-instance';
+
+export const findPaymentOptionList = () => {
+  return customInstance<FindPaymentOptionListResponse>({
+    url: `/otc/payment/findPaymentOptionList.do`,
+    method: 'post',
+  });
+};
+
+export const getFindPaymentOptionListQueryKey = () => [`/otc/payment/findPaymentOptionList.do`];
+
+export type FindPaymentOptionListQueryResult = NonNullable<
+  Awaited<ReturnType<typeof findPaymentOptionList>>
+>;
+export type FindPaymentOptionListQueryError = ErrorType<unknown>;
+
+export const useFindPaymentOptionList = <
+  TData = Awaited<ReturnType<typeof findPaymentOptionList>>,
+  TError = ErrorType<unknown>,
+>(options?: {
+  query?: UseQueryOptions<Awaited<ReturnType<typeof findPaymentOptionList>>, TError, TData>;
+}): UseQueryResult<TData, TError> & { queryKey: QueryKey } => {
+  const { query: queryOptions } = options ?? {};
+
+  const queryKey = queryOptions?.queryKey ?? getFindPaymentOptionListQueryKey();
+
+  const queryFn: QueryFunction<Awaited<ReturnType<typeof findPaymentOptionList>>> = () =>
+    findPaymentOptionList();
+
+  const query = useQuery<Awaited<ReturnType<typeof findPaymentOptionList>>, TError, TData>({
+    queryKey,
+    queryFn,
+    ...queryOptions,
+  }) as UseQueryResult<TData, TError> & { queryKey: QueryKey };
+
+  query.queryKey = queryKey;
+
+  return query;
+};
 
 /**
  * 設置交易密碼
