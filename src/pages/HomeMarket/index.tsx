@@ -1,5 +1,6 @@
 import { NavBar, Swiper, SwiperRef, Tabs } from 'antd-mobile';
 import { SearchOutline } from 'antd-mobile-icons';
+import { stringify } from 'query-string';
 import { useMemo, useRef } from 'react';
 import { useIntl } from 'react-intl';
 import { Link } from 'react-router-dom';
@@ -44,7 +45,12 @@ const HomeMarket = () => {
         back={null}
         right={
           <div className="flex justify-end">
-            <Link to="/search-coin">
+            <Link
+              to={{
+                pathname: '/search-coin',
+                search: stringify({ accountType: currentTab.tab }),
+              }}
+            >
               <SearchOutline fontSize={16} />
             </Link>
           </div>
@@ -55,7 +61,7 @@ const HomeMarket = () => {
 
       <Tabs
         className="flex items-center justify-center"
-        activeKey={tabItems[activeIndex].key}
+        activeKey={currentTab.key}
         onChange={(key) => {
           const index = Number(key);
           setActiveIndex(index, 'replaceIn');
