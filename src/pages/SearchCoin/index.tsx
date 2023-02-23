@@ -3,9 +3,10 @@ import produce from 'immer';
 import { useAtom } from 'jotai';
 import { atomWithStorage } from 'jotai/utils';
 import { stringify } from 'query-string';
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import { useIntl } from 'react-intl';
 import { useHistory } from 'react-router-dom';
+import { StringParam, useQueryParam, withDefault } from 'use-query-params';
 import { useSearchCoin } from '../../api/endpoints/transformer';
 import { SearchResultListItem } from '../../api/model';
 import Screen from '../../components/Screen';
@@ -18,8 +19,10 @@ export const searchCoinHistoryAtom = atomWithStorage<SearchResultListItem[]>(
 const SearchCoin = () => {
   const intl = useIntl();
   const [value, setValue] = useState<string>('');
+
+  const [accountType] = useQueryParam('accountType', withDefault(StringParam, ''));
   const { data } = useSearchCoin(
-    { symbol: value },
+    { symbol: value, accountType },
     {
       query: {
         enabled: !!value,
@@ -29,6 +32,16 @@ const SearchCoin = () => {
   const history = useHistory();
 
   const [searchCoinHistory, setSearchCoinHistory] = useAtom(searchCoinHistoryAtom);
+
+  const goMarketPage = useCallback(
+    (symbol?: string) => {
+      history.push({
+        pathname: accountType === 'spot' ? '/market2' : '/market',
+        search: stringify({ symbol: symbol, isLever: 1, accountType }),
+      });
+    },
+    [accountType, history],
+  );
 
   return (
     <Screen>
@@ -49,10 +62,8 @@ const SearchCoin = () => {
                     draft.unshift(v);
                   }),
                 );
-                history.push({
-                  pathname: '/market',
-                  search: stringify({ symbol: v.symbol, isLever: 1, accountType: '' }),
-                });
+
+                goMarketPage(v.symbol);
               }}
             >
               <div>
@@ -82,10 +93,7 @@ const SearchCoin = () => {
             <List.Item
               key={i}
               onClick={() => {
-                history.push({
-                  pathname: '/market',
-                  search: stringify({ symbol: v.symbol, isLever: 1, accountType: '' }),
-                });
+                goMarketPage(v.symbol);
               }}
             >
               <div>
