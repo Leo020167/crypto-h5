@@ -3,7 +3,7 @@
     "string": "Currency"
   },
   "X3UAMm": {
-    "string": "consume LCN:"
+    "string": "consume TVC:"
   },
   "ndT7z1": {
     "string": "Annualized income"
@@ -102,7 +102,7 @@
     "string": "Whether to subscribe to this user？"
   },
   "20MJBj": {
-    "string": "LCN"
+    "string": "TVC"
   },
   "297aFF": {
     "string": "Margin Ratio"
@@ -189,7 +189,7 @@
     "string": "close a position"
   },
   "4ivSMB": {
-    "string": "Total Assets(LCN)"
+    "string": "Total Assets(TVC)"
   },
   "56o47p": {
     "string": "Mailbox Verification Code"
@@ -534,7 +534,7 @@
     "string": "Appeal message (optional)"
   },
   "GKRXXt": {
-    "string": "obtain LCN"
+    "string": "obtain TVC"
   },
   "GO/P/E": {
     "string": "Add the withdrawal currency address"
@@ -621,7 +621,7 @@
     "string": "Legal tender purchases"
   },
   "JVHhgb": {
-    "string": "《LeaderCoin User Agreement》"
+    "string": "《TradingView User Agreement》"
   },
   "JYhyDW": {
     "string": "Stayed for {days} days"
@@ -726,7 +726,7 @@
     "string": "Please enter the password again"
   },
   "MQKv1T": {
-    "string": "Community Total Reward(LCN)"
+    "string": "Community Total Reward(TVC)"
   },
   "MTyrlB": {
     "string": "The secret must be 8-16-bit words, letters combination"
@@ -771,7 +771,7 @@
     "string": "please input your mailbox"
   },
   "NdxUVx": {
-    "string": "Check how to get LCN"
+    "string": "Check how to get TVC"
   },
   "NlcysC": {
     "string": "Please enter the mailbox number"
@@ -1083,7 +1083,7 @@
     "string": "Available Balance"
   },
   "XR6wlA": {
-    "string": "《LeaderCoin Privacy Policy》"
+    "string": "《TradingView Privacy Policy》"
   },
   "XWzDpA": {
     "string": "I have paid success"
@@ -1146,7 +1146,7 @@
     "string": "Only allow recharge"
   },
   "aD/9at": {
-    "string": "quantity(LCN)"
+    "string": "quantity(TVC)"
   },
   "aOp/5l": {
     "string": "If the real name cannot be applied for merchant certification, please submit a business certification application after the real -name authentication."
@@ -1341,7 +1341,7 @@
     "string": "Financial record"
   },
   "guM4xe": {
-    "string": "Consume LCN:"
+    "string": "Consume TVC:"
   },
   "gx0XBL": {
     "string": "Subscribe"
@@ -1549,9 +1549,6 @@
   },
   "q+on8I": {
     "string": "Binding Success"
-  },
-  "qGoxr9": {
-    "string": "Confirm Sale"
   },
   "qNUf+q": {
     "string": "Follow the order transaction history"
@@ -1812,7 +1809,7 @@
     "string": "Quantity received"
   },
   "zqkaAr": {
-    "string": "reward(LCN)"
+    "string": "reward(TVC)"
   },
   "zv2r2Q": {
     "string": "Subscribe"
@@ -1825,9 +1822,6 @@
   },
   "/ErIar": {
     "string": "Transaction"
-  },
-  "27fLgJ": {
-    "string": "Cost"
   },
   "4hv39Z": {
     "string": "direction"
@@ -1998,9 +1992,108 @@
     "string": "Daily Earnings"
   },
   "Hh3rHP": {
-    "string": "Get LCN"
+    "string": "Get TVC"
   },
   "misXZU": {
     "string": "Defi zone"
+  },
+  "0vOXLz": {
+    "string": "Withdraw"
+  },
+  "CkIqO9": {
+    "string": "Balance withdrawal"
+  },
+  "HLQK6J": {
+    "string": "Recharge"
+  },
+  "hrMVXB": {
+    "string": "Bind bank card"
+  },
+  "n4OJbo": {
+    "string": "Available (USDT):"
+  },
+  "zM3jHk": {
+    "string": "Profit and Loss"
+  },
+  "KdeDu2": {
+    "string": "Profit USDT"
+  },
+  "cofepD": {
+    "string": "Quantity/Available"
+  },
+  "hDf8uN": {
+    "string": "Currency"
+  },
+  "27fLgJ": {
+    "string": "Cost"
+  },
+  "/dHiys": {
+    "string": "《LeaderCoin Privacy Policy》"
+  },
+  "/ivoWl": {
+    "string": "Reward (LCN)"
+  },
+  "2zDiD2": {
+    "string": "The margin is used to publish the withdrawal or recharge USDT advertisement, and the authentication information will be frozen from the asset balance immediately after submitting the authentication information."
+  },
+  "4otO1b": {
+    "string": "withdrawing"
+  },
+  "6bJivJ": {
+    "string": "Recharge USDT"
+  },
+  "BLzd0M": {
+    "string": "Withdraw USDT"
+  },
+  "Eqmzsx": {
+    "string": "0 fee recharge"
+  },
+  "IrxrMw": {
+    "string": "Profit"
+  },
+  "QZvy6E": {
+    "string": "Quantity (LCN)"
+  },
+  "QZzPNv": {
+    "string": "Total assets (LCN)"
+  },
+  "VC4lRg": {
+    "string": "Current minimum withdrawal price"
+  },
+  "ZoBIyE": {
+    "string": "withdrawal amount"
+  },
+  "dNYJcI": {
+    "string": "0 fee withdrawal"
+  },
+  "f/UqCh": {
+    "string": "Please enter the withdrawal amount"
+  },
+  "hFmEHr": {
+    "string": "Total Community Rewards (LCN)"
+  },
+  "iBG8Hb": {
+    "string": "See how to get TVC"
+  },
+  "kOFx5M": {
+    "string": "When withdrawing USDT, the system will freeze this part of the funds from the balance account"
+  },
+  "kkfQaB": {
+    "string": "Please enter the recharge amount"
+  },
+  "qGoxr9": {
+    "string": "Confirm Withdrawal"
+  },
+  "rOypUK": {
+    "string": "Confirm recharge"
+  },
+  "uNcXhA": {
+    "string": "Recharging"
+  },
+  "xC3j3e": {
+    "string": "Withdraw all"
+  },
+  "yjgWcm": {
+    "string": "《LeaderCoin User Agreement》"
   }
 }

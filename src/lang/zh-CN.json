@@ -1,9 +1,12 @@
 {
-  "Ie9Vi3": {
-    "string": "请输入邀请码(必填)"
+  "i0bc3f": {
+    "string": "币种"
   },
-  "X5/jXG": {
-    "string": "邀请码不能为空"
+  "X3UAMm": {
+    "string": "消耗 TVC:"
+  },
+  "ndT7z1": {
+    "string": "年化收益"
   },
   "+2zznO": {
     "string": "请输入短信验证码"
@@ -99,7 +102,7 @@
     "string": "是否订閲该用户？"
   },
   "20MJBj": {
-    "string": "TFU"
+    "string": "TVC"
   },
   "297aFF": {
     "string": "保证金比例"
@@ -186,7 +189,7 @@
     "string": "平仓明细"
   },
   "4ivSMB": {
-    "string": "总资产(TFU)"
+    "string": "总资产(TVC)"
   },
   "56o47p": {
     "string": "邮箱验证码"
@@ -205,9 +208,6 @@
   },
   "5qldgM": {
     "string": "选择反面"
-  },
-  "5zfR27": {
-    "string": "出售"
   },
   "63r2yf": {
     "string": "请输入密码"
@@ -531,7 +531,7 @@
     "string": "申诉留言(可选)"
   },
   "GKRXXt": {
-    "string": "获得FireCoin"
+    "string": "获得TVC"
   },
   "GO/P/E": {
     "string": "添加提币地址"
@@ -615,10 +615,10 @@
     "string": "免费订阅"
   },
   "JI87J/": {
-    "string": "余额提现"
+    "string": "法币购买"
   },
   "JVHhgb": {
-    "string": "《FireUP用户协议》"
+    "string": "《TradingView用户协议》"
   },
   "JYhyDW": {
     "string": "已入住{days}天"
@@ -723,7 +723,7 @@
     "string": "请再次输入密码"
   },
   "MQKv1T": {
-    "string": "社区总奖励(TFU)"
+    "string": "社区总奖励(TVC)"
   },
   "MTyrlB": {
     "string": "密必须是8-16位字、字母组合"
@@ -768,7 +768,7 @@
     "string": "请输入邮箱"
   },
   "NdxUVx": {
-    "string": "查看如何获取TFU"
+    "string": "查看如何获取TVC"
   },
   "NlcysC": {
     "string": "请输入邮箱号"
@@ -857,9 +857,6 @@
   "R0bpcH": {
     "string": "您暂未发布广告～"
   },
-  "R3Xfcn": {
-    "string": "质押生息"
-  },
   "R4Ww2H": {
     "string": "账户"
   },
@@ -942,7 +939,7 @@
     "string": "买家暱称"
   },
   "TsbBR+": {
-    "string": "新币申购"
+    "string": "创新试验区"
   },
   "Tw8y2o": {
     "string": "请输入手数"
@@ -972,7 +969,7 @@
     "string": "上月收益(USDT)"
   },
   "UWUjVA": {
-    "string": "余额提现"
+    "string": "法币买卖"
   },
   "UX7lUm": {
     "string": "跟单机构"
@@ -1080,7 +1077,7 @@
     "string": "可用余额"
   },
   "XR6wlA": {
-    "string": "《FireUp隐私条款》"
+    "string": "《TradingView隐私条款》"
   },
   "XWzDpA": {
     "string": "我已付款成功"
@@ -1143,7 +1140,7 @@
     "string": "只允许充值"
   },
   "aD/9at": {
-    "string": "数量(TFU)"
+    "string": "数量(TVC)"
   },
   "aOp/5l": {
     "string": "未实名不能申请商家认证，请实名认证后，在提交商家认证申请。"
@@ -1338,7 +1335,7 @@
     "string": "财务记录"
   },
   "guM4xe": {
-    "string": "最高倍消耗TFU:"
+    "string": "消耗TVC:"
   },
   "gx0XBL": {
     "string": "订阅"
@@ -1546,9 +1543,6 @@
   },
   "q+on8I": {
     "string": "绑定成功"
-  },
-  "qGoxr9": {
-    "string": "确认出售"
   },
   "qNUf+q": {
     "string": "跟单交易记录"
@@ -1809,7 +1803,7 @@
     "string": "到账数量"
   },
   "zqkaAr": {
-    "string": "奖励(TFU)"
+    "string": "奖励(TVC)"
   },
   "zv2r2Q": {
     "string": "订閲"
@@ -1822,9 +1816,6 @@
   },
   "/ErIar": {
     "string": "交易"
-  },
-  "27fLgJ": {
-    "string": "成本"
   },
   "4hv39Z": {
     "string": "方向"
@@ -1990,5 +1981,121 @@
   },
   "0oAu54": {
     "string": "{second}秒"
+  },
+  "+CV388": {
+    "string": "每日收益"
+  },
+
+  "Hh3rHP": {
+    "string": "获得TVC"
+  },
+
+  "misXZU": {
+    "string": "Defi专区"
+  },
+  "0vOXLz": {
+    "string": "提现"
+  },
+  "CkIqO9": {
+    "string": "余额提现"
+  },
+  "HLQK6J": {
+    "string": "充值"
+  },
+  "hrMVXB": {
+    "string": "绑定银行卡"
+  },
+  "n4OJbo": {
+    "string": "可用(USDT):"
+  },
+  "zM3jHk": {
+    "string": "盈亏"
+  },
+  "KdeDu2": {
+    "string": "盈利USDT"
+  },
+  "R3Xfcn": {
+    "string": "质押生息"
+  },
+  "cofepD": {
+    "string": "数量/可用"
+  },
+  "hDf8uN": {
+    "string": "币种"
+  },
+  "27fLgJ": {
+    "string": "成本"
+  },
+  "/dHiys": {
+    "string": "《LeaderCoin隐私条款》"
+  },
+  "/ivoWl": {
+    "string": "奖励(LCN)"
+  },
+  "2zDiD2": {
+    "string": "保证金用于发布提现或充值USDT广告，提交认证信息即时从资产余额中进行冻结。"
+  },
+  "4otO1b": {
+    "string": "提现中"
+  },
+  "5zfR27": {
+    "string": "提现"
+  },
+  "6bJivJ": {
+    "string": "充值USDT"
+  },
+  "BLzd0M": {
+    "string": "提现USDT"
+  },
+  "Eqmzsx": {
+    "string": "0手续费充值"
+  },
+  "IrxrMw": {
+    "string": "盈利"
+  },
+  "QZvy6E": {
+    "string": "数量(LCN)"
+  },
+  "QZzPNv": {
+    "string": "总资产(LCN)"
+  },
+  "VC4lRg": {
+    "string": "当前提现最低价"
+  },
+  "ZoBIyE": {
+    "string": "提现数量"
+  },
+  "dNYJcI": {
+    "string": "0手续费提现"
+  },
+  "f/UqCh": {
+    "string": "请输入提现数量"
+  },
+  "hFmEHr": {
+    "string": "社区总奖励(LCN)"
+  },
+  "iBG8Hb": {
+    "string": "查看如何获取TVC"
+  },
+  "kOFx5M": {
+    "string": "提现USDT时系统将会从余额账户中冻结该部分资金"
+  },
+  "kkfQaB": {
+    "string": "请输入充值数量"
+  },
+  "qGoxr9": {
+    "string": "确认提现"
+  },
+  "rOypUK": {
+    "string": "确认充值"
+  },
+  "uNcXhA": {
+    "string": "充值中"
+  },
+  "xC3j3e": {
+    "string": "全部提现"
+  },
+  "yjgWcm": {
+    "string": "《LeaderCoin用户协议》"
   }
 }

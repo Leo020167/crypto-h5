@@ -3,7 +3,7 @@
     "string": "Divisa"
   },
   "X3UAMm": {
-    "string": "consumir LCN:"
+    "string": "consumir TVC:"
   },
   "ndT7z1": {
     "string": "Ingreso anualizado"
@@ -102,7 +102,7 @@
     "string": "¿Está suscrito este usuario?"
   },
   "20MJBj": {
-    "string": "LCN"
+    "string": "TVC"
   },
   "297aFF": {
     "string": "Ratio de margen"
@@ -208,9 +208,6 @@
   },
   "5qldgM": {
     "string": "Seleccione el reverso"
-  },
-  "5zfR27": {
-    "string": "Vender"
   },
   "63r2yf": {
     "string": "Introduzca su contraseña"
@@ -534,7 +531,7 @@
     "string": "Mensaje de queja (opcional)"
   },
   "GKRXXt": {
-    "string": "Consigue LCN"
+    "string": "Consigue TVC"
   },
   "GO/P/E": {
     "string": "Añadir dirección de retirada"
@@ -621,7 +618,7 @@
     "string": "Compra en moneda fiduciaria"
   },
   "JVHhgb": {
-    "string": "《Acuerdo de usuario de LeaderCoin》"
+    "string": "《Acuerdo de usuario de TradingView》"
   },
   "JYhyDW": {
     "string": "Estancia{days}días"
@@ -726,7 +723,7 @@
     "string": "Vuelva a introducir su contraseña"
   },
   "MQKv1T": {
-    "string": "Premio comunitario total(LCN)"
+    "string": "Premio comunitario total(TVC)"
   },
   "MTyrlB": {
     "string": "La contraseña debe ser una combinación de - dígitos y letras"
@@ -771,7 +768,7 @@
     "string": "Introduzca su dirección de correo electrónico"
   },
   "NdxUVx": {
-    "string": "Vea cómo conseguir LCN"
+    "string": "Vea cómo conseguir TVC"
   },
   "NlcysC": {
     "string": "Introduzca su código postal"
@@ -859,9 +856,6 @@
   },
   "R0bpcH": {
     "string": "Aún no has publicado ningún anuncio~"
-  },
-  "R3Xfcn": {
-    "string": "Intereses de pignoración"
   },
   "R4Ww2H": {
     "string": "Cuenta"
@@ -1083,7 +1077,7 @@
     "string": "Saldo disponible"
   },
   "XR6wlA": {
-    "string": "《Política de privacidad de LeaderCoin》"
+    "string": "《Política de privacidad de TradingView》"
   },
   "XWzDpA": {
     "string": "He pagado con éxito"
@@ -1146,7 +1140,7 @@
     "string": "Sólo se permiten recargas"
   },
   "aD/9at": {
-    "string": "Cantidad (LCN)"
+    "string": "Cantidad (TVC)"
   },
   "aOp/5l": {
     "string": "No puede solicitar la verificación de comerciante sin un nombre real, por favor verifique su nombre real antes de enviar su solicitud de verificación de comerciante."
@@ -1341,7 +1335,7 @@
     "string": "Historia financiera"
   },
   "guM4xe": {
-    "string": "Consumir LCN:"
+    "string": "Consumir TVC:"
   },
   "gx0XBL": {
     "string": "Suscríbase a"
@@ -1549,9 +1543,6 @@
   },
   "q+on8I": {
     "string": "Encuadernación correcta"
-  },
-  "qGoxr9": {
-    "string": "Venta confirmada"
   },
   "qNUf+q": {
     "string": "Historial de pedidos"
@@ -1812,7 +1803,7 @@
     "string": "Cantidad"
   },
   "zqkaAr": {
-    "string": "Recompensa (LCN)"
+    "string": "Recompensa (TVC)"
   },
   "zv2r2Q": {
     "string": "Pida"
@@ -1825,9 +1816,6 @@
   },
   "/ErIar": {
     "string": "Transacción"
-  },
-  "27fLgJ": {
-    "string": "Costo"
   },
   "4hv39Z": {
     "string": "dirección"
@@ -1999,7 +1987,7 @@
   },
 
   "Hh3rHP": {
-    "string": "Obtener LCN"
+    "string": "Obtener TVC"
   },
 
   "Pqs8N": {
@@ -2008,5 +1996,110 @@
 
   "misXZU": {
     "string": "Zona defi"
+  },
+  "0vOXLz": {
+    "string": "Retirar"
+  },
+  "CkIqO9": {
+    "string": "Retiro de saldo"
+  },
+  "HLQK6J": {
+    "string": "Recargar"
+  },
+  "hrMVXB": {
+    "string": "Enlazar tarjeta bancaria"
+  },
+  "n4OJbo": {
+    "string": "Disponible (USDT):"
+  },
+  "zM3jHk": {
+    "string": "Pérdidas y ganancias"
+  },
+  "KdeDu2": {
+    "string": "Beneficio USDT"
+  },
+  "R3Xfcn": {
+    "string": "Prometer interés"
+  },
+  "cofepD": {
+    "string": "Cantidad/Disponible"
+  },
+  "hDf8uN": {
+    "string": "Moneda"
+  },
+  "27fLgJ": {
+    "string": "Costo"
+  },
+  "/dHiys": {
+    "string": "《Política de privacidad de LeaderCoin》"
+  },
+  "/ivoWl": {
+    "string": "Recompensa (LCN)"
+  },
+  "2zDiD2": {
+    "string": "El margen se usa para publicar el anuncio de retiro o recarga de USDT, y la información de autenticación se congelará del saldo de activos inmediatamente después de enviar la información de autenticación"
+  },
+  "4otO1b": {
+    "string": "retirando"
+  },
+  "5zfR27": {
+    "string": "Retirar"
+  },
+  "6bJivJ": {
+    "string": "Recargar USDT"
+  },
+  "BLzd0M": {
+    "string": "Retirar USDT"
+  },
+  "Eqmzsx": {
+    "string": "0 tarifa de recarga"
+  },
+  "IrxrMw": {
+    "string": "Beneficio"
+  },
+  "QZvy6E": {
+    "string": "Cantidad (LCN)"
+  },
+  "QZzPNv": {
+    "string": "Activos totales (LCN)"
+  },
+  "VC4lRg": {
+    "string": "Precio de retiro mínimo actual"
+  },
+  "ZoBIyE": {
+    "string": "cantidad de retiro"
+  },
+  "dNYJcI": {
+    "string": "0 cuota de retiro"
+  },
+  "f/UqCh": {
+    "string": "Por favor ingrese el monto del retiro"
+  },
+  "hFmEHR": {
+    "string": "Recompensas totales de la comunidad (LCN)"
+  },
+  "iBG8Hb": {
+    "string": "Vea cómo obtener TVC"
+  },
+  "kOFx5M": {
+    "string": "Al retirar USDT, el sistema congelará esta parte de los fondos de la cuenta de saldo"
+  },
+  "kkfQaB": {
+    "string": "Por favor ingrese el monto de la recarga"
+  },
+  "qGoxr9": {
+    "string": "Confirmar retiro"
+  },
+  "rOypUK": {
+    "string": "Confirmar recarga"
+  },
+  "uNcXhA": {
+    "string": "Recargando"
+  },
+  "xC3j3e": {
+    "string": "Retirar todo"
+  },
+  "yjgWcm": {
+    "string": "《Acuerdo de usuario de LeaderCoin》"
   }
 }
