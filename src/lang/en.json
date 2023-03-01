@@ -504,7 +504,7 @@
     "string": "Please select the payout currency address"
   },
   "EmziDl": {
-    "string": "Minimum top-up amount(USDT)"
+    "string": "Minimum top-up amount({symbol})"
   },
   "FLp81s": {
     "string": "Purchase"
@@ -1593,7 +1593,7 @@
     "string": "Parameter Error"
   },
   "rv8bFi": {
-    "string": "Available Balance(USDT)"
+    "string": "Available Balance({symbol})"
   },
   "s/KbuC": {
     "string": "Quantity USDT"

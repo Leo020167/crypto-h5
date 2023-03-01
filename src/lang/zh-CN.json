@@ -504,7 +504,7 @@
     "string": "请选择提币地址"
   },
   "EmziDl": {
-    "string": "最小充值金额(USDT)"
+    "string": "最小充值金额({symbol})"
   },
   "FLp81s": {
     "string": "申购"
@@ -1593,7 +1593,7 @@
     "string": "参数错误"
   },
   "rv8bFi": {
-    "string": "可用余额(USDT)"
+    "string": "可用余额({symbol})"
   },
   "s/KbuC": {
     "string": "数量 USDT"

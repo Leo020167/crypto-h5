@@ -504,7 +504,7 @@
     "string": "Veuillez sélectionner une adresse de retrait"
   },
   "EmziDl": {
-    "string": "Montant minimum de la recharge (USDT)"
+    "string": "Montant minimum de la recharge ({symbol})"
   },
   "FLp81s": {
     "string": "Commandez"
@@ -1593,7 +1593,7 @@
     "string": "Erreur de paramètre"
   },
   "rv8bFi": {
-    "string": "Solde disponible(USDT)"
+    "string": "Solde disponible({symbol})"
   },
   "s/KbuC": {
     "string": "Quantité USDT"

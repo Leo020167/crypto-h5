@@ -504,7 +504,7 @@
     "string": "Seleccione una dirección de retirada"
   },
   "EmziDl": {
-    "string": "Importe mínimo de recarga (USDT)"
+    "string": "Importe mínimo de recarga ({symbol})"
   },
   "FLp81s": {
     "string": "Pida"
@@ -1593,7 +1593,7 @@
     "string": "Error de parámetro"
   },
   "rv8bFi": {
-    "string": "Saldo disponible(USDT)"
+    "string": "Saldo disponible({symbol})"
   },
   "s/KbuC": {
     "string": "Cantidad USDT"
