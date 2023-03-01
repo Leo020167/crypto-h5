@@ -38,7 +38,7 @@ const TransactionRecords = () => {
   const swiperRef = useRef<SwiperRef>(null);
 
   const [symbol, setSymbol] = useState<string>();
-  const [orderState, setOrderState] = useState<string[]>([]);
+  const [orderState, setOrderState] = useState<string[]>(['1']);
 
   const [accountType, setAccountType] = useQueryParam('accountType', AccountTypeParam);
   const [activeIndex, setActiveIndex] = useQueryParam('activeIndex', ActiveIndexParam);
