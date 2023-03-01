@@ -5,6 +5,7 @@ import { useIntl } from 'react-intl';
 import { useHistory } from 'react-router-dom';
 import { useCounter, useInterval } from 'react-use';
 import styled from 'styled-components';
+import { NumberParam, useQueryParam, withDefault } from 'use-query-params';
 import { useSmsGet } from '../../api/endpoints/transformer';
 import AreaList from '../../components/AreaList';
 import useCountry from '../../hooks/useCountry';
@@ -15,6 +16,8 @@ import { validPassword } from '../../utils/validation';
 
 const ResetPassword = () => {
   const history = useHistory();
+
+  const [email, setEmail] = useQueryParam('email', withDefault(NumberParam, 0));
 
   const [country, setCountry] = useCountry();
 
@@ -97,32 +100,57 @@ const ResetPassword = () => {
             });
           }}
           footer={
-            <div>
-              <Button block type="submit" color="primary" className="rounded-none mt-8 ">
+            <div className="text-center">
+              <Button block type="submit" color="primary" className="rounded-none mt-8">
                 {intl.formatMessage({ defaultMessage: '完成', id: 'uHUP9v' })}
               </Button>
+              {!email && (
+                <div className="mt-2">
+                  <a
+                    onClick={() => {
+                      setEmail(1, 'pushIn');
+                    }}
+                  >
+                    {intl.formatMessage({ defaultMessage: '通过邮箱重置', id: 'SUWki6' })}
+                  </a>
+                </div>
+              )}
             </div>
           }
         >
-          <div className="mt-6 mb-2 locale pl-2 flex items-center" onClick={() => setOpen(true)}>
-            {country.name}
-            <DownFill fontSize={7} className="ml-1" color="#c0c0c0" />
-          </div>
+          {!email && (
+            <div className="mt-6 mb-2 locale pl-2 flex items-center" onClick={() => setOpen(true)}>
+              {country.name}
+              <DownFill fontSize={7} className="ml-1" color="#c0c0c0" />
+            </div>
+          )}
 
-          <Form.Item
-            name="phone"
-            label={
-              <div className="pl-2 flex items-center justify-center" onClick={() => setOpen(true)}>
-                {country.code} <DownFill fontSize={7} className="ml-1" color="#c0c0c0" />
-              </div>
-            }
-            className="phone"
-          >
-            <Input
-              placeholder={intl.formatMessage({ defaultMessage: '请输入手机号码', id: 'ejs0A3' })}
-              onChange={setPhone}
-            />
-          </Form.Item>
+          {email ? (
+            <Form.Item name="phone">
+              <Input
+                placeholder={intl.formatMessage({ defaultMessage: '请输入邮箱', id: 'fxYWiK' })}
+                onChange={setPhone}
+              />
+            </Form.Item>
+          ) : (
+            <Form.Item
+              name="phone"
+              label={
+                <div
+                  className="pl-2 flex items-center justify-center"
+                  onClick={() => setOpen(true)}
+                >
+                  {country.code} <DownFill fontSize={7} className="ml-1" color="#c0c0c0" />
+                </div>
+              }
+              className="phone"
+            >
+              <Input
+                placeholder={intl.formatMessage({ defaultMessage: '请输入手机号码', id: 'ejs0A3' })}
+                onChange={setPhone}
+              />
+            </Form.Item>
+          )}
 
           <Form.Item
             extra={

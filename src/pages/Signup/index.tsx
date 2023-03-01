@@ -90,7 +90,7 @@ const Signup = () => {
                   </a>
                   {intl.formatMessage({ defaultMessage: '和', id: 's9xFxt' })}
                   <a href="" target="_blank" className="text-[#6277b0]">
-                    {intl.formatMessage({ defaultMessage: '《FireUp隐私条款》', id: 'XR6wlA' })}
+                    {intl.formatMessage({ defaultMessage: '《Encrypted隐私条款》', id: '58jbdG' })}
                   </a>
                 </div>
               )}
