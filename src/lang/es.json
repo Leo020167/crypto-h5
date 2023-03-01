@@ -503,7 +503,7 @@
   "EZtA6l": {
     "string": "Seleccione una dirección de retirada"
   },
-  "EmziDl": {
+  "k5HUdW": {
     "string": "Importe mínimo de recarga ({symbol})"
   },
   "FLp81s": {
@@ -1073,9 +1073,6 @@
   "XNQjr/": {
     "string": "Número de transacciones"
   },
-  "XNz8uP": {
-    "string": "Saldo disponible"
-  },
   "XR6wlA": {
     "string": "《Política de privacidad de TradingView》"
   },
@@ -1586,8 +1583,8 @@
   "rpJLsF": {
     "string": "Error de parámetro"
   },
-  "rv8bFi": {
-    "string": "Saldo disponible(USDT)"
+  "p4Oi3U": {
+    "string": "Saldo disponible({symbol})"
   },
   "s/KbuC": {
     "string": "Cantidad USDT"

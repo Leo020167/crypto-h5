@@ -503,7 +503,7 @@
   "EZtA6l": {
     "string": "지불 통화 주소를 선택하십시오"
   },
-  "EmziDl": {
+  "k5HUdW": {
     "string": "최소 상위 업 금액({symbol})"
   },
   "FLp81s": {
@@ -1073,9 +1073,6 @@
   "XNQjr/": {
     "string": "거래건수"
   },
-  "XNz8uP": {
-    "string": "사용 가능한 잔액"
-  },
   "XR6wlA": {
     "string": "《TradingView 개인 정보 보호 정책》"
   },
@@ -1586,8 +1583,8 @@
   "rpJLsF": {
     "string": "매개 변수 오류"
   },
-  "rv8bFi": {
-    "string": "사용 가능한 잔액(USDT)"
+  "p4Oi3U": {
+    "string": "사용 가능한 잔액({symbol})"
   },
   "s/KbuC": {
     "string": "양 USDT"
