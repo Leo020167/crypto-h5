@@ -1,18 +1,17 @@
 import { Button, Form, Input, NavBar, Toast } from 'antd-mobile';
 import { EyeInvisibleOutline, EyeOutline } from 'antd-mobile-icons';
+import { useAtom } from 'jotai';
 import md5 from 'js-md5';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useIntl } from 'react-intl';
 import { Link, useHistory } from 'react-router-dom';
 import { useLocation } from 'react-use';
 import styled from 'styled-components';
+import { usernamePasswordAtom } from '../../atoms';
 import { useAuthStore } from '../../stores/auth';
 
 const Login = () => {
   const [visible, setVisible] = useState(false);
-
-  const [username, setUsername] = useState<string>('');
-  const [password, setPassword] = useState<string>('');
 
   const history = useHistory();
 
@@ -23,6 +22,16 @@ const Login = () => {
   const authStore = useAuthStore();
 
   const intl = useIntl();
+
+  const [usernamePassword, setUsernamePassword] = useAtom(usernamePasswordAtom);
+
+  const [form] = Form.useForm();
+
+  useEffect(() => {
+    if (usernamePassword) {
+      form.setFieldsValue(usernamePassword);
+    }
+  }, []);
 
   return (
     <div className="bg-white">
@@ -43,7 +52,8 @@ const Login = () => {
           </h1>
           <div>
             <Form
-              onFinish={() => {
+              form={form}
+              onFinish={({ username, password }) => {
                 setLoading(true);
                 const isEmail =
                   /^\w+((.\w+)|(-\w+))@[A-Za-z0-9]+((.|-)[A-Za-z0-9]+).[A-Za-z0-9]+$/.test(
@@ -62,7 +72,9 @@ const Login = () => {
                   .then(async (data) => {
                     if (data.code === '200') {
                       history.replace(from);
+                      setUsernamePassword({ username, password });
                     } else {
+                      setUsernamePassword(undefined);
                       Toast.show(data.msg);
                     }
                   })
@@ -90,7 +102,6 @@ const Login = () => {
               <Form.Item name="username">
                 <Input
                   placeholder={intl.formatMessage({ defaultMessage: '郵箱或手機', id: 'DNlbBz' })}
-                  onChange={setUsername}
                 />
               </Form.Item>
               <Form.Item name="password">
@@ -99,7 +110,6 @@ const Login = () => {
                     className="input"
                     placeholder={intl.formatMessage({ defaultMessage: '請輸入密碼', id: '63r2yf' })}
                     type={visible ? 'text' : 'password'}
-                    onChange={setPassword}
                   />
                   <div className="eye">
                     {!visible ? (

@@ -19,3 +19,7 @@ export const refreshRateAtom = atomWithStorage<number>('refresh-rate', 2);
 export const switchColorValueAtom = atomWithStorage<string>('switch-color-value', '1');
 export const marketPeriodAtom = atomWithStorage<string>('market-period-value', 'min1');
 export const reportAtom = atomWithStorage<string>('report', '');
+
+export const usernamePasswordAtom = atomWithStorage<
+  { username: string; password: string } | undefined
+>('username-password', undefined);

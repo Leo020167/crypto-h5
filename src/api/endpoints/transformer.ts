@@ -14,11 +14,12 @@ import type {
   QueryKey,
 } from '@tanstack/react-query';
 import type {
-  CommonResponse,
+  HomeConfig200,
   SetPayPass200,
   SetPayPassBody,
   SearchCoinResponse,
   SearchCoinBody,
+  CommonResponse,
   ApplySubscribeBody,
   GetSubscribeListResponse,
   GetSubscribeDetailResponse,
@@ -145,11 +146,8 @@ import type {
 import { customInstance } from '../mutator/custom-instance';
 import type { ErrorType } from '../mutator/custom-instance';
 
-/**
- * 設置交易密碼
- */
 export const homeConfig = () => {
-  return customInstance<CommonResponse>({ url: `/home/config.do`, method: 'post' });
+  return customInstance<HomeConfig200>({ url: `/home/config.do`, method: 'post' });
 };
 
 export const getHomeConfigQueryKey = () => [`/home/config.do`];

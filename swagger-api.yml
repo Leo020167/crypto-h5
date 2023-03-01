@@ -8,7 +8,7 @@ paths:
   /home/config.do:
     post:
       operationId: 'homeConfig'
-      description: '設置交易密碼'
+      description: ''
 
       responses:
         '200':
@@ -16,7 +16,18 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/CommonResponse'
+                allOf:
+                  - $ref: '#/components/schemas/CommonResponse'
+                  - properties:
+                      data:
+                        type: object
+                        properties:
+                          banner:
+                            type: array
+                            items:
+                              $ref: '#/components/schemas/Banner'
+                          downloadUrl:
+                            type: string
 
   /user/security/setPayPass.do:
     post:

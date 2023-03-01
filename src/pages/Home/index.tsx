@@ -28,8 +28,6 @@ const Home = () => {
 
   const { userInfo } = useAuthStore();
 
-  const { data: homeAccount } = useHomeAccount();
-
   const { data: homeCropMe } = useHomeCropMe();
 
   const { data: homeConfig } = useHomeConfig();
@@ -92,7 +90,7 @@ const Home = () => {
 
       <div className="mt-3 shadow-md shadow-black/5 bg-white rounded-lg overflow-hidden h-[150px]">
         <Swiper autoplay loop>
-          {homeAccount?.data?.banner?.map((v) => (
+          {homeConfig?.data?.banner?.map((v) => (
             <Swiper.Item key={v.bannerId} className=" ">
               <div className="h-[150px] flex flex-col">
                 <img alt="" src={v.imageUrl} className="w-full h-full" />
@@ -114,9 +112,7 @@ const Home = () => {
           {homeCropMe?.data?.noticeList?.map((v) => (
             <Swiper.Item key={v.articleId}>
               <div className="flex items-center h-12 px-2">
-                <a href={v.url} target="__blank" className="truncate">
-                  {v.title}
-                </a>
+                <span className="truncate">{v.title}</span>
               </div>
             </Swiper.Item>
           ))}
