@@ -80,7 +80,7 @@ const Pledge = () => {
                 <div className="text-[#A2A9BC] text-xs">
                   {intl.formatMessage({ defaultMessage: '年化收益', id: 'jwVke8' })}
                 </div>
-                <div className="text-[#3E4660] text-base">{v.profitRate}</div>
+                <div className="text-[#3E4660] text-base">{v.profitRate}%</div>
               </Grid.Item>
             </Grid>
 
