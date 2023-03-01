@@ -72,7 +72,7 @@ const PledgeRecords = ({ records = [] }: { records?: PledgeRecord[] }) => {
               <span className="text-[#A2A9BC] text-xs">
                 {intl.formatMessage({ defaultMessage: '纍計收益', id: 'fzPv+C' })}
               </span>
-              <span className="text-[#6175AE] text-xl">{v.preProfit}</span>
+              <span className="text-[#6175AE] text-xl">{v.profit}</span>
             </div>
             <div className="flex flex-col items-end">
               <span className="text-[#A2A9BC] text-xs">
