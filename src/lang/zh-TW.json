@@ -533,8 +533,8 @@
   "EZtA6l": {
     "string": "請選擇提幣地址"
   },
-  "EmziDl": {
-    "string": "最小充值金額(USDT)"
+  "k5HUdW": {
+    "string": "最小充值金額({symbol})"
   },
   "FXys9B": {
     "string": "輸入舊密碼"
@@ -1112,9 +1112,6 @@
   "XNQjr/": {
     "string": "交易次數"
   },
-  "XNz8uP": {
-    "string": "可用餘額"
-  },
   "XR6wlA": {
     "string": "《LeaderCoin隐私条款》"
   },
@@ -1670,8 +1667,8 @@
   "rpJLsF": {
     "string": "參數錯誤"
   },
-  "rv8bFi": {
-    "string": "可用餘額(USDT)"
+  "p4Oi3U": {
+    "string": "可用餘額({symbol})"
   },
   "s/KbuC": {
     "string": "数量 USDT"

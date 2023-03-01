@@ -503,8 +503,8 @@
   "EZtA6l": {
     "string": "支払い通貨の住所を選択してください"
   },
-  "EmziDl": {
-    "string": "最小トップアップ量(USDT)"
+  "k5HUdW": {
+    "string": "最小トップアップ量({symbol})"
   },
   "FLp81s": {
     "string": "購入"
@@ -1073,9 +1073,6 @@
   "XNQjr/": {
     "string": "トランザクション数"
   },
-  "XNz8uP": {
-    "string": "使用可能残高"
-  },
   "XR6wlA": {
     "string": "《TradingViewプライバシーポリシー》"
   },
@@ -1586,8 +1583,8 @@
   "rpJLsF": {
     "string": "パラメータエラー"
   },
-  "rv8bFi": {
-    "string": "使用可能残高(USDT)"
+  "p4Oi3U": {
+    "string": "使用可能残高({symbol})"
   },
   "s/KbuC": {
     "string": "はかるUSDT"

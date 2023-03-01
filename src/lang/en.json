@@ -506,8 +506,8 @@
   "EZtA6l": {
     "string": "Please select the payout currency address"
   },
-  "EmziDl": {
-    "string": "Minimum top-up amount(USDT)"
+  "k5HUdW": {
+    "string": "Minimum top-up amount({symbol})"
   },
   "FLp81s": {
     "string": "Purchase"
@@ -1079,9 +1079,6 @@
   "XNQjr/": {
     "string": "Number of transactions"
   },
-  "XNz8uP": {
-    "string": "Available Balance"
-  },
   "XR6wlA": {
     "string": "《TradingView Privacy Policy》"
   },
@@ -1592,8 +1589,8 @@
   "rpJLsF": {
     "string": "Parameter Error"
   },
-  "rv8bFi": {
-    "string": "Available Balance(USDT)"
+  "p4Oi3U": {
+    "string": "Available Balance({symbol})"
   },
   "s/KbuC": {
     "string": "Quantity USDT"
