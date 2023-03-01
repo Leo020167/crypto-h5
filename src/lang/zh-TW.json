@@ -534,7 +534,7 @@
     "string": "請選擇提幣地址"
   },
   "EmziDl": {
-    "string": "最小充值金額(USDT)"
+    "string": "最小充值金額({symbol})"
   },
   "FXys9B": {
     "string": "輸入舊密碼"

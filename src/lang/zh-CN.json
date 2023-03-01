@@ -504,7 +504,7 @@
     "string": "请选择提币地址"
   },
   "EmziDl": {
-    "string": "最小充值金额(USDT)"
+    "string": "最小充值金额({symbol})"
   },
   "FLp81s": {
     "string": "申购"

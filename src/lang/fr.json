@@ -504,7 +504,7 @@
     "string": "Veuillez sélectionner une adresse de retrait"
   },
   "EmziDl": {
-    "string": "Montant minimum de la recharge (USDT)"
+    "string": "Montant minimum de la recharge ({symbol})"
   },
   "FLp81s": {
     "string": "Commandez"

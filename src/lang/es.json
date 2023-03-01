@@ -504,7 +504,7 @@
     "string": "Seleccione una dirección de retirada"
   },
   "EmziDl": {
-    "string": "Importe mínimo de recarga (USDT)"
+    "string": "Importe mínimo de recarga ({symbol})"
   },
   "FLp81s": {
     "string": "Pida"

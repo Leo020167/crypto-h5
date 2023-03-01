@@ -504,7 +504,7 @@
     "string": "지불 통화 주소를 선택하십시오"
   },
   "EmziDl": {
-    "string": "최소 상위 업 금액(USDT)"
+    "string": "최소 상위 업 금액({symbol})"
   },
   "FLp81s": {
     "string": "구입"

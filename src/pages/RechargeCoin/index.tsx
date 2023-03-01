@@ -87,14 +87,26 @@ const RechargeCoin = () => {
       <Container className="p-4 bg-[#F4F6F4] flex-1 overflow-y-auto">
         <div className="rounded-xl shadow-md shadow-black/5 p-5 bg-white">
           <div className="text-[#A2A9BC] flex items-center justify-between text-sm">
-            <span>{intl.formatMessage({ defaultMessage: '可用餘額(USDT)', id: 'rv8bFi' })}</span>
+            <span>
+              {intl.formatMessage(
+                { defaultMessage: '可用餘額({symbol})', id: 'p4Oi3U' },
+                {
+                  symbol,
+                },
+              )}
+            </span>
             <span className="text-[#3E4660] text-lg">
               {chargeConfigs?.data?.availableAmount ?? '0.00'}
             </span>
           </div>
           <div className="text-[#A2A9BC] flex items-center justify-between text-sm">
             <span>
-              {intl.formatMessage({ defaultMessage: '最小充值金額(USDT)', id: 'EmziDl' })}
+              {intl.formatMessage(
+                { defaultMessage: '最小充值金額({symbol})', id: 'k5HUdW' },
+                {
+                  symbol,
+                },
+              )}
             </span>
             <span className="text-[#00BAB8] text-lg">
               {chargeConfigs?.data?.minChargeAmount ?? '0.00'}

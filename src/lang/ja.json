@@ -504,7 +504,7 @@
     "string": "支払い通貨の住所を選択してください"
   },
   "EmziDl": {
-    "string": "最小トップアップ量(USDT)"
+    "string": "最小トップアップ量({symbol})"
   },
   "FLp81s": {
     "string": "購入"
