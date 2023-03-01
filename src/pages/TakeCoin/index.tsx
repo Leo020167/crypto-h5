@@ -188,7 +188,10 @@ const TakeCoin = () => {
         <div className="rounded-xl shadow-md shadow-black/5 p-5 bg-white">
           <div className="text-[#A2A9BC] flex items-center justify-between text-sm">
             <span>
-              {intl.formatMessage({ defaultMessage: '可用餘額', id: 'XNz8uP' })}({symbol})
+              {intl.formatMessage(
+                { defaultMessage: '可用餘額({symbol})', id: 'p4Oi3U' },
+                { symbol },
+              )}
             </span>
             <span className="text-[#3E4660] text-lg">
               {configs?.data?.availableAmount ?? '0.00'}

@@ -89,7 +89,7 @@ const RechargeCoin = () => {
           <div className="text-[#A2A9BC] flex items-center justify-between text-sm">
             <span>
               {intl.formatMessage(
-                { defaultMessage: '可用餘額({symbol})', id: 'rv8bFi' },
+                { defaultMessage: '可用餘額({symbol})', id: 'p4Oi3U' },
                 {
                   symbol,
                 },
@@ -102,7 +102,7 @@ const RechargeCoin = () => {
           <div className="text-[#A2A9BC] flex items-center justify-between text-sm">
             <span>
               {intl.formatMessage(
-                { defaultMessage: '最小充值金額({symbol})', id: 'EmziDl' },
+                { defaultMessage: '最小充值金額({symbol})', id: 'k5HUdW' },
                 {
                   symbol,
                 },
