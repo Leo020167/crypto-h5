@@ -13,10 +13,10 @@ import { stringDateFormat } from '../../utils/date';
 const TradeCommissionHistory = ({ accountType }: { accountType?: string }) => {
   const params = useMemo(
     () => ({
-      isDone: '1',
+      isDone: accountType === 'spot' ? '-1' : '0',
       symbol: '',
-      accountType: accountType,
       buySell: '',
+      accountType,
       orderState: '0',
       type: accountType === 'spot' ? '2' : '1',
     }),
@@ -98,6 +98,7 @@ const TradeCommissionHistory = ({ accountType }: { accountType?: string }) => {
                       proOrderCancel.mutate({
                         data: {
                           orderId: v.orderId,
+                          type: accountType === 'spot' ? '2' : '1',
                         },
                       });
                     },
