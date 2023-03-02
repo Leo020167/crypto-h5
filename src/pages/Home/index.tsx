@@ -6,7 +6,7 @@ import { useCallback, useMemo, useState } from 'react';
 import { useIntl } from 'react-intl';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { useHomeAccount, useHomeConfig, useHomeCropMe } from '../../api/endpoints/transformer';
+import { useHomeConfig, useHomeCropMe } from '../../api/endpoints/transformer';
 import ic_default_head from '../../assets/ic_default_head.png';
 import lvjiantou from '../../assets/lvjiantou.png';
 
@@ -72,12 +72,11 @@ const Home = () => {
         <div className="flex-1 flex justify-center"></div>
 
         <div className="flex items-center">
-          {homeConfig?.data?.downloadUrl && (
+          {!!import.meta.env.VITE_ALLOW_DOWNLOAD && homeConfig?.data?.downloadUrl && (
             <a target="_blank" href={homeConfig?.data?.downloadUrl} rel="noreferrer">
               <ArrowDownCircleOutline className="text-2xl mr-4 " color="rgb(0, 186, 118)" />
             </a>
           )}
-
           <Link to="/languages">
             <img
               alt=""
