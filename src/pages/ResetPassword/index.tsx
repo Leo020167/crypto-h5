@@ -55,12 +55,12 @@ const ResetPassword = () => {
       data: {
         countryCode: country.code,
         sendAddr: phone,
-        type: 1,
+        type: email ? 2 : 1,
         locationx: 0,
         dragImgKey: '',
       },
     });
-  }, [country.code, phone, smsGet]);
+  }, [country.code, email, phone, smsGet]);
 
   return (
     <Container className="h-screen bg-white">
@@ -91,6 +91,7 @@ const ResetPassword = () => {
               phone: phone,
               smsCode: smsCode,
               userPass: password,
+              type: email ? '2' : '',
             }).then((res: any) => {
               Toast.show(res.msg);
 
