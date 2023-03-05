@@ -503,9 +503,6 @@
   "EZtA6l": {
     "string": "Seleccione una dirección de retirada"
   },
-  "k5HUdW": {
-    "string": "Importe mínimo de recarga ({symbol})"
-  },
   "FLp81s": {
     "string": "Pida"
   },
@@ -1589,9 +1586,6 @@
   "rpJLsF": {
     "string": "Error de parámetro"
   },
-  "p4Oi3U": {
-    "string": "Saldo disponible({symbol})"
-  },
   "s/KbuC": {
     "string": "Cantidad USDT"
   },
@@ -1987,5 +1981,20 @@
   },
   "0oAu54": {
     "string": "{second}segundos"
+  },
+  "SUWki6": {
+    "string": "Restablecer por correo electrónico"
+  },
+  "fxYWiK": {
+    "string": "Por favor ingrese su dirección de correo electrónico"
+  },
+  "k5HUdW": {
+    "string": "Cantidad mínima de recarga ({símbolo})"
+  },
+  "p4Oi3U": {
+    "string": "Saldo disponible ({símbolo})"
+  },
+  "58jbdG": {
+    "string": "《Política de privacidad cifrada》"
   }
 }

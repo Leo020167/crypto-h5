@@ -503,9 +503,6 @@
   "EZtA6l": {
     "string": "请选择提币地址"
   },
-  "k5HUdW": {
-    "string": "最小充值金额({symbol})"
-  },
   "FLp81s": {
     "string": "申购"
   },
@@ -1589,9 +1586,6 @@
   "rpJLsF": {
     "string": "参数错误"
   },
-  "p4Oi3U": {
-    "string": "可用余额({symbol})"
-  },
   "s/KbuC": {
     "string": "数量 USDT"
   },
@@ -1987,5 +1981,20 @@
   },
   "0oAu54": {
     "string": "{second}秒"
+  },
+  "SUWki6": {
+    "string": "通过邮箱重置"
+  },
+  "fxYWiK": {
+    "string": "请输入邮箱"
+  },
+  "k5HUdW": {
+    "string": "最小充值金额({symbol})"
+  },
+  "p4Oi3U": {
+    "string": "可用余额({symbol})"
+  },
+  "58jbdG": {
+    "string": "《Encrypted隐私条款》"
   }
 }

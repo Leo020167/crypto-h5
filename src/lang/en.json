@@ -503,9 +503,6 @@
   "EZtA6l": {
     "string": "Please select the payout currency address"
   },
-  "k5HUdW": {
-    "string": "Minimum top-up amount({symbol})"
-  },
   "FLp81s": {
     "string": "Purchase"
   },
@@ -1589,9 +1586,6 @@
   "rpJLsF": {
     "string": "Parameter Error"
   },
-  "p4Oi3U": {
-    "string": "Available Balance({symbol})"
-  },
   "s/KbuC": {
     "string": "Quantity USDT"
   },
@@ -1987,5 +1981,20 @@
   },
   "0oAu54": {
     "string": "{second}seconds"
+  },
+  "SUWki6": {
+    "string": "Reset by email"
+  },
+  "fxYWiK": {
+    "string": "Please enter your email address"
+  },
+  "k5HUdW": {
+    "string": "Minimum recharge amount ({symbol})"
+  },
+  "p4Oi3U": {
+    "string": "Available balance ({symbol})"
+  },
+  "58jbdG": {
+    "string": "《Encrypted Privacy Policy》"
   }
 }

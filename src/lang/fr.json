@@ -503,9 +503,6 @@
   "EZtA6l": {
     "string": "Veuillez sélectionner une adresse de retrait"
   },
-  "k5HUdW": {
-    "string": "Montant minimum de la recharge ({symbol})"
-  },
   "FLp81s": {
     "string": "Commandez"
   },
@@ -1589,9 +1586,6 @@
   "rpJLsF": {
     "string": "Erreur de paramètre"
   },
-  "p4Oi3U": {
-    "string": "Solde disponible({symbol})"
-  },
   "s/KbuC": {
     "string": "Quantité USDT"
   },
@@ -1987,5 +1981,21 @@
   },
   "0oAu54": {
     "string": "{second}deuxième"
+  },
+  "SUWki6": {
+    "string": "Réinitialiser par e-mail"
+  },
+  "fxYWiK": {
+    "string": "Veuillez saisir votre adresse e-mail"
+  },
+  "k5HUdW": {
+    "string": "Montant minimum de recharge ({symbol})"
+  },
+  "p4Oi3U": {
+    "string": "Solde disponible ({symbol})"
+  },
+
+  "58jbdG": {
+    "string": "《Politique de confidentialité cryptée》"
   }
 }

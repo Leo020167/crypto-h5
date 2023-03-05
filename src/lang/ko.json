@@ -503,9 +503,6 @@
   "EZtA6l": {
     "string": "지불 통화 주소를 선택하십시오"
   },
-  "k5HUdW": {
-    "string": "최소 상위 업 금액({symbol})"
-  },
   "FLp81s": {
     "string": "구입"
   },
@@ -1589,9 +1586,6 @@
   "rpJLsF": {
     "string": "매개 변수 오류"
   },
-  "p4Oi3U": {
-    "string": "사용 가능한 잔액({symbol})"
-  },
   "s/KbuC": {
     "string": "양 USDT"
   },
@@ -1987,5 +1981,20 @@
   },
   "0oAu54": {
     "string": "{second}초"
+  },
+  "SUWki6": {
+    "string": "이메일로 재설정"
+  },
+  "fxYWiK": {
+    "string": "이메일 주소를 입력하세요"
+  },
+  "k5HUdW": {
+    "string": "최소 충전량({symbol})"
+  },
+  "p4Oi3U": {
+    "string": "사용 가능한 잔액({symbol})"
+  },
+  "58jbdG": {
+    "string": "《암호화된 개인 정보 보호 정책》"
   }
 }
