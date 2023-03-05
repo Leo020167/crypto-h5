@@ -59,6 +59,16 @@ export default defineConfig({
           name: 'customInstance',
         },
         operations: {
+          getCustomerServiceAnonymous: {
+            query: {
+              useQuery: true,
+            },
+          },
+          findStaffChatListAnonymous: {
+            query: {
+              useQuery: true,
+            },
+          },
           articleHelpList: {
             query: {
               useQuery: true,

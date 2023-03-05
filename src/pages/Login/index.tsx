@@ -31,7 +31,7 @@ const Login = () => {
     if (usernamePassword) {
       form.setFieldsValue(usernamePassword);
     }
-  }, []);
+  }, [form, usernamePassword]);
 
   return (
     <div className="bg-white">
@@ -40,9 +40,14 @@ const Login = () => {
           history.goBack();
         }}
         right={
-          <Link to="/signup" className="text-black">
-            {intl.formatMessage({ defaultMessage: '注冊賬號', id: '3cuhJj' })}
-          </Link>
+          <div className="flex items-center">
+            <Link to="/anonymous-chat" className="text-black mr-4">
+              {intl.formatMessage({ defaultMessage: '綫上客服', id: 'wwOQz6' })}
+            </Link>
+            <Link to="/signup" className="text-black">
+              {intl.formatMessage({ defaultMessage: '注冊賬號', id: '3cuhJj' })}
+            </Link>
+          </div>
         }
       />
       <div className="h-screen bg-white px-4 py-4">

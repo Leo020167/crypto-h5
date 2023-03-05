@@ -21,4 +21,6 @@ export interface ChatListItem {
   type?: string;
   userId?: string;
   verify?: string;
+  from?: string;
+  to?: string;
 }

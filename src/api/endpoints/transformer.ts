@@ -27,6 +27,7 @@ import type {
   AllInSubscribe200,
   AllInSubscribeBody,
   SendOtcChatBody,
+  SendSayAnonymousBody,
   SendSayBody,
   GetUnreadCount200,
   ChatListResponse,
@@ -40,6 +41,7 @@ import type {
   GetTransferSymbolsBody,
   GetSymbolMaxAmount200,
   GetSymbolMaxAmountBody,
+  GetCustomerServiceAnonymous200,
   GetCustomerService200,
   ProOrderCloseBody,
   ProOrderUpdateLossPriceBody,
@@ -485,6 +487,51 @@ export const useSendOtcChat = <TError = ErrorType<unknown>, TContext = unknown>(
 /**
  * http發送文字聊天
  */
+export const sendSayAnonymous = (sendSayAnonymousBody: SendSayAnonymousBody) => {
+  return customInstance<CommonResponse>({
+    url: `/chat/notLoggedIn/sendSay.do`,
+    method: 'post',
+    headers: { 'Content-Type': 'application/json' },
+    data: sendSayAnonymousBody,
+  });
+};
+
+export type SendSayAnonymousMutationResult = NonNullable<
+  Awaited<ReturnType<typeof sendSayAnonymous>>
+>;
+export type SendSayAnonymousMutationBody = SendSayAnonymousBody;
+export type SendSayAnonymousMutationError = ErrorType<unknown>;
+
+export const useSendSayAnonymous = <TError = ErrorType<unknown>, TContext = unknown>(options?: {
+  mutation?: UseMutationOptions<
+    Awaited<ReturnType<typeof sendSayAnonymous>>,
+    TError,
+    { data: SendSayAnonymousBody },
+    TContext
+  >;
+}) => {
+  const { mutation: mutationOptions } = options ?? {};
+
+  const mutationFn: MutationFunction<
+    Awaited<ReturnType<typeof sendSayAnonymous>>,
+    { data: SendSayAnonymousBody }
+  > = (props) => {
+    const { data } = props ?? {};
+
+    return sendSayAnonymous(data);
+  };
+
+  return useMutation<
+    Awaited<ReturnType<typeof sendSayAnonymous>>,
+    TError,
+    { data: SendSayAnonymousBody },
+    TContext
+  >(mutationFn, mutationOptions);
+};
+
+/**
+ * http發送文字聊天
+ */
 export const sendSay = (sendSayBody: SendSayBody) => {
   return customInstance<CommonResponse>({
     url: `/chat/sendSay.do`,
@@ -622,6 +669,49 @@ export const useFindOtcChatList = <
     findOtcChatList(findOtcChatListBody);
 
   const query = useQuery<Awaited<ReturnType<typeof findOtcChatList>>, TError, TData>({
+    queryKey,
+    queryFn,
+    ...queryOptions,
+  }) as UseQueryResult<TData, TError> & { queryKey: QueryKey };
+
+  query.queryKey = queryKey;
+
+  return query;
+};
+
+/**
+ * 获取与客服聊天列表
+ */
+export const findStaffChatListAnonymous = () => {
+  return customInstance<ChatListResponse>({
+    url: `/chat/notLoggedIn/findStaffChatList.do`,
+    method: 'post',
+  });
+};
+
+export const getFindStaffChatListAnonymousQueryKey = () => [
+  `/chat/notLoggedIn/findStaffChatList.do`,
+];
+
+export type FindStaffChatListAnonymousQueryResult = NonNullable<
+  Awaited<ReturnType<typeof findStaffChatListAnonymous>>
+>;
+export type FindStaffChatListAnonymousQueryError = ErrorType<unknown>;
+
+export const useFindStaffChatListAnonymous = <
+  TData = Awaited<ReturnType<typeof findStaffChatListAnonymous>>,
+  TError = ErrorType<unknown>,
+>(options?: {
+  query?: UseQueryOptions<Awaited<ReturnType<typeof findStaffChatListAnonymous>>, TError, TData>;
+}): UseQueryResult<TData, TError> & { queryKey: QueryKey } => {
+  const { query: queryOptions } = options ?? {};
+
+  const queryKey = queryOptions?.queryKey ?? getFindStaffChatListAnonymousQueryKey();
+
+  const queryFn: QueryFunction<Awaited<ReturnType<typeof findStaffChatListAnonymous>>> = () =>
+    findStaffChatListAnonymous();
+
+  const query = useQuery<Awaited<ReturnType<typeof findStaffChatListAnonymous>>, TError, TData>({
     queryKey,
     queryFn,
     ...queryOptions,
@@ -884,6 +974,49 @@ export const useGetSymbolMaxAmount = <
     getSymbolMaxAmount(getSymbolMaxAmountBody);
 
   const query = useQuery<Awaited<ReturnType<typeof getSymbolMaxAmount>>, TError, TData>({
+    queryKey,
+    queryFn,
+    ...queryOptions,
+  }) as UseQueryResult<TData, TError> & { queryKey: QueryKey };
+
+  query.queryKey = queryKey;
+
+  return query;
+};
+
+/**
+ * 匿名获取客服人员
+ */
+export const getCustomerServiceAnonymous = () => {
+  return customInstance<GetCustomerServiceAnonymous200>({
+    url: `/chat/notLoggedIn/getCustomerService.do`,
+    method: 'post',
+  });
+};
+
+export const getGetCustomerServiceAnonymousQueryKey = () => [
+  `/chat/notLoggedIn/getCustomerService.do`,
+];
+
+export type GetCustomerServiceAnonymousQueryResult = NonNullable<
+  Awaited<ReturnType<typeof getCustomerServiceAnonymous>>
+>;
+export type GetCustomerServiceAnonymousQueryError = ErrorType<unknown>;
+
+export const useGetCustomerServiceAnonymous = <
+  TData = Awaited<ReturnType<typeof getCustomerServiceAnonymous>>,
+  TError = ErrorType<unknown>,
+>(options?: {
+  query?: UseQueryOptions<Awaited<ReturnType<typeof getCustomerServiceAnonymous>>, TError, TData>;
+}): UseQueryResult<TData, TError> & { queryKey: QueryKey } => {
+  const { query: queryOptions } = options ?? {};
+
+  const queryKey = queryOptions?.queryKey ?? getGetCustomerServiceAnonymousQueryKey();
+
+  const queryFn: QueryFunction<Awaited<ReturnType<typeof getCustomerServiceAnonymous>>> = () =>
+    getCustomerServiceAnonymous();
+
+  const query = useQuery<Awaited<ReturnType<typeof getCustomerServiceAnonymous>>, TError, TData>({
     queryKey,
     queryFn,
     ...queryOptions,

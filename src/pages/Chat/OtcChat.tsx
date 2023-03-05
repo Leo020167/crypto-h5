@@ -23,7 +23,7 @@ const Content = ({ type, say }: { type?: string; say?: string }) => {
 
     default:
       return (
-        <div className="p-2.5 min-w-[60px] max-w-[245px] min-h-[40px] text-[#fefefe] rounded bg-[#444]">
+        <div className="p-2.5 break-all min-w-[60px] max-w-[245px] min-h-[40px] text-[#fefefe] rounded bg-[#444]">
           {say}
         </div>
       );

@@ -192,6 +192,29 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/CommonResponse'
+  /chat/notLoggedIn/sendSay.do:
+    post:
+      operationId: 'sendSayAnonymous'
+      description: 'http發送文字聊天'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                chatTopic:
+                  type: string
+                say:
+                  type: string
+                verify:
+                  type: number
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CommonResponse'
+
   /chat/sendSay.do:
     post:
       operationId: 'sendSay'
@@ -271,6 +294,19 @@ paths:
               properties:
                 orderId:
                   type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChatListResponse'
+
+  /chat/notLoggedIn/findStaffChatList.do:
+    post:
+      operationId: 'findStaffChatListAnonymous'
+      description: '获取与客服聊天列表'
+
       responses:
         '200':
           description: OK
@@ -455,6 +491,26 @@ paths:
                   - properties:
                       data:
                         type: string
+
+  /chat/notLoggedIn/getCustomerService.do:
+    post:
+      operationId: 'getCustomerServiceAnonymous'
+      description: '匿名获取客服人员'
+
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/CommonResponse'
+                  - properties:
+                      data:
+                        type: object
+                        properties:
+                          customerServiceStaff:
+                            $ref: '#/components/schemas/CustomerServiceStaff'
 
   /chat/getCustomerService.do:
     post:
@@ -2319,6 +2375,10 @@ components:
         userId:
           type: string
         verify:
+          type: string
+        from:
+          type: string
+        to:
           type: string
 
     ChatListResponse:

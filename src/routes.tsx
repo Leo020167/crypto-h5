@@ -40,6 +40,7 @@ const OtcAppeal = lazy(() => import('./pages/OtcAppeal'));
 const LegalOrderInfo = lazy(() => import('./pages/LegalOrderInfo'));
 const OtcChat = lazy(() => import('./pages/Chat/OtcChat'));
 const Chat = lazy(() => import('./pages/Chat'));
+const AnonymousChat = lazy(() => import('./pages/Chat/AnonymousChat'));
 const VerifiedResult = lazy(() => import('./pages/Verified/VerifiedResult'));
 const Verified = lazy(() => import('./pages/Verified'));
 const TransactionRecords = lazy(() => import('./pages/TransactionRecords'));
@@ -339,6 +340,12 @@ export const Routes = () => {
       <Route path="/otc-chat">
         <Suspense fallback={<div>Loading...</div>}>
           <OtcChat />
+        </Suspense>
+      </Route>
+
+      <Route path="/anonymous-chat">
+        <Suspense fallback={<div>Loading...</div>}>
+          <AnonymousChat />
         </Suspense>
       </Route>
 

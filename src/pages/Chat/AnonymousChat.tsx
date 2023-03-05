@@ -6,15 +6,13 @@ import { useIntl } from 'react-intl';
 import { Virtuoso } from 'react-virtuoso';
 import styled from 'styled-components';
 import {
-  useFindStaffChatList,
-  useGetCustomerService,
-  useSendSay,
+  useFindStaffChatListAnonymous,
+  useGetCustomerServiceAnonymous,
+  useSendSayAnonymous,
 } from '../../api/endpoints/transformer';
 import { ChatListItem } from '../../api/model';
 import ic_default_head from '../../assets/ic_default_head.png';
-import type_select_btn_nor from '../../assets/type_select_btn_nor.png';
 import Screen from '../../components/Screen';
-import { useAuthStore } from '../../stores/auth';
 
 const Content = ({ type, say }: { type?: string; say?: string }) => {
   switch (type) {
@@ -30,12 +28,11 @@ const Content = ({ type, say }: { type?: string; say?: string }) => {
   }
 };
 
-const Chat = () => {
+const AnonymousChat = () => {
   const intl = useIntl();
 
-  const { data, refetch } = useFindStaffChatList();
-
-  const { userInfo } = useAuthStore();
+  const { data: customerServiceAnonymous } = useGetCustomerServiceAnonymous();
+  const { data, refetch } = useFindStaffChatListAnonymous();
 
   const today = useMemo(() => moment(), []);
 
@@ -67,23 +64,30 @@ const Chat = () => {
           </div>
           <div
             className={`flex gap-2.5 py-2.5 ${
-              userInfo?.userId === item.userId ? 'justify-end' : 'flex-row-reverse justify-end'
+              item.from?.includes('.') ? 'justify-end' : 'flex-row-reverse justify-end'
             }`}
           >
-            {/* <img alt="" src={ic_chat_resend} className="w-5 h-5 self-center" /> */}
             <Content type={item.type} say={item.say} />
 
-            <img alt="" src={item.headUrl ?? ic_default_head} className="w-10 h-10 rounded-full" />
+            <img
+              alt=""
+              src={
+                item.from?.includes('.')
+                  ? ic_default_head
+                  : customerServiceAnonymous?.data?.customerServiceStaff?.headUrl
+              }
+              className="w-10 h-10 rounded-full"
+            />
           </div>
         </div>
       );
     },
-    [renderTime, userInfo?.userId],
+    [customerServiceAnonymous?.data?.customerServiceStaff?.headUrl, renderTime],
   );
 
   const [text, setText] = useState<string>('');
 
-  const sendSay = useSendSay({
+  const sendOtcChat = useSendSayAnonymous({
     mutation: {
       onSuccess(data) {
         if (data.code === '200') {
@@ -94,16 +98,15 @@ const Chat = () => {
     },
   });
 
-  const { data: getCustomerService } = useGetCustomerService();
-
-  const sendMessage = useCallback(() => {
-    sendSay.mutate({
-      data: {
-        chatTopic: getCustomerService?.data?.customerServiceStaff?.chatTopic,
-        say: text,
-      },
-    });
-  }, [getCustomerService?.data?.customerServiceStaff?.chatTopic, sendSay, text]);
+  const sendText = useCallback(() => {
+    if (text.length) {
+      sendOtcChat.mutate({
+        data: {
+          say: text,
+        },
+      });
+    }
+  }, [sendOtcChat, text]);
 
   const sorted = useMemo(() => orderBy(data?.data ?? [], ['createTime'], 'asc'), [data?.data]);
 
@@ -112,8 +115,8 @@ const Chat = () => {
   }, []);
 
   return (
-    <Screen headerTitle={intl.formatMessage({ defaultMessage: '綫上客服', id: 'wwOQz6' })}>
-      <Container className="h-full flex flex-col pb-10">
+    <Screen headerTitle={customerServiceAnonymous?.data?.customerServiceStaff?.userName}>
+      <Container className="h-full flex flex-col">
         <Virtuoso
           className="flex-1"
           initialTopMostItemIndex={sorted.length - 1}
@@ -122,25 +125,17 @@ const Chat = () => {
           keyParams="chatId"
           followOutput={followOutput}
         />
-        <div className="fixed bottom-0 right-0 left-0 z-20">
+
+        <div className=" w-full bg-white relative z-10">
           <div className="bg-[#f7f7f9] px-2.5 flex relative">
-            <TextArea
-              autoSize={{ minRows: 1, maxRows: 4 }}
-              className="mr-[40px]"
-              onChange={setText}
-              value={text}
-            />
+            <TextArea className="mr-[40px]" onChange={setText} value={text} />
             <div className="absolute right-2.5 bottom-1">
-              {text?.length ? (
-                <a
-                  className=" w-[45px] h-8  flex items-center justify-center bg-[#06be04] text-white rounded"
-                  onClick={sendMessage}
-                >
-                  {intl.formatMessage({ defaultMessage: '發送', id: '9V7qTC' })}
-                </a>
-              ) : (
-                <img alt="" src={type_select_btn_nor} className="w-8 h-8" />
-              )}
+              <a
+                className=" w-[45px] h-8  flex items-center justify-center bg-[#06be04] text-white rounded"
+                onClick={sendText}
+              >
+                {intl.formatMessage({ defaultMessage: '發送', id: '9V7qTC' })}
+              </a>
             </div>
           </div>
         </div>
@@ -151,4 +146,4 @@ const Chat = () => {
 
 const Container = styled.div``;
 
-export default Chat;
+export default AnonymousChat;
