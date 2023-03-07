@@ -3,6 +3,7 @@ import { orderBy } from 'lodash-es';
 import moment from 'moment';
 import { useCallback, useMemo, useState } from 'react';
 import { useIntl } from 'react-intl';
+import { useInterval } from 'react-use';
 import { Virtuoso } from 'react-virtuoso';
 import styled from 'styled-components';
 import {
@@ -33,6 +34,10 @@ const AnonymousChat = () => {
 
   const { data: customerServiceAnonymous } = useGetCustomerServiceAnonymous();
   const { data, refetch } = useFindStaffChatListAnonymous();
+
+  useInterval(() => {
+    refetch();
+  }, 1000);
 
   const today = useMemo(() => moment(), []);
 
