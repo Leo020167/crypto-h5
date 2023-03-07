@@ -37,7 +37,7 @@ const AnonymousChat = () => {
 
   useInterval(() => {
     refetch();
-  }, 1000);
+  }, 2000);
 
   const today = useMemo(() => moment(), []);
 
