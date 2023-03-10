@@ -176,12 +176,17 @@ const Home = () => {
             {intl.formatMessage({ defaultMessage: 'OTC交易', id: 'v0r9Fg' })}
           </div>
         </Link>
-        <Link to="/chat" className="flex flex-col items-center w-1/5">
+        <a
+          href="https://chatlink.mstatik.com/widget/standalone.html?eid=914b28b19ffc9b3dda4924057b2239a3"
+          target="_blank"
+          rel="noreferrer"
+          className="flex flex-col items-center w-1/5"
+        >
           <img alt="" src={tab1_menu4} className="w-9 h-9" />
           <div className="mt-2.5 text-xs text-[#666666] break-all">
             {intl.formatMessage({ defaultMessage: '綫上客服', id: 'wwOQz6' })}
           </div>
-        </Link>
+        </a>
       </div>
 
       <div className="text-sm font-bold my-3 shadow-md shadow-black/5 bg-white rounded-lg overflow-hidden flex items-center">

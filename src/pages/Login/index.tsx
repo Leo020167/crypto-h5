@@ -41,9 +41,14 @@ const Login = () => {
         }}
         right={
           <div className="flex items-center">
-            <Link to="/anonymous-chat" className="text-black mr-4">
+            <a
+              href="https://chatlink.mstatik.com/widget/standalone.html?eid=914b28b19ffc9b3dda4924057b2239a3"
+              className="text-black mr-4"
+              target="_blank"
+              rel="noreferrer"
+            >
               {intl.formatMessage({ defaultMessage: '綫上客服', id: 'wwOQz6' })}
-            </Link>
+            </a>
             <Link to="/signup" className="text-black">
               {intl.formatMessage({ defaultMessage: '注冊賬號', id: '3cuhJj' })}
             </Link>
