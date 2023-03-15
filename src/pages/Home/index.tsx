@@ -10,7 +10,6 @@ import { useHomeConfig, useHomeCropMe } from '../../api/endpoints/transformer';
 import ic_default_head from '../../assets/ic_default_head.png';
 import lvjiantou from '../../assets/lvjiantou.png';
 
-import tab1_menu1 from '../../assets/tab1_menu1.png';
 import tab1_menu2 from '../../assets/tab1_menu2.png';
 import tab1_menu3 from '../../assets/tab1_menu3.png';
 import tab1_menu4 from '../../assets/tab1_menu4.png';
@@ -152,35 +151,29 @@ const Home = () => {
       </div>
 
       <div className="text-sm font-bold mt-3 shadow-md shadow-black/5 bg-white rounded-lg overflow-hidden py-2.5 px-2.5 flex items-stretch gap-1">
-        <Link to="/institution" className="flex flex-col items-center  w-1/5">
-          <img alt="" src={tab1_menu1} className="w-9 h-9" />
-          <div className="mt-2.5 text-xs text-[#666666] break-all">
-            {intl.formatMessage({ defaultMessage: '金牌機構', id: 'Ls3qou' })}
-          </div>
-        </Link>
-        <Link to="/subscribe" className="flex flex-col items-center  w-1/5">
+        <Link to="/subscribe" className="flex flex-col items-center  w-1/4">
           <img alt="" src={tab1_menu2} className="w-9 h-9" />
           <div className="mt-2.5 text-xs text-[#666666] break-all">
-            {intl.formatMessage({ defaultMessage: '創新試驗區', id: 'TsbBR+' })}
+            {intl.formatMessage({ defaultMessage: '首發交易', id: 'QBilBJ' })}
           </div>
         </Link>
-        <Link to="/pledge" className="flex flex-col items-center justify-start w-1/5">
+        <Link to="/pledge" className="flex flex-col items-center justify-start w-1/4">
           <img alt="" src={tab1_menu5} className="w-9 h-9" />
           <div className="mt-2.5 text-xs text-[#666666] break-all">
             {intl.formatMessage({ defaultMessage: '質押生息', id: 'R3Xfcn' })}
           </div>
         </Link>
-        <Link to="/legal-money" className="flex flex-col items-center w-1/5">
+        <Link to="/recharge-coin" className="flex flex-col items-center w-1/4">
           <img alt="" src={tab1_menu3} className="w-9 h-9" />
           <div className="mt-2.5 text-xs text-[#666666] break-all">
-            {intl.formatMessage({ defaultMessage: 'OTC交易', id: 'v0r9Fg' })}
+            {intl.formatMessage({ defaultMessage: '充幣', id: 'kGK1/L' })}
           </div>
         </Link>
         <a
           href="https://chatlink.mstatik.com/widget/standalone.html?eid=914b28b19ffc9b3dda4924057b2239a3"
           target="_blank"
           rel="noreferrer"
-          className="flex flex-col items-center w-1/5"
+          className="flex flex-col items-center w-1/4"
         >
           <img alt="" src={tab1_menu4} className="w-9 h-9" />
           <div className="mt-2.5 text-xs text-[#666666] break-all">

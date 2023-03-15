@@ -615,7 +615,7 @@
     "string": "Покупка в фиатной валюте"
   },
   "JVHhgb": {
-    "string": "Пользовательское соглашение Encrypted"
+    "string": "Пользовательское соглашение Cryptographe"
   },
   "JYhyDW": {
     "string": "Пробыл (days) дней"
@@ -1074,7 +1074,7 @@
     "string": "Количество сделок"
   },
   "XR6wlA": {
-    "string": "Политика конфиденциальности Encrypted"
+    "string": "Политика конфиденциальности Cryptographe"
   },
   "XWzDpA": {
     "string": "Я успешно оплатил"

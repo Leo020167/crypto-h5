@@ -57,18 +57,6 @@ const HomeAccount = () => {
             >
               {intl.formatMessage({ defaultMessage: '提幣', id: 'andeZs' })}
             </Link>
-            <Link
-              to="/transfer-coin"
-              className="bg-[#6f6fe7] h-full flex flex-1 items-center justify-center rounded min-h-[40px] px-2"
-            >
-              {intl.formatMessage({ defaultMessage: '划轉', id: 'UD6XMk' })}
-            </Link>
-            <Link
-              to="/legal-money"
-              className="bg-[#6f6fe7] h-full flex flex-1 items-center justify-center rounded min-h-[40px] px-2"
-            >
-              {intl.formatMessage({ defaultMessage: '法幣購買', id: 'JI87J/' })}
-            </Link>
           </div>
         </div>
         <Tabs

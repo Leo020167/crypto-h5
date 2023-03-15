@@ -1,9 +1,9 @@
-import { Badge, List } from 'antd-mobile';
+import { List } from 'antd-mobile';
 import { stringify } from 'query-string';
 import { useIntl } from 'react-intl';
 import { Link, useHistory } from 'react-router-dom';
 import styled from 'styled-components';
-import { useGetUnreadCount, useIdentityGet } from '../../api/endpoints/transformer';
+import { useIdentityGet } from '../../api/endpoints/transformer';
 import defaultHead from '../../assets/ic_default_head.png';
 import ic_home_mine_help from '../../assets/ic_home_mine_help.png';
 import ic_home_mine_kefu from '../../assets/ic_home_mine_kefu.png';
@@ -14,10 +14,8 @@ import ic_home_mine_stock from '../../assets/ic_home_mine_stock.png';
 import ic_home_mine_youxiang from '../../assets/ic_home_mine_youxiang.png';
 import { ReactComponent as Arrow } from '../../assets/ic_svg_arrow_2.svg';
 import ic_svg_edit from '../../assets/ic_svg_edit.svg';
-import ic_svg_legal_coin from '../../assets/ic_svg_legal_coin.svg';
 import ic_svg_recharge_coin from '../../assets/ic_svg_recharge_coin.svg';
 import ic_svg_take_coin from '../../assets/ic_svg_take_coin.svg';
-import ic_svg_transfer_coin from '../../assets/ic_svg_transfer_coin.svg';
 import { useAuthStore } from '../../stores/auth';
 
 const My = () => {
@@ -26,8 +24,6 @@ const My = () => {
   const { userInfo } = useAuthStore();
 
   const { data: identityGet } = useIdentityGet();
-
-  const { data } = useGetUnreadCount();
 
   const intl = useIntl();
 
@@ -64,21 +60,6 @@ const My = () => {
               <img alt="" src={ic_svg_take_coin} />
             </div>
             <span>{intl.formatMessage({ defaultMessage: '提幣', id: 'andeZs' })}</span>
-          </Link>
-          <Link className="flex-1 flex flex-col items-center" to="/transfer-coin">
-            <div className="bg-[#f0f1f5] w-12 h-12 mb-2 rounded-lg">
-              <img alt="" src={ic_svg_transfer_coin} />
-            </div>
-            <span>{intl.formatMessage({ defaultMessage: '劃轉', id: 'QLilYb' })}</span>
-          </Link>
-
-          <Link className="flex-1 flex flex-col items-center" to="/legal-money">
-            <Badge content={Number(data?.data?.otcCount) || null}>
-              <div className="bg-[#f0f1f5] w-12 h-12 mb-2 rounded-lg">
-                <img alt="" src={ic_svg_legal_coin} />
-              </div>
-              <span>{intl.formatMessage({ defaultMessage: '法幣買賣', id: 'UWUjVA' })}</span>
-            </Badge>
           </Link>
         </div>
       </div>

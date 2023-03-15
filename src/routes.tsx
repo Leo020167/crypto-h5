@@ -104,8 +104,8 @@ const HomeTabs = () => {
         icon: <HomeTabAccount className="h-6" />,
       },
       {
-        key: '/home/community',
-        title: intl.formatMessage({ defaultMessage: '社區', id: 'LJ33pi' }),
+        key: '/trade-lever2?buySell=1&symbol=BTC',
+        title: intl.formatMessage({ defaultMessage: '交易', id: '/ErIar' }),
         icon: <HomeTabFollow className="h-6" />,
       },
       {
