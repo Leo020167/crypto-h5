@@ -1,36 +1,14 @@
-import { Swiper, SwiperRef, Tabs } from 'antd-mobile';
-import { useMemo, useRef } from 'react';
 import { useIntl } from 'react-intl';
 import { Link } from 'react-router-dom';
 import { useInterval } from 'react-use';
 import styled from 'styled-components';
-import { StringParam, useQueryParam, withDefault } from 'use-query-params';
 import { useHomeAccount } from '../../api/endpoints/transformer';
-import HomeBalanceAccount from './HomeBalanceAccount';
-import HomeDigitalAccount from './HomeDigitalAccount';
-import HomeFollowAccount from './HomeFollowAccount';
 import HomeSpotAccount from './HomeSpotAccount';
-import HomeStockAccount from './HomeStockAccount';
 
-const TabParam = withDefault(StringParam, '0');
 const HomeAccount = () => {
-  const swiperRef = useRef<SwiperRef>(null);
-
-  const [tab, setTab] = useQueryParam('tab', TabParam);
-
   const { data, refetch } = useHomeAccount();
 
   const intl = useIntl();
-  const tabItems = useMemo(
-    () => [
-      { key: '0', title: intl.formatMessage({ defaultMessage: '餘額', id: 'hPHyre' }) },
-      { key: '1', title: intl.formatMessage({ defaultMessage: '跟單帳戶', id: 'WDcvta' }) },
-      { key: '2', title: intl.formatMessage({ defaultMessage: '全球期指帳戶', id: 'L2Dpi5' }) },
-      { key: '3', title: intl.formatMessage({ defaultMessage: '合約帳戶', id: 'VYKM4q' }) },
-      { key: '4', title: intl.formatMessage({ defaultMessage: '幣幣帳戶', id: 'l9VaC8' }) },
-    ],
-    [intl],
-  );
 
   useInterval(() => refetch(), 1000);
 
@@ -59,54 +37,8 @@ const HomeAccount = () => {
             </Link>
           </div>
         </div>
-        <Tabs
-          defaultActiveKey={tab}
-          className="sticky top-0 z-10 bg-white"
-          stretch={false}
-          activeKey={tab}
-          onChange={(key) => {
-            const index = Number(key);
-            setTab(key, 'replaceIn');
 
-            swiperRef.current?.swipeTo(index);
-          }}
-        >
-          {tabItems.map((item) => (
-            <Tabs.Tab title={item.title} key={item.key} />
-          ))}
-        </Tabs>
-
-        <Swiper
-          direction="horizontal"
-          indicator={() => null}
-          ref={swiperRef}
-          defaultIndex={Number(tab)}
-          onIndexChange={(index) => {
-            setTab(String(index), 'replaceIn');
-          }}
-        >
-          <Swiper.Item key="HomeBalanceAccount">
-            {tab === '0' && <HomeBalanceAccount account={data?.data?.balanceAccount} />}
-          </Swiper.Item>
-
-          <Swiper.Item key="HomeFollowAccount">
-            {tab === '1' && (
-              <HomeFollowAccount
-                account={data?.data?.followAccount}
-                followDv={data?.data?.followDv}
-              />
-            )}
-          </Swiper.Item>
-          <Swiper.Item key="HomeStockAccount">
-            {tab === '2' && <HomeStockAccount account={data?.data?.stockAccount} />}
-          </Swiper.Item>
-          <Swiper.Item key="HomeDigitalAccount">
-            {tab === '3' && <HomeDigitalAccount account={data?.data?.digitalAccount} />}
-          </Swiper.Item>
-          <Swiper.Item key="HomeSpotAccount">
-            {tab === '4' && <HomeSpotAccount account={data?.data?.spotAccount} />}
-          </Swiper.Item>
-        </Swiper>
+        <HomeSpotAccount account={data?.data?.spotAccount} />
       </div>
     </Container>
   );

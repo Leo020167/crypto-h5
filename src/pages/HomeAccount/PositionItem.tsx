@@ -1,9 +1,13 @@
+import { Button } from 'antd-mobile';
+import { stringify } from 'query-string';
 import { useIntl } from 'react-intl';
+import { useHistory } from 'react-router-dom';
 import { Position } from '../../api/model/position';
 import { getOriginSymbol } from '../TransactionRecords/utils';
 
 const PositionItem = ({ data }: { data: Position }) => {
   const intl = useIntl();
+  const history = useHistory();
   return (
     <div className="p-4">
       <div>
@@ -29,6 +33,43 @@ const PositionItem = ({ data }: { data: Position }) => {
           <div className="text-sm font-bold mt-2">{data.usdtAmount}</div>
         </div>
       </div>
+
+      {['ETH', 'USDT', 'BTC'].includes(data.symbol ?? '') && (
+        <div className="mt-4 flex item-center">
+          <Button
+            color="primary"
+            className="flex-1"
+            onClick={(e) => {
+              e.stopPropagation();
+
+              history.push({
+                pathname: '/recharge-coin',
+                search: stringify({
+                  symbol: data.symbol,
+                }),
+              });
+            }}
+          >
+            {intl.formatMessage({ defaultMessage: '充幣', id: 'kGK1/L' })}
+          </Button>
+          <div className="w-2"></div>
+          <Button
+            className="flex-1 text-center"
+            onClick={(e) => {
+              e.stopPropagation();
+
+              history.push({
+                pathname: '/take-coin',
+                search: stringify({
+                  symbol: data.symbol,
+                }),
+              });
+            }}
+          >
+            {intl.formatMessage({ defaultMessage: '提幣', id: 'andeZs' })}
+          </Button>
+        </div>
+      )}
     </div>
   );
 };
