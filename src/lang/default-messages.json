@@ -239,9 +239,6 @@
   "6EjbHU": {
     "string": "詳情"
   },
-  "6ExJHy": {
-    "string": "合約"
-  },
   "6T3Qx4": {
     "string": "當前鏈路："
   },
@@ -635,9 +632,6 @@
   "J5FSqv": {
     "string": "免費訂閱"
   },
-  "JI87J/": {
-    "string": "法幣購買"
-  },
   "JVD8BD": {
     "string": "未成交"
   },
@@ -704,17 +698,11 @@
   "KzQKst": {
     "string": "跟單倍數設置"
   },
-  "L2Dpi5": {
-    "string": "全球期指帳戶"
-  },
   "LBC7Kf": {
     "string": "開"
   },
   "LEah6f": {
     "string": "我要卖"
-  },
-  "LJ33pi": {
-    "string": "社區"
   },
   "LLn6Tg": {
     "string": "請輸入最大限額"
@@ -736,9 +724,6 @@
   },
   "Lj6xLm": {
     "string": "换一张"
-  },
-  "Ls3qou": {
-    "string": "金牌機構"
   },
   "MG99Vk": {
     "string": "合約交易記錄"
@@ -860,6 +845,9 @@
   "Q9qgiz": {
     "string": "intl"
   },
+  "QBilBJ": {
+    "string": "首發交易"
+  },
   "QInuMW": {
     "string": "添加賬戶類型"
   },
@@ -913,9 +901,6 @@
   },
   "RtJnaj": {
     "string": "请输入姓名"
-  },
-  "RwgA6k": {
-    "string": "全球期指"
   },
   "Rx1AtW": {
     "string": "凍結(USDT)"
@@ -971,9 +956,6 @@
   "Tq9EwF": {
     "string": "買家暱稱"
   },
-  "TsbBR+": {
-    "string": "創新試驗區"
-  },
   "Tw8y2o": {
     "string": "請輸入手數"
   },
@@ -997,9 +979,6 @@
   },
   "UVGoM9": {
     "string": "上月收益(USDT)"
-  },
-  "UWUjVA": {
-    "string": "法幣買賣"
   },
   "UX7lUm": {
     "string": "跟單機构"
@@ -1046,9 +1025,6 @@
   "VXMi89": {
     "string": "以當前最優價格交易"
   },
-  "VYKM4q": {
-    "string": "合約帳戶"
-  },
   "VbE2gD": {
     "string": "確認新密碼"
   },
@@ -1069,9 +1045,6 @@
   },
   "W6smHj": {
     "string": "時間"
-  },
-  "WDcvta": {
-    "string": "跟單帳戶"
   },
   "WKCB03": {
     "string": "可兌換數量："
@@ -1484,9 +1457,6 @@
   "l+7dfj": {
     "string": "請選擇地址"
   },
-  "l9VaC8": {
-    "string": "幣幣帳戶"
-  },
   "lK7IeZ": {
     "string": "交易密码管理"
   },
@@ -1753,9 +1723,6 @@
   },
   "uy59Hz": {
     "string": "看跌(做空)"
-  },
-  "v0r9Fg": {
-    "string": "OTC交易"
   },
   "v2G+NV": {
     "string": "買入價"
