@@ -1,4 +1,4 @@
-import { NavBar, Swiper, SwiperRef, Tabs } from 'antd-mobile';
+import { NavBar, Swiper, SwiperRef } from 'antd-mobile';
 import { SearchOutline } from 'antd-mobile-icons';
 import { stringify } from 'query-string';
 import { useMemo, useRef } from 'react';
@@ -48,20 +48,6 @@ const HomeMarket = () => {
       >
         {intl.formatMessage({ defaultMessage: '行情', id: 'Hv1Nr8' })}
       </NavBar>
-
-      <Tabs
-        className="flex items-center justify-center"
-        activeKey={currentTab.key}
-        onChange={(key) => {
-          const index = Number(key);
-          setActiveIndex(index, 'replaceIn');
-          swiperRef.current?.swipeTo(index);
-        }}
-      >
-        {tabItems.map((item) => (
-          <Tabs.Tab title={item.title} key={item.key} />
-        ))}
-      </Tabs>
 
       <Swiper
         className="flex-1"

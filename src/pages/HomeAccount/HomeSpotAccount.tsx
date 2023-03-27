@@ -37,6 +37,7 @@ const HomeSpotAccount = ({ account }: HomeSpotAccountProps) => {
             <div>{account?.profit ?? '0'}</div>
           </div>
         </div>
+
         <div className="mt-3 flex items-center justify-between text-[#c1d3155]">
           <div>
             <div className="text-gray-400">
@@ -44,7 +45,14 @@ const HomeSpotAccount = ({ account }: HomeSpotAccountProps) => {
             </div>
             <div>{account?.holdAmount ?? '0'}</div>
           </div>
+          <div className="flex flex-col items-end">
+            <div className="text-gray-400">
+              {intl.formatMessage({ defaultMessage: '凍結金額(USDT)', id: 'xRwyQV' })}
+            </div>
+            <div>{account?.frozenAmount ?? '0'}</div>
+          </div>
         </div>
+
         <div className="mt-3 flex items-center justify-between text-[#c1d3155]">
           <div>
             <div className="text-gray-400">
