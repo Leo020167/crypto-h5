@@ -1,7 +1,5 @@
 import legacy from '@vitejs/plugin-legacy';
 import react from '@vitejs/plugin-react';
-import jotaiDebugLabel from 'jotai/babel/plugin-debug-label';
-import jotaiReactRefresh from 'jotai/babel/plugin-react-refresh';
 import { defineConfig } from 'vite';
 import vitePluginImp from 'vite-plugin-imp';
 import svgr from 'vite-plugin-svgr';
@@ -17,15 +15,16 @@ export default defineConfig(({ mode }) => {
         // http://api.piglobalexchanges.com/procoin/swagger/index.html#/
         // http://api.worldcoinservice.com/procoin/swagger/index.html#/
         '/procoin-market': {
-          target: 'http://market.encryptedex.com',
+          target: 'http://market.cryptographexx.com',
           changeOrigin: true,
         },
         '/procoin-file': {
-          target: 'http://upload.encryptedex.com',
+          target: 'http://upload.cryptographexx.com',
           changeOrigin: true,
         },
+        // http://api.cryptographexx.com
         '/procoin': {
-          target: 'http://api.encryptedex.com',
+          target: 'http://api.cryptographexx.com',
           changeOrigin: true,
         },
       },
@@ -40,9 +39,7 @@ export default defineConfig(({ mode }) => {
           },
         ],
       }),
-      react({
-        babel: { plugins: [jotaiDebugLabel, jotaiReactRefresh] },
-      }),
+      react(),
       legacy({
         targets: {
           chrome: '49',

@@ -42,10 +42,10 @@ const Login = () => {
         right={
           <div className="flex items-center">
             <a
-              href="https://chatlink.mstatik.com/widget/standalone.html?eid=914b28b19ffc9b3dda4924057b2239a3"
               className="text-black mr-4"
-              target="_blank"
-              rel="noreferrer"
+              onClick={() => {
+                _MEIQIA('showPanel');
+              }}
             >
               {intl.formatMessage({ defaultMessage: '綫上客服', id: 'wwOQz6' })}
             </a>
