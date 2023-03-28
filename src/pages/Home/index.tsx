@@ -17,6 +17,7 @@ import tab1_menu5 from '../../assets/tab1_menu5.png';
 
 import xiaolaba from '../../assets/xiaolaba.png';
 import { localeStateAtom, switchColorValueAtom } from '../../atoms';
+import { useChatLink } from '../../hooks/useChatLink';
 import { useMarketData, useQuoteHomePage } from '../../market/endpoints/marketWithTransformer';
 import { Quote } from '../../market/model';
 import { useAuthStore } from '../../stores/auth';
@@ -56,6 +57,8 @@ const Home = () => {
   );
 
   const intl = useIntl();
+
+  const chatLink = useChatLink();
 
   return (
     <Container className="bg-[#eef3f9] flex-1 overflow-y-auto px-2.5">
@@ -170,7 +173,7 @@ const Home = () => {
           </div>
         </Link>
         <a
-          href="https://chatlink.mstatik.com/widget/standalone.html?eid=914b28b19ffc9b3dda4924057b2239a3"
+          href={chatLink}
           target="_blank"
           rel="noreferrer"
           className="flex flex-col items-center w-1/4"

@@ -3972,6 +3972,8 @@ components:
           type: string
         phone:
           type: string
+        inviteName:
+          type: string
         payPass:
           type: string
         regPlatform:

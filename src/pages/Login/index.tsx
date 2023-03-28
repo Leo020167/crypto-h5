@@ -8,6 +8,7 @@ import { Link, useHistory } from 'react-router-dom';
 import { useLocation } from 'react-use';
 import styled from 'styled-components';
 import { usernamePasswordAtom } from '../../atoms';
+import { useChatLink } from '../../hooks/useChatLink';
 import { useAuthStore } from '../../stores/auth';
 
 const Login = () => {
@@ -33,6 +34,8 @@ const Login = () => {
     }
   }, [form, usernamePassword]);
 
+  const chatLink = useChatLink();
+
   return (
     <div className="bg-white">
       <NavBar
@@ -41,12 +44,7 @@ const Login = () => {
         }}
         right={
           <div className="flex items-center">
-            <a
-              href="https://chatlink.mstatik.com/widget/standalone.html?eid=914b28b19ffc9b3dda4924057b2239a3"
-              className="text-black mr-4"
-              target="_blank"
-              rel="noreferrer"
-            >
+            <a href={chatLink} className="text-black mr-4" target="_blank" rel="noreferrer">
               {intl.formatMessage({ defaultMessage: '綫上客服', id: 'wwOQz6' })}
             </a>
             <Link to="/signup" className="text-black">

@@ -16,6 +16,7 @@ import { ReactComponent as Arrow } from '../../assets/ic_svg_arrow_2.svg';
 import ic_svg_edit from '../../assets/ic_svg_edit.svg';
 import ic_svg_recharge_coin from '../../assets/ic_svg_recharge_coin.svg';
 import ic_svg_take_coin from '../../assets/ic_svg_take_coin.svg';
+import { useChatLink } from '../../hooks/useChatLink';
 import { useAuthStore } from '../../stores/auth';
 
 const My = () => {
@@ -26,6 +27,8 @@ const My = () => {
   const { data: identityGet } = useIdentityGet();
 
   const intl = useIntl();
+
+  const chatLink = useChatLink();
 
   return (
     <Container className="bg-[#F0F1F7] h-full">
@@ -104,9 +107,7 @@ const My = () => {
           arrow={<Arrow />}
           onClick={() => {
             // history.push('/chat');
-            window.open(
-              'https://chatlink.mstatik.com/widget/standalone.html?eid=914b28b19ffc9b3dda4924057b2239a3',
-            );
+            window.open(chatLink);
           }}
         >
           {intl.formatMessage({ defaultMessage: '客服', id: '2lQGkw' })}
