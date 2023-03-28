@@ -159,7 +159,7 @@ const TakeCoin = () => {
   });
 
   const precision = useMemo(
-    () => configs?.data?.availableAmount?.split('.')[1].length || 8,
+    () => configs?.data?.availableAmount?.split('.')?.[1]?.length || 8,
     [configs?.data?.availableAmount],
   );
 

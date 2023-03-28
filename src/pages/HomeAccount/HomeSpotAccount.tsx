@@ -92,12 +92,14 @@ const HomeSpotAccount = ({ account }: HomeSpotAccountProps) => {
             <List.Item
               key={i}
               arrow={null}
-              onClick={() =>
+              onClick={() => {
+                if (v.symbol === 'USDT') return;
+
                 history.push({
                   pathname: '/position-details',
                   search: stringify({ symbol: v.symbol }),
-                })
-              }
+                });
+              }}
             >
               <PositionItem data={v} />
             </List.Item>

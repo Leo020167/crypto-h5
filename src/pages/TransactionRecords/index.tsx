@@ -12,7 +12,7 @@ import {
   SwiperRef,
   Tabs,
 } from 'antd-mobile';
-import { DownFill, DownOutline } from 'antd-mobile-icons';
+import { DownOutline } from 'antd-mobile-icons';
 import { useMemo, useRef, useState } from 'react';
 import { useIntl } from 'react-intl';
 import styled from 'styled-components';
@@ -29,7 +29,7 @@ interface AccountType {
 
 const proOrderQuerySumKeys = ['stock', 'digital'];
 
-const AccountTypeParam = withDefault(StringParam, 'follow');
+const AccountTypeParam = withDefault(StringParam, 'spot');
 const ActiveIndexParam = withDefault(NumberParam, 0);
 
 const TransactionRecords = () => {
@@ -47,18 +47,6 @@ const TransactionRecords = () => {
 
   const accountTypes: AccountType[] = useMemo(
     () => [
-      {
-        value: 'follow',
-        label: intl.formatMessage({ defaultMessage: '跟單交易記錄', id: 'qNUf+q' }),
-      },
-      {
-        value: 'stock',
-        label: intl.formatMessage({ defaultMessage: '全球期指交易記錄', id: 'HDx5DM' }),
-      },
-      {
-        value: 'digital',
-        label: intl.formatMessage({ defaultMessage: '合約交易記錄', id: 'MG99Vk' }),
-      },
       {
         value: 'spot',
         label: intl.formatMessage({ defaultMessage: '幣幣交易記錄', id: 'RXCFfg' }),
@@ -96,12 +84,7 @@ const TransactionRecords = () => {
   return (
     <Screen
       headerTitle={
-        <a className="flex items-center justify-center text-base" onClick={() => setVisible(true)}>
-          {accountTypeOption?.label}
-          <div className="ml-1 w-2.5 h-2.5">
-            <DownFill className="h-full w-full" />
-          </div>
-        </a>
+        <a className="flex items-center justify-center text-base">{accountTypeOption?.label}</a>
       }
       navBarProps={{
         right: (
