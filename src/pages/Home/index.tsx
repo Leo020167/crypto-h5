@@ -170,9 +170,9 @@ const Home = () => {
           </div>
         </Link>
         <a
-         onClick={() => {
-          _MEIQIA('showPanel');
-         }}
+          href="https://chatlink.mstatik.com/widget/standalone.html?eid=914b28b19ffc9b3dda4924057b2239a3"
+          target="_blank"
+          rel="noreferrer"
           className="flex flex-col items-center w-1/4"
         >
           <img alt="" src={tab1_menu4} className="w-9 h-9" />
