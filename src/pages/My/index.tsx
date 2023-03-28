@@ -103,7 +103,10 @@ const My = () => {
           prefix={<img alt="" src={ic_home_mine_kefu} className="w-8 h-8" />}
           arrow={<Arrow />}
           onClick={() => {
-            _MEIQIA('showPanel');
+            // history.push('/chat');
+            window.open(
+              'https://chatlink.mstatik.com/widget/standalone.html?eid=914b28b19ffc9b3dda4924057b2239a3',
+            );
           }}
         >
           {intl.formatMessage({ defaultMessage: '客服', id: '2lQGkw' })}
