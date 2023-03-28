@@ -24,6 +24,8 @@ export const useAuthStore = create(
       async login(data) {
         const res = await login(data);
         if (res.code === '200') {
+          const userInfo = res.data?.user;
+          _MEIQIA('clientId', userInfo?.userId);
           set({ token: res.data?.token, userInfo: res.data?.user });
         }
         return res;
@@ -37,6 +39,7 @@ export const useAuthStore = create(
         if (token && userInfo) {
           const res = await getUserInfo();
           if (res.code === '200') {
+            _MEIQIA('clientId', res.data?.userId);
             set({ userInfo: res.data });
           }
         }

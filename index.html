@@ -9,5 +9,35 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    <script type="text/javascript">
+      (function (m, ei, q, i, a, j, s) {
+        m[i] =
+          m[i] ||
+          function () {
+            (m[i].a = m[i].a || []).push(arguments);
+          };
+        (j = ei.createElement(q)), (s = ei.getElementsByTagName(q)[0]);
+        j.async = true;
+        j.charset = 'UTF-8';
+        j.src = 'https://static.meiqia.com/dist/meiqia.js';
+        s.parentNode.insertBefore(j, s);
+      })(window, document, 'script', '_MEIQIA');
+
+      _MEIQIA('entId', '914b28b19ffc9b3dda4924057b2239a3');
+      _MEIQIA('manualInit');
+      _MEIQIA('init');
+      _MEIQIA('withoutBtn');
+    </script>
+
+    <script type="text/javascript">
+      _MEIQIA('allSet', function (servability) {
+        console.log('美洽网站插件初始化完毕。');
+        if (servability) {
+          console.log('有客服在线');
+        } else {
+          console.log('无客服在线');
+        }
+      });
+    </script>
   </body>
 </html>
