@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "build:allow-download": "tsc && vite build --mode allow-download",
+    "build:download": "tsc && vite build --mode allow-download",
     "extract-json-messages": "formatjs extract \"src/**/*.{ts,tsx}\" --ignore=\"**/*.d.ts\" --out-file src/lang/default-messages.json --format scripts/formatter.js",
     "extract-messages": "npm run extract-json-messages",
     "preview": "vite preview",
