@@ -24,6 +24,10 @@ const languages = [
     key: 'ja',
   },
   {
+    name: '한국인',
+    key: 'ko',
+  },
+  {
     name: 'Русский язык',
     key: 'ru-RU',
   },

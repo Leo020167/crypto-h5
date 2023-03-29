@@ -1,8 +1,9 @@
 import { Dialog, Toast } from 'antd-mobile';
+import { DownFill } from 'antd-mobile-icons';
 import { stringify } from 'query-string';
 import { useState } from 'react';
 import { useIntl } from 'react-intl';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { useInterval } from 'react-use';
 import styled from 'styled-components';
 import { NumberParam, StringParam, useQueryParam, withDefault } from 'use-query-params';
@@ -18,6 +19,7 @@ import ic_switch_buy_unselected from '../../assets/ic_switch_sell_unselected.9.p
 
 import Screen from '../../components/Screen';
 import { useQuoteReal } from '../../market/endpoints/marketWithTransformer';
+import { CurrencyListPopup } from './CurrencySelectionPopup';
 import TradeCurrentCommission from './TradeCurrentCommission';
 import TradeCurrentOpenPosition from './TradeCurrentOpenPosition';
 import TradeLeverDetails from './TradeLeverDetails';
@@ -72,8 +74,20 @@ const TradeLever = () => {
 
   const intl = useIntl();
 
+  const history = useHistory();
+  const [visible, setVisible] = useState(false);
+
   return (
-    <Screen headerTitle={symbol}>
+    <Screen
+      navBarProps={{
+        left: (
+          <div className="flex items-center" onClick={() => setVisible(true)}>
+            {symbol}
+            <DownFill fontSize={12} className="ml-2" />
+          </div>
+        ),
+      }}
+    >
       <div className="flex-1 overflow-y-auto bg-gray-100">
         <div className="flex bg-white py-4 px-2 gap-4">
           <div className="w-3/5">
@@ -159,6 +173,19 @@ const TradeLever = () => {
           )}
         </div>
       </div>
+
+      <CurrencyListPopup
+        symbol={symbol ?? ''}
+        visible={visible}
+        onClose={() => setVisible(false)}
+        onSelect={(item) => {
+          setVisible(false);
+          history.replace({
+            pathname: '/trade-lever2',
+            search: stringify({ buySell: 1, symbol: item.symbol }),
+          });
+        }}
+      />
     </Screen>
   );
 };
