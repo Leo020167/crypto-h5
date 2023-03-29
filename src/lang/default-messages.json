@@ -566,9 +566,6 @@
   "HCvPwM": {
     "string": "请输入數量"
   },
-  "HDx5DM": {
-    "string": "全球期指交易記錄"
-  },
   "HEzFXJ": {
     "string": "{receiptTypeValue}號"
   },
@@ -722,11 +719,11 @@
   "LaFd5t": {
     "string": "开户银行"
   },
+  "LaUwF3": {
+    "string": "输入币种名称搜索"
+  },
   "Lj6xLm": {
     "string": "换一张"
-  },
-  "MG99Vk": {
-    "string": "合約交易記錄"
   },
   "MGGEAi": {
     "string": "请输入银行卡号"
@@ -1592,9 +1589,6 @@
   "qGoxr9": {
     "string": "確認出售"
   },
-  "qNUf+q": {
-    "string": "跟單交易記錄"
-  },
   "qSm4kD": {
     "string": "申訴"
   },
@@ -1774,6 +1768,9 @@
   },
   "xPkCfU": {
     "string": "持倉保證金(USDT)"
+  },
+  "xRwyQV": {
+    "string": "凍結金額(USDT)"
   },
   "xiR+G9": {
     "string": "跟單類型"
