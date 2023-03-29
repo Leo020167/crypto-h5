@@ -40,8 +40,8 @@ const HomeMarketItem = ({ data, sort }: { data: Quote; sort: number }) => {
   );
 
   const prevStateRef = useRef<number>();
-  const startTimeoutRef = useRef<number>();
-  const cancelTimeoutRef = useRef<number>();
+  const startTimeoutRef = useRef<NodeJS.Timeout>();
+  const cancelTimeoutRef = useRef<NodeJS.Timeout>();
 
   useEffect(() => {
     if (startTimeoutRef.current) {
