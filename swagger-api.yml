@@ -2070,6 +2070,12 @@ paths:
                   type: string
                 payPass:
                   type: string
+                address:
+                  type: string
+                symbol:
+                  type: string
+                chainType:
+                  type: string
       responses:
         '200':
           description: OK
@@ -3995,6 +4001,8 @@ components:
         verifySqlTime:
           type: string
         version:
+          type: string
+        score:
           type: string
 
     UserInfoResponse:

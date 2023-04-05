@@ -46,7 +46,13 @@ const My = () => {
                 <span>{userInfo?.userName}</span>
                 <img alt="" src={ic_svg_edit} className="ml-2 w-5" />
               </div>
-              <span className="text-[#a2abc8]">ID: {userInfo?.userId}</span>
+              <span className="text-[#a2abc8]">
+                <div>ID: {userInfo?.userId}</div>
+                <div>
+                  {intl.formatMessage({ defaultMessage: '信誉分: ', id: '6f0YHY' })}
+                  {userInfo?.score}
+                </div>
+              </span>
             </div>
           </div>
         </div>

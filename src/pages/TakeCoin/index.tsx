@@ -59,6 +59,7 @@ const TakeCoin = () => {
     [coinList?.data?.chainTypeList],
   );
 
+  const [addressStr, setAddressStr] = useState<string>();
   const [address, setAddress] = useState<Address>();
   const [amount, setAmount] = useState<string>();
 
@@ -108,8 +109,8 @@ const TakeCoin = () => {
   });
 
   const handleFinish = useCallback(() => {
-    if (!address) {
-      Toast.show(intl.formatMessage({ defaultMessage: '請選擇提幣地址', id: 'EZtA6l' }));
+    if (!address && addressStr?.trim().length === 0) {
+      Toast.show(intl.formatMessage({ defaultMessage: '請填寫提幣地址', id: 'Zy+yLo' }));
       return;
     }
     if (!amount || !amount.trim().length) {
@@ -151,7 +152,7 @@ const TakeCoin = () => {
         setOpen(true);
       },
     });
-  }, [address, amount, configs?.data?.fee, intl, userInfo?.phone, symbol, history]);
+  }, [address, addressStr, amount, configs?.data?.fee, userInfo?.phone, intl, symbol, history]);
 
   const { data: addressList } = useAddressList({
     symbol: symbol,
@@ -254,16 +255,22 @@ const TakeCoin = () => {
               </Link>
             </div>
 
-            <a
-              className="mt-4 flex items-center bg-[#EDF3FA] px-2.5"
-              onClick={() => setOpenAddress(true)}
-            >
+            <div className="mt-4 flex items-center bg-[#EDF3FA] px-2.5">
               <div className="h-11 flex-1 flex items-center">
-                {address?.address ??
-                  intl.formatMessage({ defaultMessage: '請選擇地址', id: 'l+7dfj' })}
+                <Input
+                  value={addressStr}
+                  onChange={(value) => {
+                    setAddressStr(value);
+                    setAddress(undefined);
+                  }}
+                  clearable
+                  placeholder={intl.formatMessage({ defaultMessage: '請填寫地址', id: 'HnBEa1' })}
+                />
               </div>
-              <RightOutline fontSize={16} />
-            </a>
+              <a onClick={() => setOpenAddress(true)} className="ml-2">
+                {intl.formatMessage({ defaultMessage: '選擇地址', id: '1zPKfz' })}
+              </a>
+            </div>
 
             <div className="mt-4 bg-[#F6F7F9] p-4 rounded-xl text-xs text-[#6175AE] leading-6">
               {intl.formatMessage({
@@ -347,7 +354,10 @@ const TakeCoin = () => {
           withdrawSubmit.mutate({
             data: {
               amount,
-              addressId: address?.id,
+              symbol,
+              address: addressStr,
+              chainType: chainType ?? '',
+              addressId: address?.id ?? '0',
               payPass: md5(value),
             },
           });
@@ -394,6 +404,7 @@ const TakeCoin = () => {
                 className=" bg-white rounded-lg shadow-md shadow-black/5 px-5 py-4 flex items-center"
                 onClick={() => {
                   setAddress(v);
+                  setAddressStr(v.address);
                   setOpenAddress(false);
                 }}
               >
