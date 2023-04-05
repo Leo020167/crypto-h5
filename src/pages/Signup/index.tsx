@@ -88,14 +88,14 @@ const Signup = () => {
                   <a href="" target="_blank" className="text-[#6277b0]">
                     {intl.formatMessage({
                       defaultMessage: '《Cryptographe用户协议》',
-                      id: 'JVHhgb',
+                      id: '4oqdRD',
                     })}
                   </a>
                   {intl.formatMessage({ defaultMessage: '和', id: 's9xFxt' })}
                   <a href="" target="_blank" className="text-[#6277b0]">
                     {intl.formatMessage({
                       defaultMessage: '《Cryptographe隐私条款》',
-                      id: '58jbdG',
+                      id: '43/Nhz',
                     })}
                   </a>
                 </div>
