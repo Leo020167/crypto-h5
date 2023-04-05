@@ -615,7 +615,7 @@
     "string": "Legal tender purchases"
   },
   "JVHhgb": {
-    "string": "《FireUP User Agreement》"
+    "string": "《Cryptographe User Agreement》"
   },
   "JYhyDW": {
     "string": "Stayed for {days} days"
@@ -1995,6 +1995,6 @@
     "string": "Available balance ({symbol})"
   },
   "58jbdG": {
-    "string": "《Encrypted Privacy Policy》"
+    "string": "《Cryptographe Privacy Policy》"
   }
 }
