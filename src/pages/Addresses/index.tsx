@@ -42,17 +42,17 @@ const AddressManagement = () => {
       }
     >
       <div className="flex-1 overflow-y-auto bg-[#F4F6F4] p-4">
-        <div className="text-[#3E4660] text-sm mb-4">
+        <div className="mb-4 text-sm text-[#3E4660]">
           {intl.formatMessage({ defaultMessage: '我的提幣地址', id: '7rLwaw' })}
         </div>
 
         {data?.data?.map((v) => (
           <div
             key={v.id}
-            className=" bg-white rounded-lg shadow-md shadow-black/5 px-5 py-4 flex items-center mb-4"
+            className=" mb-4 flex items-center rounded-lg bg-white px-5 py-4 shadow-md shadow-black/5"
           >
-            <div className="flex-1 flex flex-col min-w-0">
-              <div className="text-[#6175AE] text-lg flex items-center justify-between">
+            <div className="flex min-w-0 flex-1 flex-col">
+              <div className="flex items-center justify-between text-lg text-[#6175AE]">
                 <span>{v.symbol}</span>
                 <a
                   onClick={() => {
@@ -76,14 +76,14 @@ const AddressManagement = () => {
                 </a>
               </div>
 
-              <div className="text-[#A2A9BC] text-xs mt-1 break-words">{v.address}</div>
+              <div className="mt-1 break-words text-xs text-[#A2A9BC]">{v.address}</div>
 
-              <div className="text-[#A2A9BC] mt-2">
+              <div className="mt-2 text-[#A2A9BC]">
                 {intl.formatMessage({
                   defaultMessage: '備注',
                   id: 'Be30m1',
                 })}
-                <span className="text-[#3E4660] ml-1">{v.remark}</span>
+                <span className="ml-1 text-[#3E4660]">{v.remark}</span>
               </div>
             </div>
           </div>

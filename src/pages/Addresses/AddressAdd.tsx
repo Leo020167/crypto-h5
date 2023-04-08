@@ -6,7 +6,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { useIntl } from 'react-intl';
 import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
-import { withDefault, StringParam, useQueryParam } from 'use-query-params';
+import { StringParam, useQueryParam, withDefault } from 'use-query-params';
 import { useAddAddress, useGetCoinList } from '../../api/endpoints/transformer';
 import PaymentPasswordDialog from '../../components/PaymentPasswordDialog';
 import Screen from '../../components/Screen';
@@ -121,11 +121,11 @@ const AddressAdd = () => {
   return (
     <Screen headerTitle="添加提幣地址">
       <Container className="flex-1 overflow-y-auto bg-[#F4F6F4] p-4">
-        <div className="text-[#3E4660] text-sm mb-4">
+        <div className="mb-4 text-sm text-[#3E4660]">
           {intl.formatMessage({ defaultMessage: '添加提幣地址', id: 'GO/P/E' })}
         </div>
 
-        <div className=" bg-white rounded-lg shadow-md shadow-black/5 p-4">
+        <div className=" rounded-lg bg-white p-4 shadow-md shadow-black/5">
           <div className="flex items-start justify-between">
             <div>
               <span className="text-[#3E4660]">
@@ -133,7 +133,7 @@ const AddressAdd = () => {
               </span>
               <div className="mt-4">
                 <a
-                  className="flex items-center justify-center border border-[#3E4660] rounded h-8 px-2"
+                  className="flex h-8 items-center justify-center rounded border border-[#3E4660] px-2"
                   onClick={() => {
                     setOpenSymbol(true);
                   }}
@@ -168,18 +168,18 @@ const AddressAdd = () => {
             <div className="text-sm text-[#3E4660]">
               {intl.formatMessage({ defaultMessage: '提幣地址', id: 'NUeill' })}
             </div>
-            <div className="mt-4 relative flex items-center">
+            <div className="relative mt-4 flex items-center">
               <Input
                 ref={inputRef}
                 value={address}
                 onChange={setAddress}
                 placeholder={intl.formatMessage({ defaultMessage: '請輸入地址', id: '2fmtw4' })}
-                className="flex items-center h-11 bg-[#EDF3FA] text-[#6175AE] px-2.5 rounded-md overflow-x-auto pr-12 w-full"
+                className="flex h-11 w-full items-center overflow-x-auto rounded-md bg-[#EDF3FA] px-2.5 pr-12 text-[#6175AE]"
               />
 
               {copyText && (
                 <a
-                  className="absolute right-[-4px] h-8 bg-[#6175AE] text-white pl-2.5 pr-2 flex items-center text-sm rounded-tl-[14px] rounded-bl-[14px]  rounded-tr-md rounded-br-md"
+                  className="absolute right-[-4px] flex h-8 items-center rounded-bl-[14px] rounded-br-md rounded-tl-[14px] rounded-tr-md bg-[#6175AE] pl-2.5 pr-2  text-sm text-white"
                   onClick={() => {
                     setAddress(copyText);
                     inputRef.current?.focus();
@@ -194,12 +194,12 @@ const AddressAdd = () => {
             <div className="text-sm text-[#3E4660]">
               {intl.formatMessage({ defaultMessage: '備注', id: 'Be30m1' })}
             </div>
-            <div className="mt-4 relative flex items-center">
+            <div className="relative mt-4 flex items-center">
               <Input
                 value={remark}
                 onChange={setRemark}
                 placeholder={intl.formatMessage({ defaultMessage: '請輸入備註', id: 'fLMjGv' })}
-                className="flex items-center h-11 bg-[#EDF3FA] text-[#6175AE] px-2.5 rounded-md overflow-x-auto pr-12 w-full"
+                className="flex h-11 w-full items-center overflow-x-auto rounded-md bg-[#EDF3FA] px-2.5 pr-12 text-[#6175AE]"
               />
             </div>
           </div>
@@ -250,16 +250,16 @@ const Container = styled.div`
     --padding: 0 10px;
     .adm-selector-item {
       display: flex;
-      align-items: center;
       justify-content: center;
+      align-items: center;
+      border: 1px solid #00bab8;
+      background-color: transparent;
       height: 32px;
       color: #00bab8;
       font-size: 16px;
-      border: 1px solid #00bab8;
-      background-color: transparent;
       &.adm-selector-item-active {
-        color: #fff;
         background-color: #00bab8;
+        color: #fff;
       }
     }
   }

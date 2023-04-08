@@ -1,7 +1,6 @@
 import * as styled from 'styled-components';
 const GlobalStyle = styled.createGlobalStyle`
   @font-face {
-    font-family: AlibabaPuHuiTi;
     font-weight: 400;
     src: url(https://puhuiti.oss-cn-hangzhou.aliyuncs.com/AlibabaPuHuiTi-2/AlibabaPuHuiTi-2-55-Regular/AlibabaPuHuiTi-2-55-Regular.eot)
         format('embedded-opentype'),
@@ -13,10 +12,10 @@ const GlobalStyle = styled.createGlobalStyle`
         format('woff'),
       url(https://puhuiti.oss-cn-hangzhou.aliyuncs.com/AlibabaPuHuiTi-2/AlibabaPuHuiTi-2-55-Regular/AlibabaPuHuiTi-2-55-Regular.woff2)
         format('woff2');
+    font-family: AlibabaPuHuiTi;
   }
 
   @font-face {
-    font-family: AlibabaPuHuiTi;
     font-weight: bold;
     src: url(https://puhuiti.oss-cn-hangzhou.aliyuncs.com/AlibabaPuHuiTi-2/AlibabaPuHuiTi-2-65-Medium/AlibabaPuHuiTi-2-65-Medium.eot)
         format('embedded-opentype'),
@@ -28,6 +27,7 @@ const GlobalStyle = styled.createGlobalStyle`
         format('woff'),
       url(https://puhuiti.oss-cn-hangzhou.aliyuncs.com/AlibabaPuHuiTi-2/AlibabaPuHuiTi-2-65-Medium/AlibabaPuHuiTi-2-65-Medium.woff2)
         format('woff2');
+    font-family: AlibabaPuHuiTi;
   }
 
   :root {
@@ -52,15 +52,14 @@ const GlobalStyle = styled.createGlobalStyle`
 
   .btn-purple,
   .adm-button.btn-purple {
-    background: linear-gradient(360deg, #4d4bda 0%, #7270f8 100%);
-    box-shadow: 0px 0px 10px 0px rgba(252, 192, 84, 0.3);
-    color: #fff;
-    height: 44px;
-    border-radius: 6px;
-
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+    box-shadow: 0px 0px 10px 0px rgba(252, 192, 84, 0.3);
+    border-radius: 6px;
+    background: linear-gradient(360deg, #4d4bda 0%, #7270f8 100%);
+    height: 44px;
+    color: #fff;
   }
 
   .adm-nav-bar {
@@ -68,8 +67,8 @@ const GlobalStyle = styled.createGlobalStyle`
   }
 
   .adm-list-item-content-main {
-    font-size: 0.875rem;
     color: #2a3654;
+    font-size: 0.875rem;
   }
 
   .adm-list-default .adm-list-body {
@@ -90,9 +89,9 @@ const GlobalStyle = styled.createGlobalStyle`
       }
 
       .adm-list-item-content {
-        padding-right: 0;
         border-top: 0;
         border-bottom: var(--border-inner);
+        padding-right: 0;
       }
     }
 
@@ -131,19 +130,19 @@ const GlobalStyle = styled.createGlobalStyle`
 
   .adm-error-block-image {
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
   }
 
   .adm-selector-item {
-    font-size: 12px;
-    color: #1d3155;
-    background-color: #f2f2f2;
     border-radius: 4px;
+    background-color: #f2f2f2;
+    color: #1d3155;
+    font-size: 12px;
 
     &.adm-selector-item-active {
-      color: #fff;
       background-color: #6277b0;
+      color: #fff;
     }
   }
 
@@ -161,10 +160,10 @@ const GlobalStyle = styled.createGlobalStyle`
         }
 
         &.adm-tab-bar-item-active {
+          color: #262626;
           .adm-tab-bar-item-icon {
             color: #6175ae;
           }
-          color: #262626;
         }
       }
     }

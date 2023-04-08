@@ -118,7 +118,7 @@ const HomeTabs = () => {
   );
 
   return (
-    <Container className="h-screen relative flex flex-col">
+    <Container className="relative flex h-screen flex-col">
       <div className="content flex flex-col">
         <Switch>
           <Route path="/home" exact>
@@ -151,7 +151,7 @@ const HomeTabs = () => {
       <TabBar
         activeKey={location.pathname}
         onChange={history.push}
-        className="layout bottom-0 left-0 right-0 bg-white fixed z-10"
+        className="layout fixed bottom-0 left-0 right-0 z-10 bg-white"
       >
         {tabs.map((item) => (
           <TabBar.Item key={item.key} icon={item.icon} title={item.title} />
