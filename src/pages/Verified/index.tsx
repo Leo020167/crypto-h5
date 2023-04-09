@@ -32,19 +32,22 @@ const Verified = () => {
   const history = useHistory();
   const location = useLocation<{ from: Location }>();
 
-  const { data } = useIdentityGet({
-    query: {
-      onSuccess(data) {
-        if (data.data?.identityAuth) {
-          const identityAuth = data.data.identityAuth;
-          setName(identityAuth.name);
-          setCardNo(identityAuth.certNo);
-          setFrontImgFile(identityAuth.frontImgUrl);
-          setBackImgFile(identityAuth.backImgUrl);
-        }
+  const { data } = useIdentityGet(
+    {},
+    {
+      query: {
+        onSuccess(data) {
+          if (data.data?.identityAuth) {
+            const identityAuth = data.data.identityAuth;
+            setName(identityAuth.name);
+            setCardNo(identityAuth.certNo);
+            setFrontImgFile(identityAuth.frontImgUrl);
+            setBackImgFile(identityAuth.backImgUrl);
+          }
+        },
       },
     },
-  });
+  );
 
   const intl = useIntl();
 
@@ -133,7 +136,7 @@ const Verified = () => {
       />
 
       {!!data?.data?.identityAuth && (
-        <div className="text-xs py-1 px-4 bg-[#FE5400] text-white">
+        <div className="bg-[#FE5400] px-4 py-1 text-xs text-white">
           {`${intl.formatMessage({ defaultMessage: '狀態: ', id: 'BHh721' })}${
             identityAuth?.stateDesc
           } ${
@@ -152,8 +155,8 @@ const Verified = () => {
         </div>
       )}
 
-      <div className="h-full flex flex-col overflow-y-auto">
-        <div className=" border-l-4 border-[#fa4b1b] px-2.5 mx-4 mt-4 text-base">
+      <div className="flex h-full flex-col overflow-y-auto">
+        <div className=" mx-4 mt-4 border-l-4 border-[#fa4b1b] px-2.5 text-base">
           {intl.formatMessage({
             defaultMessage: '輸入證件資訊',
             id: 'U99CrO',
@@ -184,24 +187,24 @@ const Verified = () => {
           </Form.Item>
         </Form>
 
-        <div className="border-l-4 border-[#fa4b1b] px-2.5 mx-4 mt-4 text-base">
+        <div className="mx-4 mt-4 border-l-4 border-[#fa4b1b] px-2.5 text-base">
           {intl.formatMessage({
             defaultMessage: '上傳圖片',
             id: 'ZRv4FU',
           })}
         </div>
 
-        <div className="flex items-center justify-center flex-col">
+        <div className="flex flex-col items-center justify-center">
           <div>
-            <div className="text-base mt-4 text-[#232323]">
+            <div className="mt-4 text-base text-[#232323]">
               {intl.formatMessage({
                 defaultMessage: '選擇正面',
                 id: 'Dq6c3S',
               })}
             </div>
-            <div className="w-72 h-40 border rounded mt-4 relative flex items-center justify-center">
+            <div className="relative mt-4 flex h-40 w-72 items-center justify-center rounded border">
               {frontImgFile && (
-                <img alt="" src={frontImgFile} className="w-full h-full object-fill" />
+                <img alt="" src={frontImgFile} className="h-full w-full object-fill" />
               )}
               {!isValid && (
                 <a
@@ -217,15 +220,15 @@ const Verified = () => {
           </div>
 
           <div>
-            <div className="text-base mt-4 text-[#232323]">
+            <div className="mt-4 text-base text-[#232323]">
               {intl.formatMessage({
                 defaultMessage: '選擇反面',
                 id: '5qldgM',
               })}
             </div>
-            <div className="w-72 h-40 border rounded mt-4 relative flex items-center justify-center">
+            <div className="relative mt-4 flex h-40 w-72 items-center justify-center rounded border">
               {backImgFile && (
-                <img alt="" src={backImgFile} className="w-full h-full object-fill" />
+                <img alt="" src={backImgFile} className="h-full w-full object-fill" />
               )}
               {!isValid && (
                 <a

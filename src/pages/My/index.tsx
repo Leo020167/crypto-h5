@@ -1,22 +1,23 @@
-import { List } from 'antd-mobile';
+import { List, Toast } from 'antd-mobile';
 import { stringify } from 'query-string';
 import { useIntl } from 'react-intl';
 import { Link, useHistory } from 'react-router-dom';
 import { useInterval } from 'react-use';
 import styled from 'styled-components';
 import { useIdentityGet } from '../../api/endpoints/transformer';
+import advanced_certification from '../../assets/advanced_certification.png';
 import defaultHead from '../../assets/ic_default_head.png';
 import ic_home_mine_help from '../../assets/ic_home_mine_help.png';
 import ic_home_mine_kefu from '../../assets/ic_home_mine_kefu.png';
 import ic_home_mine_notice from '../../assets/ic_home_mine_notice.png';
 import ic_home_mine_setting from '../../assets/ic_home_mine_setting.png';
-import ic_home_mine_shiming from '../../assets/ic_home_mine_shiming.png';
 import ic_home_mine_stock from '../../assets/ic_home_mine_stock.png';
 import ic_home_mine_youxiang from '../../assets/ic_home_mine_youxiang.png';
 import { ReactComponent as Arrow } from '../../assets/ic_svg_arrow_2.svg';
 import ic_svg_edit from '../../assets/ic_svg_edit.svg';
 import ic_svg_recharge_coin from '../../assets/ic_svg_recharge_coin.svg';
 import ic_svg_take_coin from '../../assets/ic_svg_take_coin.svg';
+import primary_certification from '../../assets/primary_certification.png';
 import { useChatLink } from '../../hooks/useChatLink';
 import { useAuthStore } from '../../stores/auth';
 
@@ -25,7 +26,8 @@ const My = () => {
 
   const { userInfo, getUserInfo } = useAuthStore();
 
-  const { data: identityGet } = useIdentityGet();
+  const getPrimaryCertification = useIdentityGet({ type: '1' });
+  const getAdvancedCertification = useIdentityGet({ type: '2' });
 
   const intl = useIntl();
 
@@ -35,8 +37,11 @@ const My = () => {
     getUserInfo();
   }, 2000);
 
+  const primaryCertification = getPrimaryCertification.data?.data?.identityAuth;
+  const advancedCertification = getAdvancedCertification.data?.data?.identityAuth;
+
   return (
-    <Container className="h-full bg-[#F0F1F7]">
+    <Container className="h-full overflow-y-auto bg-[#F0F1F7]">
       <div className="bg-white pt-4">
         <div className="px-4 py-2">
           <div className="avatar flex">
@@ -135,17 +140,31 @@ const My = () => {
         </List.Item>
 
         <List.Item
-          prefix={<img alt="" src={ic_home_mine_shiming} className="h-8 w-8" />}
+          prefix={<img alt="" src={primary_certification} className="h-8 w-8" />}
           arrow={<Arrow />}
+          extra={primaryCertification ? primaryCertification.stateDesc : '未認證'}
           onClick={() => {
-            if (identityGet?.data?.identityAuth?.state === '1') {
-              history.push('/verified-result');
-            } else {
-              history.push('/verified');
-            }
+            if (primaryCertification?.state === '1') return;
+
+            history.push('/primary-certification');
           }}
         >
-          {intl.formatMessage({ defaultMessage: '實名認證', id: 'vgGksF' })}
+          {intl.formatMessage({ defaultMessage: '初級認證', id: 'cZ6U4z' })}
+        </List.Item>
+
+        <List.Item
+          prefix={<img alt="" src={advanced_certification} className="h-8 w-8" />}
+          arrow={<Arrow />}
+          extra={advancedCertification ? advancedCertification.stateDesc : '未認證'}
+          onClick={() => {
+            if (primaryCertification?.state !== '1') {
+              Toast.show(intl.formatMessage({ defaultMessage: '請先完成初級認證', id: '+nOBYc' }));
+              return;
+            }
+            history.push('/advanced-certification');
+          }}
+        >
+          {intl.formatMessage({ defaultMessage: '高級認證', id: 'zQm6Ar' })}
         </List.Item>
 
         <List.Item

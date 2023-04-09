@@ -5,8 +5,8 @@
  * OpenAPI spec version: 1.0
  */
 import type { Banner } from './banner';
-import type { Notice } from './notice';
 import type { HomeCropMeResponseAllOfDataPlatformData } from './homeCropMeResponseAllOfDataPlatformData';
+import type { Notice } from './notice';
 import type { ScoreRank } from './scoreRank';
 
 export type HomeCropMeResponseAllOfData = {

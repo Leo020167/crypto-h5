@@ -4,26 +4,26 @@
  * Market API
  * OpenAPI spec version: 1.0
  */
+import type {
+  QueryFunction,
+  QueryKey,
+  UseQueryOptions,
+  UseQueryResult,
+} from '@tanstack/react-query';
 import { useQuery } from '@tanstack/react-query';
 import type {
-  UseQueryOptions,
-  QueryFunction,
-  UseQueryResult,
-  QueryKey,
-} from '@tanstack/react-query';
-import type {
-  QuoteHomePageResponse,
-  QuoteRealResponse,
-  QuoteRealBody,
-  Kline200,
-  KlineBody,
   GetMinuteLine200,
   GetMinuteLineBody,
-  MarketDataResponse,
+  Kline200,
+  KlineBody,
   MarketDataBody,
+  MarketDataResponse,
+  QuoteHomePageResponse,
+  QuoteRealBody,
+  QuoteRealResponse,
 } from '../model';
-import { customInstance } from '../mutator/custom-instance';
 import type { ErrorType } from '../mutator/custom-instance';
+import { customInstance } from '../mutator/custom-instance';
 
 /**
  * 大V排行榜页面信息

@@ -6,10 +6,11 @@
  */
 
 export type SetPayPassBody = {
+  oldPayPass?: string;
+  payPass?: string;
+  configPayPass?: string;
   oldPhone?: string;
   oldSmsCode?: string;
   dragImgKey?: string;
   locationx?: number;
-  payPass?: string;
-  configPayPass?: string;
 };

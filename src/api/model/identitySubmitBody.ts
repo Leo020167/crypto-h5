@@ -6,8 +6,17 @@
  */
 
 export type IdentitySubmitBody = {
-  backImgUrl: string;
-  certNo: string;
-  frontImgUrl: string;
+  /** 证件类型编码 */
+  certType?: string;
+  /** 初级1 高级2，默认1 */
+  type?: string;
+  /** 证件号码 */
+  certNo?: string;
+  /** 背面照 */
+  backImgUrl?: string;
+  /** 正面照 */
+  frontImgUrl?: string;
+  /** 持证照片 */
+  holdImgUrl?: string;
   name: string;
 };

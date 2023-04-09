@@ -19,14 +19,15 @@ paths:
                   - $ref: '#/components/schemas/CommonResponse'
                   - properties:
                       data:
-                        type: object
-                        properties:
-                          banner:
-                            type: array
-                            items:
-                              $ref: '#/components/schemas/Banner'
-                          downloadUrl:
-                            type: string
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            code:
+                              type: string
+                            name:
+                              type: string
+
   /home/config.do:
     post:
       operationId: 'homeConfig'
@@ -1834,9 +1835,6 @@ paths:
                 name:
                   type: string
               required:
-                - backImgUrl
-                - certNo
-                - frontImgUrl
                 - name
       responses:
         '200':

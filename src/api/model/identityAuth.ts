@@ -6,6 +6,14 @@
  */
 
 export interface IdentityAuth {
+  /** 证件类型名称 */
+  certTypeName?: string;
+  /** 证件类型编码 */
+  certType?: string;
+  /** 持证照片 */
+  holdImgUrl?: string;
+  /** 初级认证1 高级认证2 */
+  type?: string;
   backImgUrl?: string;
   certNo?: string;
   checkMsg?: string;

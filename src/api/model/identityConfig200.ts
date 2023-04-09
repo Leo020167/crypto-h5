@@ -4,7 +4,7 @@
  * API Title
  * OpenAPI spec version: 1.0
  */
-import type { AddressListResponseAllOf } from './addressListResponseAllOf';
 import type { CommonResponse } from './commonResponse';
+import type { IdentityConfig200AllOf } from './identityConfig200AllOf';
 
-export type AddressListResponse = CommonResponse & AddressListResponseAllOf;
+export type IdentityConfig200 = CommonResponse & IdentityConfig200AllOf;

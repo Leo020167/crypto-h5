@@ -4,7 +4,7 @@
  * API Title
  * OpenAPI spec version: 1.0
  */
-import type { CommonResponse } from './commonResponse';
 import type { CoinList200AllOf } from './coinList200AllOf';
+import type { CommonResponse } from './commonResponse';
 
 export type CoinList200 = CommonResponse & CoinList200AllOf;

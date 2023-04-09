@@ -125,7 +125,7 @@ const Home = () => {
         {quotes.map((v, i) => (
           <Link
             to={{
-              pathname: '/market',
+              pathname: '/market2',
               search: stringify({
                 symbol: v.symbol,
               }),

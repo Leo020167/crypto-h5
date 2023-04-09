@@ -10,6 +10,8 @@ import { ReactComponent as HomeTabFollow } from './assets/home_tab_follow.svg';
 import { ReactComponent as HomeTabMarkSvg } from './assets/home_tab_mark.svg';
 import { ReactComponent as HomeTabMineSvg } from './assets/home_tab_mine.svg';
 import PrivateRoute from './auth/PrivateRoute';
+import { AdvancedCertification } from './pages/AdvancedCertification';
+import { PrimaryCertification } from './pages/PrimaryCertification';
 
 const HelpCenter = lazy(() => import('./pages/HelpCenter'));
 const SettingPayPassword = lazy(() => import('./pages/SettingPayPassword'));
@@ -171,6 +173,17 @@ export const Routes = () => {
   return (
     <Switch>
       <Redirect path="/" to="/home" exact />
+
+      <Route path="/primary-certification">
+        <Suspense fallback={<div>Loading...</div>}>
+          <PrimaryCertification />
+        </Suspense>
+      </Route>
+      <Route path="/advanced-certification">
+        <Suspense fallback={<div>Loading...</div>}>
+          <AdvancedCertification />
+        </Suspense>
+      </Route>
 
       <Route path="/home">
         <HomeTabs />

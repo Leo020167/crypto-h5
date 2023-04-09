@@ -4,7 +4,7 @@
  * API Title
  * OpenAPI spec version: 1.0
  */
-import type { PaginationResponse } from './paginationResponse';
 import type { DepositListResponseAllOfDataAllOf } from './depositListResponseAllOfDataAllOf';
+import type { PaginationResponse } from './paginationResponse';
 
 export type DepositListResponseAllOfData = PaginationResponse & DepositListResponseAllOfDataAllOf;

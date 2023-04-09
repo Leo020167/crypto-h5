@@ -43,6 +43,12 @@ const GlobalStyle = styled.createGlobalStyle`
       'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   }
 
+  .adm-image-uploader-upload-button-icon {
+    svg {
+      display: initial;
+    }
+  }
+
   button,
   [type='button'],
   [type='reset'],

@@ -4,7 +4,7 @@
  * API Title
  * OpenAPI spec version: 1.0
  */
-import type { CommonResponse } from './commonResponse';
 import type { AccountRecordListResponseAllOf } from './accountRecordListResponseAllOf';
+import type { CommonResponse } from './commonResponse';
 
 export type AccountRecordListResponse = CommonResponse & AccountRecordListResponseAllOf;

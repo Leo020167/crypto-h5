@@ -4,7 +4,7 @@
  * API Title
  * OpenAPI spec version: 1.0
  */
-import type { CommonResponse } from './commonResponse';
 import type { ChargeConfigsResponseAllOf } from './chargeConfigsResponseAllOf';
+import type { CommonResponse } from './commonResponse';
 
 export type ChargeConfigsResponse = CommonResponse & ChargeConfigsResponseAllOf;

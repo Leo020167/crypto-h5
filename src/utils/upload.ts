@@ -11,9 +11,13 @@ export const uploadImage = (imageFiles: FormData) => {
     imageFiles.append(key, value);
   });
 
-  return AXIOS_UPLOAD_INSTANCE.post('/upload/file.do', imageFiles, {
-    headers: {
-      'Access-Control-Allow-Origin': '*',
+  return AXIOS_UPLOAD_INSTANCE.post<{ data: { imageUrlList?: string[] }; code: string }>(
+    '/upload/file.do',
+    imageFiles,
+    {
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+      },
     },
-  });
+  );
 };

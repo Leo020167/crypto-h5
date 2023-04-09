@@ -4,8 +4,8 @@
  * API Title
  * OpenAPI spec version: 1.0
  */
-import type { PaginationResponse } from './paginationResponse';
 import type { AccountRecordListResponseAllOfDataAllOf } from './accountRecordListResponseAllOfDataAllOf';
+import type { PaginationResponse } from './paginationResponse';
 
 export type AccountRecordListResponseAllOfData = PaginationResponse &
   AccountRecordListResponseAllOfDataAllOf;

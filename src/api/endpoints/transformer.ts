@@ -4,149 +4,186 @@
  * API Title
  * OpenAPI spec version: 1.0
  */
-import { useQuery, useMutation } from '@tanstack/react-query';
 import type {
-  UseQueryOptions,
-  UseMutationOptions,
-  QueryFunction,
   MutationFunction,
-  UseQueryResult,
+  QueryFunction,
   QueryKey,
+  UseMutationOptions,
+  UseQueryOptions,
+  UseQueryResult,
 } from '@tanstack/react-query';
+import { useMutation, useQuery } from '@tanstack/react-query';
 import type {
-  HomeConfig200,
-  SetPayPass200,
-  SetPayPassBody,
-  SearchCoinResponse,
-  SearchCoinBody,
-  CommonResponse,
-  ApplySubscribeBody,
-  GetSubscribeListResponse,
-  GetSubscribeDetailResponse,
-  GetSubscribeDetailBody,
+  AccountOutHoldAmountBody,
+  AccountQueryTransferListBody,
+  AccountRecordListBody,
+  AccountRecordListResponse,
+  AccountTransferBody,
+  AddAddressBody,
+  AddressListBody,
+  AddressListResponse,
+  AllConfigResponse,
   AllInSubscribe200,
   AllInSubscribeBody,
+  ApplyForFollowBody,
+  ApplySubscribeBody,
+  ArticleHelpListBody,
+  ArticleHelpListResponse,
+  AttentionAddBody,
+  ChangePhoneTwoBody,
+  ChargeConfigsResponse,
+  ChargeSubmitBody,
+  ChatListResponse,
+  CoinInfo200,
+  CoinInfoBody,
+  CoinListResponse,
+  CommonResponse,
+  DelAddressBody,
+  DepositListBody,
+  DepositListResponse,
+  FindOtcChatListBody,
+  GetChargeConfigsBody,
+  GetCoinInfoBody,
+  GetCoinListBody,
+  GetCustomerService200,
+  GetCustomerServiceAnonymous200,
+  GetFollowTypesBody,
+  GetFollowTypesResponse,
+  GetSubscribeDetailBody,
+  GetSubscribeDetailResponse,
+  GetSubscribeListResponse,
+  GetSymbolMaxAmount200,
+  GetSymbolMaxAmountBody,
+  GetTransferSymbols200,
+  GetTransferSymbolsBody,
+  GetUnreadCount200,
+  GetWithdrawConfigsBody,
+  GetWithdrawConfigsResponse,
+  HomeAccountResponse,
+  HomeConfig200,
+  HomeCropMeResponse,
+  HomeMyResponse,
+  IdentityAuthResponse,
+  IdentityConfig200,
+  IdentityGetBody,
+  IdentitySubmitBody,
+  InviteBuyBody,
+  InviteHomeBody,
+  InviteHomeResponse,
+  IsOptional200,
+  IsOptionalBody,
+  ListAccountTypeResponse,
+  ListPledgesResponse,
+  Login200,
+  LoginBody,
+  MessageFindBody,
+  MessageFindResponse,
+  OtcAddMyAdBody,
+  OtcCancelOrderBody,
+  OtcConfigResponse,
+  OtcCreateOrder200,
+  OtcCreateOrderBody,
+  OtcDelMyAdBody,
+  OtcFindAdListBody,
+  OtcFindAdListResponse,
+  OtcFindMyAdList200,
+  OtcFindMyPaymentListResponse,
+  OtcFindOrderListBody,
+  OtcFindOrderListResponse,
+  OtcGetAdPrice200,
+  OtcGetAdPriceBody,
+  OtcGetCertificationInfo200,
+  OtcGetInitAppealList200,
+  OtcGetInitAppealListBody,
+  OtcGetMyAdInfo200,
+  OtcGetMyAdInfoBody,
+  OtcGetOrderDetailBody,
+  OtcGetOrderDetailResponse,
+  OtcPaymentDeleteBody,
+  OtcPaymentSaveBody,
+  OtcSetOnlineBody,
+  OtcSubmitAppealBody,
+  OtcToMarkPayOrderSuccessBody,
+  OtcToPayOrderBody,
+  OtcUpdateMyAdBody,
+  OutHoldAmountResponse,
+  PersonalHomeBody,
+  PersonalHomeResponse,
+  PersonalTrendChartBody,
+  PersonalTrendChartResponse,
+  PledgeCommitBody,
+  ProOrderCancelBody,
+  ProOrderCheckOut200,
+  ProOrderCheckOutBody,
+  ProOrderCloseBody,
+  ProOrderConfigBody,
+  ProOrderConfigResponse,
+  ProOrderDetailBody,
+  ProOrderDetailResponse,
+  ProOrderOpenBody,
+  ProOrderQueryListBody,
+  ProOrderQueryListResponse,
+  ProOrderQuerySumBody,
+  ProOrderQuerySumResponse,
+  ProOrderUpdateLossPriceBody,
+  ProOrderUpdateWinPriceBody,
+  QueryTransferListResponse,
+  RecordListPledgesBody,
+  RecordListPledgesResponse,
+  Register200,
+  RegisterBody,
+  SearchCoinBody,
+  SearchCoinResponse,
   SendOtcChatBody,
   SendSayAnonymousBody,
   SendSayBody,
-  GetUnreadCount200,
-  ChatListResponse,
-  FindOtcChatListBody,
-  Login200,
-  LoginBody,
-  Register200,
-  RegisterBody,
-  ProOrderCancelBody,
-  GetTransferSymbols200,
-  GetTransferSymbolsBody,
-  GetSymbolMaxAmount200,
-  GetSymbolMaxAmountBody,
-  GetCustomerServiceAnonymous200,
-  GetCustomerService200,
-  ProOrderCloseBody,
-  ProOrderUpdateLossPriceBody,
-  ProOrderUpdateWinPriceBody,
-  ProOrderConfigResponse,
-  ProOrderConfigBody,
-  ProOrderCheckOut200,
-  ProOrderCheckOutBody,
-  GetFollowTypesResponse,
-  GetFollowTypesBody,
-  ApplyForFollowBody,
-  UnBindFollowBody,
-  AttentionAddBody,
-  PersonalTrendChartResponse,
-  PersonalTrendChartBody,
-  PersonalHomeResponse,
-  PersonalHomeBody,
-  GetWithdrawConfigsResponse,
-  GetWithdrawConfigsBody,
-  DelAddressBody,
-  AddressListResponse,
-  AddressListBody,
-  AddAddressBody,
-  ProOrderOpenBody,
-  ProOrderDetailResponse,
-  ProOrderDetailBody,
-  PledgeCommitBody,
-  RecordListPledgesResponse,
-  RecordListPledgesBody,
-  ListPledgesResponse,
-  HomeCropMeResponse,
-  CoinListResponse,
-  GetCoinInfoBody,
-  ChargeConfigsResponse,
-  GetChargeConfigsBody,
-  GetCoinListBody,
-  IsOptional200,
-  IsOptionalBody,
-  CoinInfo200,
-  CoinInfoBody,
-  AllConfigResponse,
-  AccountRecordListResponse,
-  AccountRecordListBody,
-  ArticleHelpListResponse,
-  ArticleHelpListBody,
-  HomeAccountResponse,
-  OtcDelMyAdBody,
-  OtcGetMyAdInfo200,
-  OtcGetMyAdInfoBody,
-  OtcSetOnlineBody,
-  OtcUpdateMyAdBody,
-  OtcAddMyAdBody,
-  OtcGetAdPrice200,
-  OtcGetAdPriceBody,
-  OtcFindMyAdList200,
-  OtcGetCertificationInfo200,
-  OtcPaymentDeleteBody,
-  OtcPaymentSaveBody,
-  OtcSubmitAppealBody,
-  OtcGetInitAppealList200,
-  OtcGetInitAppealListBody,
-  ToPayOrderResponse,
-  OtcToMarkPayOrderSuccessBody,
-  OtcToPayOrderBody,
-  OtcCancelOrderBody,
-  OtcGetOrderDetailResponse,
-  OtcGetOrderDetailBody,
-  OtcFindOrderListResponse,
-  OtcFindOrderListBody,
-  OtcFindMyPaymentListResponse,
-  MessageFindResponse,
-  MessageFindBody,
-  OtcCreateOrder200,
-  OtcCreateOrderBody,
-  OtcFindAdListResponse,
-  OtcFindAdListBody,
-  OtcConfigResponse,
-  IdentityAuthResponse,
-  IdentitySubmitBody,
-  ProOrderQuerySumResponse,
-  ProOrderQuerySumBody,
-  ProOrderQueryListResponse,
-  ProOrderQueryListBody,
-  UserSecurityCheckIdentityBody,
+  SetPayPass200,
+  SetPayPassBody,
   SmsGetBody,
-  QueryTransferListResponse,
-  AccountQueryTransferListBody,
-  OutHoldAmountResponse,
-  AccountTransferBody,
-  AccountOutHoldAmountBody,
-  ListAccountTypeResponse,
-  ChangePhoneTwoBody,
+  ToPayOrderResponse,
+  UnBindFollowBody,
+  UserInfoResponse,
+  UserSecurityCheckIdentityBody,
   UserSecurityUpdatePhoneBody,
   WithdrawSubmitBody,
-  ChargeSubmitBody,
-  InviteBuyBody,
-  InviteHomeResponse,
-  InviteHomeBody,
-  DepositListResponse,
-  DepositListBody,
-  HomeMyResponse,
-  UserInfoResponse,
 } from '../model';
-import { customInstance } from '../mutator/custom-instance';
 import type { ErrorType } from '../mutator/custom-instance';
+import { customInstance } from '../mutator/custom-instance';
+
+/**
+ * 获取证件类型配置接口
+ */
+export const identityConfig = () => {
+  return customInstance<IdentityConfig200>({ url: `/identity/config.do`, method: 'post' });
+};
+
+export const getIdentityConfigQueryKey = () => [`/identity/config.do`] as const;
+
+export type IdentityConfigQueryResult = NonNullable<Awaited<ReturnType<typeof identityConfig>>>;
+export type IdentityConfigQueryError = ErrorType<unknown>;
+
+export const useIdentityConfig = <
+  TData = Awaited<ReturnType<typeof identityConfig>>,
+  TError = ErrorType<unknown>,
+>(options?: {
+  query?: UseQueryOptions<Awaited<ReturnType<typeof identityConfig>>, TError, TData>;
+}): UseQueryResult<TData, TError> & { queryKey: QueryKey } => {
+  const { query: queryOptions } = options ?? {};
+
+  const queryKey = queryOptions?.queryKey ?? getIdentityConfigQueryKey();
+
+  const queryFn: QueryFunction<Awaited<ReturnType<typeof identityConfig>>> = () => identityConfig();
+
+  const query = useQuery<Awaited<ReturnType<typeof identityConfig>>, TError, TData>({
+    queryKey,
+    queryFn,
+    ...queryOptions,
+  }) as UseQueryResult<TData, TError> & { queryKey: QueryKey };
+
+  query.queryKey = queryKey;
+
+  return query;
+};
 
 export const homeConfig = () => {
   return customInstance<HomeConfig200>({ url: `/home/config.do`, method: 'post' });
@@ -3387,11 +3424,17 @@ export const useOtcConfig = <
 /**
  * 获取实名认证信息
  */
-export const identityGet = () => {
-  return customInstance<IdentityAuthResponse>({ url: `/identity/get.do`, method: 'post' });
+export const identityGet = (identityGetBody: IdentityGetBody) => {
+  return customInstance<IdentityAuthResponse>({
+    url: `/identity/get.do`,
+    method: 'post',
+    headers: { 'Content-Type': 'application/json' },
+    data: identityGetBody,
+  });
 };
 
-export const getIdentityGetQueryKey = () => [`/identity/get.do`] as const;
+export const getIdentityGetQueryKey = (identityGetBody: IdentityGetBody) =>
+  [`/identity/get.do`, identityGetBody] as const;
 
 export type IdentityGetQueryResult = NonNullable<Awaited<ReturnType<typeof identityGet>>>;
 export type IdentityGetQueryError = ErrorType<unknown>;
@@ -3399,14 +3442,16 @@ export type IdentityGetQueryError = ErrorType<unknown>;
 export const useIdentityGet = <
   TData = Awaited<ReturnType<typeof identityGet>>,
   TError = ErrorType<unknown>,
->(options?: {
-  query?: UseQueryOptions<Awaited<ReturnType<typeof identityGet>>, TError, TData>;
-}): UseQueryResult<TData, TError> & { queryKey: QueryKey } => {
+>(
+  identityGetBody: IdentityGetBody,
+  options?: { query?: UseQueryOptions<Awaited<ReturnType<typeof identityGet>>, TError, TData> },
+): UseQueryResult<TData, TError> & { queryKey: QueryKey } => {
   const { query: queryOptions } = options ?? {};
 
-  const queryKey = queryOptions?.queryKey ?? getIdentityGetQueryKey();
+  const queryKey = queryOptions?.queryKey ?? getIdentityGetQueryKey(identityGetBody);
 
-  const queryFn: QueryFunction<Awaited<ReturnType<typeof identityGet>>> = () => identityGet();
+  const queryFn: QueryFunction<Awaited<ReturnType<typeof identityGet>>> = () =>
+    identityGet(identityGetBody);
 
   const query = useQuery<Awaited<ReturnType<typeof identityGet>>, TError, TData>({
     queryKey,
