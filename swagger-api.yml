@@ -5,6 +5,28 @@ info:
 servers:
   - url: http://api.piglobalexchanges.com
 paths:
+  /identity/config.do:
+    post:
+      operationId: 'identityConfig'
+      description: '获取证件类型配置接口'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/CommonResponse'
+                  - properties:
+                      data:
+                        type: object
+                        properties:
+                          banner:
+                            type: array
+                            items:
+                              $ref: '#/components/schemas/Banner'
+                          downloadUrl:
+                            type: string
   /home/config.do:
     post:
       operationId: 'homeConfig'
@@ -40,13 +62,10 @@ paths:
               properties:
                 oldPayPass:
                   type: string
-                  description: '老密码'
                 payPass:
                   type: string
-                  description: '新密码'
-               configPayPass:
+                configPayPass:
                   type: string
-                  description: '确认密码'
                 oldPhone:
                   type: string
                 oldSmsCode:
@@ -1769,6 +1788,14 @@ paths:
     post:
       operationId: 'identityGet'
       description: '获取实名认证信息'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                type:
+                  type: string
+                  description: '初级认证 1 ， 高级认证 2'
       responses:
         '200':
           description: OK
@@ -1786,12 +1813,24 @@ paths:
           application/json:
             schema:
               properties:
-                backImgUrl:
+                certType:
                   type: string
+                  description: '证件类型编码'
+                type:
+                  type: string
+                  description: '初级1 高级2，默认1'
                 certNo:
                   type: string
+                  description: '证件号码'
+                backImgUrl:
+                  type: string
+                  description: '背面照'
                 frontImgUrl:
                   type: string
+                  description: '正面照'
+                holdImgUrl:
+                  type: string
+                  description: '持证照片'
                 name:
                   type: string
               required:
@@ -3666,6 +3705,18 @@ components:
     IdentityAuth:
       type: object
       properties:
+        certTypeName:
+          type: string
+          description: '证件类型名称'
+        certType:
+          type: string
+          description: '证件类型编码'
+        holdImgUrl:
+          type: string
+          description: '持证照片'
+        type:
+          type: string
+          description: '初级认证1 高级认证2'
         backImgUrl:
           type: string
         certNo:

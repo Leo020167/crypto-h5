@@ -59,6 +59,11 @@ export default defineConfig({
           name: 'customInstance',
         },
         operations: {
+          identityConfig: {
+            query: {
+              useQuery: true,
+            },
+          },
           getCustomerServiceAnonymous: {
             query: {
               useQuery: true,
