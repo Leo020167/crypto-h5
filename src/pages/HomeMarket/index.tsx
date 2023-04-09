@@ -30,7 +30,7 @@ const HomeMarket = () => {
   const currentTab = useMemo(() => tabItems[activeIndex], [activeIndex, tabItems]);
 
   return (
-    <Container className="flex-1 flex flex-col min-h-0 bg-white">
+    <Container className="flex min-h-0 flex-1 flex-col bg-white">
       <NavBar
         back={null}
         right={
@@ -79,11 +79,11 @@ const Container = styled.div`
     border: 0;
   }
   .adm-tabs {
-    color: #666175ae;
-    font-weight: bold;
     --title-font-size: 14px;
     --active-line-height: 0;
     --adm-color-primary: #000;
+    color: #666175ae;
+    font-weight: bold;
     .adm-tabs-header {
       border: 0;
     }

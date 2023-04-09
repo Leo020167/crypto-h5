@@ -1,29 +1,22 @@
-import { NavBar, Steps, Toast } from 'antd-mobile';
-import { useMemo, useState } from 'react';
+import { Button, Form, Input, NavBar, Toast } from 'antd-mobile';
 import { useIntl } from 'react-intl';
 import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import { useSetPayPass } from '../../api/endpoints/transformer';
+import { SetPayPassBody } from '../../api/model';
 import { useAuthStore } from '../../stores/auth';
-import AccountStep1 from './AccountStep1';
-import AccountStep2 from './AccountStep2';
-import AccountStep3 from './AccountStep3';
 
 const SettingPayPassword = () => {
   const history = useHistory();
 
-  const [current, setCurrent] = useState<number>(0);
-
   const intl = useIntl();
-
-  const [oldSmsCode, setOldSmsCode] = useState<string>('');
-  const [payPass, setPayPass] = useState<string>('');
 
   const auth = useAuthStore();
   const setPayPassMutation = useSetPayPass({
     mutation: {
       onSuccess(data) {
         if (data.code === '200') {
+          auth.getUserInfo();
           Toast.show(data.msg);
           history.replace({ pathname: '/settings' });
         }
@@ -31,46 +24,11 @@ const SettingPayPassword = () => {
     },
   });
 
-  const content = useMemo(() => {
-    switch (current) {
-      case 2:
-        return (
-          <AccountStep3
-            loading={setPayPassMutation.isLoading}
-            onStepCompleted={(configPayPass) => {
-              setPayPassMutation.mutate({
-                data: {
-                  oldPhone: auth.userInfo?.phone,
-                  oldSmsCode,
-                  dragImgKey: '',
-                  locationx: 0,
-                  payPass,
-                  configPayPass,
-                },
-              });
-            }}
-          />
-        );
-      case 1:
-        return (
-          <AccountStep2
-            onStepCompleted={(payPass) => {
-              setPayPass(payPass);
-              setCurrent(2);
-            }}
-          />
-        );
-      default:
-        return (
-          <AccountStep1
-            onStepCompleted={(smsCode) => {
-              setOldSmsCode(smsCode);
-              setCurrent(1);
-            }}
-          />
-        );
-    }
-  }, [auth.userInfo?.phone, current, oldSmsCode, payPass, setPayPassMutation]);
+  const onFinish = (values: SetPayPassBody) => {
+    setPayPassMutation.mutate({
+      data: values,
+    });
+  };
 
   return (
     <Container className="h-screen bg-white">
@@ -80,17 +38,100 @@ const SettingPayPassword = () => {
           : intl.formatMessage({ defaultMessage: '設置交易密碼', id: 'obugXD' })}
       </NavBar>
 
-      <Steps current={current}>
-        <Steps.Step title={intl.formatMessage({ defaultMessage: '驗證身份', id: 'YNzfBk' })} />
-        <Steps.Step title={intl.formatMessage({ defaultMessage: '設置密碼', id: 'Ks5Olr' })} />
-        <Steps.Step title={intl.formatMessage({ defaultMessage: '確認密碼', id: 'NBRkJQ' })} />
-      </Steps>
+      <div className="px-4">
+        <Form
+          onFinish={onFinish}
+          footer={
+            <Button
+              block
+              type="submit"
+              color="primary"
+              size="large"
+              loading={setPayPassMutation.isLoading}
+            >
+              提交
+            </Button>
+          }
+        >
+          {!!auth.userInfo?.payPass && (
+            <Form.Item
+              name="oldPayPass"
+              rules={[
+                {
+                  required: true,
+                  message: intl.formatMessage({ defaultMessage: '請輸入原密碼', id: 'srNPrw' }),
+                },
+              ]}
+            >
+              <Input
+                type="password"
+                placeholder={intl.formatMessage({
+                  defaultMessage: '請輸入原密碼',
+                  id: 'srNPrw',
+                })}
+              />
+            </Form.Item>
+          )}
 
-      <div className="px-4">{content}</div>
+          <Form.Item
+            name="payPass"
+            rules={[
+              {
+                required: true,
+                len: 6,
+                message: intl.formatMessage({ defaultMessage: '請輸入6位支付密碼', id: 'k/3udR' }),
+              },
+            ]}
+          >
+            <Input
+              type="password"
+              placeholder={intl.formatMessage({
+                defaultMessage: '請輸入新密碼',
+                id: 'rZ0rJT',
+              })}
+            />
+          </Form.Item>
+          <Form.Item
+            name="configPayPass"
+            rules={[
+              {
+                required: true,
+                message: intl.formatMessage({ defaultMessage: '請輸入確認密碼', id: 'gYHc6L' }),
+              },
+              (form) => ({
+                validator: async (rule, value) => {
+                  const payPass = form.getFieldValue('payPass');
+                  const val = value.trim?.();
+                  if (val.length > 0 && val !== payPass) {
+                    throw new Error(
+                      intl.formatMessage({
+                        defaultMessage: '兩次密碼輸入不一致',
+                        id: '3VZKdc',
+                      }),
+                    );
+                  }
+                },
+              }),
+            ]}
+          >
+            <Input
+              type="password"
+              placeholder={intl.formatMessage({
+                defaultMessage: '確認新密碼',
+                id: 'VbE2gD',
+              })}
+            />
+          </Form.Item>
+        </Form>
+      </div>
     </Container>
   );
 };
 
-const Container = styled.div``;
+const Container = styled.div`
+  .adm-list-item-description {
+    padding: 0 1rem;
+  }
+`;
 
 export default SettingPayPassword;

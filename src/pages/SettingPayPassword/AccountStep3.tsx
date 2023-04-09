@@ -35,7 +35,7 @@ const AccountStep3 = ({ loading, onStepCompleted }: AccountStepProps) => {
           </div>
         }
       >
-        <div className=" mt-8 mb-5 text-sm text-[#232323] text-center">
+        <div className=" mb-5 mt-8 text-center text-sm text-[#232323]">
           {intl.formatMessage({ defaultMessage: '請再次輸入6位支付密碼', id: '4kxY/u' })}
         </div>
         <Form.Item>

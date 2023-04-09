@@ -38,6 +38,15 @@ paths:
           application/json:
             schema:
               properties:
+                oldPayPass:
+                  type: string
+                  description: '老密码'
+                payPass:
+                  type: string
+                  description: '新密码'
+               configPayPass:
+                  type: string
+                  description: '确认密码'
                 oldPhone:
                   type: string
                 oldSmsCode:
@@ -46,10 +55,7 @@ paths:
                   type: string
                 locationx:
                   type: number
-                payPass:
-                  type: string
-                configPayPass:
-                  type: string
+
       responses:
         '200':
           description: OK
