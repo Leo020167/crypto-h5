@@ -1,4 +1,5 @@
 import { Button, Form, Input, NavBar, Toast } from 'antd-mobile';
+import md5 from 'js-md5';
 import { useIntl } from 'react-intl';
 import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
@@ -25,6 +26,15 @@ const SettingPayPassword = () => {
   });
 
   const onFinish = (values: SetPayPassBody) => {
+    const data: SetPayPassBody = {
+      payPass: md5(values.payPass as string).toUpperCase(),
+      configPayPass: md5(values.configPayPass as string).toUpperCase(),
+    };
+
+    if (values.oldPayPass) {
+      data.oldPayPass = md5(values.oldPayPass).toUpperCase();
+    }
+
     setPayPassMutation.mutate({
       data: values,
     });
