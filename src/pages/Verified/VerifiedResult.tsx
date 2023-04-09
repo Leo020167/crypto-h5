@@ -11,7 +11,7 @@ import { stringDateFormat } from '../../utils/date';
 const VerifiedResult = () => {
   const history = useHistory();
 
-  const { data } = useIdentityGet();
+  const { data } = useIdentityGet({});
 
   const identityAuth = useMemo(() => data?.data?.identityAuth, [data?.data?.identityAuth]);
 
@@ -23,15 +23,15 @@ const VerifiedResult = () => {
         <NavBar onBack={() => history.goBack()}>
           {intl.formatMessage({ defaultMessage: '實名認證中心', id: 'bweeFF' })}
         </NavBar>
-        <div className="flex flex-col items-center justify-center mt-4">
-          <div className="w-[128px] h-[104px] identity flex items-center justify-center relative">
+        <div className="mt-4 flex flex-col items-center justify-center">
+          <div className="identity relative flex h-[104px] w-[128px] items-center justify-center">
             <img alt="" src={id2} className=" w-[90px]" />
-            <div className="bg-[#ffce23] text-white px-4 py-1 text-xs absolute bottom-0">
+            <div className="absolute bottom-0 bg-[#ffce23] px-4 py-1 text-xs text-white">
               {intl.formatMessage({ defaultMessage: '實名認證成功', id: 'UvWwpv' })}
             </div>
           </div>
 
-          <div className="mt-4 mb-8 text-white">
+          <div className="mb-8 mt-4 text-white">
             {intl.formatMessage({ defaultMessage: '您已通過實名認證', id: 'Du+HBZ' })}
           </div>
         </div>
@@ -49,7 +49,7 @@ const VerifiedResult = () => {
         <List.Item
           title={intl.formatMessage({ defaultMessage: '認證狀態', id: 'Xj/GCF' })}
           extra={
-            <span className="text-[#0CC741] text-xs">
+            <span className="text-xs text-[#0CC741]">
               {intl.formatMessage({ defaultMessage: '已實名認證', id: 'VldACD' })}
             </span>
           }
@@ -76,9 +76,9 @@ const Container = styled.div`
 
   .identity {
     background-image: url(${id1});
-    background-repeat: no-repeat;
-    background-size: cover;
     background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
   }
 `;
 

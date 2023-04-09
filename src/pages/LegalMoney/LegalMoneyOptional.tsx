@@ -15,7 +15,7 @@ import { useCallback, useMemo, useRef, useState } from 'react';
 import { useIntl } from 'react-intl';
 import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
-import { withDefault, StringParam, useQueryParam } from 'use-query-params';
+import { StringParam, useQueryParam, withDefault } from 'use-query-params';
 import {
   getOtcFindAdListQueryKey,
   otcFindAdList,
@@ -72,7 +72,7 @@ const LegalMoneyOptional = () => {
     [data?.pages],
   );
 
-  const { data: identityGet } = useIdentityGet();
+  const { data: identityGet } = useIdentityGet({ type: '2' });
 
   const identityAuth = useMemo(
     () => identityGet?.data?.identityAuth,
@@ -139,7 +139,7 @@ const LegalMoneyOptional = () => {
   );
 
   return (
-    <Container className="flex-1 flex flex-col min-h-0">
+    <Container className="flex min-h-0 flex-1 flex-col">
       <LegalMoneyHeader value={type} onChange={(value) => setType(value, 'replaceIn')} />
       <div className="border-b">
         <Dropdown ref={dropdownRef}>
@@ -175,7 +175,7 @@ const LegalMoneyOptional = () => {
                     defaultMessage: '系統會為您篩選包含目標金額的商品',
                     id: '8TceES',
                   })}
-                  className="border border-[#465B98] h-10 px-4"
+                  className="h-10 border border-[#465B98] px-4"
                 />
                 <span className="absolute right-0">
                   <OptionalCurrencies value={symbol} onChange={(value) => setSymbol(value)} />

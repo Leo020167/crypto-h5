@@ -40,8 +40,8 @@ const HomeMarketItem = ({ data, sort }: { data: Quote; sort: number }) => {
   );
 
   const prevStateRef = useRef<number>();
-  const startTimeoutRef = useRef<NodeJS.Timeout>();
-  const cancelTimeoutRef = useRef<NodeJS.Timeout>();
+  const startTimeoutRef = useRef<number>();
+  const cancelTimeoutRef = useRef<number>();
 
   useEffect(() => {
     if (startTimeoutRef.current) {
@@ -66,16 +66,16 @@ const HomeMarketItem = ({ data, sort }: { data: Quote; sort: number }) => {
   }, [api, backgroundColor, rate, sort]);
 
   return (
-    <div className="text-[#666175ae] flex items-center justify-between text-center px-4 py-2 text-xs relative">
+    <div className="relative flex items-center justify-between px-4 py-2 text-center text-xs text-[#666175ae]">
       <animated.div
         style={props}
-        className=" absolute top-0 right-0 bottom-0 left-0"
+        className=" absolute bottom-0 left-0 right-0 top-0"
       ></animated.div>
-      <div className="min-w-[100px] flex flex-col text-left">
+      <div className="flex min-w-[100px] flex-col text-left">
         <div className="text-base font-bold text-[#1d3155]">
           {getOriginSymbol(data.symbol)}
           {data.symbol?.includes('/') && (
-            <span className="text-[#666175ae] ml-1 text-xs">{unitSymbol}</span>
+            <span className="ml-1 text-xs text-[#666175ae]">{unitSymbol}</span>
           )}
         </div>
         <div>{data.name}</div>
@@ -89,7 +89,7 @@ const HomeMarketItem = ({ data, sort }: { data: Quote; sort: number }) => {
       </div>
       <div className="min-w-[80px] text-sm text-white">
         <div
-          className="rounded flex items-center justify-center bg-black h-8"
+          className="flex h-8 items-center justify-center rounded bg-black"
           style={{ backgroundColor }}
         >
           {ratePrefix + data.rate}%

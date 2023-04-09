@@ -60,7 +60,7 @@ const LegalMoneyQuick = () => {
 
   const inputRef = useRef<InputRef>(null);
 
-  const { data: identityGet } = useIdentityGet();
+  const { data: identityGet } = useIdentityGet({ type: '2' });
 
   const history = useHistory();
 
@@ -103,12 +103,12 @@ const LegalMoneyQuick = () => {
   const [receipt, setReceipt] = useState<Receipt>();
 
   return (
-    <div className="flex-1 flex flex-col">
+    <div className="flex flex-1 flex-col">
       <LegalMoneyHeader value={type} onChange={(value) => setType(value, 'replaceIn')} />
 
-      <div className="px-4 mt-4">
+      <div className="mt-4 px-4">
         <div className="flex items-center">
-          <span className="text-base font-bold text-[#3D3A50] flex-1">
+          <span className="flex-1 text-base font-bold text-[#3D3A50]">
             {type === 'sell'
               ? intl.formatMessage({ defaultMessage: '出售數量', id: 'S/yKCZ' })
               : intl.formatMessage({ defaultMessage: '購買數量', id: '3s7D9W' })}
@@ -120,21 +120,21 @@ const LegalMoneyQuick = () => {
         </div>
       </div>
 
-      <div className="px-4 mt-4">
-        <div className="flex items-center relative h-12">
+      <div className="mt-4 px-4">
+        <div className="relative flex h-12 items-center">
           <Input
             type="number"
             placeholder={intl.formatMessage({ defaultMessage: '輸入數量', id: 'KCC04w' })}
-            className="text-xl font-bold border-b h-full"
+            className="h-full border-b text-xl font-bold"
             value={amount}
             onChange={setAmount}
             ref={inputRef}
           />
-          <div className="absolute right-0 text-xs flex">
+          <div className="absolute right-0 flex text-xs">
             <span className="mr-4 text-[#9A9A9A]">USDT</span>
             {type === 'sell' && (
               <a
-                className="px-4 text-[#6175AE] border-l border-[#9A9A9A]"
+                className="border-l border-[#9A9A9A] px-4 text-[#6175AE]"
                 onClick={() => {
                   setAmount(holdAmount);
                   inputRef.current?.focus();
@@ -147,8 +147,8 @@ const LegalMoneyQuick = () => {
         </div>
       </div>
 
-      <div className="px-4 mt-4">
-        <div className="text-[#9A9A9A] text-xs flex items-center justify-between">
+      <div className="mt-4 px-4">
+        <div className="flex items-center justify-between text-xs text-[#9A9A9A]">
           <div>
             {intl.formatMessage({ defaultMessage: '價格約', id: 'FqoFLn' })}
             <span className="text-sm text-[#6175AE]">{otcFindAdListItem?.price ?? '0.00'}</span>
@@ -163,13 +163,13 @@ const LegalMoneyQuick = () => {
           )}
         </div>
 
-        <div className="mt-4 text-[#9A9A9A] text-xs">
+        <div className="mt-4 text-xs text-[#9A9A9A]">
           {intl.formatMessage({ defaultMessage: '限額', id: 'zGwnHi' })}
           {`${otcFindAdListItem?.minCny}USDT-${otcFindAdListItem?.maxCny}USDT`}
         </div>
       </div>
 
-      <div className="px-4 mt-12">
+      <div className="mt-12 px-4">
         <Button block color="primary" onClick={handleFinish}>
           {intl.formatMessage({ defaultMessage: '0手續費購買', id: 'NxOp7s' })}
         </Button>
