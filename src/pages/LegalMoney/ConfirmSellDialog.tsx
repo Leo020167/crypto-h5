@@ -58,11 +58,11 @@ const ConfirmSellDialog = ({
   return (
     <Container visible={open} onClose={onClose} closeOnMaskClick>
       <div className="flex flex-col">
-        <span className="h-16 flex items-center px-4 text-base font-bold text-[#3D3A50]">
+        <span className="flex h-16 items-center px-4 text-base font-bold text-[#3D3A50]">
           {intl.formatMessage({ defaultMessage: '確認出售', id: 'qGoxr9' })}
         </span>
 
-        <div className="px-2 mb-4">
+        <div className="mb-4 px-2">
           <List className="mb-4">
             <List.Item
               title={intl.formatMessage({ defaultMessage: '收款方式', id: 'UA7E9h' })}
@@ -81,7 +81,7 @@ const ConfirmSellDialog = ({
             <List.Item
               title={intl.formatMessage({ defaultMessage: '實收款', id: 'n/ayb0' })}
               extra={
-                <span className="text-[#6175AE] font-bold text-xl">
+                <span className="text-xl font-bold text-[#6175AE]">
                   {currency(amount)
                     .multiply(optionalOrder?.price ?? 1)
                     .format({ symbol: symbols[symbol] })}
@@ -90,7 +90,7 @@ const ConfirmSellDialog = ({
             />
           </List>
         </div>
-        <div className="px-4 mb-4">
+        <div className="mb-4 px-4">
           <Button block color="primary" onClick={handleFinish}>
             {intl.formatMessage({ defaultMessage: '確認出售', id: 'qGoxr9' })}
           </Button>

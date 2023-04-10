@@ -64,7 +64,7 @@ const AddBankPay = () => {
       headerTitle={intl.formatMessage({ defaultMessage: '添加银行卡', id: '42lMqW' })}
       footer={
         <div className="px-4">
-          <div className=" h-14 px-4 bg-[#fef7ef] flex items-center border border-dashed rounded border-blue-600 text-[#6175AE] text-xs">
+          <div className=" flex h-14 items-center rounded border border-dashed border-blue-600 bg-[#fef7ef] px-4 text-xs text-[#6175AE]">
             <img alt="" src={ic_warning} width="15" className="mr-2" />
             {intl.formatMessage({
               defaultMessage: '請務必使用與您註冊手機號碼一致的實名賬號',

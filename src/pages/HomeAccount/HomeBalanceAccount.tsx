@@ -24,7 +24,7 @@ const HomeBalanceAccount = ({ account }: HomeBalanceAccountProps) => {
 
   return (
     <Container className="bg-gray-100">
-      <div className="p-4 bg-white">
+      <div className="bg-white p-4">
         <div className="text-gray-400">
           {intl.formatMessage({ defaultMessage: '餘額賬戶總資產(USDT)', id: 'dKX04w' })}
         </div>
@@ -48,13 +48,13 @@ const HomeBalanceAccount = ({ account }: HomeBalanceAccountProps) => {
         </div>
       </div>
       <div className="mt-2">
-        <div className="flex items-center justify-between text-xs bg-white p-4">
+        <div className="flex items-center justify-between bg-white p-4 text-xs">
           <Checkbox checked={hidden0Assets} onChange={setHidden0Assets}>
             {intl.formatMessage({ defaultMessage: '隐藏0资产', id: 'XddKO7' })}
           </Checkbox>
         </div>
         {assets.map((v) => (
-          <div className="p-4 mb-2 bg-white" key={v.symbol}>
+          <div className="mb-2 bg-white p-4" key={v.symbol}>
             <div>
               <span className="text-sm font-bold text-[#6175ae]">{v.symbol}</span>
             </div>
@@ -63,19 +63,19 @@ const HomeBalanceAccount = ({ account }: HomeBalanceAccountProps) => {
                 <div className="text-[#A2A9BC]">
                   {intl.formatMessage({ defaultMessage: '可用資產', id: 'KC9/eD' })}
                 </div>
-                <div className="text-[#3E4660] mt-1">{v.holdAmount}</div>
+                <div className="mt-1 text-[#3E4660]">{v.holdAmount}</div>
               </Grid.Item>
               <Grid.Item className="text-center">
                 <div className="text-[#A2A9BC]">
                   {intl.formatMessage({ defaultMessage: '凍結', id: 'uwCp/4' })}
                 </div>
-                <div className="text-[#3E4660] mt-1">{v.frozenAmount}</div>
+                <div className="mt-1 text-[#3E4660]">{v.frozenAmount}</div>
               </Grid.Item>
               <Grid.Item className="text-right">
                 <div className="text-[#A2A9BC]">
                   {intl.formatMessage({ defaultMessage: '折合(USDT)', id: 'P+t8ta' })}
                 </div>
-                <div className="text-[#3E4660] mt-1">{v.usdtAmount}</div>
+                <div className="mt-1 text-[#3E4660]">{v.usdtAmount}</div>
               </Grid.Item>
             </Grid>
           </div>

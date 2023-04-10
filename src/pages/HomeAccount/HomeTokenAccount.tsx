@@ -14,8 +14,8 @@ const HomeTokenAccount = ({ account }: HomeTokenAccountProps) => {
   const intl = useIntl();
   return (
     <Container className="bg-gray-100">
-      <div className="p-4 bg-white">
-        <div className="mb-2 text-gray-400 text-right text-xs">
+      <div className="bg-white p-4">
+        <div className="mb-2 text-right text-xs text-gray-400">
           <a href="/procoin/article/#/passgeDetail?article_id=222" target="__blank">
             {intl.formatMessage({ defaultMessage: '查看如何獲取TFU', id: 'NdxUVx' })}
           </a>

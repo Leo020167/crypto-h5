@@ -40,7 +40,7 @@ const FloatingPanelWithMask = ({
         }}
       >
         <div
-          className="flex flex-col min-h-0 ease-in-out duration-300 floating-panel-content"
+          className="floating-panel-content flex min-h-0 flex-col duration-300 ease-in-out"
           style={{ height }}
         >
           <div className="flex-1 overflow-y-auto">{children}</div>
@@ -58,23 +58,23 @@ const FloatingPanelWithMask = ({
 const Container = styled(Mask)`
   .adm-floating-panel {
     background-image: url(${floating_panel_bg_png});
-    background-repeat: no-repeat;
     background-position: right top;
     background-size: 100% 383px;
+    background-repeat: no-repeat;
     background-color: #fff;
 
     .adm-floating-panel-header {
       background-color: transparent;
       .adm-floating-panel-bar {
         --adm-color-light: #4d4bda;
-        height: 6px;
         width: 35px;
+        height: 6px;
       }
     }
 
     .adm-floating-panel-content {
-      overflow-y: hidden;
       background: transparent;
+      overflow-y: hidden;
     }
   }
 `;

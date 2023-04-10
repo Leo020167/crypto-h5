@@ -582,7 +582,7 @@ const KLine = ({
 
   return (
     <div>
-      <div className="px-4 py-1 bg-[#0F1826] flex text-xs gap-3">
+      <div className="flex gap-3 bg-[#0F1826] px-4 py-1 text-xs">
         <span className=" text-[#357dad]">
           MA5: {currency(ma5 ?? '0').format({ precision, symbol: '', separator: '' })}
         </span>
@@ -606,7 +606,7 @@ const KLine = ({
           --
         </span>
 
-        <div className="absolute z-10 top-[234px] text-xs w-full">
+        <div className="absolute top-[234px] z-10 w-full text-xs">
           <div className="flex items-center gap-1">
             <span className="text-[#01aa87]">
               VOL: {currency(vol ?? 0, { precision }).format({ separator: '', symbol: '' })}

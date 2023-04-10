@@ -22,11 +22,11 @@ const Screen = ({
   const history = useHistory();
   const handleBack = useCallback(() => history.goBack(), [history]);
   return (
-    <div className={`flex flex-col h-screen w-screen bg-white ${className ?? ''}`}>
+    <div className={`flex h-screen w-screen flex-col bg-white ${className ?? ''}`}>
       <NavBar onBack={handleBack} right={right} {...navBarProps}>
         {headerTitle}
       </NavBar>
-      <div className="flex-1 flex flex-col min-h-0">{children}</div>
+      <div className="flex min-h-0 flex-1 flex-col">{children}</div>
       {footer}
     </div>
   );

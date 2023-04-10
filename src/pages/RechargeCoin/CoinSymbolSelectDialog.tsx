@@ -44,17 +44,17 @@ const CoinSymbolSelectDialog = ({
         }}
       >
         <div
-          className="flex flex-col min-h-0 ease-in-out duration-300 symbol-list"
+          className="symbol-list flex min-h-0 flex-col duration-300 ease-in-out"
           style={{ height }}
         >
-          <div className="mb-7 text-base px-5 font-bold">
+          <div className="mb-7 px-5 text-base font-bold">
             {intl.formatMessage({ defaultMessage: '選擇幣種', id: 'jJ0rDY' })}
           </div>
           <div className="flex-1 overflow-y-auto">
             {symbols.map((v) => (
               <a
                 key={v}
-                className={`ease-in-out duration-300 flex items-center justify-center h-11 symbol-list-item ${
+                className={`symbol-list-item flex h-11 items-center justify-center duration-300 ease-in-out ${
                   v === selected ? 'active' : ''
                 }`}
                 onClick={() => handleClick(v)}
@@ -78,8 +78,8 @@ const Container = styled(Mask)`
   .adm-floating-panel {
     .adm-floating-panel-header .adm-floating-panel-bar {
       --adm-color-light: #4d4bda;
-      height: 6px;
       width: 35px;
+      height: 6px;
     }
 
     .adm-floating-panel-content {
@@ -89,21 +89,21 @@ const Container = styled(Mask)`
 
   .symbol-list {
     background-image: url(${symbol_selection_png});
-    background-repeat: no-repeat;
     background-position: top right;
     background-size: 390px 383px;
+    background-repeat: no-repeat;
 
     .symbol-list-item {
       color: #a2a9bc;
 
       &.active {
-        color: #3e4660;
         background: linear-gradient(
           89deg,
           rgba(255, 255, 255, 0.302) 0%,
           #eeeeee 49%,
           rgba(255, 255, 255, 0.302) 100%
         );
+        color: #3e4660;
       }
     }
   }

@@ -18,11 +18,11 @@ import Screen from '../../components/Screen';
 const Content = ({ type, say }: { type?: string; say?: string }) => {
   switch (type) {
     case 'img':
-      return <img alt="" src={say} className=" w-[150px] h-[200px] rounded-md" />;
+      return <img alt="" src={say} className=" h-[200px] w-[150px] rounded-md" />;
 
     default:
       return (
-        <div className="p-2.5 break-all min-w-[60px] max-w-[245px] min-h-[40px] text-[#fefefe] rounded bg-[#444]">
+        <div className="min-h-[40px] min-w-[60px] max-w-[245px] break-all rounded bg-[#444] p-2.5 text-[#fefefe]">
           {say}
         </div>
       );
@@ -63,7 +63,7 @@ const AnonymousChat = () => {
       return (
         <div className="mt-2.5 px-4">
           <div className="flex justify-center">
-            <span className="text-xs text-[#262626] bg-[#f4f4f4] rounded py-1 px-2.5">
+            <span className="rounded bg-[#f4f4f4] px-2.5 py-1 text-xs text-[#262626]">
               {renderTime(item.createTime)}
             </span>
           </div>
@@ -81,7 +81,7 @@ const AnonymousChat = () => {
                   ? ic_default_head
                   : customerServiceAnonymous?.data?.customerServiceStaff?.headUrl
               }
-              className="w-10 h-10 rounded-full"
+              className="h-10 w-10 rounded-full"
             />
           </div>
         </div>
@@ -121,7 +121,7 @@ const AnonymousChat = () => {
 
   return (
     <Screen headerTitle={customerServiceAnonymous?.data?.customerServiceStaff?.userName}>
-      <Container className="h-full flex flex-col">
+      <Container className="flex h-full flex-col">
         <Virtuoso
           className="flex-1"
           initialTopMostItemIndex={sorted.length - 1}
@@ -131,12 +131,12 @@ const AnonymousChat = () => {
           followOutput={followOutput}
         />
 
-        <div className=" w-full bg-white relative z-10">
-          <div className="bg-[#f7f7f9] px-2.5 flex relative">
+        <div className=" relative z-10 w-full bg-white">
+          <div className="relative flex bg-[#f7f7f9] px-2.5">
             <TextArea className="mr-[40px]" onChange={setText} value={text} />
-            <div className="absolute right-2.5 bottom-1">
+            <div className="absolute bottom-1 right-2.5">
               <a
-                className=" w-[45px] h-8  flex items-center justify-center bg-[#06be04] text-white rounded"
+                className=" flex h-8  w-[45px] items-center justify-center rounded bg-[#06be04] text-white"
                 onClick={sendText}
               >
                 {intl.formatMessage({ defaultMessage: '發送', id: '9V7qTC' })}

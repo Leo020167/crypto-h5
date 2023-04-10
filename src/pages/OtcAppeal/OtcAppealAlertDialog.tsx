@@ -52,8 +52,8 @@ const Container = styled(Modal)`
     border-radius: 4px;
 
     .adm-modal-title {
-      font-size: 14px;
       font-weight: 400;
+      font-size: 14px;
       text-align: left;
     }
   }

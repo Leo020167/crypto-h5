@@ -39,7 +39,7 @@ const OrderCancelDialog = ({ open, onClose, onSubmit }: OrderCancelDialogProps) 
               id: '3tf3AE',
             })}
           </span>
-          <span className="text-black mt-1">
+          <span className="mt-1 text-black">
             {intl.formatMessage({
               defaultMessage: '取消規則：買家當日累計4筆取消， 會限制當日買入功能。',
               id: '7WxsZY',
@@ -64,8 +64,8 @@ const Container = styled(Modal)`
     border-radius: 4px;
 
     .adm-modal-title {
-      font-size: 14px;
       font-weight: 400;
+      font-size: 14px;
       text-align: left;
     }
 

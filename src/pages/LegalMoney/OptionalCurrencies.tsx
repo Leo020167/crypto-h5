@@ -22,7 +22,7 @@ const OptionalCurrencies = ({ value, onChange }: OptionalCurrenciesProps) => {
       trigger="click"
       onAction={(item) => onChange?.(item.key as string)}
     >
-      <a className="px-2 py-1 flex items-center mx-4">
+      <a className="mx-4 flex items-center px-2 py-1">
         <span className="text-xs text-[#3D3A50]">{value}</span>
       </a>
     </Container>
@@ -36,8 +36,8 @@ const Container = styled(Popover.Menu)`
       border-bottom: 1px solid #f1f3ff;
     }
     .adm-popover-menu-item-text {
-      padding: 8px 0;
       border: 0;
+      padding: 8px 0;
       text-align: center;
     }
   }

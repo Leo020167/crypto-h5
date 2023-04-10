@@ -34,7 +34,7 @@ const HeaderRight = ({
 
   if (OtcOrderState.wait === order.state) {
     if (isBuyer) {
-      return <SvgTime className="w-10 h-10" />;
+      return <SvgTime className="h-10 w-10" />;
     } else {
       return <Clock time={order.paySecondTime} onFinish={onFinish} />;
     }
@@ -44,16 +44,16 @@ const HeaderRight = ({
     if (isBuyer) {
       return <Clock time={order.paySecondTime} onFinish={onFinish} />;
     } else {
-      return <SvgTime className="w-10 h-10" />;
+      return <SvgTime className="h-10 w-10" />;
     }
   }
 
   if (OtcOrderState.done === order.state) {
-    return <SvgOtcSuccess className="w-10 h-10" />;
+    return <SvgOtcSuccess className="h-10 w-10" />;
   }
 
   if (OtcOrderState.appeal === order.state) {
-    return <SvgTime className="w-10 h-10" />;
+    return <SvgTime className="h-10 w-10" />;
   }
 
   if (
@@ -61,7 +61,7 @@ const HeaderRight = ({
     OtcOrderState.cancel === order.state ||
     OtcOrderState.admin_cancel === order.state
   ) {
-    return <SvgOtcFalse className="w-10 h-10" />;
+    return <SvgOtcFalse className="h-10 w-10" />;
   }
 
   return null;
@@ -197,10 +197,10 @@ const LegalOrderInfo = () => {
 
   const header = useMemo(() => {
     return (
-      <div className="p-4 flex items-center justify-between border-b border-[#EEEEEE]">
+      <div className="flex items-center justify-between border-b border-[#EEEEEE] p-4">
         <div>
           <span className=" text-2xl font-bold text-[#3D3A50]">{order?.stateValue}</span>
-          <div className="text-xs mt-2">
+          <div className="mt-2 text-xs">
             {tips}
             {order?.state === OtcOrderState.wait && isBuyer && (
               <span className="text-[#6175AE]">
@@ -232,7 +232,7 @@ const LegalOrderInfo = () => {
       right={
         <div className="flex items-center justify-end">
           <Link to={{ pathname: '/otc-chat', search: stringify({ orderId }) }}>
-            <SvgContactOther className=" w-5 h-5" />
+            <SvgContactOther className=" h-5 w-5" />
           </Link>
         </div>
       }
@@ -241,14 +241,14 @@ const LegalOrderInfo = () => {
       <Container className="flex-1 overflow-y-auto">
         {header}
         <div className="my-4">
-          <span className="text-base font-bold text-[#3D3A50] p-4">
+          <span className="p-4 text-base font-bold text-[#3D3A50]">
             {order?.buySellValue ?? '--'}
           </span>
           <List className="mt-4">
             <List.Item
               title={intl.formatMessage({ defaultMessage: '總價', id: 'XkGx1k' })}
               extra={
-                <span className="text-[#6175AE] font-bold text-xl">
+                <span className="text-xl font-bold text-[#6175AE]">
                   {order?.currencySign}
                   {order?.tolPrice}
                 </span>
@@ -285,7 +285,7 @@ const LegalOrderInfo = () => {
               extra={
                 <div className="flex items-center">
                   {!!order?.showUserLogo && (
-                    <img alt="" src={order?.showUserLogo} className=" w-5 h-5" />
+                    <img alt="" src={order?.showUserLogo} className=" h-5 w-5" />
                   )}
                   <span className="ml-2">{order?.showUserName}</span>
                 </div>
@@ -300,7 +300,7 @@ const LegalOrderInfo = () => {
               extra={
                 !!receipt && (
                   <div className="flex items-center">
-                    <img alt="" src={receipt.receiptLogo} className="w-5 h-5" />
+                    <img alt="" src={receipt.receiptLogo} className="h-5 w-5" />
                     <span className="ml-2">{receipt.receiptTypeValue}</span>
                   </div>
                 )

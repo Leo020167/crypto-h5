@@ -60,11 +60,11 @@ const OptionalBuySellDialog = ({
     <Container visible={open} onClose={onClose} closeOnMaskClick>
       <div className="flex flex-col px-4">
         <div className="flex items-center justify-between">
-          <span className="text-base font-bold text-[#3D3A50] h-16 flex items-center">{title}</span>
+          <span className="flex h-16 items-center text-base font-bold text-[#3D3A50]">{title}</span>
           {isBuyer && <Transfer />}
         </div>
 
-        <div className="relative flex items-center h-12 px-4 border border-[#465B98]">
+        <div className="relative flex h-12 items-center border border-[#465B98] px-4">
           <Input
             type="number"
             value={amount}
@@ -74,9 +74,9 @@ const OptionalBuySellDialog = ({
             className="pl2 pr-28 text-[#9A9A9A]"
             ref={ref}
           />
-          <div className="flex items-center absolute right-4 text-[#9A9A9A] text-xs">
+          <div className="absolute right-4 flex items-center text-xs text-[#9A9A9A]">
             <span>USDT</span>
-            <span className=" h-5 mx-4 bg-gray-300 w-[1px]"></span>
+            <span className=" mx-4 h-5 w-[1px] bg-gray-300"></span>
             <a
               className="text-[#6175AE]"
               onClick={() => {
@@ -94,7 +94,7 @@ const OptionalBuySellDialog = ({
           </div>
         </div>
 
-        <div className="mt-2 text-[#9A9A9A] text-xs">
+        <div className="mt-2 text-xs text-[#9A9A9A]">
           <span className="mt-1" key="limit">
             {intl.formatMessage({ defaultMessage: '限額', id: 'zGwnHi' })}
             {optionalOrder?.minCny}USDT-{optionalOrder?.maxCny}USDT
@@ -124,7 +124,7 @@ const OptionalBuySellDialog = ({
             />
             <List.Item
               title={payWay}
-              extra={<span className="text-[#c6175ae] text-xl font-bold">----</span>}
+              extra={<span className="text-xl font-bold text-[#c6175ae]">----</span>}
             />
           </List>
         </div>

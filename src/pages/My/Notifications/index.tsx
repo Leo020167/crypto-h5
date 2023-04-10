@@ -2,7 +2,7 @@ import { useInfiniteQuery } from '@tanstack/react-query';
 import { List } from 'antd-mobile';
 import { useMemo } from 'react';
 import { useIntl } from 'react-intl';
-import { messageFind, getMessageFindQueryKey } from '../../../api/endpoints/transformer';
+import { getMessageFindQueryKey, messageFind } from '../../../api/endpoints/transformer';
 import { MessageFindResponseAllOfDataAllOfDataItem } from '../../../api/model';
 
 import defaultHead from '../../../assets/ic_default_head.png';
@@ -43,11 +43,11 @@ const NotificationList = () => {
         return (
           <List.Item key={index}>
             <div className="flex">
-              <div className="h-10 w-10 rounded-full overflow-hidden mr-3">
+              <div className="mr-3 h-10 w-10 overflow-hidden rounded-full">
                 <img alt="" src={item.headUrl ?? defaultHead} />
               </div>
               <div className="flex-1">
-                <div className="flex justify-between items-center text-[#b6b6b6]">
+                <div className="flex items-center justify-between text-[#b6b6b6]">
                   <div>{item.userName}</div>
                   <div className="text-xs">
                     {stringDateFormat(item.createTime, 'YYYY-MM-DD HH:mm')}

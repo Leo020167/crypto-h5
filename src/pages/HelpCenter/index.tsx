@@ -49,8 +49,8 @@ const HelpCenter = () => {
             }}
           >
             <div className="flex flex-col">
-              <div className="font-bold truncate">{item.title}</div>
-              <div className="text-xs text-[#b6b6b6] text-right">
+              <div className="truncate font-bold">{item.title}</div>
+              <div className="text-right text-xs text-[#b6b6b6]">
                 {stringDateFormat(item.createTime, 'YYYY-MM-DD HH:mm')}
               </div>
             </div>

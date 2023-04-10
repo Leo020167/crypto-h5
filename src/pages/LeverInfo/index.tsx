@@ -63,7 +63,7 @@ const LeverInfo = () => {
           <img
             alt=""
             src={Number(order?.rate) >= 0 ? ic_mark_red : ic_mark_green}
-            className=" w-4 h-4 ml-1"
+            className=" ml-1 h-4 w-4"
           />
         </Link>
       );
@@ -194,7 +194,7 @@ const LeverInfo = () => {
                   {intl.formatMessage({ defaultMessage: '止盈價格', id: 'cde9b7' })}
                   <a
                     onClick={() => setOpenStopWin(true)}
-                    className="w-11 ml-4 bg-[#E2214E] text-white rounded text-xs h-5 flex items-center justify-center"
+                    className="ml-4 flex h-5 w-11 items-center justify-center rounded bg-[#E2214E] text-xs text-white"
                   >
                     {intl.formatMessage({ defaultMessage: '設置', id: '+eQ50+' })}
                   </a>
@@ -212,7 +212,7 @@ const LeverInfo = () => {
                   {intl.formatMessage({ defaultMessage: '止損價格', id: 'dhfg6B' })}
                   <a
                     onClick={() => setOpenSetLoss(true)}
-                    className="w-11 ml-4 bg-[#00AD88] text-white rounded text-xs h-5 flex items-center justify-center"
+                    className="ml-4 flex h-5 w-11 items-center justify-center rounded bg-[#00AD88] text-xs text-white"
                   >
                     {intl.formatMessage({ defaultMessage: '設置', id: '+eQ50+' })}
                   </a>
@@ -240,7 +240,7 @@ const LeverInfo = () => {
           </List>
         </div>
 
-        <div className="py-5 px-4">
+        <div className="px-4 py-5">
           <div className="text-lg font-bold text-[#3d3a50]">
             {intl.formatMessage({ defaultMessage: '平倉明細', id: '4V3iak' })}
           </div>
@@ -356,7 +356,7 @@ const LeverInfo = () => {
               {intl.formatMessage({ defaultMessage: '(以當前市價成交)', id: 'B+wVLW' })}
             </span>
           </Form.Header>
-          <div className="flex items-center mt-4">
+          <div className="mt-4 flex items-center">
             <Input
               type="number"
               max={Number(order?.openHand)}
@@ -364,13 +364,13 @@ const LeverInfo = () => {
               value={closeHand}
               onChange={setCloseHand}
               placeholder={intl.formatMessage({ defaultMessage: '請輸入平倉手數', id: 'ZP7om0' })}
-              className="border-b h-10"
+              className="h-10 border-b"
             />
             <span className="text-sm">
               {intl.formatMessage({ defaultMessage: '手', id: 'ohYFAy' })}
             </span>
           </div>
-          <div className="text-gray-400 text-xs mt-2">
+          <div className="mt-2 text-xs text-gray-400">
             {intl.formatMessage(
               { defaultMessage: '持倉手數{openHand}', id: '91IYT/' },
               { opeenHand: order?.openHand },
@@ -398,8 +398,8 @@ const Container = styled.div`
     font-size: 14px;
   }
   .adm-list-item-content {
-    padding-right: 0;
     border: 0;
+    padding-right: 0;
   }
 `;
 

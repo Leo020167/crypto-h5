@@ -35,7 +35,7 @@ const InOutMarkDialog = ({ open, onClose, onSubmit }: InOutMarkDialogProps) => {
           <span className="text-sm">
             {intl.formatMessage({ defaultMessage: '請確認您已向賣家付款', id: 'bKoTT3' })}
           </span>
-          <span className="mt-2 text-[#6175AE] text-xs">
+          <span className="mt-2 text-xs text-[#6175AE]">
             {intl.formatMessage({ defaultMessage: '惡意點擊將直接凍結賬戶', id: 'cQiVhL' })}
           </span>
         </div>
@@ -51,8 +51,8 @@ const Container = styled(Modal)`
     border-radius: 4px;
 
     .adm-modal-title {
-      font-size: 14px;
       font-weight: 400;
+      font-size: 14px;
       text-align: left;
     }
 

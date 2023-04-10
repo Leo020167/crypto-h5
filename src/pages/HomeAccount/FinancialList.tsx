@@ -80,7 +80,7 @@ const FinancialList = () => {
                   <div>{intl.formatMessage({ defaultMessage: '數量', id: 'YYra8Q' })}</div>
                   <div className="text-black">{v.amount}</div>
                 </div>
-                <div className="text-xs text-gray-400 text-right">
+                <div className="text-right text-xs text-gray-400">
                   <div>{intl.formatMessage({ defaultMessage: '狀態', id: 'NL+iCs' })}</div>
                   <div className="text-black">{v.stateDesc}</div>
                 </div>
@@ -95,7 +95,7 @@ const FinancialList = () => {
                   <div></div>
                 )}
 
-                <div className="text-xs text-gray-400 text-right">
+                <div className="text-right text-xs text-gray-400">
                   <div>{intl.formatMessage({ defaultMessage: '解倉時間', id: '/AVS2G' })}</div>
                   <div className="text-black">{stringDateFormat(v.transferTime)}</div>
                 </div>

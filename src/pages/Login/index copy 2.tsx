@@ -27,7 +27,7 @@ const Login = () => {
 
   return (
     <div className="h-screen bg-white px-4 py-4">
-      <div className="text-right pb-2">
+      <div className="pb-2 text-right">
         <Link to="/signup" className="text-black">
           {intl.formatMessage({ defaultMessage: '注冊賬號', id: '3cuhJj' })}
         </Link>
@@ -44,7 +44,7 @@ const Login = () => {
                 <Button block type="submit" color="primary" className="rounded-none">
                   {intl.formatMessage({ defaultMessage: '登錄', id: 'wAPEnf' })}
                 </Button>
-                <div className="text-center mt-4">
+                <div className="mt-4 text-center">
                   <Link to="/reset-password">
                     {intl.formatMessage({ defaultMessage: '忘記了？找回密碼', id: 'oR5wwN' })}
                   </Link>
@@ -141,9 +141,9 @@ const Container = styled.div`
     }
     .eye {
       flex: none;
+      cursor: pointer;
       margin-left: 8px;
       padding: 4px;
-      cursor: pointer;
       svg {
         display: block;
         font-size: var(--adm-font-size-7);

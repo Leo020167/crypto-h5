@@ -27,7 +27,7 @@ const ImagePicker = ({
         type="file"
         ref={ref}
         accept={accept}
-        className="absolute w-full h-full top-0 left-0 invisible"
+        className="invisible absolute left-0 top-0 h-full w-full"
         onChange={onChange}
       />
       {children}

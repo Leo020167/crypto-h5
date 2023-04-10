@@ -49,14 +49,14 @@ const Community = () => {
   }, [count, intl, inviteBuy, userInfo?.userId]);
 
   return (
-    <Container className="bg-[#4d4ce6] flex-1 flex flex-col min-h-0">
+    <Container className="flex min-h-0 flex-1 flex-col bg-[#4d4ce6]">
       <div>
         <NavBar back={null} className="text-white">
           {intl.formatMessage({ defaultMessage: '我的社區', id: 'A2jxOW' })}
         </NavBar>
-        <div className="mt-4 px-4 h-40 text-white ">
+        <div className="mt-4 h-40 px-4 text-white ">
           <div className="flex">
-            <div className="h-10 w-10 rounded-full mr-2.5 overflow-hidden">
+            <div className="mr-2.5 h-10 w-10 overflow-hidden rounded-full">
               <img alt="" src={userInfo?.headUrl ?? ic_default_head} />
             </div>
             <div>
@@ -74,25 +74,25 @@ const Community = () => {
             </div>
           </div>
 
-          <div className="text-[#dae1f8] mt-8 text-xs">
+          <div className="mt-8 text-xs text-[#dae1f8]">
             {intl.formatMessage({ defaultMessage: '社區總獎勵(TFU)', id: 'MQKv1T' })}
           </div>
-          <div className="text-white mt-4 text-3xl">{inviteHome?.data?.sumAmount ?? '0.00'}</div>
+          <div className="mt-4 text-3xl text-white">{inviteHome?.data?.sumAmount ?? '0.00'}</div>
         </div>
       </div>
 
-      <div className="flex-1 flex flex-col rounded-t-3xl bg-white min-h-0 ">
-        <div className=" h-8 mt-6 flex">
-          <span className=" text-[#747474] w-1/4 text-center">
+      <div className="flex min-h-0 flex-1 flex-col rounded-t-3xl bg-white ">
+        <div className=" mt-6 flex h-8">
+          <span className=" w-1/4 text-center text-[#747474]">
             {intl.formatMessage({ defaultMessage: '邀請碼', id: 'lc43/w' })}
           </span>
-          <span className=" text-[#747474] w-1/4 text-center">
+          <span className=" w-1/4 text-center text-[#747474]">
             {intl.formatMessage({ defaultMessage: '狀態', id: 'NL+iCs' })}
           </span>
-          <span className=" text-[#747474] w-1/4 text-center">
+          <span className=" w-1/4 text-center text-[#747474]">
             {intl.formatMessage({ defaultMessage: '成員', id: 'lxxud1' })}
           </span>
-          <span className=" text-[#747474] w-1/4 text-center">
+          <span className=" w-1/4 text-center text-[#747474]">
             {intl.formatMessage({ defaultMessage: '獎勵(TFU)', id: 'zqkaAr' })}
           </span>
         </div>
@@ -101,17 +101,17 @@ const Community = () => {
           <List>
             {inviteHome?.data?.inviteList?.map((v, i) => (
               <List.Item key={i}>
-                <div className="h-4 flex">
-                  <span className=" text-[#747474] w-1/4 text-center">{v.inviteCode ?? '-'}</span>
-                  <span className=" text-[#747474] w-1/4 text-center">
+                <div className="flex h-4">
+                  <span className=" w-1/4 text-center text-[#747474]">{v.inviteCode ?? '-'}</span>
+                  <span className=" w-1/4 text-center text-[#747474]">
                     {v.status
                       ? v.status === '0'
                         ? intl.formatMessage({ defaultMessage: '未使用', id: 'wNYTXq' })
                         : intl.formatMessage({ defaultMessage: '已使用', id: 'c6kvxO' })
                       : '-'}
                   </span>
-                  <span className=" text-[#747474] w-1/4 text-center">{v.inviteUserId ?? '-'}</span>
-                  <span className=" text-[#747474] w-1/4 text-center">{v.amount ?? '-'}</span>
+                  <span className=" w-1/4 text-center text-[#747474]">{v.inviteUserId ?? '-'}</span>
+                  <span className=" w-1/4 text-center text-[#747474]">{v.amount ?? '-'}</span>
                 </div>
               </List.Item>
             ))}
@@ -121,7 +121,7 @@ const Community = () => {
 
       <div className="bg-white px-10">
         <a
-          className="h-12 flex items-center justify-center text-white rounded-3xl bg-[#4d4ce6] mb-6 mt-2"
+          className="mb-6 mt-2 flex h-12 items-center justify-center rounded-3xl bg-[#4d4ce6] text-white"
           onClick={() => setVisible(true)}
         >
           {intl.formatMessage({ defaultMessage: '兌換邀請碼', id: 'O1q1uh' })}
@@ -141,22 +141,22 @@ const Community = () => {
                 onChange={setCount}
                 min={1}
                 type="number"
-                className="border border-black rounded  h-12 px-2.5 text-sm mt-6"
+                className="mt-6 h-12 rounded  border border-black px-2.5 text-sm"
                 placeholder={intl.formatMessage({ defaultMessage: '請輸入兌換數量', id: 'RGKUXx' })}
               />
-              <div className="text-sm py-4 text-black">
+              <div className="py-4 text-sm text-black">
                 {intl.formatMessage({ defaultMessage: '可兌換數量：', id: 'WKCB03' })}
                 {inviteHome?.data?.inviteCodePrice ?? 0}
               </div>
             </div>
 
-            <div className="h-12 flex items-center border-t border-[#909090]">
+            <div className="flex h-12 items-center border-t border-[#909090]">
               <Button className="flex-1 text-center" fill="none" onClick={() => setVisible(false)}>
                 {intl.formatMessage({ defaultMessage: '取消', id: '2QzYmY' })}
               </Button>
-              <div className="w-[1px] bg-[#909090] h-full"></div>
+              <div className="h-full w-[1px] bg-[#909090]"></div>
               <Button
-                className="flex-1 text-center h-full"
+                className="h-full flex-1 text-center"
                 fill="none"
                 onClick={buy}
                 loading={inviteBuy.isLoading}
@@ -184,8 +184,8 @@ const ModalWrapper = styled(Modal)`
 
 const Container = styled.div`
   .adm-nav-bar {
-    background-color: #4d4ce6;
     border: 0;
+    background-color: #4d4ce6;
   }
 `;
 

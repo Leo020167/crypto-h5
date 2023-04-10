@@ -4,7 +4,7 @@ import { useCallback } from 'react';
 import { useIntl } from 'react-intl';
 import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
-import { useQueryParam, StringParam } from 'use-query-params';
+import { StringParam, useQueryParam } from 'use-query-params';
 import { getEmail } from '../../../utils/api';
 import { TypeParam } from '../../../utils/params';
 
@@ -43,13 +43,13 @@ const BindEmail = () => {
   );
 
   return (
-    <Container className="bg-[#F0F1F7] h-full">
-      <NavBar onBack={() => history.goBack()} className="bg-white mb-8">
+    <Container className="h-full bg-[#F0F1F7]">
+      <NavBar onBack={() => history.goBack()} className="mb-8 bg-white">
         {intl.formatMessage({ defaultMessage: '請輸入新郵箱', id: 'ulKN6p' })}
       </NavBar>
 
       {email && (
-        <div className="text-center mb-4 text-[#78797d]">
+        <div className="mb-4 text-center text-[#78797d]">
           {intl.formatMessage(
             { defaultMessage: '您目前的郵箱是{email}，想要把它更新為？', id: 'HcSaEz' },
             { email },
@@ -82,8 +82,8 @@ const BindEmail = () => {
 
 const Container = styled.div`
   .submit {
-    color: #fff;
     background-color: #fe6b1d;
+    color: #fff;
   }
 `;
 export default BindEmail;

@@ -23,7 +23,7 @@ const Settings = () => {
 
   return (
     <div>
-      <NavBar onBack={() => history.goBack()} className="bg-white mb-2">
+      <NavBar onBack={() => history.goBack()} className="mb-2 bg-white">
         {intl.formatMessage({ defaultMessage: '设置', id: 'xE1H+X' })}
       </NavBar>
       <List className="mb-2">

@@ -3,7 +3,7 @@ import { useCallback } from 'react';
 import { useIntl } from 'react-intl';
 import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
-import { useQueryParam, StringParam } from 'use-query-params';
+import { StringParam, useQueryParam } from 'use-query-params';
 import { useAuthStore } from '../../../stores/auth';
 
 import { updateEmail } from '../../../utils/api';
@@ -47,12 +47,12 @@ const BindEmailCode = () => {
   );
 
   return (
-    <Container className="bg-[#F0F1F7] h-full">
-      <NavBar onBack={() => history.goBack()} className="bg-white mb-8">
+    <Container className="h-full bg-[#F0F1F7]">
+      <NavBar onBack={() => history.goBack()} className="mb-8 bg-white">
         {intl.formatMessage({ defaultMessage: '郵箱驗證碼', id: '56o47p' })}
       </NavBar>
 
-      <div className="text-center mb-4 text-[#78797d]">
+      <div className="mb-4 text-center text-[#78797d]">
         {intl.formatMessage({ defaultMessage: '驗證碼已發送至，{email}', id: 'Jgy7GK' }, { email })}
       </div>
 
@@ -81,8 +81,8 @@ const BindEmailCode = () => {
 
 const Container = styled.div`
   .submit {
-    color: #fff;
     background-color: #fe6b1d;
+    color: #fff;
   }
 `;
 export default BindEmailCode;

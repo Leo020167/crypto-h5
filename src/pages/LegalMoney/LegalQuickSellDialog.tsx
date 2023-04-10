@@ -27,13 +27,13 @@ const LegalQuickSellDialog = ({ open, onClose, onSelect }: LegalQuickSellDialogP
   return (
     <Container visible={open} onClose={onClose} closeOnMaskClick>
       <div className="flex flex-col">
-        <span className="h-16 flex items-center px-4 text-base font-bold text-[#3D3A50]">
+        <span className="flex h-16 items-center px-4 text-base font-bold text-[#3D3A50]">
           {intl.formatMessage({ defaultMessage: '收款方式', id: 'UA7E9h' })}
         </span>
         <List className="mb-4">
           {data?.data?.myPaymentList?.map((v, i) => (
             <List.Item
-              prefix={<img alt="" src={v.receiptLogo} className="w-5 h-5" />}
+              prefix={<img alt="" src={v.receiptLogo} className="h-5 w-5" />}
               key={i}
               arrow={null}
               onClick={() => onSelect(v)}
@@ -44,7 +44,7 @@ const LegalQuickSellDialog = ({ open, onClose, onSelect }: LegalQuickSellDialogP
 
           {(data?.data?.myPaymentList?.length ?? 0) < 3 && (
             <List.Item
-              prefix={<img alt="" src={ic_add2} className="w-5 h-5" />}
+              prefix={<img alt="" src={ic_add2} className="h-5 w-5" />}
               key="add"
               onClick={() => {
                 history.push('/add-receipt');

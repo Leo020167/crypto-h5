@@ -30,7 +30,7 @@ const Switch = ({ index, onChange }: SwitchProps) => {
   const intl = useIntl();
 
   return (
-    <div style={styles} className="flex items-center justify-around text-xs bg-no-repeat">
+    <div style={styles} className="flex items-center justify-around bg-no-repeat text-xs">
       <a
         onClick={() => onChange(0)}
         className={`${index === 0 ? 'text-[#6175AE]' : 'text-white'} `}
@@ -55,7 +55,7 @@ const LegalMoney = () => {
   const ref = useRef<SwiperRef>(null);
 
   return (
-    <Container className="h-screen bg-white flex flex-col">
+    <Container className="flex h-screen flex-col bg-white">
       <div className="bg-[#6175AE]">
         <NavBar
           className="text-white"

@@ -71,12 +71,12 @@ const OtcOrderHistory = () => {
           <Dropdown ref={ref}>
             <Dropdown.Item key="sorter" title="筛选">
               <div className="p-4">
-                <div className="flex-1 flex flex-col">
-                  <div className="text-[#1D3155] text-base">
+                <div className="flex flex-1 flex-col">
+                  <div className="text-base text-[#1D3155]">
                     {intl.formatMessage({ defaultMessage: '类型选择', id: 'B6j8h5' })}
                   </div>
                   <Selector
-                    className="mt-1.5 mb-8"
+                    className="mb-8 mt-1.5"
                     columns={4}
                     options={[
                       {
@@ -139,8 +139,8 @@ const OtcOrderHistory = () => {
             }}
           >
             <div className="flex flex-col">
-              <div className="h-10 flex items-center justify-between">
-                <span className="text-[#3D3A50] font-bold">{item.buySellValue}</span>
+              <div className="flex h-10 items-center justify-between">
+                <span className="font-bold text-[#3D3A50]">{item.buySellValue}</span>
                 <div className="flex items-center" style={{ color: getStateColor(item.state) }}>
                   <Badge content={otcListHash[item.orderId ?? '']?.count || null}>
                     <span>{item.stateValue}</span>
@@ -150,22 +150,22 @@ const OtcOrderHistory = () => {
                 </div>
               </div>
 
-              <div className="flex-1 flex justify-between">
-                <div className="flex flex-col text-xs w-1/3">
+              <div className="flex flex-1 justify-between">
+                <div className="flex w-1/3 flex-col text-xs">
                   <div className="text-[#BEBEBE]">
                     {intl.formatMessage({ defaultMessage: '時間', id: 'W6smHj' })}
                   </div>
-                  <div className="text-[#3D3A50] mt-1">{stringDateFormat(item.createTime)}</div>
+                  <div className="mt-1 text-[#3D3A50]">{stringDateFormat(item.createTime)}</div>
                 </div>
 
-                <div className="flex flex-col text-xs w-1/3 items-center">
+                <div className="flex w-1/3 flex-col items-center text-xs">
                   <div className="text-[#BEBEBE]">
                     {intl.formatMessage({ defaultMessage: '數量', id: 'YYra8Q' })}
                   </div>
-                  <div className="text-[#3D3A50] mt-1">{item.amount ?? '--'}</div>
+                  <div className="mt-1 text-[#3D3A50]">{item.amount ?? '--'}</div>
                 </div>
 
-                <div className="flex flex-col text-xs w-1/3 items-end">
+                <div className="flex w-1/3 flex-col items-end text-xs">
                   <div className="text-[#BEBEBE]">
                     {intl.formatMessage(
                       { defaultMessage: '交易金額({currencySign})', id: '5UBWei' },
@@ -174,7 +174,7 @@ const OtcOrderHistory = () => {
                       },
                     )}
                   </div>
-                  <div className="text-[#3D3A50] mt-1">{item.tolPrice ?? '--'}</div>
+                  <div className="mt-1 text-[#3D3A50]">{item.tolPrice ?? '--'}</div>
                 </div>
               </div>
             </div>

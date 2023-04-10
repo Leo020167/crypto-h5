@@ -20,19 +20,19 @@ const AdListItem = ({ data, onSetOnline, onEdit, onDelete }: AdListItemProps) =>
   const state = useMemo(() => {
     if (data.isOnline === '0') {
       return (
-        <span className="bg-[#9A9A9A] text-white px-1 py-0.5 rounded scale-75">
+        <span className="scale-75 rounded bg-[#9A9A9A] px-1 py-0.5 text-white">
           {intl.formatMessage({ defaultMessage: '已下架', id: 'HbPiga' })}
         </span>
       );
     } else if (data.buySell === 'buy') {
       return (
-        <span className="bg-[#E2214E] text-white px-1 py-0.5 rounded scale-75">
+        <span className="scale-75 rounded bg-[#E2214E] px-1 py-0.5 text-white">
           {intl.formatMessage({ defaultMessage: '購買中', id: '3a7HVy' })}
         </span>
       );
     }
     return (
-      <span className="bg-[#00AD88] text-white px-1 py-0.5 rounded scale-75">
+      <span className="scale-75 rounded bg-[#00AD88] px-1 py-0.5 text-white">
         {intl.formatMessage({ defaultMessage: '出售中', id: 'pZSIhq' })}
       </span>
     );
@@ -41,22 +41,22 @@ const AdListItem = ({ data, onSetOnline, onEdit, onDelete }: AdListItemProps) =>
   return (
     <Container className="p-4">
       <div className="flex items-center text-xs ">
-        <div className="flex-1 flex items-center">
+        <div className="flex flex-1 items-center">
           <img
             alt=""
             src={data.userLogo ?? ic_default_head}
-            className="w-6 h-6 rounded-full overflow-hidden"
+            className="h-6 w-6 overflow-hidden rounded-full"
           />
           <span className="ml-2 text-sm">{data.userName}</span>
           {state}
         </div>
 
         <span className="text-gray-400">{data.orderNum}</span>
-        <span className="h-3 mx-4 bg-gray-400 w-[1px]"></span>
+        <span className="mx-4 h-3 w-[1px] bg-gray-400"></span>
         <span className="text-gray-400">{data.limitRate}%</span>
       </div>
 
-      <div className="text-xs mt-4">
+      <div className="mt-4 text-xs">
         <div className="flex items-center">
           <span className="flex-1 text-gray-400">
             {intl.formatMessage({ defaultMessage: '數量', id: 'YYra8Q' })}
@@ -66,26 +66,26 @@ const AdListItem = ({ data, onSetOnline, onEdit, onDelete }: AdListItemProps) =>
             {intl.formatMessage({ defaultMessage: '單價', id: 'WyPuru' })}
           </span>
         </div>
-        <div className="flex items-center mt-2">
+        <div className="mt-2 flex items-center">
           <span className="flex-1 text-gray-400">
             {intl.formatMessage({ defaultMessage: '限額', id: 'zGwnHi' })}
             {`${data.minCny}USDT-${data.maxCny}USDT`}
           </span>
-          <span className="ml-4 text-[#6175AE] text-base font-bold">{data.price}</span>
+          <span className="ml-4 text-base font-bold text-[#6175AE]">{data.price}</span>
         </div>
 
         <div className="mt-2 flex items-center">
           <span className="text-gray-400">
             {intl.formatMessage({ defaultMessage: '方式', id: 'O3bb/6' })}
           </span>
-          <div className="flex-1 ml-2" key="payWay">
+          <div className="ml-2 flex-1" key="payWay">
             {receipts.map((v) => (
-              <img key={v.paymentId} alt="" src={v.receiptLogo} className="w-4 h-4 mr-1" />
+              <img key={v.paymentId} alt="" src={v.receiptLogo} className="mr-1 h-4 w-4" />
             ))}
           </div>
         </div>
 
-        <div className="text-gray-400 mt-2 flex items-center">
+        <div className="mt-2 flex items-center text-gray-400">
           <span className="flex-1">
             {intl.formatMessage({ defaultMessage: '類型', id: 'K9M/Ln' })}
             {'buy' === data.buySell

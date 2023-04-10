@@ -48,7 +48,7 @@ const TakeCoinHistory = () => {
             key={index}
             arrow={null}
             title={
-              <div className="flex justify-between items-center">
+              <div className="flex items-center justify-between">
                 <span className="text-[#677ba8]">
                   {item.inOut === '1'
                     ? intl.formatMessage({ defaultMessage: '充幣', id: 'kGK1/L' })
@@ -64,8 +64,8 @@ const TakeCoinHistory = () => {
               });
             }}
           >
-            <div className="flex text-xs mt-2">
-              <div className="flex flex-col w-1/3">
+            <div className="mt-2 flex text-xs">
+              <div className="flex w-1/3 flex-col">
                 <span className="text-[#b0b5ba]">
                   {intl.formatMessage(
                     { defaultMessage: '數量({symbol})', id: 'MkphXA' },
@@ -74,19 +74,19 @@ const TakeCoinHistory = () => {
                     },
                   )}
                 </span>
-                <span className="text-[#4e5963] mt-1">{item.amount}</span>
+                <span className="mt-1 text-[#4e5963]">{item.amount}</span>
               </div>
-              <div className="flex flex-col w-1/3 text-center">
+              <div className="flex w-1/3 flex-col text-center">
                 <span className="text-[#b0b5ba]">
                   {intl.formatMessage({ defaultMessage: '狀態', id: 'NL+iCs' })}
                 </span>
-                <span className="text-[#4e5963] mt-1">{item.stateDesc}</span>
+                <span className="mt-1 text-[#4e5963]">{item.stateDesc}</span>
               </div>
-              <div className="flex flex-col w-1/3 text-right">
+              <div className="flex w-1/3 flex-col text-right">
                 <span className="text-[#b0b5ba]">
                   {intl.formatMessage({ defaultMessage: '時間', id: 'W6smHj' })}
                 </span>
-                <span className="text-[#4e5963] mt-1">{stringDateFormat(item.createTime)}</span>
+                <span className="mt-1 text-[#4e5963]">{stringDateFormat(item.createTime)}</span>
               </div>
             </div>
           </List.Item>

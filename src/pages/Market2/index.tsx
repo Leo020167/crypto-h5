@@ -116,11 +116,11 @@ const Market = () => {
   const intl = useIntl();
 
   return (
-    <Container className="h-screen min-h-0 text-white flex flex-col">
+    <Container className="flex h-screen min-h-0 flex-col text-white">
       <NavBar onBack={() => history.goBack()}>
         <div className="flex flex-col">
           <div className="text-lg font-bold">{coin?.name}</div>
-          <span className="text-xs text-[#cbcbcb] leading-3">{symbol}</span>
+          <span className="text-xs leading-3 text-[#cbcbcb]">{symbol}</span>
         </div>
       </NavBar>
       <div className="flex-1 overflow-y-auto bg-[#131e31] pb-20">
@@ -130,10 +130,10 @@ const Market = () => {
               <span className="text-4xl font-bold" style={{ color }}>
                 {price.format()}
               </span>
-              <span className="text-[#626073] ml-2">{real?.currency}</span>
+              <span className="ml-2 text-[#626073]">{real?.currency}</span>
             </div>
 
-            <div className="mt-2 text-xs flex items-center gap-4">
+            <div className="mt-2 flex items-center gap-4 text-xs">
               <span className="text-gray-400" style={{ color }}>
                 {Number(real?.amt) >= 0 ? '+' : ''}
                 {real?.amt ?? '0.00'}
@@ -143,14 +143,14 @@ const Market = () => {
                 {real?.rate ?? '0'}%
               </span>
               {!!real?.openMarketStr && (
-                <span className="bg-[#6175ae] rounded-sm px-1 py-0.5 scale-[0.85]">
+                <span className="scale-[0.85] rounded-sm bg-[#6175ae] px-1 py-0.5">
                   {real.openMarketStr}
                 </span>
               )}
             </div>
           </div>
 
-          <div className="text-xs flex flex-col gap-2">
+          <div className="flex flex-col gap-2 text-xs">
             <div className="flex justify-between">
               <span className="w-8 text-gray-400">
                 {intl.formatMessage({ defaultMessage: '高', id: 'hBkLmp' })}
@@ -224,15 +224,15 @@ const Market = () => {
           </Tabs.Tab>
         </Tabs>
       </div>
-      <div className="p-4 bg-[#131e31] flex items-center absolute bottom-0 w-full z-10">
+      <div className="absolute bottom-0 z-10 flex w-full items-center bg-[#131e31] p-4">
         <a
-          className="flex-1 bg-[#E2214E] h-10 flex items-center justify-center text-base"
+          className="flex h-10 flex-1 items-center justify-center bg-[#E2214E] text-base"
           onClick={() => handleBuySell(1)}
         >
           {intl.formatMessage({ defaultMessage: '買入', id: 'sY5/oP' })}
         </a>
         <a
-          className="flex-1 bg-[#00AD88] h-10 flex items-center justify-center text-base ml-2"
+          className="ml-2 flex h-10 flex-1 items-center justify-center bg-[#00AD88] text-base"
           onClick={() => handleBuySell(-1)}
         >
           {intl.formatMessage({ defaultMessage: '賣出', id: 'EOWvn9' })}
@@ -249,10 +249,10 @@ const Container = styled.div`
   }
 
   .adm-tabs {
-    color: #626073;
     --adm-font-size-9: 14px;
     --adm-color-primary: #f08c42;
     --content-padding: 0;
+    color: #626073;
     .adm-tabs-header {
       border: 0;
 

@@ -45,7 +45,7 @@ const SearchCoin = () => {
 
   return (
     <Screen>
-      <div className="px-4 mt-4">
+      <div className="mt-4 px-4">
         <SearchBar
           placeholder={intl.formatMessage({ defaultMessage: '搜索代碼', id: 'I0saGO' })}
           onChange={setValue}

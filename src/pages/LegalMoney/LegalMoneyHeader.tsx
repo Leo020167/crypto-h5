@@ -17,7 +17,7 @@ const LegalMoneyHeader = ({ value, onChange }: LegalMoneyHeaderProps) => {
 
   const intl = useIntl();
   return (
-    <div className="h-16 bg-[#6175AE] flex items-center px-5 text-[#CBCBCB] justify-between">
+    <div className="flex h-16 items-center justify-between bg-[#6175AE] px-5 text-[#CBCBCB]">
       <div>
         <a
           className={value === 'buy' ? selectedClassNames : unselectedClassNames}
@@ -34,7 +34,7 @@ const LegalMoneyHeader = ({ value, onChange }: LegalMoneyHeaderProps) => {
       </div>
 
       <div className="flex items-center">
-        <Link to="/otc-order-history" className="w-10 flex items-center">
+        <Link to="/otc-order-history" className="flex w-10 items-center">
           <Badge content={Number(data?.data?.otcCount) || null}>
             <LegalHistory />
           </Badge>

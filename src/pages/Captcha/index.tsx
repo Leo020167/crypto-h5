@@ -94,7 +94,7 @@ const Captcha = () => {
       />
 
       <div className="p-8">
-        <h1 className=" text-3xl font-bold mb-2">
+        <h1 className=" mb-2 text-3xl font-bold">
           {intl.formatMessage({ defaultMessage: '输入验证码', id: '4FDcHK' })}
         </h1>
         <div className="mb-8">
@@ -139,12 +139,12 @@ const Captcha = () => {
             className="mb-8"
             extra={
               send ? (
-                <a className=" border-gray-400 border-2 rounded text-gray-400 text-sm px-2 py-1">
+                <a className=" rounded border-2 border-gray-400 px-2 py-1 text-sm text-gray-400">
                   {intl.formatMessage({ defaultMessage: '{count}s', id: '1ix6NP' }, { count })}
                 </a>
               ) : (
                 <a
-                  className=" border-[#dcb585] border-2 rounded text-[#dcb585] text-sm px-2 py-1"
+                  className=" rounded border-2 border-[#dcb585] px-2 py-1 text-sm text-[#dcb585]"
                   onClick={handleSendSms}
                 >
                   {intl.formatMessage({ defaultMessage: '获取验证码', id: 'ypMY0M' })}

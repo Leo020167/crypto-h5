@@ -75,7 +75,7 @@ const Countdown = forwardRef<
 
   return (
     <a
-      className=" border-[#FF6B1B] border-2 rounded text-[#FF6B1B] text-sm px-2 py-1"
+      className=" rounded border-2 border-[#FF6B1B] px-2 py-1 text-sm text-[#FF6B1B]"
       onClick={() => onClick?.(status)}
     >
       {renderText()}

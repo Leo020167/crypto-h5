@@ -33,7 +33,7 @@ const HomeStockDigitalMarket = ({ tab, activeKey }: { tab: string; activeKey: st
 
   if (isLoading) {
     return (
-      <div className="flex items-center justify-center h-full">
+      <div className="flex h-full items-center justify-center">
         <SpinLoading color="primary" />
       </div>
     );
@@ -41,15 +41,15 @@ const HomeStockDigitalMarket = ({ tab, activeKey }: { tab: string; activeKey: st
 
   if (data?.data?.quotes?.length === 0) {
     return (
-      <div className="flex items-center justify-center h-full">
+      <div className="flex h-full items-center justify-center">
         <ErrorBlock status="empty" />
       </div>
     );
   }
 
   return (
-    <Container className="h-full flex flex-col text-xs">
-      <div className="text-[#666175ae] flex items-center justify-between text-center h-10 px-4">
+    <Container className="flex h-full flex-col text-xs">
+      <div className="flex h-10 items-center justify-between px-4 text-center text-[#666175ae]">
         <div className="min-w-[100px] text-left">
           <span>{intl.formatMessage({ defaultMessage: '名稱代碼', id: 'ymJBTR' })}</span>
         </div>
@@ -60,7 +60,7 @@ const HomeStockDigitalMarket = ({ tab, activeKey }: { tab: string; activeKey: st
           <span>{intl.formatMessage({ defaultMessage: '漲跌幅', id: 'gA15gF' })}</span>
         </div>
       </div>
-      <div className="flex-1 overflow-y-auto list">
+      <div className="list flex-1 overflow-y-auto">
         {quotes.map((item, i) => (
           <List.Item
             key={i}

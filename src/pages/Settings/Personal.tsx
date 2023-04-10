@@ -38,10 +38,10 @@ const Personal = () => {
   }, [describes, history, intl, sex, userName]);
 
   return (
-    <Container className="bg-[#F0F1F7] h-full">
+    <Container className="h-full bg-[#F0F1F7]">
       <NavBar
         onBack={() => history.goBack()}
-        className="bg-white mb-2"
+        className="mb-2 bg-white"
         right={
           <div className="flex justify-end">
             <a onClick={updateUserInfo}>
@@ -57,7 +57,7 @@ const Personal = () => {
         <List.Item
           arrow={<Arrow />}
           extra={
-            <div className="w-8 h-8 rounded-full mr-4 overflow-hidden">
+            <div className="mr-4 h-8 w-8 overflow-hidden rounded-full">
               <img alt="head" src={userInfo?.headUrl ?? defaultHead} />
             </div>
           }
@@ -81,7 +81,7 @@ const Personal = () => {
           extra={
             <div className="mr-4 flex h-8  items-center gap-2">
               <a
-                className={`rounded px-5 py-1.5 bg-[#f6f6f6] text-xs ${
+                className={`rounded bg-[#f6f6f6] px-5 py-1.5 text-xs ${
                   sex === '0' ? 'bg-[#feca0e] text-white' : ''
                 }`}
                 onClick={() => setSex('0')}
@@ -89,7 +89,7 @@ const Personal = () => {
                 {intl.formatMessage({ defaultMessage: '男', id: 'mpjnyE' })}
               </a>
               <a
-                className={`rounded px-5 py-1.5 bg-[#f6f6f6] text-xs ${
+                className={`rounded bg-[#f6f6f6] px-5 py-1.5 text-xs ${
                   sex === '1' ? 'bg-[#feca0e] text-white' : ''
                 }`}
                 onClick={() => setSex('1')}
@@ -195,9 +195,9 @@ const Container = styled.div`
   }
 
   .adm-list-item-content-main {
+    padding: 1rem 0;
     color: #1d3155;
     font-size: 0.875rem;
-    padding: 1rem 0;
   }
 
   .adm-list-item-content-arrow {

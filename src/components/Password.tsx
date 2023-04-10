@@ -41,9 +41,9 @@ const Container = styled.div`
 
   .eye {
     flex: none;
+    cursor: pointer;
     margin-left: 8px;
     padding: 4px;
-    cursor: pointer;
     svg {
       display: block;
       font-size: var(--adm-font-size-7);

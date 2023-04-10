@@ -21,20 +21,20 @@ const HomeFollowAccount = ({ account, followDv }: HomeFollowAccountProps) => {
   const follow = useMemo(() => {
     if (followDv) {
       return (
-        <div className="flex items-center bg-gray-100 px-4 py-2 mb-4 text-xs">
-          <div className="flex-1 flex items-center">
+        <div className="mb-4 flex items-center bg-gray-100 px-4 py-2 text-xs">
+          <div className="flex flex-1 items-center">
             <span>{intl.formatMessage({ defaultMessage: '跟單機构：', id: 'yPig5i' })}</span>
             <img
               alt=""
               src={followDv.dvHeadUrl ?? ic_default_head}
-              className="w-8 h-8 rounded-full ml-1"
+              className="ml-1 h-8 w-8 rounded-full"
             />
             <span className="ml-1">{followDv.dvUserName}</span>
           </div>
 
           <Link
             to={{ pathname: '/user-home', search: stringify({ userId: followDv.dvUid }) }}
-            className="bg-white rounded-xl py-1 px-2"
+            className="rounded-xl bg-white px-2 py-1"
           >
             {intl.formatMessage({ defaultMessage: '跟單機构', id: 'UX7lUm' })}
           </Link>
@@ -43,13 +43,13 @@ const HomeFollowAccount = ({ account, followDv }: HomeFollowAccountProps) => {
     }
 
     return (
-      <div className="flex items-center bg-gray-100 px-4 py-2 mb-4 text-sm">
-        <div className="flex-1 flex items-center">
+      <div className="mb-4 flex items-center bg-gray-100 px-4 py-2 text-sm">
+        <div className="flex flex-1 items-center">
           <span>{intl.formatMessage({ defaultMessage: '跟單機构：', id: 'yPig5i' })}</span>
           <span>{intl.formatMessage({ defaultMessage: '未綁定', id: 'ReRVZ/' })}</span>
         </div>
 
-        <Link to="/institution" className="bg-white rounded-xl py-1 px-2">
+        <Link to="/institution" className="rounded-xl bg-white px-2 py-1">
           {intl.formatMessage({ defaultMessage: '去綁定', id: '1cJMw5' })}
         </Link>
       </div>
@@ -57,7 +57,7 @@ const HomeFollowAccount = ({ account, followDv }: HomeFollowAccountProps) => {
   }, [followDv, intl]);
 
   return (
-    <div className="p-4 text-xs bg-white">
+    <div className="bg-white p-4 text-xs">
       {follow}
       <div className="flex items-center justify-between">
         <div>
@@ -65,14 +65,14 @@ const HomeFollowAccount = ({ account, followDv }: HomeFollowAccountProps) => {
             {intl.formatMessage({ defaultMessage: '總資產(USDT)', id: 'IbtpXH' })}
           </div>
           <div className="mt-1">
-            <span className="text-[#c1d3155] text-base">{account?.assets ?? '0'}</span>
+            <span className="text-base text-[#c1d3155]">{account?.assets ?? '0'}</span>
             <span className="ml-1">{account?.assetsCny ?? '≈HK$0.00'}</span>
           </div>
         </div>
 
         <div className="flex flex-col items-end">
           <a
-            className="text-gray-400 flex items-center justify-center"
+            className="flex items-center justify-center text-gray-400"
             onClick={() => {
               Dialog.alert({
                 content: data?.data?.riskRateDesc,
@@ -81,7 +81,7 @@ const HomeFollowAccount = ({ account, followDv }: HomeFollowAccountProps) => {
             }}
           >
             <span>{intl.formatMessage({ defaultMessage: '風險率', id: '7iWsp4' })}</span>
-            <img alt="" src={ic_question_mark} className="w-3.5 h-3.5 ml-1 -mt-[2px]" />
+            <img alt="" src={ic_question_mark} className="-mt-[2px] ml-1 h-3.5 w-3.5" />
           </a>
           <div>{account?.riskRate}%</div>
         </div>

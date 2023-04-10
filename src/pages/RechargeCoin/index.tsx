@@ -84,9 +84,9 @@ const RechargeCoin = () => {
         ),
       }}
     >
-      <Container className="p-4 bg-[#F4F6F4] flex-1 overflow-y-auto">
-        <div className="rounded-xl shadow-md shadow-black/5 p-5 bg-white">
-          <div className="text-[#A2A9BC] flex items-center justify-between text-sm">
+      <Container className="flex-1 overflow-y-auto bg-[#F4F6F4] p-4">
+        <div className="rounded-xl bg-white p-5 shadow-md shadow-black/5">
+          <div className="flex items-center justify-between text-sm text-[#A2A9BC]">
             <span>
               {intl.formatMessage(
                 { defaultMessage: '可用餘額({symbol})', id: 'p4Oi3U' },
@@ -95,11 +95,11 @@ const RechargeCoin = () => {
                 },
               )}
             </span>
-            <span className="text-[#3E4660] text-lg">
+            <span className="text-lg text-[#3E4660]">
               {chargeConfigs?.data?.availableAmount ?? '0.00'}
             </span>
           </div>
-          <div className="text-[#A2A9BC] flex items-center justify-between text-sm">
+          <div className="flex items-center justify-between text-sm text-[#A2A9BC]">
             <span>
               {intl.formatMessage(
                 { defaultMessage: '最小充值金額({symbol})', id: 'k5HUdW' },
@@ -108,13 +108,13 @@ const RechargeCoin = () => {
                 },
               )}
             </span>
-            <span className="text-[#00BAB8] text-lg">
+            <span className="text-lg text-[#00BAB8]">
               {chargeConfigs?.data?.minChargeAmount ?? '0.00'}
             </span>
           </div>
         </div>
 
-        <div className="rounded-xl shadow-md shadow-black/5 p-5 bg-white mt-4">
+        <div className="mt-4 rounded-xl bg-white p-5 shadow-md shadow-black/5">
           <div className="flex items-start justify-between">
             <div>
               <span className="text-[#3E4660]">
@@ -122,7 +122,7 @@ const RechargeCoin = () => {
               </span>
               <div className="mt-4">
                 <a
-                  className="flex items-center justify-center border border-[#3E4660] rounded h-8 px-2"
+                  className="flex h-8 items-center justify-center rounded border border-[#3E4660] px-2"
                   onClick={() => {
                     setOpenSymbol(true);
                   }}
@@ -152,22 +152,22 @@ const RechargeCoin = () => {
               </div>
             )}
           </div>
-          <div className="border-t border-dashed border-[#E2E4F0] mt-5"></div>
+          <div className="mt-5 border-t border-dashed border-[#E2E4F0]"></div>
 
-          <div className="flex items-center justify-center mt-8">
+          <div className="mt-8 flex items-center justify-center">
             {!!currentAddress?.address && (
               <QRCodeCanvas value={currentAddress?.address} width={180} height={180} />
             )}
           </div>
 
-          <div className="flex justify-center mt-8">
-            <span className="bg-[#6175AE] text-white rounded-2xl px-3 py-2 text-xs">
+          <div className="mt-8 flex justify-center">
+            <span className="rounded-2xl bg-[#6175AE] px-3 py-2 text-xs text-white">
               {intl.formatMessage({ defaultMessage: '只允許充值', id: 'Zhkpb8' })}
               {symbol}
             </span>
           </div>
 
-          <div className="mt-12 text-sm text-[#3E4660] flex justify-between">
+          <div className="mt-12 flex justify-between text-sm text-[#3E4660]">
             <span>{intl.formatMessage({ defaultMessage: '充幣地址', id: 'Q4foHv' })}</span>
             {symbol === 'USDT' && (
               <span>
@@ -177,13 +177,13 @@ const RechargeCoin = () => {
             )}
           </div>
 
-          <div className="mt-4 relative flex items-center">
-            <div className="flex items-center h-11 bg-[#EDF3FA] text-[#6175AE] px-2.5 rounded-md overflow-x-auto pr-12 w-full">
+          <div className="relative mt-4 flex items-center">
+            <div className="flex h-11 w-full items-center overflow-x-auto rounded-md bg-[#EDF3FA] px-2.5 pr-12 text-[#6175AE]">
               {currentAddress?.address}
             </div>
             {currentAddress?.address && (
               <a
-                className="absolute right-[-4px] h-8 bg-[#6175AE] text-white pl-2.5 pr-2 flex items-center text-sm rounded-tl-[14px] rounded-bl-[14px]  rounded-tr-md rounded-br-md"
+                className="absolute right-[-4px] flex h-8 items-center rounded-bl-[14px] rounded-br-md rounded-tl-[14px] rounded-tr-md bg-[#6175AE] pl-2.5 pr-2  text-sm text-white"
                 onClick={() => {
                   if (currentAddress?.address) {
                     copyToClipboard(currentAddress?.address);
@@ -219,16 +219,16 @@ const Container = styled.div`
     --padding: 0 10px;
     .adm-selector-item {
       display: flex;
-      align-items: center;
       justify-content: center;
+      align-items: center;
+      border: 1px solid #00bab8;
+      background-color: transparent;
       height: 32px;
       color: #00bab8;
       font-size: 16px;
-      border: 1px solid #00bab8;
-      background-color: transparent;
       &.adm-selector-item-active {
-        color: #fff;
         background-color: #00bab8;
+        color: #fff;
       }
     }
   }

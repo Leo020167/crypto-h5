@@ -32,19 +32,19 @@ const CoinSummary = ({ coin }: { coin?: any }) => {
     [intl],
   );
   return (
-    <div className="text-gray-400 text-xs divide-y divide-black">
+    <div className="divide-y divide-black text-xs text-gray-400">
       {properties.map((p) => (
-        <div className="flex items-center justify-between h-14 px-4" key={p.key}>
+        <div className="flex h-14 items-center justify-between px-4" key={p.key}>
           <span>{p.label}</span>
           <span className="text-gray-300">{coin?.[p.key] || '----'}</span>
         </div>
       ))}
 
       <div>
-        <div className="text-base px-4 my-4">
+        <div className="my-4 px-4 text-base">
           {intl.formatMessage({ defaultMessage: '簡介:', id: 'StIa2l' })}
         </div>
-        <div className="px-4 mt-4 text-gray-300">{coin['desc']}</div>
+        <div className="mt-4 px-4 text-gray-300">{coin['desc']}</div>
       </div>
     </div>
   );

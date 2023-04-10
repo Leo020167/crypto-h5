@@ -22,12 +22,12 @@ const PaymentPasswordDialog = ({ open, onClose, onFill }: PaymentPasswordDialogP
       closeOnMaskClick
       destroyOnClose
       content={
-        <div className="pt-4 flex flex-col">
+        <div className="flex flex-col pt-4">
           <div className="flex justify-center">
             <PasscodeInput onFill={onFill} />
           </div>
 
-          <div className="pl-2 mt-4">
+          <div className="mt-4 pl-2">
             <a
               onClick={() => {
                 if (authStore.userInfo?.phone) {
@@ -36,7 +36,7 @@ const PaymentPasswordDialog = ({ open, onClose, onFill }: PaymentPasswordDialogP
                   history.push('/bind-phone');
                 }
               }}
-              className="text-[#6175AE] text-sm"
+              className="text-sm text-[#6175AE]"
             >
               {intl.formatMessage({ defaultMessage: '交易密码管理', id: 'lK7IeZ' })}
             </a>

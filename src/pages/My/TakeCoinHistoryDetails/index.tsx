@@ -50,7 +50,7 @@ const TakeCoinHistoryDetails = () => {
               ? intl.formatMessage({ defaultMessage: '充幣地址', id: 'Q4foHv' })
               : intl.formatMessage({ defaultMessage: '提幣地址', id: 'NUeill' })
           }
-          extra={<div className="text-black overflow-x-auto">{state?.address}</div>}
+          extra={<div className="overflow-x-auto text-black">{state?.address}</div>}
         />
         <List.Item
           title={intl.formatMessage({ defaultMessage: '狀態', id: 'NL+iCs' })}

@@ -149,9 +149,9 @@ const MerchantAuthentication = () => {
   const reason = useMemo(() => {
     if (state === '-1' && otcCertification?.reason) {
       return (
-        <div className="flex items-center h-10">
+        <div className="flex h-10 items-center">
           <SvgAlert />
-          <span className="ml-2 text-[#6175AE] text-xs">{otcCertification?.reason}</span>
+          <span className="ml-2 text-xs text-[#6175AE]">{otcCertification?.reason}</span>
         </div>
       );
     }
@@ -167,8 +167,8 @@ const MerchantAuthentication = () => {
     >
       <Container className="px-4">
         {reason}
-        <div className=" h-16 flex items-center">
-          <span className="flex-1 text-base text-[#1A1717] font-bold">
+        <div className=" flex h-16 items-center">
+          <span className="flex-1 text-base font-bold text-[#1A1717]">
             {intl.formatMessage({
               defaultMessage: '實名信息',
               id: 'qxIFeG',
@@ -210,7 +210,7 @@ const MerchantAuthentication = () => {
             extra={((isAuthentication && otcCertification?.securityDeposit) || '--') + ' USDT'}
           />
         </List>
-        <div className="text-[#9A9A9A] text-xs mt-4">
+        <div className="mt-4 text-xs text-[#9A9A9A]">
           {intl.formatMessage({
             defaultMessage:
               '保證金用於發佈出售或購買USDT廣告，提交認證信息即時從資產餘額中進行凍結。',
@@ -223,7 +223,7 @@ const MerchantAuthentication = () => {
             <Checkbox
               checked={sign}
               onChange={setSign}
-              className="mt-0.5 mr-2"
+              className="mr-2 mt-0.5"
               style={{
                 '--icon-size': '14px',
                 '--font-size': '12px',

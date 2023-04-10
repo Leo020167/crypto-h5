@@ -16,7 +16,7 @@ const SelectWayPayAdd = () => {
   const location = useLocation();
   return (
     <div
-      className="bg-[#F9F9FC] text-[#3D3A50] font-bold h-14 flex items-center justify-center text-2xl overflow-hidden rounded"
+      className="flex h-14 items-center justify-center overflow-hidden rounded bg-[#F9F9FC] text-2xl font-bold text-[#3D3A50]"
       onClick={() => {
         history.push({
           pathname: '/add-receipt',
@@ -41,25 +41,25 @@ const SelectWayPay = ({
   const intl = useIntl();
   return (
     <div
-      className="bg-[#F9F9FC] text-[#3D3A50] font-bold h-14 flex flex-col items-center justify-center text-xs px-2 border border-transparent overflow-hidden rounded transition-all"
+      className="flex h-14 flex-col items-center justify-center overflow-hidden rounded border border-transparent bg-[#F9F9FC] px-2 text-xs font-bold text-[#3D3A50] transition-all"
       style={{
         borderColor: isSelected ? '#6175AE' : '',
       }}
       onClick={() => onToggle(data.paymentId ?? '')}
     >
       <div className="flex items-center">
-        <img alt="" src={data.receiptLogo} className="w-4 h-4" />
+        <img alt="" src={data.receiptLogo} className="h-4 w-4" />
         <span className="ml-1">{data.receiptTypeValue}</span>
-        <div className="border border-[#6175AE] text-[#6175AE] px-1 py-0.5 rounded scale-75">
+        <div className="scale-75 rounded border border-[#6175AE] px-1 py-0.5 text-[#6175AE]">
           {intl.formatMessage({ defaultMessage: '推薦', id: 'nGQJ81' })}
         </div>
       </div>
 
-      <div className="flex items-center justify-center relative w-full mt-0.5">
-        <span className="border border-[#6175AE] text-[#6175AE] px-1 py-0.5 rounded scale-[0.85]">
+      <div className="relative mt-0.5 flex w-full items-center justify-center">
+        <span className="scale-[0.85] rounded border border-[#6175AE] px-1 py-0.5 text-[#6175AE]">
           {intl.formatMessage({ defaultMessage: '價格最優', id: 'EYBWHx' })}
         </span>
-        {isSelected && <SvgSelected className="w-4 h-4 absolute right-0" />}
+        {isSelected && <SvgSelected className="absolute right-0 h-4 w-4" />}
       </div>
     </div>
   );

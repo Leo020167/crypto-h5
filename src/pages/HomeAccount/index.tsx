@@ -13,25 +13,25 @@ const HomeAccount = () => {
   useInterval(() => refetch(), 1000);
 
   return (
-    <Container className="h-screen min-h-0 relative flex flex-col bg-gray-100">
+    <Container className="relative flex h-screen min-h-0 flex-col bg-gray-100">
       <div className="flex-1 overflow-y-auto">
-        <div className="flex flex-col pt-10 px-4 pb-6 bg-[#4D4CE6] text-white">
+        <div className="flex flex-col bg-[#4D4CE6] px-4 pb-6 pt-10 text-white">
           <div className="text-xs text-gray-200">
             {intl.formatMessage({ defaultMessage: '餘額賬戶總資產(USDT)', id: 'dKX04w' })}
           </div>
-          <div className=" font-bold text-4xl my-1">{data?.data?.tolAssets ?? '0.00'}</div>
+          <div className=" my-1 text-4xl font-bold">{data?.data?.tolAssets ?? '0.00'}</div>
           <div className="text-base">{data?.data?.tolAssetsCny ?? '0.00'}</div>
 
-          <div className="mt-4 gap-2 flex">
+          <div className="mt-4 flex gap-2">
             <Link
               to="/recharge-coin"
-              className="bg-[#6f6fe7] h-full flex flex-1 items-center justify-center rounded min-h-[40px] px-2"
+              className="flex h-full min-h-[40px] flex-1 items-center justify-center rounded bg-[#6f6fe7] px-2"
             >
               {intl.formatMessage({ defaultMessage: '充幣', id: 'kGK1/L' })}
             </Link>
             <Link
               to="/take-coin"
-              className="bg-[#6f6fe7] h-full flex flex-1 items-center justify-center rounded min-h-[40px] px-2"
+              className="flex h-full min-h-[40px] flex-1 items-center justify-center rounded bg-[#6f6fe7] px-2"
             >
               {intl.formatMessage({ defaultMessage: '提幣', id: 'andeZs' })}
             </Link>
@@ -46,12 +46,12 @@ const HomeAccount = () => {
 
 const Container = styled.div`
   .adm-tabs {
-    color: #666175ae;
-    font-weight: bold;
     --adm-font-size-9: 14px;
     --adm-color-primary: #4d4ce6;
     --active-line-height: 4px;
     --active-line-border-radius: 0;
+    color: #666175ae;
+    font-weight: bold;
   }
 `;
 

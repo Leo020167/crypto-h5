@@ -19,14 +19,14 @@ const HomeSpotAccount = ({ account }: HomeSpotAccountProps) => {
   const history = useHistory();
   return (
     <Container className="bg-gray-100">
-      <div className="p-4 bg-white text-xs">
+      <div className="bg-white p-4 text-xs">
         <div className="mt-3 flex items-center justify-between text-[#c1d3155]">
           <div>
             <div className="text-gray-400">
               {intl.formatMessage({ defaultMessage: '總資產(USDT)', id: 'IbtpXH' })}
             </div>
             <div>
-              <span className="text-[#c1d3155] text-base">{account?.assets ?? '0'}</span>
+              <span className="text-base text-[#c1d3155]">{account?.assets ?? '0'}</span>
               <span className="ml-1 text-gray-400">{account?.assetsCny ?? '≈HK$0.00'}</span>
             </div>
           </div>
@@ -64,7 +64,7 @@ const HomeSpotAccount = ({ account }: HomeSpotAccountProps) => {
       </div>
 
       <div className="mt-2.5 bg-white p-4">
-        <div className="text-base text-gray-400 flex items-center">
+        <div className="flex items-center text-base text-gray-400">
           <span
             className={`px-4 ${selected === 0 ? ' text-black' : ''}`}
             onClick={() => setSelected(0)}

@@ -102,7 +102,7 @@ const ResetPassword = () => {
           }}
           footer={
             <div className="text-center">
-              <Button block type="submit" color="primary" className="rounded-none mt-8">
+              <Button block type="submit" color="primary" className="mt-8 rounded-none">
                 {intl.formatMessage({ defaultMessage: '完成', id: 'uHUP9v' })}
               </Button>
               {!email && (
@@ -120,7 +120,7 @@ const ResetPassword = () => {
           }
         >
           {!email && (
-            <div className="mt-6 mb-2 locale pl-2 flex items-center" onClick={() => setOpen(true)}>
+            <div className="locale mb-2 mt-6 flex items-center pl-2" onClick={() => setOpen(true)}>
               {country.name}
               <DownFill fontSize={7} className="ml-1" color="#c0c0c0" />
             </div>
@@ -138,7 +138,7 @@ const ResetPassword = () => {
               name="phone"
               label={
                 <div
-                  className="pl-2 flex items-center justify-center"
+                  className="flex items-center justify-center pl-2"
                   onClick={() => setOpen(true)}
                 >
                   {country.code} <DownFill fontSize={7} className="ml-1" color="#c0c0c0" />
@@ -156,12 +156,12 @@ const ResetPassword = () => {
           <Form.Item
             extra={
               send ? (
-                <a className=" border-gray-400 border-2 rounded text-gray-400 text-sm px-2 py-1">
+                <a className=" rounded border-2 border-gray-400 px-2 py-1 text-sm text-gray-400">
                   {intl.formatMessage({ defaultMessage: '{count}s', id: '1ix6NP' }, { count })}
                 </a>
               ) : (
                 <a
-                  className=" border-[#dcb585] border-2 rounded text-[#dcb585] text-sm px-2 py-1"
+                  className=" rounded border-2 border-[#dcb585] px-2 py-1 text-sm text-[#dcb585]"
                   onClick={handleSendSms}
                 >
                   {intl.formatMessage({ defaultMessage: '获取验证码', id: 'ypMY0M' })}

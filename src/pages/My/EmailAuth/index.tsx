@@ -18,17 +18,17 @@ const EmailAuth = () => {
   const intl = useIntl();
 
   return (
-    <Container className="bg-[#F0F1F7] h-full">
-      <NavBar onBack={() => history.goBack()} className="bg-white mb-8">
+    <Container className="h-full bg-[#F0F1F7]">
+      <NavBar onBack={() => history.goBack()} className="mb-8 bg-white">
         {intl.formatMessage({ defaultMessage: '安全驗證', id: 'yzF0zK' })}
       </NavBar>
 
       <div className="p-4">
-        <div className="text-center text-[#898a8e] text-base mb-8">
+        <div className="mb-8 text-center text-base text-[#898a8e]">
           {intl.formatMessage({ defaultMessage: '爲了保證你的賬號安全，請驗證身份', id: 'cbYoMn' })}
         </div>
 
-        <div className="text-center text-base font-bold mb-8">{userInfo?.email}</div>
+        <div className="mb-8 text-center text-base font-bold">{userInfo?.email}</div>
 
         <Button
           block
@@ -49,8 +49,8 @@ const EmailAuth = () => {
 
 const Container = styled.div`
   .submit {
-    color: #fff;
     background-color: #fe6b1d;
+    color: #fff;
   }
 `;
 export default EmailAuth;

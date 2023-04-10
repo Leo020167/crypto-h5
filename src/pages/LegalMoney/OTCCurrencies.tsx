@@ -23,9 +23,9 @@ const OTCCurrencies = ({ value, onChange }: OTCCurrenciesProps) => {
       trigger="click"
       onAction={(item) => onChange?.(item.key as string)}
     >
-      <a className="px-2 py-1 flex items-center bg-[#f1f3ff] rounded ml-4">
+      <a className="ml-4 flex items-center rounded bg-[#f1f3ff] px-2 py-1">
         <span className="text-xs text-[#3D3A50]">{value}</span>
-        <DownFill className=" w-3 h-3 mr-1 text-[#746f6f] ml-4" />
+        <DownFill className=" ml-4 mr-1 h-3 w-3 text-[#746f6f]" />
       </a>
     </Container>
   );
@@ -38,8 +38,8 @@ const Container = styled(Popover.Menu)`
       border-bottom: 1px solid #f1f3ff;
     }
     .adm-popover-menu-item-text {
-      padding: 8px 0;
       border: 0;
+      padding: 8px 0;
       text-align: center;
     }
   }

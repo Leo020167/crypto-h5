@@ -46,12 +46,12 @@ const EmailAuthCode = () => {
   );
 
   return (
-    <Container className="bg-[#F0F1F7] h-full">
-      <NavBar onBack={() => history.goBack()} className="bg-white mb-8">
+    <Container className="h-full bg-[#F0F1F7]">
+      <NavBar onBack={() => history.goBack()} className="mb-8 bg-white">
         {intl.formatMessage({ defaultMessage: '郵箱驗證碼', id: '56o47p' })}
       </NavBar>
 
-      <div className="text-center mb-4 text-[#78797d]">
+      <div className="mb-4 text-center text-[#78797d]">
         {intl.formatMessage({ defaultMessage: '驗證碼已發送至，{email}', id: 'Jgy7GK' }, { email })}
       </div>
       <Form
@@ -79,8 +79,8 @@ const EmailAuthCode = () => {
 
 const Container = styled.div`
   .submit {
-    color: #fff;
     background-color: #fe6b1d;
+    color: #fff;
   }
 `;
 export default EmailAuthCode;

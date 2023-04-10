@@ -17,7 +17,7 @@ const RefreshRateList = ({ open, onClose }: RefreshRateListProps) => {
   const intl = useIntl();
   return (
     <Popup position="right" visible={open} onClose={onClose}>
-      <div className="w-screen h-screen">
+      <div className="h-screen w-screen">
         <NavBar onBack={onClose}>
           {intl.formatMessage({ defaultMessage: '刷新频率设置', id: 'E7wFmB' })}
         </NavBar>

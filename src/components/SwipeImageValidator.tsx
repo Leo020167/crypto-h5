@@ -269,7 +269,7 @@ const SwipeImageValidator = ({
   return (
     <Mask visible={open} destroyOnClose>
       <div
-        className="w-screen h-screen flex flex-col  justify-center relative"
+        className="relative flex h-screen w-screen  flex-col justify-center"
         onTouchMove={handleMove}
         onTouchEnd={handleMoveEnd}
       >
@@ -278,7 +278,7 @@ const SwipeImageValidator = ({
         </Close>
 
         <div className="m-auto">
-          <h1 className="text-white text-xl mb-4 text-left px-4">{title}</h1>
+          <h1 className="mb-4 px-4 text-left text-xl text-white">{title}</h1>
 
           <Container className="relative" style={commonStyle}>
             {loading && (
@@ -296,10 +296,10 @@ const SwipeImageValidator = ({
             )}
 
             <DragImage
-              className="top-img w-[297px] h-[180px] bg-no-repeat relative"
+              className="top-img relative h-[180px] w-[297px] bg-no-repeat"
               style={dragBgStyle}
             >
-              <DragImageMove className="top-0 left-0" style={dragMiniStyle}></DragImageMove>
+              <DragImageMove className="left-0 top-0" style={dragMiniStyle}></DragImageMove>
               {showDragTip && <p className="e-tips ">{dragTip}</p>}
             </DragImage>
             <div className="bottom-tips w-full">
@@ -315,7 +315,7 @@ const SwipeImageValidator = ({
               ></p>
             </div>
 
-            <div className="w-full text-right mt-4">
+            <div className="mt-4 w-full text-right">
               <span onClick={renew}>
                 {intl.formatMessage({ defaultMessage: '换一张', id: 'Lj6xLm' })}
               </span>
@@ -345,12 +345,12 @@ const DragImage = styled.div`
     position: absolute;
     bottom: 0;
     left: 0;
+    background-color: #fe5400;
     width: 100%;
-    text-align: center;
-    line-height: 35px;
     height: 35px;
     color: white;
-    background-color: #fe5400;
+    line-height: 35px;
+    text-align: center;
   }
 `;
 
@@ -376,11 +376,11 @@ const Container = styled.div`
     right: 0;
     bottom: 0;
     left: 0;
-    height: 100%;
-    width: 100%;
-    background-color: rgba(205, 205, 205, 0.76);
-    text-align: center;
     z-index: 10;
+    background-color: rgba(205, 205, 205, 0.76);
+    width: 100%;
+    height: 100%;
+    text-align: center;
     .load {
       margin-top: 100px;
     }
@@ -391,42 +391,42 @@ const Container = styled.div`
   }
 
   .bottom-tips {
+    position: relative;
     margin-top: 0.5rem;
     background-color: #eeeeee;
     height: 50px;
     line-height: 50px;
     text-align: center;
-    position: relative;
     .touch-btn {
       position: absolute;
       top: 0;
-      height: 50px;
-      background-repeat: no-repeat;
-      background-size: 100% 100%;
       cursor: pointer;
+      background-size: 100% 100%;
+      background-repeat: no-repeat;
+      height: 50px;
     }
     .success-btn {
       position: absolute;
       top: 0;
-      height: 50px;
-      background-repeat: no-repeat;
-      background-size: 100% 100%;
-      color: white;
       cursor: pointer;
+      background-size: 100% 100%;
+      background-repeat: no-repeat;
+      height: 50px;
+      color: white;
     }
     .reds {
       position: absolute;
       top: 0;
       left: 0;
-      height: 50px;
       background-color: #fe5400;
+      height: 50px;
     }
     .greens {
       position: absolute;
       top: 0;
       left: 0;
-      height: 50px;
       background-color: #30ca99;
+      height: 50px;
       color: white;
     }
   }

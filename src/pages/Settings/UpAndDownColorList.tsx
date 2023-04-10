@@ -22,7 +22,7 @@ const UpAndDownColorList = ({ open, onClose }: UpAndDownColorListProps) => {
 
   return (
     <Popup position="right" visible={open} onClose={onClose}>
-      <div className="w-screen h-screen">
+      <div className="h-screen w-screen">
         <NavBar onBack={onClose}>
           {intl.formatMessage({ defaultMessage: '涨跌颜色', id: 'o3hkNu' })}
         </NavBar>

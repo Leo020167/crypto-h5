@@ -15,19 +15,19 @@ const HomeDigitalAccount = ({ account }: HomeDigitalAccountProps) => {
 
   return (
     <div>
-      <div className="p-4 text-xs bg-white">
+      <div className="bg-white p-4 text-xs">
         <div className="flex items-center justify-between">
           <div>
             <div className="text-gray-400">總資產(USDT)</div>
             <div className="mt-1">
-              <span className="text-[#c1d3155] text-base">{account?.assets ?? '0'}</span>
+              <span className="text-base text-[#c1d3155]">{account?.assets ?? '0'}</span>
               <span className="ml-1">{account?.assetsCny ?? '≈HK$0.00'}</span>
             </div>
           </div>
 
           <div className="flex flex-col items-end">
             <a
-              className="text-gray-400 flex items-center justify-center"
+              className="flex items-center justify-center text-gray-400"
               onClick={() => {
                 Dialog.alert({
                   content: data?.data?.riskRateDesc,
@@ -36,7 +36,7 @@ const HomeDigitalAccount = ({ account }: HomeDigitalAccountProps) => {
               }}
             >
               <span>{intl.formatMessage({ defaultMessage: '風險率', id: '7iWsp4' })}</span>
-              <img alt="" src={ic_question_mark} className="w-3.5 h-3.5 ml-1 -mt-[2px]" />
+              <img alt="" src={ic_question_mark} className="-mt-[2px] ml-1 h-3.5 w-3.5" />
             </a>
             <div>{account?.riskRate}%</div>
           </div>

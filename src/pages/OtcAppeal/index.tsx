@@ -76,10 +76,10 @@ const OtcAppeal = () => {
       }
     >
       <Container className="flex-1 overflow-y-auto">
-        <div className="mt-4 px-4 text-[#3D3A50] font-bold">
+        <div className="mt-4 px-4 font-bold text-[#3D3A50]">
           {intl.formatMessage({ defaultMessage: '申訴理由', id: 'htEymu' })}
         </div>
-        <div className="py-4 px-4 border-b">
+        <div className="border-b px-4 py-4">
           <Radio.Group value={reason} onChange={(v) => setReason(v as string)}>
             <Space direction="vertical">
               {data?.data?.map((v, i) => (
@@ -91,7 +91,7 @@ const OtcAppeal = () => {
           </Radio.Group>
         </div>
 
-        <div className="mt-4 px-4 text-[#3D3A50] font-bold">
+        <div className="mt-4 px-4 font-bold text-[#3D3A50]">
           <span>{intl.formatMessage({ defaultMessage: '申訴截圖(可選)', id: 'ZOabtQ' })}</span>
           <div className="mt-4 flex">
             <ImagePicker
@@ -106,8 +106,8 @@ const OtcAppeal = () => {
                 }
               }}
             >
-              <div className="w-20 h-20 bg-[#F7F7F7] flex items-center justify-center text-xl font-bold">
-                {image1Url ? <img alt="" src={image1Url} className="w-full h-full" /> : '+'}
+              <div className="flex h-20 w-20 items-center justify-center bg-[#F7F7F7] text-xl font-bold">
+                {image1Url ? <img alt="" src={image1Url} className="h-full w-full" /> : '+'}
               </div>
             </ImagePicker>
 
@@ -123,19 +123,19 @@ const OtcAppeal = () => {
                 }
               }}
             >
-              <div className="w-20 h-20 bg-[#F7F7F7] flex items-center justify-center text-xl font-bold ml-4">
-                {image2Url ? <img alt="" src={image2Url} className="w-full h-full" /> : '+'}
+              <div className="ml-4 flex h-20 w-20 items-center justify-center bg-[#F7F7F7] text-xl font-bold">
+                {image2Url ? <img alt="" src={image2Url} className="h-full w-full" /> : '+'}
               </div>
             </ImagePicker>
           </div>
         </div>
 
-        <div className="mt-4 px-4 text-[#3D3A50] font-bold">
+        <div className="mt-4 px-4 font-bold text-[#3D3A50]">
           <span>{intl.formatMessage({ defaultMessage: '申訴留言(可選)', id: 'GFzduc' })}</span>
           <TextArea
             value={content}
             onChange={setContent}
-            className="border rounded text-sm h-28 mt-4 p-2"
+            className="mt-4 h-28 rounded border p-2 text-sm"
             placeholder={intl.formatMessage({
               defaultMessage: '您可以寫下您申訴的詳細情況～～（限300字）',
               id: 'w2IUbz',
@@ -144,7 +144,7 @@ const OtcAppeal = () => {
           />
         </div>
 
-        <div className="mt-4 mx-4 p-4 flex flex-col text-xs border border-dashed text-[#6175AE] border-[#6175AE] bg-[#f1f3ff]">
+        <div className="mx-4 mt-4 flex flex-col border border-dashed border-[#6175AE] bg-[#f1f3ff] p-4 text-xs text-[#6175AE]">
           <div className="flex items-center">
             <SvgAlert />
             <span className="ml-2">

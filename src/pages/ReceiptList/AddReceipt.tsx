@@ -3,7 +3,7 @@ import { stringify } from 'query-string';
 import { useIntl } from 'react-intl';
 import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
-import { useQueryParam, StringParam } from 'use-query-params';
+import { StringParam, useQueryParam } from 'use-query-params';
 import { useOtcFindMyPaymentList } from '../../api/endpoints/transformer';
 import Screen from '../../components/Screen';
 
@@ -21,7 +21,7 @@ const AddReceipt = () => {
       <List>
         {data?.data?.myPaymentList?.map((v, i) => (
           <List.Item
-            prefix={<img alt="" src={v.receiptLogo} className="w-5 h-5" />}
+            prefix={<img alt="" src={v.receiptLogo} className="h-5 w-5" />}
             key={i}
             onClick={() => {
               const receiptType = Number(v.receiptType);

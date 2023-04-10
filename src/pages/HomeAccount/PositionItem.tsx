@@ -11,31 +11,31 @@ const PositionItem = ({ data }: { data: Position }) => {
   return (
     <div className="p-4">
       <div>
-        <div className="text-sm font-bold mt-2">{getOriginSymbol(data.symbol)}</div>
+        <div className="mt-2 text-sm font-bold">{getOriginSymbol(data.symbol)}</div>
       </div>
-      <div className="flex mt-4">
-        <div className="flex flex-col text-xs w-1/3">
+      <div className="mt-4 flex">
+        <div className="flex w-1/3 flex-col text-xs">
           <div className="text-gray-400">
             {intl.formatMessage({ defaultMessage: '可用', id: '7C3q18' })}
           </div>
-          <div className="text-sm font-bold mt-2">{data.availableAmount}</div>
+          <div className="mt-2 text-sm font-bold">{data.availableAmount}</div>
         </div>
-        <div className="flex flex-col text-xs w-1/3 items-center">
+        <div className="flex w-1/3 flex-col items-center text-xs">
           <div className="text-gray-400">
             {intl.formatMessage({ defaultMessage: '委托', id: 'CKdped' })}
           </div>
-          <div className="text-sm font-bold mt-2">{data.frozenAmount}</div>
+          <div className="mt-2 text-sm font-bold">{data.frozenAmount}</div>
         </div>
-        <div className="flex flex-col text-xs w-1/3 items-end">
+        <div className="flex w-1/3 flex-col items-end text-xs">
           <div className="text-gray-400">
             {intl.formatMessage({ defaultMessage: '折合(USDT)', id: 'P+t8ta' })}
           </div>
-          <div className="text-sm font-bold mt-2">{data.usdtAmount}</div>
+          <div className="mt-2 text-sm font-bold">{data.usdtAmount}</div>
         </div>
       </div>
 
       {['ETH', 'USDT', 'BTC'].includes(data.symbol ?? '') && (
-        <div className="mt-4 flex item-center">
+        <div className="item-center mt-4 flex">
           <Button
             color="primary"
             className="flex-1"

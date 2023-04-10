@@ -63,15 +63,15 @@ const PositionDetails = () => {
     <Screen
       headerTitle={symbol}
       footer={
-        <div className="flex items-center p-4 gap-2">
+        <div className="flex items-center gap-2 p-4">
           <a
-            className=" h-10 flex-1 flex items-center justify-center text-base text-white bg-[#00ad88]"
+            className=" flex h-10 flex-1 items-center justify-center bg-[#00ad88] text-base text-white"
             onClick={() => toBuySellPage(1)}
           >
             {intl.formatMessage({ defaultMessage: '買入', id: 'sY5/oP' })}
           </a>
           <a
-            className=" h-10 flex-1 flex items-center justify-center text-base text-white bg-[#e2214e]"
+            className=" flex h-10 flex-1 items-center justify-center bg-[#e2214e] text-base text-white"
             onClick={() => toBuySellPage(-1)}
           >
             {intl.formatMessage({ defaultMessage: '賣出', id: 'EOWvn9' })}
@@ -79,7 +79,7 @@ const PositionDetails = () => {
         </div>
       }
     >
-      <div className="py-8 border-b">
+      <div className="border-b py-8">
         <div className="text-center text-sm">
           {intl.formatMessage({ defaultMessage: '總資產', id: 'IoCgCq' })}
         </div>
@@ -93,7 +93,7 @@ const PositionDetails = () => {
           </span>
           <span>{data?.data?.data?.availableAmount}</span>
         </div>
-        <div className="flex justify-between mt-2">
+        <div className="mt-2 flex justify-between">
           <span>{intl.formatMessage({ defaultMessage: '委托', id: 'CKdped' })}</span>
           <span>{data?.data?.data?.frozenAmount}</span>
         </div>

@@ -16,7 +16,7 @@ interface CountryPhoneProps {
 
 const CountryName = ({ countryName, onClick }: { countryName: string; onClick: () => void }) => {
   return (
-    <div className="mt-6 mb-2 locale pl-2 flex items-center text-sm" onClick={onClick}>
+    <div className="locale mb-2 mt-6 flex items-center pl-2 text-sm" onClick={onClick}>
       {countryName}
       <DownFill fontSize={7} className="ml-1" color="#c0c0c0" />
     </div>
@@ -37,12 +37,12 @@ const CountryPhoneNumber = ({
       <CountryName countryName={country.name} onClick={() => setOpen(true)} />
       <div className="flex">
         <div
-          className="pl-2 flex items-center justify-center text-sm"
+          className="flex items-center justify-center pl-2 text-sm"
           onClick={() => setOpen(true)}
         >
           {country.code} <DownFill fontSize={7} className="ml-1" color="#c0c0c0" />
         </div>
-        <div className="bg-[#eeeeee] w-[1px] ml-3"></div>
+        <div className="ml-3 w-[1px] bg-[#eeeeee]"></div>
         <Input {...rest} value={value} onChange={onChange} />
       </div>
 

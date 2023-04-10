@@ -19,11 +19,11 @@ import { useAuthStore } from '../../stores/auth';
 const Content = ({ type, say }: { type?: string; say?: string }) => {
   switch (type) {
     case 'img':
-      return <img alt="" src={say} className=" w-[150px] h-[200px] rounded-md" />;
+      return <img alt="" src={say} className=" h-[200px] w-[150px] rounded-md" />;
 
     default:
       return (
-        <div className="p-2.5 break-all min-w-[60px] max-w-[245px] min-h-[40px] text-[#fefefe] rounded bg-[#444]">
+        <div className="min-h-[40px] min-w-[60px] max-w-[245px] break-all rounded bg-[#444] p-2.5 text-[#fefefe]">
           {say}
         </div>
       );
@@ -61,7 +61,7 @@ const Chat = () => {
       return (
         <div className="mt-2.5 px-4">
           <div className="flex justify-center">
-            <span className="text-xs text-[#262626] bg-[#f4f4f4] rounded py-1 px-2.5">
+            <span className="rounded bg-[#f4f4f4] px-2.5 py-1 text-xs text-[#262626]">
               {renderTime(item.createTime)}
             </span>
           </div>
@@ -73,7 +73,7 @@ const Chat = () => {
             {/* <img alt="" src={ic_chat_resend} className="w-5 h-5 self-center" /> */}
             <Content type={item.type} say={item.say} />
 
-            <img alt="" src={item.headUrl ?? ic_default_head} className="w-10 h-10 rounded-full" />
+            <img alt="" src={item.headUrl ?? ic_default_head} className="h-10 w-10 rounded-full" />
           </div>
         </div>
       );
@@ -113,7 +113,7 @@ const Chat = () => {
 
   return (
     <Screen headerTitle={intl.formatMessage({ defaultMessage: '綫上客服', id: 'wwOQz6' })}>
-      <Container className="h-full flex flex-col pb-10">
+      <Container className="flex h-full flex-col pb-10">
         <Virtuoso
           className="flex-1"
           initialTopMostItemIndex={sorted.length - 1}
@@ -122,24 +122,24 @@ const Chat = () => {
           keyParams="chatId"
           followOutput={followOutput}
         />
-        <div className="fixed bottom-0 right-0 left-0 z-20">
-          <div className="bg-[#f7f7f9] px-2.5 flex relative">
+        <div className="fixed bottom-0 left-0 right-0 z-20">
+          <div className="relative flex bg-[#f7f7f9] px-2.5">
             <TextArea
               autoSize={{ minRows: 1, maxRows: 4 }}
               className="mr-[40px]"
               onChange={setText}
               value={text}
             />
-            <div className="absolute right-2.5 bottom-1">
+            <div className="absolute bottom-1 right-2.5">
               {text?.length ? (
                 <a
-                  className=" w-[45px] h-8  flex items-center justify-center bg-[#06be04] text-white rounded"
+                  className=" flex h-8  w-[45px] items-center justify-center rounded bg-[#06be04] text-white"
                   onClick={sendMessage}
                 >
                   {intl.formatMessage({ defaultMessage: '發送', id: '9V7qTC' })}
                 </a>
               ) : (
-                <img alt="" src={type_select_btn_nor} className="w-8 h-8" />
+                <img alt="" src={type_select_btn_nor} className="h-8 w-8" />
               )}
             </div>
           </div>

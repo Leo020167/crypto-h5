@@ -5,9 +5,9 @@ type ClockProps = CountdownProps;
 
 const Clock = (props: ClockProps) => {
   return (
-    <div className="flex items-center justify-center relative">
-      <SvgOtcTime className="w-10 h-10" />
-      <span className="text-xs text-[#6175AE] absolute">
+    <div className="relative flex items-center justify-center">
+      <SvgOtcTime className="h-10 w-10" />
+      <span className="absolute text-xs text-[#6175AE]">
         <Countdown {...props} />
       </span>
     </div>

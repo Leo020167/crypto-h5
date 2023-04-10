@@ -10,11 +10,11 @@ import Screen from '../../components/Screen';
 const Empty = () => {
   const intl = useIntl();
   return (
-    <div className="flex flex-col items-center justify-center mt-8">
+    <div className="mt-8 flex flex-col items-center justify-center">
       <div className="w-1/2">
         <img alt="" src={ic_payment_no_data} className="w-full" />
       </div>
-      <div className="text-[#bec0ce] text-base mt-8">
+      <div className="mt-8 text-base text-[#bec0ce]">
         {intl.formatMessage({ defaultMessage: '未添加账户', id: 'bwIAbr' })}
       </div>
     </div>
@@ -46,7 +46,7 @@ const ReceiptList = () => {
     <Screen
       headerTitle={intl.formatMessage({ defaultMessage: '收款管理', id: 'WLF2E0' })}
       footer={
-        <div className="px-4 mb-4">
+        <div className="mb-4 px-4">
           <Button
             block
             color="primary"
@@ -68,8 +68,8 @@ const ReceiptList = () => {
             <List.Item key={v.paymentId}>
               <div className="flex flex-col">
                 <div className="flex items-center">
-                  <img alt="" src={v.receiptLogo ?? ''} className=" w-6 h-6 mr-2" />
-                  <span className="text-[#3D3A50] text-base font-bold flex-1">
+                  <img alt="" src={v.receiptLogo ?? ''} className=" mr-2 h-6 w-6" />
+                  <span className="flex-1 text-base font-bold text-[#3D3A50]">
                     {Number(v.receiptType) === 3 ? v.bankName : v.receiptTypeValue}
                   </span>
                   <a
@@ -88,8 +88,8 @@ const ReceiptList = () => {
                     {intl.formatMessage({ defaultMessage: '刪除', id: 'oAdm61' })}
                   </a>
                 </div>
-                <span className="text-[#3D3A50] mt-2">{v.receiptName}</span>
-                <span className="mt-2 text-lg text-[#3D3A50] font-bold">{v.receiptNo}</span>
+                <span className="mt-2 text-[#3D3A50]">{v.receiptName}</span>
+                <span className="mt-2 text-lg font-bold text-[#3D3A50]">{v.receiptNo}</span>
               </div>
             </List.Item>
           ))}

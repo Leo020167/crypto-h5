@@ -58,7 +58,7 @@ const Language = () => {
     <Screen
       headerTitle={intl.formatMessage({ defaultMessage: '設置語言', id: 'kIQ/Xp' })}
       footer={
-        <div className="p-4 bg-[#F4F6F4] fixed bottom-0 left-0 right-0 z-10">
+        <div className="fixed bottom-0 left-0 right-0 z-10 bg-[#F4F6F4] p-4">
           <a
             className="btn-purple"
             onClick={() => {
@@ -79,14 +79,14 @@ const Language = () => {
               setLanguage(value);
             }
           }}
-          className="bg-white mt-2"
+          className="mt-2 bg-white"
         >
           {languages.map((v) => (
             <CheckList.Item
               key={v.key}
               value={v.key}
               className="flex-1"
-              prefix={<img alt="" src={`/languages/${v.key}.png`} className="w-6 h-6" />}
+              prefix={<img alt="" src={`/languages/${v.key}.png`} className="h-6 w-6" />}
             >
               {v.name}
             </CheckList.Item>

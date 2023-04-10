@@ -167,8 +167,8 @@ const AddAd = () => {
       }
     >
       <div className="flex-1 overflow-y-auto">
-        <div className="mt-6 px-4 flex items-center">
-          <div className="font-bold w-10">
+        <div className="mt-6 flex items-center px-4">
+          <div className="w-10 font-bold">
             {intl.formatMessage({ defaultMessage: '我想', id: 'etzvPz' })}
           </div>
           <Selector
@@ -195,22 +195,22 @@ const AddAd = () => {
           <div className="ml-4 font-bold">USDT</div>
         </div>
 
-        <div className="px-4 flex items-center mt-6">
-          <div className="font-bold w-10">
+        <div className="mt-6 flex items-center px-4">
+          <div className="w-10 font-bold">
             {intl.formatMessage({ defaultMessage: '價格', id: 'qzi2dl' })}
           </div>
-          <div className="relative flex items-center flex-1">
+          <div className="relative flex flex-1 items-center">
             <Input
               className="h-12 border pl-4 pr-14"
               placeholder="輸入價格"
               value={price}
               onChange={setPrice}
             />
-            <span className="absolute right-4 text-[#9A9A9A] text-xs">HKD/USDT</span>
+            <span className="absolute right-4 text-xs text-[#9A9A9A]">HKD/USDT</span>
           </div>
         </div>
 
-        <div className="pl-14 mt-2 text-xs text-[#9A9A9A]">
+        <div className="mt-2 pl-14 text-xs text-[#9A9A9A]">
           {'buy' === buySell
             ? intl.formatMessage({ defaultMessage: '當前購買最高價', id: 'CbGK63' })
             : intl.formatMessage({ defaultMessage: '當前出售最低價', id: 'eHNb85' })}
@@ -223,36 +223,36 @@ const AddAd = () => {
           </a>
         </div>
 
-        <div className="px-4 flex items-center mt-6">
-          <div className="font-bold w-10">
+        <div className="mt-6 flex items-center px-4">
+          <div className="w-10 font-bold">
             {intl.formatMessage({ defaultMessage: '數量', id: 'YYra8Q' })}
           </div>
-          <div className="relative flex items-center flex-1">
+          <div className="relative flex flex-1 items-center">
             <Input
               className=" h-12 border pl-4 pr-14"
               placeholder={intl.formatMessage({ defaultMessage: '輸入數量', id: 'KCC04w' })}
               value={amount}
               onChange={setAmount}
             />
-            <span className="absolute right-4 text-[#9A9A9A] text-xs">USDT</span>
+            <span className="absolute right-4 text-xs text-[#9A9A9A]">USDT</span>
           </div>
         </div>
 
-        <div className="pl-14 mt-2 text-xs text-[#9A9A9A]">
+        <div className="mt-2 pl-14 text-xs text-[#9A9A9A]">
           {intl.formatMessage({
             defaultMessage: '出售USDT時系統將會從餘額賬戶中凍結該部分資金',
             id: 'fftT6p',
           })}
         </div>
 
-        <div className="px-4 flex items-center mt-6">
-          <div className="font-bold w-10">
+        <div className="mt-6 flex items-center px-4">
+          <div className="w-10 font-bold">
             {intl.formatMessage({
               defaultMessage: '限額',
               id: 'zGwnHi',
             })}
           </div>
-          <div className="flex items-center flex-1">
+          <div className="flex flex-1 items-center">
             <div className="relative flex items-center">
               <Input
                 className="h-12 border pl-4 pr-10"
@@ -260,7 +260,7 @@ const AddAd = () => {
                 value={minCny}
                 onChange={setMinCny}
               />
-              <span className="absolute right-4 text-[#9A9A9A] text-xs">HKD</span>
+              <span className="absolute right-4 text-xs text-[#9A9A9A]">HKD</span>
             </div>
             <span className="mx-2">-</span>
             <div className="relative flex items-center">
@@ -270,12 +270,12 @@ const AddAd = () => {
                 value={maxCny}
                 onChange={setMaxCny}
               />
-              <span className="absolute right-4 text-[#9A9A9A] text-xs">HKD</span>
+              <span className="absolute right-4 text-xs text-[#9A9A9A]">HKD</span>
             </div>
           </div>
         </div>
 
-        <div className="px-4 mt-6">
+        <div className="mt-6 px-4">
           <div className="font-bold">
             {intl.formatMessage({ defaultMessage: '方式（可多選）', id: 'tNR1ps' })}
           </div>
@@ -288,7 +288,7 @@ const AddAd = () => {
           </div>
         </div>
 
-        <div className="px-4 mt-6">
+        <div className="mt-6 px-4">
           <div className="font-bold">
             {intl.formatMessage({ defaultMessage: '留言內容', id: 'xKofLL' })}
           </div>
@@ -296,7 +296,7 @@ const AddAd = () => {
             <TextArea
               value={content}
               onChange={setContent}
-              className="border mt-4 rounded p-2 h-full"
+              className="mt-4 h-full rounded border p-2"
               placeholder={intl.formatMessage({
                 defaultMessage: '請寫下您想對賣家/買家說的話！（限140字）',
                 id: '7Km8jt',
