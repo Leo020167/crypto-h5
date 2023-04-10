@@ -236,7 +236,7 @@ const AddressAdd = () => {
               chainType: symbol === 'USDT' ? chainType : '',
               remark: remark || '',
               symbol,
-              payPass: md5(value),
+              payPass: md5(value).toUpperCase(),
             },
           });
         }}

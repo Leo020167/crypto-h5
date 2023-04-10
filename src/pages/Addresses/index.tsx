@@ -97,7 +97,7 @@ const AddressManagement = () => {
           delAddress.mutate({
             data: {
               addressId: id ?? '',
-              payPass: md5(value),
+              payPass: md5(value).toUpperCase(),
             },
           });
         }}

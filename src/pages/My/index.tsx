@@ -142,7 +142,11 @@ const My = () => {
         <List.Item
           prefix={<img alt="" src={primary_certification} className="h-8 w-8" />}
           arrow={<Arrow />}
-          extra={primaryCertification ? primaryCertification.stateDesc : '未認證'}
+          extra={
+            primaryCertification
+              ? primaryCertification.stateDesc
+              : intl.formatMessage({ defaultMessage: '未認證', id: 'XOCqdS' })
+          }
           onClick={() => {
             if (primaryCertification?.state === '1') return;
 
@@ -155,7 +159,11 @@ const My = () => {
         <List.Item
           prefix={<img alt="" src={advanced_certification} className="h-8 w-8" />}
           arrow={<Arrow />}
-          extra={advancedCertification ? advancedCertification.stateDesc : '未認證'}
+          extra={
+            advancedCertification
+              ? advancedCertification.stateDesc
+              : intl.formatMessage({ defaultMessage: '未認證', id: 'XOCqdS' })
+          }
           onClick={() => {
             if (primaryCertification?.state !== '1') {
               Toast.show(intl.formatMessage({ defaultMessage: '請先完成初級認證', id: '+nOBYc' }));

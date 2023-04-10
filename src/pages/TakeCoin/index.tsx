@@ -358,7 +358,7 @@ const TakeCoin = () => {
               address: addressStr,
               chainType: chainType ?? '',
               addressId: address?.id ?? '0',
-              payPass: md5(value),
+              payPass: md5(value).toUpperCase(),
             },
           });
         }}
