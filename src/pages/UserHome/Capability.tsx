@@ -83,7 +83,7 @@ const Capability = ({ radar }: { radar?: UserRadar }) => {
   const intl = useIntl();
 
   return (
-    <Container className="mt-4 px-4 bg-white flex flex-col">
+    <Container className="mt-4 flex flex-col bg-white px-4">
       <Tabs
         stretch={false}
         activeKey={type}
@@ -193,12 +193,12 @@ const Container = styled.div`
     --padding: 4px 12px;
     font-size: 12px;
     .adm-selector-item {
-      background: transparent;
       border-radius: 14px;
+      background: transparent;
       color: #666175ae;
       &.adm-selector-item-active {
-        color: #6175ae;
         background-color: #f0f1f5;
+        color: #6175ae;
       }
     }
 
@@ -208,10 +208,10 @@ const Container = styled.div`
   }
 
   .adm-tabs {
-    color: #666175ae;
     --title-font-size: 16px;
     --active-title-color: #4d4ce6;
     --active-line-height: 3px;
+    color: #666175ae;
 
     .adm-tabs-header {
       border: 0;

@@ -71,12 +71,12 @@ const TransferCoinHistory = () => {
               title={intl.formatMessage({ defaultMessage: '筛选', id: 'C8ZFaR' })}
             >
               <div className="p-4">
-                <div className="flex-1 flex flex-col">
-                  <div className="text-[#1D3155] text-base text-left">
+                <div className="flex flex-1 flex-col">
+                  <div className="text-left text-base text-[#1D3155]">
                     {intl.formatMessage({ defaultMessage: '转出账户选择', id: 'V1f0Zb' })}
                   </div>
                   <Selector
-                    className="mt-1.5 mb-8"
+                    className="mb-8 mt-1.5"
                     columns={3}
                     showCheckMark={false}
                     options={options}
@@ -85,12 +85,12 @@ const TransferCoinHistory = () => {
                   />
                 </div>
 
-                <div className="flex-1 flex flex-col">
-                  <div className="text-[#1D3155] text-base text-left">
+                <div className="flex flex-1 flex-col">
+                  <div className="text-left text-base text-[#1D3155]">
                     {intl.formatMessage({ defaultMessage: '转入账户选择', id: 'h24vu5' })}
                   </div>
                   <Selector
-                    className="mt-1.5 mb-8"
+                    className="mb-8 mt-1.5"
                     columns={3}
                     showCheckMark={false}
                     options={options}
@@ -102,7 +102,7 @@ const TransferCoinHistory = () => {
                 <Grid columns={2} gap={8}>
                   <Grid.Item>
                     <Button
-                      className="h-full block text-[#1D3155] text-sm bg-[#f2f2f2] text-center py-2.5 rounded overflow-hidden"
+                      className="block h-full overflow-hidden rounded bg-[#f2f2f2] py-2.5 text-center text-sm text-[#1D3155]"
                       fill="none"
                       block
                       onClick={() => {
@@ -144,13 +144,13 @@ const TransferCoinHistory = () => {
       renderItem={(item: QueryTransferListResponseAllOfDataAllOfDataItem, index) => {
         return (
           <div className="border-b border-b-gray-100 p-3" key={index}>
-            <div className="flex justify-between mb-1.5 px-3 text-sm">
+            <div className="mb-1.5 flex justify-between px-3 text-sm">
               <span className="text-gray-400">
                 {intl.formatMessage({ defaultMessage: '数量 USDT', id: 's/KbuC' })}
               </span>
               <span className="text-xs text-[#4a575f]">{item.amount}</span>
             </div>
-            <div className="flex justify-between mb-1.5 px-3 text-sm">
+            <div className="mb-1.5 flex justify-between px-3 text-sm">
               <span className="text-gray-400">
                 {intl.formatMessage({ defaultMessage: '类型', id: '5FboZ/' })}
               </span>

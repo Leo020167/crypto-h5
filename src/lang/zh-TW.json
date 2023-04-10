@@ -1894,5 +1894,83 @@
   },
   "0oAu54": {
     "string": "{second}秒"
+  },
+  "QBilBJ": {
+    "string": "首發交易"
+  },
+  "LaUwF3": {
+    "string": "輸入幣種名稱搜索"
+  },
+  "xRwyQV": {
+    "string": "凍結金額(USDT)"
+  },
+  "+nOBYc": {
+    "string": "請先完成初級認證"
+  },
+  "1zPKfz": {
+    "string": "選擇地址"
+  },
+  "3VZKdc": {
+    "string": "兩次密碼輸入不一致"
+  },
+  "43/Nhz": {
+    "string": "《Cryptographe隱私條款》"
+  },
+  "4oqdRD": {
+    "string": "《Cryptographe用戶協議》"
+  },
+  "5EExAw": {
+    "string": "證件照"
+  },
+  "6f0YHY": {
+    "string": "信譽分:"
+  },
+  "DXZ6tO": {
+    "string": "請輸入選擇證件類型"
+  },
+  "GAZ/J4": {
+    "string": "請選擇證件類型"
+  },
+  "HFf2ly": {
+    "string": "請上傳證件反面照片"
+  },
+  "HnBEa1": {
+    "string": "請填寫地址"
+  },
+  "OzbKU3": {
+    "string": "請上傳證件正面照片"
+  },
+  "V0RiZp": {
+    "string": "操作成功"
+  },
+  "Zy+yLo": {
+    "string": "請填寫提幣地址"
+  },
+  "cZ6U4z": {
+    "string": "初級認證"
+  },
+  "eoC4eR": {
+    "string": "請輸入證件號碼"
+  },
+  "foUhnV": {
+    "string": "證件類型"
+  },
+  "gYHc6L": {
+    "string": "請輸入確認密碼"
+  },
+  "gqB7Z3": {
+    "string": "上傳失敗，請重試"
+  },
+  "j88inR": {
+    "string": "請上傳手持照片"
+  },
+  "rZ0rJT": {
+    "string": "請輸入新密碼"
+  },
+  "sHN5XP": {
+    "string": "驗證號碼"
+  },
+  "zQm6Ar": {
+    "string": "高級認證"
   }
 }

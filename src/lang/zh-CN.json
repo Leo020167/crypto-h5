@@ -1996,5 +1996,83 @@
   },
   "58jbdG": {
     "string": "《Cryptographe隐私条款》"
+  },
+  "QBilBJ": {
+    "string": "首发交易"
+  },
+  "LaUwF3": {
+    "string": "输入币种名称搜索"
+  },
+  "xRwyQV": {
+    "string": "冻结金额(USDT)"
+  },
+  "+nOBYc": {
+    "string": "请先完成初级认证"
+  },
+  "1zPKfz": {
+    "string": "选择地址"
+  },
+  "3VZKdc": {
+    "string": "两次密码输入不一致"
+  },
+  "43/Nhz": {
+    "string": "《Cryptographe隐私条款》"
+  },
+  "4oqdRD": {
+    "string": "《Cryptographe用户协议》"
+  },
+  "5EExAw": {
+    "string": "证件照"
+  },
+  "6f0YHY": {
+    "string": "信誉分:"
+  },
+  "DXZ6tO": {
+    "string": "请输入选择证件类型"
+  },
+  "GAZ/J4": {
+    "string": "请选择证件类型"
+  },
+  "HFf2ly": {
+    "string": "请上传证件反面照片"
+  },
+  "HnBEa1": {
+    "string": "请填写地址"
+  },
+  "OzbKU3": {
+    "string": "请上传证件正面照片"
+  },
+  "V0RiZp": {
+    "string": "操作成功"
+  },
+  "Zy+yLo": {
+    "string": "请填写提币地址"
+  },
+  "cZ6U4z": {
+    "string": "初级认证"
+  },
+  "eoC4eR": {
+    "string": "请输入证件号码"
+  },
+  "foUhnV": {
+    "string": "证件类型"
+  },
+  "gYHc6L": {
+    "string": "请输入确认密码"
+  },
+  "gqB7Z3": {
+    "string": "上传失败，请重试"
+  },
+  "j88inR": {
+    "string": "请上传手持照片"
+  },
+  "rZ0rJT": {
+    "string": "请输入新密码"
+  },
+  "sHN5XP": {
+    "string": "验证号码"
+  },
+  "zQm6Ar": {
+    "string": "高级认证"
   }
 }

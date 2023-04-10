@@ -1997,5 +1997,83 @@
 
   "58jbdG": {
     "string": "《Politique de confidentialité cryptée》"
+  },
+  "QBilBJ": {
+    "string": "Premier échange"
+  },
+  "LaUwF3": {
+    "string": "Entrez le nom de la devise à rechercher"
+  },
+  "xRwyQV": {
+    "string": "Montant gelé (USDT)"
+  },
+  "+nOBYc": {
+    "string": "Veuillez d'abord remplir la certification principale"
+  },
+  "1zPKfz": {
+    "string": "Sélectionner l'adresse"
+  },
+  "3VZKdc": {
+    "string": "Les deux mots de passe saisis sont incohérents"
+  },
+  "43/Nhz": {
+    "string": "《Politique de confidentialité de Cryptographe》"
+  },
+  "4oqdRD": {
+    "string": "《Contrat d'utilisation du cryptographe》"
+  },
+  "5EExAw": {
+    "string": "Photo d'identité"
+  },
+  "6f0YHY": {
+    "string": "Score de réputation :"
+  },
+  "DXZ6tO": {
+    "string": "Veuillez entrer pour sélectionner le type de certificat"
+  },
+  "GAZ/J4": {
+    "string": "Veuillez sélectionner un type de certificat"
+  },
+  "HFf2ly": {
+    "string": "Veuillez télécharger une photo du verso du certificat"
+  },
+  "HnBEa1": {
+    "string": "Veuillez renseigner l'adresse"
+  },
+  "OzbKU3": {
+    "string": "Veuillez télécharger la photo du recto de la carte d'identité"
+  },
+  "V0RiZp": {
+    "string": "Opération réussie"
+  },
+  "Zy+yLo": {
+    "string": "Veuillez renseigner l'adresse de retrait"
+  },
+  "cZ6U4z": {
+    "string": "Authentification principale"
+  },
+  "eoC4eR": {
+    "string": "Veuillez entrer le numéro d'identification"
+  },
+  "foUhnV": {
+    "string": "Type de certificat"
+  },
+  "gYHc6L": {
+    "string": "Veuillez entrer un mot de passe de confirmation"
+  },
+  "gqB7Z3": {
+    "string": "Le téléchargement a échoué, veuillez réessayer"
+  },
+  "j88inR": {
+    "string": "Veuillez télécharger une photo de l'ordinateur de poche"
+  },
+  "rZ0rJT": {
+    "string": "Veuillez entrer un nouveau mot de passe"
+  },
+  "sHN5XP": {
+    "string": "Numéro de vérification"
+  },
+  "zQm6Ar": {
+    "string": "Authentification avancée"
   }
 }

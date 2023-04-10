@@ -107,7 +107,7 @@ const Signup = () => {
                 </Button>
               </div>
 
-              <div className="text-center mt-4">
+              <div className="mt-4 text-center">
                 {value.type === 1 ? (
                   <a
                     className="text-[#6277b0]"
@@ -134,7 +134,7 @@ const Signup = () => {
           {value.type === 1 ? (
             <>
               <div
-                className="mt-6 mb-2 locale pl-2 flex items-center"
+                className="locale mb-2 mt-6 flex items-center pl-2"
                 onClick={() => setOpen(true)}
               >
                 {country.name}
@@ -145,7 +145,7 @@ const Signup = () => {
                 name="phone"
                 label={
                   <div
-                    className="pl-2 flex items-center justify-center"
+                    className="flex items-center justify-center pl-2"
                     onClick={() => setOpen(true)}
                   >
                     {country.code} <DownFill fontSize={7} className="ml-1" color="#c0c0c0" />

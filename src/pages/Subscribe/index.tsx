@@ -29,7 +29,7 @@ const SubscribeList = () => {
 
   return (
     <Screen headerTitle={intl.formatMessage({ defaultMessage: '新幣申購', id: 'I/5B/d' })}>
-      <Container className="flex flex-col min-h-0">
+      <Container className="flex min-h-0 flex-col">
         <Tabs activeKey={tab} onChange={(key) => setTab(key, 'replaceIn')}>
           <Tabs.Tab
             title={intl.formatMessage({ defaultMessage: '未開始', id: 'IudShd' })}
@@ -49,20 +49,20 @@ const SubscribeList = () => {
             <Link
               to={{ pathname: '/subscribe-detail', search: stringify({ id: v.id }) }}
               key={v.id}
-              className="flex px-5 py-4 bg-[#FAFAFA]"
+              className="flex bg-[#FAFAFA] px-5 py-4"
             >
-              <div className=" w-16 h-16 mr-4">
-                {!!v.image && <img alt="" src={v.image} className="w-full h-auto" />}
+              <div className=" mr-4 h-16 w-16">
+                {!!v.image && <img alt="" src={v.image} className="h-auto w-full" />}
               </div>
 
-              <div className="pb-4 flex-1">
+              <div className="flex-1 pb-4">
                 <div className="flex">
                   {!!v.summary && (
                     <span className="flex-1" dangerouslySetInnerHTML={{ __html: v.summary }}></span>
                   )}
 
                   <span
-                    className="px-2 py-1  text-white rounded text-xs"
+                    className="rounded px-2  py-1 text-xs text-white"
                     style={{ backgroundColor: state[v.state ?? '0'].color }}
                   >
                     {state[v.state ?? '0'].label}
@@ -79,14 +79,14 @@ const SubscribeList = () => {
                   />
                 </div>
 
-                <div className="mt-4 text-xs flex items-center">
+                <div className="mt-4 flex items-center text-xs">
                   <div>{intl.formatMessage({ defaultMessage: '發行量', id: 'mU805N' })}</div>
                   <div className="ml-1">
                     {v.sumAmount}&nbsp;
                     {v.symbol}
                   </div>
                 </div>
-                <div className="mt-2 text-xs flex items-center">
+                <div className="mt-2 flex items-center text-xs">
                   <div>{intl.formatMessage({ defaultMessage: '價格', id: 'qzi2dl' })}</div>
                   <div className="ml-1">
                     <span className=" font-bold text-red-500">{v.rate}</span>&nbsp; USDT
@@ -120,10 +120,10 @@ const Container = styled.div`
   }
 
   .adm-progress-bar {
-    font-size: 12px;
     --track-width: 6px;
     --track-color: #ececec;
     --fill-color: #5fce64;
+    font-size: 12px;
   }
 `;
 

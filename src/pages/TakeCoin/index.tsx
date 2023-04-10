@@ -3,11 +3,11 @@ import { DownFill, RightOutline } from 'antd-mobile-icons';
 import currency from 'currency.js';
 import md5 from 'js-md5';
 import { stringify } from 'query-string';
-import { useState, useMemo, useCallback } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 import { useIntl } from 'react-intl';
 import { Link, useHistory, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
-import { withDefault, StringParam, useQueryParam } from 'use-query-params';
+import { StringParam, useQueryParam, withDefault } from 'use-query-params';
 import {
   useAddressList,
   useGetCoinList,
@@ -185,28 +185,28 @@ const TakeCoin = () => {
         </Link>
       }
     >
-      <Container className="p-4 bg-[#F4F6F4] flex-1 overflow-y-auto">
-        <div className="rounded-xl shadow-md shadow-black/5 p-5 bg-white">
-          <div className="text-[#A2A9BC] flex items-center justify-between text-sm">
+      <Container className="flex-1 overflow-y-auto bg-[#F4F6F4] p-4">
+        <div className="rounded-xl bg-white p-5 shadow-md shadow-black/5">
+          <div className="flex items-center justify-between text-sm text-[#A2A9BC]">
             <span>
               {intl.formatMessage(
                 { defaultMessage: '可用餘額({symbol})', id: 'p4Oi3U' },
                 { symbol },
               )}
             </span>
-            <span className="text-[#3E4660] text-lg">
+            <span className="text-lg text-[#3E4660]">
               {configs?.data?.availableAmount ?? '0.00'}
             </span>
           </div>
-          <div className="text-[#A2A9BC] flex items-center justify-between text-sm">
+          <div className="flex items-center justify-between text-sm text-[#A2A9BC]">
             <span>
               {intl.formatMessage({ defaultMessage: '凍結金額', id: '3gspHW' })}({symbol})
             </span>
-            <span className="text-[#F32A44] text-lg">{configs?.data?.frozenAmount ?? '0.00'}</span>
+            <span className="text-lg text-[#F32A44]">{configs?.data?.frozenAmount ?? '0.00'}</span>
           </div>
         </div>
 
-        <div className="rounded-xl shadow-md shadow-black/5 p-5 bg-white mt-4">
+        <div className="mt-4 rounded-xl bg-white p-5 shadow-md shadow-black/5">
           <div className="flex items-start justify-between">
             <div>
               <span className="text-[#3E4660]">
@@ -214,7 +214,7 @@ const TakeCoin = () => {
               </span>
               <div className="mt-4">
                 <a
-                  className="flex items-center justify-center border border-[#3E4660] rounded h-8 px-2"
+                  className="flex h-8 items-center justify-center rounded border border-[#3E4660] px-2"
                   onClick={() => {
                     setOpenSymbol(true);
                   }}
@@ -225,7 +225,7 @@ const TakeCoin = () => {
               </div>
             </div>
             {symbol === 'USDT' && (
-              <div className="text-right ml-2">
+              <div className="ml-2 text-right">
                 <span className="text-[#3E4660]">
                   {intl.formatMessage({ defaultMessage: '選擇充幣網絡', id: '8Pdrch' })}
                 </span>
@@ -245,7 +245,7 @@ const TakeCoin = () => {
             )}
           </div>
 
-          <div className="border-t border-dashed border-[#E2E4F0] mt-5"></div>
+          <div className="mt-5 border-t border-dashed border-[#E2E4F0]"></div>
 
           <div className="mt-5">
             <div className="flex items-center justify-between text-sm">
@@ -256,7 +256,7 @@ const TakeCoin = () => {
             </div>
 
             <div className="mt-4 flex items-center bg-[#EDF3FA] px-2.5">
-              <div className="h-11 flex-1 flex items-center">
+              <div className="flex h-11 flex-1 items-center">
                 <Input
                   value={addressStr}
                   onChange={(value) => {
@@ -272,7 +272,7 @@ const TakeCoin = () => {
               </a>
             </div>
 
-            <div className="mt-4 bg-[#F6F7F9] p-4 rounded-xl text-xs text-[#6175AE] leading-6">
+            <div className="mt-4 rounded-xl bg-[#F6F7F9] p-4 text-xs leading-6 text-[#6175AE]">
               {intl.formatMessage({
                 defaultMessage:
                   '為保障資金安全，當您帳戶安全策略變更、密碼修改、使用新地址提幣，我們會對提幣進行人工審核，請耐心等待工作人員電話或郵件聯繫。',
@@ -287,8 +287,8 @@ const TakeCoin = () => {
           </div>
         </div>
 
-        <div className="rounded-xl shadow-md shadow-black/5 p-5 bg-white mt-4">
-          <div className="text-[#A2A9BC] text-xs">
+        <div className="mt-4 rounded-xl bg-white p-5 shadow-md shadow-black/5">
+          <div className="text-xs text-[#A2A9BC]">
             {intl.formatMessage({
               defaultMessage: '提幣數量',
               id: 'wbTfN9',
@@ -307,7 +307,7 @@ const TakeCoin = () => {
             onChange={setAmount}
           />
 
-          <div className="text-sm mt-4 flex items-center justify-between">
+          <div className="mt-4 flex items-center justify-between text-sm">
             <span className="text-[#A2A9BC]">
               {intl.formatMessage({
                 defaultMessage: '手續費',
@@ -320,7 +320,7 @@ const TakeCoin = () => {
             </span>
           </div>
 
-          <div className="text-sm mt-2 flex items-center justify-between">
+          <div className="mt-2 flex items-center justify-between text-sm">
             <span className="text-[#A2A9BC]">
               {intl.formatMessage({
                 defaultMessage: '到賬數量',
@@ -391,7 +391,7 @@ const TakeCoin = () => {
           }}
         >
           <div className="flex-1 overflow-y-auto bg-[#F4F6F4] p-4">
-            <div className="text-[#3E4660] text-sm mb-4">
+            <div className="mb-4 text-sm text-[#3E4660]">
               {intl.formatMessage({
                 defaultMessage: '我的提幣地址',
                 id: '7rLwaw',
@@ -401,22 +401,22 @@ const TakeCoin = () => {
             {addressList?.data?.map((v) => (
               <a
                 key={v.id}
-                className=" bg-white rounded-lg shadow-md shadow-black/5 px-5 py-4 flex items-center"
+                className=" flex items-center rounded-lg bg-white px-5 py-4 shadow-md shadow-black/5"
                 onClick={() => {
                   setAddress(v);
                   setAddressStr(v.address);
                   setOpenAddress(false);
                 }}
               >
-                <div className="flex-1 flex flex-col min-w-0">
-                  <div className="text-[#6175AE] text-lg">{v.symbol}</div>
-                  <div className="text-[#A2A9BC] text-xs mt-1 break-words">{v.address}</div>
-                  <div className="text-[#A2A9BC] mt-2">
+                <div className="flex min-w-0 flex-1 flex-col">
+                  <div className="text-lg text-[#6175AE]">{v.symbol}</div>
+                  <div className="mt-1 break-words text-xs text-[#A2A9BC]">{v.address}</div>
+                  <div className="mt-2 text-[#A2A9BC]">
                     {intl.formatMessage({
                       defaultMessage: '備注',
                       id: 'Be30m1',
                     })}
-                    <span className="text-[#3E4660] ml-1">{v.remark}</span>
+                    <span className="ml-1 text-[#3E4660]">{v.remark}</span>
                   </div>
                 </div>
                 <RightOutline fontSize={18} className=" ml-8" />
@@ -441,16 +441,16 @@ const Container = styled.div`
     --padding: 0 10px;
     .adm-selector-item {
       display: flex;
-      align-items: center;
       justify-content: center;
+      align-items: center;
+      border: 1px solid #00bab8;
+      background-color: transparent;
       height: 32px;
       color: #00bab8;
       font-size: 16px;
-      border: 1px solid #00bab8;
-      background-color: transparent;
       &.adm-selector-item-active {
-        color: #fff;
         background-color: #00bab8;
+        color: #fff;
       }
     }
   }

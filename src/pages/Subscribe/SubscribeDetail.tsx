@@ -86,12 +86,12 @@ const SubscribeDetail = () => {
       <Container className="flex-1 overflow-y-auto">
         <div className="px-8">
           <div className="mt-4 flex">
-            <div className="w-20 h-20 mr-4">
-              <img alt="" src={detail?.image} className=" w-full h-auto object-contain" />
+            <div className="mr-4 h-20 w-20">
+              <img alt="" src={detail?.image} className=" h-auto w-full object-contain" />
             </div>
             <div className="flex-1">
               <div className="flex">
-                <span className="text-[#333333] text-base flex-1">{detail?.symbol}</span>
+                <span className="flex-1 text-base text-[#333333]">{detail?.symbol}</span>
               </div>
             </div>
           </div>
@@ -110,7 +110,7 @@ const SubscribeDetail = () => {
                 '--fill-color': currentState.color,
               }}
             />
-            <div className="text-right mt-2">
+            <div className="mt-2 text-right">
               <span>{detail?.progress}%</span>
             </div>
           </div>
@@ -166,7 +166,7 @@ const SubscribeDetail = () => {
 
           <div className="my-8 flex justify-center">
             <a
-              className="w-full h-10 px-4 flex items-center justify-center text-white rounded"
+              className="flex h-10 w-full items-center justify-center rounded px-4 text-white"
               style={{ backgroundColor: currentState.color }}
               onClick={() => {
                 if (detailState === '1') {
@@ -185,7 +185,7 @@ const SubscribeDetail = () => {
           visible={visible}
           title={intl.formatMessage({ defaultMessage: '提示', id: 'kCh5Jz' })}
           content={
-            <div className="flex items-center text-sm bg-gray-100 rounded p-2">
+            <div className="flex items-center rounded bg-gray-100 p-2 text-sm">
               <Input
                 value={count}
                 onChange={setCount}
@@ -247,17 +247,17 @@ const SubscribeDetail = () => {
 
 const Container = styled.div`
   .adm-progress-bar {
-    font-size: 12px;
     --track-width: 6px;
     --track-color: #ececec;
     --fill-color: #5fce64;
+    font-size: 12px;
   }
   .adm-modal-body:not(.adm-modal-with-image) {
     padding-top: 10px;
   }
   .adm-modal-title {
-    text-align: left;
     font-size: 14px;
+    text-align: left;
   }
 
   .adm-input-element {

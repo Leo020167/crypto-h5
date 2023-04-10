@@ -11,48 +11,48 @@ const TradeLeverPrices = ({ data }: { data?: QuoteReal }) => {
 
   return (
     <div className="text-xs">
-      <div className="text-[#bebebe] flex items-center">
+      <div className="flex items-center text-[#bebebe]">
         <span className="flex-1">
           {intl.formatMessage({ defaultMessage: '價格', id: 'qzi2dl' })}({data?.currency})
         </span>
-        <span className="flex-1 ml-4">
+        <span className="ml-4 flex-1">
           {intl.formatMessage({ defaultMessage: '數量(手)', id: '+ZvENE' })}
         </span>
       </div>
 
       <div className="mt-4">
         {data?.buys?.map((v, i) => (
-          <div key={i} className="flex items-center justify-between py-1 relative">
+          <div key={i} className="relative flex items-center justify-between py-1">
             <div
-              className="absolute bg-gray-100 right-0 h-full"
+              className="absolute right-0 h-full bg-gray-100"
               style={{ width: Number(v.depthRate) + '%' }}
             ></div>
 
             <span style={{ color: '#00AD88' }} className="z-10">
               {v.price}
             </span>
-            <span className="mr-4 text-[#969696] z-10">{v.amount}</span>
+            <span className="z-10 mr-4 text-[#969696]">{v.amount}</span>
           </div>
         ))}
       </div>
 
-      <div className="text-[#00ad88] text-base font-bold mt-4" style={{ color }}>
+      <div className="mt-4 text-base font-bold text-[#00ad88]" style={{ color }}>
         {data?.last}
       </div>
       <div className="text-[#d6d6d6]">{data?.lastCny}</div>
 
       <div className="mt-4">
         {data?.buys?.map((v, i) => (
-          <div key={i} className="flex items-center justify-between py-1 relative">
+          <div key={i} className="relative flex items-center justify-between py-1">
             <div
-              className="absolute bg-gray-100 right-0 h-full"
+              className="absolute right-0 h-full bg-gray-100"
               style={{ width: Number(v.depthRate) + '%' }}
             ></div>
 
             <span style={{ color: '#E2214E' }} className="z-10">
               {v.price}
             </span>
-            <span className="mr-4 text-[#969696] z-10">{v.amount}</span>
+            <span className="z-10 mr-4 text-[#969696]">{v.amount}</span>
           </div>
         ))}
       </div>

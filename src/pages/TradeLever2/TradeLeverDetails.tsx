@@ -124,7 +124,7 @@ const TradeLeverDetails = ({
 
   return (
     <Container buySell={buySell ?? 1}>
-      <div className="flex text-sm gap-2">
+      <div className="flex gap-2 text-sm">
         <Select
           value={orderTypeOption}
           onChange={setOrderTypeOption}
@@ -136,7 +136,7 @@ const TradeLeverDetails = ({
       </div>
 
       {orderTypeOption.value === 'market' ? (
-        <div className="flex items-center justify-center text-xs text-[#666175ae] h-10 mt-2 bg-[#f2f2f2]">
+        <div className="mt-2 flex h-10 items-center justify-center bg-[#f2f2f2] text-xs text-[#666175ae]">
           {intl.formatMessage({ defaultMessage: '以當前最優價格交易', id: 'VXMi89' })}
         </div>
       ) : (
@@ -149,16 +149,16 @@ const TradeLeverDetails = ({
             value={price}
             onChange={setPrice}
           />
-          <div className="h-8 bg-gray-300 w-[1px]"></div>
+          <div className="h-8 w-[1px] bg-gray-300"></div>
           <a
-            className="text-lg font-bold text-gray-300 w-10 flex items-center justify-center"
+            className="flex w-10 items-center justify-center text-lg font-bold text-gray-300"
             onClick={() => plusOrMinus(false)}
           >
             -
           </a>
-          <div className="h-6 bg-gray-300 w-[1px]"></div>
+          <div className="h-6 w-[1px] bg-gray-300"></div>
           <a
-            className="text-lg font-bold text-gray-300 w-10 flex items-center justify-center"
+            className="flex w-10 items-center justify-center text-lg font-bold text-gray-300"
             onClick={() => plusOrMinus(true)}
           >
             +
@@ -166,7 +166,7 @@ const TradeLeverDetails = ({
         </div>
       )}
 
-      <div className="mt-2 flex items-center border border-[#efefef] h-10 px-2 rounded-sm">
+      <div className="mt-2 flex h-10 items-center rounded-sm border border-[#efefef] px-2">
         <Input
           value={hand}
           onChange={setHand}
@@ -178,10 +178,10 @@ const TradeLeverDetails = ({
         <span className="text-[#666175ae]">{symbol}</span>
       </div>
 
-      <div className="flex mt-2 border-[#efefef]">
+      <div className="mt-2 flex border-[#efefef]">
         {config?.openRateList?.map((v, i) => (
           <a
-            className="flex-1 py-2 flex items-center justify-center active:border-green-600 hand"
+            className="hand flex flex-1 items-center justify-center py-2 active:border-green-600"
             key={i}
             onClick={() => {
               const precision = Number(maxHand?.split('.')?.[1]?.length ?? 2);
@@ -201,7 +201,7 @@ const TradeLeverDetails = ({
         ))}
       </div>
 
-      <div className="mt-3 text-xs flex items-center justify-between">
+      <div className="mt-3 flex items-center justify-between text-xs">
         <div>
           <div className="text-[#6175ae]">
             {buySell === 1
@@ -215,13 +215,13 @@ const TradeLeverDetails = ({
               },
             )}
           </div>
-          <div className="text-gray-400 mt-3">{orderCheckOut?.data?.openBail}</div>
+          <div className="mt-3 text-gray-400">{orderCheckOut?.data?.openBail}</div>
         </div>
       </div>
 
       <div>
         <a
-          className="flex items-center justify-center h-12 text-white mt-2 text-sm"
+          className="mt-2 flex h-12 items-center justify-center text-sm text-white"
           style={{ backgroundColor: buySell === 1 ? '#00AD88' : '#E2214E' }}
           onClick={() => {
             if (orderTypeOption.value === 'limit' && !calcPrice) {
@@ -270,13 +270,13 @@ const Container = styled.div<{ buySell: number }>`
   .adm-selector {
     --padding: 8px 12px;
     .adm-selector-item {
-      color: #666175ae;
-      background-color: #fff;
       border: 1px solid #f0f0f1;
+      background-color: #fff;
+      color: #666175ae;
 
       &.adm-selector-item-active {
-        color: #fff;
         background-color: #6175ae;
+        color: #fff;
       }
     }
   }

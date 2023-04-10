@@ -1996,5 +1996,83 @@
   },
   "58jbdG": {
     "string": "《암호화된 개인 정보 보호 정책》"
+  },
+  "QBilBJ": {
+    "string": "첫 거래"
+  },
+  "LaUwF3": {
+    "string": "검색할 통화 이름 입력"
+  },
+  "xRwyQV": {
+    "string": "동결 금액(USDT)"
+  },
+  "+nOBYc": {
+    "string": "먼저 기본 인증을 완료하십시오."
+  },
+  "1zPKfz": {
+    "string": "주소 선택"
+  },
+  "3VZKdc": {
+    "string": "입력한 두 개의 비밀번호가 일치하지 않습니다."
+  },
+  "43/Nhz": {
+    "string": "《암호화 개인정보 보호정책》"
+  },
+  "4oqdRD": {
+    "string": "《암호화 사용자 동의서》"
+  },
+  "5EExAw": {
+    "string": "증명 사진"
+  },
+  "6f0YHY": {
+    "string": "평판 점수:"
+  },
+  "DXZ6tO": {
+    "string": "인증서 유형을 선택하려면 입력하세요."
+  },
+  "GAZ/J4": {
+    "string": "인증서 유형을 선택하세요"
+  },
+  "HFf2ly": {
+    "string": "인증서 뒷면의 사진을 업로드하세요."
+  },
+  "HnBEa1": {
+    "string": "주소를 입력하세요"
+  },
+  "OzbKU3": {
+    "string": "신분증의 앞면 사진을 올려주세요"
+  },
+  "V0RiZp": {
+    "string": "작업 성공"
+  },
+  "Zy+yLo": {
+    "string": "출금 주소를 입력하세요"
+  },
+  "cZ6U4z": {
+    "string": "기본 인증"
+  },
+  "eoC4eR": {
+    "string": "ID 번호를 입력하세요"
+  },
+  "foUhnV": {
+    "string": "인증서 유형"
+  },
+  "gYHc6L": {
+    "string": "확인 비밀번호를 입력하세요"
+  },
+  "gqB7Z3": {
+    "string": "업로드 실패, 다시 시도하십시오."
+  },
+  "j88inR": {
+    "string": "핸드헬드 사진을 업로드하세요"
+  },
+  "rZ0rJT": {
+    "string": "새 비밀번호를 입력하세요"
+  },
+  "sHN5XP": {
+    "string": "인증 번호"
+  },
+  "zQm6Ar": {
+    "string": "고급 인증"
   }
 }

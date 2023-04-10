@@ -44,18 +44,18 @@ const Currency = ({
 
   return (
     <div
-      className={`flex py-2 px-4 ${isActive ? 'is-active' : ''}`}
+      className={`flex px-4 py-2 ${isActive ? 'is-active' : ''}`}
       key={record.symbol}
       onClick={() => {
         onSelect?.(record);
       }}
     >
-      <div className="flex-1 flex items-center">
-        <div className=" font-bold text-sm text-black ">
+      <div className="flex flex-1 items-center">
+        <div className=" text-sm font-bold text-black ">
           <span>{record.symbol}</span>
         </div>
       </div>
-      <div className="text-xs text-right">
+      <div className="text-right text-xs">
         <div className="mt-1 text-sm font-bold leading-none"> 1806.95 </div>
 
         <div className="text-up" style={{ color }}>
@@ -100,7 +100,7 @@ export const CurrencyListPopup = (props: CurrencyListPopupProps) => {
       position="left"
       bodyStyle={{ width: '228px' }}
     >
-      <div className=" h-screen flex flex-col">
+      <div className=" flex h-screen flex-col">
         <div className="p-2">
           <SearchBar
             placeholder={intl.formatMessage({ defaultMessage: '输入币种名称搜索', id: 'LaUwF3' })}
@@ -113,8 +113,8 @@ export const CurrencyListPopup = (props: CurrencyListPopupProps) => {
             {isLoading ? (
               <div className=" animate-pulse">
                 {range(10).map((v) => (
-                  <div className="h-10 px-4 flex items-center" key={v}>
-                    <div className="w-full h-4 bg-gray-200 rounded"></div>
+                  <div className="flex h-10 items-center px-4" key={v}>
+                    <div className="h-4 w-full rounded bg-gray-200"></div>
                   </div>
                 ))}
               </div>

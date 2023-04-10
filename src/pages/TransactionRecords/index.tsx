@@ -96,10 +96,10 @@ const TransactionRecords = () => {
                   title={intl.formatMessage({ defaultMessage: '筛选', id: 'C8ZFaR' })}
                 >
                   <div className="p-4">
-                    <div className="flex-1 flex flex-col">
-                      <div className="text-[#1D3155] text-base text-left">币种</div>
+                    <div className="flex flex-1 flex-col">
+                      <div className="text-left text-base text-[#1D3155]">币种</div>
                       <Input
-                        className="bg-[#f9fafd] rounded h-10 pl-2.5 mt-2.5"
+                        className="mt-2.5 h-10 rounded bg-[#f9fafd] pl-2.5"
                         placeholder={intl.formatMessage({
                           defaultMessage: '請輸入幣種',
                           id: '9ErIMe',
@@ -107,10 +107,10 @@ const TransactionRecords = () => {
                       />
                     </div>
 
-                    <div className="flex-1 flex flex-col mt-5">
-                      <div className="text-[#1D3155] text-base text-left">订单状态</div>
+                    <div className="mt-5 flex flex-1 flex-col">
+                      <div className="text-left text-base text-[#1D3155]">订单状态</div>
                       <Selector
-                        className="mt-2.5 mb-8"
+                        className="mb-8 mt-2.5"
                         columns={3}
                         showCheckMark={false}
                         options={[
@@ -192,7 +192,7 @@ const TransactionRecords = () => {
           </Tabs>
 
           {proOrderQuerySumKeys.includes(accountType) && (
-            <div className="flex-1 flex items-center justify-end px-4">
+            <div className="flex flex-1 items-center justify-end px-4">
               <div className="flex flex-col">
                 <span className="text-xs text-[#999999]">
                   {intl.formatMessage({
@@ -202,7 +202,7 @@ const TransactionRecords = () => {
                 </span>
                 <span className="text-xs text-[#666666]">{proOrderQuerySum?.data?.sumCount}</span>
               </div>
-              <div className="flex flex-col ml-4">
+              <div className="ml-4 flex flex-col">
                 <span className="text-xs text-[#999999]">
                   {intl.formatMessage({
                     defaultMessage: '獲得FireCoin',
@@ -290,8 +290,8 @@ const Container = styled.div`
   }
 
   .adm-tabs-tab {
-    color: #666175ae;
     --title-font-size: 14px;
+    color: #666175ae;
     font-weight: bold;
   }
 

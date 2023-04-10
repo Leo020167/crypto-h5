@@ -94,7 +94,7 @@ const UserHome = () => {
     };
 
     return (
-      <div className="flex pb-5 px-5 w-full gap-5">
+      <div className="flex w-full gap-5 px-5 pb-5">
         <div className="flex-1">
           <Button
             color="primary"
@@ -184,9 +184,9 @@ const UserHome = () => {
 
   return (
     <Screen>
-      <div className="flex-1 bg-gray-100 overflow-y-auto">
-        <div className="pt-5 flex flex-col items-center justify-center bg-white">
-          <img alt="" src={radar?.headUrl ?? ic_default_head} className="w-11 h-11 rounded-full" />
+      <div className="flex-1 overflow-y-auto bg-gray-100">
+        <div className="flex flex-col items-center justify-center bg-white pt-5">
+          <img alt="" src={radar?.headUrl ?? ic_default_head} className="h-11 w-11 rounded-full" />
           <div className="mt-1 text-2xl font-bold text-[#1d3155]">{radar?.userName}</div>
           <div className="text-gray-400">
             <span>ID: {radar?.userId}</span>
@@ -201,21 +201,21 @@ const UserHome = () => {
             </span>
           </div>
 
-          <div className="flex text-gray-400 mt-2 mb-5">
+          <div className="mb-5 mt-2 flex text-gray-400">
             <div className="flex flex-col items-center justify-center">
-              <div className="text-[#1d3155] text-xl font-bold">{radar?.attentionNum ?? '--'}</div>
-              <div className="text-gray-400 text-xs">
+              <div className="text-xl font-bold text-[#1d3155]">{radar?.attentionNum ?? '--'}</div>
+              <div className="text-xs text-gray-400">
                 {intl.formatMessage({
                   defaultMessage: '訂閱數',
                   id: '+prpsi',
                 })}
               </div>
             </div>
-            <div className="flex flex-col items-center justify-center ml-6">
-              <div className="text-[#1d3155] text-xl font-bold">
+            <div className="ml-6 flex flex-col items-center justify-center">
+              <div className="text-xl font-bold text-[#1d3155]">
                 {radar?.radarFollowNum ?? '--'}
               </div>
-              <div className="text-gray-400 text-xs">
+              <div className="text-xs text-gray-400">
                 {intl.formatMessage({
                   defaultMessage: '跟單人數',
                   id: 'q+hue1',
@@ -227,8 +227,8 @@ const UserHome = () => {
           {buttons}
         </div>
 
-        <div className="mt-4 px-5 bg-white flex flex-col">
-          <div className="text-[#1d3155] my-2.5">
+        <div className="mt-4 flex flex-col bg-white px-5">
+          <div className="my-2.5 text-[#1d3155]">
             {intl.formatMessage({
               defaultMessage: '交易收益',
               id: '4Oh5kb',
@@ -245,7 +245,7 @@ const UserHome = () => {
               </div>
               <div className="text-lg text-[#1d3155]">{radar?.correctRate ?? '--'}%</div>
             </div>
-            <div className="flex flex-col flex-1 items-center">
+            <div className="flex flex-1 flex-col items-center">
               <div className="text-xs text-gray-400">
                 {intl.formatMessage({
                   defaultMessage: '總收益(USDT)',
@@ -265,19 +265,19 @@ const UserHome = () => {
             </div>
           </div>
 
-          <div className="text-[#1d3155] mt-2.5">
+          <div className="mt-2.5 text-[#1d3155]">
             {intl.formatMessage({
               defaultMessage: '可交易標的',
               id: 'E5sgW+',
             })}
           </div>
-          <div className="text-xs text-gray-400 mt-1">{radar?.describes}</div>
+          <div className="mt-1 text-xs text-gray-400">{radar?.describes}</div>
 
-          <div className="my-4 relative">
+          <div className="relative my-4">
             <TradableTargetChart radar={radar} />
             <Link
               to={{ pathname: '/radar-summary', search: stringify({ userId }) }}
-              className="absolute right-2 bottom-2 text-xs text-[#fb875a] z-10"
+              className="absolute bottom-2 right-2 z-10 text-xs text-[#fb875a]"
             >
               {intl.formatMessage({
                 defaultMessage: '詳情',
@@ -291,7 +291,7 @@ const UserHome = () => {
         <Capability radar={radar} />
 
         {!!radar?.recommend && (
-          <div className="mt-5 mb-12 px-4 text-sm text-[#3d3a50]">{radar?.recommend}</div>
+          <div className="mb-12 mt-5 px-4 text-sm text-[#3d3a50]">{radar?.recommend}</div>
         )}
       </div>
     </Screen>

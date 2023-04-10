@@ -1,7 +1,7 @@
 import { Button, Dialog, Input, Popup, Radio, Toast } from 'antd-mobile';
 import { useCallback, useMemo, useState } from 'react';
 import { useIntl } from 'react-intl';
-import { useQueryParam, StringParam } from 'use-query-params';
+import { StringParam, useQueryParam } from 'use-query-params';
 import { useApplyForFollow, useGetFollowTypes } from '../../api/endpoints/transformer';
 import { FollowType } from '../../api/model';
 import Screen from '../../components/Screen';
@@ -132,7 +132,7 @@ const ApplyBindAccount = () => {
           }}
         >
           {data?.data?.data?.types?.map((v, i) => (
-            <div key={v.id} className="p-4 bg-white rounded-md">
+            <div key={v.id} className="rounded-md bg-white p-4">
               <div className="text-[#666666]">
                 <Radio
                   value={v.id}
@@ -165,7 +165,7 @@ const ApplyBindAccount = () => {
                     {v.lossRate}%
                   </span>
                 </div>
-                <div className="flex items-center justify-between mt-4">
+                <div className="mt-4 flex items-center justify-between">
                   <span>
                     {intl.formatMessage({
                       defaultMessage: '最高倍數:',
@@ -218,7 +218,7 @@ const ApplyBindAccount = () => {
         {data?.data?.data?.showBind === '1' && (
           <div className="mt-5">
             <a
-              className="bg-[#ff6b1b] h-10 flex items-center justify-center text-white rounded-md"
+              className="flex h-10 items-center justify-center rounded-md bg-[#ff6b1b] text-white"
               onClick={() => {
                 Dialog.alert({
                   title: intl.formatMessage({
@@ -229,7 +229,7 @@ const ApplyBindAccount = () => {
                   content: (
                     <div className="h-64">
                       <iframe
-                        className="w-full h-full overflow-y-auto"
+                        className="h-full w-full overflow-y-auto"
                         title={intl.formatMessage({
                           defaultMessage: '風險提示書',
                           id: 'A3Awd7',
@@ -277,7 +277,7 @@ const ApplyBindAccount = () => {
               value={multiple}
               onChange={setMultiple}
               type="number"
-              className="flex-1 h-11 border-b px-2"
+              className="h-11 flex-1 border-b px-2"
               min={0}
               step={1}
               maxLength={15}

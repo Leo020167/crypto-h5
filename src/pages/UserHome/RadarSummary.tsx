@@ -1,5 +1,5 @@
 import { useIntl } from 'react-intl';
-import { useQueryParam, StringParam } from 'use-query-params';
+import { StringParam, useQueryParam } from 'use-query-params';
 import { usePersonalHome } from '../../api/endpoints/transformer';
 import Screen from '../../components/Screen';
 import TradableTargetChart from './TradableTargetChart';
@@ -30,7 +30,7 @@ const RadarSummary = () => {
             {intl.formatMessage({ defaultMessage: '跟單盈利額', id: 'bi/Yk/' })}(
             {radar?.radarFollowBalance})
           </div>
-          <div className="text-gray-400 mt-1">
+          <div className="mt-1 text-gray-400">
             {intl.formatMessage({
               defaultMessage: '解釋：跟隨高手的用戶最近30天盈虧總金額。',
               id: 'Wrputc',
@@ -45,7 +45,7 @@ const RadarSummary = () => {
             })}
             ({radar?.radarProfitRate}%)
           </div>
-          <div className="text-gray-400 mt-1">
+          <div className="mt-1 text-gray-400">
             {intl.formatMessage({
               defaultMessage:
                 '解釋：高高手最近30天平均每筆交易的收益率。數值越大，代表個人盈利能力越強。',
@@ -61,7 +61,7 @@ const RadarSummary = () => {
             })}
             ({radar?.radarFollowProfitRate}%)
           </div>
-          <div className="text-gray-400 mt-1">
+          <div className="mt-1 text-gray-400">
             {intl.formatMessage({
               defaultMessage:
                 '解釋：跟隨高手的用戶最近30天平均每筆交易的收益率。數值越大，代表跟隨高手的用戶收益越好。',
@@ -77,7 +77,7 @@ const RadarSummary = () => {
             })}
             ({radar?.radarFollowWinRate}%)
           </div>
-          <div className="text-gray-400 mt-1">
+          <div className="mt-1 text-gray-400">
             {intl.formatMessage({
               defaultMessage: '解釋：跟隨高手盈利的幾率。數值越大，代表跟單獲利的可能性就越高。',
               id: 'RDdf7n',
@@ -92,7 +92,7 @@ const RadarSummary = () => {
             })}
             ({radar?.radarFollowNum})
           </div>
-          <div className="text-gray-400 mt-1">
+          <div className="mt-1 text-gray-400">
             {intl.formatMessage({
               defaultMessage: '解釋：高手最近30天跟單人數，數值越大，代表跟隨者越多，人氣越高。',
               id: '4Qsef4',

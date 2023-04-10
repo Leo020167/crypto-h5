@@ -44,7 +44,7 @@ const Login = () => {
         }}
         right={
           <div className="flex items-center">
-            <a href={chatLink} className="text-black mr-4" target="_blank" rel="noreferrer">
+            <a href={chatLink} className="mr-4 text-black" target="_blank" rel="noreferrer">
               {intl.formatMessage({ defaultMessage: '綫上客服', id: 'wwOQz6' })}
             </a>
             <Link to="/signup" className="text-black">
@@ -99,7 +99,7 @@ const Login = () => {
                   >
                     {intl.formatMessage({ defaultMessage: '登錄', id: 'wAPEnf' })}
                   </Button>
-                  <div className="text-center mt-4">
+                  <div className="mt-4 text-center">
                     <Link to="/reset-password">
                       {intl.formatMessage({ defaultMessage: '忘記了？找回密碼', id: 'oR5wwN' })}
                     </Link>
@@ -165,9 +165,9 @@ const Container = styled.div`
     }
     .eye {
       flex: none;
+      cursor: pointer;
       margin-left: 8px;
       padding: 4px;
-      cursor: pointer;
       svg {
         display: block;
         font-size: var(--adm-font-size-7);

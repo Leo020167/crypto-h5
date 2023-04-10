@@ -1996,5 +1996,83 @@
   },
   "58jbdG": {
     "string": "《Política de privacidad cifrada》"
+  },
+  "QBilBJ": {
+    "string": "Primera operación"
+  },
+  "LaUwF3": {
+    "string": "Ingrese el nombre de la moneda para buscar"
+  },
+  "xRwyQV": {
+    "string": "Cantidad congelada (USDT)"
+  },
+  "+nOBYc": {
+    "string": "Por favor complete primero la certificación principal"
+  },
+  "1zPKfz": {
+    "string": "Seleccionar dirección"
+  },
+  "3VZKcc": {
+    "string": "Las dos contraseñas ingresadas son inconsistentes"
+  },
+  "43/MHz": {
+    "string": "《Política de privacidad de Cryptographe》"
+  },
+  "4oqdRD": {
+    "string": "《Acuerdo de usuario de Cryptographe》"
+  },
+  "5EExAw": {
+    "string": "Foto de identificación"
+  },
+  "6f0YHY": {
+    "string": "Puntuación de reputación:"
+  },
+  "DXZ6tO": {
+    "string": "Por favor ingrese para seleccionar el tipo de certificado"
+  },
+  "GAZ/J4": {
+    "string": "Por favor seleccione un tipo de certificado"
+  },
+  "HFf2ly": {
+    "string": "Cargue una foto del reverso del certificado"
+  },
+  "HnBEa1": {
+    "string": "Por favor complete la dirección"
+  },
+  "OzbKU3": {
+    "string": "Cargue la foto frontal de la tarjeta de identificación"
+  },
+  "V0RiZp": {
+    "string": "Operación exitosa"
+  },
+  "Zy+yLo": {
+    "string": "Por favor complete la dirección de retiro"
+  },
+  "cZ6U4z": {
+    "string": "Autenticación primaria"
+  },
+  "eoC4eR": {
+    "string": "Por favor ingrese el número de identificación"
+  },
+  "foUhnV": {
+    "string": "Tipo de certificado"
+  },
+  "gYHc6L": {
+    "string": "Por favor ingrese una contraseña de confirmación"
+  },
+  "gqB7Z3": {
+    "string": "Falló la carga, inténtalo de nuevo"
+  },
+  "j88inR": {
+    "string": "Sube una foto de cámara en mano"
+  },
+  "rZ0rJT": {
+    "string": "Por favor ingrese una nueva contraseña"
+  },
+  "sHN5XP": {
+    "string": "Número de verificación"
+  },
+  "zQm6Ar": {
+    "string": "Autenticación avanzada"
   }
 }

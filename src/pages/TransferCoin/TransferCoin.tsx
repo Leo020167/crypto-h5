@@ -141,7 +141,7 @@ const TransferCoin = () => {
         ),
       }}
       footer={
-        <div className="px-4 mb-4">
+        <div className="mb-4 px-4">
           <Button block color="primary" onClick={handleFinish}>
             {intl.formatMessage({ defaultMessage: '划转', id: 'fGSeaa' })}
           </Button>
@@ -149,30 +149,30 @@ const TransferCoin = () => {
       }
     >
       <div className="flex items-center p-5">
-        <div className="h-28 border flex items-center justify-center mr-4 flex-1">
+        <div className="mr-4 flex h-28 flex-1 items-center justify-center border">
           <div className="ml-4">
             <img alt="" src={ic_transfer_point} className="h-14" />
           </div>
 
-          <div className="flex-1 ml-4 h-full flex flex-col">
-            <div className="border-b flex items-center flex-1">
+          <div className="ml-4 flex h-full flex-1 flex-col">
+            <div className="flex flex-1 items-center border-b">
               <span className="text-[#663D3A50]">
                 {intl.formatMessage({ defaultMessage: '从', id: 'mDJb9E' })}
               </span>
               <a
-                className="flex-1 flex items-center justify-between px-4"
+                className="flex flex-1 items-center justify-between px-4"
                 onClick={() => setAction('from')}
               >
                 <span>{accountTypeFrom?.accountName}</span>
                 <Arrow />
               </a>
             </div>
-            <div className=" flex items-center flex-1">
+            <div className=" flex flex-1 items-center">
               <span className="text-[#663D3A50]">
                 {intl.formatMessage({ defaultMessage: '到', id: 'ChK/7j' })}
               </span>
               <a
-                className="flex-1 flex  items-center justify-between px-4"
+                className="flex flex-1  items-center justify-between px-4"
                 onClick={() => setAction('to')}
               >
                 <span>{accountTypeTo?.accountName}</span>
@@ -191,7 +191,7 @@ const TransferCoin = () => {
           className="mt-4 flex items-center bg-[#EDF3FA] px-2.5"
           onClick={() => setAction('symbols')}
         >
-          <div className="h-11 flex-1 flex items-center">{symbol}</div>
+          <div className="flex h-11 flex-1 items-center">{symbol}</div>
           <RightOutline fontSize={16} />
         </a>
       </div>
@@ -203,7 +203,7 @@ const TransferCoin = () => {
         <div className="relative flex items-center">
           <Input
             type="number"
-            className="border-b py-2 font-bold pr-20"
+            className="border-b py-2 pr-20 font-bold"
             value={amount}
             onChange={setAmount}
             maxLength={18}
@@ -212,7 +212,7 @@ const TransferCoin = () => {
           />
           <div className="absolute right-12 text-[#666175AE]">{symbol}</div>
           <a
-            className="absolute right-0 text-[#6175AE] text-xs"
+            className="absolute right-0 text-xs text-[#6175AE]"
             onClick={() => {
               setAmount(symbolMaxAmount?.data);
               inputRef.current?.focus();
@@ -221,7 +221,7 @@ const TransferCoin = () => {
             {intl.formatMessage({ defaultMessage: '全部', id: 'dGBGbt' })}
           </a>
         </div>
-        <div className="text-[#666175AE] mt-1 text-xs">
+        <div className="mt-1 text-xs text-[#666175AE]">
           {intl.formatMessage({ defaultMessage: '可用数量：', id: 'sVgCxu' })}
           {symbolMaxAmount?.data ?? '--' + symbol}
         </div>
