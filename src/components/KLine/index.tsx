@@ -100,7 +100,6 @@ const KLine = ({
   const setOptions = useCallback(() => {
     const dates = rawDataRef.current.map((v) => v.date);
     const values = rawDataRef.current.map((v) => [v.open, v.close, v.lowest, v.highest, v.volume]);
-    const volumes = values.map((v, i) => [i, v[4], v[0] > v[1] ? 1 : -1]);
 
     const ma5Data = calculateMA(5, values);
     const ma10Data = calculateMA(10, values);
@@ -120,9 +119,6 @@ const KLine = ({
           {
             data: dates,
           },
-          {
-            data: dates,
-          },
         ],
         series: [
           {
@@ -136,15 +132,6 @@ const KLine = ({
           },
           {
             data: ma30Data,
-          },
-          {
-            data: volumes,
-          },
-          {
-            data: vma5Data,
-          },
-          {
-            data: vma10Data,
           },
         ],
       },
@@ -182,17 +169,17 @@ const KLine = ({
 
         const index = startIndex + i;
 
-        if (isNumber(ma5Data[index]) && ma5Data[index] > 0) {
+        if (isNumber(ma5Data[index]) && Number(ma5Data[index]) > 0) {
           max = Math.max(max, ma5Data[index] as number);
           min = Math.min(min, ma5Data[index] as number);
         }
 
-        if (isNumber(ma10Data[index]) && ma10Data[index] > 0) {
+        if (isNumber(ma10Data[index]) && Number(ma10Data[index]) > 0) {
           max = Math.max(max, ma10Data[index] as number);
           min = Math.min(min, ma10Data[index] as number);
         }
 
-        if (isNumber(ma30Data[index]) && ma30Data[index] > 0) {
+        if (isNumber(ma30Data[index]) && Number(ma30Data[index]) > 0) {
           max = Math.max(max, ma30Data[index] as number);
           min = Math.min(min, ma30Data[index] as number);
         }
@@ -422,16 +409,7 @@ const KLine = ({
             },
           ],
         },
-        grid: [
-          { top: 0, left: 0, right: 0, height: '60%' },
-          {
-            top: '70%',
-            right: 0,
-            left: 0,
-            bottom: 0,
-            height: '30%',
-          },
-        ],
+        grid: [{ top: 0, left: 0, right: 0, height: '68%' }],
         xAxis: [
           {
             type: 'category',
@@ -443,18 +421,6 @@ const KLine = ({
               show: false,
             },
             splitLine: { show: false },
-            min: 'dataMin',
-            max: 'dataMax',
-          },
-          {
-            type: 'category',
-            gridIndex: 1,
-            data: [],
-            boundaryGap: false,
-            axisLine: { onZero: false },
-            axisTick: { show: false },
-            splitLine: { show: false },
-            axisLabel: { show: false },
             min: 'dataMin',
             max: 'dataMax',
           },
@@ -472,24 +438,11 @@ const KLine = ({
               },
             },
           },
-          {
-            scale: true,
-            gridIndex: 1,
-            axisLabel: { show: false },
-            axisLine: { show: false },
-            axisTick: { show: false },
-            splitLine: {
-              show: true,
-              lineStyle: {
-                color: '#222c38',
-              },
-            },
-          },
         ],
         dataZoom: [
           {
             type: 'inside',
-            xAxisIndex: [0, 1],
+            xAxisIndex: 0,
             start: rawDataRef.current.length < 150 ? 15 : 86,
             end: 100,
           },
@@ -539,39 +492,6 @@ const KLine = ({
               color: '#b080ce',
             },
           },
-          {
-            name: 'Volume',
-            type: 'bar',
-            xAxisIndex: 1,
-            yAxisIndex: 1,
-            data: [],
-          },
-          {
-            name: 'VMA5',
-            type: 'line',
-            xAxisIndex: 1,
-            yAxisIndex: 1,
-            data: [],
-            smooth: true,
-            symbol: 'none',
-            lineStyle: {
-              width: 0.5,
-              color: '#357dad',
-            },
-          },
-          {
-            name: 'VMA10',
-            type: 'line',
-            xAxisIndex: 1,
-            yAxisIndex: 1,
-            data: [],
-            smooth: true,
-            symbol: 'none',
-            lineStyle: {
-              width: 0.5,
-              color: '#ffc43e',
-            },
-          },
         ],
       },
       false,
@@ -595,7 +515,7 @@ const KLine = ({
       </div>
 
       <div className="relative">
-        <div className="h-96 bg-[#0F1826]" ref={ref}></div>
+        <div className="h-[284px] bg-[#0F1826]" ref={ref}></div>
         <span className="absolute left-0 top-0 z-10 text-[#e1234d]" ref={maxRef}>
           --
         </span>

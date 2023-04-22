@@ -38,7 +38,7 @@ export const TabLayout = ({ children }: TabLayoutProps) => {
         icon: <HomeTabAccount className="h-6" />,
       },
       {
-        key: '/trade-lever2?buySell=1&symbol=BTC',
+        key: '/trade-lever2',
         title: intl.formatMessage({ defaultMessage: '交易', id: '/ErIar' }),
         icon: <HomeTabFollow className="h-6" />,
       },
@@ -55,7 +55,13 @@ export const TabLayout = ({ children }: TabLayoutProps) => {
       <div className="content flex flex-col">{children}</div>
       <TabBar
         activeKey={location.pathname}
-        onChange={history.push}
+        onChange={(key) => {
+          if (key === '/trade-lever2') {
+            history.push('/trade-lever2?buySell=1&symbol=BTC');
+          } else {
+            history.push(key);
+          }
+        }}
         className="layout fixed bottom-0 left-0 right-0 z-10 bg-white"
       >
         {tabs.map((item) => (

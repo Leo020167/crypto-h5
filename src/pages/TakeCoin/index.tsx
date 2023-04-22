@@ -3,7 +3,7 @@ import { DownFill, RightOutline } from 'antd-mobile-icons';
 import currency from 'currency.js';
 import md5 from 'js-md5';
 import { stringify } from 'query-string';
-import { useCallback, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { useIntl } from 'react-intl';
 import { Link, useHistory, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
@@ -176,6 +176,25 @@ const TakeCoin = () => {
     }
     return '--';
   }, [amount, configs?.data?.fee, precision]);
+
+  const auth = useAuthStore();
+  const mounted = useRef(false);
+  useEffect(() => {
+    if (auth.userInfo?.payPass || mounted.current) return;
+
+    mounted.current = true;
+    Dialog.confirm({
+      title: intl.formatMessage({ defaultMessage: '溫馨提示', id: 'TlP8cy' }),
+      content: intl.formatMessage({
+        defaultMessage: '爲了您的資金安全，請先設置【交易密碼】！',
+        id: 'PmeCYZ',
+      }),
+      confirmText: '設置',
+      onConfirm() {
+        history.push('/setting-pay-password');
+      },
+    });
+  }, [auth.userInfo?.payPass, history, intl]);
   return (
     <Screen
       headerTitle={intl.formatMessage({ defaultMessage: '提幣', id: 'andeZs' })}
