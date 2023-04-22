@@ -7,9 +7,6 @@ dependencies:
   '@tanstack/react-query':
     specifier: ^4.29.3
     version: 4.29.3(react-dom@18.2.0)(react-native@0.71.7)(react@18.2.0)
-  add:
-    specifier: ^2.0.6
-    version: 2.0.6
   antd-mobile:
     specifier: ^5.29.1
     version: 5.29.1(react-dom@18.2.0)(react@18.2.0)
@@ -100,9 +97,6 @@ dependencies:
   vite-plugin-html:
     specifier: ^3.2.0
     version: 3.2.0(vite@4.3.1)
-  yarn:
-    specifier: ^1.22.19
-    version: 1.22.19
   zustand:
     specifier: ^4.3.7
     version: 4.3.7(immer@9.0.21)(react@18.2.0)
@@ -3684,10 +3678,6 @@ packages:
 
   /add-px-to-style@1.0.0:
     resolution: {integrity: sha512-YMyxSlXpPjD8uWekCQGuN40lV4bnZagUwqa2m/uFv1z/tNImSk9fnXVMUI5qwME/zzI3MMQRvjZ+69zyfSSyew==}
-    dev: false
-
-  /add@2.0.6:
-    resolution: {integrity: sha512-j5QzrmsokwWWp6kUcJQySpbG+xfOBqqKnup3OIk1pz+kB/80SLorZ9V8zHFLO92Lcd+hbvq8bT+zOGoPkmBV0Q==}
     dev: false
 
   /agent-base@6.0.2:
@@ -10912,13 +10902,6 @@ packages:
       string-width: 4.2.3
       y18n: 5.0.8
       yargs-parser: 21.1.1
-
-  /yarn@1.22.19:
-    resolution: {integrity: sha512-/0V5q0WbslqnwP91tirOvldvYISzaqhClxzyUKXYxs07yUILIs5jx/k6CFe8bvKSkds5w+eiOqta39Wk3WxdcQ==}
-    engines: {node: '>=4.0.0'}
-    hasBin: true
-    requiresBuild: true
-    dev: false
 
   /yocto-queue@0.1.0:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
