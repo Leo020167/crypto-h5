@@ -49,6 +49,10 @@ const GlobalStyle = styled.createGlobalStyle`
     }
   }
 
+  .adm-tab-bar-item {
+    padding: 8px;
+  }
+
   button,
   [type='button'],
   [type='reset'],

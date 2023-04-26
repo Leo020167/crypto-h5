@@ -35,8 +35,10 @@ const SettingPayPassword = () => {
       data.oldPayPass = md5(values.oldPayPass).toUpperCase();
     }
 
+    console.log(data);
+
     setPayPassMutation.mutate({
-      data: values,
+      data,
     });
   };
 

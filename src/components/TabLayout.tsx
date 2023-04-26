@@ -73,6 +73,6 @@ export const TabLayout = ({ children }: TabLayoutProps) => {
 };
 const Container = styled.div`
   .content {
-    height: calc(100vh - 50px);
+    height: calc(100vh - 58px);
   }
 `;
