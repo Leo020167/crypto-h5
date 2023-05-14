@@ -1,4 +1,13 @@
 {
+  "KQcUcI": {
+    "string": "Photo au verso du certificat"
+  },
+  "PNGaFx": {
+    "string": "Photo recto du certificat"
+  },
+  "WKKdIS": {
+    "string": "Certificat contenant la photo"
+  },
   "PmeCYZ": {
     "string": "Pour la sécurité de vos fonds, veuillez d'abord définir [mot de passe de transaction] !"
   },
