@@ -52,7 +52,6 @@ const MinuteDigitalTimeLineChart = ({ symbol, precision }: MinuteDigitalTimeLine
         const list = uniqBy(orderBy(result, ['time'], ['asc']), (v) => v.time);
 
         const priceData = list.map((v) => v.price);
-        const volumes = list.map((v) => v.vol);
 
         const maxPrice = max(priceData) ?? 0;
         const minPrice = min(priceData) ?? 0;
@@ -84,9 +83,6 @@ const MinuteDigitalTimeLineChart = ({ symbol, precision }: MinuteDigitalTimeLine
                 ],
               },
             },
-            {
-              data: volumes,
-            },
           ],
         });
       }
@@ -114,15 +110,6 @@ const MinuteDigitalTimeLineChart = ({ symbol, precision }: MinuteDigitalTimeLine
             left: 0,
             right: 0,
             bottom: '10%',
-            height: '70%',
-            containLabel: true,
-          },
-          {
-            top: '80%',
-            left: 0,
-            right: 0,
-            bottom: 0,
-            height: '20%',
             containLabel: true,
           },
         ],
@@ -157,26 +144,6 @@ const MinuteDigitalTimeLineChart = ({ symbol, precision }: MinuteDigitalTimeLine
             min: 'dataMin',
             max: 'dataMax',
           },
-          {
-            type: 'category',
-            boundaryGap: false,
-            gridIndex: 1,
-            data: [],
-            axisLine: {
-              lineStyle: {
-                color: '#28323e',
-              },
-            },
-            axisTick: { show: false },
-            splitLine: { show: false },
-            axisLabel: {
-              color: '#fff',
-              fontSize: 8,
-              formatter: (v: string) => moment(v, 'YYYY-MM-DD HH:mm').format('HH:mm'),
-            },
-            min: 'dataMin',
-            max: 'dataMax',
-          },
         ],
         yAxis: [
           {
@@ -197,14 +164,6 @@ const MinuteDigitalTimeLineChart = ({ symbol, precision }: MinuteDigitalTimeLine
                 color: '#28323e',
               },
             },
-          },
-          {
-            scale: true,
-            gridIndex: 1,
-            axisLabel: { show: false },
-            axisLine: { show: false },
-            axisTick: { show: false },
-            splitLine: { show: false },
           },
         ],
         series: [
@@ -241,23 +200,13 @@ const MinuteDigitalTimeLineChart = ({ symbol, precision }: MinuteDigitalTimeLine
               },
             },
           },
-          {
-            name: 'Volume',
-            type: 'bar',
-            xAxisIndex: 1,
-            yAxisIndex: 1,
-            data: [],
-            itemStyle: {
-              color: '#f68e0e',
-            },
-          },
         ],
       },
       true,
     );
   }, [precision]);
 
-  return <div className="h-96" ref={ref}></div>;
+  return <div className="h-64" ref={ref}></div>;
 };
 
 export default MinuteDigitalTimeLineChart;

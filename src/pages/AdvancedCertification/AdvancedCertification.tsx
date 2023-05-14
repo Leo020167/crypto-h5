@@ -175,7 +175,10 @@ const AdvancedCertification = () => {
             })}
           </div>
 
-          <Form.Item name="frontImgUrl" label="證件正面照片">
+          <Form.Item
+            name="frontImgUrl"
+            label={intl.formatMessage({ defaultMessage: '證件正面照片', id: 'PNGaFx' })}
+          >
             <ImageUploader
               {...uploadProps}
               maxCount={1}
@@ -183,7 +186,10 @@ const AdvancedCertification = () => {
               deletable={!isValid}
             />
           </Form.Item>
-          <Form.Item name="backImgUrl" label="證件反面照片">
+          <Form.Item
+            name="backImgUrl"
+            label={intl.formatMessage({ defaultMessage: '證件反面照片', id: 'KQcUcI' })}
+          >
             <ImageUploader
               {...uploadProps}
               maxCount={1}
@@ -193,7 +199,10 @@ const AdvancedCertification = () => {
           </Form.Item>
           <div className="flex items-center">
             <div>
-              <Form.Item name="holdImgUrl" label="證件手持照片">
+              <Form.Item
+                name="holdImgUrl"
+                label={intl.formatMessage({ defaultMessage: '證件手持照片', id: 'WKKdIS' })}
+              >
                 <ImageUploader
                   {...uploadProps}
                   maxCount={1}

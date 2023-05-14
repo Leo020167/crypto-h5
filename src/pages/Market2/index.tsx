@@ -226,13 +226,17 @@ const Market = () => {
       </div>
       <div className="absolute bottom-0 z-10 flex w-full items-center bg-[#131e31] p-4">
         <a
-          className="flex h-10 flex-1 items-center justify-center bg-[#E2214E] text-base"
+          className={`flex h-10 flex-1 items-center justify-center bg-[${
+            switchColorValue === '1' ? '#00AD88' : '#E2214E'
+          }] text-base`}
           onClick={() => handleBuySell(1)}
         >
           {intl.formatMessage({ defaultMessage: '買入', id: 'sY5/oP' })}
         </a>
         <a
-          className="ml-2 flex h-10 flex-1 items-center justify-center bg-[#00AD88] text-base"
+          className={`ml-2 flex h-10 flex-1 items-center justify-center bg-[${
+            switchColorValue === '0' ? '#00AD88' : '#E2214E'
+          }] text-base`}
           onClick={() => handleBuySell(-1)}
         >
           {intl.formatMessage({ defaultMessage: '賣出', id: 'EOWvn9' })}

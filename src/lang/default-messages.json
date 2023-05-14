@@ -701,6 +701,9 @@
   "KNgmr/": {
     "string": "持倉手數"
   },
+  "KQcUcI": {
+    "string": "證件反面照片"
+  },
   "KSTxH2": {
     "string": "15分鐘"
   },
@@ -847,6 +850,9 @@
   },
   "PHMSxi": {
     "string": "下單"
+  },
+  "PNGaFx": {
+    "string": "證件正面照片"
   },
   "PUWCuy": {
     "string": "申購時間"
@@ -1075,6 +1081,9 @@
   },
   "WKCB03": {
     "string": "可兌換數量："
+  },
+  "WKKdIS": {
+    "string": "證件手持照片"
   },
   "WKYPpM": {
     "string": "质押生息"
