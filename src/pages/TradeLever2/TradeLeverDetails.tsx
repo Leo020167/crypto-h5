@@ -175,7 +175,7 @@ const TradeLeverDetails = ({
           placeholder={intl.formatMessage({ defaultMessage: '請輸入手數', id: 'Tw8y2o' })}
           maxLength={18}
         />
-        <span className="text-[#666175ae]">USDT</span>
+        <span className="text-[#666175ae]">{symbol}</span>
       </div>
 
       <div className="mt-2 flex border-[#efefef]">
