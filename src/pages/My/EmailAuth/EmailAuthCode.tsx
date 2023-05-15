@@ -61,7 +61,7 @@ const EmailAuthCode = () => {
         footer={
           <div className="mt-4">
             <Button type="submit" block size="large" className="submit">
-              {intl.formatMessage({ defaultMessage: '發送驗證碼', id: 'MYqUqI' })}
+              {intl.formatMessage({ defaultMessage: '提交', id: 'ENPgS/' })}
             </Button>
           </div>
         }
