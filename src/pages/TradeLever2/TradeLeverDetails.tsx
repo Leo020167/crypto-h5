@@ -4,7 +4,11 @@ import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useIntl } from 'react-intl';
 import Select, { StylesConfig } from 'react-select';
 import styled from 'styled-components';
-import { useProOrderCheckOut, useProOrderOpen } from '../../api/endpoints/transformer';
+import {
+  useProOrderCheckOut,
+  useProOrderCheckOutUsdt,
+  useProOrderOpen,
+} from '../../api/endpoints/transformer';
 import { ProOrderConfigResponseAllOfData } from '../../api/model';
 import { QuoteReal } from '../../market/model';
 
@@ -57,7 +61,7 @@ const TradeLeverDetails = ({
 
   const [orderTypeOption, setOrderTypeOption] = useState<any>(orderTypeOptions[0]);
 
-  const [hand, setHand] = useState<string>('10');
+  const [hand, setHand] = useState<string>('0');
 
   const [price, setPrice] = useState<string>();
 
@@ -68,15 +72,45 @@ const TradeLeverDetails = ({
     return '0';
   }, [orderTypeOption.value, price]);
 
-  const { data: orderCheckOut, refetch: refetchCheckOut } = useProOrderCheckOut({
-    symbol: symbol ?? '',
-    buySell: buySell === 1 ? 'buy' : 'sell',
-    price: calcPrice,
-    hand,
-    multiNum: '',
-    orderType: orderTypeOption.value,
-    type: '2',
-  });
+  const { data: orderCheckOutUsdt, refetch: refetchCheckOutUsdt } = useProOrderCheckOutUsdt(
+    {
+      symbol: symbol ?? '',
+      buySell: buySell === 1 ? 'buy' : 'sell',
+      price: calcPrice,
+      hand,
+      multiNum: '',
+      orderType: orderTypeOption.value,
+      type: '2',
+    },
+    {
+      query: {
+        enabled: buySell === 1,
+      },
+    },
+  );
+
+  const { data: orderCheckOut, refetch: refetchCheckOut } = useProOrderCheckOut(
+    {
+      symbol: symbol ?? '',
+      buySell: buySell === 1 ? 'buy' : 'sell',
+      price: calcPrice,
+      hand,
+      multiNum: '',
+      orderType: orderTypeOption.value,
+      type: '2',
+    },
+    {
+      query: {
+        enabled: buySell === -1,
+      },
+    },
+  );
+
+  const openHand = orderCheckOutUsdt?.data?.openHand;
+  const maxOpenBail = Number(orderCheckOutUsdt?.data?.maxOpenBail ?? 0);
+
+  const openBail = orderCheckOut?.data?.openBail;
+  const availableAmount = orderCheckOut?.data?.availableAmount;
 
   useEffect(() => {
     if (quote) {
@@ -90,6 +124,7 @@ const TradeLeverDetails = ({
         if (data.code === '200') {
           onCreateOrderSuccess?.();
           refetchCheckOut();
+          refetchCheckOutUsdt();
           Toast.show(data.msg);
         }
       },
@@ -115,11 +150,6 @@ const TradeLeverDetails = ({
       setPrice(currency(d, { separator: '', precision: priceDecimals, symbol: '' }).format());
     },
     [config?.priceDecimals, price],
-  );
-
-  const maxHand = useMemo(
-    () => (buySell === 1 ? orderCheckOut?.data?.maxHand : orderCheckOut?.data?.availableAmount),
-    [buySell, orderCheckOut?.data?.availableAmount, orderCheckOut?.data?.maxHand],
   );
 
   return (
@@ -175,7 +205,7 @@ const TradeLeverDetails = ({
           placeholder={intl.formatMessage({ defaultMessage: '請輸入手數', id: 'Tw8y2o' })}
           maxLength={18}
         />
-        <span className="text-[#666175ae]">{symbol}</span>
+        <span className="text-[#666175ae]">{buySell === 1 ? 'USDT' : symbol}</span>
       </div>
 
       <div className="mt-2 flex border-[#efefef]">
@@ -184,18 +214,23 @@ const TradeLeverDetails = ({
             className="hand flex flex-1 items-center justify-center py-2 active:border-green-600"
             key={i}
             onClick={() => {
-              const precision = Number(maxHand?.split('.')?.[1]?.length ?? 2);
+              if (buySell === 1) {
+                setHand(String(maxOpenBail * (v / 100)));
+                refetchCheckOutUsdt();
+              } else {
+                const precision = Number(availableAmount?.split('.')?.[1]?.length ?? 2);
 
-              const hand = currency(maxHand ?? '0', {
-                symbol: '',
-                separator: '',
-                precision,
-              })
-                .multiply(v / 100)
-                .format();
+                const hand = currency(availableAmount ?? '0', {
+                  symbol: '',
+                  separator: '',
+                  precision,
+                })
+                  .multiply(v / 100)
+                  .format();
 
-              setHand(hand);
-              refetchCheckOut();
+                setHand(hand);
+                refetchCheckOut();
+              }
             }}
           >{`${v}%`}</a>
         ))}
@@ -207,15 +242,11 @@ const TradeLeverDetails = ({
             {buySell === 1
               ? intl.formatMessage({ defaultMessage: '可買', id: 'HdFt0P' })
               : intl.formatMessage({ defaultMessage: '可賣', id: '4zwWgi' })}
-            {intl.formatMessage(
-              { defaultMessage: '{maxHand}{symbol}', id: '/jAa8w' },
-              {
-                maxHand,
-                symbol,
-              },
-            )}
+
+            {buySell === 1 ? openHand : availableAmount}
+            {symbol}
           </div>
-          <div className="mt-3 text-gray-400">{orderCheckOut?.data?.openBail}</div>
+          {buySell === -1 && <div className="mt-3 text-gray-400">{openBail}</div>}
         </div>
       </div>
 
@@ -234,7 +265,7 @@ const TradeLeverDetails = ({
                 symbol: symbol ?? '',
                 price: calcPrice,
                 buySell: buySell === 1 ? 'buy' : 'sell',
-                hand: hand || '0',
+                hand: buySell === 1 ? openHand : hand || '0',
                 multiNum: '',
                 orderType: orderTypeOption.value,
                 type: '2',

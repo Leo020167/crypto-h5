@@ -686,6 +686,49 @@ paths:
                             type: string
                           openBail:
                             type: string
+  /pro/order/checkOutUsdt.do:
+    post:
+      operationId: 'proOrderCheckOutUsdt'
+      description: '获取提币信息'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                symbol:
+                  type: string
+                price:
+                  type: string
+                buySell:
+                  type: string
+                hand:
+                  type: string
+                  description: '输入的usdt数量'
+                multiNum:
+                  type: string
+                orderType:
+                  type: string
+                type:
+                  type: string
+
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/CommonResponse'
+                  - properties:
+                      data:
+                        type: object
+                        properties:
+                          maxOpenBail:
+                            type: string
+                            description: '可输入的最大usdt数量,20% 40%等取这个值的乘积'
+                          openHand:
+                            type: string
+                            description: '可以买入的币的数量，调用/pro/order/open.do这个接口时的hand参数取这个值'
 
   /follow/getTypes.do:
     post:

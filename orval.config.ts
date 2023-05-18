@@ -59,6 +59,11 @@ export default defineConfig({
           name: 'customInstance',
         },
         operations: {
+          proOrderCheckOutUsdt: {
+            query: {
+              useQuery: true,
+            },
+          },
           identityConfig: {
             query: {
               useQuery: true,
