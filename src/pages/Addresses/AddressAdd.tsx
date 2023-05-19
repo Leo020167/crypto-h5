@@ -119,7 +119,7 @@ const AddressAdd = () => {
   }, [address, intl]);
 
   return (
-    <Screen headerTitle="添加提幣地址">
+    <Screen headerTitle={intl.formatMessage({ defaultMessage: '添加提幣地址', id: 'GO/P/E' })}>
       <Container className="flex-1 overflow-y-auto bg-[#F4F6F4] p-4">
         <div className="mb-4 text-sm text-[#3E4660]">
           {intl.formatMessage({ defaultMessage: '添加提幣地址', id: 'GO/P/E' })}
