@@ -122,10 +122,10 @@ const TakeCoin = () => {
       return;
     }
 
-    if (!userInfo?.phone) {
-      history.push({ pathname: '/bind-phone', search: stringify({ type: 2 }) });
-      return;
-    }
+    // if (!userInfo?.phone) {
+    //   history.push({ pathname: '/bind-phone', search: stringify({ type: 2 }) });
+    //   return;
+    // }
 
     Dialog.confirm({
       content: (
@@ -152,7 +152,7 @@ const TakeCoin = () => {
         setOpen(true);
       },
     });
-  }, [address, addressStr, amount, configs?.data?.fee, userInfo?.phone, intl, symbol, history]);
+  }, [address, addressStr, amount, configs?.data?.fee, intl, symbol]);
 
   const { data: addressList } = useAddressList({
     symbol: symbol,
