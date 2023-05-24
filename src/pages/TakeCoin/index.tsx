@@ -189,7 +189,8 @@ const TakeCoin = () => {
         defaultMessage: '爲了您的資金安全，請先設置【交易密碼】！',
         id: 'PmeCYZ',
       }),
-      confirmText: '設置',
+      cancelText: intl.formatMessage({ defaultMessage: '取消', id: '2QzYmY' }),
+      confirmText: intl.formatMessage({ defaultMessage: '設置', id: '+eQ50+' }),
       onConfirm() {
         history.push('/setting-pay-password');
       },
