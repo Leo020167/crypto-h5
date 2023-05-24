@@ -1,4 +1,13 @@
 {
+  "/LMNJ8": {
+    "string": "Please enter the password again"
+  },
+  "ADKS8l": {
+    "string": "The passwords entered twice are different"
+  },
+  "P6HN+m": {
+    "string": "The password must be a combination of 8–16 digits and letters"
+  },
   "KQcUcI": {
     "string": "Photo on the back side of the certificate"
   },
