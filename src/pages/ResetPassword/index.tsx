@@ -83,7 +83,7 @@ const ResetPassword = () => {
               return;
             }
 
-            if (!validPassword(values.userPass, values.configUserPass)) {
+            if (!validPassword(intl, values.userPass, values.configUserPass)) {
               return;
             }
 

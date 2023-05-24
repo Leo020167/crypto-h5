@@ -56,11 +56,11 @@
   "/I+pby": {
     "string": "我的"
   },
+  "/LMNJ8": {
+    "string": "請再次輸入密碼"
+  },
   "/T0l4z": {
     "string": "每日利息"
-  },
-  "/jAa8w": {
-    "string": "{maxHand}{symbol}"
   },
   "/k9TmU": {
     "string": "盈虧(USDT)"
@@ -379,6 +379,9 @@
   },
   "A8sxJT": {
     "string": "已訂閱"
+  },
+  "ADKS8l": {
+    "string": "兩次輸入的密碼不相同"
   },
   "ASHrJh": {
     "string": "添加廣告"
@@ -841,6 +844,9 @@
   },
   "P+t8ta": {
     "string": "折合(USDT)"
+  },
+  "P6HN+m": {
+    "string": "密碼必須是8–16位數字、字母組合"
   },
   "P8YUAQ": {
     "string": "跟單人氣"
