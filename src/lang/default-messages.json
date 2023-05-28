@@ -146,6 +146,9 @@
   "2yjenl": {
     "string": "請輸入止盈價"
   },
+  "3Bnag5": {
+    "string": "可賣: {amount}{symbol}"
+  },
   "3Ced22": {
     "string": "賣家姓名"
   },
@@ -211,9 +214,6 @@
   },
   "4oqdRD": {
     "string": "《Cryptographe用户协议》"
-  },
-  "4zwWgi": {
-    "string": "可賣"
   },
   "56o47p": {
     "string": "郵箱驗證碼"
@@ -607,9 +607,6 @@
   },
   "HcSaEz": {
     "string": "您目前的郵箱是{email}，想要把它更新為？"
-  },
-  "HdFt0P": {
-    "string": "可買"
   },
   "HeL/t7": {
     "string": "購買USDT"
@@ -1156,6 +1153,9 @@
   },
   "YcfcO0": {
     "string": "短信验证码已经发送至{phone}"
+  },
+  "YtQA/s": {
+    "string": "可用: {amount}{symbol}"
   },
   "YvriPY": {
     "string": "记录"

@@ -1,4 +1,10 @@
 {
+  "3Bnag5": {
+    "string": "Sellable: {amount}{symbol}"
+  },
+  "YtQA/s": {
+    "string": "Available: {amount}{symbol}"
+  },
   "/LMNJ8": {
     "string": "Please enter the password again"
   },

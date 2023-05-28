@@ -1,4 +1,10 @@
 {
+  "3Bnag5": {
+    "string": "可卖: {amount}{symbol}"
+  },
+  "YtQA/s": {
+    "string": "可用: {amount}{symbol}"
+  },
   "/LMNJ8": {
     "string": "请再次输入密码"
   },

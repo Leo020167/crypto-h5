@@ -5,6 +5,7 @@ import { useIntl } from 'react-intl';
 import Select, { StylesConfig } from 'react-select';
 import styled from 'styled-components';
 import {
+  useHomeAccount,
   useProOrderCheckOut,
   useProOrderCheckOutUsdt,
   useProOrderOpen,
@@ -125,6 +126,7 @@ const TradeLeverDetails = ({
           onCreateOrderSuccess?.();
           refetchCheckOut();
           refetchCheckOutUsdt();
+          homeAccount.refetch();
           Toast.show(data.msg);
         }
       },
@@ -151,6 +153,8 @@ const TradeLeverDetails = ({
     },
     [config?.priceDecimals, price],
   );
+
+  const homeAccount = useHomeAccount();
 
   return (
     <Container buySell={buySell ?? 1}>
@@ -231,6 +235,8 @@ const TradeLeverDetails = ({
                 setHand(hand);
                 refetchCheckOut();
               }
+
+              homeAccount.refetch();
             }}
           >{`${v}%`}</a>
         ))}
@@ -240,11 +246,17 @@ const TradeLeverDetails = ({
         <div>
           <div className="text-[#6175ae]">
             {buySell === 1
-              ? intl.formatMessage({ defaultMessage: '可買', id: 'HdFt0P' })
-              : intl.formatMessage({ defaultMessage: '可賣', id: '4zwWgi' })}
-
-            {buySell === 1 ? openHand : availableAmount}
-            {symbol}
+              ? intl.formatMessage(
+                  { defaultMessage: '可用: {amount}{symbol}', id: 'YtQA/s' },
+                  { amount: homeAccount.data?.data?.spotAccount?.holdAmount, symbol: 'USDT' },
+                )
+              : intl.formatMessage(
+                  { defaultMessage: '可賣: {amount}{symbol}', id: '3Bnag5' },
+                  {
+                    amount: availableAmount,
+                    symbol: symbol,
+                  },
+                )}
           </div>
           {buySell === -1 && <div className="mt-3 text-gray-400">{openBail}</div>}
         </div>

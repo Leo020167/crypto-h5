@@ -1,4 +1,10 @@
 {
+  "3Bnag5": {
+    "string": "Vendable : {amount}{symbol}"
+  },
+  "YtQA/s": {
+    "string": "Disponible : {amount}{symbol}"
+  },
   "/LMNJ8": {
     "string": "Veuillez saisir à nouveau le mot de passe"
   },
