@@ -3,7 +3,7 @@
     "string": "币种"
   },
   "X3UAMm": {
-    "string": "消耗 TVC:"
+    "string": "消耗 AiCoin:"
   },
   "ndT7z1": {
     "string": "年化收益"
@@ -102,7 +102,7 @@
     "string": "是否订閲该用户？"
   },
   "20MJBj": {
-    "string": "TVC"
+    "string": "AiCoin"
   },
   "297aFF": {
     "string": "保证金比例"
@@ -189,7 +189,7 @@
     "string": "平仓明细"
   },
   "4ivSMB": {
-    "string": "总资产(TVC)"
+    "string": "总资产(AiCoin)"
   },
   "56o47p": {
     "string": "邮箱验证码"
@@ -531,7 +531,7 @@
     "string": "申诉留言(可选)"
   },
   "GKRXXt": {
-    "string": "获得TVC"
+    "string": "获得AiCoin"
   },
   "GO/P/E": {
     "string": "添加提币地址"
@@ -618,7 +618,7 @@
     "string": "法币购买"
   },
   "JVHhgb": {
-    "string": "《TradingView用户协议》"
+    "string": "《AiCoin用户协议》"
   },
   "JYhyDW": {
     "string": "已入住{days}天"
@@ -723,7 +723,7 @@
     "string": "请再次输入密码"
   },
   "MQKv1T": {
-    "string": "社区总奖励(TVC)"
+    "string": "社区总奖励(AiCoin)"
   },
   "MTyrlB": {
     "string": "密必须是8-16位字、字母组合"
@@ -768,7 +768,7 @@
     "string": "请输入邮箱"
   },
   "NdxUVx": {
-    "string": "查看如何获取TVC"
+    "string": "查看如何获取AiCoin"
   },
   "NlcysC": {
     "string": "请输入邮箱号"
@@ -1074,7 +1074,7 @@
     "string": "交易次数"
   },
   "XR6wlA": {
-    "string": "《TradingView隐私条款》"
+    "string": "《AiCoin隐私条款》"
   },
   "XWzDpA": {
     "string": "我已付款成功"
@@ -1137,7 +1137,7 @@
     "string": "只允许充值"
   },
   "aD/9at": {
-    "string": "数量(TVC)"
+    "string": "数量(AiCoin)"
   },
   "aOp/5l": {
     "string": "未实名不能申请商家认证，请实名认证后，在提交商家认证申请。"
@@ -1332,7 +1332,7 @@
     "string": "财务记录"
   },
   "guM4xe": {
-    "string": "消耗TVC:"
+    "string": "消耗AiCoin:"
   },
   "gx0XBL": {
     "string": "订阅"
@@ -1800,7 +1800,7 @@
     "string": "到账数量"
   },
   "zqkaAr": {
-    "string": "奖励(TVC)"
+    "string": "奖励(AiCoin)"
   },
   "zv2r2Q": {
     "string": "订閲"
@@ -1984,7 +1984,7 @@
   },
 
   "Hh3rHP": {
-    "string": "获得TVC"
+    "string": "获得AiCoin"
   },
 
   "misXZU": {
@@ -2072,7 +2072,7 @@
     "string": "社区总奖励(LCN)"
   },
   "iBG8Hb": {
-    "string": "查看如何获取TVC"
+    "string": "查看如何获取AiCoin"
   },
   "kOFx5M": {
     "string": "提现USDT时系统将会从余额账户中冻结该部分资金"

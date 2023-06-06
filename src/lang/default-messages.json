@@ -183,7 +183,7 @@
     "string": "方向"
   },
   "4ivSMB": {
-    "string": "總資產(TVC)"
+    "string": "總資產(AiCoin)"
   },
   "4kxY/u": {
     "string": "請再次輸入6位支付密碼"
@@ -588,7 +588,7 @@
     "string": "購買USDT"
   },
   "Hh3rHP": {
-    "string": "獲得TVC"
+    "string": "獲得AiCoin"
   },
   "HmiIeC": {
     "string": "是否確定上架?"
@@ -636,7 +636,7 @@
     "string": "未成交"
   },
   "JVHhgb": {
-    "string": "《TradingView用户协议》"
+    "string": "《AiCoin用户协议》"
   },
   "JYhyDW": {
     "string": "已入住{days}天"
@@ -747,7 +747,7 @@
     "string": "请再次输入密码"
   },
   "MQKv1T": {
-    "string": "社區總獎勵(TVC)"
+    "string": "社區總獎勵(AiCoin)"
   },
   "MTyrlB": {
     "string": "密必须是8-16位字、字母组合"
@@ -798,7 +798,7 @@
     "string": "請輸入郵箱"
   },
   "NdxUVx": {
-    "string": "查看如何獲取TVC"
+    "string": "查看如何獲取AiCoin"
   },
   "NlcysC": {
     "string": "請輸入郵箱號"
@@ -1107,7 +1107,7 @@
     "string": "委託金額(USDT)"
   },
   "X3UAMm": {
-    "string": "消耗TVC:"
+    "string": "消耗AiCoin:"
   },
   "XJfx+x": {
     "string": "正在申請取消商家認證"
@@ -1116,7 +1116,7 @@
     "string": "交易次數"
   },
   "XR6wlA": {
-    "string": "《TradingView隐私条款》"
+    "string": "《AiCoin隐私条款》"
   },
   "XWzDpA": {
     "string": "我已付款成功"
@@ -1191,7 +1191,7 @@
     "string": "只允許充值"
   },
   "aD/9at": {
-    "string": "數量(TVC)"
+    "string": "數量(AiCoin)"
   },
   "aOp/5l": {
     "string": "未實名不能申請商家認證，請實名認證後，在提交商家認證申請。"
@@ -1914,7 +1914,7 @@
     "string": "到賬數量"
   },
   "zqkaAr": {
-    "string": "獎勵(TVC)"
+    "string": "獎勵(AiCoin)"
   },
   "zv2r2Q": {
     "string": "訂閲"

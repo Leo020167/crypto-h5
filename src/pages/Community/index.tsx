@@ -75,7 +75,7 @@ const Community = () => {
           </div>
 
           <div className="text-[#dae1f8] mt-8 text-xs">
-            {intl.formatMessage({ defaultMessage: '社區總獎勵(TVC)', id: 'MQKv1T' })}
+            {intl.formatMessage({ defaultMessage: '社區總獎勵(AiCoin)', id: 'MQKv1T' })}
           </div>
           <div className="text-white mt-4 text-3xl">{inviteHome?.data?.sumAmount ?? '0.00'}</div>
         </div>
@@ -93,7 +93,7 @@ const Community = () => {
             {intl.formatMessage({ defaultMessage: '成員', id: 'lxxud1' })}
           </span>
           <span className=" text-[#747474] w-1/4 text-center">
-            {intl.formatMessage({ defaultMessage: '獎勵(TVC)', id: 'zqkaAr' })}
+            {intl.formatMessage({ defaultMessage: '獎勵(AiCoin)', id: 'zqkaAr' })}
           </span>
         </div>
 

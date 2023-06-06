@@ -175,7 +175,7 @@ const ApplyBindAccount = () => {
                   </span>
                   <span>
                     {intl.formatMessage({
-                      defaultMessage: '消耗TVC:',
+                      defaultMessage: '消耗AiCoin:',
                       id: 'X3UAMm',
                     })}
                     {v.tokenAmount}

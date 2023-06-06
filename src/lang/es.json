@@ -3,7 +3,7 @@
     "string": "Divisa"
   },
   "X3UAMm": {
-    "string": "consumir TVC:"
+    "string": "consumir AiCoin:"
   },
   "ndT7z1": {
     "string": "Ingreso anualizado"
@@ -102,7 +102,7 @@
     "string": "¿Está suscrito este usuario?"
   },
   "20MJBj": {
-    "string": "TVC"
+    "string": "AiCoin"
   },
   "297aFF": {
     "string": "Ratio de margen"
@@ -531,7 +531,7 @@
     "string": "Mensaje de queja (opcional)"
   },
   "GKRXXt": {
-    "string": "Consigue TVC"
+    "string": "Consigue AiCoin"
   },
   "GO/P/E": {
     "string": "Añadir dirección de retirada"
@@ -618,7 +618,7 @@
     "string": "Compra en moneda fiduciaria"
   },
   "JVHhgb": {
-    "string": "《Acuerdo de usuario de TradingView》"
+    "string": "《Acuerdo de usuario de AiCoin》"
   },
   "JYhyDW": {
     "string": "Estancia{days}días"
@@ -723,7 +723,7 @@
     "string": "Vuelva a introducir su contraseña"
   },
   "MQKv1T": {
-    "string": "Premio comunitario total(TVC)"
+    "string": "Premio comunitario total(AiCoin)"
   },
   "MTyrlB": {
     "string": "La contraseña debe ser una combinación de - dígitos y letras"
@@ -768,7 +768,7 @@
     "string": "Introduzca su dirección de correo electrónico"
   },
   "NdxUVx": {
-    "string": "Vea cómo conseguir TVC"
+    "string": "Vea cómo conseguir AiCoin"
   },
   "NlcysC": {
     "string": "Introduzca su código postal"
@@ -1074,7 +1074,7 @@
     "string": "Número de transacciones"
   },
   "XR6wlA": {
-    "string": "《Política de privacidad de TradingView》"
+    "string": "《Política de privacidad de AiCoin》"
   },
   "XWzDpA": {
     "string": "He pagado con éxito"
@@ -1137,7 +1137,7 @@
     "string": "Sólo se permiten recargas"
   },
   "aD/9at": {
-    "string": "Cantidad (TVC)"
+    "string": "Cantidad (AiCoin)"
   },
   "aOp/5l": {
     "string": "No puede solicitar la verificación de comerciante sin un nombre real, por favor verifique su nombre real antes de enviar su solicitud de verificación de comerciante."
@@ -1332,7 +1332,7 @@
     "string": "Historia financiera"
   },
   "guM4xe": {
-    "string": "Consumir TVC:"
+    "string": "Consumir AiCoin:"
   },
   "gx0XBL": {
     "string": "Suscríbase a"
@@ -1800,7 +1800,7 @@
     "string": "Cantidad"
   },
   "zqkaAr": {
-    "string": "Recompensa (TVC)"
+    "string": "Recompensa (AiCoin)"
   },
   "zv2r2Q": {
     "string": "Pida"
@@ -1984,7 +1984,7 @@
   },
 
   "Hh3rHP": {
-    "string": "Obtener TVC"
+    "string": "Obtener AiCoin"
   },
 
   "Pqs8N": {
@@ -2076,7 +2076,7 @@
     "string": "Recompensas totales de la comunidad (LCN)"
   },
   "iBG8Hb": {
-    "string": "Vea cómo obtener TVC"
+    "string": "Vea cómo obtener AiCoin"
   },
   "kOFx5M": {
     "string": "Al retirar USDT, el sistema congelará esta parte de los fondos de la cuenta de saldo"
