@@ -101,6 +101,9 @@
   "2+V/xG": {
     "string": "充幣数量"
   },
+  "27fLgJ": {
+    "string": "成本"
+  },
   "297aFF": {
     "string": "保證金比例"
   },
@@ -182,9 +185,6 @@
   "4hv39Z": {
     "string": "方向"
   },
-  "4ivSMB": {
-    "string": "總資產(AiCoin)"
-  },
   "4kxY/u": {
     "string": "請再次輸入6位支付密碼"
   },
@@ -247,9 +247,6 @@
   },
   "7AsBpi": {
     "string": "未實現盈虧(USDT)"
-  },
-  "7C3q18": {
-    "string": "可用"
   },
   "7IlbnR": {
     "string": "申請取消商家認證"
@@ -419,9 +416,6 @@
   "CBgsGP": {
     "string": "預熱中"
   },
-  "CKdped": {
-    "string": "委托"
-  },
   "COl7RF": {
     "string": "去設置"
   },
@@ -439,6 +433,9 @@
   },
   "Ck6JdO": {
     "string": "未設置交易密碼"
+  },
+  "CkIqO9": {
+    "string": "餘額提現"
   },
   "ClVjxw": {
     "string": "開倉價"
@@ -511,9 +508,6 @@
   },
   "EZtA6l": {
     "string": "請選擇提幣地址"
-  },
-  "k5HUdW": {
-    "string": "最小充值金額({symbol})"
   },
   "FLp81s": {
     "string": "申購"
@@ -617,8 +611,8 @@
   "IbtpXH": {
     "string": "總資產(USDT)"
   },
-  "IoCgCq": {
-    "string": "總資產"
+  "IrxrMw": {
+    "string": "盈利"
   },
   "IudShd": {
     "string": "未開始"
@@ -629,14 +623,8 @@
   "J5FSqv": {
     "string": "免費訂閱"
   },
-  "JI87J/": {
-    "string": "法幣購買"
-  },
   "JVD8BD": {
     "string": "未成交"
-  },
-  "JVHhgb": {
-    "string": "《AiCoin用户协议》"
   },
   "JYhyDW": {
     "string": "已入住{days}天"
@@ -679,6 +667,9 @@
   },
   "KSTxH2": {
     "string": "15分鐘"
+  },
+  "KdeDu2": {
+    "string": "盈利USDT"
   },
   "Ks5Olr": {
     "string": "設置密碼"
@@ -796,9 +787,6 @@
   },
   "NZTO6Y": {
     "string": "請輸入郵箱"
-  },
-  "NdxUVx": {
-    "string": "查看如何獲取AiCoin"
   },
   "NlcysC": {
     "string": "請輸入郵箱號"
@@ -1115,9 +1103,6 @@
   "XNQjr/": {
     "string": "交易次數"
   },
-  "XR6wlA": {
-    "string": "《AiCoin隐私条款》"
-  },
   "XWzDpA": {
     "string": "我已付款成功"
   },
@@ -1277,6 +1262,9 @@
   "cjFoGi": {
     "string": "看漲"
   },
+  "cofepD": {
+    "string": "數量/可用"
+  },
   "cuM+vo": {
     "string": "未知類型"
   },
@@ -1406,6 +1394,9 @@
   "hBkLmp": {
     "string": "高"
   },
+  "hDf8uN": {
+    "string": "幣種"
+  },
   "hDx3/S": {
     "string": "邮箱"
   },
@@ -1430,8 +1421,14 @@
   "i3xGD8": {
     "string": "提交申訴"
   },
+  "iBG8Hb": {
+    "string": "查看如何獲取AiCoin"
+  },
   "iCZI8W": {
     "string": "合約份數"
+  },
+  "iJfW5y": {
+    "string": "總資產(AiCoin)"
   },
   "iVpb9N": {
     "string": "更改手机号"
@@ -1474,6 +1471,9 @@
   },
   "k/qXgT": {
     "string": "持倉"
+  },
+  "k5HUdW": {
+    "string": "最小充值金額({symbol})"
   },
   "kCh5Jz": {
     "string": "提示"
@@ -1610,6 +1610,9 @@
   "oslZjc": {
     "string": "請選擇申訴理由"
   },
+  "p4Oi3U": {
+    "string": "可用餘額({symbol})"
+  },
   "p8CmvE": {
     "string": "填入"
   },
@@ -1685,9 +1688,6 @@
   "rpJLsF": {
     "string": "參數錯誤"
   },
-  "p4Oi3U": {
-    "string": "可用餘額({symbol})"
-  },
   "s/KbuC": {
     "string": "数量 USDT"
   },
@@ -1708,6 +1708,9 @@
   },
   "sCpxK3": {
     "string": "請務必確認電腦及瀏覽器安全，防止信息被篡改或洩露。"
+  },
+  "sMbK5X": {
+    "string": "《AiCoin用户协议》"
   },
   "sNmNjz": {
     "string": "向賣家付款"
@@ -1895,6 +1898,9 @@
   "zL7URC": {
     "string": "个人设置"
   },
+  "zM3jHk": {
+    "string": "盈虧"
+  },
   "zR07Wc": {
     "string": "深度"
   },
@@ -1903,6 +1909,9 @@
   },
   "zVPdxg": {
     "string": "開始時間"
+  },
+  "zYyvSG": {
+    "string": "《AiCoin隐私条款》"
   },
   "zeTkGR": {
     "string": "申購成功轉換({a}-{b})"

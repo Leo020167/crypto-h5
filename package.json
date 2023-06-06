@@ -82,5 +82,12 @@
     "vite": "^4.3.9",
     "vite-plugin-imp": "^2.4.0",
     "vite-plugin-svgr": "^3.2.0"
+  },
+  "pnpm": {
+    "peerDependencyRules": {
+      "allowedVersions": {
+        "react": "18"
+      }
+    }
   }
 }
