@@ -71,7 +71,7 @@ export const PrimaryCertification = () => {
               loading={identitySubmit.isLoading}
               disabled={isValid}
             >
-              提交
+              {intl.formatMessage({ defaultMessage: '提交', id: 'ENPgS/' })}
             </Button>
           }
         >

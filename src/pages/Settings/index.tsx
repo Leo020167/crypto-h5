@@ -87,6 +87,8 @@ const Settings = () => {
             Dialog.confirm({
               title: intl.formatMessage({ defaultMessage: '注销', id: 'pecEGk' }),
               content: intl.formatMessage({ defaultMessage: '你确定要注销吗?', id: '6jT3zt' }),
+              cancelText: intl.formatMessage({ defaultMessage: '取消', id: '2QzYmY' }),
+              confirmText: intl.formatMessage({ defaultMessage: '確定', id: 'ofc1Jv' }),
               onConfirm() {
                 authStore.logout();
                 Toast.show(intl.formatMessage({ defaultMessage: '退出成功', id: 'GVXj0E' }));

@@ -75,4 +75,8 @@ const Container = styled.div`
   .content {
     height: calc(100vh - 58px);
   }
+
+  .adm-tab-bar-item {
+    padding-bottom: 12px;
+  }
 `;

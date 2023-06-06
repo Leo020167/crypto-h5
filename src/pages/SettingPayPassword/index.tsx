@@ -61,7 +61,7 @@ const SettingPayPassword = () => {
               size="large"
               loading={setPayPassMutation.isLoading}
             >
-              提交
+              {intl.formatMessage({ defaultMessage: '提交', id: 'ENPgS/' })}
             </Button>
           }
         >

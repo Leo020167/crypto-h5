@@ -22,7 +22,8 @@ const Record2 = ({ data }: RecordProps) => {
           <span className="pl-2.5 text-xs text-[#661D3155]">{stringDateFormat(data.openTime)}</span>
         </div>
         <div className="flex items-center text-xs text-gray-400">
-          手續費{data.fee}
+          {intl.formatMessage({ defaultMessage: '手續費', id: 'UXyFaa' })}
+          {data.fee}
           <span className="ml-1">
             {data.state === '-1'
               ? intl.formatMessage({ defaultMessage: '已撤销', id: 'zznr09' })
