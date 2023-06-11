@@ -3,7 +3,7 @@
     "string": "Divisa"
   },
   "X3UAMm": {
-    "string": "consumir AiCoin:"
+    "string": "consumir AOI:"
   },
   "ndT7z1": {
     "string": "Ingreso anualizado"
@@ -102,7 +102,7 @@
     "string": "¿Está suscrito este usuario?"
   },
   "20MJBj": {
-    "string": "AiCoin"
+    "string": "AOI"
   },
   "297aFF": {
     "string": "Ratio de margen"
@@ -531,7 +531,7 @@
     "string": "Mensaje de queja (opcional)"
   },
   "GKRXXt": {
-    "string": "Consigue AiCoin"
+    "string": "Consigue AOI"
   },
   "GO/P/E": {
     "string": "Añadir dirección de retirada"
@@ -723,7 +723,7 @@
     "string": "Vuelva a introducir su contraseña"
   },
   "MQKv1T": {
-    "string": "Premio comunitario total(AiCoin)"
+    "string": "Premio comunitario total(AOI)"
   },
   "MTyrlB": {
     "string": "La contraseña debe ser una combinación de - dígitos y letras"
@@ -768,7 +768,7 @@
     "string": "Introduzca su dirección de correo electrónico"
   },
   "NdxUVx": {
-    "string": "Vea cómo conseguir AiCoin"
+    "string": "Vea cómo conseguir AOI"
   },
   "NlcysC": {
     "string": "Introduzca su código postal"
@@ -1137,7 +1137,7 @@
     "string": "Sólo se permiten recargas"
   },
   "aD/9at": {
-    "string": "Cantidad (AiCoin)"
+    "string": "Cantidad (AOI)"
   },
   "aOp/5l": {
     "string": "No puede solicitar la verificación de comerciante sin un nombre real, por favor verifique su nombre real antes de enviar su solicitud de verificación de comerciante."
@@ -1332,7 +1332,7 @@
     "string": "Historia financiera"
   },
   "guM4xe": {
-    "string": "Consumir AiCoin:"
+    "string": "Consumir AOI:"
   },
   "gx0XBL": {
     "string": "Suscríbase a"
@@ -1800,7 +1800,7 @@
     "string": "Cantidad"
   },
   "zqkaAr": {
-    "string": "Recompensa (AiCoin)"
+    "string": "Recompensa (AOI)"
   },
   "zv2r2Q": {
     "string": "Pida"
@@ -1984,7 +1984,7 @@
   },
 
   "Hh3rHP": {
-    "string": "Obtener AiCoin"
+    "string": "Obtener AOI"
   },
 
   "Pqs8N": {
@@ -2076,7 +2076,7 @@
     "string": "Recompensas totales de la comunidad (LCN)"
   },
   "iBG8Hb": {
-    "string": "Vea cómo obtener AiCoin"
+    "string": "Vea cómo obtener AOI"
   },
   "kOFx5M": {
     "string": "Al retirar USDT, el sistema congelará esta parte de los fondos de la cuenta de saldo"

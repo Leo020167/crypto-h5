@@ -3,7 +3,7 @@
     "string": "幣種"
   },
   "X3UAMm": {
-    "string": "消耗 AiCoin:"
+    "string": "消耗 AOI:"
   },
   "ndT7z1": {
     "string": "年化收益"
@@ -207,7 +207,7 @@
     "string": "方向"
   },
   "4ivSMB": {
-    "string": "總資產(AiCoin)"
+    "string": "總資產(AOI)"
   },
   "4kxY/u": {
     "string": "請再次輸入6位支付密碼"
@@ -558,7 +558,7 @@
     "string": "申訴留言(可選)"
   },
   "GKRXXt": {
-    "string": "獲得AiCoin"
+    "string": "獲得AOI"
   },
   "GO/P/E": {
     "string": "添加提幣地址"
@@ -765,7 +765,7 @@
     "string": "请再次输入密码"
   },
   "MQKv1T": {
-    "string": "社區總獎勵(AiCoin)"
+    "string": "社區總獎勵(AOI)"
   },
   "MTyrlB": {
     "string": "密必须是8-16位字、字母组合"
@@ -813,7 +813,7 @@
     "string": "請輸入郵箱"
   },
   "NdxUVx": {
-    "string": "查看如何獲取AiCoin"
+    "string": "查看如何獲取AOI"
   },
   "NlcysC": {
     "string": "請輸入郵箱號"
@@ -1191,7 +1191,7 @@
     "string": "立即參與"
   },
   "aD/9at": {
-    "string": "數量(AiCoin)"
+    "string": "數量(AOI)"
   },
   "aOp/5l": {
     "string": "未實名不能申請商家認證，請實名認證後，在提交商家認證申請。"
@@ -1392,7 +1392,7 @@
     "string": "財務記錄"
   },
   "guM4xe": {
-    "string": "消耗AiCoin:"
+    "string": "消耗AOI:"
   },
   "gx0XBL": {
     "string": "訂閱"
@@ -1887,7 +1887,7 @@
     "string": "到賬數量"
   },
   "zqkaAr": {
-    "string": "獎勵(AiCoin)"
+    "string": "獎勵(AOI)"
   },
   "zv2r2Q": {
     "string": "訂閲"
@@ -1911,7 +1911,7 @@
     "string": "申購"
   },
   "Hh3rHP": {
-    "string": "獲得AiCoin"
+    "string": "獲得AOI"
   },
   "KshKCt": {
     "string": "距離本輪申購開始還剩"
