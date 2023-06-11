@@ -73,6 +73,10 @@ const SettingPayPassword = () => {
                   required: true,
                   message: intl.formatMessage({ defaultMessage: '請輸入原密碼', id: 'srNPrw' }),
                 },
+                {
+                  type: 'number',
+                  message: intl.formatMessage({ defaultMessage: '请输入数字', id: 'UnMDmI' }),
+                },
               ]}
             >
               <Input
@@ -81,6 +85,7 @@ const SettingPayPassword = () => {
                   defaultMessage: '請輸入原密碼',
                   id: 'srNPrw',
                 })}
+                inputMode="numeric"
               />
             </Form.Item>
           )}
@@ -93,9 +98,14 @@ const SettingPayPassword = () => {
                 len: 6,
                 message: intl.formatMessage({ defaultMessage: '請輸入6位支付密碼', id: 'k/3udR' }),
               },
+              {
+                type: 'number',
+                message: intl.formatMessage({ defaultMessage: '请输入数字', id: 'UnMDmI' }),
+              },
             ]}
           >
             <Input
+              inputMode="numeric"
               type="password"
               placeholder={intl.formatMessage({
                 defaultMessage: '請輸入新密碼',
@@ -109,6 +119,10 @@ const SettingPayPassword = () => {
               {
                 required: true,
                 message: intl.formatMessage({ defaultMessage: '請輸入確認密碼', id: 'gYHc6L' }),
+              },
+              {
+                type: 'number',
+                message: intl.formatMessage({ defaultMessage: '请输入数字', id: 'UnMDmI' }),
               },
               (form) => ({
                 validator: async (rule, value) => {
@@ -127,6 +141,7 @@ const SettingPayPassword = () => {
             ]}
           >
             <Input
+              inputMode="numeric"
               type="password"
               placeholder={intl.formatMessage({
                 defaultMessage: '確認新密碼',
