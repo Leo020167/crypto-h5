@@ -27,8 +27,8 @@ const TradeLeverHistory = forwardRef<TradeLeverHistoryRef, TradeLeverHistoryProp
         symbol: symbol ?? '',
         buySell: '',
         accountType,
-        orderState: orderState ?? '1',
-        type: accountType === 'spot' ? '2' : '1',
+        orderState: '',
+        type: accountType === 'spot' ? '2' : '0',
       }),
       [accountType, orderState, symbol],
     );
