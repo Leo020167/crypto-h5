@@ -74,11 +74,11 @@ const Home = () => {
         <div className="flex-1 flex justify-center"></div>
 
         <div className="flex items-center">
-          {homeConfig?.data?.downloadUrl && (
+          {/* {homeConfig?.data?.downloadUrl && (
             <a target="_blank" href={homeConfig?.data?.downloadUrl} rel="noreferrer">
               <ArrowDownCircleOutline className="text-2xl mr-4 " color="rgb(0, 186, 118)" />
             </a>
-          )}
+          )} */}
 
           <Link to="/languages">
             <img
