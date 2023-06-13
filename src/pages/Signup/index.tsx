@@ -80,14 +80,22 @@ const Signup = () => {
               {value.type === 1 && (
                 <div className="text-[#cdcdcd]">
                   {intl.formatMessage({ defaultMessage: '注册即代表你已同意并接受', id: 'A20Ity' })}
-                  <a href="" target="_blank" className="text-[#6277b0]">
+                  <a
+                    href="http://api.kaobaochina.cn/procoin/article/#/passgeDetail?article_id=48"
+                    target="_blank"
+                    className="text-[#6277b0]"
+                  >
                     {intl.formatMessage({
                       defaultMessage: '《AiCoin用户协议》',
                       id: 'sMbK5X',
                     })}
                   </a>
                   {intl.formatMessage({ defaultMessage: '和', id: 's9xFxt' })}
-                  <a href="" target="_blank" className="text-[#6277b0]">
+                  <a
+                    href="http://api.kaobaochina.cn/procoin/article/#/passgeDetail?article_id=54"
+                    target="_blank"
+                    className="text-[#6277b0]"
+                  >
                     {intl.formatMessage({
                       defaultMessage: '《AiCoin隐私条款》',
                       id: 'zYyvSG',
