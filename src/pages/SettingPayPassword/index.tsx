@@ -108,7 +108,7 @@ const SettingPayPassword = () => {
                 validator: async (rule, value = '') => {
                   const val = value.trim?.();
 
-                  if (val.length < 6) {
+                  if (val.length !== 6) {
                     throw new Error(
                       intl.formatMessage({ defaultMessage: '請輸入6位支付密碼', id: 'k/3udR' }),
                     );
