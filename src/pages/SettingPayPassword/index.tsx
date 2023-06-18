@@ -71,11 +71,21 @@ const SettingPayPassword = () => {
               rules={[
                 {
                   required: true,
-                  message: intl.formatMessage({ defaultMessage: '請輸入原密碼', id: 'srNPrw' }),
-                },
-                {
-                  pattern: /^[0-9]+$/,
-                  message: intl.formatMessage({ defaultMessage: '请输入数字', id: 'UnMDmI' }),
+                  validator: async (rule, value = '') => {
+                    const val = value.trim?.();
+
+                    if (val.length === 0) {
+                      throw new Error(
+                        intl.formatMessage({ defaultMessage: '請輸入原密碼', id: 'srNPrw' }),
+                      );
+                    }
+
+                    if (!/^[0-9]+$/.test(val)) {
+                      throw new Error(
+                        intl.formatMessage({ defaultMessage: '请输入数字', id: 'UnMDmI' }),
+                      );
+                    }
+                  },
                 },
               ]}
             >
@@ -95,12 +105,21 @@ const SettingPayPassword = () => {
             rules={[
               {
                 required: true,
-                len: 6,
-                message: intl.formatMessage({ defaultMessage: '請輸入6位支付密碼', id: 'k/3udR' }),
-              },
-              {
-                pattern: /^[0-9]+$/,
-                message: intl.formatMessage({ defaultMessage: '请输入数字', id: 'UnMDmI' }),
+                validator: async (rule, value = '') => {
+                  const val = value.trim?.();
+
+                  if (val.length < 6) {
+                    throw new Error(
+                      intl.formatMessage({ defaultMessage: '請輸入6位支付密碼', id: 'k/3udR' }),
+                    );
+                  }
+
+                  if (!/^[0-9]+$/.test(val)) {
+                    throw new Error(
+                      intl.formatMessage({ defaultMessage: '请输入数字', id: 'UnMDmI' }),
+                    );
+                  }
+                },
               },
             ]}
           >
@@ -116,30 +135,30 @@ const SettingPayPassword = () => {
           <Form.Item
             name="configPayPass"
             rules={[
-              {
-                required: true,
-                message: intl.formatMessage({ defaultMessage: '請輸入確認密碼', id: 'gYHc6L' }),
-              },
               (form) => ({
                 validator: async (rule, value) => {
                   const payPass = form.getFieldValue('payPass');
                   const val = value.trim?.();
 
-                  if (val.length > 0) {
-                    if (!/^[0-9]+$/.test(val)) {
-                      throw new Error(
-                        intl.formatMessage({ defaultMessage: '请输入数字', id: 'UnMDmI' }),
-                      );
-                    }
+                  if (val.length === 0) {
+                    throw new Error(
+                      intl.formatMessage({ defaultMessage: '請輸入確認密碼', id: 'gYHc6L' }),
+                    );
+                  }
 
-                    if (val !== payPass) {
-                      throw new Error(
-                        intl.formatMessage({
-                          defaultMessage: '兩次密碼輸入不一致',
-                          id: '3VZKdc',
-                        }),
-                      );
-                    }
+                  if (!/^[0-9]+$/.test(val)) {
+                    throw new Error(
+                      intl.formatMessage({ defaultMessage: '请输入数字', id: 'UnMDmI' }),
+                    );
+                  }
+
+                  if (val !== payPass) {
+                    throw new Error(
+                      intl.formatMessage({
+                        defaultMessage: '兩次密碼輸入不一致',
+                        id: '3VZKdc',
+                      }),
+                    );
                   }
                 },
               }),
