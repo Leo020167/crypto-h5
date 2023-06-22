@@ -3,7 +3,7 @@
     "string": "Divisa"
   },
   "X3UAMm": {
-    "string": "consumir AOI:"
+    "string": "consumir ATC:"
   },
   "ndT7z1": {
     "string": "Ingreso anualizado"
@@ -102,7 +102,7 @@
     "string": "¿Está suscrito este usuario?"
   },
   "20MJBj": {
-    "string": "AOI"
+    "string": "ATC"
   },
   "297aFF": {
     "string": "Ratio de margen"
@@ -531,7 +531,7 @@
     "string": "Mensaje de queja (opcional)"
   },
   "GKRXXt": {
-    "string": "Consigue AOI"
+    "string": "Consigue ATC"
   },
   "GO/P/E": {
     "string": "Añadir dirección de retirada"
@@ -723,7 +723,7 @@
     "string": "Vuelva a introducir su contraseña"
   },
   "MQKv1T": {
-    "string": "Premio comunitario total(AOI)"
+    "string": "Premio comunitario total(ATC)"
   },
   "MTyrlB": {
     "string": "La contraseña debe ser una combinación de - dígitos y letras"
@@ -768,7 +768,7 @@
     "string": "Introduzca su dirección de correo electrónico"
   },
   "NdxUVx": {
-    "string": "Vea cómo conseguir AOI"
+    "string": "Vea cómo conseguir ATC"
   },
   "NlcysC": {
     "string": "Introduzca su código postal"
@@ -1137,7 +1137,7 @@
     "string": "Sólo se permiten recargas"
   },
   "aD/9at": {
-    "string": "Cantidad (AOI)"
+    "string": "Cantidad (ATC)"
   },
   "aOp/5l": {
     "string": "No puede solicitar la verificación de comerciante sin un nombre real, por favor verifique su nombre real antes de enviar su solicitud de verificación de comerciante."
@@ -1332,7 +1332,7 @@
     "string": "Historia financiera"
   },
   "guM4xe": {
-    "string": "Consumir AOI:"
+    "string": "Consumir ATC:"
   },
   "gx0XBL": {
     "string": "Suscríbase a"
@@ -1800,7 +1800,7 @@
     "string": "Cantidad"
   },
   "zqkaAr": {
-    "string": "Recompensa (AOI)"
+    "string": "Recompensa (ATC)"
   },
   "zv2r2Q": {
     "string": "Pida"
@@ -1984,7 +1984,7 @@
   },
 
   "Hh3rHP": {
-    "string": "Obtener AOI"
+    "string": "Obtener ATC"
   },
 
   "Pqs8N": {
@@ -2076,7 +2076,7 @@
     "string": "Recompensas totales de la comunidad (LCN)"
   },
   "iBG8Hb": {
-    "string": "Vea cómo obtener AOI"
+    "string": "Vea cómo obtener ATC"
   },
   "kOFx5M": {
     "string": "Al retirar USDT, el sistema congelará esta parte de los fondos de la cuenta de saldo"
