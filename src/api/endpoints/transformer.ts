@@ -147,6 +147,10 @@ import type {
 import { customInstance } from '../mutator/custom-instance';
 import type { ErrorType } from '../mutator/custom-instance';
 
+type AwaitedInput<T> = PromiseLike<T> | T;
+
+type Awaited<O> = O extends AwaitedInput<infer T> ? T : never;
+
 export const findPaymentOptionList = () => {
   return customInstance<FindPaymentOptionListResponse>({
     url: `/otc/payment/findPaymentOptionList.do`,

@@ -4,11 +4,12 @@
  * API Title
  * OpenAPI spec version: 1.0
  */
+import type { ProOrderCloseDetailsItem } from './proOrderCloseDetailsItem';
 
 export interface ProOrder {
   buySell?: string;
   buySellValue?: string;
-  closeDetails?: string;
+  closeDetails?: ProOrderCloseDetailsItem[];
   closeDone?: string;
   closeFee?: string;
   closePrice?: string;

@@ -68,7 +68,7 @@ const LeverInfo = () => {
         </Link>
       );
     }
-    return null;
+    return '---';
   }, [getColor, order?.closeDone, order?.last, order?.rate, order?.symbol]);
 
   const proOrderUpdateWinPrice = useProOrderUpdateWinPrice({
@@ -114,11 +114,16 @@ const LeverInfo = () => {
       headerTitle={order?.symbol}
       footer={
         <div className="flex gap-4 p-4">
-          <Button block onClick={() => setOpenClosePosition(true)}>
+          <Button
+            block
+            onClick={() => setOpenClosePosition(true)}
+            disabled={order?.closeDone == '1' || order?.openDone !== '1'}
+          >
             {intl.formatMessage({ defaultMessage: '普通平倉', id: 'mGf323' })}
           </Button>
           <Button
             block
+            disabled={order?.closeDone == '1' || order?.openDone !== '1'}
             color="primary"
             onClick={() => {
               Dialog.confirm({
@@ -241,9 +246,47 @@ const LeverInfo = () => {
         </div>
 
         <div className="py-5 px-4">
-          <div className="text-lg font-bold text-[#3d3a50]">
+          <div className="text-lg font-bold text-[#3d3a50] ">
             {intl.formatMessage({ defaultMessage: '平倉明細', id: '4V3iak' })}
           </div>
+          {order?.closeDetails?.map((detail, index) => (
+            <List className="mt-5" key={index}>
+              <List.Item
+                title={intl.formatMessage({ defaultMessage: '平倉盈虧', id: 'm3pyR6' })}
+                extra={
+                  <span style={{ color: getColor(Number(detail.profit)) }}>{detail?.profit}</span>
+                }
+              />
+              <List.Item
+                title={intl.formatMessage({ defaultMessage: '平倉價', id: 'e6wHOS' })}
+                extra={detail?.closePrice}
+              />
+              <List.Item
+                title={intl.formatMessage({ defaultMessage: '平倉手數', id: 'oEe/47' })}
+                extra={detail?.closeHand}
+              />
+              <List.Item
+                title={intl.formatMessage({ defaultMessage: '平倉手續費', id: 'QZyuPN' })}
+                extra={detail?.closeFee}
+              />
+              <List.Item
+                title={intl.formatMessage({ defaultMessage: '平倉時間', id: 'HOSYMH' })}
+                extra={stringDateFormat(detail?.closeTime)}
+              />
+
+              <List.Item
+                title={intl.formatMessage({ defaultMessage: '盈利分成:', id: '9+4/A7' })}
+                extra={
+                  Number(detail.profit) > 0 && detail.profitShare ? `-${detail.profitShare}` : '---'
+                }
+              />
+
+              <List.Item
+                title={intl.formatMessage({ defaultMessage: '虧損補貼:', id: 'HpbXNh' })}
+                extra={Number(detail.profit) < 0 && detail.lossShare ? detail.lossShare : '---'}
+              />
+            </List>
+          ))}
         </div>
       </Container>
 

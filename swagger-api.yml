@@ -2698,7 +2698,24 @@ components:
         buySellValue:
           type: string
         closeDetails:
-          type: string
+          type: array
+          items:
+            type: object
+            properties:
+              profit:
+                type: string
+              closePrice:
+                type: string
+              closeHand:
+                type: string
+              closeFee:
+                type: string
+              closeTime:
+                type: string
+              profitShare:
+                type: string
+              lossShare:
+                type: string
         closeDone:
           type: string
         closeFee:
