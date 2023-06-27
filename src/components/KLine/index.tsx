@@ -182,17 +182,17 @@ const KLine = ({
 
         const index = startIndex + i;
 
-        if (isNumber(ma5Data[index]) && ma5Data[index] > 0) {
+        if (isNumber(ma5Data[index]) && Number(ma5Data[index]) > 0) {
           max = Math.max(max, ma5Data[index] as number);
           min = Math.min(min, ma5Data[index] as number);
         }
 
-        if (isNumber(ma10Data[index]) && ma10Data[index] > 0) {
+        if (isNumber(ma10Data[index]) && Number(ma10Data[index]) > 0) {
           max = Math.max(max, ma10Data[index] as number);
           min = Math.min(min, ma10Data[index] as number);
         }
 
-        if (isNumber(ma30Data[index]) && ma30Data[index] > 0) {
+        if (isNumber(ma30Data[index]) && Number(ma30Data[index]) > 0) {
           max = Math.max(max, ma30Data[index] as number);
           min = Math.min(min, ma30Data[index] as number);
         }
