@@ -1,4 +1,19 @@
 {
+  "HOSYMH": {
+    "string": "Hora de cierre"
+  },
+  "QZyuPN": {
+    "string": "Cuota de cierre"
+  },
+  "e6wHOS": {
+    "string": "Precio de cierre"
+  },
+  "m3pyR6": {
+    "string": "Cerrar pérdidas y ganancias"
+  },
+  "oEe/47": {
+    "string": "Tamaño del lote para cerrar"
+  },
   "i0bc3f": {
     "string": "Divisa"
   },

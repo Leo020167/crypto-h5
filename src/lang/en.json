@@ -1,4 +1,19 @@
 {
+  "HOSYMH": {
+    "string": "Close time"
+  },
+  "QZyuPN": {
+    "string": "Closing Fee"
+  },
+  "e6wHOS": {
+    "string": "Close price"
+  },
+  "m3pyR6": {
+    "string": "Close profit and loss"
+  },
+  "oEe/47": {
+    "string": "Lot size to close"
+  },
   "i0bc3f": {
     "string": "Currency"
   },

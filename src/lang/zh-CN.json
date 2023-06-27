@@ -1,4 +1,19 @@
 {
+  "HOSYMH": {
+    "string": "平仓时间"
+  },
+  "QZyuPN": {
+    "string": "平仓手续费"
+  },
+  "e6wHOS": {
+    "string": "平仓价"
+  },
+  "m3pyR6": {
+    "string": "平仓盈亏"
+  },
+  "oEe/47": {
+    "string": "平仓手数"
+  },
   "i0bc3f": {
     "string": "币种"
   },

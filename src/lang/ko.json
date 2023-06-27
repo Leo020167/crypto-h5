@@ -1,4 +1,19 @@
 {
+  "HOSYMH": {
+    "string": "마감 시간"
+  },
+  "QZyuPN": {
+    "string": "마감 수수료"
+  },
+  "e6wHOS": {
+    "string": "종가"
+  },
+  "m3pyR6": {
+    "string": "손익 마감"
+  },
+  "oEe/47": {
+    "string": "마감할 로트 크기"
+  },
   "i0bc3f": {
     "string": "통화"
   },
