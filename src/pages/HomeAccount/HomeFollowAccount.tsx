@@ -8,7 +8,6 @@ import { AccountInfo, FollowDv } from '../../api/model';
 import ic_default_head from '../../assets/ic_default_head.png';
 import ic_question_mark from '../../assets/ic_question_mark.png';
 import useSwitchColor from '../../hooks/useSwitchColor';
-import TradePositionList from './TradePositionList';
 
 interface HomeFollowAccountProps {
   account?: AccountInfo;
@@ -123,7 +122,7 @@ const HomeFollowAccount = ({ account, followDv }: HomeFollowAccountProps) => {
         </div>
       </div>
 
-      {!!account?.openList?.length && <TradePositionList data={account.openList} />}
+      {/* {!!account?.openList?.length && <TradePositionList data={account.openList} />} */}
     </div>
   );
 };
