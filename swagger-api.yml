@@ -19,7 +19,7 @@ paths:
   /home/config.do:
     post:
       operationId: 'homeConfig'
-      description: '設置交易密碼'
+      description: '首页接口'
 
       responses:
         '200':
@@ -27,7 +27,49 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/CommonResponse'
+                allOf:
+                  - $ref: '#/components/schemas/CommonResponse'
+                  - properties:
+                      data:
+                        type: object
+                        properties:
+                          downloadUrl:
+                            type: string
+                          banner:
+                            type: array
+                            items:
+                              type: object
+                              properties:
+                                bannerId:
+                                  type: string
+                                cls:
+                                  type: string
+                                createTime:
+                                  type: string
+                                downTime:
+                                  type: string
+                                imageUrl:
+                                  type: string
+                                lang:
+                                  type: string
+                                params:
+                                  type: string
+                                pkg:
+                                  type: string
+                                position:
+                                  type: string
+                                pview:
+                                  type: string
+                                sortNum:
+                                  type: string
+                                state:
+                                  type: string
+                                type:
+                                  type: string
+                                upTime:
+                                  type: string
+                                videoUrl:
+                                  type: string
 
   /user/security/setPayPass.do:
     post:
@@ -2783,13 +2825,27 @@ components:
     PledgeListItem:
       type: object
       properties:
+        dayProfitRate:
+          type: string
         duration:
+          type: string
+        endTime:
           type: string
         id:
           type: string
         minCount:
           type: string
+        pledgeName:
+          type: string
         profitRate:
+          type: string
+        returnSymbol:
+          type: string
+        sort:
+          type: string
+        startTime:
+          type: string
+        status:
           type: string
         symbol:
           type: string

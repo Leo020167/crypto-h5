@@ -1,12 +1,11 @@
 import { List, Swiper, Tabs } from 'antd-mobile';
-import { ArrowDownCircleOutline } from 'antd-mobile-icons';
 import { useAtomValue } from 'jotai';
 import { stringify } from 'query-string';
 import { useCallback, useMemo, useState } from 'react';
 import { useIntl } from 'react-intl';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { useHomeAccount, useHomeConfig, useHomeCropMe } from '../../api/endpoints/transformer';
+import { useHomeConfig, useHomeCropMe } from '../../api/endpoints/transformer';
 import ic_default_head from '../../assets/ic_default_head.png';
 import lvjiantou from '../../assets/lvjiantou.png';
 
@@ -28,7 +27,7 @@ const Home = () => {
 
   const { userInfo } = useAuthStore();
 
-  const { data: homeAccount } = useHomeAccount();
+  // const { data: homeAccount } = useHomeAccount();
 
   const { data: homeCropMe } = useHomeCropMe();
 
@@ -92,7 +91,7 @@ const Home = () => {
 
       <div className="mt-3 shadow-md shadow-black/5 bg-white rounded-lg overflow-hidden h-[150px]">
         <Swiper autoplay loop>
-          {homeAccount?.data?.banner?.map((v) => (
+          {homeConfig?.data?.banner?.map((v) => (
             <Swiper.Item key={v.bannerId} className=" ">
               <div className="h-[150px] flex flex-col">
                 <img alt="" src={v.imageUrl} className="w-full h-full" />

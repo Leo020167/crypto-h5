@@ -48,7 +48,7 @@ const Pledge = () => {
             key={v.id}
             className=" h-40 shadow-md shadow-black/5 bg-white rounded-xl px-5 flex flex-col justify-center mb-4"
           >
-            <div className="text-[#6175AE] text-lg">{v.symbol}</div>
+            <div className="text-[#6175AE] text-lg">{v.pledgeName}</div>
             <Grid className="mt-2" columns={3}>
               <Grid.Item className="text-center">
                 <div className="text-[#A2A9BC] text-xs">

@@ -6,9 +6,16 @@
  */
 
 export interface PledgeListItem {
+  dayProfitRate?: string;
   duration?: string;
+  endTime?: string;
   id?: string;
   minCount?: string;
+  pledgeName?: string;
   profitRate?: string;
+  returnSymbol?: string;
+  sort?: string;
+  startTime?: string;
+  status?: string;
   symbol?: string;
 }

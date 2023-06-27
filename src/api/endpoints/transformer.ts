@@ -15,11 +15,12 @@ import type {
 } from '@tanstack/react-query';
 import type {
   FindPaymentOptionListResponse,
-  CommonResponse,
+  HomeConfig200,
   SetPayPass200,
   SetPayPassBody,
   SearchCoinResponse,
   SearchCoinBody,
+  CommonResponse,
   ApplySubscribeBody,
   GetSubscribeListResponse,
   GetSubscribeDetailResponse,
@@ -185,10 +186,10 @@ export const useFindPaymentOptionList = <
 };
 
 /**
- * 設置交易密碼
+ * 首页接口
  */
 export const homeConfig = () => {
-  return customInstance<CommonResponse>({ url: `/home/config.do`, method: 'post' });
+  return customInstance<HomeConfig200>({ url: `/home/config.do`, method: 'post' });
 };
 
 export const getHomeConfigQueryKey = () => [`/home/config.do`];
