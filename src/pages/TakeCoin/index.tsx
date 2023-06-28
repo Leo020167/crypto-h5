@@ -163,18 +163,18 @@ const TakeCoin = () => {
     [configs?.data?.availableAmount],
   );
 
-  const account = useMemo(() => {
-    const fee = Number(configs?.data?.fee);
+  // const account = useMemo(() => {
+  //   const fee = Number(configs?.data?.fee);
 
-    if (amount && Number(amount) >= fee) {
-      return currency(Number(amount) - fee, {
-        separator: '',
-        symbol: '',
-        precision,
-      }).format();
-    }
-    return '--';
-  }, [amount, configs?.data?.fee, precision]);
+  //   if (amount && Number(amount) >= fee) {
+  //     return currency(Number(amount) - fee, {
+  //       separator: '',
+  //       symbol: '',
+  //       precision,
+  //     }).format();
+  //   }
+  //   return '--';
+  // }, [amount, configs?.data?.fee, precision]);
   return (
     <Screen
       headerTitle={intl.formatMessage({ defaultMessage: '提幣', id: 'andeZs' })}
@@ -303,7 +303,7 @@ const TakeCoin = () => {
                 defaultMessage: '手續費',
                 id: 'UXyFaa',
               })}
-              ({symbol})
+              (ATC)
             </span>
             <span className="text-base text-[#6175AE]">
               {currency(configs?.data?.fee || 0, { precision, separator: '', symbol: '' }).format()}
@@ -318,7 +318,7 @@ const TakeCoin = () => {
               })}
               ({symbol})
             </span>
-            <span className="text-base text-[#6175AE]">{account}</span>
+            <span className="text-base text-[#6175AE]">{amount}</span>
           </div>
 
           <div className="mt-4">
