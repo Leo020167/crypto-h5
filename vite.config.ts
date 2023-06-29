@@ -10,7 +10,7 @@ import svgr from 'vite-plugin-svgr';
 export default defineConfig(({ mode }) => {
   return {
     build: {
-      outDir: `dist/Cryptographe-${mode === 'allow-download' ? '有下載' : '無下載'}`,
+      outDir: `dist/Financingy-${mode === 'allow-download' ? '有下載' : '無下載'}`,
     },
     server: {
       proxy: {

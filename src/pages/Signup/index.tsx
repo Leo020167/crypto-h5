@@ -87,15 +87,15 @@ const Signup = () => {
                   {intl.formatMessage({ defaultMessage: '注册即代表你已同意并接受', id: 'A20Ity' })}
                   <a href="" target="_blank" className="text-[#6277b0]">
                     {intl.formatMessage({
-                      defaultMessage: '《Cryptographe用户协议》',
-                      id: '4oqdRD',
+                      defaultMessage: '《Financingy用户协议》',
+                      id: 'l5s8oS',
                     })}
                   </a>
                   {intl.formatMessage({ defaultMessage: '和', id: 's9xFxt' })}
                   <a href="" target="_blank" className="text-[#6277b0]">
                     {intl.formatMessage({
-                      defaultMessage: '《Cryptographe隐私条款》',
-                      id: '43/Nhz',
+                      defaultMessage: '《Financingy隐私条款》',
+                      id: 'Ysn4GU',
                     })}
                   </a>
                 </div>
