@@ -16,10 +16,10 @@ export const useChatLink = () => {
     : null;
 
   return (
-    `https://chatlink.mstatik.com/widget/standalone.html?` +
+    `https://chat.ichatlink.net/widget/standalone.html?` +
     qs.stringify(
       {
-        eid: '914b28b19ffc9b3dda4924057b2239a3',
+        eid: '8b926d40eb1e1074e5a3012d394451df',
         clientid: userInfo?.userId,
         language: 'en',
         metadata,
