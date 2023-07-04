@@ -17,16 +17,16 @@ export default defineConfig(({ mode }) => {
         // http://api.piglobalexchanges.com/procoin/swagger/index.html#/
         // http://api.worldcoinservice.com/procoin/swagger/index.html#/
         '/procoin-market': {
-          target: 'http://market.cryptographeex.com',
+          target: 'http://market.financingy.com',
           changeOrigin: true,
         },
         '/procoin-file': {
-          target: 'http://upload.cryptographeex.com',
+          target: 'http://upload.financingy.com',
           changeOrigin: true,
         },
         //  http://api.cryptographexx.com/procoin/meiqia
         '/procoin': {
-          target: 'http://api.cryptographeex.com',
+          target: 'http://api.financingy.com',
           changeOrigin: true,
         },
       },
