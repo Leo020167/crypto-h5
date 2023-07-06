@@ -56,7 +56,7 @@ const Currency = ({
         </div>
       </div>
       <div className="text-right text-xs">
-        <div className="mt-1 text-sm font-bold leading-none"> 1806.95 </div>
+        <div className="mt-1 text-sm font-bold leading-none">{record.price}</div>
 
         <div className="text-up" style={{ color }}>
           {ratePrefix + record.rate}%
