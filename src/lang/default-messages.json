@@ -50,6 +50,9 @@
   "/I+pby": {
     "string": "我的"
   },
+  "/LMNJ8": {
+    "string": "請再次輸入密碼"
+  },
   "/jAa8w": {
     "string": "{maxHand}{symbol}"
   },
@@ -121,9 +124,6 @@
   },
   "2a4k+m": {
     "string": "已加载全部"
-  },
-  "2cS2Q3": {
-    "string": "密必须是8 -16位字、字母组合"
   },
   "2fmtw4": {
     "string": "請輸入地址"
@@ -346,6 +346,9 @@
   },
   "A8sxJT": {
     "string": "已訂閱"
+  },
+  "ADKS8l": {
+    "string": "兩次輸入的密碼不相同"
   },
   "ASHrJh": {
     "string": "添加廣告"
@@ -1858,6 +1861,9 @@
   },
   "xPkCfU": {
     "string": "持倉保證金(USDT)"
+  },
+  "xalGPW": {
+    "string": "密码必须是8 -16位"
   },
   "xiR+G9": {
     "string": "跟單類型"

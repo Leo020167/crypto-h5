@@ -65,7 +65,7 @@ const Signup = () => {
               }
             }
 
-            if (!validPassword(values.userPass, values.configUserPass)) {
+            if (!validPassword(intl, values.userPass, values.configUserPass)) {
               return;
             }
 
@@ -192,8 +192,8 @@ const Signup = () => {
             <Input
               type="password"
               placeholder={intl.formatMessage({
-                defaultMessage: '密必须是8 -16位字、字母组合',
-                id: '2cS2Q3',
+                defaultMessage: '密码必须是8 -16位',
+                id: 'xalGPW',
               })}
             />
           </Form.Item>
