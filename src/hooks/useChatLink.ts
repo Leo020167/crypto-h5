@@ -1,4 +1,4 @@
-import qs from 'query-string';
+import queryString from 'query-string';
 import { useAuthStore } from '../stores/auth';
 
 export const useChatLink = () => {
@@ -17,7 +17,7 @@ export const useChatLink = () => {
 
   return (
     `https://chat.ichatlink.net/widget/standalone.html?` +
-    qs.stringify(
+    queryString.stringify(
       {
         eid: '8b926d40eb1e1074e5a3012d394451df',
         clientid: userInfo?.userId,
