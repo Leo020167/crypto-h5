@@ -585,7 +585,7 @@
     "string": "購買USDT"
   },
   "Hh3rHP": {
-    "string": "獲得AiCoin"
+    "string": "獲得Fwdetsc"
   },
   "HmiIeC": {
     "string": "是否確定上架?"
@@ -1098,7 +1098,7 @@
     "string": "委託金額(USDT)"
   },
   "X3UAMm": {
-    "string": "消耗AiCoin:"
+    "string": "消耗Fwdetsc:"
   },
   "XJfx+x": {
     "string": "正在申請取消商家認證"
@@ -1428,7 +1428,7 @@
     "string": "提交申訴"
   },
   "iBG8Hb": {
-    "string": "查看如何獲取AiCoin"
+    "string": "查看如何獲取Fwdetsc"
   },
   "iCZI8W": {
     "string": "合約份數"
@@ -1700,6 +1700,9 @@
   "rpJLsF": {
     "string": "參數錯誤"
   },
+  "rv44i+": {
+    "string": "《{name}隐私条款》"
+  },
   "s/KbuC": {
     "string": "数量 USDT"
   },
@@ -1720,9 +1723,6 @@
   },
   "sCpxK3": {
     "string": "請務必確認電腦及瀏覽器安全，防止信息被篡改或洩露。"
-  },
-  "sMbK5X": {
-    "string": "《AiCoin用户协议》"
   },
   "sNmNjz": {
     "string": "向賣家付款"
@@ -1786,6 +1786,9 @@
   },
   "un5/HP": {
     "string": "选择账户"
+  },
+  "uoCZsI": {
+    "string": "《{name}用户协议》"
   },
   "usmupP": {
     "string": "雷達圖説明"
@@ -1921,9 +1924,6 @@
   },
   "zVPdxg": {
     "string": "開始時間"
-  },
-  "zYyvSG": {
-    "string": "《AiCoin隐私条款》"
   },
   "zeTkGR": {
     "string": "申購成功轉換({a}-{b})"

@@ -8,7 +8,7 @@ const useCountry = (): [Country, React.Dispatch<React.SetStateAction<Country>>] 
   const { userInfo } = useAuthStore();
   const areaList = useAtomValue(areaListAtom);
 
-  const [country, setCountry] = useState<Country>({ code: '+852', name: '香港' });
+  const [country, setCountry] = useState<Country>({ code: '+86', name: '中国大陆' });
 
   useEffect(() => {
     if (userInfo?.countryCode) {

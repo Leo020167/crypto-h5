@@ -1,4 +1,10 @@
 {
+  "rv44i": {
+    "string": "《{name}プライバシー ポリシー》"
+  },
+  "uoCZsI": {
+    "string": "《{name} ユーザー同意書》"
+  },
   "HOSYMH": {
     "string": "閉店時間"
   },
@@ -1089,7 +1095,7 @@
     "string": "トランザクション数"
   },
   "XR6wlA": {
-    "string": "《AiCoinプライバシーポリシー》"
+    "string": "《Fwdetscプライバシーポリシー》"
   },
   "XWzDpA": {
     "string": "私は成功を収めた"
