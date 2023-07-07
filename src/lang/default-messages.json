@@ -128,9 +128,6 @@
   "2fmtw4": {
     "string": "請輸入地址"
   },
-  "2lQGkw": {
-    "string": "客服"
-  },
   "2yjenl": {
     "string": "請輸入止盈價"
   },
@@ -196,6 +193,9 @@
   },
   "5FboZ/": {
     "string": "类型"
+  },
+  "5S7UlH": {
+    "string": "請輸入正確申購範圍 {range}"
   },
   "5UBWei": {
     "string": "交易金額({currencySign})"
@@ -637,6 +637,9 @@
   },
   "Jgy7GK": {
     "string": "驗證碼已發送至，{email}"
+  },
+  "JoxLL6": {
+    "string": "單次申購範圍"
   },
   "JuFr3z": {
     "string": "賣出價"
