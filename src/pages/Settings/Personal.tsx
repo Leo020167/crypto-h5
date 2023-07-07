@@ -27,12 +27,17 @@ const Personal = () => {
 
   const intl = useIntl();
   const updateUserInfo = useCallback(() => {
+    Toast.show({
+      icon: 'loading',
+      duration: 0,
+      maskClickable: false,
+    });
     userUpdateUserInfo({ sex, userName, describes }).then((res: any) => {
       if (res.code === '200') {
         getUserInfo();
 
         Toast.show(intl.formatMessage({ defaultMessage: '更新信息成功', id: 'LTp8Pi' }));
-        history.replace('/my');
+        history.replace('/home/my');
       }
     });
   }, [describes, history, intl, sex, userName]);
