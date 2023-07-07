@@ -1,4 +1,14 @@
 {
+  "/LMNJ8": {
+    "string": "por favor ingrese la contraseña de nuevo"
+  },
+  "ADKS8l": {
+    "string": "Las contraseñas ingresadas dos veces son diferentes"
+  },
+  "xalGPW": {
+    "string": "La contraseña debe tener entre 8 y 16 dígitos"
+  },
+
   "5S7UlH": {
     "string": "Ingrese el alcance correcto de la compra {range}"
   },

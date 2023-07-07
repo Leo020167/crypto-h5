@@ -1,4 +1,13 @@
 {
+  "/LMNJ8": {
+    "string": "请再次输入密码"
+  },
+  "ADKS8l": {
+    "string": "两次输入的密码不相同"
+  },
+  "xalGPW": {
+    "string": "密码必须是8-16位"
+  },
   "5S7UlH": {
     "string": "请输入正确申购范围 {range}"
   },

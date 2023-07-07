@@ -1,4 +1,14 @@
 {
+  "/LMNJ8": {
+    "string": "please enter password again"
+  },
+  "ADKS8l": {
+    "string": "Passwords entered twice are different"
+  },
+  "xalGPW": {
+    "string": "Password must be 8-16 digits"
+  },
+
   "5S7UlH": {
     "string": "Please enter the correct scope of purchase {range}"
   },
