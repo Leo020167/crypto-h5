@@ -139,6 +139,13 @@ const SubscribeDetail = () => {
             <div className="mt-1">{detail?.sum}</div>
           </div>
 
+          <div className=" mt-6 text-xs">
+            <div className="text-[#999]">
+              {intl.formatMessage({ defaultMessage: '單次申購範圍', id: 'JoxLL6' })}
+            </div>
+            <div className="mt-1">{[detail?.min, detail?.max].join('~')}</div>
+          </div>
+
           <div className=" mt-2 text-xs">
             <div className="text-[#999]">
               {intl.formatMessage({ defaultMessage: '本輪已申購', id: 'Sj3tff' })}
@@ -351,6 +358,25 @@ const SubscribeDetail = () => {
                   if (!count || !count.trim().length) {
                     Toast.show(
                       intl.formatMessage({ defaultMessage: '請輸入申購數量', id: '10mXat' }),
+                    );
+                    return;
+                  }
+
+                  const _count = Number(count);
+                  const _min = Number(detail?.min || 0);
+                  const _max = Number(detail?.max || 0);
+
+                  if (_count < _min || _count > _max) {
+                    Toast.show(
+                      intl.formatMessage(
+                        {
+                          defaultMessage: '請輸入正確申購範圍 {range}',
+                          id: '5S7UlH',
+                        },
+                        {
+                          range: `${_min}~${_max}`,
+                        },
+                      ),
                     );
                     return;
                   }

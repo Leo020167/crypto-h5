@@ -2262,6 +2262,8 @@ components:
           type: string
         min:
           type: string
+        max:
+          type: string
         rate:
           type: string
         startTime:
@@ -2325,6 +2327,8 @@ components:
         progress:
           type: string
         rate:
+          type: string
+        max:
           type: string
 
     GetSubscribeListResponse:
