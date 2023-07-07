@@ -24,7 +24,7 @@
     "string": "Divisa"
   },
   "X3UAMm": {
-    "string": "consumir ATC:"
+    "string": "consumir WTS:"
   },
   "ndT7z1": {
     "string": "Ingreso anualizado"
@@ -123,7 +123,7 @@
     "string": "¿Está suscrito este usuario?"
   },
   "20MJBj": {
-    "string": "ATC"
+    "string": "WTS"
   },
   "297aFF": {
     "string": "Ratio de margen"
@@ -552,7 +552,7 @@
     "string": "Mensaje de queja (opcional)"
   },
   "GKRXXt": {
-    "string": "Consigue ATC"
+    "string": "Consigue WTS"
   },
   "GO/P/E": {
     "string": "Añadir dirección de retirada"
@@ -744,7 +744,7 @@
     "string": "Vuelva a introducir su contraseña"
   },
   "MQKv1T": {
-    "string": "Premio comunitario total(ATC)"
+    "string": "Premio comunitario total(WTS)"
   },
   "MTyrlB": {
     "string": "La contraseña debe ser una combinación de - dígitos y letras"
@@ -789,7 +789,7 @@
     "string": "Introduzca su dirección de correo electrónico"
   },
   "NdxUVx": {
-    "string": "Vea cómo conseguir ATC"
+    "string": "Vea cómo conseguir WTS"
   },
   "NlcysC": {
     "string": "Introduzca su código postal"
@@ -1158,7 +1158,7 @@
     "string": "Sólo se permiten recargas"
   },
   "aD/9at": {
-    "string": "Cantidad (ATC)"
+    "string": "Cantidad (WTS)"
   },
   "aOp/5l": {
     "string": "No puede solicitar la verificación de comerciante sin un nombre real, por favor verifique su nombre real antes de enviar su solicitud de verificación de comerciante."
@@ -1353,7 +1353,7 @@
     "string": "Historia financiera"
   },
   "guM4xe": {
-    "string": "Consumir ATC:"
+    "string": "Consumir WTS:"
   },
   "gx0XBL": {
     "string": "Suscríbase a"
@@ -1821,7 +1821,7 @@
     "string": "Cantidad"
   },
   "zqkaAr": {
-    "string": "Recompensa (ATC)"
+    "string": "Recompensa (WTS)"
   },
   "zv2r2Q": {
     "string": "Pida"
@@ -2005,7 +2005,7 @@
   },
 
   "Hh3rHP": {
-    "string": "Obtener ATC"
+    "string": "Obtener WTS"
   },
 
   "Pqs8N": {
@@ -2097,7 +2097,7 @@
     "string": "Recompensas totales de la comunidad (LCN)"
   },
   "iBG8Hb": {
-    "string": "Vea cómo obtener ATC"
+    "string": "Vea cómo obtener WTS"
   },
   "kOFx5M": {
     "string": "Al retirar USDT, el sistema congelará esta parte de los fondos de la cuenta de saldo"

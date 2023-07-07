@@ -24,7 +24,7 @@
     "string": "Currency"
   },
   "X3UAMm": {
-    "string": "consume ATC:"
+    "string": "consume WTS:"
   },
   "ndT7z1": {
     "string": "Annualized income"
@@ -123,7 +123,7 @@
     "string": "Whether to subscribe to this user？"
   },
   "20MJBj": {
-    "string": "ATC"
+    "string": "WTS"
   },
   "297aFF": {
     "string": "Margin Ratio"
@@ -210,7 +210,7 @@
     "string": "close a position"
   },
   "4ivSMB": {
-    "string": "Total Assets(ATC)"
+    "string": "Total Assets(WTS)"
   },
   "56o47p": {
     "string": "Mailbox Verification Code"
@@ -555,7 +555,7 @@
     "string": "Appeal message (optional)"
   },
   "GKRXXt": {
-    "string": "obtain ATC"
+    "string": "obtain WTS"
   },
   "GO/P/E": {
     "string": "Add the withdrawal currency address"
@@ -747,7 +747,7 @@
     "string": "Please enter the password again"
   },
   "MQKv1T": {
-    "string": "Community Total Reward(ATC)"
+    "string": "Community Total Reward(WTS)"
   },
   "MTyrlB": {
     "string": "The secret must be 8-16-bit words, letters combination"
@@ -792,7 +792,7 @@
     "string": "please input your mailbox"
   },
   "NdxUVx": {
-    "string": "Check how to get ATC"
+    "string": "Check how to get WTS"
   },
   "NlcysC": {
     "string": "Please enter the mailbox number"
@@ -1164,7 +1164,7 @@
     "string": "Only allow recharge"
   },
   "aD/9at": {
-    "string": "quantity(ATC)"
+    "string": "quantity(WTS)"
   },
   "aOp/5l": {
     "string": "If the real name cannot be applied for merchant certification, please submit a business certification application after the real -name authentication."
@@ -1359,7 +1359,7 @@
     "string": "Financial record"
   },
   "guM4xe": {
-    "string": "Consume ATC:"
+    "string": "Consume WTS:"
   },
   "gx0XBL": {
     "string": "Subscribe"
@@ -1827,7 +1827,7 @@
     "string": "Quantity received"
   },
   "zqkaAr": {
-    "string": "reward(ATC)"
+    "string": "reward(WTS)"
   },
   "zv2r2Q": {
     "string": "Subscribe"
@@ -2010,7 +2010,7 @@
     "string": "Daily Earnings"
   },
   "Hh3rHP": {
-    "string": "Get ATC"
+    "string": "Get WTS"
   },
   "misXZU": {
     "string": "Defi zone"
@@ -2091,7 +2091,7 @@
     "string": "Total Community Rewards (LCN)"
   },
   "iBG8Hb": {
-    "string": "See how to get ATC"
+    "string": "See how to get WTS"
   },
   "kOFx5M": {
     "string": "When withdrawing USDT, the system will freeze this part of the funds from the balance account"
