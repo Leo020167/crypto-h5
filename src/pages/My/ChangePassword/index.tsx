@@ -28,7 +28,7 @@ const ChangePassword = () => {
                   return;
                 }
 
-                if (!validPassword(values.newUserPass, values.configUserPass)) {
+                if (!validPassword(intl, values.newUserPass, values.configUserPass)) {
                   return;
                 }
 
