@@ -119,16 +119,6 @@ const My = () => {
 
       <List>
         <List.Item
-          prefix={<img alt="" src={ic_home_mine_kefu} className="w-8 h-8" />}
-          arrow={<Arrow />}
-          onClick={() => {
-            history.push('/chat');
-          }}
-        >
-          {intl.formatMessage({ defaultMessage: '客服', id: '2lQGkw' })}
-        </List.Item>
-
-        <List.Item
           prefix={<img alt="" src={ic_home_mine_setting} className="w-8 h-8" />}
           arrow={<Arrow />}
           onClick={() => {
