@@ -45,7 +45,7 @@ const Settings = () => {
         <List.Item
           arrow={<Arrow />}
           onClick={() => {
-            if (authStore.userInfo?.phone) {
+            if (authStore.userInfo?.phone || authStore.userInfo?.email) {
               history.push('/setting-pay-password');
             } else {
               history.push('/bind-phone');

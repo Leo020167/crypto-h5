@@ -20,9 +20,6 @@
   "+eQ50+": {
     "string": "設置"
   },
-  "+nOBYc": {
-    "string": "請先完成初級認證"
-  },
   "+prpsi": {
     "string": "訂閱數"
   },
@@ -185,9 +182,6 @@
   "42lXMM": {
     "string": "提币"
   },
-  "43/Nhz": {
-    "string": "《Financingy隐私条款》"
-  },
   "4FDcHK": {
     "string": "输入验证码"
   },
@@ -211,9 +205,6 @@
   },
   "4kxY/u": {
     "string": "請再次輸入6位支付密碼"
-  },
-  "4oqdRD": {
-    "string": "《Financingy用户协议》"
   },
   "56o47p": {
     "string": "郵箱驗證碼"
@@ -1118,9 +1109,6 @@
   "XNQjr/": {
     "string": "交易次數"
   },
-  "XOCqdS": {
-    "string": "未認證"
-  },
   "XWzDpA": {
     "string": "我已付款成功"
   },
@@ -1697,6 +1685,9 @@
   "rpJLsF": {
     "string": "參數錯誤"
   },
+  "rv44i+": {
+    "string": "《{name}隐私条款》"
+  },
   "s/KbuC": {
     "string": "数量 USDT"
   },
@@ -1778,6 +1769,9 @@
   "un5/HP": {
     "string": "选择账户"
   },
+  "uoCZsI": {
+    "string": "《{name}用户协议》"
+  },
   "usmupP": {
     "string": "雷達圖説明"
   },
@@ -1798,6 +1792,9 @@
   },
   "vOLb7H": {
     "string": "剩余{countdown}秒"
+  },
+  "vgGksF": {
+    "string": "實名認證"
   },
   "vo78d9": {
     "string": "申請成功提交"
