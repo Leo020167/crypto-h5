@@ -81,7 +81,9 @@ const Signup = () => {
                 <div className="text-[#cdcdcd]">
                   {intl.formatMessage({ defaultMessage: '注册即代表你已同意并接受', id: 'A20Ity' })}
                   <a
-                    href="http://api.kaobaochina.cn/procoin/article/#/passgeDetail?article_id=48"
+                    href={`http://api.${
+                      import.meta.env.VITE_APP_DOMAIN
+                    }/procoin/article/#/passgeDetail?article_id=48`}
                     target="_blank"
                     className="text-[#6277b0]"
                     rel="noreferrer"
@@ -98,7 +100,9 @@ const Signup = () => {
                   </a>
                   {intl.formatMessage({ defaultMessage: '和', id: 's9xFxt' })}
                   <a
-                    href="http://api.kaobaochina.cn/procoin/article/#/passgeDetail?article_id=54"
+                    href={`http://api.${
+                      import.meta.env.VITE_APP_DOMAIN
+                    }/procoin/article/#/passgeDetail?article_id=54`}
                     target="_blank"
                     className="text-[#6277b0]"
                     rel="noreferrer"
