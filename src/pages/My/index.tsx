@@ -51,7 +51,7 @@ const My = () => {
             <div>
               <div
                 className="mb-2 flex text-xl font-bold leading-5 text-[#c1d3155]"
-                onClick={() => history.push('personal')}
+                onClick={() => history.push('/personal')}
               >
                 <span>{userInfo?.userName}</span>
                 <img alt="" src={ic_svg_edit} className="ml-2 w-5" />
