@@ -8,6 +8,7 @@ import { AccountInfo, FollowDv } from '../../api/model';
 import ic_default_head from '../../assets/ic_default_head.png';
 import ic_question_mark from '../../assets/ic_question_mark.png';
 import TradePositionList from './TradePositionList';
+import useSwitchColor from '../../hooks/useSwitchColor';
 
 interface HomeFollowAccountProps {
   account?: AccountInfo;
@@ -17,6 +18,8 @@ const HomeFollowAccount = ({ account, followDv }: HomeFollowAccountProps) => {
   const { data } = useAllConfig();
 
   const intl = useIntl();
+
+  const getColor = useSwitchColor();
 
   const follow = useMemo(() => {
     if (followDv) {
@@ -110,7 +113,7 @@ const HomeFollowAccount = ({ account, followDv }: HomeFollowAccountProps) => {
           <div className="text-gray-400">
             {intl.formatMessage({ defaultMessage: '持倉保證金', id: 'KyHiY3' })}
           </div>
-          <div>{account?.openBail ?? '0'}</div>
+          <div style={{ color: getColor(account?.openBail) }}>{account?.openBail ?? '0'}</div>
         </div>
         <div className="flex flex-col items-end">
           <div className="text-gray-400">
