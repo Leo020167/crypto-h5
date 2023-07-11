@@ -108,7 +108,7 @@ const HomeFollowAccount = ({ account, followDv }: HomeFollowAccountProps) => {
       <div className="mt-3 flex items-center justify-between text-[#c1d3155]">
         <div>
           <div className="text-gray-400">
-            {intl.formatMessage({ defaultMessage: '持仓保证金(USDT)', id: '7T1O0R' })}
+            {intl.formatMessage({ defaultMessage: '持倉保證金', id: 'KyHiY3' })}
           </div>
           <div>{account?.openBail ?? '0'}</div>
         </div>
