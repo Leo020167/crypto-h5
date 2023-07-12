@@ -5,6 +5,8 @@
  * OpenAPI spec version: 1.0
  */
 
-export type GetSymbolMaxAmount200AllOf = {
-  data?: string;
+export type SendImageBody = {
+  chatTopic?: string;
+  say?: string;
+  verify?: number;
 };

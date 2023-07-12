@@ -256,6 +256,28 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/CommonResponse'
+  /chat/sendImage.do:
+    post:
+      operationId: 'sendImage'
+      description: 'http發送文字聊天'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                chatTopic:
+                  type: string
+                say:
+                  type: string
+                verify:
+                  type: number
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CommonResponse'
 
   /security/loginOut.do:
     post:
