@@ -131,15 +131,13 @@ const Chat = () => {
               value={text}
             />
             <div className="absolute right-2.5 bottom-1">
-              {text?.length ? (
+              {!!text?.length && (
                 <a
                   className=" w-[45px] h-8  flex items-center justify-center bg-[#06be04] text-white rounded"
                   onClick={sendMessage}
                 >
                   {intl.formatMessage({ defaultMessage: '發送', id: '9V7qTC' })}
                 </a>
-              ) : (
-                <img alt="" src={type_select_btn_nor} className="w-8 h-8" />
               )}
             </div>
           </div>
