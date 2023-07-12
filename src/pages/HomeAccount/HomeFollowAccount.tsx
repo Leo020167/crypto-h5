@@ -112,7 +112,7 @@ const HomeFollowAccount = ({ account, followDv }: HomeFollowAccountProps) => {
           <div className="text-gray-400">
             {intl.formatMessage({ defaultMessage: '持倉保證金', id: 'KyHiY3' })}
           </div>
-          <div style={{ color: getColor(account?.openBail) }}>{account?.openBail ?? '0'}</div>
+          <div>{account?.openBail ?? '0'}</div>
         </div>
         <div className="flex flex-col items-end">
           <div className="text-gray-400">
