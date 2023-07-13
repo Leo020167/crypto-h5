@@ -1088,6 +1088,9 @@
   "WTYv3l": {
     "string": "（香港時間）"
   },
+  "WVOtMs": {
+    "string": "銀行戶名"
+  },
   "Wmlj/H": {
     "string": "申購總量"
   },
@@ -1702,9 +1705,6 @@
   },
   "rQ+HPv": {
     "string": "输入提币数量"
-  },
-  "rpJLsF": {
-    "string": "參數錯誤"
   },
   "rv44i+": {
     "string": "《{name}隐私条款》"
