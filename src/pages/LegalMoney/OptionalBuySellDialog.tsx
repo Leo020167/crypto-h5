@@ -56,8 +56,21 @@ const OptionalBuySellDialog = ({
     [accountOutHoldAmount?.data?.holdAmount],
   );
 
+  const money = useMemo(() => {
+    if (amount?.trim() === '') return '----';
+    const result = (Number(amount || 0) * Number(optionalOrder?.price || 0)).toFixed(2);
+    return optionalOrder?.currencySign + result;
+  }, [amount, optionalOrder?.currencySign, optionalOrder?.price]);
+
   return (
-    <Container visible={open} onClose={onClose} closeOnMaskClick>
+    <Container
+      visible={open}
+      onClose={() => {
+        setAmount('');
+        onClose?.();
+      }}
+      closeOnMaskClick
+    >
       <div className="flex flex-col px-4">
         <div className="flex items-center justify-between">
           <span className="text-base font-bold text-[#3D3A50] h-16 flex items-center">{title}</span>
@@ -67,6 +80,8 @@ const OptionalBuySellDialog = ({
         <div className="relative flex items-center h-12 px-4 border border-[#465B98]">
           <Input
             type="number"
+            min={0}
+            clearable
             value={amount}
             onChange={setAmount}
             placeholder={amountHint}
@@ -120,11 +135,11 @@ const OptionalBuySellDialog = ({
             />
             <List.Item
               title={intl.formatMessage({ defaultMessage: '數量', id: 'YYra8Q' })}
-              extra={<span>----</span>}
+              extra={<span>{amount ? amount + ' USDT' : '----'}</span>}
             />
             <List.Item
               title={payWay}
-              extra={<span className="text-[#c6175ae] text-xl font-bold">----</span>}
+              extra={<span className="text-[#c6175ae] text-xl font-bold">{money}</span>}
             />
           </List>
         </div>

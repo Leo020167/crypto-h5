@@ -108,7 +108,7 @@ const LegalOrderInfo = () => {
         }
       : {
           nickName: intl.formatMessage({ defaultMessage: '買家暱稱', id: 'Tq9EwF' }),
-          name: intl.formatMessage({ defaultMessage: '參數錯誤', id: 'rpJLsF' }),
+          name: intl.formatMessage({ defaultMessage: '銀行戶名', id: 'WVOtMs' }),
         };
   }, [intl, isBuyer]);
 
