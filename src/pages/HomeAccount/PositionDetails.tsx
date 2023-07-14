@@ -131,6 +131,7 @@ const PositionDetails = () => {
           onFinish={(values) => {
             proOrderOpen.mutate({
               data: {
+                usdtAmount: values.hand,
                 symbol: symbol ?? '',
                 buySell: 'sell',
                 orderType: 'limit',

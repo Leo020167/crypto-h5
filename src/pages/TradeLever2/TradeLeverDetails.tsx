@@ -274,6 +274,7 @@ const TradeLeverDetails = ({
 
             proOrderOpen.mutate({
               data: {
+                usdtAmount: hand,
                 symbol: symbol ?? '',
                 price: calcPrice,
                 buySell: buySell === 1 ? 'buy' : 'sell',

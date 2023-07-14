@@ -980,6 +980,8 @@ paths:
                   type: string
                 type:
                   type: string
+                usdtAmount:
+                  type: string
 
       responses:
         '200':

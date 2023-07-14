@@ -1,12 +1,10 @@
-import { List } from 'antd-mobile';
-import { stringify } from 'query-string';
 import { useState } from 'react';
 import { useIntl } from 'react-intl';
-import { Link, useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { AccountInfo } from '../../api/model';
 import FinancialList from './FinancialList';
-import PositionItem from './PositionItem';
+import { PositionList } from './PositionList';
 
 interface HomeSpotAccountProps {
   account?: AccountInfo;
@@ -16,7 +14,6 @@ const HomeSpotAccount = ({ account }: HomeSpotAccountProps) => {
 
   const intl = useIntl();
 
-  const history = useHistory();
   return (
     <Container className="bg-gray-100">
       <div className="bg-white p-4 text-xs">
@@ -62,7 +59,6 @@ const HomeSpotAccount = ({ account }: HomeSpotAccountProps) => {
           </div>
         </div>
       </div>
-
       <div className="mt-2.5 bg-white p-4">
         <div className="flex items-center text-base text-gray-400">
           <span
@@ -85,29 +81,7 @@ const HomeSpotAccount = ({ account }: HomeSpotAccountProps) => {
           )}
         </div>
       </div>
-
-      {selected === 0 ? (
-        <List>
-          {account?.openList?.map((v, i) => (
-            <List.Item
-              key={i}
-              arrow={null}
-              onClick={() => {
-                if (v.symbol === 'USDT') return;
-
-                history.push({
-                  pathname: '/position-details',
-                  search: stringify({ symbol: v.symbol }),
-                });
-              }}
-            >
-              <PositionItem data={v} />
-            </List.Item>
-          ))}
-        </List>
-      ) : (
-        <FinancialList />
-      )}
+      {selected === 0 ? <PositionList account={account} /> : <FinancialList />}
     </Container>
   );
 };
