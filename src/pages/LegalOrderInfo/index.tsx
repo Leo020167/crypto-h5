@@ -169,7 +169,7 @@ const LegalOrderInfo = () => {
     if (order?.state === OtcOrderState.wait) {
       if (isBuyer) {
         return (
-          <div className="flex p-4">
+          <div className="flex gap-x-4 p-4">
             <Button block onClick={() => setAction('cancel', 'replaceIn')}>
               {intl.formatMessage({ defaultMessage: '取消訂單', id: 'NNH82R' })}
             </Button>
