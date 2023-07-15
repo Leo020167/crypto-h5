@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "@react-spring/web": "^9.7.3",
-    "@tanstack/react-query": "^4.29.19",
+    "@tanstack/react-query": "^4.29.23",
     "antd-mobile": "^5.32.0",
     "antd-mobile-icons": "^0.3.0",
     "axios": "~1.4.0",
@@ -65,7 +65,7 @@
     "@vitejs/plugin-legacy": "^4.1.0",
     "@vitejs/plugin-react": "^4.0.3",
     "autoprefixer": "^10.4.14",
-    "eslint": "^8.44.0",
+    "eslint": "^8.45.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-formatjs": "^4.10.3",
     "eslint-plugin-jsx-a11y": "^6.7.1",
