@@ -1,5 +1,11 @@
 import { Input, Toast } from 'antd-mobile';
-import { forwardRef, useCallback, useImperativeHandle, useRef, useState } from 'react';
+import {
+  forwardRef,
+  useCallback,
+  useImperativeHandle,
+  useRef,
+  useState,
+} from 'react';
 import { useIntl } from 'react-intl';
 import { useInterval } from 'react-use';
 import { useSmsGet } from '../api/endpoints/transformer';
@@ -58,7 +64,7 @@ const Countdown = forwardRef<
 
       setCountdown(newValue);
     },
-    status === 'started' ? 1000 : null,
+    status === 'started' ? 1000 : null
   );
 
   const renderText = () => {
@@ -70,12 +76,15 @@ const Countdown = forwardRef<
       return intl.formatMessage({ defaultMessage: '获取验证码', id: 'ypMY0M' });
     }
 
-    return intl.formatMessage({ defaultMessage: '剩余{countdown}秒', id: 'vOLb7H' }, { countdown });
+    return intl.formatMessage(
+      { defaultMessage: '剩余{countdown}秒', id: 'vOLb7H' },
+      { countdown }
+    );
   };
 
   return (
     <a
-      className=" border-[#FF6B1B] border-2 rounded text-[#FF6B1B] text-sm px-2 py-1"
+      className=" rounded border-2 border-[#FF6B1B] px-2 py-1 text-sm text-[#FF6B1B]"
       onClick={() => onClick?.(status)}
     >
       {renderText()}
@@ -108,15 +117,16 @@ const SmsCodeInput = ({
     });
 
     if (phoneNumber) {
-      const phone = phoneNumber.substring(0, 3) + '****' + phoneNumber.substring(7);
+      const phone =
+        phoneNumber.substring(0, 3) + '****' + phoneNumber.substring(7);
       Toast.show(
         intl.formatMessage(
           {
             defaultMessage: '短信验证码已经发送至{phone}',
             id: 'YcfcO0',
           },
-          { phone },
-        ),
+          { phone }
+        )
       );
     }
     countdownRef.current?.restart();
@@ -135,7 +145,7 @@ const SmsCodeInput = ({
               intl.formatMessage({
                 defaultMessage: '请输入手机号',
                 id: 'KBVp8X',
-              }),
+              })
             );
             return;
           }

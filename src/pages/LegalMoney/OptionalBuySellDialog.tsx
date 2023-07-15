@@ -21,7 +21,10 @@ const OptionalBuySellDialog = ({
 }: OptionalBuySellDialogProps) => {
   const intl = useIntl();
 
-  const isBuyer = useMemo(() => 'buy' === optionalOrder?.buySell, [optionalOrder?.buySell]);
+  const isBuyer = useMemo(
+    () => 'buy' === optionalOrder?.buySell,
+    [optionalOrder?.buySell]
+  );
   const title = isBuyer
     ? intl.formatMessage({ defaultMessage: '出售USDT', id: 'Bj/Ifv' })
     : intl.formatMessage({ defaultMessage: '購買USDT', id: 'HeL/t7' });
@@ -48,17 +51,19 @@ const OptionalBuySellDialog = ({
       query: {
         enabled: !isBuyer,
       },
-    },
+    }
   );
 
   const holdAmount = useMemo(
     () => accountOutHoldAmount?.data?.holdAmount ?? '0.00',
-    [accountOutHoldAmount?.data?.holdAmount],
+    [accountOutHoldAmount?.data?.holdAmount]
   );
 
   const money = useMemo(() => {
     if (amount?.trim() === '') return '----';
-    const result = (Number(amount || 0) * Number(optionalOrder?.price || 0)).toFixed(2);
+    const result = (
+      Number(amount || 0) * Number(optionalOrder?.price || 0)
+    ).toFixed(2);
     return optionalOrder?.currencySign + result;
   }, [amount, optionalOrder?.currencySign, optionalOrder?.price]);
 
@@ -73,11 +78,13 @@ const OptionalBuySellDialog = ({
     >
       <div className="flex flex-col px-4">
         <div className="flex items-center justify-between">
-          <span className="text-base font-bold text-[#3D3A50] h-16 flex items-center">{title}</span>
+          <span className="flex h-16 items-center text-base font-bold text-[#3D3A50]">
+            {title}
+          </span>
           {isBuyer && <Transfer />}
         </div>
 
-        <div className="relative flex items-center h-12 px-4 border border-[#465B98]">
+        <div className="relative flex h-12 items-center border border-[#465B98] px-4">
           <Input
             type="number"
             min={0}
@@ -89,9 +96,9 @@ const OptionalBuySellDialog = ({
             className="pl2 pr-28 text-[#9A9A9A]"
             ref={ref}
           />
-          <div className="flex items-center absolute right-4 text-[#9A9A9A] text-xs">
+          <div className="absolute right-4 flex items-center text-xs text-[#9A9A9A]">
             <span>USDT</span>
-            <span className=" h-5 mx-4 bg-gray-300 w-[1px]"></span>
+            <span className=" mx-4 h-5 w-[1px] bg-gray-300"></span>
             <a
               className="text-[#6175AE]"
               onClick={() => {
@@ -109,7 +116,7 @@ const OptionalBuySellDialog = ({
           </div>
         </div>
 
-        <div className="mt-2 text-[#9A9A9A] text-xs">
+        <div className="mt-2 text-xs text-[#9A9A9A]">
           <span className="mt-1" key="limit">
             {intl.formatMessage({ defaultMessage: '限額', id: 'zGwnHi' })}
             {optionalOrder?.minCny}USDT-{optionalOrder?.maxCny}USDT
@@ -125,7 +132,10 @@ const OptionalBuySellDialog = ({
         <div className=" mt-8">
           <List>
             <List.Item
-              title={intl.formatMessage({ defaultMessage: '單價', id: 'WyPuru' })}
+              title={intl.formatMessage({
+                defaultMessage: '單價',
+                id: 'WyPuru',
+              })}
               extra={
                 <span>
                   {optionalOrder?.price}
@@ -134,12 +144,19 @@ const OptionalBuySellDialog = ({
               }
             />
             <List.Item
-              title={intl.formatMessage({ defaultMessage: '數量', id: 'YYra8Q' })}
+              title={intl.formatMessage({
+                defaultMessage: '數量',
+                id: 'YYra8Q',
+              })}
               extra={<span>{amount ? amount + ' USDT' : '----'}</span>}
             />
             <List.Item
               title={payWay}
-              extra={<span className="text-[#c6175ae] text-xl font-bold">{money}</span>}
+              extra={
+                <span className="text-xl font-bold text-[#c6175ae]">
+                  {money}
+                </span>
+              }
             />
           </List>
         </div>
@@ -150,7 +167,12 @@ const OptionalBuySellDialog = ({
               <Countdown
                 defaultCount={Number(optionalOrder?.timeLimit ?? 0)}
                 onFinish={() => {
-                  Toast.show(intl.formatMessage({ defaultMessage: '操作超時', id: 'VqH7F0' }));
+                  Toast.show(
+                    intl.formatMessage({
+                      defaultMessage: '操作超時',
+                      id: 'VqH7F0',
+                    })
+                  );
                 }}
               />
             )}
@@ -180,7 +202,13 @@ const OptionalBuySellDialog = ({
   );
 };
 
-const Countdown = ({ defaultCount, onFinish }: { defaultCount: number; onFinish?: () => void }) => {
+const Countdown = ({
+  defaultCount,
+  onFinish,
+}: {
+  defaultCount: number;
+  onFinish?: () => void;
+}) => {
   const [count, setCount] = useState<number>(defaultCount);
   useInterval(
     () => {
@@ -191,7 +219,7 @@ const Countdown = ({ defaultCount, onFinish }: { defaultCount: number; onFinish?
         onFinish?.();
       }
     },
-    count ? 1000 : null,
+    count ? 1000 : null
   );
   const intl = useIntl();
   return (

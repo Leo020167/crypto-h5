@@ -1,6 +1,7 @@
 import { Button, List, Toast } from 'antd-mobile';
 import { stringify } from 'query-string';
 import { useMemo } from 'react';
+import Countdown, { zeroPad } from 'react-countdown';
 import { useIntl } from 'react-intl';
 import { Link, useHistory } from 'react-router-dom';
 import styled from 'styled-components';
@@ -15,7 +16,7 @@ import { ReactComponent as SvgContactOther } from '../../assets/ic_svg_contact_o
 import { ReactComponent as SvgCopy } from '../../assets/ic_svg_copy.svg';
 import { ReactComponent as SvgOtcMark } from '../../assets/ic_svg_otc_mark.svg';
 import { ReactComponent as SvgOtcShowUserTip } from '../../assets/ic_svg_otc_show_user_tip.svg';
-import Countdown from '../../components/Countdown';
+
 import Screen from '../../components/Screen';
 import InOutMarkDialog from './InOutMarkDialog';
 
@@ -33,10 +34,13 @@ const LegalPay = () => {
       query: {
         enabled: !!orderId,
       },
-    },
+    }
   );
 
-  const order = useMemo(() => getOrderDetail?.data?.order, [getOrderDetail?.data?.order]);
+  const order = useMemo(
+    () => getOrderDetail?.data?.order,
+    [getOrderDetail?.data?.order]
+  );
 
   const { data: toPayOrder } = useOtcToPayOrder(
     {
@@ -48,12 +52,12 @@ const LegalPay = () => {
       query: {
         enabled: !!(order?.orderId && showUserId && paymentId),
       },
-    },
+    }
   );
 
   const payResult = useMemo(
     () => toPayOrder?.data?.orderToPayResult,
-    [toPayOrder?.data?.orderToPayResult],
+    [toPayOrder?.data?.orderToPayResult]
   );
 
   const history = useHistory();
@@ -87,7 +91,7 @@ const LegalPay = () => {
               search: stringify({ orderId, nickName: payResult?.showUserName }),
             }}
           >
-            <SvgContactOther className=" w-5 h-5" />
+            <SvgContactOther className=" h-5 w-5" />
           </Link>
         </div>
       }
@@ -100,63 +104,84 @@ const LegalPay = () => {
               setAction('confirm', 'replaceIn');
             }}
           >
-            {intl.formatMessage({ defaultMessage: '我已付款成功', id: 'XWzDpA' })}
+            {intl.formatMessage({
+              defaultMessage: '我已付款成功',
+              id: 'XWzDpA',
+            })}
           </Button>
         </div>
       }
     >
-      <Container className="flex-1 flex flex-col  overflow-y-auto">
+      <Container className="flex flex-1 flex-col  overflow-y-auto">
         <div className="border-b py-4">
-          <div className="text-[#1A1717] text-center">
+          <div className="text-center text-[#1A1717]">
             {intl.formatMessage({ defaultMessage: '向賣家付款', id: 'sNmNjz' })}
           </div>
           <div className="flex items-center justify-center">
-            <span className="text-[#3D3A50] text-4xl font-bold">
+            <span className="text-4xl font-bold text-[#3D3A50]">
               {payResult?.currencySign ?? ''}
               {payResult?.tolPrice}
             </span>
-            <SvgCopy className="w-4 h-4 ml-2 mt-2" />
+            <SvgCopy className="ml-2 mt-2 h-4 w-4" />
           </div>
 
           <div className="mt-2 text-center">
             <span className="text-xs text-[#3D3A50]">
-              {intl.formatMessage({ defaultMessage: '付款時間剩餘', id: 'nIpnLv' })}
+              {intl.formatMessage({
+                defaultMessage: '付款時間剩餘',
+                id: 'nIpnLv',
+              })}
             </span>
-            <span className="text-[#6175AE] ml-1">
+            <span className="ml-1 text-[#6175AE]">
               <Countdown
-                time={payResult?.paySecondTime}
-                onFinish={() => {
-                  Toast.show(intl.formatMessage({ defaultMessage: '訂單已經超時', id: '9x6bNN' }));
+                date={Date.now() + Number(payResult?.paySecondTime || 0) * 1000}
+                renderer={({ days, hours, minutes, seconds }) => {
+                  return (
+                    <span>
+                      {[days, hours, minutes, seconds]
+                        .filter(Boolean)
+                        .map(zeroPad)
+                        .join(':')}
+                    </span>
+                  );
+                }}
+                onComplete={() => {
+                  Toast.show(
+                    intl.formatMessage({
+                      defaultMessage: '訂單已經超時',
+                      id: '9x6bNN',
+                    })
+                  );
                 }}
               />
             </span>
           </div>
 
-          <div className="text-center flex items-center justify-center mt-2">
-            <span className="text-[#3D3A50] text-xs rounded-xl bg-[#f1f3ff] px-4 h-6 flex items-center justify-center">
+          <div className="mt-2 flex items-center justify-center text-center">
+            <span className="flex h-6 items-center justify-center rounded-xl bg-[#f1f3ff] px-4 text-xs text-[#3D3A50]">
               {payResult?.payTip}
             </span>
           </div>
         </div>
 
-        <a className="py-4 px-8 border-b">
+        <a className="border-b px-8 py-4">
           <div className="flex items-center">
             <img
               alt=""
               src={payResult?.showUserLogo ?? ''}
-              className="w-6 h-6 rounded-full overflow-hidden"
+              className="h-6 w-6 overflow-hidden rounded-full"
             />
-            <span className="flex-1 font-bold text-[#1A1717] ml-2 mr-4">
+            <span className="ml-2 mr-4 flex-1 font-bold text-[#1A1717]">
               {payResult?.showUserName}
             </span>
             <Arrow />
           </div>
 
-          <div className="mt-4 flex text-[#9A9A9A] flex-wrap ">
+          <div className="mt-4 flex flex-wrap text-[#9A9A9A] ">
             {payResult?.showUserTip?.split('，').map((v, i) => (
-              <div className="flex items-center mr-2 mb-2" key={i}>
-                <SvgOtcShowUserTip className="w-4 h-4" />
-                <span className="text-xs ml-1">{v}</span>
+              <div className="mb-2 mr-2 flex items-center" key={i}>
+                <SvgOtcShowUserTip className="h-4 w-4" />
+                <span className="ml-1 text-xs">{v}</span>
               </div>
             ))}
           </div>
@@ -164,40 +189,48 @@ const LegalPay = () => {
 
         <List>
           <List.Item
-            title={intl.formatMessage({ defaultMessage: '買家姓名', id: '1y6X+M' })}
+            title={intl.formatMessage({
+              defaultMessage: '買家姓名',
+              id: '1y6X+M',
+            })}
             extra={
               <div className="flex items-center">
                 {payResult?.showRealName}
-                <SvgCopy className="w-4 h-4 ml-1" />
+                <SvgCopy className="ml-1 h-4 w-4" />
               </div>
             }
           />
           <List.Item
             title={intl.formatMessage(
               { defaultMessage: '{receiptTypeValue}號', id: 'HEzFXJ' },
-              { receiptTypeValue: payResult?.receiptTypeValue },
+              { receiptTypeValue: payResult?.receiptTypeValue }
             )}
             extra={
               <div className="flex items-center">
                 {payResult?.receiptNo}
-                <SvgCopy className="w-4 h-4 ml-1" />
+                <SvgCopy className="ml-1 h-4 w-4" />
               </div>
             }
           />
           <List.Item
-            title={intl.formatMessage({ defaultMessage: '開戶銀行', id: 'Telt8H' })}
+            title={intl.formatMessage({
+              defaultMessage: '開戶銀行',
+              id: 'Telt8H',
+            })}
             extra={
               <div className="flex items-center">
                 {payResult?.bankName}
-                <SvgCopy className="w-4 h-4 ml-1" />
+                <SvgCopy className="ml-1 h-4 w-4" />
               </div>
             }
           />
         </List>
 
-        <div className=" my-12 mx-5 px-5 py-2 border border-[#6175AE] border-dashed rounded-md flex items-center bg-[#fef7ef]">
+        <div className=" mx-5 my-12 flex items-center rounded-md border border-dashed border-[#6175AE] bg-[#fef7ef] px-5 py-2">
           <SvgOtcMark className="h-4 w-4" />
-          <span className="text-xs pl-2 text-[#6175AE]">{payResult?.alertTip}</span>
+          <span className="pl-2 text-xs text-[#6175AE]">
+            {payResult?.alertTip}
+          </span>
         </div>
       </Container>
 
