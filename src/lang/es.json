@@ -9,10 +9,10 @@
     "string": "Por favor ingrese un número"
   },
   "3Bnag5": {
-    "string": "Vendible: {cantidad}{símbolo}"
+    "string": "Vendible: {amount}{symbol}"
   },
   "YtQA/s": {
-    "string": "Disponible: {cantidad}{símbolo}"
+    "string": "Disponible: {amount}{symbol}"
   },
   "/LMNJ8": {
     "string": "Por favor ingrese la contraseña nuevamente"

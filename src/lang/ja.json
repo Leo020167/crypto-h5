@@ -9,10 +9,10 @@
     "string": "数値を入力してください"
   },
   "3Bnag5": {
-    "string": "販売可能: {金額}{シンボル}"
+    "string": "販売可能: {amount}{symbol}"
   },
   "YtQA/s": {
-    "string": "利用可能: {金額}{シンボル}"
+    "string": "利用可能: {amount}{symbol}"
   },
   "/LMNJ8": {
     "string": "パスワードを再度入力してください。"
