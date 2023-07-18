@@ -225,7 +225,7 @@ const SelectorSwitchSell = styled.div<{ isSelected?: boolean }>`
 
 const Container = styled.div`
   .content {
-    height: calc(100vh - 58px);
+    height: calc(100vh - 84px);
   }
 `;
 
