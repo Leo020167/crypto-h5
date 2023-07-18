@@ -79,7 +79,7 @@ const My = () => {
 
       <List className="mb-2">
         <List.Item
-          prefix={<img alt="" src={ic_home_mine_stock} className="h-8 w-8" />}
+          prefix={<img alt="" src={ic_home_mine_stock} className="h-6 w-6" />}
           arrow={<Arrow />}
           onClick={() => {
             history.push('/transaction-records');
@@ -91,7 +91,7 @@ const My = () => {
 
       <List className="mb-2">
         <List.Item
-          prefix={<img alt="" src={ic_home_mine_notice} className="h-8 w-8" />}
+          prefix={<img alt="" src={ic_home_mine_notice} className="h-6 w-6" />}
           arrow={<Arrow />}
           onClick={() => {
             history.push('/notifications');
@@ -101,7 +101,7 @@ const My = () => {
         </List.Item>
 
         <List.Item
-          prefix={<img alt="" src={ic_home_mine_help} className="h-8 w-8" />}
+          prefix={<img alt="" src={ic_home_mine_help} className="h-6 w-6" />}
           arrow={<Arrow />}
           onClick={() => {
             history.push('/help-center');
@@ -113,7 +113,7 @@ const My = () => {
 
       <List>
         <List.Item
-          prefix={<img alt="" src={ic_home_mine_kefu} className="h-8 w-8" />}
+          prefix={<img alt="" src={ic_home_mine_kefu} className="h-6 w-6" />}
           arrow={<Arrow />}
           onClick={() => {
             // history.push('/chat');
@@ -124,7 +124,7 @@ const My = () => {
         </List.Item>
 
         <List.Item
-          prefix={<img alt="" src={ic_home_mine_setting} className="h-8 w-8" />}
+          prefix={<img alt="" src={ic_home_mine_setting} className="h-6 w-6" />}
           arrow={<Arrow />}
           onClick={() => {
             history.push('/settings');
@@ -134,7 +134,7 @@ const My = () => {
         </List.Item>
 
         <List.Item
-          prefix={<img alt="" src={ic_home_mine_shiming} className="h-8 w-8" />}
+          prefix={<img alt="" src={ic_home_mine_shiming} className="h-6 w-6" />}
           arrow={<Arrow />}
           onClick={() => {
             if (identityGet?.data?.identityAuth?.state === '1') {
@@ -148,7 +148,7 @@ const My = () => {
         </List.Item>
 
         <List.Item
-          prefix={<img alt="" src={ic_home_mine_youxiang} className="h-8 w-8" />}
+          prefix={<img alt="" src={ic_home_mine_youxiang} className="h-6 w-6" />}
           arrow={<Arrow />}
           onClick={() => {
             if (userInfo?.email) {
