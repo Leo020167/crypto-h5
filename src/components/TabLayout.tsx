@@ -73,7 +73,7 @@ export const TabLayout = ({ children }: TabLayoutProps) => {
             history.push(key);
           }
         }}
-        className="bg-white py-3"
+        className="bg-white py-2"
       >
         {tabs.map((item) => (
           <TabBar.Item
