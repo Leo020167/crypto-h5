@@ -1,6 +1,7 @@
 import { ErrorBlock, List, Switch } from 'antd-mobile';
 import { stringify } from 'query-string';
 import { useMemo, useState } from 'react';
+import { useIntl } from 'react-intl';
 import { useHistory } from 'react-router-dom';
 import { AccountInfo } from '../../api/model';
 import PositionItem from './PositionItem';
@@ -53,11 +54,15 @@ export const PositionList = ({ account }: PositionListProps) => {
     );
   }, [history, openList]);
 
+  const intl = useIntl();
+
   return (
     <div className="bg-white">
       <div className="flex items-center px-4">
         <Switch checked={checked} onChange={setChecked} />
-        <div className="ml-2">隐藏小余额</div>
+        <div className="ml-2">
+          {intl.formatMessage({ defaultMessage: '隐藏小余额', id: 'P9HpjQ' })}
+        </div>
       </div>
       {content}
     </div>

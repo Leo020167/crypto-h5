@@ -1,0 +1,2120 @@
+{
+  "uoCZsI": {
+    "string": "《{name} Thỏa thuận người dùng"
+  },
+  "rv44i+": {
+    "string": "《{name}Chính sách bảo mật》"
+  },
+  "UnMDmI": {
+    "string": "Vui lòng nhập số"
+  },
+  "3Bnag5": {
+    "string": "Có thể bán được: {amount}{symbol}"
+  },
+  "YtQA/s": {
+    "string": "Có sẵn: {amount}{symbol}"
+  },
+  "/LMNJ8": {
+    "string": "Vui lòng nhập lại mật khẩu"
+  },
+  "ADKS8l": {
+    "string": "Mật khẩu nhập hai lần là khác nhau"
+  },
+  "P6HN+m": {
+    "string": "Mật khẩu phải là sự kết hợp của 8–16 chữ số và chữ cái"
+  },
+  "KQcUcI": {
+    "string": "Ảnh ở mặt sau của chứng chỉ"
+  },
+  "PNGaFx": {
+    "string": "Ảnh mặt trước chứng chỉ"
+  },
+  "WKKdIS": {
+    "string": "Chứng nhận giữ ảnh"
+  },
+  "PmeCYZ": {
+    "string": "Vì sự an toàn cho tiền của bạn, vui lòng đặt [mật khẩu giao dịch] trước!"
+  },
+  "TlP8cy": {
+    "string": "Nhắc nhở"
+  },
+  "XOCqdS": {
+    "string": "Chưa xác thực"
+  },
+  "Ie9Vi3": {
+    "string": "Vui lòng nhập mã thư mời (bắt buộc)"
+  },
+  "X5/jXG": {
+    "string": "Mã thư mời không được để trống"
+  },
+  "+2zznO": {
+    "string": "Vui lòng nhập mã xác minh SMS"
+  },
+  "+4lD9e": {
+    "string": "Tên"
+  },
+  "+9Acwm": {
+    "string": "Tôi xác nhận đã nhận được thanh toán"
+  },
+  "+JdgDW": {
+    "string": "đang tiến hành"
+  },
+  "+PkU4R": {
+    "string": "Liên kết Email"
+  },
+  "+ZvENE": {
+    "string": "Số lượng (lô)"
+  },
+  "+eQ50+": {
+    "string": "Cài đặt"
+  },
+  "+prpsi": {
+    "string": "Số lượng đăng ký"
+  },
+  "+sZUWv": {
+    "string": "một tháng"
+  },
+  "+ulzus": {
+    "string": "Vui lòng tải lên ảnh quốc huy"
+  },
+  "/+9l+X": {
+    "string": "Nhắc nhở Khiếu nại"
+  },
+  "/4Nsnx": {
+    "string": "Cài đặt tần số làm mới trích dẫn"
+  },
+  "/7LMEm": {
+    "string": "Bạn có chắc chắn xóa không?"
+  },
+  "/AVS2G": {
+    "string": "Thư giãn thời gian"
+  },
+  "/EvoLI": {
+    "string": "Tôi đã đọc và đồng ý"
+  },
+  "/I+pby": {
+    "string": "Của tôi"
+  },
+  "/T0l4z": {
+    "string": "Lãi hàng ngày"
+  },
+  "/k9TmU": {
+    "string": "Lãi và Lỗ (USDT)"
+  },
+  "/nvKfb": {
+    "string": "Sau khi kháng cáo được đệ trình, tài sản sẽ bị đóng băng và ủy viên khiếu nại sẽ can thiệp vào giao dịch này cho đến khi kết thúc kháng cáo. Kháng cáo ác ý là hành vi làm gián đoạn hoạt động bình thường của nền tảng và nếu hoàn cảnh nghiêm trọng, tài khoản sẽ bị đóng băng."
+  },
+  "/slM7z": {
+    "string": "Thu nhập ước tính"
+  },
+  "0B0jPm": {
+    "string": "ngày"
+  },
+  "0UBtXx": {
+    "string": "Đơn đã gửi thành công"
+  },
+  "0asaCS": {
+    "string": "hình ảnh"
+  },
+  "0vuz1g": {
+    "string": "Thêm phương thức thanh toán mới"
+  },
+  "10mXat": {
+    "string": "Vui lòng nhập số lượng mua"
+  },
+  "12rup": {
+    "string": "đăng ký đầy đủ"
+  },
+  "161suA": {
+    "string": "Cam kết"
+  },
+  "1cJMw5": {
+    "string": "để ràng buộc"
+  },
+  "1sn0tp": {
+    "string": "Thẻ ngân hàng"
+  },
+  "1y6X+M": {
+    "string": "Tên người mua"
+  },
+  "2+1H1y": {
+    "string": "Đăng ký người dùng này?"
+  },
+  "20MJBj": {
+    "string": "TFU"
+  },
+  "297aFF": {
+    "string": "Tỷ lệ ký quỹ"
+  },
+  "2FTlRq": {
+    "string": "Alipay"
+  },
+  "2QzYmY": {
+    "string": "Hủy bỏ"
+  },
+  "2S6+KD": {
+    "string": "Số tiền tối thiểu"
+  },
+  "2Y1clI": {
+    "string": "Thay đổi số điện thoại"
+  },
+  "2a4k+m": {
+    "string": "Đã tải hết"
+  },
+  "2cS2Q3": {
+    "string": "Mật khẩu phải là sự kết hợp của 8-16 ký tự và chữ cái"
+  },
+  "2fmtw4": {
+    "string": "Vui lòng nhập địa chỉ"
+  },
+  "2lQGkw": {
+    "string": "Dịch vụ khách hàng"
+  },
+  "2yjenl": {
+    "string": "Vui lòng nhập giá chốt lời"
+  },
+  "3Ced22": {
+    "string": "Tên người bán"
+  },
+  "3Zwkix": {
+    "string": "Khu vực tùy chọn"
+  },
+  "3a7HVy": {
+    "string": "Mua hàng"
+  },
+  "3cuhJj": {
+    "string": "Đăng ký tài khoản"
+  },
+  "3gspHW": {
+    "string": "Số tiền đóng băng"
+  },
+  "3s7D9W": {
+    "string": "Số lượng mua"
+  },
+  "3tf3AE": {
+    "string": "Nếu bạn đã thanh toán cho người bán, vui lòng không hủy đơn hàng"
+  },
+  "3vyRBa": {
+    "string": "Vui lòng tải lên ảnh chụp màn hình nạp tiền trước"
+  },
+  "3yGSyj": {
+    "string": "Vui lòng nhập số tiền tối thiểu"
+  },
+  "42JqYW": {
+    "string": "thời gian đặt hàng"
+  },
+  "42lMqW": {
+    "string": "Thêm thẻ ngân hàng"
+  },
+  "42lXMM": {
+    "string": "Rút tiền"
+  },
+  "45GFMc": {
+    "string": "Vui lòng nhập số tiền nạp"
+  },
+  "4FDcHK": {
+    "string": "Nhập mã xác nhận"
+  },
+  "4NqD9g": {
+    "string": "Thành công"
+  },
+  "4Oh5kb": {
+    "string": "Thu nhập giao dịch"
+  },
+  "4Qsef4": {
+    "string": "Giải thích: Số lượng người theo dõi các bậc thầy trong 30 ngày qua. Giá trị càng lớn, càng nhiều người theo dõi và mức độ phổ biến càng cao."
+  },
+  "4V3iak": {
+    "string": "Đóng chi tiết vị trí"
+  },
+  "4ivSMB": {
+    "string": "Tổng tài sản (TFU)"
+  },
+  "56o47p": {
+    "string": "Mã xác nhận email"
+  },
+  "5FboZ/": {
+    "string": "Loại"
+  },
+  "5UBWei": {
+    "string": "Số tiền giao dịch ({currencySign})"
+  },
+  "5kTIPB": {
+    "string": "Thấp"
+  },
+  "5nalmK": {
+    "string": "Giá cắt lỗ"
+  },
+  "5qldgM": {
+    "string": "Chọn phía đối diện"
+  },
+  "5zfR27": {
+    "string": "Bán"
+  },
+  "63r2yf": {
+    "string": "Vui lòng nhập mật khẩu"
+  },
+  "64eliW": {
+    "string": "Quảng cáo của tôi"
+  },
+  "65CX2o": {
+    "string": "Hình đại diện"
+  },
+  "672nEV": {
+    "string": "Thành công"
+  },
+  "6Dthl9": {
+    "string": "Năng suất sao chép"
+  },
+  "6EjbHU": {
+    "string": "Chi tiết"
+  },
+  "6ExJHy": {
+    "string": "Hợp đồng"
+  },
+  "6T3Qx4": {
+    "string": "Liên kết hiện tại:"
+  },
+  "6Y0p2/": {
+    "string": "Bước tiếp theo"
+  },
+  "6jT3zt": {
+    "string": "Bạn có chắc chắn muốn đăng xuất?"
+  },
+  "6w/mMH": {
+    "string": "Đỏ lên và xanh xuống"
+  },
+  "6zlqMT": {
+    "string": "Đặt mật khẩu mới (8-16 ký tự, chữ cái)"
+  },
+  "7AsBpi": {
+    "string": "Lãi lỗ chưa thực hiện (USDT)"
+  },
+  "7C3q18": {
+    "string": "Có sẵn"
+  },
+  "7IlbnR": {
+    "string": "Đơn xin hủy xác thực người bán"
+  },
+  "7KOsNC": {
+    "string": "Giới thiệu về chúng tôi"
+  },
+  "7Km8jt": {
+    "string": "Vui lòng viết những gì bạn muốn nói với người bán/người mua! (Giới hạn 140 ký tự)"
+  },
+  "7WxsZY": {
+    "string": "Quy tắc hủy: Nếu người mua hủy tích lũy 4 lần trong ngày, chức năng mua trong ngày sẽ bị hạn chế."
+  },
+  "7iWsp4": {
+    "string": "Tỷ lệ rủi ro"
+  },
+  "7oGHtt": {
+    "string": "Vui lòng chọn phương thức thanh toán"
+  },
+  "7rLwaw": {
+    "string": "Địa chỉ rút tiền của tôi"
+  },
+  "7xCHrU": {
+    "string": "Tổng lãi lỗ (USDT)"
+  },
+  "84nlVd": {
+    "string": "Vui lòng nhập số nguyên dương"
+  },
+  "8Jc445": {
+    "string": "Bạn có chắc chắn muốn lấy nó ra khỏi kệ không?"
+  },
+  "8OyLEv": {
+    "string": "Giá mở lãi"
+  },
+  "8Pdrch": {
+    "string": "Chọn mạng gửi tiền"
+  },
+  "8TceES": {
+    "string": "Hệ thống sẽ lọc sản phẩm chứa số tiền mục tiêu cho bạn"
+  },
+  "8p3RD/": {
+    "string": "Tìm nạp lại"
+  },
+  "9+4/A7": {
+    "string": "Chia sẻ lợi nhuận:"
+  },
+  "91IYT/": {
+    "string": "Số vị trí mở {openHand}"
+  },
+  "91nAu+": {
+    "string": "Số tiền rút không đủ"
+  },
+  "92MTUG": {
+    "string": "Số tài liệu"
+  },
+  "958kN+": {
+    "string": "mật khẩu đăng nhập"
+  },
+  "98NP8A": {
+    "string": "Tài khoản chưa được xác minh"
+  },
+  "9DlDCO": {
+    "string": "Hãy nhập số lượng bán"
+  },
+  "9ErIMe": {
+    "string": "Vui lòng nhập loại tiền tệ"
+  },
+  "9UZxwP": {
+    "string": "Vui lòng nhập mã xác nhận"
+  },
+  "9V7qTC": {
+    "string": "Gửi"
+  },
+  "9piGP6": {
+    "string": "Tên mở tài khoản"
+  },
+  "9wuU2o": {
+    "string": "Bản ghi đại biểu"
+  },
+  "9x6bNN": {
+    "string": "Đơn đặt hàng đã hết hạn"
+  },
+  "A20Ity": {
+    "string": "Đăng ký có nghĩa là bạn đã đồng ý và chấp nhận"
+  },
+  "A2jxOW": {
+    "string": "Cộng đồng của tôi"
+  },
+  "A3Awd7": {
+    "string": "Nhắc nhở rủi ro"
+  },
+  "A53KYY": {
+    "string": "Vui lòng kiểm tra kỹ thông tin địa chỉ rút tiền trước khi xác nhận để tránh mất mát tài sản không đáng có."
+  },
+  "A7hKV4": {
+    "string": "Số tiền giao dịch"
+  },
+  "A8sxJT": {
+    "string": "Đã đăng ký"
+  },
+  "AC5dLK": {
+    "string": "Số tiền nạp"
+  },
+  "ASHrJh": {
+    "string": "Thêm quảng cáo"
+  },
+  "AlC2M4": {
+    "string": "Tỷ lệ thắng sao chép"
+  },
+  "Au/GQB": {
+    "string": "Vui lòng nhập ngân hàng tài khoản"
+  },
+  "B+KT/l": {
+    "string": "Số điện thoại di động không được để trống"
+  },
+  "B+YBvr": {
+    "string": "đăng xuất"
+  },
+  "B+wVLW": {
+    "string": "(Giao dịch theo giá thị trường hiện tại)"
+  },
+  "B6j8h5": {
+    "string": "Lựa chọn loại"
+  },
+  "BHh721": {
+    "string": "Trạng thái:"
+  },
+  "BO7t+j": {
+    "string": "Đi tới tên thật"
+  },
+  "BRtAE8": {
+    "string": "Trung tâm trợ giúp"
+  },
+  "BSPQ7h": {
+    "string": "Tối đa"
+  },
+  "BXndbT": {
+    "string": "Lưu cài đặt ngôn ngữ"
+  },
+  "BbSb0z": {
+    "string": "Sửa đổi"
+  },
+  "Be30m1": {
+    "string": "Nhận xét"
+  },
+  "Bj/Nếuv": {
+    "string": "Bán USDT"
+  },
+  "Bp4Dlk": {
+    "string": "Vui lòng nhập bội số"
+  },
+  "Brhkdh": {
+    "string": "Dán"
+  },
+  "BsrEsf": {
+    "string": "Số người trong cộng đồng:"
+  },
+  "BxvrdK": {
+    "string": "Bạn có chắc muốn xóa địa chỉ này không?"
+  },
+  "Bzq9W2": {
+    "string": "Vui lòng nhập mã xác minh"
+  },
+  "C8HXvQ": {
+    "string": "Mã xác minh SMS"
+  },
+  "C8ZFaR": {
+    "string": "bộ lọc"
+  },
+  "CBgsGP": {
+    "string": "Hâm nóng"
+  },
+  "CKdped": {
+    "string": "Đại biểu"
+  },
+  "CTWCcu": {
+    "string": "Mua tất cả"
+  },
+  "CbGK63": {
+    "string": "Giá mua cao nhất hiện tại"
+  },
+  "ChK/7j": {
+    "string": "đến"
+  },
+  "ClVjxw": {
+    "string": "Giá vị thế mở"
+  },
+  "CuGKWh": {
+    "string": "Vui lòng nhập số lượng"
+  },
+  "DNlbBz": {
+    "string": "Email hoặc Di động"
+  },
+  "DQq3pD": {
+    "string": "Điều kiện tham gia dự án"
+  },
+  "DRC113": {
+    "string": "{symbol} giá hiện tại"
+  },
+  "DSV3lz": {
+    "string": "Số thứ tự"
+  },
+  "DobpJi": {
+    "string": "Thông báo hệ thống"
+  },
+  "DpnauN": {
+    "string": "thời gian"
+  },
+  "Dq6c3S": {
+    "string": "Chọn phía trước"
+  },
+  "DsGgac": {
+    "string": "Danh sách thả"
+  },
+  "Du+HBZ": {
+    "string": "Bạn đã vượt qua xác thực tên thật"
+  },
+  "Dw4KtW": {
+    "string": "Sao chép"
+  },
+  "E5sgW+": {
+    "string": "mục tiêu có thể giao dịch"
+  },
+  "E7wFmB": {
+    "string": "Cài đặt tần số làm mới"
+  },
+  "EMjkQg": {
+    "string": "Vui lòng nhập số điện thoại của bạn"
+  },
+  "EN7oPQ": {
+    "string": "Giá đặt hàng"
+  },
+  "ENPGS/": {
+    "string": "Gửi"
+  },
+  "EOWvn9": {
+    "string": "Bán"
+  },
+  "ETWocP": {
+    "string": "Số mã mời:"
+  },
+  "EVLNlH": {
+    "string": "Vui lòng nhập số tiền cam kết"
+  },
+  "EXoXnp": {
+    "string": "Tổng kích thước lô"
+  },
+  "EYBWHx": {
+    "string": "Giá tốt nhất"
+  },
+  "EZtA6l": {
+    "string": "Vui lòng chọn địa chỉ rút tiền"
+  },
+  "FLp81s": {
+    "string": "Đăng ký"
+  },
+  "FXys9B": {
+    "string": "Nhập mật khẩu cũ"
+  },
+  "FqoFLn": {
+    "string": "Giá xấp xỉ"
+  },
+  "G0ISee": {
+    "string": "Chỉ số phổ biến"
+  },
+  "G5BgHI": {
+    "string": "Ràng buộc ứng dụng"
+  },
+  "GBuUew": {
+    "string": "Đã sao chép vào khay nhớ tạm"
+  },
+  "GDglvI": {
+    "string": "Số tiền cam kết tối thiểu"
+  },
+  "GFzduc": {
+    "string": "Thông báo khiếu nại (tùy chọn)"
+  },
+  "GKRXXt": {
+    "string": "Nhận FireCoin"
+  },
+  "ĐI/P/E": {
+    "string": "Thêm địa chỉ rút tiền"
+  },
+  "GSpULh": {
+    "string": "Tổng tiền lãi (USDT)"
+  },
+  "GVXj0E": {
+    "string": "Thoát thành công"
+  },
+  "Gx5Krn": {
+    "string": "Xác nhận nạp tiền"
+  },
+  "H+7dPx": {
+    "string": "Giải thích: Tỷ lệ lợi nhuận trung bình trên mỗi giao dịch của người dùng theo chủ trong 30 ngày qua. Giá trị càng lớn thì lợi nhuận của người dùng theo chủ càng cao."
+  },
+  "H0Cdjg": {
+    "string": "Tìm nhà hoặc khu vực"
+  },
+  "H4vld2": {
+    "string": "Mở ký quỹ"
+  },
+  "HBqJuk": {
+    "string": "Tên thực"
+  },
+  "HCvPwM": {
+    "string": "Vui lòng nhập số lượng"
+  },
+  "HDx5DM": {
+    "string": "Bản ghi giao dịch chỉ số tương lai toàn cầu"
+  },
+  "HezFXJ": {
+    "string": "{receiptTypeValue}Số"
+  },
+  "HMxoED": {
+    "string": "trong vòng một năm"
+  },
+  "HaILNu": {
+    "string": "Cửa hàng"
+  },
+  "HbPiga": {
+    "string": "Đã xóa"
+  },
+  "HcSaEz": {
+    "string": "Email hiện tại của bạn là {email}, bạn có muốn cập nhật lên không?"
+  },
+  "HeL/t7": {
+    "string": "Mua USDT"
+  },
+  "HmiIeC": {
+    "string": "Bạn có chắc nó ở trên kệ không?"
+  },
+  "HpbXNh": {
+    "string": "Trợ cấp mất mát:"
+  },
+  "Hv1Nr8": {
+    "string": "trích dẫn"
+  },
+  "I/5B/d": {
+    "string": "Đăng ký tiền Singapore"
+  },
+  "IFXGBR": {
+    "string": "Vui lòng xác minh người bán trước"
+  },
+  "IRtvek": {
+    "string": "Kết thúc"
+  },
+  "IbtpXH": {
+    "string": "Tổng tài sản (USDT)"
+  },
+  "IoCgCq": {
+    "string": "tổng tài sản"
+  },
+  "IudShd": {
+    "string": "chưa bắt đầu"
+  },
+  "J1sdOC": {
+    "string": "Thời gian kết thúc đặt cược"
+  },
+  "J5FSqv": {
+    "string": "Đăng ký miễn phí"
+  },
+  "JI87J/": {
+    "string": "Mua tiền pháp định"
+  },
+  "JVHhgb": {
+    "string": "Thỏa thuận người dùng Financingy"
+  },
+  "JYhyDW": {
+    "string": "Đăng ký trong {days} ngày"
+  },
+  "Jgy7GK": {
+    "string": "Mã xác minh đã được gửi tới, {email}"
+  },
+  "JuFr3z": {
+    "string": "Giá bán"
+  },
+  "K9M/Ln": {
+    "string": "Loại"
+  },
+  "K9kVz9": {
+    "string": "Giao dịch chỉ có thể được thực hiện nếu tài sản được chuyển vào tài khoản tương ứng. Không có phí xử lý khi chuyển giữa các tài khoản"
+  },
+  "KAHC21": {
+    "string": "đi thanh toán"
+  },
+  "KBVp8X": {
+    "string": "Vui lòng nhập số điện thoại của bạn"
+  },
+  "KC9/eD": {
+    "string": "Tài sản khả dụng"
+  },
+  "KCC04w": {
+    "string": "Nhập Số lượng"
+  },
+  "KCMRBl": {
+    "string": "Bạn có muốn đóng {openHand} với giá thị trường hiện tại không?"
+  },
+  "KF8CBJ": {
+    "string": "Tôi sẽ suy nghĩ lại"
+  },
+  "KLriKo": {
+    "string": "Đã đóng"
+  },
+  "KNgmr/": {
+    "string": "Số vị trí mở"
+  },
+  "KshKCt": {
+    "string": "Vẫn còn thời gian trước khi bắt đầu vòng mua này"
+  },
+  "KuONpk": {
+    "string": "Vui lòng nhập số tiền rút"
+  },
+  "KyHiY3": {
+    "string": "Ký quỹ Vị thế"
+  },
+  "KyuHZw": {
+    "string": "Vị thế mở hiện tại"
+  },
+  "KzQKst": {
+    "string": "Tài liệu nhiều cài đặt"
+  },
+  "L2Dpi5": {
+    "string": "Tài khoản tương lai toàn cầu"
+  },
+  "LC8/+u": {
+    "string": "Vui lòng nhận SMS xác minh"
+  },
+  "LEah6f": {
+    "string": "Tôi muốn bán"
+  },
+  "LJ33pi": {
+    "string": "Cộng đồng"
+  },
+  "LLn6Tg": {
+    "string": "Vui lòng nhập giới hạn tối đa"
+  },
+  "LOwS8B": {
+    "string": "Tên chưa thực hiện"
+  },
+  "LRqmws": {
+    "string": "Số tiền chuyển"
+  },
+  "LTp8Pi": {
+    "string": "Cập nhật thông tin thành công"
+  },
+  "LZqmso": {
+    "string": "Thời gian hết hạn"
+  },
+  "LaFd5t": {
+    "string": "Tài Khoản Ngân Hàng"
+  },
+  "Lj6xLm": {
+    "string": "Thay đổi một"
+  },
+  "Ls3qou": {
+    "string": "Tổ chức huy chương vàng"
+  },
+  "MG99Vk": {
+    "string": "Bản ghi giao dịch hợp đồng"
+  },
+  "MGGEAi": {
+    "string": "Vui lòng nhập số thẻ ngân hàng"
+  },
+  "MN40Dh": {
+    "string": "Số tài liệu"
+  },
+  "MPJViy": {
+    "string": "Vui lòng nhập lại mật khẩu"
+  },
+  "MQKv1T": {
+    "string": "Tổng Phần Thưởng Cộng Đồng (TFU)"
+  },
+  "MTyrlB": {
+    "string": "Mật khẩu phải là sự kết hợp của 8-16 ký tự và chữ cái"
+  },
+  "MXqXyk": {
+    "string": "Vui lòng nhập số ID"
+  },
+  "MYqUqI": {
+    "string": "Gửi mã xác nhận"
+  },
+  "Ma2fRl": {
+    "string": "Thời gian bắt đầu đặt cược"
+  },
+  "MeeLjX": {
+    "string": "Mua đóng băng ({a}-{b})"
+  },
+  "Mj7nsK": {
+    "string": "Đại biểu hiện tại"
+  },
+  "MmsEyp": {
+    "string": "Đăng ký"
+  },
+  "MxAApV": {
+    "string": "Tôi đã đăng ký"
+  },
+  "NH0fE1": {
+    "string": "Danh sách xếp hạng đại lý huy chương vàng"
+  },
+  "NL+iC": {
+    "string": "trạng thái"
+  },
+  "NNH82R": {
+    "string": "Hủy đơn hàng"
+  },
+  "NQroRs": {
+    "string": "Lệnh thị trường"
+  },
+  "NUeill": {
+    "string": "Địa chỉ rút tiền"
+  },
+  "NZTO6Y": {
+    "string": "Vui lòng nhập địa chỉ email của bạn"
+  },
+  "NdxUVx": {
+    "string": "Xem cách lấy TFU"
+  },
+  "NlcysC": {
+    "string": "Vui lòng nhập địa chỉ email của bạn"
+  },
+  "Nlt2yU": {
+    "string": "lần"
+  },
+  "NxOp7s": {
+    "string": "0 phí giao dịch mua hàng"
+  },
+  "O1q1uh": {
+    "string": "Đổi mã mời"
+  },
+  "O3bb/6": {
+    "string": "chế độ"
+  },
+  "O3jk1+": {
+    "string": "Xác thực người bán"
+  },
+  "O4KgNk": {
+    "string": "giới tính"
+  },
+  "OTiy6F": {
+    "string": "Quản lý địa chỉ rút tiền"
+  },
+  "Otg9/k": {
+    "string": "Thời gian kết thúc"
+  },
+  "OxlDIl": {
+    "string": "Cài đặt màu lên và xuống"
+  },
+  "P+t8ta": {
+    "string": "Chuyển đổi (USDT)"
+  },
+  "P8YUAQ": {
+    "string": "Sao chép phổ biến"
+  },
+  "PA9DRl": {
+    "string": "Tham gia đặt cược"
+  },
+  "PHMSxi": {
+    "string": "thứ tự"
+  },
+  "PUWCuy": {
+    "string": "Thời gian mua hàng"
+  },
+  "PYgwg0": {
+    "string": "Tin nhắn không được vượt quá 300 ký tự"
+  },
+  "Pcqs8N": {
+    "string": "Mô tả mua hàng"
+  },
+  "Pg99aL": {
+    "string": "OK để xóa"
+  },
+  "Q4foHv": {
+    "string": "Địa chỉ tiền gửi"
+  },
+  "Q9qgiz": {
+    "string": "intl"
+  },
+  "QInuMW": {
+    "string": "Thêm loại tài khoản"
+  },
+  "QKyNXd": {
+    "string": "Giá mua"
+  },
+  "QLilYb": {
+    "string": "Chuyển khoản"
+  },
+  "QQdpxX": {
+    "string": "Ký quỹ được sử dụng để đăng quảng cáo mua hoặc bán USDT và thông tin xác thực đã gửi sẽ bị đóng băng khỏi số dư tài sản trong thời gian thực."
+  },
+  "QWavza": {
+    "string": "Hết hạn:"
+  },
+  "Qg/P8m": {
+    "string": "thanh toán thực tế"
+  },
+  "Qka2kz": {
+    "string": "Tên người bán"
+  },
+  "Qyvn9e": {
+    "string": "Vui lòng nhập mật khẩu giao dịch"
+  },
+  "R0bpcH": {
+    "string": "Bạn chưa đăng quảng cáo~"
+  },
+  "R3Xfcn": {
+    "string": "Lãi suất cầm cố"
+  },
+  "R4Ww2H": {
+    "string": "Tài khoản"
+  },
+  "RDdf7n": {
+    "string": "Giải thích: Xác suất theo chủ để kiếm lợi nhuận. Giá trị càng lớn, khả năng kiếm lợi nhuận từ việc sao chép càng cao."
+  },
+  "RGKUXx": {
+    "string": "Vui lòng nhập số tiền trao đổi"
+  },
+  "RHvMTR": {
+    "string": "Vốn hóa thị trường(USDT)"
+  },
+  "RXCFfg": {
+    "string": "Bản ghi giao dịch tiền xu"
+  },
+  "RXYW6s": {
+    "string": "Vui lòng nhập số lượng bán"
+  },
+  "ReRVZ/": {
+    "string": "không ràng buộc"
+  },
+  "RtJnaj": {
+    "string": "Vui lòng nhập tên"
+  },
+  "RwgA6k": {
+    "string": "Hợp đồng tương lai toàn cầu"
+  },
+  "Rx1AtW": {
+    "string": "Đóng băng(USDT)"
+  },
+  "S/yKCZ": {
+    "string": "Số lượng bán"
+  },
+  "S7E2WU": {
+    "string": "Hãy đảm bảo sử dụng cùng một tài khoản tên thật với số điện thoại di động đã đăng ký của bạn"
+  },
+  "ST/9QH": {
+    "string": "Khu vực phím tắt"
+  },
+  "SaqkUp": {
+    "string": "tiền định giá"
+  },
+  "Sj3tff": {
+    "string": "Vòng này đã được mua"
+  },
+  "Snhxet": {
+    "string": "Không thể chuyển giữa các tài khoản giống nhau"
+  },
+  "Snj6vy": {
+    "string": "Hệ số cao nhất:"
+  },
+  "StIa2l": {
+    "string": "Giới thiệu:"
+  },
+  "Sz8zFH": {
+    "string": "Giải thích: Tỷ suất sinh lời trung bình của mỗi giao dịch trong 30 ngày qua của các chuyên gia cấp cao. Giá trị càng lớn thì khả năng sinh lời cá nhân càng mạnh."
+  },
+  "T8RXyP": {
+    "string": "Giới thiệu dự án"
+  },
+  "TByK7F": {
+    "string": "Nhập số tiền chuyển"
+  },
+  "THckAT": {
+    "string": "Đăng ký đã hết hạn"
+  },
+  "TPc2/L": {
+    "string": "Tổng số tiền có thể mua trong vòng này"
+  },
+  "TT0rUo": {
+    "string": "Đặt Cắt lỗ Chốt lời"
+  },
+  "TZUB/k": {
+    "string": "Phương thức thanh toán"
+  },
+  "Telt8H": {
+    "string": "Tài Khoản Ngân Hàng"
+  },
+  "Tq9EwF": {
+    "string": "Tên người mua"
+  },
+  "TsbBR+": {
+    "string": "Khu vực thí điểm đổi mới"
+  },
+  "Tw8y2o": {
+    "string": "Vui lòng nhập kích thước lot"
+  },
+  "U99CrO": {
+    "string": "Nhập thông tin xác thực"
+  },
+  "UA7E9h": {
+    "string": "Phương thức thanh toán"
+  },
+  "UBT8f1": {
+    "string": "Tài sản bị đóng băng chứng từ"
+  },
+  "UD6XMk": {
+    "string": "Chuyển khoản"
+  },
+  "UH1kCc": {
+    "string": "Thêm"
+  },
+  "UQ2ett": {
+    "string": "Thời gian phát hành IPO"
+  },
+  "UT6tN2": {
+    "string": "tiền xu"
+  },
+  "UVGoM9": {
+    "string": "Thu nhập tháng trước (USDT)"
+  },
+  "UWUjVA": {
+    "string": "Mua và bán tiền pháp định"
+  },
+  "UX7lUm": {
+    "string": "Cơ Quan Tài Liệu"
+  },
+  "UXkrvR": {
+    "string": "OK để hủy lệnh"
+  },
+  "UXyFaa": {
+    "string": "phí xử lý"
+  },
+  "UZappM": {
+    "string": "Vui lòng nhập giá"
+  },
+  "Uamdul": {
+    "string": "Vui lòng nhập số điện thoại mới"
+  },
+  "UgHO9l": {
+    "string": "ba tháng"
+  },
+  "UkiaYk": {
+    "string": "Vui lòng nhập số CMND"
+  },
+  "UvWwpv": {
+    "string": "Xác thực tên thật thành công"
+  },
+  "Uw5tn0": {
+    "string": "Ngày chứng nhận"
+  },
+  "V1f0Zb": {
+    "string": "Chuyển tài khoản lựa chọn"
+  },
+  "V4Iau9": {
+    "string": "Bán hết"
+  },
+  "VEmd9D": {
+    "string": "thông báo hệ thống"
+  },
+  "VU6g7c": {
+    "string": "Vui lòng nhập mã mời (tùy chọn)"
+  },
+  "VXMi89": {
+    "string": "Giao dịch ở mức giá tốt nhất hiện tại"
+  },
+  "VYKM4q": {
+    "string": "tài khoản hợp đồng"
+  },
+  "VbE2gD": {
+    "string": "Xác nhận mật khẩu mới"
+  },
+  "VldACD": {
+    "string": "Đã xác thực bằng tên thật"
+  },
+  "VqH7F0": {
+    "string": "Thao tác đã hết thời gian chờ"
+  },
+  "Vt3fSC": {
+    "string": "nhiều"
+  },
+  "VvurtK": {
+    "string": "Bản ghi đơn hàng"
+  },
+  "W+d7SX": {
+    "string": "Thời gian mở vị thế"
+  },
+  "W6smHj": {
+    "string": "thời gian"
+  },
+  "WDcvta": {
+    "string": "Sao chép tài khoản"
+  },
+  "WKCB03": {
+    "string": "Số lượng có thể chuyển đổi:"
+  },
+  "WKYPpM": {
+    "string": "Lãi suất cầm cố"
+  },
+  "WLF2E0": {
+    "string": "Quản lý hóa đơn"
+  },
+  "WTYv3l": {
+    "string": "(giờ Hồng Kông)"
+  },
+  "Wmlj/H": {
+    "string": "Số lượng đăng ký"
+  },
+  "WrleG5": {
+    "string": "Thay đổi ngôn ngữ"
+  },
+  "Wrputc": {
+    "string": "Giải thích: Tổng số tiền lãi và lỗ của người dùng theo chủ trong 30 ngày qua."
+  },
+  "WyPuru": {
+    "string": "đơn giá"
+  },
+  "X/X8Ge": {
+    "string": "Số tiền ủy thác (USDT)"
+  },
+  "XJfx+x": {
+    "string": "Đăng ký hủy xác thực người bán"
+  },
+  "XNQjr/": {
+    "string": "Số lượng giao dịch"
+  },
+  "XR6wlA": {
+    "string": "Chính sách quyền riêng tư của Financingy"
+  },
+  "XWzDpA": {
+    "string": "Tôi đã thanh toán thành công"
+  },
+  "Xagh1G": {
+    "string": "Xóa"
+  },
+  "XddKO7": {
+    "string": "Ẩn 0 nội dung"
+  },
+  "Xj/GCF": {
+    "string": "Trạng thái xác thực"
+  },
+  "XkGx1k": {
+    "string": "tổng giá"
+  },
+  "Xr6MgR": {
+    "string": "Kéo hình để hoàn tất xác minh"
+  },
+  "Y+Wlw4": {
+    "string": "Vui lòng nhập mã xác minh email"
+  },
+  "Y2Ed0L": {
+    "string": "Vui lòng nhập số thẻ ngân hàng"
+  },
+  "YJwfmY": {
+    "string": "Phí mở cửa"
+  },
+  "YYra8Q": {
+    "string": "số lượng"
+  },
+  "YcfcO0": {
+    "string": "Mã xác minh SMS đã được gửi tới {phone}"
+  },
+  "YvriPY": {
+    "string": "Bản ghi"
+  },
+  "Yy75R8": {
+    "string": "Xác thực tên thật"
+  },
+  "ZH7DS8": {
+    "string": "Danh sách tăng"
+  },
+  "ZOabtQ": {
+    "string": "Ảnh chụp màn hình khiếu nại (tùy chọn)"
+  },
+  "ZP7om0": {
+    "string": "Vui lòng nhập số lot cần đóng"
+  },
+  "ZU9FqB": {
+    "string": "Tên"
+  },
+  "ZbI0hT": {
+    "string": "Xác nhận hủy đơn hàng"
+  },
+  "Zg9Cm+": {
+    "string": "Bạn không thể đăng ký chứng nhận người bán nếu không có tên thật"
+  },
+  "Zhkpb8": {
+    "string": "Chỉ cho phép nạp tiền"
+  },
+  "aD/9at": {
+    "string": "Số lượng (TFU)"
+  },
+  "aOp/5l": {
+    "string": "Bạn không thể đăng ký chứng nhận người bán mà không có tên thật của mình. Vui lòng gửi đơn đăng ký chứng nhận người bán sau khi xác thực tên thật."
+  },
+  "aaQVo1": {
+    "string": "Lợi nhuận(USDT)"
+  },
+  "ag8LxW": {
+    "string": "Chưa đặt"
+  },
+  "anbdi0": {
+    "string": "Mua chênh lệch"
+  },
+  "andeZs": {
+    "string": "Rút tiền"
+  },
+  "ans63b": {
+    "string": "Tài khoản chưa được xác minh"
+  },
+  "ap+l4f": {
+    "string": "Vui lòng nhập số lượng mua"
+  },
+  "b5Yvc8": {
+    "string": "Xác thực"
+  },
+  "b5l2vN": {
+    "string": "Lưu"
+  },
+  "b6Krbb": {
+    "string": "Bản ghi giao dịch"
+  },
+  "bBKCBS": {
+    "string": "Giới thiệu tiền tệ"
+  },
+  "bKoTT3": {
+    "string": "Vui lòng xác nhận rằng bạn đã thanh toán cho người bán"
+  },
+  "bOeVuL": {
+    "string": "Đăng nhập trong {days} ngày"
+  },
+  "bW0/mN": {
+    "string": "Vui lòng nhập giá"
+  },
+  "bi/Yk/": {
+    "string": "Sao chép số tiền lãi"
+  },
+  "bpymDW": {
+    "string": "Chọn loại giao dịch"
+  },
+  "brzlNv": {
+    "string": "Ký quỹ"
+  },
+  "bsSd3V": {
+    "string": "Trang chủ"
+  },
+  "bwIAbr": {
+    "string": "Chưa thêm tài khoản"
+  },
+  "bweeFF": {
+    "string": "Trung tâm xác thực tên thật"
+  },
+  "bwg6o7": {
+    "string": "Vui lòng nhập tên ngân hàng"
+  },
+  "c6kvxO": {
+    "string": "đã sử dụng"
+  },
+  "cBWJI5": {
+    "string": "Cuộc gọi (dài)"
+  },
+  "cQiVhL": {
+    "string": "Nhấp chuột ác ý sẽ trực tiếp đóng băng tài khoản"
+  },
+  "cbYoMn": {
+    "string": "Để đảm bảo an toàn cho tài khoản của bạn, vui lòng xác minh danh tính của bạn"
+  },
+  "cde9b7": {
+    "string": "Giá chốt lời"
+  },
+  "cjFoGi": {
+    "string": "tăng giá"
+  },
+  "cuM+vo": {
+    "string": "Loại không xác định"
+  },
+  "cx0QNu": {
+    "string": "Tôi muốn mua"
+  },
+  "dGBGbt": {
+    "string": "tất cả"
+  },
+  "dKX04w": {
+    "string": "Số dư tài khoản tổng tài sản (USDT)"
+  },
+  "ddZtfx": {
+    "string": "Vui lòng nhập tên"
+  },
+  "dfCJ6D": {
+    "string": "Vui lòng chỉnh sửa hồ sơ của bạn"
+  },
+  "dfT5lg": {
+    "string": "Đăng ký điện thoại di động"
+  },
+  "dhfg6B": {
+    "string": "Giá cắt lỗ"
+  },
+  "dqhJYx": {
+    "string": "Chưa có dữ liệu"
+  },
+  "eBTG87": {
+    "string": "Hết thời gian mua đợt này"
+  },
+  "eD3Ul5": {
+    "string": "Vui lòng tải ảnh chân dung lên"
+  },
+  "eHNb85": {
+    "string": "Giá bán thấp nhất hiện tại"
+  },
+  "eJ3fDL": {
+    "string": "(lỗi tham số: {checkMsg})"
+  },
+  "eMnHfD": {
+    "string": "Đăng ký email"
+  },
+  "eXPzpx": {
+    "string": "Mua hàng"
+  },
+  "ebj6E6": {
+    "string": "Ký quỹ khả dụng (USDT)"
+  },
+  "egvBG/": {
+    "string": "trạng thái vị trí"
+  },
+  "ehbGQt": {
+    "string": "Giá đặt hàng"
+  },
+  "ejs0A3": {
+    "string": "Vui lòng nhập số điện thoại của bạn"
+  },
+  "ep7sPi": {
+    "string": "Cài đặt cắt lỗ"
+  },
+  "etRUXu": {
+    "string": "Giá trị dao động nhỏ nhất"
+  },
+  "etzvPz": {
+    "string": "Tôi nghĩ"
+  },
+  "f2BEYr": {
+    "string": "Tôi xác nhận rằng khoản thanh toán chưa được thực hiện cho bên kia"
+  },
+  "fGSeaa": {
+    "string": "Chuyển khoản"
+  },
+  "fINI3k": {
+    "string": "Vui lòng chọn"
+  },
+  "fKknPq": {
+    "string": "Nữ"
+  },
+  "fLMjGv": {
+    "string": "Vui lòng nhập ghi chú"
+  },
+  "fftT6p": {
+    "string": "Khi bán USDT, hệ thống sẽ đóng băng phần tiền này từ tài khoản số dư"
+  },
+  "fu1KIo": {
+    "string": "Tiến trình"
+  },
+  "fzPv+C": {
+    "string": "Thu nhập tích lũy"
+  },
+  "g4FQPM": {
+    "string": "cỡ lô"
+  },
+  "g6V3he": {
+    "string": "WeChat"
+  },
+  "gA15gF": {
+    "string": "Thay đổi và Giảm"
+  },
+  "gVKoa9": {
+    "string": "Đóng băng sự đồng ý"
+  },
+  "ga4StX": {
+    "string": "Thông tin cơ bản"
+  },
+  "gsk33w": {
+    "string": "Đặt lại mật khẩu"
+  },
+  "gtC59I": {
+    "string": "Hồ sơ tài chính"
+  },
+  "guM4xe": {
+    "string": "TFU tiêu thụ tối đa:"
+  },
+  "gx0XBL": {
+    "string": "Đăng ký"
+  },
+  "h24vu5": {
+    "string": "Chuyển tài khoản lựa chọn"
+  },
+  "hBkLmp": {
+    "string": "cao"
+  },
+  "hDx3/S": {
+    "string": "Email"
+  },
+  "hEtJ5h": {
+    "string": "Hoàn tác"
+  },
+  "hJ1meP": {
+    "string": "Khả năng sinh lời"
+  },
+  "hPHyre": {
+    "string": "Số dư"
+  },
+  "htEymu": {
+    "string": "Lý do khiếu nại"
+  },
+  "i3xGD8": {
+    "string": "Gửi kháng cáo"
+  },
+  "iCZI8W": {
+    "string": "Số hợp đồng"
+  },
+  "iVpb9N": {
+    "string": "Thay đổi số điện thoại"
+  },
+  "iipjBw": {
+    "string": "giá mới nhất"
+  },
+  "ikrDph": {
+    "string": "Vẫn còn thời gian trước khi kết thúc đợt mua hàng này"
+  },
+  "j5arhs": {
+    "string": "sinh nhật"
+  },
+  "jAROVC": {
+    "string": "Xác minh hoàn tất"
+  },
+  "jB+/k7": {
+    "string": "Ràng buộc ứng dụng"
+  },
+  "jJ0rDY": {
+    "string": "Chọn loại tiền tệ"
+  },
+  "jPTst4": {
+    "string": "Độ chính xác"
+  },
+  "jefLBO": {
+    "string": "Chuyển đến xác thực"
+  },
+  "jnrXEJ": {
+    "string": "Lợi nhuận và lỗ biến động tối thiểu"
+  },
+  "k/qXgT": {
+    "string": "Vị trí"
+  },
+  "kCh5Jz": {
+    "string": "Dấu nhắc"
+  },
+  "kCvDNl": {
+    "string": "Vui lòng nhập giá cắt lỗ"
+  },
+  "kEQh1G": {
+    "string": "Vui lòng nhập tên ID"
+  },
+  "kGK1/L": {
+    "string": "Tiền gửi"
+  },
+  "kIQ/Xp": {
+    "string": "Đặt ngôn ngữ"
+  },
+  "kSaqSM": {
+    "string": "Độ dài của tin nhắn không được vượt quá 140 ký tự"
+  },
+  "keuHvr": {
+    "string": "Đặt Cắt lỗ Chốt lãi"
+  },
+  "l+7dfj": {
+    "string": "Vui lòng chọn địa chỉ"
+  },
+  "l9VaC8": {
+    "string": "Tài khoản tiền tệ"
+  },
+  "lK7IeZ": {
+    "string": "Quản lý mật khẩu giao dịch"
+  },
+  "lKbaKq": {
+    "string": "Số lượng mua tối thiểu"
+  },
+  "lc43/w": {
+    "string": "Mã mời"
+  },
+  "ldyl/D": {
+    "string": "Để đảm bảo an toàn cho tiền của bạn, khi chính sách bảo mật tài khoản của bạn thay đổi, mật khẩu của bạn bị thay đổi hoặc bạn sử dụng địa chỉ mới để rút tiền, chúng tôi sẽ xem xét việc rút tiền theo cách thủ công. Vui lòng kiên nhẫn và đợi nhân viên để liên lạc với bạn qua điện thoại hoặc email."
+  },
+  "lf0jjv": {
+    "string": "Giới thiệu"
+  },
+  "lfsX8H": {
+    "string": "Bản ghi cam kết"
+  },
+  "lgUZ5i": {
+    "string": "Thỏa thuận dịch vụ người bán"
+  },
+  "lj1YNw": {
+    "string": "Xác nhận thanh toán"
+  },
+  "lksvRW": {
+    "string": "Vui lòng nhập số tiền chuyển"
+  },
+  "lrlCJ8": {
+    "string": "Hệ số nhân của thứ tự đầu vào không thể lớn hơn {maxMultiNum}"
+  },
+  "lxxud1": {
+    "string": "Thành viên"
+  },
+  "m6ypg2": {
+    "string": "Loại tiền rút:"
+  },
+  "mCDkHz": {
+    "string": "sáu tháng"
+  },
+  "mDJb9E": {
+    "string": "từ"
+  },
+  "mGf323": {
+    "string": "Đóng bình thường"
+  },
+  "meMA+Y": {
+    "string": "Chuyển đổi đăng ký không thành công ({a}-{b})"
+  },
+  "mjDNUB": {
+    "string": "Số tiền đặt cược"
+  },
+  "mpjnyE": {
+    "string": "nam"
+  },
+  "n/ayb0": {
+    "string": "Biên lai"
+  },
+  "nGQJ81": {
+    "string": "được đề xuất"
+  },
+  "nIpnLv": {
+    "string": "Thời gian thanh toán còn lại"
+  },
+  "nLab+i": {
+    "string": "hướng mở vị thế"
+  },
+  "ntWvUZ": {
+    "string": "Có sẵn (USDT)"
+  },
+  "o3hkNu": {
+    "string": "lên và xuống màu"
+  },
+  "oAdm61": {
+    "string": "Xóa"
+  },
+  "oR5wwN": {
+    "string": "Quên? Lấy lại mật khẩu"
+  },
+  "oRPjgd": {
+    "string": "Cài đặt chốt lời"
+  },
+  "oVSEVM": {
+    "string": "Viết gì đó...(trong vòng 140 ký tự)"
+  },
+  "ofc1Jv": {
+    "string": "OK"
+  },
+  "ohYFAy": {
+    "string": "tay"
+  },
+  "oslZjc": {
+    "string": "Vui lòng chọn lý do khiếu nại"
+  },
+  "p8CmvE": {
+    "string": "điền vào"
+  },
+  "pHNoba": {
+    "string": "Đăng ký xác thực người bán"
+  },
+  "pKUW2A": {
+    "string": "Tối thiểu"
+  },
+  "pYPgzH": {
+    "string": "số lượng"
+  },
+  "pZSIhq": {
+    "string": "Đang bán"
+  },
+  "pecEGk": {
+    "string": "Đăng xuất"
+  },
+  "q+hue1": {
+    "string": "Số lượng bản sao"
+  },
+  "q+on8I": {
+    "string": "Liên kết thành công"
+  },
+  "qGoxr9": {
+    "string": "Xác nhận bán hàng"
+  },
+  "qNUf+q": {
+    "string": "Sao chép hồ sơ giao dịch"
+  },
+  "qSm4kD": {
+    "string": "Kháng cáo"
+  },
+  "qTCfxl": {
+    "string": "Mã xác minh đã được gửi tới, {phone}"
+  },
+  "qZzRwu": {
+    "string": "Ràng buộc"
+  },
+  "qxIFeG": {
+    "string": "Thông tin tên thật"
+  },
+  "qxdWh5": {
+    "string": "Tự động hủy sau"
+  },
+  "qzi2dl": {
+    "string": "giá"
+  },
+  "r0/TUu": {
+    "string": "OK"
+  },
+  "r1IImU": {
+    "string": "Hiểu rồi"
+  },
+  "r2AYLr": {
+    "string": "Xác nhận phát hành"
+  },
+  "r2dEd/": {
+    "string": "Đặt lại"
+  },
+  "rEYIpu": {
+    "string": "Thành viên khởi tạo"
+  },
+  "rQ+HPv": {
+    "string": "Nhập số tiền rút"
+  },
+  "rpJLsF": {
+    "string": "Lỗi thông số"
+  },
+  "s/KbuC": {
+    "string": "Số lượng USDT"
+  },
+  "s2XXAu": {
+    "string": "Số lượng mua còn lại của đợt này"
+  },
+  "s4hJju": {
+    "string": "Chi tiết"
+  },
+  "s7aJO6": {
+    "string": "Số thẻ ngân hàng"
+  },
+  "s9xFxt": {
+    "string": "và"
+  },
+  "sCpxK3": {
+    "string": "Hãy đảm bảo xác nhận tính bảo mật của máy tính và trình duyệt của bạn để tránh thông tin bị giả mạo hoặc rò rỉ."
+  },
+  "sNmNjz": {
+    "string": "Trả tiền cho người bán"
+  },
+  "sVgCxu": {
+    "string": "Số lượng có sẵn:"
+  },
+  "sY5/oP": {
+    "string": "Mua"
+  },
+  "sbEmQh": {
+    "string": "Mua hàng"
+  },
+  "sofNEv": {
+    "string": "Không cài đặt"
+  },
+  "srNPrw": {
+    "string": "Vui lòng nhập mật khẩu ban đầu"
+  },
+  "t+gJ2j": {
+    "string": "Chuyển bản ghi"
+  },
+  "t/1bpl": {
+    "string": "Hệ số nhân của thứ tự đầu vào không được nhỏ hơn {minMultiNum}"
+  },
+  "tI511i": {
+    "string": "Xác minh danh tính"
+  },
+  "tNR1ps": {
+    "string": "Phương thức (nhiều lựa chọn)"
+  },
+  "tVv3c7": {
+    "string": "Xác minh thành công"
+  },
+  "tY3163": {
+    "string": "Số tiền rút:"
+  },
+  "twArjt": {
+    "string": "Gia hạn"
+  },
+  "u/gk22": {
+    "string": "Giá chốt lời"
+  },
+  "u1D872": {
+    "string": "Kháng cáo"
+  },
+  "uHUP9v": {
+    "string": "Hoàn thành"
+  },
+  "udpXUo": {
+    "string": "Lệnh giới hạn"
+  },
+  "ulKN6p": {
+    "string": "Vui lòng nhập địa chỉ email mới"
+  },
+  "un5/HP": {
+    "string": "Chọn tài khoản"
+  },
+  "usmupP": {
+    "string": "Trợ giúp về biểu đồ radar"
+  },
+  "uvUV8g": {
+    "string": "Đặt"
+  },
+  "uwCp/4": {
+    "string": "Đóng băng"
+  },
+  "uy59Hz": {
+    "string": "Đặt (ngắn)"
+  },
+  "v0r9Fg": {
+    "string": "Giao dịch OTC"
+  },
+  "v2G+NV": {
+    "string": "Giá thầu"
+  },
+  "v3RYvu": {
+    "string": "Sửa đổi điện thoại di động bị ràng buộc"
+  },
+  "v5SgYb": {
+    "string": "tên thật"
+  },
+  "vOLb7H": {
+    "string": "Còn {đếm ngược} giây"
+  },
+  "vgGksF": {
+    "string": "Xác thực tên thật"
+  },
+  "vo78d9": {
+    "string": "Ứng dụng đã gửi thành công"
+  },
+  "w2IUbz": {
+    "string": "Bạn có thể viết chi tiết khiếu nại của mình ~~ (giới hạn trong 300 ký tự)"
+  },
+  "wAPEnf": {
+    "string": "đăng nhập"
+  },
+  "wNYTXq": {
+    "string": "không sử dụng"
+  },
+  "waMjSH": {
+    "string": "Thời gian bắt đầu của vòng mua này"
+  },
+  "wbTfN9": {
+    "string": "Số tiền rút"
+  },
+  "wwOQz6": {
+    "string": "Dịch vụ khách hàng trực tuyến"
+  },
+  "wzY6eO": {
+    "string": "Là tài sản đảm bảo của nhà quảng cáo và đồng ý"
+  },
+  "x9w/Fu": {
+    "string": "Ký quỹ đóng băng"
+  },
+  "xCJREC": {
+    "string": "Có sẵn để mở tay {maxHand}"
+  },
+  "xE1H+X": {
+    "string": "Cài đặt"
+  },
+  "xExi0z": {
+    "string": "Vui lòng chọn phương thức thanh toán cho người bán"
+  },
+  "xKofLL": {
+    "string": "Nội dung tin nhắn"
+  },
+  "xPkCfU": {
+    "string": "Ký quỹ vị thế (USDT)"
+  },
+  "xiR+G9": {
+    "string": "Loại bản sao"
+  },
+  "xra9PO": {
+    "string": "cỡ lô"
+  },
+  "xwo0Ao": {
+    "string": "Thời gian đặt cược"
+  },
+  "yGpmXF": {
+    "string": "Bạn có chắc chắn muốn hủy chứng nhận người bán không?"
+  },
+  "yPig5i": {
+    "string": "Cơ quan tài liệu:"
+  },
+  "ySnXcv": {
+    "string": "Xác nhận mua hàng"
+  },
+  "yZDfS/": {
+    "string": "Trả về dự kiến"
+  },
+  "ymJBTR": {
+    "string": "Tên Mã"
+  },
+  "ypMY0M": {
+    "string": "Lấy Mã Xác Nhận"
+  },
+  "yz8Bd8": {
+    "string": "Số điện thoại liên kết:"
+  },
+  "yzF0zK": {
+    "string": "Xác minh bảo mật"
+  },
+  "yzNVN7": {
+    "string": "Mã xác minh SMS đã được gửi tới {phoneNumber}"
+  },
+  "z8a9KR": {
+    "string": "Vui lòng đăng nhập lại"
+  },
+  "zGwnHi": {
+    "string": "Hạn ngạch"
+  },
+  "zH7h1q": {
+    "string": "Lịch sử"
+  },
+  "zJbCuR": {
+    "string": "Xanh lên đỏ xuống"
+  },
+  "zL7URC": {
+    "string": "Cài đặt cá nhân"
+  },
+  "zS9FwU": {
+    "string": "Thời gian niêm yết và giao dịch"
+  },
+  "zVPdxg": {
+    "string": "Thời gian bắt đầu"
+  },
+  "zeTkGR": {
+    "string": "Chuyển đổi mua hàng thành công ({a}-{b})"
+  },
+  "zlZigq": {
+    "string": "biệt danh"
+  },
+  "zldodU": {
+    "string": "Số tiền đã nhận"
+  },
+  "zqkaAr": {
+    "string": "Phần thưởng (TFU)"
+  },
+  "zv2r2Q": {
+    "string": "Đăng ký"
+  },
+  "zxYcWZ": {
+    "string": "Cảnh báo rủi ro"
+  },
+  "zznr09": {
+    "string": "Đã thu hồi"
+  },
+  "/ErIar": {
+    "string": "Giao dịch"
+  },
+  "27fLgJ": {
+    "string": "Chi phí"
+  },
+  "4hv39Z": {
+    "string": "hướng"
+  },
+  "4kxY/u": {
+    "string": "Vui lòng nhập lại mật khẩu thanh toán gồm 6 chữ số"
+  },
+  "4zwWgi": {
+    "string": "Bán được"
+  },
+  "agICfX": {
+    "string": "Vui lòng lấy {text}"
+  },
+  "BP8aBu": {
+    "string": "Chọn loại tiền tệ"
+  },
+  "XeZOU": {
+    "string": "Ngày K"
+  },
+  "EGAOia": {
+    "string": "Số điện thoại liên kết:"
+  },
+  "fFmyYM": {
+    "string": "số lượng"
+  },
+  "gQ4+K1": {
+    "string": "ngày"
+  },
+  "gTNZNZ": {
+    "string": "Biên lai"
+  },
+  "HdFt0P": {
+    "string": "Có sẵn để mua"
+  },
+  "hxj1V+": {
+    "string": "Xóa lịch sử"
+  },
+  "I0saGO": {
+    "string": "Mã tìm kiếm"
+  },
+  "IAX0f0": {
+    "string": "1 giờ"
+  },
+  "jBc8s4": {
+    "string": "Tổng số tiền (USDT)"
+  },
+  "k/3udR": {
+    "string": "Vui lòng nhập mật khẩu thanh toán gồm 6 chữ số"
+  },
+  "kckDfZ": {
+    "string": "số tiền thay đổi"
+  },
+  "Ks5Olr": {
+    "string": "Đặt mật khẩu"
+  },
+  "KSTxH2": {
+    "string": "15 phút"
+  },
+  "LBC7Kf": {
+    "string": "bật"
+  },
+  "nAaIBd": {
+    "string": "Sửa mật khẩu giao dịch"
+  },
+  "NBRkJQ": {
+    "string": "Xác nhận mật khẩu"
+  },
+  "obugXD": {
+    "string": "Đặt mật khẩu giao dịch"
+  },
+  "oV1YAL": {
+    "string": "tuần K"
+  },
+  "pPa5HI": {
+    "string": "5 phút"
+  },
+  "qx86Ow": {
+    "string": "Giới thiệu"
+  },
+  "R4j16W": {
+    "string": "Ảnh ID đã tải lên sẽ được xử lý với hình mờ chống trộm. Chúng tôi tuân thủ nghiêm ngặt luật pháp và các quy định để bảo vệ quyền riêng tư cá nhân của bạn."
+  },
+  "S3V2J5": {
+    "string": "chia sẻ thời gian"
+  },
+  "tAG5jn": {
+    "string": "Lịch sử"
+  },
+  "uC1tZ7": {
+    "string": "Âm lượng"
+  },
+  "Uju5sq": {
+    "string": "Xác minh SMS"
+  },
+  "VT023k": {
+    "string": "Liên kết điện thoại"
+  },
+  "xry82G": {
+    "string": "Mã xác nhận email"
+  },
+  "YNzfBk": {
+    "string": "Xác minh danh tính"
+  },
+  "zR07Wc": {
+    "string": "độ sâu"
+  },
+  "ZRv4FU": {
+    "string": "Tải ảnh lên"
+  },
+  "0vdo6W": {
+    "string": "Xóa tên thật"
+  },
+  "COl7RF": {
+    "string": "Vào cài đặt"
+  },
+  "Ck6JdO": {
+    "string": "Không đặt mật khẩu giao dịch"
+  },
+  "ZJkNVt": {
+    "string": "Không vượt qua được xác thực tên thật"
+  },
+  "+8cZlc": {
+    "string": "Giá đăng ký"
+  },
+  "8gjJxE": {
+    "string": "Các loại tiền tệ được chấp nhận"
+  },
+  "Jf8sT5": {
+    "string": "được bắt đầu"
+  },
+  "T5DLIZ": {
+    "string": "Tiền tệ Hoạt động"
+  },
+  "ZsNueb": {
+    "string": "Tham gia ngay"
+  },
+  "mU805N": {
+    "string": "lưu thông"
+  },
+  "zMxwE3": {
+    "string": "Số lượng hoạt động"
+  },
+  "//08m+": {
+    "string": "Vui lòng chọn loại tiền tệ"
+  },
+  "2+V/xG": {
+    "string": "Số tiền gửi"
+  },
+  "JVD8BD": {
+    "string": "không bán được"
+  },
+  "MkphXA": {
+    "string": "Số lượng({ký hiệu})"
+  },
+  "XdbxuW": {
+    "string": "phí xử lý"
+  },
+  "qSqDA5": {
+    "string": "Vui lòng chọn tài khoản chuyển tiền"
+  },
+  "s4hlhW": {
+    "string": "Số tiền (USDT)"
+  },
+  "0oAu54": {
+    "string": "{second}giây"
+  },
+  "SUWki6": {
+    "string": "Đặt lại bằng email"
+  },
+  "fxYWiK": {
+    "string": "Vui lòng nhập địa chỉ email của bạn"
+  },
+  "k5HUdW": {
+    "string": "Số tiền nạp tối thiểu ({biểu tượng})"
+  },
+  "p4Oi3U": {
+    "string": "Số dư khả dụng ({biểu tượng})"
+  },
+  "58jbdG": {
+    "string": "Chính sách quyền riêng tư của Financingy"
+  },
+  "QBilBJ": {
+    "string": "Giao dịch đầu tiên"
+  },
+  "LaUwF3": {
+    "string": "Nhập tên tiền tệ để tìm kiếm"
+  },
+  "xRwyQV": {
+    "string": "Số tiền đóng băng (USDT)"
+  },
+  "+nOBYc": {
+    "string": "Vui lòng hoàn thành chứng chỉ chính trước"
+  },
+  "1zPKfz": {
+    "string": "Chọn địa chỉ"
+  },
+  "3VZKdc": {
+    "string": "Hai mật khẩu đã nhập không thống nhất"
+  },
+  "43/Nhz": {
+    "string": "Chính sách quyền riêng tư của Financingy"
+  },
+  "4oqdRD": {
+    "string": "Thỏa thuận người dùng Financingy"
+  },
+  "5EExAw": {
+    "string": "Ảnh ID"
+  },
+  "6f0YHY": {
+    "string": "Điểm uy tín:"
+  },
+  "DXZ6tO": {
+    "string": "Vui lòng nhập để chọn loại chứng chỉ"
+  },
+  "GAZ/J4": {
+    "string": "Vui lòng chọn loại chứng chỉ"
+  },
+  "HFf2ly": {
+    "string": "Vui lòng tải lên ảnh mặt sau của chứng chỉ"
+  },
+  "HnBEa1": {
+    "string": "Vui lòng điền địa chỉ"
+  },
+  "OzbKU3": {
+    "string": "Vui lòng tải lên ảnh mặt trước của chứng minh nhân dân"
+  },
+  "V0RiZp": {
+    "string": "Thao tác thành công"
+  },
+  "Zy+yLo": {
+    "string": "Vui lòng điền địa chỉ rút tiền"
+  },
+  "cZ6U4z": {
+    "string": "Xác thực chính"
+  },
+  "eoC4eR": {
+    "string": "Vui lòng nhập số ID"
+  },
+  "foUhnV": {
+    "string": "Loại chứng chỉ"
+  },
+  "gYHc6L": {
+    "string": "Vui lòng nhập mật khẩu xác nhận"
+  },
+  "gqB7Z3": {
+    "string": "Tải lên không thành công, vui lòng thử lại"
+  },
+  "j88inR": {
+    "string": "Vui lòng tải lên ảnh cầm tay"
+  },
+  "rZ0rJT": {
+    "string": "Vui lòng nhập mật khẩu mới"
+  },
+  "sHN5XP": {
+    "string": "Số xác nhận"
+  },
+  "zQm6Ar": {
+    "string": "Xác thực nâng cao"
+  }
+}

@@ -5,9 +5,10 @@ import esES from 'antd-mobile/es/locales/es-ES';
 import frFR from 'antd-mobile/es/locales/fr-FR';
 import jaJP from 'antd-mobile/es/locales/ja-JP';
 import koKR from 'antd-mobile/es/locales/ko-KR';
-
+import ruRU from 'antd-mobile/es/locales/ru-RU';
 import zhCN from 'antd-mobile/es/locales/zh-CN';
 import zhTW from 'antd-mobile/es/locales/zh-TW';
+import vi from './lang/antd-vi';
 
 import { useAtomValue } from 'jotai';
 import { parse, stringify } from 'query-string';
@@ -16,9 +17,9 @@ import { IntlProvider } from 'react-intl';
 import { HashRouter } from 'react-router-dom';
 import { QueryParamProvider } from 'use-query-params';
 import { ReactRouter5Adapter } from 'use-query-params/adapters/react-router-5';
-import { localeStateAtom } from './atoms';
 import GlobalStyle from './GlobalStyle';
-import ruRU from './lang/antd-ru-RU';
+import { localeStateAtom } from './atoms';
+
 import Routes from './routes';
 import { useAuthStore } from './stores/auth';
 
@@ -29,6 +30,7 @@ const localeMap: { [key: string]: any } = {
   ja: jaJP,
   ko: koKR,
   ru: ruRU,
+  va: vi,
   'zh-CN': zhCN,
   'zh-TW': zhTW,
 };
@@ -68,18 +70,6 @@ function App() {
   const localeState = useAtomValue(localeStateAtom);
 
   const [messages, setMessages] = useState<LocaleMessages>({});
-
-  // useMount(() => {
-  //   reportRequest.post('/gateway.do', {
-  //     service: 'licenceReport',
-  //     appCode: 'WorldCoin',
-  //     appName: 'WorldCoin交易所',
-  //     appGateway: 'http://api.encryptedex.com',
-  //     channel: 'H5',
-  //     clientVersion: 'v1.0.0',
-  //     reportType: 'startup',
-  //   });
-  // });
 
   useEffect(() => {
     (async () => {

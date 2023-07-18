@@ -39,6 +39,10 @@ const languages = [
     name: 'Español',
     key: 'es',
   },
+  {
+    name: 'Việt Nam',
+    key: 'va',
+  },
   // {
   //   name: 'Português',
   //   key: 'pt',
