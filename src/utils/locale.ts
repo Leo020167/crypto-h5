@@ -7,4 +7,5 @@ export const localeHash: { [key: string]: string } = {
   ja: 'ja',
   ko: 'ko',
   'ru-RU': 'ru',
+  va: 'va',
 };
