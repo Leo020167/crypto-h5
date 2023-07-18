@@ -8,11 +8,6 @@
   "useTabs": false,
   "arrowParens": "always",
   "endOfLine": "auto",
-  "plugins": [
-    "@trivago/prettier-plugin-sort-imports",
-    "prettier-plugin-css-order",
-    "prettier-plugin-organize-imports",
-    "prettier-plugin-tailwindcss"
-  ],
+  "plugins": ["prettier-plugin-organize-imports", "prettier-plugin-tailwindcss"],
   "pluginSearchDirs": false
 }
