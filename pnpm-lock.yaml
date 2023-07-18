@@ -33,8 +33,8 @@ dependencies:
     specifier: ^4.0.2
     version: 4.0.2
   echarts:
-    specifier: ^5.4.2
-    version: 5.4.2
+    specifier: ^5.4.3
+    version: 5.4.3
   immer:
     specifier: ^9.0.21
     version: 9.0.21
@@ -85,13 +85,13 @@ dependencies:
     version: 5.7.4(@types/react@18.2.15)(react-dom@18.2.0)(react@18.2.0)
   react-spring:
     specifier: ^9.7.2
-    version: 9.7.2(@react-three/fiber@8.13.5)(konva@9.2.0)(react-dom@18.2.0)(react-konva@18.2.10)(react-native@0.72.3)(react-zdog@1.1.1)(react@18.2.0)(three@0.154.0)(zdog@1.1.3)
+    version: 9.7.2(@react-three/fiber@8.13.5)(konva@9.2.0)(react-dom@18.2.0)(react-konva@18.2.10)(react-native@0.72.3)(react-zdog@1.2.0)(react@18.2.0)(three@0.154.0)(zdog@1.1.3)
   react-use:
     specifier: ^17.4.0
     version: 17.4.0(react-dom@18.2.0)(react@18.2.0)
   react-virtuoso:
-    specifier: ^4.4.0
-    version: 4.4.0(react-dom@18.2.0)(react@18.2.0)
+    specifier: ^4.4.1
+    version: 4.4.1(react-dom@18.2.0)(react@18.2.0)
   styled-components:
     specifier: ^5.3.11
     version: 5.3.11(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)
@@ -150,7 +150,7 @@ devDependencies:
     version: 5.62.0(eslint@8.45.0)(typescript@5.1.6)
   '@vitejs/plugin-legacy':
     specifier: ^4.1.0
-    version: 4.1.0(terser@5.19.0)(vite@4.4.4)
+    version: 4.1.0(terser@5.19.1)(vite@4.4.4)
   '@vitejs/plugin-react':
     specifier: ^4.0.3
     version: 4.0.3(vite@4.4.4)
@@ -200,14 +200,14 @@ devDependencies:
     specifier: ^3.3.3
     version: 3.3.3
   terser:
-    specifier: ^5.19.0
-    version: 5.19.0
+    specifier: ^5.19.1
+    version: 5.19.1
   typescript:
     specifier: ^5.1.6
     version: 5.1.6
   vite:
     specifier: ^4.4.4
-    version: 4.4.4(terser@5.19.0)
+    version: 4.4.4(terser@5.19.1)
   vite-plugin-imp:
     specifier: ^2.4.0
     version: 2.4.0(vite@4.4.4)
@@ -4041,7 +4041,7 @@ packages:
       '@react-native-community/cli-tools': 11.3.5
       chalk: 4.1.2
       execa: 5.1.1
-      fast-xml-parser: 4.2.5
+      fast-xml-parser: 4.2.6
       glob: 7.2.3
       ora: 5.4.1
     transitivePeerDependencies:
@@ -4329,7 +4329,7 @@ packages:
       react-dom: 18.2.0(react@18.2.0)
     dev: false
 
-  /@react-spring/zdog@9.7.3(react-dom@18.2.0)(react-zdog@1.1.1)(react@18.2.0)(zdog@1.1.3):
+  /@react-spring/zdog@9.7.3(react-dom@18.2.0)(react-zdog@1.2.0)(react@18.2.0)(zdog@1.1.3):
     resolution: {integrity: sha512-L+yK/1PvNi9n8cldiJ309k4LdxcPkeWE0W18l1zrP1IBIyd5NB5EPA8DMsGr9gtNnnIujtEzZk+4JIOjT8u/tw==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0 || 18
@@ -4343,7 +4343,7 @@ packages:
       '@react-spring/types': 9.7.3
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
-      react-zdog: 1.1.1(react-dom@18.2.0)(react@18.2.0)(zdog@1.1.3)
+      react-zdog: 1.2.0(react-dom@18.2.0)(react@18.2.0)(zdog@1.1.3)
       zdog: 1.1.3
     dev: false
 
@@ -5343,7 +5343,7 @@ packages:
       react: 18.2.0
     dev: false
 
-  /@vitejs/plugin-legacy@4.1.0(terser@5.19.0)(vite@4.4.4):
+  /@vitejs/plugin-legacy@4.1.0(terser@5.19.1)(vite@4.4.4):
     resolution: {integrity: sha512-bLPHaKAKtPq40Cx2Hauz/VE39kStx7gUC21RM+0/OvBgiOlqrK3b1mIMUc4Cak1xLOrK99j174/7xczfu4OLHA==}
     engines: {node: ^14.18.0 || >=16.0.0}
     peerDependencies:
@@ -5357,8 +5357,8 @@ packages:
       magic-string: 0.30.1
       regenerator-runtime: 0.13.11
       systemjs: 6.14.1
-      terser: 5.19.0
-      vite: 4.4.4(terser@5.19.0)
+      terser: 5.19.1
+      vite: 4.4.4(terser@5.19.1)
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -5373,7 +5373,7 @@ packages:
       '@babel/plugin-transform-react-jsx-self': 7.22.5(@babel/core@7.22.5)
       '@babel/plugin-transform-react-jsx-source': 7.22.5(@babel/core@7.22.5)
       react-refresh: 0.14.0
-      vite: 4.4.4(terser@5.19.0)
+      vite: 4.4.4(terser@5.19.1)
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -6730,11 +6730,11 @@ packages:
     engines: {node: '>=12'}
     dev: false
 
-  /echarts@5.4.2:
-    resolution: {integrity: sha512-2W3vw3oI2tWJdyAz+b8DuWS0nfXtSDqlDmqgin/lfzbkB01cuMEN66KWBlmur3YMp5nEDEEt5s23pllnAzB4EA==}
+  /echarts@5.4.3:
+    resolution: {integrity: sha512-mYKxLxhzy6zyTi/FaEbJMOZU1ULGEQHaeIeuMR5L+JnJTpz+YR03mnnpBhbR4+UYJAgiXgpyTVLffPAjOTLkZA==}
     dependencies:
       tslib: 2.3.0
-      zrender: 5.4.3
+      zrender: 5.4.4
     dev: false
 
   /ee-first@1.1.1:
@@ -7478,8 +7478,8 @@ packages:
     resolution: {integrity: sha512-HPtaa38cPgWvaCFmRNhlc6NG7pv6NUHqjPgVAkWGoB9mQMwYB27/K0CvOM5Czy+qpT3e8XJ6Q4aPAnzpNpzNaw==}
     dev: false
 
-  /fast-xml-parser@4.2.5:
-    resolution: {integrity: sha512-B9/wizE4WngqQftFPmdaMYlXoJlJOYxGQOanC77fq9k8+Z0v5dDSVh+3glErdIROP//s/jgb7ZuxKfB8nVyo0g==}
+  /fast-xml-parser@4.2.6:
+    resolution: {integrity: sha512-Xo1qV++h/Y3Ng8dphjahnYe+rGHaaNdsYOBWL9Y9GCPKpNKilJtilvWkLcI9f9X2DoKTLsZsGYAls5+JL5jfLA==}
     hasBin: true
     dependencies:
       strnum: 1.0.5
@@ -7913,7 +7913,7 @@ packages:
       he: 1.2.0
       param-case: 3.0.4
       relateurl: 0.2.7
-      terser: 5.19.0
+      terser: 5.19.1
     dev: false
 
   /http-errors@2.0.0:
@@ -8946,7 +8946,7 @@ packages:
     resolution: {integrity: sha512-FQiZGhIxCzhDwK4LxyPMLlq0Tsmla10X7BfNGlYFK0A5IsaVKNJbETyTzhpIwc+YFRT4GkFFwgo0V2N5vxO5HA==}
     engines: {node: '>=16'}
     dependencies:
-      terser: 5.19.0
+      terser: 5.19.1
     dev: false
 
   /metro-minify-uglify@0.76.7:
@@ -10430,7 +10430,7 @@ packages:
       react-is: 18.2.0
     dev: false
 
-  /react-spring@9.7.2(@react-three/fiber@8.13.5)(konva@9.2.0)(react-dom@18.2.0)(react-konva@18.2.10)(react-native@0.72.3)(react-zdog@1.1.1)(react@18.2.0)(three@0.154.0)(zdog@1.1.3):
+  /react-spring@9.7.2(@react-three/fiber@8.13.5)(konva@9.2.0)(react-dom@18.2.0)(react-konva@18.2.10)(react-native@0.72.3)(react-zdog@1.2.0)(react@18.2.0)(three@0.154.0)(zdog@1.1.3):
     resolution: {integrity: sha512-cckALtj79yiaJiAOUNAhtZbdqjvv1bdn/FpobgkckIChc8l6vu0E53WQ+zWru60gINI3JT+oRJSIn2hUVlOvlQ==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0 || 18
@@ -10441,7 +10441,7 @@ packages:
       '@react-spring/native': 9.7.3(react-native@0.72.3)(react@18.2.0)
       '@react-spring/three': 9.7.3(@react-three/fiber@8.13.5)(react@18.2.0)(three@0.154.0)
       '@react-spring/web': 9.7.3(react-dom@18.2.0)(react@18.2.0)
-      '@react-spring/zdog': 9.7.3(react-dom@18.2.0)(react-zdog@1.1.1)(react@18.2.0)(zdog@1.1.3)
+      '@react-spring/zdog': 9.7.3(react-dom@18.2.0)(react-zdog@1.2.0)(react@18.2.0)(zdog@1.1.3)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
     transitivePeerDependencies:
@@ -10513,8 +10513,8 @@ packages:
       tslib: 2.5.0
     dev: false
 
-  /react-virtuoso@4.4.0(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-7hVk43DN9Sx6czpclTpPnB2uzDmCaioSoTSN8lRv4mMF7UL5jmfc58UpjRrGoJavzVn1VBjHLLj6RHBLsS+N5Q==}
+  /react-virtuoso@4.4.1(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-QrZ0JLnZFH8ltMw6q+S7U1+V2vUcSHzoIfLRzQKSv4nMJhEdjiZ+e9PqWCI7xJiy2AmSCAgo7g1V5osuurJo2Q==}
     engines: {node: '>=10'}
     peerDependencies:
       react: '>=16 || >=17 || >= 18 || 18'
@@ -10524,8 +10524,8 @@ packages:
       react-dom: 18.2.0(react@18.2.0)
     dev: false
 
-  /react-zdog@1.1.1(react-dom@18.2.0)(react@18.2.0)(zdog@1.1.3):
-    resolution: {integrity: sha512-p8la+aWDagOfY0qqedDsrmaWGsJ5JFMY5Da4kMOhsu3QPK717i0Q65lNYxIcazYTmO3n6x2HjoaauYI0nOOSAg==}
+  /react-zdog@1.2.0(react-dom@18.2.0)(react@18.2.0)(zdog@1.1.3):
+    resolution: {integrity: sha512-rb5R4YptnlwzX+UU2OTP3CBUSfyCBngDpUpJ1vCr4RdvWe+Qc+7bGYLFf41eX6goY5MWW+1Ar0u9UCVsRAVoIw==}
     peerDependencies:
       react: '>=16.8 || 18'
       react-dom: '>=16.8'
@@ -11407,8 +11407,8 @@ packages:
       rimraf: 2.6.3
     dev: false
 
-  /terser@5.19.0:
-    resolution: {integrity: sha512-JpcpGOQLOXm2jsomozdMDpd5f8ZHh1rR48OFgWUH3QsyZcfPgv2qDCYbcDEAYNd4OZRj2bWYKpwdll/udZCk/Q==}
+  /terser@5.19.1:
+    resolution: {integrity: sha512-27hxBUVdV6GoNg1pKQ7Z5cbR6V9txPVyBA+FQw3BaZ1Wuzvztce5p156DaP0NVZNrMZZ+6iG9Syf7WgMNKDg2Q==}
     engines: {node: '>=10'}
     hasBin: true
     dependencies:
@@ -11778,7 +11778,7 @@ packages:
       html-minifier-terser: 6.1.0
       node-html-parser: 5.4.2
       pathe: 0.2.0
-      vite: 4.4.4(terser@5.19.0)
+      vite: 4.4.4(terser@5.19.1)
     dev: false
 
   /vite-plugin-imp@2.4.0(vite@4.4.4):
@@ -11793,7 +11793,7 @@ packages:
       chalk: 4.1.2
       param-case: 3.0.4
       pascal-case: 3.1.2
-      vite: 4.4.4(terser@5.19.0)
+      vite: 4.4.4(terser@5.19.1)
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -11806,13 +11806,13 @@ packages:
       '@rollup/pluginutils': 5.0.2(rollup@2.79.1)
       '@svgr/core': 7.0.0
       '@svgr/plugin-jsx': 7.0.0
-      vite: 4.4.4(terser@5.19.0)
+      vite: 4.4.4(terser@5.19.1)
     transitivePeerDependencies:
       - rollup
       - supports-color
     dev: true
 
-  /vite@4.4.4(terser@5.19.0):
+  /vite@4.4.4(terser@5.19.1):
     resolution: {integrity: sha512-4mvsTxjkveWrKDJI70QmelfVqTm+ihFAb6+xf4sjEU2TmUCTlVX87tmg/QooPEMQb/lM9qGHT99ebqPziEd3wg==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
@@ -11843,7 +11843,7 @@ packages:
       esbuild: 0.18.11
       postcss: 8.4.26
       rollup: 3.26.1
-      terser: 5.19.0
+      terser: 5.19.1
     optionalDependencies:
       fsevents: 2.3.2
 
@@ -12090,8 +12090,8 @@ packages:
     resolution: {integrity: sha512-raRj6r0gPzopFm5XWBJZr/NuV4EEnT4iE+U3dp5FV5pCb588Gmm3zLIp/j9yqqcMiHH8VNQlerLTgOqL7krh6w==}
     dev: false
 
-  /zrender@5.4.3:
-    resolution: {integrity: sha512-DRUM4ZLnoaT0PBVvGBDO9oWIDBKFdAVieNWxWwK0niYzJCMwGchRk21/hsE+RKkIveH3XHCyvXcJDkgLVvfizQ==}
+  /zrender@5.4.4:
+    resolution: {integrity: sha512-0VxCNJ7AGOMCWeHVyTrGzUgrK4asT4ml9PEkeGirAkKNYXYzoPJCLvmyfdoOXcjTHPs10OZVMfD1Rwg16AZyYw==}
     dependencies:
       tslib: 2.3.0
     dev: false
