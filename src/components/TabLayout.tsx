@@ -107,4 +107,14 @@ const Container = styled.div`
       margin-top: 4px;
     }
   }
+
+  .adm-tab-bar-item-icon {
+    height: 32px;
+    font-size: 32px;
+
+    svg {
+      height: 32px;
+      height: 32px;
+    }
+  }
 `;
