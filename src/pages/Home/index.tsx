@@ -129,7 +129,7 @@ const Home = () => {
       </div>
 
       <div className="mt-4 flex h-12 items-center justify-between overflow-hidden rounded-lg bg-white px-4 shadow-md shadow-black/5">
-        <img alt="" src={xiaolaba} className="h-5 w-5" />
+        <img alt="" src={xiaolaba} className="h-6 w-6" />
         <Swiper
           direction="vertical"
           style={{ '--height': '3rem' }}
@@ -145,7 +145,7 @@ const Home = () => {
             </Swiper.Item>
           ))}
         </Swiper>
-        <img alt="" src={lvjiantou} className="h-4 w-5" />
+        <img alt="" src={lvjiantou} className="h-6 w-6" />
       </div>
 
       <div className="mt-4 flex h-28 items-center overflow-hidden rounded-lg bg-white px-2.5 text-sm font-bold shadow-md shadow-black/5">
