@@ -23,7 +23,7 @@
     "d3-interpolate": "^3.0.1",
     "d3-scale": "^4.0.2",
     "echarts": "^5.4.3",
-    "immer": "^9.0.21",
+    "immer": "^10.0.2",
     "jotai": "^2.2.2",
     "jotai-zustand": "^0.3.0",
     "js-md5": "^0.7.3",

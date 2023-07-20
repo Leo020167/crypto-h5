@@ -1,5 +1,5 @@
 import { List, SearchBar } from 'antd-mobile';
-import produce from 'immer';
+import { produce } from 'immer';
 import { useAtom } from 'jotai';
 import { atomWithStorage } from 'jotai/utils';
 import { stringify } from 'query-string';

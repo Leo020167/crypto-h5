@@ -4,7 +4,6 @@ import { useIntl } from 'react-intl';
 import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import { useIdentityGet } from '../../api/endpoints/transformer';
-import id1 from '../../assets/id1.png';
 import id2 from '../../assets/id2.png';
 import { stringDateFormat } from '../../utils/date';
 
@@ -72,13 +71,6 @@ const Container = styled.div`
     border: 0;
     background-color: #1677ff;
     color: #fff;
-  }
-
-  .identity {
-    background-image: url(${id1});
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
   }
 `;
 
