@@ -71,14 +71,17 @@ const HomeMarketItem = ({ data, sort }: { data: Quote; sort: number }) => {
         style={props}
         className=" absolute bottom-0 left-0 right-0 top-0"
       ></animated.div>
-      <div className="flex min-w-[100px] flex-col text-left">
-        <div className="text-base font-bold text-[#1d3155]">
-          {getOriginSymbol(data.symbol)}
-          {data.symbol?.includes('/') && (
-            <span className="ml-1 text-xs text-[#666175ae]">{unitSymbol}</span>
-          )}
+      <div className="flex min-w-[100px] items-center text-left">
+        <img src={data.image} alt="" className="mr-2.5 h-[38px] w-[38px] object-contain" />
+        <div>
+          <div className="text-base font-bold text-[#1d3155]">
+            {getOriginSymbol(data.symbol)}
+            {data.symbol?.includes('/') && (
+              <span className="ml-1 text-xs text-[#666175ae]">{unitSymbol}</span>
+            )}
+          </div>
+          <div>{data.name}</div>
         </div>
-        <div>{data.name}</div>
       </div>
       <div className="flex-1">
         <div className="text-base font-bold text-[#1d3155]">{data.price}</div>

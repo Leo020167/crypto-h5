@@ -35,13 +35,13 @@ export const TabLayout = ({ children }: TabLayoutProps) => {
       },
       {
         key: '/home/market',
-        title: intl.formatMessage({ defaultMessage: '行情', id: 'Hv1Nr8' }),
+        title: intl.formatMessage({ defaultMessage: '市場', id: 'COcMDt' }),
         icon: <HomeTabMarkSvg className="h-6" />,
         activeIcon: <HomeTabMarkActiveSvg className="h-6" />,
       },
       {
         key: '/home/account',
-        title: intl.formatMessage({ defaultMessage: '賬戶', id: 'R4Ww2H' }),
+        title: intl.formatMessage({ defaultMessage: '資產', id: 'avV2Zh' }),
         icon: <HomeTabAccountSvg className="h-6" />,
         activeIcon: <HomeTabAccountActiveSvg className="h-6" />,
       },
