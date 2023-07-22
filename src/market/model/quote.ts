@@ -6,6 +6,7 @@
  */
 
 export interface Quote {
+  image?: string;
   amount?: string;
   amountSort?: string;
   balance?: string;

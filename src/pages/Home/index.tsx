@@ -6,16 +6,14 @@ import { useCallback, useMemo, useState } from 'react';
 import { useIntl } from 'react-intl';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { useHomeConfig, useHomeCropMe } from '../../api/endpoints/transformer';
+import { useHomeConfig } from '../../api/endpoints/transformer';
 import ic_default_head from '../../assets/ic_default_head.png';
-import lvjiantou from '../../assets/lvjiantou.png';
 
 import tab1_menu2 from '../../assets/tab1_menu2.png';
 import tab1_menu3 from '../../assets/tab1_menu3.png';
 import tab1_menu4 from '../../assets/tab1_menu4.png';
 import tab1_menu5 from '../../assets/tab1_menu5.png';
 
-import xiaolaba from '../../assets/xiaolaba.png';
 import { localeStateAtom, switchColorValueAtom } from '../../atoms';
 import { useChatLink } from '../../hooks/useChatLink';
 import { useMarketData, useQuoteHomePage } from '../../market/endpoints/marketWithTransformer';
@@ -28,7 +26,7 @@ const Home = () => {
 
   const { userInfo } = useAuthStore();
 
-  const { data: homeCropMe } = useHomeCropMe();
+  // const { data: homeCropMe } = useHomeCropMe();
 
   const { data: homeConfig } = useHomeConfig();
 
@@ -89,18 +87,6 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="mt-3 h-[160px] overflow-hidden rounded-lg bg-white shadow-md shadow-black/5">
-        <Swiper autoplay loop>
-          {homeConfig?.data?.banner?.map((v) => (
-            <Swiper.Item key={v.bannerId} className=" ">
-              <div className="flex h-[160px] flex-col">
-                <img alt="" src={v.imageUrl} className="h-full w-full" />
-              </div>
-            </Swiper.Item>
-          ))}
-        </Swiper>
-      </div>
-
       <div className="mt-4 grid grid-cols-4 px-2.5 font-bold ">
         <Link to="/subscribe" className="flex flex-col items-center">
           <img alt="" src={tab1_menu2} className="h-9 w-9" />
@@ -128,27 +114,19 @@ const Home = () => {
         </a>
       </div>
 
-      <div className="mt-4 flex h-12 items-center justify-between overflow-hidden rounded-lg bg-white px-4 shadow-md shadow-black/5">
-        <img alt="" src={xiaolaba} className="h-6 w-6" />
-        <Swiper
-          direction="vertical"
-          style={{ '--height': '3rem' }}
-          loop
-          autoplay
-          indicator={() => null}
-        >
-          {homeCropMe?.data?.noticeList?.map((v) => (
-            <Swiper.Item key={v.articleId}>
-              <div className="flex h-12 items-center px-2">
-                <span className="truncate">{v.title}</span>
+      <div className="mt-2 h-[160px] overflow-hidden rounded-lg bg-white shadow-md shadow-black/5">
+        <Swiper autoplay loop>
+          {homeConfig?.data?.banner?.map((v) => (
+            <Swiper.Item key={v.bannerId} className=" ">
+              <div className="flex h-[160px] flex-col">
+                <img alt="" src={v.imageUrl} className="h-full w-full" />
               </div>
             </Swiper.Item>
           ))}
         </Swiper>
-        <img alt="" src={lvjiantou} className="h-6 w-6" />
       </div>
 
-      <div className="mt-4 flex h-28 items-center overflow-hidden rounded-lg bg-white px-2.5 text-sm font-bold shadow-md shadow-black/5">
+      <div className="mt-2 flex h-28 items-center overflow-hidden rounded-lg bg-white px-2.5 text-sm font-bold shadow-md shadow-black/5">
         {quotes.map((v, i) => (
           <Link
             to={{
@@ -160,8 +138,9 @@ const Home = () => {
             className="flex w-1/3 flex-col items-center"
             key={i}
           >
-            <div className="text-xs text-[#0C0C0C]">
-              {[v.symbol, v.currency].filter(Boolean).join('/')}
+            <div className="flex items-center text-sm font-bold text-black">
+              <img src={v.image} alt="" className="mr-1 h-4 w-4 object-contain" />
+              <div>{[v.symbol, v.currency].filter(Boolean).join('/')}</div>
             </div>
             <div
               className="mt-2 text-sm text-[#EA3941]"
@@ -180,9 +159,9 @@ const Home = () => {
         ))}
       </div>
 
-      <div className="my-4 flex items-center overflow-hidden rounded-lg bg-white text-sm font-bold shadow-md shadow-black/5">
+      <div className="my-2 flex items-center overflow-hidden rounded-lg bg-white text-sm font-bold shadow-md shadow-black/5">
         <Tabs
-          className="w-full pt-2"
+          className="w-full pt-1"
           onChange={(key) => {
             setSortType(key);
           }}
@@ -193,17 +172,17 @@ const Home = () => {
             className="text-[#A2A9BC]"
             destroyOnClose
           >
-            <div className="flex items-center px-3">
-              <div className="w-1/3 text-sm">
+            <div className="mt-1 flex items-center gap-x-2.5 px-1">
+              <div className="w-1/2 text-sm">
                 {intl.formatMessage({ defaultMessage: '名稱', id: 'ZU9FqB' })}
               </div>
-              <div className="w-1/3 text-center text-sm">
+              <div className="w-1/4 text-center text-sm">
                 {intl.formatMessage({
                   id: 'iipjBw',
                   defaultMessage: '最新價',
                 })}
               </div>
-              <div className="w-1/3 text-right text-sm">
+              <div className="w-1/4 text-right text-sm">
                 {intl.formatMessage({
                   id: 'gA15gF',
                   defaultMessage: '漲跌幅',
@@ -217,20 +196,20 @@ const Home = () => {
             key="2"
             destroyOnClose
           >
-            <div className="flex items-center">
-              <div className="w-1/3 text-sm">
+            <div className="mt-1 flex items-center gap-x-2.5 px-1">
+              <div className="w-1/2 text-sm">
                 {intl.formatMessage({
                   id: 'ZU9FqB',
                   defaultMessage: '名稱',
                 })}
               </div>
-              <div className="w-1/3 text-center text-sm">
+              <div className="w-1/4 text-center text-sm">
                 {intl.formatMessage({
                   id: 'iipjBw',
                   defaultMessage: '最新價',
                 })}
               </div>
-              <div className="w-1/3 text-right text-sm">
+              <div className="w-1/4 text-right text-sm">
                 {intl.formatMessage({
                   id: 'gA15gF',
                   defaultMessage: '漲跌幅',
@@ -261,7 +240,7 @@ const Symbols = ({ quotes = [] }: { quotes?: Quote[] }) => {
   const intl = useIntl();
 
   return (
-    <List className="mt-4">
+    <List>
       {quotes?.map((v, i) => (
         <List.Item key={i}>
           <Link
@@ -271,9 +250,12 @@ const Symbols = ({ quotes = [] }: { quotes?: Quote[] }) => {
                 symbol: v.symbol,
               }),
             }}
-            className="flex items-center"
+            className="flex items-center gap-x-2.5"
           >
-            <div className="w-1/3 text-sm">
+            <div className="flex w-1/2 items-center text-sm">
+              <div className="mr-2.5 h-[38px] w-[38px]">
+                <img src={v.image} alt="" className="h-full w-full object-contain" />
+              </div>
               <div>
                 <div className="flex items-baseline">
                   <span className="text-base font-bold text-black">
@@ -287,12 +269,14 @@ const Symbols = ({ quotes = [] }: { quotes?: Quote[] }) => {
                 </div>
               </div>
             </div>
-            <div className="w-1/3 text-center text-sm">
+
+            <div className="w-1/4 text-center text-sm">
               <div className="text-base font-bold text-black">{v.price}</div>
             </div>
-            <div className="flex w-1/3 flex-col items-end text-sm">
+
+            <div className="flex w-[74px] flex-col items-end text-sm">
               <div
-                className="flex h-8 min-w-[80px] max-w-full items-center  justify-center rounded-md bg-[#F32A44] text-base text-white"
+                className="flex h-8 w-full items-center  justify-center rounded-md bg-[#F32A44] text-base text-white"
                 style={{ backgroundColor: getColor(v.rate?.includes('-') ? -1 : 1) }}
               >
                 {v.rate}%
@@ -337,10 +321,19 @@ const Container = styled.div`
       margin-right: 14px;
     }
   }
-
+  .adm-tabs-content {
+    padding: 10px;
+  }
   .adm-list {
     --padding-left: 0px;
     --padding-right: 0px;
+
+    .adm-list-item-content {
+      border: 0;
+    }
+    .adm-list-item-content-main {
+      padding: 10px 0;
+    }
   }
 `;
 
