@@ -18,7 +18,7 @@ export const PositionList = ({ account }: PositionListProps) => {
     const openList = account?.openList || [];
 
     if (checked) {
-      return openList.filter((v) => Number(v.availableAmount) > 0);
+      return openList.filter((v) => Number(v.amount) > 0);
     }
 
     return openList;
