@@ -443,6 +443,9 @@
   "CKdped": {
     "string": "委托"
   },
+  "COcMDt": {
+    "string": "市場"
+  },
   "COl7RF": {
     "string": "去設置"
   },
@@ -598,6 +601,9 @@
   },
   "HcSaEz": {
     "string": "您目前的郵箱是{email}，想要把它更新為？"
+  },
+  "Hckn7b": {
+    "string": "请输入正确的邀请码"
   },
   "HeL/t7": {
     "string": "購買USDT"
@@ -898,9 +904,6 @@
   },
   "R3Xfcn": {
     "string": "質押生息"
-  },
-  "R4Ww2H": {
-    "string": "賬戶"
   },
   "R4j16W": {
     "string": "上傳的證件照片將進行防盜水印處理，我們嚴格遵照法律法規，保護您的個人隱私。"
@@ -1216,6 +1219,9 @@
   },
   "ap+l4f": {
     "string": "請輸入購買數量"
+  },
+  "avV2Zh": {
+    "string": "資產"
   },
   "b5Yvc8": {
     "string": "認證中"
