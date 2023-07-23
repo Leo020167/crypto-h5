@@ -201,7 +201,15 @@ const Signup = () => {
               })}
             />
           </Form.Item>
-          <Form.Item name="inviteCode">
+          <Form.Item
+            name="inviteCode"
+            rules={[
+              {
+                pattern: /^\S*$/,
+                message: intl.formatMessage({ defaultMessage: '请输入正确的邀请码', id: 'Hckn7b' }),
+              },
+            ]}
+          >
             <Input
               placeholder={intl.formatMessage({
                 defaultMessage: '请输入邀请码(必填)',

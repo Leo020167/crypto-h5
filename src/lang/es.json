@@ -3,10 +3,10 @@
     "string": "Ocultar saldo pequeño"
   },
   "uoCZsI": {
-    "string": "《{nombre}Acuerdo de usuario》"
+    "string": "《{name}Acuerdo de usuario》"
   },
   "rv44i+": {
-    "string": "《{nombre}Política de privacidad》"
+    "string": "《{name}Política de privacidad》"
   },
   "UnMDmI": {
     "string": "Por favor ingrese un número"
@@ -1803,7 +1803,7 @@
     "string": "Nombre Código"
   },
   "ypMY0M": {
-    "string": "Obtener código de verificación"
+    "string": "código de verificación"
   },
   "yz8Bd8": {
     "string": "Número de móvil vinculado："

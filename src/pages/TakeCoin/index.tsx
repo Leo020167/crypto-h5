@@ -318,7 +318,7 @@ const TakeCoin = () => {
             type="number"
             min={Number(configs?.data?.fee ?? 0)}
             maxLength={18}
-            className="mt-2.5 h-11 bg-[#F6F7F9] px-2.5"
+            className="mt-2.5 h-11 rounded border bg-[#F6F7F9] px-2.5"
             placeholder={intl.formatMessage({
               defaultMessage: '输入提币数量',
               id: 'rQ+HPv',
