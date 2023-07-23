@@ -115,7 +115,7 @@ const RechargeCoin = () => {
         </div>
 
         <div className="mt-4 rounded-xl bg-white p-5 shadow-md shadow-black/5">
-          <div className="flex items-start justify-between">
+          <div className="flex items-start justify-between gap-x-2">
             <div>
               <span className="text-[#3E4660]">
                 {intl.formatMessage({ defaultMessage: '選擇幣種', id: 'jJ0rDY' })}
