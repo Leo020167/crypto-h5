@@ -133,7 +133,7 @@ const RechargeCoin = () => {
               </div>
             </div>
             {symbol === 'USDT' && (
-              <div className="text-right">
+              <div className="flex-1 text-right">
                 <span className="text-[#3E4660]">
                   {intl.formatMessage({ defaultMessage: '選擇充幣網絡', id: '8Pdrch' })}
                 </span>
