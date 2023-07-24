@@ -90,8 +90,8 @@ dependencies:
     specifier: ^17.4.0
     version: 17.4.0(react-dom@18.2.0)(react@18.2.0)
   react-virtuoso:
-    specifier: ^4.4.1
-    version: 4.4.1(react-dom@18.2.0)(react@18.2.0)
+    specifier: ^4.4.2
+    version: 4.4.2(react-dom@18.2.0)(react@18.2.0)
   styled-components:
     specifier: ^5.3.11
     version: 5.3.11(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)
@@ -9118,8 +9118,8 @@ packages:
       tslib: 2.5.0
     dev: false
 
-  /react-virtuoso@4.4.1(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-QrZ0JLnZFH8ltMw6q+S7U1+V2vUcSHzoIfLRzQKSv4nMJhEdjiZ+e9PqWCI7xJiy2AmSCAgo7g1V5osuurJo2Q==}
+  /react-virtuoso@4.4.2(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-9uChSRSK5bTbKTxzuta4RqhfrlZSVHI/v8fHwmv3jmImS8FjdZ4Mzgqz9JKUp/yQo3dIHkR2QwidQeqxgYzPhQ==}
     engines: {node: '>=10'}
     peerDependencies:
       react: '>=16 || >=17 || >= 18 || 18'
