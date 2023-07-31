@@ -160,6 +160,7 @@ const TradeLever = () => {
                 onCancel={(orderId) => {
                   Dialog.confirm({
                     content: intl.formatMessage({ defaultMessage: '確定撤銷訂單', id: 'UXkrvR' }),
+                    cancelText: intl.formatMessage({ defaultMessage: '取消', id: '2QzYmY' }),
                     confirmText: intl.formatMessage({ defaultMessage: '確定', id: 'ofc1Jv' }),
                     onConfirm() {
                       proOrderCancel.mutate({
