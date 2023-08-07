@@ -30,7 +30,7 @@ const Login = () => {
 
   useEffect(() => {
     if (usernamePassword) {
-      form.setFieldsValue(usernamePassword);
+      form.setFieldsValue({ ...usernamePassword });
     }
   }, [form, usernamePassword]);
 
@@ -112,13 +112,20 @@ const Login = () => {
                   placeholder={intl.formatMessage({ defaultMessage: '郵箱或手機', id: 'DNlbBz' })}
                 />
               </Form.Item>
-              <Form.Item name="password">
+
+              <Form.Item>
                 <div className="password">
-                  <Input
-                    className="input"
-                    placeholder={intl.formatMessage({ defaultMessage: '請輸入密碼', id: '63r2yf' })}
-                    type={visible ? 'text' : 'password'}
-                  />
+                  <Form.Item name="password" noStyle>
+                    <Input
+                      className="input"
+                      placeholder={intl.formatMessage({
+                        defaultMessage: '請輸入密碼',
+                        id: '63r2yf',
+                      })}
+                      type={visible ? 'text' : 'password'}
+                    />
+                  </Form.Item>
+
                   <div className="eye">
                     {!visible ? (
                       <EyeInvisibleOutline onClick={() => setVisible(true)} />
