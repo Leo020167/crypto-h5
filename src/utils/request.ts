@@ -1,3 +1,4 @@
+import { Toast } from 'antd-mobile';
 import axios from 'axios';
 import { useLocaleStore } from '../stores/locale';
 import { localeHash } from './locale';
@@ -38,7 +39,7 @@ export const apiPost = (
             // router.default.push({path: '/user/authentication'})
           }
 
-          // Toast.show(data.msg);
+          Toast.show(data.msg);
         }
 
         resolve(data);
