@@ -26,7 +26,7 @@ export default defineConfig(({ mode }) => {
         },
         //  http://api.cryptographexx.com/procoin/meiqia
         '/procoin': {
-          target: 'http://api.financingy.com',
+          target: 'https://api.financingy.com',
           changeOrigin: true,
         },
       },
