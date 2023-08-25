@@ -258,7 +258,7 @@
     "string": "Giá cắt lỗ"
   },
   "5qldgM": {
-    "string": "Chọn phía đối diện"
+    "string": "Mặt sau CCCD"
   },
   "5zfR27": {
     "string": "Bán"
@@ -513,7 +513,7 @@
     "string": "thời gian"
   },
   "Dq6c3S": {
-    "string": "Chọn phía trước"
+    "string": "Mặt trước CCCD"
   },
   "DsGgac": {
     "string": "Danh sách thả"
@@ -780,7 +780,7 @@
     "string": "Mật khẩu phải là sự kết hợp của 8-16 ký tự và chữ cái"
   },
   "MXqXyk": {
-    "string": "Vui lòng nhập số ID"
+    "string": "Vui lòng nhập số CCCD"
   },
   "MYqUqI": {
     "string": "Gửi mã xác nhận"
@@ -1458,7 +1458,7 @@
     "string": "Vui lòng nhập giá cắt lỗ"
   },
   "kEQh1G": {
-    "string": "Vui lòng nhập tên ID"
+    "string": "Vui lòng nhập tên CCCD"
   },
   "kGK1/L": {
     "string": "Tiền gửi"
@@ -1977,7 +1977,7 @@
     "string": "độ sâu"
   },
   "ZRv4FU": {
-    "string": "Tải ảnh lên"
+    "string": "Tải ảnh CCCD lên"
   },
   "0vdo6W": {
     "string": "Xóa tên thật"
