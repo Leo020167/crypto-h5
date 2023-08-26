@@ -17,7 +17,10 @@ import tab1_menu5 from '../../assets/tab1_menu5.png';
 
 import xiaolaba from '../../assets/xiaolaba.png';
 import { localeStateAtom, switchColorValueAtom } from '../../atoms';
-import { useMarketData, useQuoteHomePage } from '../../market/endpoints/marketWithTransformer';
+import {
+  useMarketData,
+  useQuoteHomePage,
+} from '../../market/endpoints/marketWithTransformer';
 import { Quote } from '../../market/model';
 import { useAuthStore } from '../../stores/auth';
 import { getOriginSymbol, getUnitSymbol } from '../TransactionRecords/utils';
@@ -42,7 +45,10 @@ const Home = () => {
     tab: 'stock',
   });
 
-  const quotes = useMemo(() => quoteHomePage?.data?.quotes ?? [], [quoteHomePage?.data?.quotes]);
+  const quotes = useMemo(
+    () => quoteHomePage?.data?.quotes ?? [],
+    [quoteHomePage?.data?.quotes]
+  );
 
   const switchColorValue = useAtomValue(switchColorValueAtom);
 
@@ -54,23 +60,23 @@ const Home = () => {
         return value < 0 ? '#00BA76' : '#EA3941';
       }
     },
-    [switchColorValue],
+    [switchColorValue]
   );
 
   const intl = useIntl();
 
   return (
-    <Container className="bg-[#eef3f9] flex-1 overflow-y-auto px-2.5">
+    <Container className="flex-1 overflow-y-auto bg-[#eef3f9] px-2.5">
       <div className="mt-5 flex items-center">
         <Link to="/home/my">
           <img
             alt=""
             src={userInfo?.headUrl ?? ic_default_head}
-            className="w-10 h-10 rounded-full"
+            className="h-10 w-10 rounded-full"
           />
         </Link>
 
-        <div className="flex-1 flex justify-center"></div>
+        <div className="flex flex-1 justify-center"></div>
 
         <div className="flex items-center">
           {/* {homeConfig?.data?.downloadUrl && (
@@ -83,26 +89,26 @@ const Home = () => {
             <img
               alt=""
               src={`/languages/${localeState.locale}.png`}
-              className="w-6 h-6 rounded-full"
+              className="h-6 w-6 rounded-full"
             />
           </Link>
         </div>
       </div>
 
-      <div className="mt-3 shadow-md shadow-black/5 bg-white rounded-lg overflow-hidden h-[150px]">
+      <div className="mt-3 h-[150px] overflow-hidden rounded-lg bg-white shadow-md shadow-black/5">
         <Swiper autoplay loop>
           {homeConfig?.data?.banner?.map((v) => (
             <Swiper.Item key={v.bannerId} className=" ">
-              <div className="h-[150px] flex flex-col">
-                <img alt="" src={v.imageUrl} className="w-full h-full" />
+              <div className="flex h-[150px] flex-col">
+                <img alt="" src={v.imageUrl} className="h-full w-full" />
               </div>
             </Swiper.Item>
           ))}
         </Swiper>
       </div>
 
-      <div className="flex items-center justify-between mt-3 px-4 shadow-md shadow-black/5 bg-white rounded-lg overflow-hidden h-12">
-        <img alt="" src={xiaolaba} className="w-5 h-5" />
+      <div className="mt-3 flex h-12 items-center justify-between overflow-hidden rounded-lg bg-white px-4 shadow-md shadow-black/5">
+        <img alt="" src={xiaolaba} className="h-5 w-5" />
         <Swiper
           direction="vertical"
           style={{ '--height': '3rem' }}
@@ -112,7 +118,7 @@ const Home = () => {
         >
           {homeCropMe?.data?.noticeList?.map((v) => (
             <Swiper.Item key={v.articleId}>
-              <div className="flex items-center h-12 px-2">
+              <div className="flex h-12 items-center px-2">
                 <a href={v.url} target="__blank" className="truncate">
                   {v.title}
                 </a>
@@ -120,19 +126,19 @@ const Home = () => {
             </Swiper.Item>
           ))}
         </Swiper>
-        <img alt="" src={lvjiantou} className="w-5 h-4" />
+        <img alt="" src={lvjiantou} className="h-4 w-5" />
       </div>
 
-      <div className="text-sm font-bold mt-3 shadow-md shadow-black/5 bg-white rounded-lg overflow-hidden h-28 px-2.5 flex items-center">
+      <div className="mt-3 flex h-28 items-center overflow-hidden rounded-lg bg-white px-2.5 text-sm font-bold shadow-md shadow-black/5">
         {quotes.map((v, i) => (
           <Link
             to={{
-              pathname: '/market',
+              pathname: '/market2',
               search: stringify({
                 symbol: v.symbol,
               }),
             }}
-            className="flex flex-col items-center w-1/3"
+            className="flex w-1/3 flex-col items-center"
             key={i}
           >
             <div className="text-xs text-[#0C0C0C]">
@@ -145,7 +151,7 @@ const Home = () => {
               {v.rate}%
             </div>
             <div
-              className="mt-1 text-base text-[#EA3941] leading-4"
+              className="mt-1 text-base leading-4 text-[#EA3941]"
               style={{ color: getColor(v.rate?.includes('-') ? -1 : 1) }}
             >
               {v.price}
@@ -155,34 +161,40 @@ const Home = () => {
         ))}
       </div>
 
-      <div className="text-sm font-bold mt-3 shadow-md shadow-black/5 bg-white rounded-lg overflow-hidden py-2.5 px-2.5 grid grid-cols-4 gap-1">
+      <div className="mt-3 grid grid-cols-5 gap-1 overflow-hidden rounded-lg bg-white px-2.5 py-2.5 text-sm font-bold shadow-md shadow-black/5">
         <Link to="/institution" className="flex flex-col items-center">
-          <img alt="" src={tab1_menu1} className="w-9 h-9" />
-          <div className="mt-2.5 text-xs text-[#666666] break-all">
+          <img alt="" src={tab1_menu1} className="h-9 w-9" />
+          <div className="mt-2.5 break-all text-xs text-[#666666]">
             {intl.formatMessage({ defaultMessage: '金牌機構', id: 'Ls3qou' })}
           </div>
         </Link>
         <Link to="/subscribe" className="flex flex-col items-center">
-          <img alt="" src={tab1_menu2} className="w-9 h-9" />
-          <div className="mt-2.5 text-xs text-[#666666] break-all">
+          <img alt="" src={tab1_menu2} className="h-9 w-9" />
+          <div className="mt-2.5 break-all text-xs text-[#666666]">
             {intl.formatMessage({ defaultMessage: '新幣申購', id: 'I/5B/d' })}
           </div>
         </Link>
         <Link to="/pledge" className="flex flex-col items-center justify-start">
-          <img alt="" src={tab1_menu5} className="w-9 h-9" />
-          <div className="mt-2.5 text-xs text-[#666666] break-all">
+          <img alt="" src={tab1_menu5} className="h-9 w-9" />
+          <div className="mt-2.5 break-all text-xs text-[#666666]">
             {intl.formatMessage({ defaultMessage: 'Defi专区', id: 'misXZU' })}
           </div>
         </Link>
         <Link to="/legal-money" className="flex flex-col items-center">
-          <img alt="" src={tab1_menu3} className="w-9 h-9" />
-          <div className="mt-2.5 text-xs text-[#666666] break-all">
+          <img alt="" src={tab1_menu3} className="h-9 w-9" />
+          <div className="mt-2.5 break-all text-xs text-[#666666]">
             {intl.formatMessage({ defaultMessage: 'OTC交易', id: 'v0r9Fg' })}
+          </div>
+        </Link>
+        <Link to="/chat" className="flex flex-col items-center">
+          <img alt="" src={tab1_menu4} className="h-9 w-9" />
+          <div className="mt-2.5 break-all text-xs text-[#666666]">
+            {intl.formatMessage({ defaultMessage: '綫上客服', id: 'wwOQz6' })}
           </div>
         </Link>
       </div>
 
-      <div className="text-sm font-bold my-3 shadow-md shadow-black/5 bg-white rounded-lg overflow-hidden flex items-center">
+      <div className="my-3 flex items-center overflow-hidden rounded-lg bg-white text-sm font-bold shadow-md shadow-black/5">
         <Tabs
           className="w-full"
           onChange={(key) => {
@@ -190,22 +202,25 @@ const Home = () => {
           }}
         >
           <Tabs.Tab
-            title={intl.formatMessage({ defaultMessage: '漲幅榜', id: 'ZH7DS8' })}
+            title={intl.formatMessage({
+              defaultMessage: '漲幅榜',
+              id: 'ZH7DS8',
+            })}
             key="1"
             className="text-[#A2A9BC]"
             destroyOnClose
           >
             <div className="flex items-center px-3">
-              <div className="text-sm w-1/3">
+              <div className="w-1/3 text-sm">
                 {intl.formatMessage({ defaultMessage: '名稱', id: 'ZU9FqB' })}
               </div>
-              <div className="text-sm w-1/3 text-center">
+              <div className="w-1/3 text-center text-sm">
                 {intl.formatMessage({
                   id: 'iipjBw',
                   defaultMessage: '最新價',
                 })}
               </div>
-              <div className="text-sm w-1/3 text-right">
+              <div className="w-1/3 text-right text-sm">
                 {intl.formatMessage({
                   id: 'gA15gF',
                   defaultMessage: '漲跌幅',
@@ -215,24 +230,27 @@ const Home = () => {
             <Symbols quotes={marketData?.data?.quotes} />
           </Tabs.Tab>
           <Tabs.Tab
-            title={intl.formatMessage({ defaultMessage: '跌幅榜', id: 'DsGgac' })}
+            title={intl.formatMessage({
+              defaultMessage: '跌幅榜',
+              id: 'DsGgac',
+            })}
             key="2"
             destroyOnClose
           >
             <div className="flex items-center px-3">
-              <div className="text-sm w-1/3">
+              <div className="w-1/3 text-sm">
                 {intl.formatMessage({
                   id: 'ZU9FqB',
                   defaultMessage: '名稱',
                 })}
               </div>
-              <div className="text-sm w-1/3 text-center">
+              <div className="w-1/3 text-center text-sm">
                 {intl.formatMessage({
                   id: 'iipjBw',
                   defaultMessage: '最新價',
                 })}
               </div>
-              <div className="text-sm w-1/3 text-right">
+              <div className="w-1/3 text-right text-sm">
                 {intl.formatMessage({
                   id: 'gA15gF',
                   defaultMessage: '漲跌幅',
@@ -257,7 +275,7 @@ const Symbols = ({ quotes = [] }: { quotes?: Quote[] }) => {
         return value < 0 ? '#00BA76' : '#EA3941';
       }
     },
-    [switchColorValue],
+    [switchColorValue]
   );
 
   return (
@@ -266,28 +284,30 @@ const Symbols = ({ quotes = [] }: { quotes?: Quote[] }) => {
         <List.Item key={i}>
           <Link
             to={{
-              pathname: '/market',
+              pathname: '/market2',
               search: stringify({
                 symbol: v.symbol,
               }),
             }}
             className="flex items-center"
           >
-            <div className="text-sm w-1/3">
-              <div className="text-base text-black font-bold">
+            <div className="w-1/3 text-sm">
+              <div className="text-base font-bold text-black">
                 {v.symbol?.includes('/') ? getOriginSymbol(v.symbol) : v.symbol}
                 {v.symbol?.includes('/') ? '/' + getUnitSymbol(v.symbol) : ''}
               </div>
               <div className="text-xs text-[#A2A9BC]">{v.name}</div>
             </div>
-            <div className="text-sm w-1/3 text-center">
-              <div className="text-base text-black font-bold">{v.price}</div>
+            <div className="w-1/3 text-center text-sm">
+              <div className="text-base font-bold text-black">{v.price}</div>
               <div className="text-xs text-[#A2A9BC]">量 {v.amount}</div>
             </div>
-            <div className="text-sm w-1/3 flex flex-col items-end">
+            <div className="flex w-1/3 flex-col items-end text-sm">
               <div
-                className="text-base text-white bg-[#F32A44] min-w-[80px] max-w-full  h-8 rounded-md flex items-center justify-center"
-                style={{ backgroundColor: getColor(v.rate?.includes('-') ? -1 : 1) }}
+                className="flex h-8 min-w-[80px] max-w-full items-center  justify-center rounded-md bg-[#F32A44] text-base text-white"
+                style={{
+                  backgroundColor: getColor(v.rate?.includes('-') ? -1 : 1),
+                }}
               >
                 {v.rate}%
               </div>
@@ -301,11 +321,11 @@ const Symbols = ({ quotes = [] }: { quotes?: Quote[] }) => {
 
 const Container = styled.div`
   .adm-tabs {
-    color: #999999;
     --title-font-size: 16px;
     --active-line-height: 3px;
     --active-line-color: #0bbb79;
     --active-title-color: #333;
+    color: #999999;
 
     .adm-tabs-header {
       border: 0;

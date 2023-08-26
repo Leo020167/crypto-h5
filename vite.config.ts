@@ -16,15 +16,15 @@ export default defineConfig({
       // http://api.piglobalexchanges.com/procoin/swagger/index.html#/
       // http://api.worldcoinservice.com/procoin/swagger/index.html#/
       '/procoin-market': {
-        target: 'http://market.doline.cn',
+        target: 'http://market.tyresd.com',
         changeOrigin: true,
       },
       '/procoin-file': {
-        target: 'http://upload.doline.cn',
+        target: 'http://upload.tyresd.com',
         changeOrigin: true,
       },
       '/procoin': {
-        target: 'http://api.doline.cn',
+        target: 'http://api.tyresd.com',
         changeOrigin: true,
       },
     },
