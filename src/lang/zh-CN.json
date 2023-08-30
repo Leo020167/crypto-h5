@@ -18,7 +18,7 @@
     "string": "币种"
   },
   "X3UAMm": {
-    "string": "消耗 ATC:"
+    "string": "消耗 FGEC:"
   },
   "ndT7z1": {
     "string": "年化收益"
@@ -117,7 +117,7 @@
     "string": "是否订閲该用户？"
   },
   "20MJBj": {
-    "string": "ATC"
+    "string": "FGEC"
   },
   "297aFF": {
     "string": "保证金比例"
@@ -204,7 +204,7 @@
     "string": "平仓明细"
   },
   "4ivSMB": {
-    "string": "总资产(ATC)"
+    "string": "总资产(FGEC)"
   },
   "56o47p": {
     "string": "邮箱验证码"
@@ -738,7 +738,7 @@
     "string": "请再次输入密码"
   },
   "MQKv1T": {
-    "string": "社区总奖励(ATC)"
+    "string": "社区总奖励(FGEC)"
   },
   "MTyrlB": {
     "string": "密必须是8-16位字、字母组合"
@@ -1152,7 +1152,7 @@
     "string": "只允许充值"
   },
   "aD/9at": {
-    "string": "数量(ATC)"
+    "string": "数量(FGEC)"
   },
   "aOp/5l": {
     "string": "未实名不能申请商家认证，请实名认证后，在提交商家认证申请。"
@@ -1815,7 +1815,7 @@
     "string": "到账数量"
   },
   "zqkaAr": {
-    "string": "奖励(ATC)"
+    "string": "奖励(FGEC)"
   },
   "zv2r2Q": {
     "string": "订閲"

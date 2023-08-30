@@ -18,7 +18,7 @@
     "string": "幣種"
   },
   "X3UAMm": {
-    "string": "消耗 ATC:"
+    "string": "消耗 FGEC:"
   },
   "ndT7z1": {
     "string": "年化收益"
@@ -222,7 +222,7 @@
     "string": "方向"
   },
   "4ivSMB": {
-    "string": "總資產(ATC)"
+    "string": "總資產(FGEC)"
   },
   "4kxY/u": {
     "string": "請再次輸入6位支付密碼"
@@ -780,7 +780,7 @@
     "string": "请再次输入密码"
   },
   "MQKv1T": {
-    "string": "社區總獎勵(ATC)"
+    "string": "社區總獎勵(FGEC)"
   },
   "MTyrlB": {
     "string": "密必须是8-16位字、字母组合"
@@ -1206,7 +1206,7 @@
     "string": "立即參與"
   },
   "aD/9at": {
-    "string": "數量(ATC)"
+    "string": "數量(FGEC)"
   },
   "aOp/5l": {
     "string": "未實名不能申請商家認證，請實名認證後，在提交商家認證申請。"
@@ -1902,7 +1902,7 @@
     "string": "到賬數量"
   },
   "zqkaAr": {
-    "string": "獎勵(ATC)"
+    "string": "獎勵(FGEC)"
   },
   "zv2r2Q": {
     "string": "訂閲"

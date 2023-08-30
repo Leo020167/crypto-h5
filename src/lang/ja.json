@@ -18,7 +18,7 @@
     "string": "通貨"
   },
   "X3UAMm": {
-    "string": "消費 ATC:"
+    "string": "消費 FGEC:"
   },
   "ndT7z1": {
     "string": "年収"
@@ -117,7 +117,7 @@
     "string": "このユーザーを購読するかどうか"
   },
   "20MJBj": {
-    "string": "ATC"
+    "string": "FGEC"
   },
   "297aFF": {
     "string": "保証金比率"
@@ -204,7 +204,7 @@
     "string": "位置を閉じます"
   },
   "4ivSMB": {
-    "string": "総資産(ATC)"
+    "string": "総資産(FGEC)"
   },
   "56o47p": {
     "string": "メールボックス検証コード"
@@ -633,7 +633,7 @@
     "string": "合法的な入札購入"
   },
   "JVHhgb": {
-    "string": "《AI Trading Center ユーザプロトコル》"
+    "string": "《FireGlobal ユーザプロトコル》"
   },
   "JYhyDW": {
     "string": "滞留時間 {days} 日"
@@ -738,7 +738,7 @@
     "string": "パスワードを再入力してください"
   },
   "MQKv1T": {
-    "string": "コミュニティの総報酬(ATC)"
+    "string": "コミュニティの総報酬(FGEC)"
   },
   "MTyrlB": {
     "string": "秘密は8～16桁の単語,アルファベットの組み合わせでなければなりません"
@@ -1152,7 +1152,7 @@
     "string": "充電のみを許可します"
   },
   "aD/9at": {
-    "string": "量(ATC)"
+    "string": "量(FGEC)"
   },
   "aOp/5l": {
     "string": "商人認定に本名を適用できない場合は,実際の認証の後にビジネス認定申請書を提出してください。"
@@ -1815,7 +1815,7 @@
     "string": "受け取った数量"
   },
   "zqkaAr": {
-    "string": "褒美(ATC)"
+    "string": "褒美(FGEC)"
   },
   "zv2r2Q": {
     "string": "申し込む"
@@ -1999,7 +1999,7 @@
   },
 
   "Hh3rHP": {
-    "string": "ATC を取得"
+    "string": "FGEC を取得"
   },
 
   "misXZU": {

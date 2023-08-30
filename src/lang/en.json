@@ -18,7 +18,7 @@
     "string": "Currency"
   },
   "X3UAMm": {
-    "string": "consume ATC:"
+    "string": "consume FGEC:"
   },
   "ndT7z1": {
     "string": "Annualized income"
@@ -117,7 +117,7 @@
     "string": "Whether to subscribe to this user？"
   },
   "20MJBj": {
-    "string": "ATC"
+    "string": "FGEC"
   },
   "297aFF": {
     "string": "Margin Ratio"
@@ -204,7 +204,7 @@
     "string": "close a position"
   },
   "4ivSMB": {
-    "string": "Total Assets(ATC)"
+    "string": "Total Assets(FGEC)"
   },
   "56o47p": {
     "string": "Mailbox Verification Code"
@@ -549,7 +549,7 @@
     "string": "Appeal message (optional)"
   },
   "GKRXXt": {
-    "string": "obtain ATC"
+    "string": "obtain FGEC"
   },
   "GO/P/E": {
     "string": "Add the withdrawal currency address"
@@ -636,7 +636,7 @@
     "string": "Legal tender purchases"
   },
   "JVHhgb": {
-    "string": "《AI Trading Center User Agreement》"
+    "string": "《FireGlobal User Agreement》"
   },
   "JYhyDW": {
     "string": "Stayed for {days} days"
@@ -741,7 +741,7 @@
     "string": "Please enter the password again"
   },
   "MQKv1T": {
-    "string": "Community Total Reward(ATC)"
+    "string": "Community Total Reward(FGEC)"
   },
   "MTyrlB": {
     "string": "The secret must be 8-16-bit words, letters combination"
@@ -786,7 +786,7 @@
     "string": "please input your mailbox"
   },
   "NdxUVx": {
-    "string": "Check how to get ATC"
+    "string": "Check how to get FGEC"
   },
   "NlcysC": {
     "string": "Please enter the mailbox number"
@@ -1095,7 +1095,7 @@
     "string": "Number of transactions"
   },
   "XR6wlA": {
-    "string": "《AI Trading Center Privacy Policy》"
+    "string": "《FireGlobal Privacy Policy》"
   },
   "XWzDpA": {
     "string": "I have paid success"
@@ -1158,7 +1158,7 @@
     "string": "Only allow recharge"
   },
   "aD/9at": {
-    "string": "quantity(ATC)"
+    "string": "quantity(FGEC)"
   },
   "aOp/5l": {
     "string": "If the real name cannot be applied for merchant certification, please submit a business certification application after the real -name authentication."
@@ -1353,7 +1353,7 @@
     "string": "Financial record"
   },
   "guM4xe": {
-    "string": "Consume ATC:"
+    "string": "Consume FGEC:"
   },
   "gx0XBL": {
     "string": "Subscribe"
@@ -1821,7 +1821,7 @@
     "string": "Quantity received"
   },
   "zqkaAr": {
-    "string": "reward(ATC)"
+    "string": "reward(FGEC)"
   },
   "zv2r2Q": {
     "string": "Subscribe"
@@ -2004,7 +2004,7 @@
     "string": "Daily Earnings"
   },
   "Hh3rHP": {
-    "string": "Get ATC"
+    "string": "Get FGEC"
   },
   "misXZU": {
     "string": "Defi zone"
@@ -2085,7 +2085,7 @@
     "string": "Total Community Rewards (LCN)"
   },
   "iBG8Hb": {
-    "string": "See how to get ATC"
+    "string": "See how to get FGEC"
   },
   "kOFx5M": {
     "string": "When withdrawing USDT, the system will freeze this part of the funds from the balance account"

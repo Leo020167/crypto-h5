@@ -13,9 +13,7 @@ const HomeTokenAccountItem = ({ data }: HomeTokenAccountItemProps) => {
       <div>{data.remark}</div>
       <div className="flex text-gray-500 mt-4">
         <div className="flex flex-col w-1/3 text-xs">
-          <div>
-            {intl.formatMessage({ defaultMessage: '數量(AI Trading Center)', id: 'aD/9at' })}
-          </div>
+          <div>{intl.formatMessage({ defaultMessage: '數量(FireGlobal)', id: 'qEIhPe' })}</div>
           <div className="mt-2" style={{ color: data.inOut === '1' ? '#14CC4B' : '#C4311D' }}>
             {data.amount ?? '0.00'}
           </div>

@@ -17,13 +17,13 @@ const HomeTokenAccount = ({ account }: HomeTokenAccountProps) => {
       <div className="p-4 bg-white">
         <div className="mb-2 text-gray-400 text-right text-xs">
           <a href="/procoin/article/#/passgeDetail?article_id=222" target="__blank">
-            {intl.formatMessage({ defaultMessage: '查看如何獲取AiCoin', id: 'iBG8Hb' })}
+            {intl.formatMessage({ defaultMessage: '查看如何獲取AiCoin', id: 'P4SDuo' })}
           </a>
         </div>
         <div className="mt-3 flex items-center justify-between text-[#c1d3155]">
           <div>
             <div className="text-gray-400">
-              {intl.formatMessage({ defaultMessage: '總資產(AI Trading Center)', id: 'iJfW5y' })}
+              {intl.formatMessage({ defaultMessage: '總資產(FireGlobal)', id: 'KqiJud' })}
             </div>
             <div className="text-base">{account?.assets ?? '0'}</div>
           </div>

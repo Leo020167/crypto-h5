@@ -303,7 +303,7 @@ const TakeCoin = () => {
                 defaultMessage: '手續費',
                 id: 'UXyFaa',
               })}
-              (ATC)
+              (FGEC)
             </span>
             <span className="text-base text-[#6175AE]">
               {currency(configs?.data?.fee || 0, { precision, separator: '', symbol: '' }).format()}
