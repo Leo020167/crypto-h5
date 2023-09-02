@@ -1,4 +1,22 @@
 {
+  "4+Rr4y": {
+    "string": "총 자산({symbol})"
+  },
+  "6ze3u0": {
+    "string": "{symbol} 가져오기"
+  },
+  "FtKzCz": {
+    "string": "{symbol}개인정보 보호 약관"
+  },
+  "JPekCx": {
+    "string": "{symbol}사용자 계약"
+  },
+  "fhhb2I": {
+    "string": "소비량{symbol}:"
+  },
+  "ys2TZp": {
+    "string": "{symbol}을(를) 얻는 방법 보기"
+  },
   "HOSYMH": {
     "string": "마감 시간"
   },

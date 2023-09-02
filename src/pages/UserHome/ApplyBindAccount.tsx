@@ -174,10 +174,15 @@ const ApplyBindAccount = () => {
                     {v.maxMultiNum}
                   </span>
                   <span>
-                    {intl.formatMessage({
-                      defaultMessage: '消耗FGEC:',
-                      id: 'qSDnth',
-                    })}
+                    {intl.formatMessage(
+                      {
+                        defaultMessage: '消耗{symbol}:',
+                        id: 'fhhb2I',
+                      },
+                      {
+                        symbol: 'FGEC',
+                      },
+                    )}
                     {v.tokenAmount}
                   </span>
                 </div>

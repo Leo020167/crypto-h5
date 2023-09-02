@@ -158,6 +158,9 @@
   "3yGSyj": {
     "string": "請輸入最小限額"
   },
+  "4+Rr4y": {
+    "string": "總資產({symbol})"
+  },
   "42JqYW": {
     "string": "訂單時間"
   },
@@ -241,6 +244,9 @@
   },
   "6w/mMH": {
     "string": "红涨绿跌"
+  },
+  "6ze3u0": {
+    "string": "獲得{symbol}"
   },
   "6zlqMT": {
     "string": "設置新密碼(8-16位字、字母組合)"
@@ -518,6 +524,9 @@
   "FqoFLn": {
     "string": "價格約"
   },
+  "FtKzCz": {
+    "string": "《{symbol}隐私条款》"
+  },
   "G0ISee": {
     "string": "人氣指數"
   },
@@ -584,9 +593,6 @@
   "HeL/t7": {
     "string": "購買USDT"
   },
-  "Hh3rHP": {
-    "string": "獲得FireGlobal"
-  },
   "HmiIeC": {
     "string": "是否確定上架?"
   },
@@ -625,6 +631,9 @@
   },
   "J5FSqv": {
     "string": "免費訂閱"
+  },
+  "JPekCx": {
+    "string": "《{symbol}用户协议》"
   },
   "JVD8BD": {
     "string": "未成交"
@@ -1100,9 +1109,6 @@
   "X/X8Ge": {
     "string": "委託金額(USDT)"
   },
-  "X3UAMm": {
-    "string": "消耗FireGlobal:"
-  },
   "XJfx+x": {
     "string": "正在申請取消商家認證"
   },
@@ -1180,9 +1186,6 @@
   },
   "Zhkpb8": {
     "string": "只允許充值"
-  },
-  "aD/9at": {
-    "string": "數量(FireGlobal)"
   },
   "aOp/5l": {
     "string": "未實名不能申請商家認證，請實名認證後，在提交商家認證申請。"
@@ -1361,6 +1364,9 @@
   "fftT6p": {
     "string": "出售USDT時系統將會從餘額賬戶中凍結該部分資金"
   },
+  "fhhb2I": {
+    "string": "消耗{symbol}:"
+  },
   "fu1KIo": {
     "string": "進度"
   },
@@ -1430,14 +1436,8 @@
   "i3xGD8": {
     "string": "提交申訴"
   },
-  "iBG8Hb": {
-    "string": "查看如何獲取FireGlobal"
-  },
   "iCZI8W": {
     "string": "合約份數"
-  },
-  "iJfW5y": {
-    "string": "總資產(FireGlobal)"
   },
   "iVpb9N": {
     "string": "更改手机号"
@@ -1724,9 +1724,6 @@
   "sCpxK3": {
     "string": "請務必確認電腦及瀏覽器安全，防止信息被篡改或洩露。"
   },
-  "sMbK5X": {
-    "string": "《FireGlobal用户协议》"
-  },
   "sNmNjz": {
     "string": "向賣家付款"
   },
@@ -1889,6 +1886,9 @@
   "ypMY0M": {
     "string": "获取验证码"
   },
+  "ys2TZp": {
+    "string": "查看如何獲取{symbol}"
+  },
   "yz8Bd8": {
     "string": "已绑定手机号："
   },
@@ -1924,9 +1924,6 @@
   },
   "zVPdxg": {
     "string": "開始時間"
-  },
-  "zYyvSG": {
-    "string": "《FireGlobal隐私条款》"
   },
   "zeTkGR": {
     "string": "申購成功轉換({a}-{b})"

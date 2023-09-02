@@ -1,4 +1,22 @@
 {
+  "4+Rr4y": {
+    "string": "総資産({symbol})"
+  },
+  "6ze3u0": {
+    "string": "{シンボル} を取得"
+  },
+  "FtKzCz": {
+    "string": "{symbol}プライバシー規約"
+  },
+  "JPekCx": {
+    "string": "{symbol}ユーザー同意書"
+  },
+  "fhhb2I": {
+    "string": "消費量{シンボル}:"
+  },
+  "ys2TZp": {
+    "string": "{symbol} の取得方法を参照してください。"
+  },
   "HOSYMH": {
     "string": "閉店時間"
   },

@@ -86,10 +86,15 @@ const Signup = () => {
                     className="text-[#6277b0]"
                     rel="noreferrer"
                   >
-                    {intl.formatMessage({
-                      defaultMessage: '《FireGlobal用户协议》',
-                      id: 'b89igY',
-                    })}
+                    {intl.formatMessage(
+                      {
+                        defaultMessage: '《{symbol}用户协议》',
+                        id: 'JPekCx',
+                      },
+                      {
+                        symbol: 'FireGlobal',
+                      },
+                    )}
                   </a>
                   {intl.formatMessage({ defaultMessage: '和', id: 's9xFxt' })}
                   <a
@@ -98,10 +103,15 @@ const Signup = () => {
                     className="text-[#6277b0]"
                     rel="noreferrer"
                   >
-                    {intl.formatMessage({
-                      defaultMessage: '《FireGlobal隐私条款》',
-                      id: 'DDlbif',
-                    })}
+                    {intl.formatMessage(
+                      {
+                        defaultMessage: '《{symbol}隐私条款》',
+                        id: 'FtKzCz',
+                      },
+                      {
+                        symbol: 'FireGlobal',
+                      },
+                    )}
                   </a>
                 </div>
               )}

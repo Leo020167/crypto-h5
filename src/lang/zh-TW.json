@@ -1,4 +1,22 @@
 {
+  "4+Rr4y": {
+    "string": "總資產({symbol})"
+  },
+  "6ze3u0": {
+    "string": "獲得{symbol}"
+  },
+  "FtKzCz": {
+    "string": "《{symbol}隐私条款》"
+  },
+  "JPekCx": {
+    "string": "《{symbol}用户协议》"
+  },
+  "fhhb2I": {
+    "string": "消耗{symbol}:"
+  },
+  "ys2TZp": {
+    "string": "查看如何獲取{symbol}"
+  },
   "HOSYMH": {
     "string": "平倉時間"
   },

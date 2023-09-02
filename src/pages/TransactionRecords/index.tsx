@@ -221,10 +221,15 @@ const TransactionRecords = () => {
               </div>
               <div className="flex flex-col ml-4">
                 <span className="text-xs text-[#999999]">
-                  {intl.formatMessage({
-                    defaultMessage: '獲得FireGlobal',
-                    id: 'mEyON+',
-                  })}
+                  {intl.formatMessage(
+                    {
+                      defaultMessage: '獲得{symbol}',
+                      id: '6ze3u0',
+                    },
+                    {
+                      symbol: 'FireGlobal',
+                    },
+                  )}
                 </span>
                 <span className="text-xs text-[#666666]">{proOrderQuerySum?.data?.sumToken}</span>
               </div>
