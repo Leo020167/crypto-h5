@@ -84,10 +84,11 @@ const Signup = () => {
                     href="http://api.kaobaochina.cn/procoin/article/#/passgeDetail?article_id=48"
                     target="_blank"
                     className="text-[#6277b0]"
+                    rel="noreferrer"
                   >
                     {intl.formatMessage({
-                      defaultMessage: '《AiCoin用户协议》',
-                      id: 'sMbK5X',
+                      defaultMessage: '《FireGlobal用户协议》',
+                      id: 'b89igY',
                     })}
                   </a>
                   {intl.formatMessage({ defaultMessage: '和', id: 's9xFxt' })}
@@ -95,10 +96,11 @@ const Signup = () => {
                     href="http://api.kaobaochina.cn/procoin/article/#/passgeDetail?article_id=54"
                     target="_blank"
                     className="text-[#6277b0]"
+                    rel="noreferrer"
                   >
                     {intl.formatMessage({
-                      defaultMessage: '《AiCoin隐私条款》',
-                      id: 'zYyvSG',
+                      defaultMessage: '《FireGlobal隐私条款》',
+                      id: 'DDlbif',
                     })}
                   </a>
                 </div>
