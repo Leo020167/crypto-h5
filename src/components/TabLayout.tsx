@@ -1,4 +1,4 @@
-import { SafeArea, TabBar } from 'antd-mobile';
+import { TabBar } from 'antd-mobile';
 import { ReactNode, useMemo } from 'react';
 import { useIntl } from 'react-intl';
 import { useHistory, useLocation } from 'react-router-dom';
@@ -62,8 +62,7 @@ export const TabLayout = ({ children }: TabLayoutProps) => {
   );
   return (
     <Container className="flex h-screen flex-col">
-      <SafeArea position="top" />
-      <div className="flex min-h-0 flex-1 flex-col">{children}</div>
+      <div className="flex min-h-0 flex-1 flex-col pb-[85px]">{children}</div>
       <TabBar
         activeKey={location.pathname}
         onChange={(key) => {
@@ -73,7 +72,7 @@ export const TabLayout = ({ children }: TabLayoutProps) => {
             history.push(key);
           }
         }}
-        className="bg-white py-2"
+        className="fixed bottom-0 left-0 right-0 bg-white py-2"
       >
         {tabs.map((item) => (
           <TabBar.Item
@@ -83,7 +82,6 @@ export const TabLayout = ({ children }: TabLayoutProps) => {
           />
         ))}
       </TabBar>
-      <SafeArea position="bottom" />
     </Container>
   );
 };

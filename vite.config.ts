@@ -13,6 +13,7 @@ export default defineConfig(({ mode }) => {
       outDir: `dist/Financingy-${mode === 'allow-download' ? '有下載' : '無下載'}`,
     },
     server: {
+      host: '0.0.0.0',
       proxy: {
         // http://api.piglobalexchanges.com/procoin/swagger/index.html#/
         // http://api.worldcoinservice.com/procoin/swagger/index.html#/
