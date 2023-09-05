@@ -72,7 +72,7 @@ export const TabLayout = ({ children }: TabLayoutProps) => {
             history.push(key);
           }
         }}
-        className="fixed bottom-0 left-0 right-0 bg-white py-2"
+        className="fixed bottom-0 left-0 right-0 z-10 bg-white py-2"
       >
         {tabs.map((item) => (
           <TabBar.Item
