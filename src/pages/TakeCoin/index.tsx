@@ -80,6 +80,7 @@ const TakeCoin = () => {
         if (data.code === '40090') {
           Dialog.confirm({
             content: intl.formatMessage({ defaultMessage: '未通過實名認證', id: 'ZJkNVt' }),
+            cancelText: intl.formatMessage({ defaultMessage: '取消', id: '2QzYmY' }),
             confirmText: intl.formatMessage({ defaultMessage: '去實名', id: '0vdo6W' }),
             onConfirm() {
               history.push({ pathname: '/verified', state: { from: location } });
@@ -91,6 +92,7 @@ const TakeCoin = () => {
         if (Number(data.code) === 40031) {
           Dialog.confirm({
             content: intl.formatMessage({ defaultMessage: '未設置交易密碼', id: 'Ck6JdO' }),
+            cancelText: intl.formatMessage({ defaultMessage: '取消', id: '2QzYmY' }),
             confirmText: intl.formatMessage({ defaultMessage: '去設置', id: 'COl7RF' }),
             onConfirm() {
               if (userInfo?.phone) {

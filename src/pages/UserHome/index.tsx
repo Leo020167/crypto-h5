@@ -111,6 +111,7 @@ const UserHome = () => {
                         defaultMessage: '是否訂閲該用戶？',
                         id: '2+1H1y',
                       }),
+                      cancelText: intl.formatMessage({ defaultMessage: '取消', id: '2QzYmY' }),
                       confirmText: intl.formatMessage({
                         defaultMessage: '訂閲',
                         id: 'zv2r2Q',

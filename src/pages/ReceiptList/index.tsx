@@ -77,7 +77,7 @@ const ReceiptList = () => {
                     onClick={() => {
                       Dialog.confirm({
                         title: intl.formatMessage({ defaultMessage: '確定刪除', id: 'Pg99aL' }),
-
+                        cancelText: intl.formatMessage({ defaultMessage: '取消', id: '2QzYmY' }),
                         confirmText: intl.formatMessage({ defaultMessage: '刪除', id: 'oAdm61' }),
                         onConfirm() {
                           otcPaymentDelete.mutate({ data: { paymentId: v.paymentId } });

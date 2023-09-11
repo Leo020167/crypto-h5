@@ -1,4 +1,4 @@
-import { Popup, SearchBar } from 'antd-mobile';
+import { ErrorBlock, Popup, SearchBar } from 'antd-mobile';
 import { useAtom, useAtomValue } from 'jotai';
 import { range } from 'lodash-es';
 import { Scrollbars } from 'rc-scrollbars';
@@ -93,6 +93,32 @@ export const CurrencyListPopup = (props: CurrencyListPopupProps) => {
     return items.filter((v) => v.symbol?.toLowerCase().includes(search.toLowerCase()));
   }, [items, search]);
 
+  const content = useMemo(() => {
+    if (isLoading) {
+      return (
+        <div className=" animate-pulse">
+          {range(10).map((v) => (
+            <div className="flex h-10 items-center px-4" key={v}>
+              <div className="h-4 w-full rounded bg-gray-200"></div>
+            </div>
+          ))}
+        </div>
+      );
+    }
+
+    if (currencyFiltered.length === 0) {
+      return <ErrorBlock status="empty" />;
+    }
+
+    return (
+      <div className=" divide-y divide-gray-200">
+        {currencyFiltered.map((v) => (
+          <Currency record={v} key={v.symbol} isActive={symbol === v.symbol} onSelect={onSelect} />
+        ))}
+      </div>
+    );
+  }, [currencyFiltered, isLoading, onSelect, symbol]);
+
   return (
     <Container
       visible={visible}
@@ -109,28 +135,7 @@ export const CurrencyListPopup = (props: CurrencyListPopupProps) => {
           />
         </div>
         <div className="flex-1">
-          <Scrollbars autoHide>
-            {isLoading ? (
-              <div className=" animate-pulse">
-                {range(10).map((v) => (
-                  <div className="flex h-10 items-center px-4" key={v}>
-                    <div className="h-4 w-full rounded bg-gray-200"></div>
-                  </div>
-                ))}
-              </div>
-            ) : (
-              <div className=" divide-y divide-gray-200">
-                {currencyFiltered.map((v) => (
-                  <Currency
-                    record={v}
-                    key={v.symbol}
-                    isActive={symbol === v.symbol}
-                    onSelect={onSelect}
-                  />
-                ))}
-              </div>
-            )}
-          </Scrollbars>
+          <Scrollbars autoHide>{content}</Scrollbars>
         </div>
       </div>
     </Container>

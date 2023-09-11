@@ -32,6 +32,7 @@ const MerchantAuthentication = () => {
                 defaultMessage: '未實名不能申請商家認證，請實名認證後，在提交商家認證申請。',
                 id: 'aOp/5l',
               }),
+              cancelText: intl.formatMessage({ defaultMessage: '取消', id: '2QzYmY' }),
               confirmText: intl.formatMessage({
                 defaultMessage: '前往實名',
                 id: 'BO7t+j',
@@ -115,6 +116,7 @@ const MerchantAuthentication = () => {
                   defaultMessage: '確定申請取消商家認證？',
                   id: 'yGpmXF',
                 }),
+                cancelText: intl.formatMessage({ defaultMessage: '取消', id: '2QzYmY' }),
                 confirmText: intl.formatMessage({
                   defaultMessage: '確定',
                   id: 'ofc1Jv',

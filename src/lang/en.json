@@ -285,7 +285,7 @@
     "string": "Contracts"
   },
   "6T3Qx4": {
-    "string": "Current link.："
+    "string": "Current link："
   },
   "6Y0p2/": {
     "string": "Next step"
@@ -576,7 +576,7 @@
     "string": "Copied to the pasteboard"
   },
   "GDglvI": {
-    "string": "Minimum pledge amount"
+    "string": "Minimum pledge amount "
   },
   "GFzduc": {
     "string": "Appeal message (optional)"
@@ -1188,7 +1188,7 @@
     "string": "Unreal name cannot apply for merchant certification"
   },
   "Zhkpb8": {
-    "string": "Only allow recharge"
+    "string": "Only allow recharge "
   },
   "aD/9at": {
     "string": "quantity(TFU)"
@@ -1740,7 +1740,7 @@
     "string": "Real name"
   },
   "vOLb7H": {
-    "string": "remainder{countdown}seconds"
+    "string": "remainder {countdown} seconds"
   },
   "vgGksF": {
     "string": "Real name authentication"

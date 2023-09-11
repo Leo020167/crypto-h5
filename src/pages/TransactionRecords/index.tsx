@@ -97,7 +97,9 @@ const TransactionRecords = () => {
                 >
                   <div className="p-4">
                     <div className="flex flex-1 flex-col">
-                      <div className="text-left text-base text-[#1D3155]">币种</div>
+                      <div className="text-left text-base text-[#1D3155]">
+                        {intl.formatMessage({ defaultMessage: '币种', id: 'i0bc3f' })}
+                      </div>
                       <Input
                         className="mt-2.5 h-10 rounded bg-[#f9fafd] pl-2.5"
                         placeholder={intl.formatMessage({
@@ -108,7 +110,9 @@ const TransactionRecords = () => {
                     </div>
 
                     <div className="mt-5 flex flex-1 flex-col">
-                      <div className="text-left text-base text-[#1D3155]">订单状态</div>
+                      <div className="text-left text-base text-[#1D3155]">
+                        {intl.formatMessage({ defaultMessage: '订单状态', id: 'H/88FZ' })}
+                      </div>
                       <Selector
                         className="mb-8 mt-2.5"
                         columns={3}
