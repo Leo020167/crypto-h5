@@ -169,10 +169,6 @@ const PositionDetails = () => {
   );
 };
 
-const PopupWrapper = styled(Popup)`
-  .adm-form .adm-form-item-horizontal.adm-list-item {
-    --prefix-width: 3rem;
-  }
-`;
+const PopupWrapper = styled(Popup)``;
 
 export default PositionDetails;

@@ -126,6 +126,7 @@ const LeverInfo = () => {
                   { defaultMessage: '是否以當前市價平倉{openHand}？', id: 'KCMRBl' },
                   { openHand: order?.openHand },
                 ),
+                cancelText: intl.formatMessage({ defaultMessage: '取消', id: '2QzYmY' }),
                 confirmText: intl.formatMessage({ defaultMessage: '確定', id: 'ofc1Jv' }),
                 onConfirm() {
                   proOrderClose.mutate({

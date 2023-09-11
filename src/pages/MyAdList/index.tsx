@@ -71,6 +71,7 @@ const MyAdList = () => {
                         data.isOnline === '0'
                           ? intl.formatMessage({ defaultMessage: '是否確定上架?', id: 'HmiIeC' })
                           : intl.formatMessage({ defaultMessage: '是否確定下架?', id: '8Jc445' }),
+                      cancelText: intl.formatMessage({ defaultMessage: '取消', id: '2QzYmY' }),
                       confirmText: intl.formatMessage({ defaultMessage: '確定', id: 'ofc1Jv' }),
                       onConfirm() {
                         otcSetOnline.mutate({
@@ -88,6 +89,7 @@ const MyAdList = () => {
                   onDelete={(data: AdItem) => {
                     Dialog.confirm({
                       content: intl.formatMessage({ defaultMessage: '確定刪除?', id: '/7LMEm' }),
+                      cancelText: intl.formatMessage({ defaultMessage: '取消', id: '2QzYmY' }),
                       confirmText: intl.formatMessage({ defaultMessage: '刪除', id: 'oAdm61' }),
                       onConfirm() {
                         otcDelMyAd.mutate({

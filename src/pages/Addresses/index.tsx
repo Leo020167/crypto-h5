@@ -61,6 +61,7 @@ const AddressManagement = () => {
                         defaultMessage: '確定刪除該地址嗎？',
                         id: 'BxvrdK',
                       }),
+                      cancelText: intl.formatMessage({ defaultMessage: '取消', id: '2QzYmY' }),
                       confirmText: intl.formatMessage({
                         defaultMessage: '刪除',
                         id: 'oAdm61',

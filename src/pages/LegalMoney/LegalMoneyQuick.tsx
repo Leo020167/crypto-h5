@@ -84,6 +84,7 @@ const LegalMoneyQuick = () => {
       Dialog.confirm({
         title: intl.formatMessage({ defaultMessage: '提示', id: 'kCh5Jz' }),
         content: intl.formatMessage({ defaultMessage: '帳戶未實名', id: 'ans63b' }),
+        cancelText: intl.formatMessage({ defaultMessage: '取消', id: '2QzYmY' }),
         confirmText: intl.formatMessage({ defaultMessage: '去認證', id: 'jefLBO' }),
         onConfirm() {
           history.push('/verified');

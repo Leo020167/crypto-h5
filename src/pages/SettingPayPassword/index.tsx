@@ -136,7 +136,7 @@ const SettingPayPassword = () => {
               (form) => ({
                 validator: async (rule, value) => {
                   const payPass = form.getFieldValue('payPass');
-                  const val = value.trim?.();
+                  const val = value?.trim?.() || '';
 
                   if (val.length === 0) {
                     throw new Error(

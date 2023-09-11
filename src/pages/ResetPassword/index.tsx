@@ -79,7 +79,10 @@ const ResetPassword = () => {
           layout="horizontal"
           onFinish={(values) => {
             if (!values.phone || !values.phone.trim().length) {
-              Toast.show(intl.formatMessage({ defaultMessage: '手機號碼不能為空', id: 'B+KT/l' }));
+              const message = email
+                ? intl.formatMessage({ defaultMessage: '请输入邮箱', id: 'fxYWiK' })
+                : intl.formatMessage({ defaultMessage: '手機號碼不能為空', id: 'B+KT/l' });
+              Toast.show(message);
               return;
             }
 
@@ -179,8 +182,8 @@ const ResetPassword = () => {
             <Input
               type="password"
               placeholder={intl.formatMessage({
-                defaultMessage: '密必须是8-16位字、字母组合',
-                id: 'MTyrlB',
+                defaultMessage: '密码必须是8-16位字、字母组合',
+                id: 'y+nnJW',
               })}
               onChange={setPassword}
             />
