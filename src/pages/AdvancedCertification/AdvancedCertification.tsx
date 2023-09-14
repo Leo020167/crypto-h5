@@ -121,9 +121,10 @@ const AdvancedCertification = () => {
     <Screen headerTitle={intl.formatMessage({ defaultMessage: '高級認證', id: 'zQm6Ar' })}>
       {!!data?.data?.identityAuth && (
         <div className="bg-[#FE5400] px-4 py-1 text-xs text-white">
-          {`${intl.formatMessage({ defaultMessage: '狀態: ', id: 'BHh721' })}${
-            identityAuth?.stateDesc
-          } ${
+          {`${intl.formatMessage({
+            defaultMessage: '狀態: ',
+            id: 'BHh721',
+          })}${identityAuth?.stateDesc} ${
             !isValid
               ? intl.formatMessage(
                   {

@@ -54,9 +54,12 @@ const Market = () => {
   );
 
   const refreshRate = useAtomValue(refreshRateAtom);
-  useInterval(() => {
-    refetch();
-  }, refreshRate * 1000 || 2000);
+  useInterval(
+    () => {
+      refetch();
+    },
+    refreshRate * 1000 || 2000,
+  );
 
   const coin = coinInfo?.data?.coin;
 
