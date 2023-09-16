@@ -1,4 +1,7 @@
 {
+  "GO/P/E": {
+    "string": "Thêm địa chỉ rút tiền"
+  },
   "H/88FZ": {
     "string": "Trạng thái đơn hàng"
   },
@@ -6,13 +9,13 @@
     "string": "Vui lòng nhập đúng mã mời"
   },
   "i0bc3f": {
-    "chuỗi": "tiền tệ"
+    "string": "tiền tệ"
   },
   "y+nnJW": {
     "string": "Mật khẩu phải là sự kết hợp của 8-16 ký tự và chữ cái"
   },
   "CarZOU": {
-    "chuỗi": "K Nhật Bản"
+    "string": "K Nhật Bản"
   },
   "COcMDt": {
     "string": "chợ"
@@ -1575,7 +1578,7 @@
     "string": "Viết gì đó...(trong vòng 140 ký tự)"
   },
   "ofc1Jv": {
-    "string": "OK"
+    "string": "Chắc chắn"
   },
   "ohYFAy": {
     "string": "tay"
@@ -1632,7 +1635,7 @@
     "string": "giá"
   },
   "r0/TUu": {
-    "string": "OK"
+    "string": "Chắc chắn"
   },
   "r1IImU": {
     "string": "Hiểu rồi"
@@ -2055,10 +2058,10 @@
     "string": "Vui lòng nhập địa chỉ email của bạn"
   },
   "k5HUdW": {
-    "string": "Số tiền nạp tối thiểu ({biểu tượng})"
+    "string": "Số tiền nạp tối thiểu ({symbol})"
   },
   "p4Oi3U": {
-    "string": "Số dư khả dụng ({biểu tượng})"
+    "string": "Số dư khả dụng ({symbol})"
   },
   "58jbdG": {
     "string": "Chính sách quyền riêng tư của Financingy"
