@@ -1,9 +1,18 @@
 {
-  "COcMDt": {
-    "string": "marché"
+  "H/88FZ": {
+    "string": "Statut de la commande"
   },
   "Hckn7b": {
-    "string": "Veuillez entrer le bon code d'invitation"
+    "string": "Veuillez saisir le code d'invitation correct"
+  },
+  "i0bc3f": {
+    "string": "devise"
+  },
+  "y+nnJW": {
+    "string": "Le mot de passe doit être une combinaison de 8 à 16 caractères et lettres"
+  },
+  "COcMDt": {
+    "string": "marché"
   },
   "avV2Zh": {
     "string": "actifs"

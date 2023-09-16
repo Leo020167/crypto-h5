@@ -1,9 +1,18 @@
 {
-  "COcMDt": {
-    "string": "市场"
+  "H/88FZ": {
+    "string": "订单状态"
   },
   "Hckn7b": {
     "string": "请输入正确的邀请码"
+  },
+  "i0bc3f": {
+    "string": "币种"
+  },
+  "y+nnJW": {
+    "string": "密码必须是8-16位字、字母组合"
+  },
+  "COcMDt": {
+    "string": "市场"
   },
   "avV2Zh": {
     "string": "资产"

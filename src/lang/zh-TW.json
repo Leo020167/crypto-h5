@@ -1,64 +1,4 @@
 {
-  "COcMDt": {
-    "string": "市場"
-  },
-  "Hckn7b": {
-    "string": "請輸入正確的邀請碼"
-  },
-  "avV2Zh": {
-    "string": "資產"
-  },
-  "P9HpjQ": {
-    "string": "隱藏小余額"
-  },
-  "uoCZsI": {
-    "string": "《{name}用户协议》"
-  },
-  "rv44i+": {
-    "string": "《{name}隐私条款》"
-  },
-  "UnMDmI": {
-    "string": "請輸入數字"
-  },
-  "3Bnag5": {
-    "string": "可賣: {amount}{symbol}"
-  },
-  "YtQA/s": {
-    "string": "可用: {amount}{symbol}"
-  },
-  "/LMNJ8": {
-    "string": "請再次輸入密碼"
-  },
-  "ADKS8l": {
-    "string": "兩次輸入的密碼不相同"
-  },
-  "P6HN+m": {
-    "string": "密碼必須是8–16位數字、字母組合"
-  },
-  "KQcUcI": {
-    "string": "證件反面照片"
-  },
-  "PNGaFx": {
-    "string": "證件正面照片"
-  },
-  "WKKdIS": {
-    "string": "證件手持照片"
-  },
-  "PmeCYZ": {
-    "string": "爲了您的資金安全，請先設置【交易密碼】！"
-  },
-  "TlP8cy": {
-    "string": "溫馨提示"
-  },
-  "XOCqdS": {
-    "string": "未認證"
-  },
-  "Ie9Vi3": {
-    "string": "請輸入邀請碼(必填)"
-  },
-  "X5/jXG": {
-    "string": "邀请码不能為空"
-  },
   "+4lD9e": {
     "string": "姓名"
   },
@@ -113,11 +53,11 @@
   "/I+pby": {
     "string": "我的"
   },
+  "/LMNJ8": {
+    "string": "請再次輸入密碼"
+  },
   "/T0l4z": {
     "string": "每日利息"
-  },
-  "/jAa8w": {
-    "string": "{maxHand}{symbol}"
   },
   "/k9TmU": {
     "string": "盈虧(USDT)"
@@ -131,11 +71,11 @@
   "0B0jPm": {
     "string": "天"
   },
-  "0UBtXx": {
-    "string": "提交申請成功"
-  },
   "0asaCS": {
     "string": "圖片"
+  },
+  "0oAu54": {
+    "string": "{second}秒"
   },
   "0vdo6W": {
     "string": "去實名"
@@ -164,6 +104,9 @@
   "1y6X+M": {
     "string": "買家姓名"
   },
+  "1zPKfz": {
+    "string": "選擇地址"
+  },
   "2+1H1y": {
     "string": "是否訂閲該用戶？"
   },
@@ -188,9 +131,6 @@
   "2a4k+m": {
     "string": "已加载全部"
   },
-  "2cS2Q3": {
-    "string": "密码必须是8 -16位字、字母组合"
-  },
   "2fmtw4": {
     "string": "請輸入地址"
   },
@@ -200,8 +140,14 @@
   "2yjenl": {
     "string": "請輸入止盈價"
   },
+  "3Bnag5": {
+    "string": "可賣: {amount}{symbol}"
+  },
   "3Ced22": {
     "string": "賣家姓名"
+  },
+  "3VZKdc": {
+    "string": "兩次密碼輸入不一致"
   },
   "3Zwkix": {
     "string": "自选区"
@@ -221,9 +167,6 @@
   "3tf3AE": {
     "string": "如您已經向賣家付款，請不要取消訂單"
   },
-  "3vyRBa": {
-    "string": "請先上傳充值截圖"
-  },
   "3yGSyj": {
     "string": "請輸入最小限額"
   },
@@ -235,9 +178,6 @@
   },
   "42lXMM": {
     "string": "提币"
-  },
-  "45GFMc": {
-    "string": "請輸入充值金額"
   },
   "4FDcHK": {
     "string": "输入验证码"
@@ -263,11 +203,11 @@
   "4kxY/u": {
     "string": "請再次輸入6位支付密碼"
   },
-  "4zwWgi": {
-    "string": "可賣"
-  },
   "56o47p": {
     "string": "郵箱驗證碼"
+  },
+  "5EExAw": {
+    "string": "證件照"
   },
   "5FboZ/": {
     "string": "类型"
@@ -302,14 +242,14 @@
   "6EjbHU": {
     "string": "詳情"
   },
-  "6ExJHy": {
-    "string": "合約"
-  },
   "6T3Qx4": {
     "string": "當前鏈路："
   },
   "6Y0p2/": {
     "string": "下一步"
+  },
+  "6f0YHY": {
+    "string": "信誉分:"
   },
   "6jT3zt": {
     "string": "你确定要注销吗?"
@@ -428,6 +368,9 @@
   "A8sxJT": {
     "string": "已訂閱"
   },
+  "ADKS8l": {
+    "string": "兩次輸入的密碼不相同"
+  },
   "ASHrJh": {
     "string": "添加廣告"
   },
@@ -497,6 +440,9 @@
   "CKdped": {
     "string": "委托"
   },
+  "COcMDt": {
+    "string": "市場"
+  },
   "COl7RF": {
     "string": "去設置"
   },
@@ -529,6 +475,9 @@
   },
   "DSV3lz": {
     "string": "訂單號"
+  },
+  "DXZ6tO": {
+    "string": "請輸入選擇證件類型"
   },
   "DobpJi": {
     "string": "系統通知"
@@ -581,12 +530,6 @@
   "EYBWHx": {
     "string": "價格最優"
   },
-  "EZtA6l": {
-    "string": "請選擇提幣地址"
-  },
-  "k5HUdW": {
-    "string": "最小充值金額({symbol})"
-  },
   "FXys9B": {
     "string": "輸入舊密碼"
   },
@@ -598,6 +541,9 @@
   },
   "G5BgHI": {
     "string": "申請綁定"
+  },
+  "GAZ/J4": {
+    "string": "請選擇證件類型"
   },
   "GBuUew": {
     "string": "已複製到粘貼板"
@@ -623,6 +569,9 @@
   "H+7dPx": {
     "string": "解釋：跟隨高手的用戶最近30天平均每筆交易的收益率。數值越大，代表跟隨高手的用戶收益越好。"
   },
+  "H/88FZ": {
+    "string": "订单状态"
+  },
   "H0Cdjg": {
     "string": "搜索家或地区"
   },
@@ -635,11 +584,11 @@
   "HCvPwM": {
     "string": "请输入數量"
   },
-  "HDx5DM": {
-    "string": "全球期指交易記錄"
-  },
   "HEzFXJ": {
     "string": "{receiptTypeValue}號"
+  },
+  "HFf2ly": {
+    "string": "請上傳證件反面照片"
   },
   "HMxoED": {
     "string": "一年内"
@@ -653,14 +602,17 @@
   "HcSaEz": {
     "string": "您目前的郵箱是{email}，想要把它更新為？"
   },
-  "HdFt0P": {
-    "string": "可買"
+  "Hckn7b": {
+    "string": "请输入正确的邀请码"
   },
   "HeL/t7": {
     "string": "購買USDT"
   },
   "HmiIeC": {
     "string": "是否確定上架?"
+  },
+  "HnBEa1": {
+    "string": "請填寫地址"
   },
   "HpbXNh": {
     "string": "虧損補貼:"
@@ -686,6 +638,9 @@
   "IbtpXH": {
     "string": "總資產(USDT)"
   },
+  "Ie9Vi3": {
+    "string": "请输入邀请码(必填)"
+  },
   "IoCgCq": {
     "string": "總資產"
   },
@@ -698,14 +653,8 @@
   "J5FSqv": {
     "string": "免費訂閱"
   },
-  "JI87J/": {
-    "string": "法幣購買"
-  },
   "JVD8BD": {
     "string": "未成交"
-  },
-  "JVHhgb": {
-    "string": "《Financingy用户协议》"
   },
   "JYhyDW": {
     "string": "已入住{days}天"
@@ -749,11 +698,11 @@
   "KNgmr/": {
     "string": "持倉手數"
   },
+  "KQcUcI": {
+    "string": "證件反面照片"
+  },
   "KSTxH2": {
     "string": "15分鐘"
-  },
-  "Ks5Olr": {
-    "string": "設置密碼"
   },
   "KuONpk": {
     "string": "請輸入提幣數量"
@@ -767,17 +716,11 @@
   "KzQKst": {
     "string": "跟單倍數設置"
   },
-  "L2Dpi5": {
-    "string": "全球期指帳戶"
-  },
   "LBC7Kf": {
     "string": "開"
   },
   "LEah6f": {
     "string": "我要卖"
-  },
-  "LJ33pi": {
-    "string": "社區"
   },
   "LLn6Tg": {
     "string": "請輸入最大限額"
@@ -797,14 +740,11 @@
   "LaFd5t": {
     "string": "开户银行"
   },
+  "LaUwF3": {
+    "string": "输入币种名称搜索"
+  },
   "Lj6xLm": {
     "string": "换一张"
-  },
-  "Ls3qou": {
-    "string": "金牌機構"
-  },
-  "MG99Vk": {
-    "string": "合約交易記錄"
   },
   "MGGEAi": {
     "string": "请输入银行卡号"
@@ -817,9 +757,6 @@
   },
   "MQKv1T": {
     "string": "社區總獎勵(TFU)"
-  },
-  "MTyrlB": {
-    "string": "密码必须是8-16位字、字母组合"
   },
   "MXqXyk": {
     "string": "請輸入證件號"
@@ -841,9 +778,6 @@
   },
   "MmsEyp": {
     "string": "注册"
-  },
-  "NBRkJQ": {
-    "string": "確認密碼"
   },
   "NH0fE1": {
     "string": "金牌機构排行榜"
@@ -896,17 +830,29 @@
   "OxlDIl": {
     "string": "涨跌颜色设置"
   },
+  "OzbKU3": {
+    "string": "請上傳證件正面照片"
+  },
   "P+t8ta": {
     "string": "折合(USDT)"
   },
+  "P6HN+m": {
+    "string": "密碼必須是8–16位數字、字母組合"
+  },
   "P8YUAQ": {
     "string": "跟單人氣"
+  },
+  "P9HpjQ": {
+    "string": "隐藏小余额"
   },
   "PA9DRl": {
     "string": "參與質押"
   },
   "PHMSxi": {
     "string": "下單"
+  },
+  "PNGaFx": {
+    "string": "證件正面照片"
   },
   "PUWCuy": {
     "string": "申購時間"
@@ -917,11 +863,17 @@
   "Pg99aL": {
     "string": "確定刪除"
   },
+  "PmeCYZ": {
+    "string": "爲了您的資金安全，請先設置【交易密碼】！"
+  },
   "Q4foHv": {
     "string": "充幣地址"
   },
   "Q9qgiz": {
     "string": "intl"
+  },
+  "QBilBJ": {
+    "string": "首發交易"
   },
   "QInuMW": {
     "string": "添加賬戶類型"
@@ -950,9 +902,6 @@
   "R3Xfcn": {
     "string": "質押生息"
   },
-  "R4Ww2H": {
-    "string": "賬戶"
-  },
   "R4j16W": {
     "string": "上傳的證件照片將進行防盜水印處理，我們嚴格遵照法律法規，保護您的個人隱私。"
   },
@@ -977,9 +926,6 @@
   "RtJnaj": {
     "string": "请输入姓名"
   },
-  "RwgA6k": {
-    "string": "全球期指"
-  },
   "Rx1AtW": {
     "string": "凍結(USDT)"
   },
@@ -994,6 +940,9 @@
   },
   "ST/9QH": {
     "string": "快捷区"
+  },
+  "SUWki6": {
+    "string": "通过邮箱重置"
   },
   "SaqkUp": {
     "string": "報價貨幣"
@@ -1028,11 +977,11 @@
   "Telt8H": {
     "string": "開戶銀行"
   },
+  "TlP8cy": {
+    "string": "溫馨提示"
+  },
   "Tq9EwF": {
     "string": "買家暱稱"
-  },
-  "TsbBR+": {
-    "string": "創新試驗區"
   },
   "Tw8y2o": {
     "string": "請輸入手數"
@@ -1058,9 +1007,6 @@
   "UVGoM9": {
     "string": "上月收益(USDT)"
   },
-  "UWUjVA": {
-    "string": "法幣買賣"
-  },
   "UX7lUm": {
     "string": "跟單機构"
   },
@@ -1085,11 +1031,17 @@
   "UkiaYk": {
     "string": "請輸入身份證號碼"
   },
+  "UnMDmI": {
+    "string": "请输入数字"
+  },
   "UvWwpv": {
     "string": "實名認證成功"
   },
   "Uw5tn0": {
     "string": "認證日期"
+  },
+  "V0RiZp": {
+    "string": "操作成功"
   },
   "V1f0Zb": {
     "string": "转出账户选择"
@@ -1103,14 +1055,8 @@
   "VT023k": {
     "string": "綁定手機"
   },
-  "VU6g7c": {
-    "string": "请输入邀请码(选填)"
-  },
   "VXMi89": {
     "string": "以當前最優價格交易"
-  },
-  "VYKM4q": {
-    "string": "合約帳戶"
   },
   "VbE2gD": {
     "string": "確認新密碼"
@@ -1133,11 +1079,11 @@
   "W6smHj": {
     "string": "時間"
   },
-  "WDcvta": {
-    "string": "跟單帳戶"
-  },
   "WKCB03": {
     "string": "可兌換數量："
+  },
+  "WKKdIS": {
+    "string": "證件手持照片"
   },
   "WKYPpM": {
     "string": "质押生息"
@@ -1157,14 +1103,14 @@
   "X/X8Ge": {
     "string": "委託金額(USDT)"
   },
+  "X5/jXG": {
+    "string": "邀请码不能為空"
+  },
   "XJfx+x": {
     "string": "正在申請取消商家認證"
   },
   "XNQjr/": {
     "string": "交易次數"
-  },
-  "XR6wlA": {
-    "string": "《Financingy隐私条款》"
   },
   "XWzDpA": {
     "string": "我已付款成功"
@@ -1196,14 +1142,14 @@
   "YJwfmY": {
     "string": "開倉手續費"
   },
-  "YNzfBk": {
-    "string": "驗證身份"
-  },
   "YYra8Q": {
     "string": "數量"
   },
   "YcfcO0": {
     "string": "短信验证码已经发送至{phone}"
+  },
+  "YtQA/s": {
+    "string": "可用: {amount}{symbol}"
   },
   "YvriPY": {
     "string": "记录"
@@ -1241,6 +1187,9 @@
   "ZsNueb": {
     "string": "立即參與"
   },
+  "Zy+yLo": {
+    "string": "請填寫提幣地址"
+  },
   "aD/9at": {
     "string": "數量(TFU)"
   },
@@ -1267,6 +1216,9 @@
   },
   "ap+l4f": {
     "string": "請輸入購買數量"
+  },
+  "avV2Zh": {
+    "string": "資產"
   },
   "b5Yvc8": {
     "string": "認證中"
@@ -1315,6 +1267,9 @@
   },
   "cQiVhL": {
     "string": "惡意點擊將直接凍結賬戶"
+  },
+  "cZ6U4z": {
+    "string": "初級認證"
   },
   "cbYoMn": {
     "string": "爲了保證你的賬號安全，請驗證身份"
@@ -1379,6 +1334,9 @@
   "ejs0A3": {
     "string": "请输入手机号码"
   },
+  "eoC4eR": {
+    "string": "請輸入證件號碼"
+  },
   "ep7sPi": {
     "string": "止損設置"
   },
@@ -1409,8 +1367,14 @@
   "fftT6p": {
     "string": "出售USDT時系統將會從餘額賬戶中凍結該部分資金"
   },
+  "foUhnV": {
+    "string": "證件類型"
+  },
   "fu1KIo": {
     "string": "進度"
+  },
+  "fxYWiK": {
+    "string": "请输入邮箱"
   },
   "fzPv+C": {
     "string": "纍計收益"
@@ -1433,8 +1397,14 @@
   "gVKoa9": {
     "string": "同意凍結"
   },
+  "gYHc6L": {
+    "string": "請輸入確認密碼"
+  },
   "ga4StX": {
     "string": "基本資訊"
+  },
+  "gqB7Z3": {
+    "string": "上傳失敗，請重試"
   },
   "gsk33w": {
     "string": "重置密码"
@@ -1472,6 +1442,9 @@
   "hxj1V+": {
     "string": "清空歷史"
   },
+  "i0bc3f": {
+    "string": "币种"
+  },
   "i3xGD8": {
     "string": "提交申訴"
   },
@@ -1486,6 +1459,9 @@
   },
   "j5arhs": {
     "string": "生日"
+  },
+  "j88inR": {
+    "string": "請上傳手持照片"
   },
   "jAROVC": {
     "string": "完成验证"
@@ -1514,6 +1490,9 @@
   "k/qXgT": {
     "string": "持倉"
   },
+  "k5HUdW": {
+    "string": "最小充值金額({symbol})"
+  },
   "kCh5Jz": {
     "string": "提示"
   },
@@ -1537,12 +1516,6 @@
   },
   "keuHvr": {
     "string": "設置止盈止損"
-  },
-  "l+7dfj": {
-    "string": "請選擇地址"
-  },
-  "l9VaC8": {
-    "string": "幣幣帳戶"
   },
   "lK7IeZ": {
     "string": "交易密码管理"
@@ -1646,6 +1619,9 @@
   "oslZjc": {
     "string": "請選擇申訴理由"
   },
+  "p4Oi3U": {
+    "string": "可用餘額({symbol})"
+  },
   "p8CmvE": {
     "string": "填入"
   },
@@ -1675,9 +1651,6 @@
   },
   "qGoxr9": {
     "string": "確認出售"
-  },
-  "qNUf+q": {
-    "string": "跟單交易記錄"
   },
   "qSm4kD": {
     "string": "申訴"
@@ -1715,11 +1688,14 @@
   "rQ+HPv": {
     "string": "输入提币数量"
   },
+  "rZ0rJT": {
+    "string": "請輸入新密碼"
+  },
   "rpJLsF": {
     "string": "參數錯誤"
   },
-  "p4Oi3U": {
-    "string": "可用餘額({symbol})"
+  "rv44i+": {
+    "string": "《{name}隐私条款》"
   },
   "s/KbuC": {
     "string": "数量 USDT"
@@ -1738,6 +1714,9 @@
   },
   "sCpxK3": {
     "string": "請務必確認電腦及瀏覽器安全，防止信息被篡改或洩露。"
+  },
+  "sHN5XP": {
+    "string": "驗證號碼"
   },
   "sNmNjz": {
     "string": "向賣家付款"
@@ -1799,6 +1778,9 @@
   "un5/HP": {
     "string": "选择账户"
   },
+  "uoCZsI": {
+    "string": "《{name}用户协议》"
+  },
   "usmupP": {
     "string": "雷達圖説明"
   },
@@ -1810,9 +1792,6 @@
   },
   "uy59Hz": {
     "string": "看跌(做空)"
-  },
-  "v0r9Fg": {
-    "string": "OTC交易"
   },
   "v2G+NV": {
     "string": "買入價"
@@ -1865,6 +1844,9 @@
   "xPkCfU": {
     "string": "持倉保證金(USDT)"
   },
+  "xRwyQV": {
+    "string": "凍結金額(USDT)"
+  },
   "xiR+G9": {
     "string": "跟單類型"
   },
@@ -1876,6 +1858,9 @@
   },
   "xwo0Ao": {
     "string": "質押周期"
+  },
+  "y+nnJW": {
+    "string": "密码必须是8-16位字、字母组合"
   },
   "yGpmXF": {
     "string": "確定申請取消商家認證？"
@@ -1922,6 +1907,9 @@
   "zMxwE3": {
     "string": "活動總量"
   },
+  "zQm6Ar": {
+    "string": "高級認證"
+  },
   "zR07Wc": {
     "string": "深度"
   },
@@ -1945,86 +1933,5 @@
   },
   "zznr09": {
     "string": "已撤销"
-  },
-  "0oAu54": {
-    "string": "{second}秒"
-  },
-  "QBilBJ": {
-    "string": "首發交易"
-  },
-  "LaUwF3": {
-    "string": "輸入幣種名稱搜索"
-  },
-  "xRwyQV": {
-    "string": "凍結金額(USDT)"
-  },
-  "+nOBYc": {
-    "string": "請先完成初級認證"
-  },
-  "1zPKfz": {
-    "string": "選擇地址"
-  },
-  "3VZKdc": {
-    "string": "兩次密碼輸入不一致"
-  },
-  "43/Nhz": {
-    "string": "《Financingy隱私條款》"
-  },
-  "4oqdRD": {
-    "string": "《Financingy用戶協議》"
-  },
-  "5EExAw": {
-    "string": "證件照"
-  },
-  "6f0YHY": {
-    "string": "信譽分:"
-  },
-  "DXZ6tO": {
-    "string": "請輸入選擇證件類型"
-  },
-  "GAZ/J4": {
-    "string": "請選擇證件類型"
-  },
-  "HFf2ly": {
-    "string": "請上傳證件反面照片"
-  },
-  "HnBEa1": {
-    "string": "請填寫地址"
-  },
-  "OzbKU3": {
-    "string": "請上傳證件正面照片"
-  },
-  "V0RiZp": {
-    "string": "操作成功"
-  },
-  "Zy+yLo": {
-    "string": "請填寫提幣地址"
-  },
-  "cZ6U4z": {
-    "string": "初級認證"
-  },
-  "eoC4eR": {
-    "string": "請輸入證件號碼"
-  },
-  "foUhnV": {
-    "string": "證件類型"
-  },
-  "gYHc6L": {
-    "string": "請輸入確認密碼"
-  },
-  "gqB7Z3": {
-    "string": "上傳失敗，請重試"
-  },
-  "j88inR": {
-    "string": "請上傳手持照片"
-  },
-  "rZ0rJT": {
-    "string": "請輸入新密碼"
-  },
-  "sHN5XP": {
-    "string": "驗證號碼"
-  },
-  "zQm6Ar": {
-    "string": "高級認證"
   }
 }

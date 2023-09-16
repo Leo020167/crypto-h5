@@ -1,9 +1,18 @@
 {
-  "COcMDt": {
-    "string": "market"
+  "H/88FZ": {
+    "string": "Order status"
   },
   "Hckn7b": {
     "string": "Please enter the correct invitation code"
+  },
+  "i0bc3f": {
+    "string": "currency"
+  },
+  "y+nnJW": {
+    "string": "Password must be a combination of 8-16 characters and letters"
+  },
+  "COcMDt": {
+    "string": "market"
   },
   "avV2Zh": {
     "string": "assets"
