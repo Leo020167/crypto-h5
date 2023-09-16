@@ -80,7 +80,7 @@ const Language = () => {
           value={language}
           onChange={(value) => {
             if (value.length) {
-              setLanguage(value);
+              setLanguage(value as string[]);
             }
           }}
           className="mt-2 bg-white"
