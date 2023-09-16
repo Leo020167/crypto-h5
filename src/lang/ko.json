@@ -1,4 +1,7 @@
 {
+  "Uju5sq": {
+    "string": "SMS 확인"
+  },
   "H/88FZ": {
     "string": "주문 상태"
   },
@@ -1896,7 +1899,7 @@
     "string": "판매 가능"
   },
   "agICfX": {
-    "string": "{텍스트}를 받으세요"
+    "string": "{text}를 받으세요"
   },
   "BP8aBu": {
     "string": "통화 선택"

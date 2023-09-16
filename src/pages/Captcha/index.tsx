@@ -99,7 +99,7 @@ const Captcha = () => {
         </h1>
         <div className="mb-8">
           {intl.formatMessage(
-            { defaultMessage: `请获取{text}`, id: 'agICfX' },
+            { defaultMessage: '请获取{text}', id: 'agICfX' },
             {
               text,
             },
