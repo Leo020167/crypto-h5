@@ -43,7 +43,7 @@ const Login = () => {
           history.goBack();
         }}
         right={
-          <div className="flex items-center">
+          <div className="flex flex-wrap items-center">
             <a href={chatLink} className="mr-4 text-black" target="_blank" rel="noreferrer">
               {intl.formatMessage({ defaultMessage: '綫上客服', id: 'wwOQz6' })}
             </a>
