@@ -93,7 +93,7 @@
     "string": "Cantidad (lotes)"
   },
   "+eQ50+": {
-    "string": "Puesta en marcha"
+    "string": "Configuración"
   },
   "+prpsi": {
     "string": "Número de suscripciones"
@@ -210,7 +210,7 @@
     "string": "Comprar ahora"
   },
   "3cuhJj": {
-    "string": "Número de cuenta registrada"
+    "string": "Registro"
   },
   "3gspHW": {
     "string": "Congelación Importe"

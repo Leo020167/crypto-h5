@@ -87,7 +87,7 @@
     "string": "Quantité (lots)"
   },
   "+eQ50+": {
-    "string": "Mettre en place"
+    "string": "Installation"
   },
   "+prpsi": {
     "string": "Nombre d'abonnements"
@@ -1446,7 +1446,7 @@
     "string": "Postuler pour la reliure"
   },
   "jJ0rDY": {
-    "string": "Sélectionnez la devise"
+    "string": "La devise"
   },
   "jPTst4": {
     "string": "Précision"
@@ -1821,7 +1821,7 @@
     "string": "Code du nom"
   },
   "ypMY0M": {
-    "string": "Obtenir le code de vérification"
+    "string": "Obtener"
   },
   "yz8Bd8": {
     "string": "Numéro de téléphone mobile de Bound:"
