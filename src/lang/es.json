@@ -1,21 +1,21 @@
 {
   "H/88FZ": {
-    "cadena": "Estado del pedido"
+    "string": "Estado del pedido"
   },
   "Hckn7b": {
     "string": "Ingrese el código de invitación correcto"
   },
   "i0bc3f": {
-    "cadena": "moneda"
+    "string": "moneda"
   },
   "y+nnJW": {
     "string": "La contraseña debe ser una combinación de 8 a 16 caracteres y letras"
   },
   "NL+iC": {
-    "cadena": "estado"
+    "string": "estado"
   },
   "CarZOU": {
-    "cadena": "日K"
+    "string": "japonés k"
   },
   "COcMDt": {
     "string": "mercado"
