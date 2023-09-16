@@ -1,9 +1,21 @@
 {
-  "COcMDt": {
-    "string": "chợ"
+  "H/88FZ": {
+    "string": "Trạng thái đơn hàng"
   },
   "Hckn7b": {
-    "string": "Vui lòng nhập đúng mã thư mời"
+    "string": "Vui lòng nhập đúng mã mời"
+  },
+  "i0bc3f": {
+    "chuỗi": "tiền tệ"
+  },
+  "y+nnJW": {
+    "string": "Mật khẩu phải là sự kết hợp của 8-16 ký tự và chữ cái"
+  },
+  "CarZOU": {
+    "chuỗi": "K Nhật Bản"
+  },
+  "COcMDt": {
+    "string": "chợ"
   },
   "avV2Zh": {
     "string": "tài sản"

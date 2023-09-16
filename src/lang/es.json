@@ -1,9 +1,24 @@
 {
-  "COcMDt": {
-    "string": "mercado"
+  "H/88FZ": {
+    "cadena": "Estado del pedido"
   },
   "Hckn7b": {
-    "string": "Por favor ingrese el código de invitación correcto"
+    "string": "Ingrese el código de invitación correcto"
+  },
+  "i0bc3f": {
+    "cadena": "moneda"
+  },
+  "y+nnJW": {
+    "string": "La contraseña debe ser una combinación de 8 a 16 caracteres y letras"
+  },
+  "NL+iC": {
+    "cadena": "estado"
+  },
+  "CarZOU": {
+    "cadena": "日K"
+  },
+  "COcMDt": {
+    "string": "mercado"
   },
   "avV2Zh": {
     "string": "activos"
