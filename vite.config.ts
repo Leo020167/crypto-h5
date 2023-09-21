@@ -10,7 +10,7 @@ import svgr from 'vite-plugin-svgr';
 export default defineConfig(({ mode }) => {
   return {
     build: {
-      outDir: `dist/Financingy-${mode === 'allow-download' ? '有下載' : '無下載'}`,
+      outDir: `dist/Bitaegis-${mode === 'allow-download' ? '有下載' : '無下載'}`,
     },
     server: {
       host: '0.0.0.0',
@@ -18,16 +18,16 @@ export default defineConfig(({ mode }) => {
         // http://api.piglobalexchanges.com/procoin/swagger/index.html#/
         // http://api.worldcoinservice.com/procoin/swagger/index.html#/
         '/procoin-market': {
-          target: 'http://market.financingychain.com',
+          target: 'http://market.bitaeex.com',
           changeOrigin: true,
         },
         '/procoin-file': {
-          target: 'http://upload.financingychain.com',
+          target: 'http://upload.bitaeex.com',
           changeOrigin: true,
         },
         //  http://api.cryptographexx.com/procoin/meiqia
         '/procoin': {
-          target: 'https://api.financingychain.com',
+          target: 'https://api.bitaeex.com',
           changeOrigin: true,
         },
       },
