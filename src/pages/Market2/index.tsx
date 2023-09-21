@@ -227,7 +227,7 @@ const Market = () => {
           </Tabs.Tab>
         </Tabs>
       </div>
-      <div className="absolute bottom-0 z-10 flex w-full items-center bg-[#131e31] p-4">
+      <div className="fixed bottom-0 z-10 flex w-full items-center bg-[#131e31] p-4">
         <a
           className={`flex h-10 flex-1 items-center justify-center bg-[${
             switchColorValue === '1' ? '#00AD88' : '#E2214E'

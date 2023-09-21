@@ -43,13 +43,14 @@ const Login = () => {
           history.goBack();
         }}
         right={
-          <div className="flex flex-wrap items-center">
-            <a href={chatLink} className="mr-4 text-black" target="_blank" rel="noreferrer">
-              {intl.formatMessage({ defaultMessage: '綫上客服', id: 'wwOQz6' })}
-            </a>
+          <div className="flex flex-wrap items-center space-x-4">
             <Link to="/signup" className="text-black">
               {intl.formatMessage({ defaultMessage: '注冊賬號', id: '3cuhJj' })}
             </Link>
+
+            <a href={chatLink} className="text-black" target="_blank" rel="noreferrer">
+              {intl.formatMessage({ defaultMessage: '綫上客服', id: 'wwOQz6' })}
+            </a>
           </div>
         }
       />

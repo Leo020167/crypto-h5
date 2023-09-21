@@ -1,4 +1,10 @@
 {
+  "WKYPpM": {
+    "string": "lời hứa"
+  },
+  "kGK1/L": {
+    "string": "nạp tiền"
+  },
   "GO/P/E": {
     "string": "Thêm địa chỉ rút tiền"
   },
@@ -1112,9 +1118,6 @@
   "WKCB03": {
     "string": "Số lượng có thể chuyển đổi:"
   },
-  "WKYPpM": {
-    "string": "Lãi suất cầm cố"
-  },
   "WLF2E0": {
     "string": "Quản lý hóa đơn"
   },
@@ -1474,9 +1477,6 @@
   },
   "kEQh1G": {
     "string": "Vui lòng nhập tên CCCD"
-  },
-  "kGK1/L": {
-    "string": "Tiền gửi"
   },
   "kIQ/Xp": {
     "string": "Đặt ngôn ngữ"

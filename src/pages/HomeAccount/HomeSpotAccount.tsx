@@ -27,12 +27,12 @@ const HomeSpotAccount = ({ account }: HomeSpotAccountProps) => {
               <span className="ml-1 text-gray-400">{account?.assetsCny ?? '≈HK$0.00'}</span>
             </div>
           </div>
-          <div className="flex flex-col items-end">
+          {/* <div className="flex flex-col items-end">
             <div className="text-gray-400">
               {intl.formatMessage({ defaultMessage: '總盈虧(USDT)', id: '7xCHrU' })}
             </div>
             <div>{account?.profit ?? '0'}</div>
-          </div>
+          </div> */}
         </div>
 
         <div className="mt-3 flex items-center justify-between text-[#c1d3155]">

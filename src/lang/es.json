@@ -1,4 +1,10 @@
 {
+  "WKYPpM": {
+    "string": "Promesa"
+  },
+  "kGK1/L": {
+    "string": "Recarga"
+  },
   "H/88FZ": {
     "string": "Estado del pedido"
   },
@@ -1112,9 +1118,6 @@
   "WKCB03": {
     "string": "Cantidad canjeable："
   },
-  "WKYPpM": {
-    "string": "Pignoración de intereses"
-  },
   "WLF2E0": {
     "string": "Gestión de colecciones"
   },
@@ -1474,9 +1477,6 @@
   },
   "kEQh1G": {
     "string": "Introduzca el nombre del documento"
-  },
-  "kGK1/L": {
-    "string": "Moneda"
   },
   "kIQ/Xp": {
     "string": "Establecer idioma"

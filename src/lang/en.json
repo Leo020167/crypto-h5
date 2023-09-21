@@ -1,4 +1,10 @@
 {
+  "WKYPpM": {
+    "string": "Pledge"
+  },
+  "kGK1/L": {
+    "string": "Recharge"
+  },
   "H/88FZ": {
     "string": "Order status"
   },
@@ -1106,9 +1112,6 @@
   "WKCB03": {
     "string": "Redeerate quantity："
   },
-  "WKYPpM": {
-    "string": "Pledge generates interest"
-  },
   "WLF2E0": {
     "string": "Receipt management"
   },
@@ -1468,9 +1471,6 @@
   },
   "kEQh1G": {
     "string": "Please enter the ID name"
-  },
-  "kGK1/L": {
-    "string": "Recharge currency"
   },
   "kIQ/Xp": {
     "string": "language setting"

@@ -1,4 +1,10 @@
 {
+  "WKYPpM": {
+    "string": "약속"
+  },
+  "kGK1/L": {
+    "string": "충전하다"
+  },
   "Uju5sq": {
     "string": "SMS 확인"
   },
@@ -1115,9 +1121,6 @@
   "WKCB03": {
     "string": "수량재작성："
   },
-  "WKYPpM": {
-    "string": "공약은 흥미를 유발한다"
-  },
   "WLF2E0": {
     "string": "영수증관리"
   },
@@ -1477,9 +1480,6 @@
   },
   "kEQh1G": {
     "string": "ID 이름을 입력하십시오"
-  },
-  "kGK1/L": {
-    "string": "충전통화"
   },
   "kIQ/Xp": {
     "string": "언어 설정"

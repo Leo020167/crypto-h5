@@ -1,4 +1,10 @@
 {
+  "WKYPpM": {
+    "string": "Gage"
+  },
+  "kGK1/L": {
+    "string": "Recharger"
+  },
   "H/88FZ": {
     "string": "Statut de la commande"
   },
@@ -1106,9 +1112,6 @@
   "WKCB03": {
     "string": "Quantité rachetable："
   },
-  "WKYPpM": {
-    "string": "Gage d'intérêt"
-  },
   "WLF2E0": {
     "string": "Gestion des collections"
   },
@@ -1468,9 +1471,6 @@
   },
   "kEQh1G": {
     "string": "Veuillez entrer le nom du document"
-  },
-  "kGK1/L": {
-    "string": "Devise"
   },
   "kIQ/Xp": {
     "string": "Définir la langue"
