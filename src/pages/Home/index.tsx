@@ -87,7 +87,7 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="mt-4 grid grid-cols-4 px-2.5 font-bold ">
+      <div className="mt-4 grid grid-cols-4 font-bold">
         <Link to="/subscribe" className="flex flex-col items-center">
           <img alt="" src={tab1_menu2} className="h-9 w-9" />
           <div className="mt-2.5 break-all text-xs text-[#666666]">
