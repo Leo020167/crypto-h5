@@ -38,12 +38,12 @@ const Login = () => {
 
   return (
     <div className="bg-white">
-      <NavBar
+      <Header
         onBack={() => {
           history.goBack();
         }}
         right={
-          <div className="flex flex-wrap items-center space-x-4">
+          <div className="flex flex-wrap items-center justify-end space-x-4">
             <Link to="/signup" className="text-black">
               {intl.formatMessage({ defaultMessage: '注冊賬號', id: '3cuhJj' })}
             </Link>
@@ -181,6 +181,13 @@ const Container = styled.div`
         font-size: var(--adm-font-size-7);
       }
     }
+  }
+`;
+
+const Header = styled(NavBar)`
+  .adm-nav-bar-left,
+  .adm-nav-bar-right {
+    flex: auto;
   }
 `;
 
