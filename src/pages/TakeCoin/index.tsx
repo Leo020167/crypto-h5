@@ -229,42 +229,41 @@ const TakeCoin = () => {
         </div>
 
         <div className="mt-4 rounded-xl bg-white p-5 shadow-md shadow-black/5">
-          <div className="flex items-start justify-between">
-            <div>
+          <div className="flex flex-col">
+            <div className="flex items-center justify-between">
               <span className="text-[#3E4660]">
                 {intl.formatMessage({ defaultMessage: '選擇幣種', id: 'jJ0rDY' })}
               </span>
-              <div className="mt-4">
-                <a
-                  className="flex h-8 items-center justify-center rounded border border-[#3E4660] px-2"
-                  onClick={() => {
-                    setOpenSymbol(true);
-                  }}
-                >
-                  {symbol}
-                  <DownFill fontSize={8} className="ml-2" />
-                </a>
-              </div>
+              <span className="w-2/3 text-right text-[#3E4660]">
+                {intl.formatMessage({ defaultMessage: '選擇充幣網絡', id: '8Pdrch' })}
+              </span>
             </div>
-            {symbol === 'USDT' && (
-              <div className="ml-2 text-right">
-                <span className="text-[#3E4660]">
-                  {intl.formatMessage({ defaultMessage: '選擇充幣網絡', id: '8Pdrch' })}
-                </span>
-                <Selector
-                  className="mt-4"
-                  columns={3}
-                  showCheckMark={false}
-                  options={options}
-                  value={[chainType ?? '']}
-                  onChange={(value) => {
-                    if (value.length) {
-                      setChainType(value[0], 'replaceIn');
-                    }
-                  }}
-                />
-              </div>
-            )}
+            <div className="mt-4 flex items-center gap-x-2">
+              <a
+                className="flex h-8 items-center justify-center rounded border border-[#3E4660] px-2"
+                onClick={() => {
+                  setOpenSymbol(true);
+                }}
+              >
+                {symbol}
+                <DownFill fontSize={8} className="ml-2" />
+              </a>
+              {symbol === 'USDT' && (
+                <div className="text-right">
+                  <Selector
+                    columns={3}
+                    showCheckMark={false}
+                    options={options}
+                    value={[chainType ?? '']}
+                    onChange={(value) => {
+                      if (value.length) {
+                        setChainType(value[0], 'replaceIn');
+                      }
+                    }}
+                  />
+                </div>
+              )}
+            </div>
           </div>
 
           <div className="mt-5 border-t border-dashed border-[#E2E4F0]"></div>
