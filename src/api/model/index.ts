@@ -140,6 +140,7 @@ export * from './homeAccountResponseAllOfData';
 export * from './homeConfig200';
 export * from './homeConfig200AllOf';
 export * from './homeConfig200AllOfData';
+export * from './homeConfigBody';
 export * from './homeCropMeResponse';
 export * from './homeCropMeResponseAllOf';
 export * from './homeCropMeResponseAllOfData';

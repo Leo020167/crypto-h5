@@ -61,6 +61,7 @@ import type {
   GetWithdrawConfigsResponse,
   HomeAccountResponse,
   HomeConfig200,
+  HomeConfigBody,
   HomeCropMeResponse,
   HomeMyResponse,
   IdentityAuthResponse,
@@ -200,25 +201,33 @@ export const useIdentityConfig = <
   return query;
 };
 
-export const homeConfig = () => {
-  return customInstance<HomeConfig200>({ url: `/home/config.do`, method: 'post' });
+export const homeConfig = (homeConfigBody: HomeConfigBody) => {
+  return customInstance<HomeConfig200>({
+    url: `/home/config.do`,
+    method: 'post',
+    headers: { 'Content-Type': 'application/json' },
+    data: homeConfigBody,
+  });
 };
 
-export const getHomeConfigQueryKey = () => [`/home/config.do`] as const;
+export const getHomeConfigQueryKey = (homeConfigBody: HomeConfigBody) =>
+  [`/home/config.do`, homeConfigBody] as const;
 
 export const getHomeConfigQueryOptions = <
   TData = Awaited<ReturnType<typeof homeConfig>>,
   TError = ErrorType<unknown>,
->(options?: {
-  query?: UseQueryOptions<Awaited<ReturnType<typeof homeConfig>>, TError, TData>;
-}): UseQueryOptions<Awaited<ReturnType<typeof homeConfig>>, TError, TData> & {
+>(
+  homeConfigBody: HomeConfigBody,
+  options?: { query?: UseQueryOptions<Awaited<ReturnType<typeof homeConfig>>, TError, TData> },
+): UseQueryOptions<Awaited<ReturnType<typeof homeConfig>>, TError, TData> & {
   queryKey: QueryKey;
 } => {
   const { query: queryOptions } = options ?? {};
 
-  const queryKey = queryOptions?.queryKey ?? getHomeConfigQueryKey();
+  const queryKey = queryOptions?.queryKey ?? getHomeConfigQueryKey(homeConfigBody);
 
-  const queryFn: QueryFunction<Awaited<ReturnType<typeof homeConfig>>> = () => homeConfig();
+  const queryFn: QueryFunction<Awaited<ReturnType<typeof homeConfig>>> = () =>
+    homeConfig(homeConfigBody);
 
   return { queryKey, queryFn, ...queryOptions };
 };
@@ -229,10 +238,11 @@ export type HomeConfigQueryError = ErrorType<unknown>;
 export const useHomeConfig = <
   TData = Awaited<ReturnType<typeof homeConfig>>,
   TError = ErrorType<unknown>,
->(options?: {
-  query?: UseQueryOptions<Awaited<ReturnType<typeof homeConfig>>, TError, TData>;
-}): UseQueryResult<TData, TError> & { queryKey: QueryKey } => {
-  const queryOptions = getHomeConfigQueryOptions(options);
+>(
+  homeConfigBody: HomeConfigBody,
+  options?: { query?: UseQueryOptions<Awaited<ReturnType<typeof homeConfig>>, TError, TData> },
+): UseQueryResult<TData, TError> & { queryKey: QueryKey } => {
+  const queryOptions = getHomeConfigQueryOptions(homeConfigBody, options);
 
   const query = useQuery(queryOptions) as UseQueryResult<TData, TError> & { queryKey: QueryKey };
 

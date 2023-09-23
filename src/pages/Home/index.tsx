@@ -28,7 +28,9 @@ const Home = () => {
 
   // const { data: homeCropMe } = useHomeCropMe();
 
-  const { data: homeConfig } = useHomeConfig();
+  const { data: homeConfig } = useHomeConfig({
+    domain: location.hostname.substring(location.hostname.indexOf('.') + 1),
+  });
 
   const { data: quoteHomePage } = useQuoteHomePage();
 

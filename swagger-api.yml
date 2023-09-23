@@ -33,6 +33,14 @@ paths:
       operationId: 'homeConfig'
       description: ''
 
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                domain:
+                  type: string
+
       responses:
         '200':
           description: OK
