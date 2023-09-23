@@ -29,7 +29,7 @@ interface AccountType {
 
 const proOrderQuerySumKeys = ['stock', 'digital'];
 
-const AccountTypeParam = withDefault(StringParam, 'follow');
+const AccountTypeParam = withDefault(StringParam, 'spot');
 const ActiveIndexParam = withDefault(NumberParam, 0);
 
 const TransactionRecords = () => {
@@ -48,6 +48,10 @@ const TransactionRecords = () => {
   const accountTypes: AccountType[] = useMemo(
     () => [
       {
+        value: 'spot',
+        label: intl.formatMessage({ defaultMessage: '幣幣交易記錄', id: 'RXCFfg' }),
+      },
+      {
         value: 'follow',
         label: intl.formatMessage({ defaultMessage: '跟單交易記錄', id: 'qNUf+q' }),
       },
@@ -58,10 +62,6 @@ const TransactionRecords = () => {
       {
         value: 'digital',
         label: intl.formatMessage({ defaultMessage: '合約交易記錄', id: 'MG99Vk' }),
-      },
-      {
-        value: 'spot',
-        label: intl.formatMessage({ defaultMessage: '幣幣交易記錄', id: 'RXCFfg' }),
       },
     ],
     [intl],
@@ -222,7 +222,7 @@ const TransactionRecords = () => {
               <div className="flex flex-col ml-4">
                 <span className="text-xs text-[#999999]">
                   {intl.formatMessage({
-                    defaultMessage: '獲得Fwdetsc',
+                    defaultMessage: '獲得Gliedt',
                     id: 'Hh3rHP',
                   })}
                 </span>

@@ -43,7 +43,7 @@
     "string": "Divisa"
   },
   "X3UAMm": {
-    "string": "consumir WTS:"
+    "string": "consumir GLT:"
   },
   "ndT7z1": {
     "string": "Ingreso anualizado"
@@ -142,7 +142,7 @@
     "string": "¿Está suscrito este usuario?"
   },
   "20MJBj": {
-    "string": "WTS"
+    "string": "GLT"
   },
   "297aFF": {
     "string": "Ratio de margen"
@@ -571,7 +571,7 @@
     "string": "Mensaje de queja (opcional)"
   },
   "GKRXXt": {
-    "string": "Consigue WTS"
+    "string": "Consigue GLT"
   },
   "GO/P/E": {
     "string": "Añadir dirección de retirada"
@@ -658,7 +658,7 @@
     "string": "Compra en moneda fiduciaria"
   },
   "JVHhgb": {
-    "string": "《Acuerdo de usuario de Fwdetsc》"
+    "string": "《Acuerdo de usuario de Gliedt》"
   },
   "JYhyDW": {
     "string": "Estancia{days}días"
@@ -763,7 +763,7 @@
     "string": "Vuelva a introducir su contraseña"
   },
   "MQKv1T": {
-    "string": "Premio comunitario total(WTS)"
+    "string": "Premio comunitario total(GLT)"
   },
   "MTyrlB": {
     "string": "La contraseña debe ser una combinación de - dígitos y letras"
@@ -808,7 +808,7 @@
     "string": "Introduzca su dirección de correo electrónico"
   },
   "NdxUVx": {
-    "string": "Vea cómo conseguir WTS"
+    "string": "Vea cómo conseguir GLT"
   },
   "NlcysC": {
     "string": "Introduzca su código postal"
@@ -1114,7 +1114,7 @@
     "string": "Número de transacciones"
   },
   "XR6wlA": {
-    "string": "《Política de privacidad de Fwdetsc》"
+    "string": "《Política de privacidad de Gliedt》"
   },
   "XWzDpA": {
     "string": "He pagado con éxito"
@@ -1177,7 +1177,7 @@
     "string": "Sólo se permiten recargas"
   },
   "aD/9at": {
-    "string": "Cantidad (WTS)"
+    "string": "Cantidad (GLT)"
   },
   "aOp/5l": {
     "string": "No puede solicitar la verificación de comerciante sin un nombre real, por favor verifique su nombre real antes de enviar su solicitud de verificación de comerciante."
@@ -1372,7 +1372,7 @@
     "string": "Historia financiera"
   },
   "guM4xe": {
-    "string": "Consumir WTS:"
+    "string": "Consumir GLT:"
   },
   "gx0XBL": {
     "string": "Suscríbase a"
@@ -1840,7 +1840,7 @@
     "string": "Cantidad"
   },
   "zqkaAr": {
-    "string": "Recompensa (WTS)"
+    "string": "Recompensa (GLT)"
   },
   "zv2r2Q": {
     "string": "Pida"
@@ -2024,7 +2024,7 @@
   },
 
   "Hh3rHP": {
-    "string": "Obtener WTS"
+    "string": "Obtener GLT"
   },
 
   "Pqs8N": {
@@ -2116,7 +2116,7 @@
     "string": "Recompensas totales de la comunidad (LCN)"
   },
   "iBG8Hb": {
-    "string": "Vea cómo obtener WTS"
+    "string": "Vea cómo obtener GLT"
   },
   "kOFx5M": {
     "string": "Al retirar USDT, el sistema congelará esta parte de los fondos de la cuenta de saldo"

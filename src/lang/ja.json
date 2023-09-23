@@ -43,7 +43,7 @@
     "string": "通貨"
   },
   "X3UAMm": {
-    "string": "消費 WTS:"
+    "string": "消費 GLT:"
   },
   "ndT7z1": {
     "string": "年収"
@@ -142,7 +142,7 @@
     "string": "このユーザーを購読するかどうか"
   },
   "20MJBj": {
-    "string": "WTS"
+    "string": "GLT"
   },
   "297aFF": {
     "string": "保証金比率"
@@ -229,7 +229,7 @@
     "string": "位置を閉じます"
   },
   "4ivSMB": {
-    "string": "総資産(WTS)"
+    "string": "総資産(GLT)"
   },
   "56o47p": {
     "string": "メールボックス検証コード"
@@ -658,7 +658,7 @@
     "string": "合法的な入札購入"
   },
   "JVHhgb": {
-    "string": "《Fwdetsc ユーザプロトコル》"
+    "string": "《Gliedt ユーザプロトコル》"
   },
   "JYhyDW": {
     "string": "滞留時間 {days} 日"
@@ -763,7 +763,7 @@
     "string": "パスワードを再入力してください"
   },
   "MQKv1T": {
-    "string": "コミュニティの総報酬(WTS)"
+    "string": "コミュニティの総報酬(GLT)"
   },
   "MTyrlB": {
     "string": "秘密は8～16桁の単語,アルファベットの組み合わせでなければなりません"
@@ -1114,7 +1114,7 @@
     "string": "トランザクション数"
   },
   "XR6wlA": {
-    "string": "《Fwdetscプライバシーポリシー》"
+    "string": "《Gliedtプライバシーポリシー》"
   },
   "XWzDpA": {
     "string": "私は成功を収めた"
@@ -1177,7 +1177,7 @@
     "string": "充電のみを許可します"
   },
   "aD/9at": {
-    "string": "量(WTS)"
+    "string": "量(GLT)"
   },
   "aOp/5l": {
     "string": "商人認定に本名を適用できない場合は,実際の認証の後にビジネス認定申請書を提出してください。"
@@ -1840,7 +1840,7 @@
     "string": "受け取った数量"
   },
   "zqkaAr": {
-    "string": "褒美(WTS)"
+    "string": "褒美(GLT)"
   },
   "zv2r2Q": {
     "string": "申し込む"
@@ -2024,7 +2024,7 @@
   },
 
   "Hh3rHP": {
-    "string": "WTS を取得"
+    "string": "GLT を取得"
   },
 
   "misXZU": {

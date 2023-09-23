@@ -94,7 +94,7 @@ const Signup = () => {
                         id: 'uoCZsI',
                       },
                       {
-                        name: 'Fwdetsc',
+                        name: 'Gliedt',
                       },
                     )}
                   </a>
@@ -113,7 +113,7 @@ const Signup = () => {
                         id: 'rv44i+',
                       },
                       {
-                        name: 'Fwdetsc',
+                        name: 'Gliedt',
                       },
                     )}
                   </a>

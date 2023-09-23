@@ -266,7 +266,7 @@ const Symbols = ({ quotes = [] }: { quotes?: Quote[] }) => {
         <List.Item key={i}>
           <Link
             to={{
-              pathname: '/market',
+              pathname: '/market2',
               search: stringify({
                 symbol: v.symbol,
               }),

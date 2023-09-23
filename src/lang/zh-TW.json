@@ -36,7 +36,7 @@
     "string": "幣種"
   },
   "X3UAMm": {
-    "string": "消耗 WTS:"
+    "string": "消耗 GLT:"
   },
   "ndT7z1": {
     "string": "年化收益"
@@ -240,7 +240,7 @@
     "string": "方向"
   },
   "4ivSMB": {
-    "string": "總資產(WTS)"
+    "string": "總資產(GLT)"
   },
   "4kxY/u": {
     "string": "請再次輸入6位支付密碼"
@@ -687,7 +687,7 @@
     "string": "未成交"
   },
   "JVHhgb": {
-    "string": "《Fwdetsc用户协议》"
+    "string": "《Gliedt用户协议》"
   },
   "JYhyDW": {
     "string": "已入住{days}天"
@@ -798,7 +798,7 @@
     "string": "请再次输入密码"
   },
   "MQKv1T": {
-    "string": "社區總獎勵(WTS)"
+    "string": "社區總獎勵(GLT)"
   },
   "MTyrlB": {
     "string": "密必须是8-16位字、字母组合"
@@ -1146,7 +1146,7 @@
     "string": "交易次數"
   },
   "XR6wlA": {
-    "string": "《Fwdetsc隐私条款》"
+    "string": "《Gliedt隐私条款》"
   },
   "XWzDpA": {
     "string": "我已付款成功"
@@ -1224,7 +1224,7 @@
     "string": "立即參與"
   },
   "aD/9at": {
-    "string": "數量(WTS)"
+    "string": "數量(GLT)"
   },
   "aOp/5l": {
     "string": "未實名不能申請商家認證，請實名認證後，在提交商家認證申請。"
@@ -1920,7 +1920,7 @@
     "string": "到賬數量"
   },
   "zqkaAr": {
-    "string": "獎勵(WTS)"
+    "string": "獎勵(GLT)"
   },
   "zv2r2Q": {
     "string": "訂閲"

@@ -72,6 +72,7 @@ const Language = () => {
           value={language}
           onChange={(value) => {
             if (value.length) {
+              // @ts-ignore
               setLanguage(value);
             }
           }}

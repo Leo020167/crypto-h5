@@ -43,7 +43,7 @@
     "string": "Currency"
   },
   "X3UAMm": {
-    "string": "consume WTS:"
+    "string": "consume GLT:"
   },
   "ndT7z1": {
     "string": "Annualized income"
@@ -142,7 +142,7 @@
     "string": "Whether to subscribe to this user？"
   },
   "20MJBj": {
-    "string": "WTS"
+    "string": "GLT"
   },
   "297aFF": {
     "string": "Margin Ratio"
@@ -229,7 +229,7 @@
     "string": "close a position"
   },
   "4ivSMB": {
-    "string": "Total Assets(WTS)"
+    "string": "Total Assets(GLT)"
   },
   "56o47p": {
     "string": "Mailbox Verification Code"
@@ -574,7 +574,7 @@
     "string": "Appeal message (optional)"
   },
   "GKRXXt": {
-    "string": "obtain WTS"
+    "string": "obtain GLT"
   },
   "GO/P/E": {
     "string": "Add the withdrawal currency address"
@@ -661,7 +661,7 @@
     "string": "Legal tender purchases"
   },
   "JVHhgb": {
-    "string": "《Fwdetsc User Agreement》"
+    "string": "《Gliedt User Agreement》"
   },
   "JYhyDW": {
     "string": "Stayed for {days} days"
@@ -766,7 +766,7 @@
     "string": "Please enter the password again"
   },
   "MQKv1T": {
-    "string": "Community Total Reward(WTS)"
+    "string": "Community Total Reward(GLT)"
   },
   "MTyrlB": {
     "string": "The secret must be 8-16-bit words, letters combination"
@@ -811,7 +811,7 @@
     "string": "please input your mailbox"
   },
   "NdxUVx": {
-    "string": "Check how to get WTS"
+    "string": "Check how to get GLT"
   },
   "NlcysC": {
     "string": "Please enter the mailbox number"
@@ -1120,7 +1120,7 @@
     "string": "Number of transactions"
   },
   "XR6wlA": {
-    "string": "《Fwdetsc Privacy Policy》"
+    "string": "《Gliedt Privacy Policy》"
   },
   "XWzDpA": {
     "string": "I have paid success"
@@ -1183,7 +1183,7 @@
     "string": "Only allow recharge"
   },
   "aD/9at": {
-    "string": "quantity(WTS)"
+    "string": "quantity(GLT)"
   },
   "aOp/5l": {
     "string": "If the real name cannot be applied for merchant certification, please submit a business certification application after the real -name authentication."
@@ -1378,7 +1378,7 @@
     "string": "Financial record"
   },
   "guM4xe": {
-    "string": "Consume WTS:"
+    "string": "Consume GLT:"
   },
   "gx0XBL": {
     "string": "Subscribe"
@@ -1846,7 +1846,7 @@
     "string": "Quantity received"
   },
   "zqkaAr": {
-    "string": "reward(WTS)"
+    "string": "reward(GLT)"
   },
   "zv2r2Q": {
     "string": "Subscribe"
@@ -2029,7 +2029,7 @@
     "string": "Daily Earnings"
   },
   "Hh3rHP": {
-    "string": "Get WTS"
+    "string": "Get GLT"
   },
   "misXZU": {
     "string": "Defi zone"
@@ -2110,7 +2110,7 @@
     "string": "Total Community Rewards (LCN)"
   },
   "iBG8Hb": {
-    "string": "See how to get WTS"
+    "string": "See how to get GLT"
   },
   "kOFx5M": {
     "string": "When withdrawing USDT, the system will freeze this part of the funds from the balance account"
