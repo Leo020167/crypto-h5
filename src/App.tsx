@@ -8,6 +8,7 @@ import koKR from 'antd-mobile/es/locales/ko-KR';
 import ruRU from 'antd-mobile/es/locales/ru-RU';
 import zhCN from 'antd-mobile/es/locales/zh-CN';
 import zhTW from 'antd-mobile/es/locales/zh-TW';
+import th from './lang/antd-th';
 import vi from './lang/antd-vi';
 
 import { useAtomValue } from 'jotai';
@@ -33,6 +34,7 @@ const localeMap: { [key: string]: any } = {
   va: vi,
   'zh-CN': zhCN,
   'zh-TW': zhTW,
+  th: th,
 };
 
 const queryClient = new QueryClient({

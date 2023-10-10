@@ -43,6 +43,10 @@ const languages = [
     name: 'Việt Nam',
     key: 'va',
   },
+  {
+    name: 'แบบไทย',
+    key: 'th',
+  },
   // {
   //   name: 'Português',
   //   key: 'pt',

@@ -3,7 +3,7 @@ const typeTemplate = '${label} không phải là ${type} hợp lệ';
 const vi = {
   locale: 'vi',
   common: {
-    confirm: 'OK',
+    confirm: 'Chắc chắn',
     cancel: 'Hủy',
     loading: 'Đang tải',
     close: 'Đóng',

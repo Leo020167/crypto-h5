@@ -8,4 +8,5 @@ export const localeHash: { [key: string]: string } = {
   ko: 'ko',
   'ru-RU': 'ru',
   va: 'va',
+  th: 'th',
 };
