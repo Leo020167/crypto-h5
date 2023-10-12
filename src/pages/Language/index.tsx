@@ -44,7 +44,7 @@ const languages = [
     key: 'va',
   },
   {
-    name: 'แบบไทย',
+    name: 'ภาษาไทย',
     key: 'th',
   },
   // {
