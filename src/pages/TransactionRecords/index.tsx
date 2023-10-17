@@ -227,7 +227,7 @@ const TransactionRecords = () => {
                       id: '6ze3u0',
                     },
                     {
-                      symbol: 'FireGlobal',
+                      symbol: 'ECloud',
                     },
                   )}
                 </span>

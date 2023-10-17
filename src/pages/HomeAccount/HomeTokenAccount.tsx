@@ -20,7 +20,7 @@ const HomeTokenAccount = ({ account }: HomeTokenAccountProps) => {
             {intl.formatMessage(
               { defaultMessage: '查看如何獲取{symbol}', id: 'ys2TZp' },
               {
-                symbol: 'FireGlobal',
+                symbol: 'ECloud',
               },
             )}
           </a>
@@ -30,7 +30,7 @@ const HomeTokenAccount = ({ account }: HomeTokenAccountProps) => {
             <div className="text-gray-400">
               {intl.formatMessage(
                 { defaultMessage: '總資產({symbol})', id: '4+Rr4y' },
-                { symbol: 'FireGlobal' },
+                { symbol: 'ECloud' },
               )}
             </div>
             <div className="text-base">{account?.assets ?? '0'}</div>

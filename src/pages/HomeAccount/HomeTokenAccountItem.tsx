@@ -16,7 +16,7 @@ const HomeTokenAccountItem = ({ data }: HomeTokenAccountItemProps) => {
           <div>
             {intl.formatMessage(
               { defaultMessage: '數量({symbol})', id: 'MkphXA' },
-              { symbol: 'FireGlobal' },
+              { symbol: 'ECloud' },
             )}
           </div>
           <div className="mt-2" style={{ color: data.inOut === '1' ? '#14CC4B' : '#C4311D' }}>

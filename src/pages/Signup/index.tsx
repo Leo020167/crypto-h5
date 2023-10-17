@@ -92,7 +92,7 @@ const Signup = () => {
                         id: 'JPekCx',
                       },
                       {
-                        symbol: 'FireGlobal',
+                        symbol: 'ECloud',
                       },
                     )}
                   </a>
@@ -109,7 +109,7 @@ const Signup = () => {
                         id: 'FtKzCz',
                       },
                       {
-                        symbol: 'FireGlobal',
+                        symbol: 'ECloud',
                       },
                     )}
                   </a>

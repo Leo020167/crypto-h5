@@ -9,7 +9,7 @@ import svgr from 'vite-plugin-svgr';
 // https://vitejs.dev/config/
 export default defineConfig({
   build: {
-    outDir: 'dist/FireGlobal-H5',
+    outDir: 'dist/ECloud-H5',
   },
   server: {
     proxy: {
