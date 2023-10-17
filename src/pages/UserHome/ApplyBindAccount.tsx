@@ -180,7 +180,7 @@ const ApplyBindAccount = () => {
                         id: 'fhhb2I',
                       },
                       {
-                        symbol: 'FGEC',
+                        symbol: 'ECC',
                       },
                     )}
                     {v.tokenAmount}

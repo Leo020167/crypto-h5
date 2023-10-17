@@ -36,7 +36,7 @@
     "string": "Currency"
   },
   "X3UAMm": {
-    "string": "consume FGEC:"
+    "string": "consume ECC:"
   },
   "ndT7z1": {
     "string": "Annualized income"
@@ -135,7 +135,7 @@
     "string": "Whether to subscribe to this user？"
   },
   "20MJBj": {
-    "string": "FGEC"
+    "string": "ECC"
   },
   "297aFF": {
     "string": "Margin Ratio"
@@ -222,7 +222,7 @@
     "string": "close a position"
   },
   "4ivSMB": {
-    "string": "Total Assets(FGEC)"
+    "string": "Total Assets(ECC)"
   },
   "56o47p": {
     "string": "Mailbox Verification Code"
@@ -567,7 +567,7 @@
     "string": "Appeal message (optional)"
   },
   "GKRXXt": {
-    "string": "obtain FGEC"
+    "string": "obtain ECC"
   },
   "GO/P/E": {
     "string": "Add the withdrawal currency address"
@@ -759,7 +759,7 @@
     "string": "Please enter the password again"
   },
   "MQKv1T": {
-    "string": "Community Total Reward(FGEC)"
+    "string": "Community Total Reward(ECC)"
   },
   "MTyrlB": {
     "string": "The secret must be 8-16-bit words, letters combination"
@@ -804,7 +804,7 @@
     "string": "please input your mailbox"
   },
   "NdxUVx": {
-    "string": "Check how to get FGEC"
+    "string": "Check how to get ECC"
   },
   "NlcysC": {
     "string": "Please enter the mailbox number"
@@ -1176,7 +1176,7 @@
     "string": "Only allow recharge"
   },
   "aD/9at": {
-    "string": "quantity(FGEC)"
+    "string": "quantity(ECC)"
   },
   "aOp/5l": {
     "string": "If the real name cannot be applied for merchant certification, please submit a business certification application after the real -name authentication."
@@ -1371,7 +1371,7 @@
     "string": "Financial record"
   },
   "guM4xe": {
-    "string": "Consume FGEC:"
+    "string": "Consume ECC:"
   },
   "gx0XBL": {
     "string": "Subscribe"
@@ -1839,7 +1839,7 @@
     "string": "Quantity received"
   },
   "zqkaAr": {
-    "string": "reward(FGEC)"
+    "string": "reward(ECC)"
   },
   "zv2r2Q": {
     "string": "Subscribe"
@@ -2022,7 +2022,7 @@
     "string": "Daily Earnings"
   },
   "Hh3rHP": {
-    "string": "Get FGEC"
+    "string": "Get ECC"
   },
   "misXZU": {
     "string": "Defi zone"
@@ -2103,7 +2103,7 @@
     "string": "Total Community Rewards (LCN)"
   },
   "iBG8Hb": {
-    "string": "See how to get FGEC"
+    "string": "See how to get ECC"
   },
   "kOFx5M": {
     "string": "When withdrawing USDT, the system will freeze this part of the funds from the balance account"

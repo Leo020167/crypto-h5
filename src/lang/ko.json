@@ -36,7 +36,7 @@
     "string": "통화"
   },
   "X3UAMm": {
-    "string": "소비하다 FGEC:"
+    "string": "소비하다 ECC:"
   },
   "ndT7z1": {
     "string": "연간 소득"
@@ -135,7 +135,7 @@
     "string": "이 사용자를 구독할지 여부？"
   },
   "20MJBj": {
-    "string": "FGEC"
+    "string": "ECC"
   },
   "297aFF": {
     "string": "여백 비율"
@@ -222,7 +222,7 @@
     "string": "위치를 닫으십시오"
   },
   "4ivSMB": {
-    "string": "총 자산(FGEC)"
+    "string": "총 자산(ECC)"
   },
   "56o47p": {
     "string": "사서함 확인 코드"
@@ -756,7 +756,7 @@
     "string": "비밀번호를 다시 입력하십시오"
   },
   "MQKv1T": {
-    "string": "커뮤니티 총 보상(FGEC)"
+    "string": "커뮤니티 총 보상(ECC)"
   },
   "MTyrlB": {
     "string": "비밀은 8-16 비트 단어, 문자 조합 여야합니다"
@@ -801,7 +801,7 @@
     "string": "사서함을 입력하십시오"
   },
   "NdxUVx": {
-    "string": "얻는 방법을 확인하십시오 FGEC"
+    "string": "얻는 방법을 확인하십시오 ECC"
   },
   "NlcysC": {
     "string": "사서함 번호를 입력하십시오"
@@ -1170,7 +1170,7 @@
     "string": "충전만 허용"
   },
   "aD/9at": {
-    "string": "수량(FGEC)"
+    "string": "수량(ECC)"
   },
   "aOp/5l": {
     "string": "가맹점 실명인증을 신청할 수 없는 경우 실명인증 후 사업자인증 신청서를 제출해주세요"
@@ -1365,7 +1365,7 @@
     "string": "재무기록"
   },
   "guM4xe": {
-    "string": "소비하다 FGEC:"
+    "string": "소비하다 ECC:"
   },
   "gx0XBL": {
     "string": " 구독하다"
@@ -1833,7 +1833,7 @@
     "string": "입고수량"
   },
   "zqkaAr": {
-    "string": "보상(FGEC)"
+    "string": "보상(ECC)"
   },
   "zv2r2Q": {
     "string": " 구독하다"
@@ -2017,7 +2017,7 @@
   },
 
   "Hh3rHP": {
-    "string": "FGEC 가져오기"
+    "string": "ECC 가져오기"
   },
 
   "PCQS8N": {

@@ -36,7 +36,7 @@
     "string": "Monnaie"
   },
   "X3UAMm": {
-    "string": "consommer FGEC:"
+    "string": "consommer ECC:"
   },
   "ndT7z1": {
     "string": "Revenu annualisé"
@@ -135,7 +135,7 @@
     "string": "Cet utilisateur est-il abonné ?"
   },
   "20MJBj": {
-    "string": "FGEC"
+    "string": "ECC"
   },
   "297aFF": {
     "string": "Ratio de marge"
@@ -564,7 +564,7 @@
     "string": "Message de plainte (facultatif)"
   },
   "GKRXXt": {
-    "string": "Obtenir FGEC"
+    "string": "Obtenir ECC"
   },
   "GO/P/E": {
     "string": "Ajouter l'adresse de retrait"
@@ -756,7 +756,7 @@
     "string": "Veuillez entrer à nouveau votre mot de passe"
   },
   "MQKv1T": {
-    "string": "Prix communautaire total (FGEC)"
+    "string": "Prix communautaire total (ECC)"
   },
   "MTyrlB": {
     "string": "Le secret doit être une combinaison de 8 à 16 caractères et lettres"
@@ -801,7 +801,7 @@
     "string": "Veuillez entrer votre adresse e-mail"
   },
   "NdxUVx": {
-    "string": "Voir comment obtenir FGEC"
+    "string": "Voir comment obtenir ECC"
   },
   "NlcysC": {
     "string": "Veuillez entrer votre code postal"
@@ -1170,7 +1170,7 @@
     "string": "Seules les recharges sont autorisées"
   },
   "aD/9at": {
-    "string": "Quantité (FGEC)"
+    "string": "Quantité (ECC)"
   },
   "aOp/5l": {
     "string": "Vous ne pouvez pas demander la vérification des commerçants sans un nom réel. Veuillez vérifier votre nom réel avant de soumettre votre demande de vérification des commerçants."
@@ -1365,7 +1365,7 @@
     "string": "Historique financier"
   },
   "guM4xe": {
-    "string": "Consommer FGEC:"
+    "string": "Consommer ECC:"
   },
   "gx0XBL": {
     "string": "S'abonner à"
@@ -1833,7 +1833,7 @@
     "string": "Quantité"
   },
   "zqkaAr": {
-    "string": "Récompense (FGEC)"
+    "string": "Récompense (ECC)"
   },
   "zv2r2Q": {
     "string": "Commandez"
@@ -2017,7 +2017,7 @@
   },
 
   "Hh3rHP": {
-    "string": "Obtenir FGEC"
+    "string": "Obtenir ECC"
   },
 
   "misXZU": {
@@ -2105,7 +2105,7 @@
     "string": "Récompenses totales de la communauté (LCN)"
   },
   "iBG8Hb": {
-    "string": "Voir comment obtenir FGEC"
+    "string": "Voir comment obtenir ECC"
   },
   "kOFx5M": {
     "string": "Lors du retrait d'USDT, le système gèlera cette partie des fonds du compte de solde"

@@ -36,7 +36,7 @@
     "string": "Divisa"
   },
   "X3UAMm": {
-    "string": "consumir FGEC:"
+    "string": "consumir ECC:"
   },
   "ndT7z1": {
     "string": "Ingreso anualizado"
@@ -135,7 +135,7 @@
     "string": "¿Está suscrito este usuario?"
   },
   "20MJBj": {
-    "string": "FGEC"
+    "string": "ECC"
   },
   "297aFF": {
     "string": "Ratio de margen"
@@ -564,7 +564,7 @@
     "string": "Mensaje de queja (opcional)"
   },
   "GKRXXt": {
-    "string": "Consigue FGEC"
+    "string": "Consigue ECC"
   },
   "GO/P/E": {
     "string": "Añadir dirección de retirada"
@@ -756,7 +756,7 @@
     "string": "Vuelva a introducir su contraseña"
   },
   "MQKv1T": {
-    "string": "Premio comunitario total(FGEC)"
+    "string": "Premio comunitario total(ECC)"
   },
   "MTyrlB": {
     "string": "La contraseña debe ser una combinación de - dígitos y letras"
@@ -801,7 +801,7 @@
     "string": "Introduzca su dirección de correo electrónico"
   },
   "NdxUVx": {
-    "string": "Vea cómo conseguir FGEC"
+    "string": "Vea cómo conseguir ECC"
   },
   "NlcysC": {
     "string": "Introduzca su código postal"
@@ -1170,7 +1170,7 @@
     "string": "Sólo se permiten recargas"
   },
   "aD/9at": {
-    "string": "Cantidad (FGEC)"
+    "string": "Cantidad (ECC)"
   },
   "aOp/5l": {
     "string": "No puede solicitar la verificación de comerciante sin un nombre real, por favor verifique su nombre real antes de enviar su solicitud de verificación de comerciante."
@@ -1365,7 +1365,7 @@
     "string": "Historia financiera"
   },
   "guM4xe": {
-    "string": "Consumir FGEC:"
+    "string": "Consumir ECC:"
   },
   "gx0XBL": {
     "string": "Suscríbase a"
@@ -1833,7 +1833,7 @@
     "string": "Cantidad"
   },
   "zqkaAr": {
-    "string": "Recompensa (FGEC)"
+    "string": "Recompensa (ECC)"
   },
   "zv2r2Q": {
     "string": "Pida"
@@ -2017,7 +2017,7 @@
   },
 
   "Hh3rHP": {
-    "string": "Obtener FGEC"
+    "string": "Obtener ECC"
   },
 
   "Pqs8N": {
@@ -2109,7 +2109,7 @@
     "string": "Recompensas totales de la comunidad (LCN)"
   },
   "iBG8Hb": {
-    "string": "Vea cómo obtener FGEC"
+    "string": "Vea cómo obtener ECC"
   },
   "kOFx5M": {
     "string": "Al retirar USDT, el sistema congelará esta parte de los fondos de la cuenta de saldo"
