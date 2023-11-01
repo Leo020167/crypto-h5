@@ -10,7 +10,7 @@ import svgr from 'vite-plugin-svgr';
 export default defineConfig(({ mode }) => {
   return {
     build: {
-      outDir: `dist/Bitaegis-${mode === 'allow-download' ? '有下載' : '無下載'}`,
+      outDir: `dist/Nicheswap-${mode === 'allow-download' ? '有下載' : '無下載'}`,
     },
     server: {
       host: '0.0.0.0',
