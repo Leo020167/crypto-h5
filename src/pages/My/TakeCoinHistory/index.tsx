@@ -6,7 +6,6 @@ import { useHistory } from 'react-router-dom';
 import { depositList, getDepositListQueryKey } from '../../../api/endpoints/transformer';
 import { DepositListResponseAllOfDataAllOfDataItem } from '../../../api/model';
 
-import { ReactComponent as Arrow } from '../../../assets/ic_svg_arrow_2.svg';
 import ScreenWithInfiniteScroll from '../../../components/ScreenWithInfiniteScroll';
 import { stringDateFormat } from '../../../utils/date';
 
@@ -54,15 +53,15 @@ const TakeCoinHistory = () => {
                     ? intl.formatMessage({ defaultMessage: '充幣', id: 'kGK1/L' })
                     : intl.formatMessage({ defaultMessage: '提幣', id: 'andeZs' })}
                 </span>
-                <Arrow />
+                {/* <Arrow /> */}
               </div>
             }
-            onClick={() => {
-              history.push({
-                pathname: '/take-coin-history-details',
-                state: item,
-              });
-            }}
+            // onClick={() => {
+            //   history.push({
+            //     pathname: '/take-coin-history-details',
+            //     state: item,
+            //   });
+            // }}
           >
             <div className="mt-2 flex text-xs">
               <div className="flex w-1/3 flex-col">
