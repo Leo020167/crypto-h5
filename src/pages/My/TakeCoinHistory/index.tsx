@@ -54,7 +54,7 @@ const TakeCoinHistory = () => {
                     ? intl.formatMessage({ defaultMessage: '充幣', id: 'kGK1/L' })
                     : intl.formatMessage({ defaultMessage: '提幣', id: 'andeZs' })}
                 </span>
-                {item.inOut === '1' ? null : <Arrow />}
+                {item.inOut !== '1' && <Arrow />}
               </div>
             }
             onClick={() => {
