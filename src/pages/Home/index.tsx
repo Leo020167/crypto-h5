@@ -59,8 +59,9 @@ const Home = () => {
   return (
     <Container className="flex-1 overflow-y-auto bg-[#E3E6F1] px-4">
       <div className="mt-4 flex items-center px-2.5">
-        <div className="flex flex-1">
+        <div className="flex flex-1 pr-6">
           <SearchBar
+            className="w-full"
             placeholder={intl.formatMessage({ defaultMessage: '输入币种名称搜索', id: 'LaUwF3' })}
             onFocus={() => {
               history.push('/search-coin');
