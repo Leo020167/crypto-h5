@@ -1,9 +1,9 @@
-import { List, SearchBar } from 'antd-mobile';
+import { ErrorBlock, List, SearchBar } from 'antd-mobile';
 import { produce } from 'immer';
 import { useAtom } from 'jotai';
 import { atomWithStorage } from 'jotai/utils';
 import { stringify } from 'query-string';
-import { useCallback, useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 import { useIntl } from 'react-intl';
 import { useHistory } from 'react-router-dom';
 import { StringParam, useQueryParam, withDefault } from 'use-query-params';
@@ -43,15 +43,9 @@ const SearchCoin = () => {
     [accountType, history],
   );
 
-  return (
-    <Screen>
-      <div className="mt-4 px-4">
-        <SearchBar
-          placeholder={intl.formatMessage({ defaultMessage: '搜索代碼', id: 'I0saGO' })}
-          onChange={setValue}
-        />
-      </div>
-      <div className="flex-1">
+  const content = useMemo(() => {
+    if (data?.data?.searchResultList?.length) {
+      return (
         <List>
           {data?.data?.searchResultList?.map((v, i) => (
             <List.Item
@@ -73,7 +67,20 @@ const SearchCoin = () => {
             </List.Item>
           ))}
         </List>
+      );
+    }
+    return <ErrorBlock status="empty" className="mt-20" />;
+  }, [data?.data?.searchResultList, goMarketPage, setSearchCoinHistory]);
+
+  return (
+    <Screen>
+      <div className="mt-4 px-4">
+        <SearchBar
+          placeholder={intl.formatMessage({ defaultMessage: '搜索代碼', id: 'I0saGO' })}
+          onChange={setValue}
+        />
       </div>
+      <div className="flex-1">{content}</div>
       <div className="flex-1 px-5">
         <div className="flex items-center justify-between border-b py-2">
           <span className="text-xs text-[#999]">

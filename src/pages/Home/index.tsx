@@ -1,13 +1,12 @@
-import { List, Swiper, Tabs } from 'antd-mobile';
+import { List, SearchBar, Swiper, Tabs } from 'antd-mobile';
 import { ArrowDownCircleOutline } from 'antd-mobile-icons';
 import { useAtomValue } from 'jotai';
 import { stringify } from 'query-string';
 import { useCallback, useMemo, useState } from 'react';
 import { useIntl } from 'react-intl';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import { useHomeConfig } from '../../api/endpoints/transformer';
-import ic_default_head from '../../assets/ic_default_head.png';
 
 import tab1_menu2 from '../../assets/tab1_menu2.png';
 import tab1_menu3 from '../../assets/tab1_menu3.png';
@@ -18,15 +17,10 @@ import { localeStateAtom, switchColorValueAtom } from '../../atoms';
 import { useChatLink } from '../../hooks/useChatLink';
 import { useMarketData, useQuoteHomePage } from '../../market/endpoints/marketWithTransformer';
 import { Quote } from '../../market/model';
-import { useAuthStore } from '../../stores/auth';
 import { getOriginSymbol, getUnitSymbol } from '../TransactionRecords/utils';
 
 const Home = () => {
   const localeState = useAtomValue(localeStateAtom);
-
-  const { userInfo } = useAuthStore();
-
-  // const { data: homeCropMe } = useHomeCropMe();
 
   const { data: homeConfig } = useHomeConfig({
     domain: location.hostname.substring(location.hostname.indexOf('.') + 1),
@@ -60,18 +54,19 @@ const Home = () => {
 
   const chatLink = useChatLink();
 
+  const history = useHistory();
+
   return (
     <Container className="flex-1 overflow-y-auto bg-[#E3E6F1] px-4">
       <div className="mt-4 flex items-center px-2.5">
-        <Link to="/home/my">
-          <img
-            alt=""
-            src={userInfo?.headUrl ?? ic_default_head}
-            className="h-10 w-10 rounded-full"
+        <div className="flex flex-1">
+          <SearchBar
+            placeholder={intl.formatMessage({ defaultMessage: '输入币种名称搜索', id: 'LaUwF3' })}
+            onFocus={() => {
+              history.push('/search-coin');
+            }}
           />
-        </Link>
-
-        <div className="flex flex-1 justify-center"></div>
+        </div>
 
         <div className="flex items-center">
           {!!import.meta.env.VITE_ALLOW_DOWNLOAD && homeConfig?.data?.downloadUrl && (
