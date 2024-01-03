@@ -30,11 +30,18 @@ const Home = () => {
   const { data: quoteHomePage } = useQuoteHomePage();
 
   const [sortType, setSortType] = useState<string>('1');
-  const { data: marketData } = useMarketData({
-    sortField: 'rate',
-    sortType: sortType,
-    tab: 'stock',
-  });
+  const { data: marketData } = useMarketData(
+    {
+      sortField: 'rate',
+      sortType: sortType,
+      tab: 'stock',
+    },
+    {
+      query: {
+        keepPreviousData: true,
+      },
+    },
+  );
 
   const quotes = useMemo(() => quoteHomePage?.data?.quotes ?? [], [quoteHomePage?.data?.quotes]);
 
