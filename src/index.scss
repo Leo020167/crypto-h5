@@ -22,3 +22,25 @@ body {
   position: relative;
   background-color: #eef3f9;
 }
+
+html.dark {
+  --adm-color-box: #2a2e38;
+
+  .home-tabs {
+    --active-title-color: #fff;
+    --adm-color-background: #2a2e38;
+  }
+
+  .adm-tab-bar {
+    border-top-color: #333;
+    background-color: #333;
+    .adm-tab-bar-item-title {
+      color: #bbb;
+    }
+    .adm-tab-bar-item-active {
+      .adm-tab-bar-item-title {
+        color: #fff;
+      }
+    }
+  }
+}

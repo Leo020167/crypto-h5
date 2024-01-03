@@ -11,7 +11,7 @@ import zhTW from 'antd-mobile/es/locales/zh-TW';
 import th from './lang/antd-th';
 import vi from './lang/antd-vi';
 
-import { useAtomValue } from 'jotai';
+import { useAtom, useAtomValue } from 'jotai';
 import { parse, stringify } from 'query-string';
 import { useEffect, useRef, useState } from 'react';
 import { IntlProvider } from 'react-intl';
@@ -19,7 +19,7 @@ import { HashRouter } from 'react-router-dom';
 import { QueryParamProvider } from 'use-query-params';
 import { ReactRouter5Adapter } from 'use-query-params/adapters/react-router-5';
 import GlobalStyle from './GlobalStyle';
-import { localeStateAtom } from './atoms';
+import { darkModeAtom, localeStateAtom } from './atoms';
 
 import Routes from './routes';
 import { useAuthStore } from './stores/auth';
@@ -79,6 +79,15 @@ function App() {
       setMessages(mod.default);
     })();
   }, [localeState.locale]);
+
+  const [darkMode] = useAtom(darkModeAtom);
+  useEffect(() => {
+    if (darkMode === 'dark' || window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  }, [darkMode]);
 
   const mounted = useRef<boolean>(false);
 

@@ -23,3 +23,5 @@ export const reportAtom = atomWithStorage<string>('report', '');
 export const usernamePasswordAtom = atomWithStorage<
   { username: string; password: string } | undefined
 >('username-password', undefined);
+
+export const darkModeAtom = atomWithStorage<'dark' | 'light'>('dark-mode', 'light');

@@ -1,13 +1,12 @@
-import { List, Swiper, Tabs } from 'antd-mobile';
+import { List, SearchBar, Swiper, Tabs } from 'antd-mobile';
 import { ArrowDownCircleOutline } from 'antd-mobile-icons';
 import { useAtomValue } from 'jotai';
 import { stringify } from 'query-string';
 import { useCallback, useMemo, useState } from 'react';
 import { useIntl } from 'react-intl';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import { useHomeConfig } from '../../api/endpoints/transformer';
-import ic_default_head from '../../assets/ic_default_head.png';
 
 import tab1_menu2 from '../../assets/tab1_menu2.png';
 import tab1_menu3 from '../../assets/tab1_menu3.png';
@@ -15,18 +14,14 @@ import tab1_menu4 from '../../assets/tab1_menu4.png';
 import tab1_menu5 from '../../assets/tab1_menu5.png';
 
 import { localeStateAtom, switchColorValueAtom } from '../../atoms';
+import { DarkModeSwitch } from '../../components';
 import { useChatLink } from '../../hooks/useChatLink';
 import { useMarketData, useQuoteHomePage } from '../../market/endpoints/marketWithTransformer';
 import { Quote } from '../../market/model';
-import { useAuthStore } from '../../stores/auth';
 import { getOriginSymbol, getUnitSymbol } from '../TransactionRecords/utils';
 
 const Home = () => {
   const localeState = useAtomValue(localeStateAtom);
-
-  const { userInfo } = useAuthStore();
-
-  // const { data: homeCropMe } = useHomeCropMe();
 
   const { data: homeConfig } = useHomeConfig({
     domain: location.hostname.substring(location.hostname.indexOf('.') + 1),
@@ -60,20 +55,47 @@ const Home = () => {
 
   const chatLink = useChatLink();
 
+  const history = useHistory();
+
+  const symbolsHeader = useMemo(() => {
+    return (
+      <div className="flex h-10 items-center gap-x-2.5 px-1 px-2.5 dark:bg-[#3D424E] dark:text-[#A2A9BC]">
+        <div className="w-1/2 text-sm">
+          {intl.formatMessage({
+            id: 'ZU9FqB',
+            defaultMessage: '名稱',
+          })}
+        </div>
+        <div className="w-1/4 text-center text-sm">
+          {intl.formatMessage({
+            id: 'iipjBw',
+            defaultMessage: '最新價',
+          })}
+        </div>
+        <div className="w-1/4 text-right text-sm">
+          {intl.formatMessage({
+            id: 'gA15gF',
+            defaultMessage: '漲跌幅',
+          })}
+        </div>
+      </div>
+    );
+  }, [intl]);
+
   return (
-    <Container className="flex-1 overflow-y-auto bg-[#E3E6F1] px-4">
-      <div className="mt-4 flex items-center px-2.5">
-        <Link to="/home/my">
-          <img
-            alt=""
-            src={userInfo?.headUrl ?? ic_default_head}
-            className="h-10 w-10 rounded-full"
+    <Container className="flex-1 overflow-y-auto bg-[#E3E6F1] px-4 dark:bg-[#161720]">
+      <div className="mt-4 flex items-center ">
+        <div className="mr-4 flex flex-1">
+          <SearchBar
+            className="w-full"
+            placeholder={intl.formatMessage({ defaultMessage: '输入币种名称搜索', id: 'LaUwF3' })}
+            onFocus={() => {
+              history.push('/search-coin');
+            }}
           />
-        </Link>
+        </div>
 
-        <div className="flex flex-1 justify-center"></div>
-
-        <div className="flex items-center">
+        <div className="mr-4 flex items-center">
           {!!import.meta.env.VITE_ALLOW_DOWNLOAD && homeConfig?.data?.downloadUrl && (
             <a target="_blank" href={homeConfig?.data?.downloadUrl} rel="noreferrer">
               <ArrowDownCircleOutline className="mr-4 text-2xl " color="rgb(0, 186, 118)" />
@@ -87,36 +109,13 @@ const Home = () => {
             />
           </Link>
         </div>
+
+        <div className="">
+          <DarkModeSwitch />
+        </div>
       </div>
 
-      <div className="mt-4 grid grid-cols-4 font-bold">
-        <Link to="/subscribe" className="flex flex-col items-center">
-          <img alt="" src={tab1_menu2} className="h-9 w-9" />
-          <div className="mt-2.5 break-all text-xs text-[#666666]">
-            {intl.formatMessage({ defaultMessage: '首發交易', id: 'QBilBJ' })}
-          </div>
-        </Link>
-        <Link to="/pledge" className="flex flex-col items-center justify-start">
-          <img alt="" src={tab1_menu5} className="h-9 w-9" />
-          <div className="mt-2.5 break-all text-xs text-[#666666]">
-            {intl.formatMessage({ defaultMessage: '質押生息', id: 'R3Xfcn' })}
-          </div>
-        </Link>
-        <Link to="/recharge-coin" className="flex flex-col items-center">
-          <img alt="" src={tab1_menu3} className="h-9 w-9" />
-          <div className="mt-2.5 break-all text-xs text-[#666666]">
-            {intl.formatMessage({ defaultMessage: '充幣', id: 'kGK1/L' })}
-          </div>
-        </Link>
-        <a href={chatLink} target="_blank" rel="noreferrer" className="flex flex-col items-center">
-          <img alt="" src={tab1_menu4} className="h-9 w-9" />
-          <div className="mt-2.5 break-all text-xs text-[#666666]">
-            {intl.formatMessage({ defaultMessage: '綫上客服', id: 'wwOQz6' })}
-          </div>
-        </a>
-      </div>
-
-      <div className="mt-2 h-[160px] overflow-hidden rounded-lg bg-white shadow-md shadow-black/5">
+      <div className="mt-4 h-[160px] overflow-hidden rounded-lg bg-white shadow-md shadow-black/5 dark:bg-[#2A2E38]">
         <Swiper autoplay loop>
           {homeConfig?.data?.banner?.map((v) => (
             <Swiper.Item key={v.bannerId} className=" ">
@@ -128,7 +127,7 @@ const Home = () => {
         </Swiper>
       </div>
 
-      <div className="mt-2 flex h-28 items-center overflow-hidden rounded-lg bg-white px-2.5 text-sm font-bold shadow-md shadow-black/5">
+      <div className="mt-4 flex h-28 items-center overflow-hidden rounded-lg bg-white px-2.5 text-sm font-bold shadow-md shadow-black/5 dark:bg-[#2A2E38]">
         {quotes.map((v, i) => (
           <Link
             to={{
@@ -140,7 +139,7 @@ const Home = () => {
             className="flex w-1/3 flex-col items-center"
             key={i}
           >
-            <div className="flex items-center text-sm font-bold text-black">
+            <div className="flex items-center text-sm font-bold text-black dark:text-white">
               <img src={v.image} alt="" className="mr-1 h-4 w-4 object-contain" />
               <div>{[v.symbol, v.currency].filter(Boolean).join('/')}</div>
             </div>
@@ -161,9 +160,36 @@ const Home = () => {
         ))}
       </div>
 
-      <div className="my-2 flex items-center overflow-hidden rounded-lg bg-white text-sm font-bold shadow-md shadow-black/5">
+      <div className="mt-4 grid grid-cols-4 rounded-lg bg-white py-4 font-bold shadow-md shadow-black/5 dark:bg-[#2A2E38]">
+        <Link to="/subscribe" className="flex flex-col items-center">
+          <img alt="" src={tab1_menu2} className="h-9 w-9" />
+          <div className="mt-2.5 break-all text-xs text-[#666666] dark:text-white">
+            {intl.formatMessage({ defaultMessage: '首發交易', id: 'QBilBJ' })}
+          </div>
+        </Link>
+        <Link to="/pledge" className="flex flex-col items-center justify-start">
+          <img alt="" src={tab1_menu5} className="h-9 w-9" />
+          <div className="mt-2.5 break-all text-xs text-[#666666] dark:text-white">
+            {intl.formatMessage({ defaultMessage: '質押生息', id: 'R3Xfcn' })}
+          </div>
+        </Link>
+        <Link to="/recharge-coin" className="flex flex-col items-center">
+          <img alt="" src={tab1_menu3} className="h-9 w-9" />
+          <div className="mt-2.5 break-all text-xs text-[#666666] dark:text-white">
+            {intl.formatMessage({ defaultMessage: '充幣', id: 'kGK1/L' })}
+          </div>
+        </Link>
+        <a href={chatLink} target="_blank" rel="noreferrer" className="flex flex-col items-center">
+          <img alt="" src={tab1_menu4} className="h-9 w-9" />
+          <div className="mt-2.5 break-all text-xs text-[#666666] dark:text-white">
+            {intl.formatMessage({ defaultMessage: '綫上客服', id: 'wwOQz6' })}
+          </div>
+        </a>
+      </div>
+
+      <div className="my-4 flex items-center overflow-hidden rounded-lg bg-white text-sm font-bold shadow-md shadow-black/5 dark:bg-[#2A2E38]">
         <Tabs
-          className="w-full pt-1"
+          className="home-tabs w-full pt-1"
           onChange={(key) => {
             setSortType(key);
           }}
@@ -174,51 +200,20 @@ const Home = () => {
             className="text-[#A2A9BC]"
             destroyOnClose
           >
-            <div className="mt-1 flex items-center gap-x-2.5 px-1">
-              <div className="w-1/2 text-sm">
-                {intl.formatMessage({ defaultMessage: '名稱', id: 'ZU9FqB' })}
-              </div>
-              <div className="w-1/4 text-center text-sm">
-                {intl.formatMessage({
-                  id: 'iipjBw',
-                  defaultMessage: '最新價',
-                })}
-              </div>
-              <div className="w-1/4 text-right text-sm">
-                {intl.formatMessage({
-                  id: 'gA15gF',
-                  defaultMessage: '漲跌幅',
-                })}
-              </div>
+            {symbolsHeader}
+            <div className="px-2.5">
+              <Symbols quotes={marketData?.data?.quotes} />
             </div>
-            <Symbols quotes={marketData?.data?.quotes} />
           </Tabs.Tab>
           <Tabs.Tab
             title={intl.formatMessage({ defaultMessage: '跌幅榜', id: 'DsGgac' })}
             key="2"
             destroyOnClose
           >
-            <div className="mt-1 flex items-center gap-x-2.5 px-1">
-              <div className="w-1/2 text-sm">
-                {intl.formatMessage({
-                  id: 'ZU9FqB',
-                  defaultMessage: '名稱',
-                })}
-              </div>
-              <div className="w-1/4 text-center text-sm">
-                {intl.formatMessage({
-                  id: 'iipjBw',
-                  defaultMessage: '最新價',
-                })}
-              </div>
-              <div className="w-1/4 text-right text-sm">
-                {intl.formatMessage({
-                  id: 'gA15gF',
-                  defaultMessage: '漲跌幅',
-                })}
-              </div>
+            {symbolsHeader}
+            <div className="px-2.5">
+              <Symbols quotes={marketData?.data?.quotes} />
             </div>
-            <Symbols quotes={marketData?.data?.quotes} />
           </Tabs.Tab>
         </Tabs>
       </div>
@@ -260,20 +255,20 @@ const Symbols = ({ quotes = [] }: { quotes?: Quote[] }) => {
               </div>
               <div>
                 <div className="flex items-baseline">
-                  <span className="text-base font-bold text-black">
+                  <span className="text-base font-bold text-black dark:text-white">
                     {v.symbol?.includes('/') ? getOriginSymbol(v.symbol) : v.symbol}
                     {v.symbol?.includes('/') ? '/' + getUnitSymbol(v.symbol) : ''}
                   </span>
-                  <div className="text-xs text-[#A2A9BC]">/{v.name}</div>
+                  <div className="text-xs text-[#A2A9BC] dark:text-white">/{v.name}</div>
                 </div>
-                <div className="text-xs text-[#A2A9BC]">
+                <div className="text-xs text-[#A2A9BC] dark:text-[#A2A9BC]">
                   {intl.formatMessage({ defaultMessage: '量', id: 'pYPgzH' })} {v.amount}
                 </div>
               </div>
             </div>
 
             <div className="w-1/4 text-center text-sm">
-              <div className="text-base font-bold text-black">{v.price}</div>
+              <div className="text-base font-bold text-black dark:text-white">{v.price}</div>
             </div>
 
             <div className="flex w-[74px] flex-col items-end text-sm">
@@ -324,7 +319,7 @@ const Container = styled.div`
     }
   }
   .adm-tabs-content {
-    padding: 10px;
+    padding: 0;
   }
   .adm-list {
     --padding-left: 0px;

@@ -2,6 +2,9 @@ import legacy from '@vitejs/plugin-legacy';
 import react from '@vitejs/plugin-react';
 import jotaiDebugLabel from 'jotai/babel/plugin-debug-label';
 import jotaiReactRefresh from 'jotai/babel/plugin-react-refresh';
+import AutoImport from 'unplugin-auto-import/vite';
+import IconsResolver from 'unplugin-icons/resolver';
+import Icons from 'unplugin-icons/vite';
 import { defineConfig } from 'vite';
 import vitePluginImp from 'vite-plugin-imp';
 import svgr from 'vite-plugin-svgr';
@@ -52,6 +55,18 @@ export default defineConfig(({ mode }) => {
         },
       }),
       svgr(),
+      AutoImport({
+        resolvers: [
+          IconsResolver({
+            prefix: 'Icon',
+            extension: 'jsx',
+          }),
+        ],
+      }),
+      Icons({
+        compiler: 'jsx',
+        jsx: 'react',
+      }),
     ],
   };
 });
