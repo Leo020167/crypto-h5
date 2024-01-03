@@ -27,6 +27,7 @@ export const DarkModeSwitch = () => {
   const [darkMode, setDarkMode] = useAtom(darkModeAtom);
   return (
     <a
+      className="dark:text-white"
       onClick={() => {
         setDarkMode(darkMode === 'dark' ? 'light' : 'dark');
       }}
