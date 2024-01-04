@@ -30,30 +30,30 @@ const Settings = () => {
         <List.Item arrow={<Arrow />} onClick={() => history.push('/change-password')}>
           {intl.formatMessage({ defaultMessage: '登錄密碼', id: '958kN+' })}
         </List.Item>
-        <List.Item
-          arrow={<Arrow />}
-          onClick={() => {
-            if (authStore.userInfo?.phone) {
-              history.push('/account');
-            } else {
-              history.push('/bind-phone');
-            }
-          }}
-        >
-          {intl.formatMessage({ defaultMessage: '綁定手機', id: 'VT023k' })}
-        </List.Item>
-        <List.Item
-          arrow={<Arrow />}
-          onClick={() => {
-            if (authStore.userInfo?.phone) {
-              history.push('/setting-pay-password');
-            } else {
-              history.push('/bind-phone');
-            }
-          }}
-        >
-          {intl.formatMessage({ defaultMessage: '設置交易密碼', id: 'obugXD' })}
-        </List.Item>
+        {/*<List.Item*/}
+        {/*  arrow={<Arrow />}*/}
+        {/*  onClick={() => {*/}
+        {/*    if (authStore.userInfo?.phone) {*/}
+        {/*      history.push('/account');*/}
+        {/*    } else {*/}
+        {/*      history.push('/bind-phone');*/}
+        {/*    }*/}
+        {/*  }}*/}
+        {/*>*/}
+        {/*  {intl.formatMessage({ defaultMessage: '綁定手機', id: 'VT023k' })}*/}
+        {/*</List.Item>*/}
+        {/*<List.Item*/}
+        {/*  arrow={<Arrow />}*/}
+        {/*  onClick={() => {*/}
+        {/*    if (authStore.userInfo?.phone) {*/}
+        {/*      history.push('/setting-pay-password');*/}
+        {/*    } else {*/}
+        {/*      history.push('/bind-phone');*/}
+        {/*    }*/}
+        {/*  }}*/}
+        {/*>*/}
+        {/*  {intl.formatMessage({ defaultMessage: '設置交易密碼', id: 'obugXD' })}*/}
+        {/*</List.Item>*/}
         <List.Item arrow={<Arrow />} onClick={() => history.push('/languages')}>
           {intl.formatMessage({ defaultMessage: '更換語言', id: 'WrleG5' })}
         </List.Item>

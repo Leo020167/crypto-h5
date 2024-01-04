@@ -148,7 +148,13 @@ const TakeCoin = () => {
       cancelText: intl.formatMessage({ defaultMessage: '取消', id: '2QzYmY' }),
       confirmText: intl.formatMessage({ defaultMessage: '确定', id: 'r0/TUu' }),
       onConfirm() {
-        setOpen(true);
+        withdrawSubmit.mutate({
+          data: {
+            amount,
+            addressId: address?.id,
+            payPass: '',
+          },
+        });
       },
     });
   }, [address, amount, configs?.data?.fee, intl, userInfo?.phone, symbol, history]);

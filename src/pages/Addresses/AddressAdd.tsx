@@ -114,8 +114,16 @@ const AddressAdd = () => {
       Toast.show(intl.formatMessage({ defaultMessage: '請輸入地址', id: '2fmtw4' }));
       return;
     }
-
-    setOpen(true);
+    addAddress.mutate({
+      data: {
+        address,
+        chainType: symbol === 'USDT' ? chainType : '',
+        remark: remark || '',
+        symbol,
+        payPass: '',
+      },
+    });
+    // setOpen(true);
   }, [address, intl]);
 
   return (

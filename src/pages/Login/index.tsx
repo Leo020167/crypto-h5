@@ -71,11 +71,11 @@ const Login = () => {
                 >
                   {intl.formatMessage({ defaultMessage: '登錄', id: 'wAPEnf' })}
                 </Button>
-                <div className="text-center mt-4">
-                  <Link to="/reset-password">
-                    {intl.formatMessage({ defaultMessage: '忘記了？找回密碼', id: 'oR5wwN' })}
-                  </Link>
-                </div>
+                {/*<div className="text-center mt-4">*/}
+                {/*  <Link to="/reset-password">*/}
+                {/*    {intl.formatMessage({ defaultMessage: '忘記了？找回密碼', id: 'oR5wwN' })}*/}
+                {/*  </Link>*/}
+                {/*</div>*/}
               </div>
             }
           >

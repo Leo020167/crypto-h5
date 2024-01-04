@@ -175,7 +175,7 @@ const ApplyBindAccount = () => {
                   </span>
                   <span>
                     {intl.formatMessage({
-                      defaultMessage: '消耗Gliedt:',
+                      defaultMessage: '消耗Liegt:',
                       id: 'X3UAMm',
                     })}
                     {v.tokenAmount}

@@ -588,7 +588,7 @@
     "string": "購買USDT"
   },
   "Hh3rHP": {
-    "string": "獲得Gliedt"
+    "string": "獲得Liegt"
   },
   "HmiIeC": {
     "string": "是否確定上架?"
@@ -747,7 +747,7 @@
     "string": "请再次输入密码"
   },
   "MQKv1T": {
-    "string": "社區總獎勵(Gliedt)"
+    "string": "社區總獎勵(Liegt)"
   },
   "MTyrlB": {
     "string": "密必须是8-16位字、字母组合"
@@ -1047,7 +1047,7 @@
     "string": "綁定手機"
   },
   "VU6g7c": {
-    "string": "请输入邀请码(选填)"
+    "string": "请输入邀请码"
   },
   "VXMi89": {
     "string": "以當前最優價格交易"
@@ -1107,7 +1107,7 @@
     "string": "委託金額(USDT)"
   },
   "X3UAMm": {
-    "string": "消耗Gliedt:"
+    "string": "消耗Liegt:"
   },
   "XJfx+x": {
     "string": "正在申請取消商家認證"
@@ -1188,7 +1188,7 @@
     "string": "只允許充值"
   },
   "aD/9at": {
-    "string": "數量(Gliedt)"
+    "string": "數量(Liegt)"
   },
   "aOp/5l": {
     "string": "未實名不能申請商家認證，請實名認證後，在提交商家認證申請。"
@@ -1437,13 +1437,13 @@
     "string": "提交申訴"
   },
   "iBG8Hb": {
-    "string": "查看如何獲取Gliedt"
+    "string": "查看如何獲取Liegt"
   },
   "iCZI8W": {
     "string": "合約份數"
   },
   "iJfW5y": {
-    "string": "總資產(Gliedt)"
+    "string": "總資產(Liegt)"
   },
   "iVpb9N": {
     "string": "更改手机号"
@@ -1944,7 +1944,7 @@
     "string": "到賬數量"
   },
   "zqkaAr": {
-    "string": "獎勵(Gliedt)"
+    "string": "獎勵(Liegt)"
   },
   "zv2r2Q": {
     "string": "訂閲"

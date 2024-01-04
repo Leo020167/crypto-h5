@@ -222,7 +222,7 @@ const TransactionRecords = () => {
               <div className="flex flex-col ml-4">
                 <span className="text-xs text-[#999999]">
                   {intl.formatMessage({
-                    defaultMessage: '獲得Gliedt',
+                    defaultMessage: '獲得Liegt',
                     id: 'Hh3rHP',
                   })}
                 </span>

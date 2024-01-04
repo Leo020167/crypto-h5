@@ -9,6 +9,9 @@ import useCountry from '../../hooks/useCountry';
 import { AreaListItem } from '../../model';
 import { useSignUpStore } from '../../stores/signup';
 import { validPassword } from '../../utils/validation';
+import {useRegister} from "../../api/endpoints/transformer";
+import {useAuthStore} from "../../stores/auth";
+import md5 from "js-md5";
 
 const Signup = () => {
   const history = useHistory();
@@ -21,6 +24,8 @@ const Signup = () => {
 
   const { value, setValue } = useSignUpStore();
 
+  const auth = useAuthStore();
+
   useEffect(() => {
     if (value.type) {
       form.setFieldsValue(value);
@@ -32,6 +37,19 @@ const Signup = () => {
   useEffect(() => {
     setValue({ type: 1 });
   }, [setValue]);
+
+  const register = useRegister({
+    mutation: {
+      onSuccess(data) {
+        Toast.show(data.msg);
+
+        if (data.code === '200') {
+          auth.signup({ token: data.data?.token, user: data.data?.user });
+          history.replace('/home');
+        }
+      },
+    },
+  });
 
   return (
     <Container className="h-screen bg-white">
@@ -71,9 +89,21 @@ const Signup = () => {
 
             setValue({ ...value, ...values, countryCode: country.code });
 
-            history.push({
-              pathname: '/captcha',
+            register.mutate({
+              data: {
+                ...(value as any),
+                inviteCode: value.inviteCode || '',
+                userPass: md5(value.userPass ?? ''),
+                configUserPass: md5(value.configUserPass ?? ''),
+                dragImgKey: '',
+                locationx: 0,
+                smsCode: '',
+                sex: 0,
+              },
             });
+            // history.push({
+            //   pathname: '/captcha',
+            // });
           }}
           footer={
             <div>
@@ -94,7 +124,7 @@ const Signup = () => {
                         id: 'uoCZsI',
                       },
                       {
-                        name: 'Gliedt',
+                        name: 'Liegt',
                       },
                     )}
                   </a>
@@ -113,7 +143,7 @@ const Signup = () => {
                         id: 'rv44i+',
                       },
                       {
-                        name: 'Gliedt',
+                        name: 'Liegt',
                       },
                     )}
                   </a>
@@ -213,7 +243,7 @@ const Signup = () => {
           <Form.Item name="inviteCode">
             <Input
               placeholder={intl.formatMessage({
-                defaultMessage: '请输入邀请码(选填)',
+                defaultMessage: '请输入邀请码',
                 id: 'VU6g7c',
               })}
             />
