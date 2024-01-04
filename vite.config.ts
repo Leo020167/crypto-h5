@@ -13,7 +13,7 @@ import svgr from 'vite-plugin-svgr';
 export default defineConfig(({ mode }) => {
   return {
     build: {
-      outDir: `dist/StellarVerse-${mode === 'allow-download' ? '有下載' : '無下載'}`,
+      outDir: `dist/StellarVerse-dark-${mode === 'allow-download' ? '有下載' : '無下載'}`,
     },
     server: {
       host: '0.0.0.0',
