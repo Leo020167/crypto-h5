@@ -1,7 +1,6 @@
-import { ErrorBlock, Tabs } from 'antd-mobile';
-import { useState } from 'react';
+import { ErrorBlock, SpinLoading, Tabs } from 'antd-mobile';
+import { useMemo, useState } from 'react';
 import { useIntl } from 'react-intl';
-import styled from 'styled-components';
 import { useRecordListPledges } from '../../api/endpoints/transformer';
 import { PledgeRecord } from '../../api/model';
 import pledge_history_empty_png from '../../assets/pledge-history-empty.png';
@@ -11,14 +10,25 @@ import { stringDateFormat } from '../../utils/date';
 const PledgeHistory = () => {
   const [activeKey, setActiveKey] = useState('0');
 
-  const { data } = useRecordListPledges({
+  const { data, isLoading } = useRecordListPledges({
     status: activeKey,
   });
 
   const intl = useIntl();
+
+  const content = useMemo(() => {
+    if (isLoading) {
+      return (
+        <div className="flex items-center justify-center">
+          <SpinLoading color="primary" />
+        </div>
+      );
+    }
+    return <PledgeRecords records={data?.data} />;
+  }, [data?.data, isLoading]);
   return (
     <Screen headerTitle={intl.formatMessage({ defaultMessage: '质押记录', id: 'lfsX8H' })}>
-      <Container className="flex min-h-0 flex-1 flex-col">
+      <div className="pledge-history flex min-h-0 flex-1 flex-col">
         <Tabs
           stretch={false}
           activeKey={activeKey}
@@ -26,13 +36,13 @@ const PledgeHistory = () => {
           className="flex min-h-0 flex-1 flex-col"
         >
           <Tabs.Tab title={intl.formatMessage({ defaultMessage: '進行中', id: '+JdgDW' })} key="0">
-            <PledgeRecords records={data?.data} />
+            {content}
           </Tabs.Tab>
           <Tabs.Tab title={intl.formatMessage({ defaultMessage: '已結束', id: 'IRtvek' })} key="1">
-            <PledgeRecords records={data?.data} />
+            {content}
           </Tabs.Tab>
         </Tabs>
-      </Container>
+      </div>
     </Screen>
   );
 };
@@ -57,11 +67,11 @@ const PledgeRecords = ({ records = [] }: { records?: PledgeRecord[] }) => {
       {records.map((v) => (
         <div
           key={v.id}
-          className="mb-4 h-40 rounded-lg border-l-2 border-[#0BBB79] bg-white px-5 py-4 shadow-md shadow-black/5"
+          className="mb-4 h-40 rounded-lg border-l-2 border-[#0BBB79] bg-white px-5 py-4 shadow-md shadow-black/5 dark:bg-[#2A2E38]"
         >
           <div className="flex items-center justify-between">
-            <span className="text-lg text-[#3E4660]">{v.symbol}</span>
-            <div className="-mr-5 rounded-bl-lg rounded-tl-lg bg-[#6175AE] py-0.5 pl-3 pr-2 text-sm text-white">
+            <span className="text-lg text-[#3E4660] dark:text-white">{v.symbol}</span>
+            <div className="-mr-5 rounded-bl-lg rounded-tl-lg bg-[#6175AE] py-0.5 pl-3 pr-2 text-sm text-white dark:bg-[#0BBB79]">
               {v.duration}
               {intl.formatMessage({ defaultMessage: '天', id: '0B0jPm' })}
             </div>
@@ -69,62 +79,36 @@ const PledgeRecords = ({ records = [] }: { records?: PledgeRecord[] }) => {
 
           <div className="mt-3 flex items-center justify-between">
             <div className="flex flex-col">
-              <span className="text-xs text-[#A2A9BC]">
+              <span className="text-xs text-[#A2A9BC] dark:text-[#AAAAAA]">
                 {intl.formatMessage({ defaultMessage: '纍計收益', id: 'fzPv+C' })}
               </span>
-              <span className="text-xl text-[#6175AE]">{v.profit}</span>
+              <span className="text-xl text-[#6175AE] dark:text-white">{v.profit}</span>
             </div>
             <div className="flex flex-col items-end">
-              <span className="text-xs text-[#A2A9BC]">
+              <span className="text-xs text-[#A2A9BC] dark:text-[#AAAAAA]">
                 {intl.formatMessage({ defaultMessage: '質押數量', id: 'mjDNUB' })}
               </span>
-              <span className="text-xl text-[#6175AE]">{v.count}</span>
+              <span className="text-xl text-[#6175AE] dark:text-white">{v.count}</span>
             </div>
           </div>
 
           <div className="mt-2.5 flex items-center justify-between text-xs">
-            <span className="text-[#A2A9BC]">
+            <span className="text-[#A2A9BC] dark:text-[#AAAAAA]">
               {intl.formatMessage({ defaultMessage: '質押開始時間', id: 'Ma2fRl' })}
             </span>
-            <span className="text-[#6175AE]">{stringDateFormat(v.startTime)}</span>
+            <span className="text-[#6175AE] dark:text-white">{stringDateFormat(v.startTime)}</span>
           </div>
 
           <div className="mt-1.5 flex items-center justify-between text-xs">
-            <span className="text-[#A2A9BC]">
+            <span className="text-[#A2A9BC] dark:text-[#AAAAAA]">
               {intl.formatMessage({ defaultMessage: '質押結束時間', id: 'J1sdOC' })}
             </span>
-            <span className="text-[#6175AE]">{stringDateFormat(v.endTime)}</span>
+            <span className="text-[#6175AE] dark:text-white">{stringDateFormat(v.endTime)}</span>
           </div>
         </div>
       ))}
     </>
   );
 };
-
-const Container = styled.div`
-  .adm-tabs {
-    --title-font-size: 16px;
-    --active-line-color: #4d4bda;
-    --active-title-color: #4d4bda;
-
-    .adm-tabs-header {
-      border: 0;
-    }
-
-    .adm-tabs-content {
-      display: flex;
-      flex: 1;
-      flex-direction: column;
-      background-color: #f4f6f4;
-      padding: 16px;
-      overflow-y: auto;
-    }
-
-    .adm-error-block-description-title {
-      color: #666;
-      font-size: 14px;
-    }
-  }
-`;
 
 export default PledgeHistory;

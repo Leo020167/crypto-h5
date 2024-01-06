@@ -199,6 +199,32 @@ const GlobalStyle = styled.createGlobalStyle`
     border: 1px solid #bfc3fc;
   }
 
+  .pledge-history {
+    .adm-tabs {
+      --title-font-size: 16px;
+      --active-line-color: #4d4bda;
+      --active-title-color: #4d4bda;
+
+      .adm-tabs-header {
+        border: 0;
+      }
+
+      .adm-tabs-content {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        background-color: #f4f6f4;
+        padding: 16px;
+        overflow-y: auto;
+      }
+
+      .adm-error-block-description-title {
+        color: #666;
+        font-size: 14px;
+      }
+    }
+  }
+
   html.dark {
     --adm-color-box: #2a2e38;
     --adm-color-text: #fff;
@@ -288,6 +314,32 @@ const GlobalStyle = styled.createGlobalStyle`
     .pledge-card {
       border-color: #3d424e;
       background: #3d424e;
+    }
+
+    .pledge-history {
+      .adm-tabs {
+        --title-font-size: 16px;
+        --active-line-color: #0bbb79;
+        --active-title-color: #fff;
+
+        .adm-tabs-header {
+          border: 0;
+        }
+
+        .adm-tabs-content {
+          display: flex;
+          flex: 1;
+          flex-direction: column;
+          background-color: #161720;
+          padding: 16px;
+          overflow-y: auto;
+        }
+
+        .adm-error-block-description-title {
+          color: #666;
+          font-size: 14px;
+        }
+      }
     }
   }
 `;
