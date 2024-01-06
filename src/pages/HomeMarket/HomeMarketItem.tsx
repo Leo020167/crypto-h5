@@ -66,7 +66,7 @@ const HomeMarketItem = ({ data, sort }: { data: Quote; sort: number }) => {
   }, [api, backgroundColor, rate, sort]);
 
   return (
-    <div className="relative flex items-center justify-between px-4 py-2 text-center text-xs text-[#666175ae]">
+    <div className="relative flex items-center justify-between px-4 py-2 text-center text-xs text-[#666175ae] ">
       <animated.div
         style={props}
         className=" absolute bottom-0 left-0 right-0 top-0"
@@ -74,20 +74,19 @@ const HomeMarketItem = ({ data, sort }: { data: Quote; sort: number }) => {
       <div className="flex min-w-[100px] items-center text-left">
         <img src={data.image} alt="" className="mr-2.5 h-[38px] w-[38px] object-contain" />
         <div>
-          <div className="text-base font-bold text-[#1d3155]">
+          <div className="text-base font-bold text-[#1d3155] dark:text-white">
             {getOriginSymbol(data.symbol)}
             {data.symbol?.includes('/') && (
               <span className="ml-1 text-xs text-[#666175ae]">{unitSymbol}</span>
             )}
           </div>
-          <div>{data.name}</div>
+          <div className="dark:text-[#B2BAD4]">{data.name}</div>
         </div>
       </div>
       <div className="flex-1">
-        <div className="text-base font-bold text-[#1d3155]">{data.price}</div>
-        <div>
-          {intl.formatMessage({ defaultMessage: 'intl', id: 'Q9qgiz' })}
-          {data.amount ?? '--'}
+        <div className="text-base font-bold text-[#1d3155] dark:text-white">{data.price}</div>
+        <div className="dark:text-[#B2BAD4]">
+          {intl.formatMessage({ defaultMessage: '量', id: 'pYPgzH' })} {data.amount ?? '--'}
         </div>
       </div>
       <div className="min-w-[80px] text-sm text-white">

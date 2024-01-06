@@ -179,10 +179,6 @@ const Container = styled.div`
   .adm-list-item-content-arrow {
     color: #aaaaaa;
   }
-
-  .adm-list-item {
-    background-color: #2a2e38;
-  }
 `;
 
 export default My;

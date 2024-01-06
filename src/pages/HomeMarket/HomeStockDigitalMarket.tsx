@@ -49,7 +49,7 @@ const HomeStockDigitalMarket = ({ tab, activeKey }: { tab: string; activeKey: st
 
   return (
     <Container className="flex h-full flex-col text-xs">
-      <div className="flex h-10 items-center justify-between px-4 text-center text-[#666175ae]">
+      <div className="flex h-10 items-center justify-between px-4 text-center text-[#666175ae] dark:text-white">
         <div className="min-w-[100px] text-left">
           <span>{intl.formatMessage({ defaultMessage: '名稱代碼', id: 'ymJBTR' })}</span>
         </div>
@@ -60,7 +60,7 @@ const HomeStockDigitalMarket = ({ tab, activeKey }: { tab: string; activeKey: st
           <span>{intl.formatMessage({ defaultMessage: '漲跌幅', id: 'gA15gF' })}</span>
         </div>
       </div>
-      <div className="list flex-1 overflow-y-auto">
+      <div className="market-list flex-1 overflow-y-auto">
         {quotes.map((item, i) => (
           <List.Item
             key={i}
@@ -96,7 +96,7 @@ const HomeStockDigitalMarket = ({ tab, activeKey }: { tab: string; activeKey: st
 };
 
 const Container = styled.div`
-  .list {
+  .market-list {
     .adm-list-item,
     .adm-list-item-content-main {
       padding: 0;

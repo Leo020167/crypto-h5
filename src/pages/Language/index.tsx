@@ -1,4 +1,4 @@
-import { CheckList } from 'antd-mobile';
+import { Button, CheckList } from 'antd-mobile';
 import { useAtom } from 'jotai';
 import { useState } from 'react';
 import { useIntl } from 'react-intl';
@@ -66,20 +66,21 @@ const Language = () => {
     <Screen
       headerTitle={intl.formatMessage({ defaultMessage: '設置語言', id: 'kIQ/Xp' })}
       footer={
-        <div className="fixed bottom-0 left-0 right-0 z-10 bg-[#F4F6F4] p-4">
-          <a
-            className="btn-purple"
+        <div className="fixed bottom-0 left-0 right-0 z-10 bg-[#F4F6F4] p-4 dark:bg-[#161720]">
+          <Button
+            color="primary"
+            block
             onClick={() => {
               setState({ locale: language[0] });
               history.goBack();
             }}
           >
             {intl.formatMessage({ defaultMessage: '保存語言設置', id: 'BXndbT' })}
-          </a>
+          </Button>
         </div>
       }
     >
-      <div className="flex-1 bg-[#F4F6F4] pb-20">
+      <div className="flex-1 bg-[#F4F6F4] pb-20 dark:bg-[#161720]">
         <CheckList
           value={language}
           onChange={(value) => {
@@ -87,13 +88,13 @@ const Language = () => {
               setLanguage(value as string[]);
             }
           }}
-          className="mt-2 bg-white"
+          className=" bg-white"
         >
           {languages.map((v) => (
             <CheckList.Item
               key={v.key}
               value={v.key}
-              className="flex-1"
+              className="flex-1 dark:bg-[#2A2E38]"
               prefix={<img alt="" src={`/languages/${v.key}.png`} className="h-6 w-6" />}
             >
               {v.name}
