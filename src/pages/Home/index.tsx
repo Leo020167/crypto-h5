@@ -15,10 +15,10 @@ import tab1_menu5 from '../../assets/tab1_menu5.png';
 
 import { localeStateAtom, switchColorValueAtom } from '../../atoms';
 import { DarkModeSwitch } from '../../components';
+import { Symbol } from '../../components/Symbol';
 import { useChatLink } from '../../hooks/useChatLink';
 import { useMarketData, useQuoteHomePage } from '../../market/endpoints/marketWithTransformer';
 import { Quote } from '../../market/model';
-import { getOriginSymbol, getUnitSymbol } from '../TransactionRecords/utils';
 
 const Home = () => {
   const localeState = useAtomValue(localeStateAtom);
@@ -66,7 +66,7 @@ const Home = () => {
 
   const symbolsHeader = useMemo(() => {
     return (
-      <div className="flex h-10 items-center gap-x-2.5 px-1 px-2.5 dark:bg-[#3D424E] dark:text-[#A2A9BC]">
+      <div className="flex h-10 items-center gap-x-2.5 px-2.5 dark:bg-[#3D424E] dark:text-[#A2A9BC]">
         <div className="w-1/2 text-sm">
           {intl.formatMessage({
             id: 'ZU9FqB',
@@ -229,64 +229,21 @@ const Home = () => {
 };
 
 const Symbols = ({ quotes = [] }: { quotes?: Quote[] }) => {
-  const switchColorValue = useAtomValue(switchColorValueAtom);
-  const getColor = useCallback(
-    (value: number) => {
-      if (switchColorValue === '1') {
-        return value < 0 ? '#EA3941' : '#00BA76';
-      } else {
-        return value < 0 ? '#00BA76' : '#EA3941';
-      }
-    },
-    [switchColorValue],
-  );
-
-  const intl = useIntl();
-
   return (
     <List>
-      {quotes?.map((v, i) => (
+      {quotes?.map((item, i) => (
         <List.Item key={i}>
-          <Link
-            to={{
-              pathname: '/market2',
-              search: stringify({
-                symbol: v.symbol,
-              }),
+          <Symbol
+            {...item}
+            linkProps={{
+              to: {
+                pathname: '/market2',
+                search: stringify({
+                  symbol: item.symbol,
+                }),
+              },
             }}
-            className="flex items-center gap-x-2.5"
-          >
-            <div className="flex w-1/2 items-center text-sm">
-              <div className="mr-2.5 h-[38px] w-[38px]">
-                <img src={v.image} alt="" className="h-full w-full object-contain" />
-              </div>
-              <div>
-                <div className="flex items-baseline">
-                  <span className="text-base font-bold text-black dark:text-white">
-                    {v.symbol?.includes('/') ? getOriginSymbol(v.symbol) : v.symbol}
-                    {v.symbol?.includes('/') ? '/' + getUnitSymbol(v.symbol) : ''}
-                  </span>
-                  <div className="text-xs text-[#A2A9BC] dark:text-white">/{v.name}</div>
-                </div>
-                <div className="text-xs text-[#A2A9BC] dark:text-[#A2A9BC]">
-                  {intl.formatMessage({ defaultMessage: '量', id: 'pYPgzH' })} {v.amount}
-                </div>
-              </div>
-            </div>
-
-            <div className="w-1/4 text-center text-sm">
-              <div className="text-base font-bold text-black dark:text-white">{v.price}</div>
-            </div>
-
-            <div className="flex w-[74px] flex-col items-end text-sm">
-              <div
-                className="flex h-8 w-full items-center  justify-center rounded-md bg-[#F32A44] text-base text-white"
-                style={{ backgroundColor: getColor(v.rate?.includes('-') ? -1 : 1) }}
-              >
-                {v.rate}%
-              </div>
-            </div>
-          </Link>
+          />
         </List.Item>
       ))}
     </List>

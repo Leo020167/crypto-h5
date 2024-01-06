@@ -22,7 +22,9 @@ const Screen = ({
   const history = useHistory();
   const handleBack = useCallback(() => history.goBack(), [history]);
   return (
-    <div className={`flex h-screen w-screen flex-col bg-white ${className ?? ''}`}>
+    <div
+      className={`flex h-screen w-screen flex-col bg-white dark:bg-[#161720] ${className ?? ''}`}
+    >
       <NavBar onBack={handleBack} right={right} {...navBarProps}>
         {headerTitle}
       </NavBar>

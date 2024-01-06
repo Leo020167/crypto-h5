@@ -35,8 +35,8 @@ const My = () => {
   }, 2000);
 
   return (
-    <Container className="h-full overflow-y-auto bg-[#F0F1F7]">
-      <div className="bg-white pt-4">
+    <Container className="my-list h-full overflow-y-auto bg-[#F0F1F7] dark:bg-[#161720]">
+      <div className="bg-white pt-4 dark:bg-[#2A2E38]">
         <div className="px-4 py-2">
           <div className="avatar flex">
             <div className="mr-4 h-10 w-10 overflow-hidden rounded-full">
@@ -50,7 +50,7 @@ const My = () => {
                 <span>{userInfo?.userName}</span>
                 <img alt="" src={ic_svg_edit} className="ml-2 w-5" />
               </div>
-              <span className="text-[#a2abc8]">
+              <span className="text-[#a2abc8] dark:text-[#999999]">
                 <div>ID: {userInfo?.userId}</div>
                 <div>
                   {intl.formatMessage({ defaultMessage: '信誉分: ', id: '6f0YHY' })}
@@ -61,7 +61,7 @@ const My = () => {
           </div>
         </div>
 
-        <div className="mb-2 flex justify-between bg-white py-2">
+        <div className="mb-2 flex justify-between bg-white py-2 dark:bg-[#2A2E38]">
           <Link className="flex flex-1 flex-col items-center" to="/recharge-coin">
             <div className="mb-2 h-12 w-12 rounded-lg bg-[#f0f1f5]">
               <img alt="" src={ic_svg_recharge_coin} />
@@ -178,6 +178,10 @@ const Container = styled.div`
 
   .adm-list-item-content-arrow {
     color: #aaaaaa;
+  }
+
+  .adm-list-item {
+    background-color: #2a2e38;
   }
 `;
 

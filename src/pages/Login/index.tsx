@@ -11,6 +11,8 @@ import { usernamePasswordAtom } from '../../atoms';
 import { useChatLink } from '../../hooks/useChatLink';
 import { useAuthStore } from '../../stores/auth';
 
+import { ReactComponent as DeviceMessageSvg } from '../../assets/device-message.svg';
+
 const Login = () => {
   const [visible, setVisible] = useState(false);
 
@@ -37,24 +39,20 @@ const Login = () => {
   const chatLink = useChatLink();
 
   return (
-    <div className="bg-white">
+    <div className="bg-white dark:bg-[#161720]">
       <Header
         onBack={() => {
           history.goBack();
         }}
         right={
           <div className="flex flex-wrap items-center justify-end space-x-4">
-            <Link to="/signup" className="text-black">
+            <Link to="/signup" className="text-black dark:text-white">
               {intl.formatMessage({ defaultMessage: '注冊賬號', id: '3cuhJj' })}
             </Link>
-
-            <a href={chatLink} className="text-black" target="_blank" rel="noreferrer">
-              {intl.formatMessage({ defaultMessage: '綫上客服', id: 'wwOQz6' })}
-            </a>
           </div>
         }
       />
-      <div className="h-screen bg-white px-4 py-4">
+      <div className="h-screen px-4 py-4">
         <Container className="px-4">
           <h1 className="py-8 text-2xl">
             {intl.formatMessage({ defaultMessage: '登錄', id: 'wAPEnf' })}
@@ -100,10 +98,21 @@ const Login = () => {
                   >
                     {intl.formatMessage({ defaultMessage: '登錄', id: 'wAPEnf' })}
                   </Button>
+
                   <div className="mt-4 text-center">
-                    <Link to="/reset-password">
-                      {intl.formatMessage({ defaultMessage: '忘記了？找回密碼', id: 'oR5wwN' })}
-                    </Link>
+                    <Button
+                      color="primary"
+                      fill="outline"
+                      block
+                      onClick={() => {
+                        window.open(chatLink);
+                      }}
+                    >
+                      <div className="flex items-center justify-center">
+                        <DeviceMessageSvg className="mr-2.5 h-5 w-5" />
+                        {intl.formatMessage({ defaultMessage: '綫上客服', id: 'wwOQz6' })}
+                      </div>
+                    </Button>
                   </div>
                 </div>
               }
@@ -136,6 +145,12 @@ const Login = () => {
                   </div>
                 </div>
               </Form.Item>
+
+              <div className="mt-4 text-right">
+                <Link to="/reset-password" className="text-sm">
+                  {intl.formatMessage({ defaultMessage: '忘記了？找回密碼', id: 'oR5wwN' })}
+                </Link>
+              </div>
             </Form>
           </div>
         </Container>

@@ -25,9 +25,18 @@ body {
 
 html.dark {
   --adm-color-box: #2a2e38;
+  --adm-color-text: #fff;
+  --adm-color-fill-content: #2a2e38;
+  --adm-color-background: #161720;
+
+  .adm-tabs {
+    --active-title-color: #fff;
+    --active-line-color: #0bbb79;
+    --title-font-size: 16px;
+    color: #aaaaaa;
+  }
 
   .home-tabs {
-    --active-title-color: #fff;
     --adm-color-background: #2a2e38;
   }
 
@@ -39,6 +48,39 @@ html.dark {
     }
     .adm-tab-bar-item-active {
       .adm-tab-bar-item-title {
+        color: #fff;
+      }
+    }
+  }
+
+  .adm-nav-bar-back-arrow {
+    color: #fff;
+  }
+
+  .adm-nav-bar {
+    border-color: #2a2e38;
+  }
+
+  .adm-form .adm-list,
+  .adm-list {
+    --border-inner: 1px solid #3d424e;
+    .adm-list-item-content-main {
+      color: #fff;
+    }
+  }
+
+  .eye {
+    color: #00bab8;
+  }
+
+  .adm-input {
+    --placeholder-color: #696d79;
+  }
+
+  .my-list {
+    .adm-list {
+      --border-inner: 1px solid #161720;
+      .adm-list-item-content-main {
         color: #fff;
       }
     }
