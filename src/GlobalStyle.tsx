@@ -188,6 +188,17 @@ const GlobalStyle = styled.createGlobalStyle`
     background-color: #eef3f9;
   }
 
+  .pledge-card {
+    height: 70px;
+    background: linear-gradient(
+      180deg,
+      rgba(237, 242, 249, 0.69) 0%,
+      rgba(210, 220, 249, 0.52) 100%
+    );
+    border-radius: 4px;
+    border: 1px solid #bfc3fc;
+  }
+
   html.dark {
     --adm-color-box: #2a2e38;
     --adm-color-text: #fff;
@@ -262,6 +273,21 @@ const GlobalStyle = styled.createGlobalStyle`
       .adm-list-item:nth-child(odd) {
         background-color: #2a2e38;
       }
+    }
+
+    .adm-floating-panel {
+      background-image: none;
+      background-color: #333;
+      .adm-floating-panel-header {
+        .adm-floating-panel-bar {
+          --adm-color-light: #0bbb79;
+        }
+      }
+    }
+
+    .pledge-card {
+      border-color: #3d424e;
+      background: #3d424e;
     }
   }
 `;

@@ -45,7 +45,7 @@ const FloatingPanelWithMask = ({
         >
           <div className="flex-1 overflow-y-auto">{children}</div>
           <div className="p-4 pb-8">
-            <Button block className="btn-purple" onClick={handleConfirm} loading={loading}>
+            <Button block color="primary" onClick={handleConfirm} loading={loading}>
               {intl.formatMessage({ defaultMessage: '確定', id: 'ofc1Jv' })}
             </Button>
           </div>
