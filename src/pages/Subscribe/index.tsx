@@ -44,12 +44,12 @@ const SubscribeList = () => {
             key="2"
           />
         </Tabs>
-        <div className="flex-1 overflow-y-auto">
+        <div className="flex-1 space-y-1 overflow-y-auto">
           {items.map((v) => (
             <Link
               to={{ pathname: '/subscribe-detail', search: stringify({ id: v.id }) }}
               key={v.id}
-              className="flex bg-[#FAFAFA] px-5 py-4"
+              className="flex bg-[#FAFAFA] px-5 py-4 dark:bg-[#2A2E38]"
             >
               <div className=" mr-4 h-16 w-16">
                 {!!v.image && <img alt="" src={v.image} className="h-auto w-full" />}
@@ -79,21 +79,21 @@ const SubscribeList = () => {
                   />
                 </div>
 
-                <div className="mt-4 flex items-center text-xs">
+                <div className="mt-4 flex items-center text-xs dark:text-[#AAAAAA]">
                   <div>{intl.formatMessage({ defaultMessage: '發行量', id: 'mU805N' })}</div>
                   <div className="ml-1">
                     {v.sumAmount}&nbsp;
                     {v.symbol}
                   </div>
                 </div>
-                <div className="mt-2 flex items-center text-xs">
+                <div className="mt-2 flex items-center text-xs dark:text-[#AAAAAA]">
                   <div>{intl.formatMessage({ defaultMessage: '價格', id: 'qzi2dl' })}</div>
                   <div className="ml-1">
                     <span className=" font-bold text-red-500">{v.rate}</span>&nbsp; USDT
                   </div>
                 </div>
 
-                <div className="mt-2 text-xs">
+                <div className="mt-2 text-xs dark:text-[#AAAAAA]">
                   <div>
                     {[
                       stringDateFormat(v.startTime, 'YYYY-MM-DD'),

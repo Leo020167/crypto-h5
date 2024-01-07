@@ -1,8 +1,8 @@
-import { Form, NavBar, Toast } from 'antd-mobile';
+import { Form, Toast } from 'antd-mobile';
 import { useIntl } from 'react-intl';
 import { useHistory } from 'react-router-dom';
-import styled from 'styled-components';
 import Password from '../../../components/Password';
+import Screen from '../../../components/Screen';
 import { ChangePasswordInput } from '../../../model';
 import { updateUserPass } from '../../../utils/api';
 import { validPassword } from '../../../utils/validation';
@@ -15,11 +15,10 @@ const ChangePassword = () => {
   const intl = useIntl();
 
   return (
-    <Container className="h-screen bg-[#f0f1f5]">
-      <NavBar
-        className="mb-2 bg-white"
-        onBack={() => history.goBack()}
-        right={
+    <Screen
+      navBarProps={{
+        onBack: () => history.goBack(),
+        right: (
           <a
             onClick={() => {
               form.validateFields().then((values: ChangePasswordInput) => {
@@ -44,9 +43,9 @@ const ChangePassword = () => {
           >
             {intl.formatMessage({ defaultMessage: '确定', id: 'r0/TUu' })}
           </a>
-        }
-      />
-
+        ),
+      }}
+    >
       <Form form={form}>
         <Form.Item name="oldUserPass">
           <Password
@@ -72,10 +71,8 @@ const ChangePassword = () => {
           />
         </Form.Item>
       </Form>
-    </Container>
+    </Screen>
   );
 };
-
-const Container = styled.div``;
 
 export default ChangePassword;

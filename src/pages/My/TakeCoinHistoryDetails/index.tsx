@@ -15,12 +15,12 @@ const TakeCoinHistoryDetails = () => {
   const intl = useIntl();
 
   return (
-    <Container className="h-screen bg-white">
-      <NavBar onBack={() => history.goBack()} className="bg-white">
+    <Container className="h-screen bg-white dark:bg-[#161720]">
+      <NavBar onBack={() => history.goBack()} className="bg-white dark:bg-[#161720]">
         {intl.formatMessage({ defaultMessage: '详情', id: 's4hJju' })}
       </NavBar>
 
-      <List className="mt-8">
+      <List>
         <List.Item
           title={
             state?.inOut === '1'
@@ -28,7 +28,7 @@ const TakeCoinHistoryDetails = () => {
               : intl.formatMessage({ defaultMessage: '提幣數量', id: 'wbTfN9' })
           }
           extra={
-            <span className="text-black">
+            <span className="text-black dark:text-white">
               {state?.amount}
               {state?.symbol}
             </span>
@@ -38,7 +38,7 @@ const TakeCoinHistoryDetails = () => {
         <List.Item
           title={intl.formatMessage({ defaultMessage: '手续费', id: 'XdbxuW' })}
           extra={
-            <span className="text-black">
+            <span className="text-black dark:text-white">
               {state?.fee ?? '--'}
               {state?.symbol}
             </span>
@@ -50,15 +50,23 @@ const TakeCoinHistoryDetails = () => {
               ? intl.formatMessage({ defaultMessage: '充幣地址', id: 'Q4foHv' })
               : intl.formatMessage({ defaultMessage: '提幣地址', id: 'NUeill' })
           }
-          extra={<div className="overflow-x-auto text-black">{state?.address}</div>}
+          extra={
+            <div className="overflow-x-auto text-black dark:text-white">
+              {state?.address ?? '-'}
+            </div>
+          }
         />
         <List.Item
           title={intl.formatMessage({ defaultMessage: '狀態', id: 'NL+iCs' })}
-          extra={<span className="text-black">{state?.stateDesc}</span>}
+          extra={<span className="text-black dark:text-white">{state?.stateDesc}</span>}
         />
         <List.Item
           title={intl.formatMessage({ defaultMessage: '時間', id: 'W6smHj' })}
-          extra={<span className="text-black">{stringDateFormat(state?.createTime)}</span>}
+          extra={
+            <span className="text-black dark:text-white">
+              {stringDateFormat(state?.createTime)}
+            </span>
+          }
         />
       </List>
     </Container>

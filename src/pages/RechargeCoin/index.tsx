@@ -84,9 +84,9 @@ const RechargeCoin = () => {
         ),
       }}
     >
-      <Container className="flex-1 overflow-y-auto bg-[#F4F6F4] p-4">
-        <div className="rounded-xl bg-white p-5 shadow-md shadow-black/5">
-          <div className="flex items-center justify-between text-sm text-[#A2A9BC]">
+      <Container className="flex-1 overflow-y-auto bg-[#F4F6F4] p-4 dark:bg-[#161720]">
+        <div className="rounded-xl bg-white p-5 shadow-md shadow-black/5 dark:bg-[#2A2E38]">
+          <div className="flex items-center justify-between text-sm text-[#A2A9BC] dark:text-[#AAAAAA]">
             <span>
               {intl.formatMessage(
                 { defaultMessage: '可用餘額({symbol})', id: 'p4Oi3U' },
@@ -95,11 +95,11 @@ const RechargeCoin = () => {
                 },
               )}
             </span>
-            <span className="text-lg text-[#3E4660]">
+            <span className="text-lg text-[#3E4660] dark:text-white">
               {chargeConfigs?.data?.availableAmount ?? '0.00'}
             </span>
           </div>
-          <div className="flex items-center justify-between text-sm text-[#A2A9BC]">
+          <div className="flex items-center justify-between text-sm text-[#A2A9BC] dark:text-[#AAAAAA]">
             <span>
               {intl.formatMessage(
                 { defaultMessage: '最小充值金額({symbol})', id: 'k5HUdW' },
@@ -114,19 +114,19 @@ const RechargeCoin = () => {
           </div>
         </div>
 
-        <div className="mt-4 rounded-xl bg-white p-5 shadow-md shadow-black/5">
+        <div className="mt-4 rounded-xl bg-white p-5 shadow-md shadow-black/5 dark:bg-[#2A2E38] ">
           <div className="flex flex-col ">
             <div className="flex items-center justify-between gap-x-2">
-              <span className="text-[#3E4660]">
+              <span className="text-[#3E4660] dark:text-[#AAAAAA]">
                 {intl.formatMessage({ defaultMessage: '選擇幣種', id: 'jJ0rDY' })}
               </span>
-              <span className="w-2/3 text-end text-[#3E4660]">
+              <span className="w-2/3 text-end text-[#3E4660] dark:text-[#AAAAAA]">
                 {intl.formatMessage({ defaultMessage: '選擇充幣網絡', id: '8Pdrch' })}
               </span>
             </div>
             <div className="mt-4 flex gap-x-2">
               <a
-                className="flex h-8 flex-1 items-center justify-center rounded border border-[#3E4660] px-2"
+                className="flex h-8 flex-1 items-center justify-center rounded border border-[#3E4660] px-2 dark:border-white"
                 onClick={() => {
                   setOpenSymbol(true);
                 }}
@@ -167,7 +167,7 @@ const RechargeCoin = () => {
             </span>
           </div>
 
-          <div className="mt-12 flex justify-between text-sm text-[#3E4660]">
+          <div className="mt-12 flex justify-between text-sm text-[#3E4660] dark:text-[#AAAAAA]">
             <span>{intl.formatMessage({ defaultMessage: '充幣地址', id: 'Q4foHv' })}</span>
             {symbol === 'USDT' && (
               <span>
@@ -178,7 +178,7 @@ const RechargeCoin = () => {
           </div>
 
           <div className="relative mt-4 flex items-center">
-            <div className="flex h-11 w-full items-center overflow-x-auto rounded-md bg-[#EDF3FA] px-2.5 pr-12 text-[#6175AE]">
+            <div className="flex h-11 w-full items-center overflow-x-auto rounded-md bg-[#EDF3FA] px-2.5 pr-12 text-[#6175AE] dark:bg-[#3D424E] dark:text-white">
               {currentAddress?.address}
             </div>
             {currentAddress?.address && (

@@ -75,16 +75,8 @@ const GlobalStyle = styled.createGlobalStyle`
     }
 
     .adm-list-body {
-      border: 0;
-
       .adm-list-item {
         padding-left: 0;
-      }
-
-      .adm-list-item-content {
-        border-top: 0;
-        border-bottom: var(--border-inner);
-        padding-right: 0;
       }
     }
 
@@ -199,15 +191,15 @@ const GlobalStyle = styled.createGlobalStyle`
     border: 1px solid #bfc3fc;
   }
 
+  .adm-tabs-header {
+    border: 0;
+  }
+
   .pledge-history {
     .adm-tabs {
       --title-font-size: 16px;
       --active-line-color: #4d4bda;
       --active-title-color: #4d4bda;
-
-      .adm-tabs-header {
-        border: 0;
-      }
 
       .adm-tabs-content {
         display: flex;
@@ -229,7 +221,7 @@ const GlobalStyle = styled.createGlobalStyle`
     --adm-color-box: #2a2e38;
     --adm-color-text: #fff;
     --adm-color-fill-content: #2a2e38;
-    --adm-color-background: #161720;
+    --adm-color-background: #2a2e38;
 
     .adm-tabs {
       --active-title-color: #fff;
@@ -240,6 +232,10 @@ const GlobalStyle = styled.createGlobalStyle`
 
     .home-tabs {
       --adm-color-background: #2a2e38;
+    }
+
+    .adm-list {
+      --active-background-color: #2a2e38;
     }
 
     .adm-tab-bar {
@@ -265,9 +261,9 @@ const GlobalStyle = styled.createGlobalStyle`
 
     .adm-form .adm-list,
     .adm-list {
-      --border-inner: 1px solid #3d424e;
+      --border-inner: 1px solid #161720;
       .adm-list-item-content-main {
-        color: #fff;
+        color: #aaaaaa;
       }
     }
 
@@ -279,7 +275,11 @@ const GlobalStyle = styled.createGlobalStyle`
       --placeholder-color: #696d79;
     }
 
-    .my-list {
+    .my-list,
+    .settings-list,
+    .refresh-list,
+    .color-list,
+    .personal-list {
       .adm-list {
         --border-inner: 1px solid #161720;
         .adm-list-item-content-main {
@@ -322,10 +322,6 @@ const GlobalStyle = styled.createGlobalStyle`
         --active-line-color: #0bbb79;
         --active-title-color: #fff;
 
-        .adm-tabs-header {
-          border: 0;
-        }
-
         .adm-tabs-content {
           display: flex;
           flex: 1;
@@ -340,6 +336,18 @@ const GlobalStyle = styled.createGlobalStyle`
           font-size: 14px;
         }
       }
+    }
+
+    .adm-center-popup {
+      --background-color: #333;
+    }
+
+    .adm-text-area {
+      --placeholder-color: #999999;
+    }
+
+    .adm-infinite-scroll {
+      background-color: #161720;
     }
   }
 `;

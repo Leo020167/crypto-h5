@@ -22,7 +22,7 @@ const RefreshRateList = ({ open, onClose }: RefreshRateListProps) => {
           {intl.formatMessage({ defaultMessage: '刷新频率设置', id: 'E7wFmB' })}
         </NavBar>
         <div className="px-4 py-2">
-          <div className="text-[#b4b4b4]">
+          <div className="text-[#AAAAAA]">
             {intl.formatMessage({ defaultMessage: '行情刷新频率设置', id: '/4Nsnx' })}
           </div>
         </div>
@@ -33,25 +33,27 @@ const RefreshRateList = ({ open, onClose }: RefreshRateListProps) => {
             setRefreshRate(value as number);
           }}
         >
-          <List>
-            {values.map((v) => (
-              <List.Item
-                key={v}
-                extra={
-                  <div onClick={(e) => e.stopPropagation()}>
-                    <Radio value={v} />
-                  </div>
-                }
-              >
-                {intl.formatMessage(
-                  { defaultMessage: '{second}秒', id: '0oAu54' },
-                  {
-                    second: v,
-                  },
-                )}
-              </List.Item>
-            ))}
-          </List>
+          <div className="refresh-list">
+            <List>
+              {values.map((v) => (
+                <List.Item
+                  key={v}
+                  extra={
+                    <div onClick={(e) => e.stopPropagation()}>
+                      <Radio value={v} />
+                    </div>
+                  }
+                >
+                  {intl.formatMessage(
+                    { defaultMessage: '{second}秒', id: '0oAu54' },
+                    {
+                      second: v,
+                    },
+                  )}
+                </List.Item>
+              ))}
+            </List>
+          </div>
         </Radio.Group>
       </div>
     </Popup>

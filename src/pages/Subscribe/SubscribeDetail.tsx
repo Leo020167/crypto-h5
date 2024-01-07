@@ -84,8 +84,8 @@ const SubscribeDetail = () => {
   return (
     <Screen headerTitle={intl.formatMessage({ defaultMessage: '新幣申購', id: 'I/5B/d' })}>
       <Container className="flex-1 overflow-y-auto">
-        <div className="px-8">
-          <div className="mt-4 flex">
+        <div className="p-8 dark:bg-[#2A2E38]">
+          <div className="flex">
             <div className="mr-4 h-20 w-20">
               <img alt="" src={detail?.image} className=" h-auto w-full object-contain" />
             </div>
@@ -164,7 +164,7 @@ const SubscribeDetail = () => {
             <div className="mt-1">{stringDateFormat(detail?.endTime)}</div>
           </div>
 
-          <div className="my-8 flex justify-center">
+          <div className="mt-8 flex justify-center">
             <a
               className="flex h-10 w-full items-center justify-center rounded px-4 text-white"
               style={{ backgroundColor: currentState.color }}

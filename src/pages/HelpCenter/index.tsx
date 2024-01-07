@@ -40,6 +40,7 @@ const HelpCenter = () => {
       renderItem={(item: ArticleHelpListResponseAllOfDataAllOfDataItem) => {
         return (
           <List.Item
+            className="dark:bg-[#2A2E38]"
             key={item.articleId}
             arrow={false}
             onClick={() => {

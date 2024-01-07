@@ -30,11 +30,11 @@ const ScreenWithInfiniteScroll = ({
   const content = useMemo(() => dataSource.map(renderItem), [dataSource, renderItem]);
 
   return (
-    <Container className={`relative h-screen bg-white ${className ?? ''}`}>
+    <Container className={`relative h-screen bg-white dark:bg-[#161720] ${className ?? ''}`}>
       <NavBar
         onBack={() => history.goBack()}
         {...navBarProps}
-        className="fixed top-0 z-10 w-full bg-white"
+        className="fixed top-0 z-10 w-full bg-white dark:bg-[#161720]"
       >
         {headerTitle}
       </NavBar>

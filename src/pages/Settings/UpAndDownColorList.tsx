@@ -27,7 +27,7 @@ const UpAndDownColorList = ({ open, onClose }: UpAndDownColorListProps) => {
           {intl.formatMessage({ defaultMessage: '涨跌颜色', id: 'o3hkNu' })}
         </NavBar>
         <div className="px-4 py-2">
-          <div className="text-[#b4b4b4]">
+          <div className="text-[#AAAAAA]">
             {intl.formatMessage({ defaultMessage: '涨跌颜色设置', id: 'OxlDIl' })}
           </div>
         </div>
@@ -38,20 +38,22 @@ const UpAndDownColorList = ({ open, onClose }: UpAndDownColorListProps) => {
             setUpAndDownColor(value as string);
           }}
         >
-          <List>
-            {colors.map((v) => (
-              <List.Item
-                key={v.value}
-                extra={
-                  <div onClick={(e) => e.stopPropagation()}>
-                    <Radio value={v.value} />
-                  </div>
-                }
-              >
-                {v.label}
-              </List.Item>
-            ))}
-          </List>
+          <div className="color-list">
+            <List>
+              {colors.map((v) => (
+                <List.Item
+                  key={v.value}
+                  extra={
+                    <div onClick={(e) => e.stopPropagation()}>
+                      <Radio value={v.value} />
+                    </div>
+                  }
+                >
+                  {v.label}
+                </List.Item>
+              ))}
+            </List>
+          </div>
         </Radio.Group>
       </div>
     </Popup>
