@@ -1,4 +1,4 @@
-import { Dialog, List, Toast } from 'antd-mobile';
+import { Button, Dialog, List, Toast } from 'antd-mobile';
 import { useState } from 'react';
 import { useIntl } from 'react-intl';
 import { useHistory } from 'react-router-dom';
@@ -81,10 +81,11 @@ const Settings = () => {
             {intl.formatMessage({ defaultMessage: '关于我们', id: '7KOsNC' })}
           </List.Item>
         </List>
-        <List className="mb-2">
-          <List.Item
-            arrow={null}
-            className="text-center "
+
+        <div className="mt-8 px-4">
+          <Button
+            block
+            color="primary"
             onClick={() => {
               Dialog.confirm({
                 title: intl.formatMessage({ defaultMessage: '注销', id: 'pecEGk' }),
@@ -99,11 +100,9 @@ const Settings = () => {
               });
             }}
           >
-            <span className="text-[#fe6b1d]">
-              {intl.formatMessage({ defaultMessage: '退出登录', id: 'B+YBvr' })}
-            </span>
-          </List.Item>
-        </List>
+            {intl.formatMessage({ defaultMessage: '退出登录', id: 'B+YBvr' })}
+          </Button>
+        </div>
 
         <RefreshRateList open={openRefreshRate} onClose={() => setOpenRefreshRate(false)} />
         <UpAndDownColorList

@@ -349,6 +349,11 @@ const GlobalStyle = styled.createGlobalStyle`
     .adm-infinite-scroll {
       background-color: #161720;
     }
+
+    .adm-dialog-footer .adm-dialog-action-row,
+    .adm-dialog-footer .adm-dialog-action-row > .adm-dialog-button {
+      border-color: #161720;
+    }
   }
 `;
 export default GlobalStyle;
