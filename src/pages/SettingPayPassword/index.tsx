@@ -1,10 +1,10 @@
-import { Button, Form, Input, NavBar, Toast } from 'antd-mobile';
+import { Button, Form, Input, Toast } from 'antd-mobile';
 import md5 from 'js-md5';
 import { useIntl } from 'react-intl';
 import { useHistory } from 'react-router-dom';
-import styled from 'styled-components';
 import { useSetPayPass } from '../../api/endpoints/transformer';
 import { SetPayPassBody } from '../../api/model';
+import Screen from '../../components/Screen';
 import { useAuthStore } from '../../stores/auth';
 
 const SettingPayPassword = () => {
@@ -41,24 +41,19 @@ const SettingPayPassword = () => {
   };
 
   return (
-    <Container className="h-screen bg-white">
-      <NavBar onBack={() => history.goBack()} className="mb-2">
-        {auth.userInfo?.payPass
+    <Screen
+      navBarProps={{ onBack: () => history.goBack() }}
+      headerTitle={
+        auth.userInfo?.payPass
           ? intl.formatMessage({ defaultMessage: '修改交易密碼', id: 'nAaIBd' })
-          : intl.formatMessage({ defaultMessage: '設置交易密碼', id: 'obugXD' })}
-      </NavBar>
-
+          : intl.formatMessage({ defaultMessage: '設置交易密碼', id: 'obugXD' })
+      }
+    >
       <div className="px-4">
         <Form
           onFinish={onFinish}
           footer={
-            <Button
-              block
-              type="submit"
-              color="primary"
-              size="large"
-              loading={setPayPassMutation.isLoading}
-            >
+            <Button block type="submit" color="primary" loading={setPayPassMutation.isLoading}>
               {intl.formatMessage({ defaultMessage: '提交', id: 'ENPgS/' })}
             </Button>
           }
@@ -173,14 +168,8 @@ const SettingPayPassword = () => {
           </Form.Item>
         </Form>
       </div>
-    </Container>
+    </Screen>
   );
 };
-
-const Container = styled.div`
-  .adm-list-item-description {
-    padding: 0 1rem;
-  }
-`;
 
 export default SettingPayPassword;

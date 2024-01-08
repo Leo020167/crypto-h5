@@ -1,11 +1,11 @@
-import { Button, Form, Input, NavBar, Toast } from 'antd-mobile';
+import { Button, Form, Input, Toast } from 'antd-mobile';
 import { DownFill } from 'antd-mobile-icons';
 import { useEffect, useState } from 'react';
 import { useIntl } from 'react-intl';
 import { useHistory } from 'react-router-dom';
-import styled from 'styled-components';
 import { RegisterTabs } from '../../components';
 import AreaList from '../../components/AreaList';
+import Screen from '../../components/Screen';
 import useCountry from '../../hooks/useCountry';
 import { AreaListItem } from '../../model';
 import { useSignUpStore } from '../../stores/signup';
@@ -35,13 +35,10 @@ const Signup = () => {
   }, [setValue]);
 
   return (
-    <Container className="h-screen bg-white dark:bg-[#161720]">
-      <NavBar
-        onBack={() => {
-          history.replace({ pathname: '/login' });
-        }}
-      />
-
+    <Screen
+      className="register-page h-screen bg-white dark:bg-[#161720]"
+      navBarProps={{ onBack: () => history.replace({ pathname: '/login' }) }}
+    >
       <div>
         <h1 className="my-5 px-8 text-2xl font-bold">
           {intl.formatMessage({ defaultMessage: '注册', id: 'MmsEyp' })}
@@ -128,7 +125,7 @@ const Signup = () => {
             {value.type === 1 ? (
               <>
                 <div
-                  className="locale mb-2 mt-6 flex items-center pl-2"
+                  className="locale flex items-center pb-2 pl-2 pt-6 dark:bg-[#161720] "
                   onClick={() => setOpen(true)}
                 >
                   {country.name}
@@ -217,51 +214,8 @@ const Signup = () => {
           setOpen(false);
         }}
       />
-    </Container>
+    </Screen>
   );
 };
-
-const Container = styled.div`
-  .adm-nav-bar {
-    border: 0;
-  }
-  .adm-form-footer {
-    padding: 20px 0;
-  }
-
-  .phone-prefix-number {
-    .adm-list-item-content-main {
-      color: #212f51;
-    }
-  }
-
-  .adm-list-body {
-    border: 0;
-  }
-
-  .locale,
-  .adm-form-item-label,
-  .adm-input-element {
-    font-size: 0.875rem;
-  }
-
-  .adm-list-item {
-    padding-left: 0;
-    .adm-list-item-content {
-      border-top: 0;
-      border-bottom: var(--border-inner);
-    }
-  }
-
-  .phone {
-    .adm-list-item-content-prefix {
-      width: auto;
-      .adm-form-item-label {
-        display: flex;
-        justify-content: center;
-      }
-    }
-  }
-`;
 
 export default Signup;

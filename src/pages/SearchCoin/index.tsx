@@ -4,10 +4,10 @@ import { stringify } from 'query-string';
 import { useState } from 'react';
 import { useIntl } from 'react-intl';
 import { StringParam, useQueryParam, withDefault } from 'use-query-params';
-import { useSearchCoin } from '../../api/endpoints/transformer';
 import { SearchResultListItem } from '../../api/model';
-import { Symbol } from '../../components';
+import { Symbol2 } from '../../components';
 import Screen from '../../components/Screen';
+import { useQuoteHomePage } from '../../market/endpoints/marketWithTransformer';
 
 export const searchCoinHistoryAtom = atomWithStorage<SearchResultListItem[]>(
   'search-coin-history',
@@ -19,14 +19,16 @@ const SearchCoin = () => {
   const [value, setValue] = useState<string>('');
 
   const [accountType] = useQueryParam('accountType', withDefault(StringParam, ''));
-  const { data } = useSearchCoin(
-    { symbol: value, accountType },
-    {
-      query: {
-        enabled: !!value,
-      },
-    },
-  );
+
+  const { data } = useQuoteHomePage();
+  // const { data } = useSearchCoin(
+  //   { symbol: value, accountType },
+  //   {
+  //     query: {
+  //       enabled: !!value,
+  //     },
+  //   },
+  // );
 
   return (
     <Screen
@@ -38,12 +40,12 @@ const SearchCoin = () => {
         />
       }
     >
-      <div className="flex-1">
+      <div className="search-page overflow-y-auto py-2.5">
         <List>
-          {data?.data?.searchResultList?.map((v, i) => (
+          {data?.data?.quotes?.map((v, i) => (
             <List.Item key={i}>
-              <Symbol
-                name={v.name}
+              <Symbol2
+                {...v}
                 linkProps={{
                   to: {
                     pathname: accountType === 'spot' ? '/market2' : '/market',

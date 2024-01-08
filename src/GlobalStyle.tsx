@@ -309,6 +309,34 @@ const GlobalStyle = styled.createGlobalStyle`
       }
     }
 
+    .login-page,
+    .register-page {
+      .adm-list {
+        --border-inner: 1px solid #3d424e;
+        .adm-list-item {
+          background-color: #161720;
+        }
+      }
+    }
+
+    .search-page {
+      .adm-list-body {
+        background: none;
+      }
+      .adm-list {
+        --border-inner: 0;
+        .adm-list-item {
+          &:not(:last-child) {
+            margin-bottom: 10px;
+          }
+
+          margin-left: 16px;
+          margin-right: 16px;
+          border-radius: 10px;
+        }
+      }
+    }
+
     .market-list {
       .adm-list-item {
         background-color: #3d424e;

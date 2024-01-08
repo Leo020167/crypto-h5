@@ -16,4 +16,5 @@ export * from './ScreenWithInfiniteScroll';
 export * from './SmsCodeInput';
 export * from './SwipeImageValidator';
 export * from './Symbol';
+export * from './Symbol2';
 export * from './TabLayout';

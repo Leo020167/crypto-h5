@@ -39,7 +39,7 @@ const Login = () => {
   const chatLink = useChatLink();
 
   return (
-    <div className="bg-white dark:bg-[#161720]">
+    <div className="login-page bg-white dark:bg-[#161720]">
       <Header
         onBack={() => {
           history.goBack();
@@ -89,6 +89,11 @@ const Login = () => {
               }}
               footer={
                 <div>
+                  <div className="mb-4 text-right">
+                    <Link to="/reset-password" className="text-sm">
+                      {intl.formatMessage({ defaultMessage: '忘記了？找回密碼', id: 'oR5wwN' })}
+                    </Link>
+                  </div>
                   <Button
                     block
                     type="submit"
@@ -145,12 +150,6 @@ const Login = () => {
                   </div>
                 </div>
               </Form.Item>
-
-              <div className="mt-4 text-right">
-                <Link to="/reset-password" className="text-sm">
-                  {intl.formatMessage({ defaultMessage: '忘記了？找回密碼', id: 'oR5wwN' })}
-                </Link>
-              </div>
             </Form>
           </div>
         </Container>

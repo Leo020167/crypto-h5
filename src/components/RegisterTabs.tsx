@@ -8,14 +8,15 @@ export const RegisterTabs = () => {
   const { value, setValue } = useSignUpStore();
   return (
     <Container
+      className="bg-white dark:bg-[#2a2e38]"
       defaultActiveKey="1"
       onChange={(key) => setValue({ ...value, type: Number(key) as 1 | 2 })}
     >
       <Tabs.Tab title={intl.formatMessage({ defaultMessage: '手机注册', id: 'dfT5lg' })} key="1" />
       <Tabs.Tab
         title={intl.formatMessage({
-          defaultMessage: '邮箱',
-          id: 'hDx3/S',
+          defaultMessage: '邮箱注册',
+          id: 'eMnHfD',
         })}
         key="2"
       />
@@ -24,9 +25,9 @@ export const RegisterTabs = () => {
 };
 
 const Container = styled(Tabs)`
-  background: #2a2e38;
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.05);
   .adm-tabs-header {
     border-bottom: 0;
   }
+  box-shadow: none;
 `;
