@@ -65,13 +65,13 @@ const PositionDetails = () => {
       footer={
         <div className="flex items-center gap-2 p-4">
           <a
-            className=" flex h-10 flex-1 items-center justify-center bg-[#00ad88] text-base text-white"
+            className=" flex h-10 flex-1 items-center justify-center rounded bg-[#00ad88] text-base text-white"
             onClick={() => toBuySellPage(1)}
           >
             {intl.formatMessage({ defaultMessage: '買入', id: 'sY5/oP' })}
           </a>
           <a
-            className=" flex h-10 flex-1 items-center justify-center bg-[#e2214e] text-base text-white"
+            className=" flex h-10 flex-1 items-center justify-center rounded bg-[#e2214e] text-base text-white"
             onClick={() => toBuySellPage(-1)}
           >
             {intl.formatMessage({ defaultMessage: '賣出', id: 'EOWvn9' })}
@@ -79,27 +79,31 @@ const PositionDetails = () => {
         </div>
       }
     >
-      <div className="border-b py-8">
+      <div className="border-b py-8 dark:bg-[#2A2E38]">
         <div className="text-center text-sm">
           {intl.formatMessage({ defaultMessage: '總資產', id: 'IoCgCq' })}
         </div>
-        <div className="text-center text-3xl text-[#3d3a50]">{data?.data?.data?.amount}</div>
+        <div className="mt-2.5 text-center text-3xl text-[#3d3a50] dark:text-white">
+          {data?.data?.data?.amount}
+        </div>
       </div>
 
-      <div className="mt-4 px-4 text-[#3d3a50] ">
+      <div className="p-4 text-[#3d3a50] dark:bg-[#2A2E38] dark:text-white">
         <div className="flex justify-between">
-          <span className="text-sm">
+          <span className="text-sm dark:text-[#AAAAAA]">
             {intl.formatMessage({ defaultMessage: '可用', id: '7C3q18' })}
           </span>
           <span>{data?.data?.data?.availableAmount}</span>
         </div>
         <div className="mt-2 flex justify-between">
-          <span>{intl.formatMessage({ defaultMessage: '委托', id: 'CKdped' })}</span>
+          <span className="text-sm dark:text-[#AAAAAA]">
+            {intl.formatMessage({ defaultMessage: '委托', id: 'CKdped' })}
+          </span>
           <span>{data?.data?.data?.frozenAmount}</span>
         </div>
       </div>
 
-      <div className="p-4">
+      <div className="p-4 dark:bg-[#2A2E38]">
         <Button block color="primary" onClick={() => setOpen(true)}>
           {intl.formatMessage({ defaultMessage: '設置止盈止損', id: 'keuHvr' })}
         </Button>

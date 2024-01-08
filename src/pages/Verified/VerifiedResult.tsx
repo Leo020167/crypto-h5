@@ -17,7 +17,7 @@ const VerifiedResult = () => {
   const intl = useIntl();
 
   return (
-    <Container className="h-screen bg-white">
+    <Container className="h-screen bg-white dark:bg-[#161720]">
       <div className="bg-[#1677ff]">
         <NavBar onBack={() => history.goBack()}>
           {intl.formatMessage({ defaultMessage: '實名認證中心', id: 'bweeFF' })}

@@ -11,7 +11,7 @@ const InfiniteScrollContent = ({ hasMore }: { hasMore?: boolean }) => {
           <DotLoading />
         </>
       ) : (
-        <span className="font-bold text-black dark:text-white">
+        <span className="font-bold text-black dark:text-[#6175AE]">
           {intl.formatMessage({ defaultMessage: '已加载全部', id: '2a4k+m' })}
         </span>
       )}

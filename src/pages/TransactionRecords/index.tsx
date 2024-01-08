@@ -97,7 +97,7 @@ const TransactionRecords = () => {
                 >
                   <div className="p-4">
                     <div className="flex flex-1 flex-col">
-                      <div className="text-left text-base text-[#1D3155]">
+                      <div className="text-left text-base text-[#1D3155] dark:text-white">
                         {intl.formatMessage({ defaultMessage: '币种', id: 'i0bc3f' })}
                       </div>
                       <Input
@@ -110,7 +110,7 @@ const TransactionRecords = () => {
                     </div>
 
                     <div className="mt-5 flex flex-1 flex-col">
-                      <div className="text-left text-base text-[#1D3155]">
+                      <div className="text-left text-base text-[#1D3155] dark:text-white">
                         {intl.formatMessage({ defaultMessage: '订单状态', id: 'H/88FZ' })}
                       </div>
                       <Selector
@@ -141,6 +141,8 @@ const TransactionRecords = () => {
                     <Grid columns={2} gap={8}>
                       <Grid.Item>
                         <Button
+                          color="primary"
+                          fill="outline"
                           block
                           onClick={() => {
                             setSymbol('');
@@ -289,19 +291,8 @@ const Container = styled.div`
     border: 0;
   }
 
-  .adm-tabs {
-    --active-line-height: 0;
-  }
-
-  .adm-tabs-tab {
-    --title-font-size: 14px;
-    color: #666175ae;
-    font-weight: bold;
-  }
-
   .adm-tabs-tab-active {
-    color: #4d4ce6;
-    font-size: 18px;
+    font-weight: bold;
   }
 `;
 

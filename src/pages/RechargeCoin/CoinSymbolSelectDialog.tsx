@@ -1,9 +1,11 @@
-import { FloatingPanel, Mask } from 'antd-mobile';
+import { Button, FloatingPanel, Mask } from 'antd-mobile';
 import { useCallback, useState } from 'react';
 import { useIntl } from 'react-intl';
 import styled from 'styled-components';
 
+import { useAtomValue } from 'jotai';
 import symbol_selection_png from '../../assets/floating-panel-bg.png';
+import { darkModeAtom } from '../../atoms';
 
 interface CoinSymbolDialogProps {
   symbols?: string[];
@@ -32,8 +34,10 @@ const CoinSymbolSelectDialog = ({
 
   const intl = useIntl();
 
+  const mode = useAtomValue(darkModeAtom);
+
   return (
-    <Container visible={open} onMaskClick={onClose} destroyOnClose>
+    <Container mode={mode} visible={open} onMaskClick={onClose} destroyOnClose>
       <FloatingPanel
         anchors={anchors}
         handleDraggingOfContent={false}
@@ -64,9 +68,9 @@ const CoinSymbolSelectDialog = ({
             ))}
           </div>
           <div className="p-4">
-            <a className="btn-purple" onClick={() => onSelect?.(selected)}>
+            <Button block color="primary" onClick={() => onSelect?.(selected)}>
               {intl.formatMessage({ defaultMessage: '確定', id: 'ofc1Jv' })}
-            </a>
+            </Button>
           </div>
         </div>
       </FloatingPanel>
@@ -74,7 +78,7 @@ const CoinSymbolSelectDialog = ({
   );
 };
 
-const Container = styled(Mask)`
+const Container = styled(Mask)<{ mode: 'dark' | 'light' }>`
   .adm-floating-panel {
     .adm-floating-panel-header .adm-floating-panel-bar {
       --adm-color-light: #4d4bda;
@@ -88,7 +92,8 @@ const Container = styled(Mask)`
   }
 
   .symbol-list {
-    background-image: url(${symbol_selection_png});
+    background-image: ${(props) =>
+      props.mode === 'dark' ? 'none' : `url(${symbol_selection_png})`};
     background-position: top right;
     background-size: 390px 383px;
     background-repeat: no-repeat;

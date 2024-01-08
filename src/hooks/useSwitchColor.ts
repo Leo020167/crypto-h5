@@ -1,8 +1,9 @@
 import { useAtomValue } from 'jotai';
 import { useCallback } from 'react';
-import { switchColorValueAtom } from '../atoms';
+import { darkModeAtom, switchColorValueAtom } from '../atoms';
 
 export default function useSwitchColor() {
+  const mode = useAtomValue(darkModeAtom);
   const switchColorValue = useAtomValue(switchColorValueAtom);
   const getColor = useCallback(
     (value?: number | string) => {
@@ -21,9 +22,9 @@ export default function useSwitchColor() {
         }
       }
 
-      return '#555555';
+      return mode === 'dark' ? '#fff' : '#555555';
     },
-    [switchColorValue],
+    [mode, switchColorValue],
   );
   return getColor;
 }

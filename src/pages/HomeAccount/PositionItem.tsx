@@ -15,22 +15,22 @@ const PositionItem = ({ data }: { data: Position }) => {
       </div>
       <div className="mt-4 flex">
         <div className="flex w-1/3 flex-col text-xs">
-          <div className="text-gray-400">
+          <div className="text-gray-400 dark:text-[#AAAAAA]">
             {intl.formatMessage({ defaultMessage: '可用', id: '7C3q18' })}
           </div>
-          <div className="mt-2 text-sm font-bold">{data.availableAmount}</div>
+          <div className="mt-2 text-sm font-bold dark:text-white">{data.availableAmount}</div>
         </div>
         <div className="flex w-1/3 flex-col items-center text-xs">
-          <div className="text-gray-400">
+          <div className="text-gray-400 dark:text-[#AAAAAA]">
             {intl.formatMessage({ defaultMessage: '委托', id: 'CKdped' })}
           </div>
-          <div className="mt-2 text-sm font-bold">{data.frozenAmount}</div>
+          <div className="mt-2 text-sm font-bold dark:text-white">{data.frozenAmount}</div>
         </div>
         <div className="flex w-1/3 flex-col items-end text-xs">
-          <div className="text-gray-400">
+          <div className="text-gray-400 dark:text-[#AAAAAA]">
             {intl.formatMessage({ defaultMessage: '折合(USDT)', id: 'P+t8ta' })}
           </div>
-          <div className="mt-2 text-sm font-bold">{data.usdtAmount}</div>
+          <div className="mt-2 text-sm font-bold dark:text-white">{data.usdtAmount}</div>
         </div>
       </div>
 
@@ -54,6 +54,8 @@ const PositionItem = ({ data }: { data: Position }) => {
           </Button>
           <div className="w-2"></div>
           <Button
+            color="primary"
+            fill="outline"
             className="flex-1 text-center"
             onClick={(e) => {
               e.stopPropagation();

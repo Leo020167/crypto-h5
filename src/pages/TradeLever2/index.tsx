@@ -90,8 +90,8 @@ const TradeLever = () => {
           ),
         }}
       >
-        <div className="flex-1 overflow-y-auto bg-gray-100">
-          <div className="flex gap-4 bg-white px-2 py-4">
+        <div className="flex-1 overflow-y-auto bg-gray-100 dark:bg-[#2A2E38]">
+          <div className="flex gap-4 bg-white px-2 py-4 dark:bg-[#2A2E38]">
             <div className="w-3/5">
               <div className="mb-2 flex items-center">
                 <SelectorSwitchBuy
@@ -122,18 +122,22 @@ const TradeLever = () => {
               <TradeLeverPrices data={quote} />
             </div>
           </div>
-
-          <div className="mt-4 bg-white p-4">
+          <div className="h-2 dark:bg-[#161720]"></div>
+          <div className=" bg-white p-4 dark:bg-[#2A2E38]">
             <div className="flex items-center">
-              <div className="item-center flex flex-1 gap-5 text-lg font-bold text-[#6175ae]">
+              <div className="item-center flex flex-1 gap-5 text-lg font-bold text-[#6175ae] dark:text-white">
                 <a
-                  className={`flex items-center ${selected !== '0' ? 'text-sm text-gray-400' : ''}`}
+                  className={`flex items-center ${
+                    selected !== '0' ? 'text-sm text-gray-400 dark:text-[#AAAAAA]' : ''
+                  }`}
                   onClick={() => setSelected('0')}
                 >
                   {intl.formatMessage({ defaultMessage: '當前開倉', id: 'KyuHZw' })}
                 </a>
                 <a
-                  className={`flex items-center ${selected !== '1' ? 'text-sm text-gray-400' : ''}`}
+                  className={`flex items-center ${
+                    selected !== '1' ? 'text-sm text-gray-400 dark:text-[#AAAAAA]' : ''
+                  }`}
                   onClick={() => setSelected('1')}
                 >
                   {intl.formatMessage({ defaultMessage: '當前委托', id: 'Mj7nsK' })}
@@ -145,14 +149,14 @@ const TradeLever = () => {
                   pathname: '/transaction-records',
                   search: stringify({ accountType: orderConfig?.data?.accountType }),
                 }}
-                className="flex items-center text-xs font-bold text-gray-400"
+                className="flex items-center text-xs font-bold text-gray-400 dark:text-[#AAAAAA]"
               >
                 {intl.formatMessage({ defaultMessage: '全部', id: 'dGBGbt' })}
               </Link>
             </div>
           </div>
 
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-col space-y-2 dark:bg-[#161720]">
             {selected === '0' ? (
               <TradeCurrentOpenPosition data={proOrderQueryList?.data?.spotAccount?.openList} />
             ) : (

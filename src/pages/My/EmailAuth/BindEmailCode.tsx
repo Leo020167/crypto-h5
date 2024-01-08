@@ -1,11 +1,11 @@
-import { Button, Form, Input, NavBar, Toast } from 'antd-mobile';
+import { Button, Form, Input, Toast } from 'antd-mobile';
 import { useCallback } from 'react';
 import { useIntl } from 'react-intl';
 import { useHistory } from 'react-router-dom';
-import styled from 'styled-components';
 import { StringParam, useQueryParam } from 'use-query-params';
 import { useAuthStore } from '../../../stores/auth';
 
+import Screen from '../../../components/Screen';
 import { updateEmail } from '../../../utils/api';
 import { TypeParam } from '../../../utils/params';
 
@@ -47,12 +47,11 @@ const BindEmailCode = () => {
   );
 
   return (
-    <Container className="h-full bg-[#F0F1F7]">
-      <NavBar onBack={() => history.goBack()} className="mb-8 bg-white">
-        {intl.formatMessage({ defaultMessage: '郵箱驗證碼', id: '56o47p' })}
-      </NavBar>
-
-      <div className="mb-4 text-center text-[#78797d]">
+    <Screen
+      navBarProps={{ onBack: () => history.goBack() }}
+      headerTitle={intl.formatMessage({ defaultMessage: '郵箱驗證碼', id: '56o47p' })}
+    >
+      <div className="mt-4 text-center text-[#78797d]">
         {intl.formatMessage({ defaultMessage: '驗證碼已發送至，{email}', id: 'Jgy7GK' }, { email })}
       </div>
 
@@ -62,7 +61,7 @@ const BindEmailCode = () => {
         layout="vertical"
         footer={
           <div className="mt-4">
-            <Button type="submit" block size="large" className="submit">
+            <Button color="primary" block>
               {intl.formatMessage({ defaultMessage: '下一步', id: '6Y0p2/' })}
             </Button>
           </div>
@@ -75,14 +74,8 @@ const BindEmailCode = () => {
           />
         </Form.Item>
       </Form>
-    </Container>
+    </Screen>
   );
 };
 
-const Container = styled.div`
-  .submit {
-    background-color: #fe6b1d;
-    color: #fff;
-  }
-`;
 export default BindEmailCode;

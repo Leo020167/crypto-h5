@@ -11,7 +11,7 @@ const TradeLeverPrices = ({ data }: { data?: QuoteReal }) => {
 
   return (
     <div className="text-xs">
-      <div className="flex items-center text-[#bebebe]">
+      <div className="flex items-center text-[#bebebe] dark:text-[#aaaaaa]">
         <span className="w-1/2">
           {intl.formatMessage({ defaultMessage: '價格', id: 'qzi2dl' })}({data?.currency})
         </span>
@@ -24,7 +24,7 @@ const TradeLeverPrices = ({ data }: { data?: QuoteReal }) => {
         {data?.buys?.map((v, i) => (
           <div key={i} className="relative flex items-center justify-between py-1">
             <div
-              className="absolute right-0 h-full bg-gray-100"
+              className="absolute right-0 h-full bg-gray-100 dark:bg-[#3D424E]"
               style={{ width: Number(v.depthRate) + '%' }}
             ></div>
 
@@ -44,7 +44,7 @@ const TradeLeverPrices = ({ data }: { data?: QuoteReal }) => {
         {data?.buys?.map((v, i) => (
           <div key={i} className="relative flex items-center justify-between py-1">
             <div
-              className="absolute right-0 h-full bg-gray-100"
+              className="absolute right-0 h-full bg-gray-100 dark:bg-[#3D424E]"
               style={{ width: Number(v.depthRate) + '%' }}
             ></div>
 

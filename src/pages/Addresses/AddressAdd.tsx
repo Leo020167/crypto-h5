@@ -121,20 +121,20 @@ const AddressAdd = () => {
 
   return (
     <Screen headerTitle={intl.formatMessage({ defaultMessage: '添加提幣地址', id: 'GO/P/E' })}>
-      <Container className="flex-1 overflow-y-auto bg-[#F4F6F4] p-4">
-        <div className="mb-4 text-sm text-[#3E4660]">
+      <Container className="flex-1 overflow-y-auto bg-[#F4F6F4] p-4 dark:bg-[#161720]">
+        <div className="mb-4 text-sm text-[#3E4660] dark:text-white">
           {intl.formatMessage({ defaultMessage: '添加提幣地址', id: 'GO/P/E' })}
         </div>
 
-        <div className=" rounded-lg bg-white p-4 shadow-md shadow-black/5">
+        <div className=" rounded-lg bg-white p-4 shadow-md shadow-black/5 dark:bg-[#2A2E38]">
           <div className="flex items-start justify-between">
             <div>
-              <span className="text-[#3E4660]">
+              <span className="text-[#3E4660] dark:text-[#AAAAAA]">
                 {intl.formatMessage({ defaultMessage: '選擇幣種', id: 'jJ0rDY' })}
               </span>
               <div className="mt-4">
                 <a
-                  className="flex h-8 items-center justify-center rounded border border-[#3E4660] px-2"
+                  className="flex h-8 items-center justify-center rounded border border-[#3E4660] px-2 dark:border-white"
                   onClick={() => {
                     setOpenSymbol(true);
                   }}
@@ -146,7 +146,7 @@ const AddressAdd = () => {
             </div>
             {symbol === 'USDT' && (
               <div className="text-right">
-                <span className="text-[#3E4660]">
+                <span className="text-[#3E4660] dark:text-[#AAAAAA]">
                   {intl.formatMessage({ defaultMessage: '選擇充幣網絡', id: '8Pdrch' })}
                 </span>
                 <Selector
@@ -166,7 +166,7 @@ const AddressAdd = () => {
           </div>
 
           <div className="mt-4">
-            <div className="text-sm text-[#3E4660]">
+            <div className="text-sm text-[#3E4660] dark:text-[#AAAAAA]">
               {intl.formatMessage({ defaultMessage: '提幣地址', id: 'NUeill' })}
             </div>
             <div className="relative mt-4 flex items-center">
@@ -192,7 +192,7 @@ const AddressAdd = () => {
             </div>
           </div>
           <div className="mt-4">
-            <div className="text-sm text-[#3E4660]">
+            <div className="text-sm text-[#3E4660] dark:text-[#AAAAAA]">
               {intl.formatMessage({ defaultMessage: '備注', id: 'Be30m1' })}
             </div>
             <div className="relative mt-4 flex items-center">
@@ -204,15 +204,11 @@ const AddressAdd = () => {
               />
             </div>
           </div>
-
-          <Button
-            block
-            className="btn-purple mt-4"
-            onClick={handleFinish}
-            loading={addAddress.isLoading}
-          >
-            {intl.formatMessage({ defaultMessage: '添加', id: 'UH1kCc' })}
-          </Button>
+          <div className="mt-4">
+            <Button block color="primary" onClick={handleFinish} loading={addAddress.isLoading}>
+              {intl.formatMessage({ defaultMessage: '添加', id: 'UH1kCc' })}
+            </Button>
+          </div>
         </div>
       </Container>
 

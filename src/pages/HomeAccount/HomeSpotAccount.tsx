@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { useIntl } from 'react-intl';
 import { Link } from 'react-router-dom';
-import styled from 'styled-components';
 import { AccountInfo } from '../../api/model';
 import FinancialList from './FinancialList';
 import { PositionList } from './PositionList';
@@ -15,8 +14,8 @@ const HomeSpotAccount = ({ account }: HomeSpotAccountProps) => {
   const intl = useIntl();
 
   return (
-    <Container className="bg-gray-100">
-      <div className="bg-white p-4 text-xs">
+    <div className="bg-gray-100 dark:bg-[#161720]">
+      <div className="bg-white p-4 text-xs dark:bg-[#2A2E38]">
         <div className="mt-3 flex items-center justify-between text-[#c1d3155]">
           <div>
             <div className="text-gray-400">
@@ -59,16 +58,16 @@ const HomeSpotAccount = ({ account }: HomeSpotAccountProps) => {
           </div>
         </div>
       </div>
-      <div className="mt-2.5 bg-white p-4">
+      <div className="mt-2.5 bg-white p-4 dark:bg-[#2A2E38]">
         <div className="flex items-center text-base text-gray-400">
           <span
-            className={`px-4 ${selected === 0 ? ' text-black' : ''}`}
+            className={`px-4 ${selected === 0 ? ' text-black dark:text-white' : ''}`}
             onClick={() => setSelected(0)}
           >
             {intl.formatMessage({ defaultMessage: '持倉', id: 'k/qXgT' })}
           </span>
           <span
-            className={`px-4 ${selected === 1 ? ' text-black' : ''}`}
+            className={`px-4 ${selected === 1 ? ' text-black dark:text-white' : ''}`}
             onClick={() => setSelected(1)}
           >
             {intl.formatMessage({ defaultMessage: '財務記錄', id: 'gtC59I' })}
@@ -82,14 +81,8 @@ const HomeSpotAccount = ({ account }: HomeSpotAccountProps) => {
         </div>
       </div>
       {selected === 0 ? <PositionList account={account} /> : <FinancialList />}
-    </Container>
+    </div>
   );
 };
-
-const Container = styled.div`
-  .adm-list-item {
-    padding-left: 0;
-  }
-`;
 
 export default HomeSpotAccount;

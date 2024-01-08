@@ -1,5 +1,6 @@
 import { Input, Toast } from 'antd-mobile';
 import currency from 'currency.js';
+import { useAtom } from 'jotai';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useIntl } from 'react-intl';
 import Select, { StylesConfig } from 'react-select';
@@ -11,30 +12,8 @@ import {
   useProOrderOpen,
 } from '../../api/endpoints/transformer';
 import { ProOrderConfigResponseAllOfData } from '../../api/model';
+import { darkModeAtom } from '../../atoms';
 import { QuoteReal } from '../../market/model';
-
-const colourStyles: StylesConfig = {
-  container: (styles) => ({ ...styles, padding: 0 }),
-  control: (styles) => ({
-    ...styles,
-    borderColor: '#ececec',
-    boxShadow: '',
-    borderRadius: 0,
-    padding: 0,
-  }),
-  option: (styles, { isSelected }) => {
-    return {
-      ...styles,
-      color: '#727fa5',
-      backgroundColor: isSelected ? '#d9d8dd' : undefined,
-    };
-  },
-  input: (styles) => ({ ...styles, margin: 0, padding: 0 }),
-  singleValue: (styles) => ({ ...styles, color: '#666175ae', margin: 0 }),
-  indicatorSeparator: () => ({ display: 'none' }),
-  dropdownIndicator: (styles) => ({ ...styles, paddingLeft: 0 }),
-  valueContainer: (styles) => ({ ...styles, paddingRight: 0 }),
-};
 
 interface TradeLeverDetailsProps {
   config?: ProOrderConfigResponseAllOfData;
@@ -156,8 +135,51 @@ const TradeLeverDetails = ({
 
   const homeAccount = useHomeAccount();
 
+  const [mode] = useAtom(darkModeAtom);
+  const colourStyles: StylesConfig = {
+    container: (styles) => ({ ...styles, padding: 0, backgroundColor: '#666' }),
+    control: (styles, state) => ({
+      ...styles,
+      borderColor: mode === 'dark' ? '#666666' : '#ececec',
+      boxShadow: undefined,
+      borderRadius: 0,
+      padding: 0,
+      backgroundColor: mode === 'dark' ? '#2A2E38' : 'transparent',
+      color: '#fff',
+    }),
+    option: (styles, { isSelected }) => {
+      return {
+        ...styles,
+        color: mode === 'dark' ? '#fff' : '#727fa5',
+        backgroundColor:
+          mode === 'dark'
+            ? isSelected
+              ? '#3D424E'
+              : '#4F5463'
+            : isSelected
+              ? '#d9d8dd'
+              : undefined,
+      };
+    },
+    input: (styles) => ({ ...styles, margin: 0, padding: 0 }),
+    singleValue: (styles) => ({
+      ...styles,
+      color: mode === 'dark' ? '#fff' : '#666175ae',
+      margin: 0,
+    }),
+    indicatorSeparator: () => ({ display: 'none' }),
+    dropdownIndicator: (styles) => ({ ...styles, paddingLeft: 0 }),
+    valueContainer: (styles) => ({ ...styles, paddingRight: 0 }),
+    menu(base, props) {
+      return { ...base, padding: 0, margin: 0 };
+    },
+    menuList(base, props) {
+      return { padding: 0 };
+    },
+  };
+
   return (
-    <Container buySell={buySell ?? 1}>
+    <Container buySell={buySell ?? 1} mode={mode}>
       <div className="flex gap-2 text-sm">
         <Select
           value={orderTypeOption}
@@ -170,11 +192,11 @@ const TradeLeverDetails = ({
       </div>
 
       {orderTypeOption.value === 'market' ? (
-        <div className="mt-2 flex h-10 items-center justify-center bg-[#f2f2f2] text-xs text-[#666175ae]">
+        <div className="mt-2 flex h-10 items-center justify-center bg-[#f2f2f2] text-xs text-[#666175ae] dark:bg-[#161720] dark:text-white">
           {intl.formatMessage({ defaultMessage: '以當前最優價格交易', id: 'VXMi89' })}
         </div>
       ) : (
-        <div className="mt-2.5 flex items-center border border-gray-300">
+        <div className="mt-2.5 flex items-center border border-gray-300 dark:border-[#666666]">
           <Input
             type="number"
             placeholder={intl.formatMessage({ defaultMessage: '價格', id: 'qzi2dl' })}
@@ -183,14 +205,14 @@ const TradeLeverDetails = ({
             value={price}
             onChange={setPrice}
           />
-          <div className="h-8 w-[1px] bg-gray-300"></div>
+          <div className="h-8 w-[1px] bg-gray-300 dark:bg-[#666666]"></div>
           <a
             className="flex w-10 items-center justify-center text-lg font-bold text-gray-300"
             onClick={() => plusOrMinus(false)}
           >
             -
           </a>
-          <div className="h-6 w-[1px] bg-gray-300"></div>
+          <div className="h-6 w-[1px] bg-gray-300 dark:bg-[#666666]"></div>
           <a
             className="flex w-10 items-center justify-center text-lg font-bold text-gray-300"
             onClick={() => plusOrMinus(true)}
@@ -200,7 +222,7 @@ const TradeLeverDetails = ({
         </div>
       )}
 
-      <div className="mt-2 flex h-10 items-center rounded-sm border border-[#efefef] px-2">
+      <div className="mt-2 flex h-10 items-center rounded-sm border border-[#efefef] px-2 dark:border-[#666666]">
         <Input
           value={hand}
           onChange={setHand}
@@ -209,42 +231,48 @@ const TradeLeverDetails = ({
           placeholder={intl.formatMessage({ defaultMessage: '請輸入手數', id: 'Tw8y2o' })}
           maxLength={18}
         />
-        <span className="text-[#666175ae]">{buySell === 1 ? 'USDT' : symbol}</span>
+        <span className="text-[#666175ae] dark:text-[#999999]">
+          {buySell === 1 ? 'USDT' : symbol}
+        </span>
       </div>
 
       <div className="mt-2 flex border-[#efefef]">
-        {config?.openRateList?.map((v, i) => (
-          <a
-            className="hand flex flex-1 items-center justify-center py-2 active:border-green-600"
-            key={i}
-            onClick={() => {
-              if (buySell === 1) {
-                setHand(String(maxOpenBail * (v / 100)));
-                refetchCheckOutUsdt();
-              } else {
-                const precision = Number(availableAmount?.split('.')?.[1]?.length ?? 2);
+        {config?.openRateList?.map((v, i) => {
+          const precision = Number(availableAmount?.split('.')?.[1]?.length ?? 2);
 
-                const hand = currency(availableAmount ?? '0', {
+          const _hand =
+            buySell === 1
+              ? String(maxOpenBail * (v / 100))
+              : currency(availableAmount ?? '0', {
                   symbol: '',
                   separator: '',
                   precision,
                 })
                   .multiply(v / 100)
                   .format();
-
-                setHand(hand);
-                refetchCheckOut();
-              }
-
-              homeAccount.refetch();
-            }}
-          >{`${v}%`}</a>
-        ))}
+          return (
+            <a
+              className={`hand flex flex-1 items-center justify-center py-2 ${
+                hand === _hand ? 'active' : ''
+              }`}
+              key={i}
+              onClick={() => {
+                if (buySell === 1) {
+                  refetchCheckOutUsdt();
+                } else {
+                  refetchCheckOut();
+                }
+                setHand(_hand);
+                homeAccount.refetch();
+              }}
+            >{`${v}%`}</a>
+          );
+        })}
       </div>
 
       <div className="mt-3 flex items-center justify-between text-xs">
         <div>
-          <div className="text-[#6175ae]">
+          <div className="text-[#6175ae] dark:text-white">
             {buySell === 1
               ? intl.formatMessage(
                   { defaultMessage: '可用: {amount}{symbol}', id: 'YtQA/s' },
@@ -264,7 +292,7 @@ const TradeLeverDetails = ({
 
       <div>
         <a
-          className="mt-2 flex h-12 items-center justify-center text-sm text-white"
+          className="mt-2 flex h-11 items-center justify-center rounded text-sm text-white"
           style={{ backgroundColor: buySell === 1 ? '#00AD88' : '#E2214E' }}
           onClick={() => {
             if (orderTypeOption.value === 'limit' && !calcPrice) {
@@ -295,12 +323,13 @@ const TradeLeverDetails = ({
   );
 };
 
-const Container = styled.div<{ buySell: number }>`
+const Container = styled.div<{ buySell: number; mode: 'dark' | 'light' }>`
   .hand {
-    border: 1px solid #f3f3f3;
+    border: ${(props) => (props.mode === 'dark' ? '1px solid #666666' : '1px solid #f3f3f3')};
     &:active {
       border-color: ${(props) => (props.buySell === 1 ? '#00AD88' : '#E2214E')};
       color: ${(props) => (props.buySell === 1 ? '#00AD88' : '#E2214E')};
+      z-index: 1;
     }
     &:not(:last-child) {
       margin-right: -1px;

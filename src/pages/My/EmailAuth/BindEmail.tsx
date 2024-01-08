@@ -1,10 +1,10 @@
-import { Button, Form, Input, NavBar, Toast } from 'antd-mobile';
+import { Button, Form, Input, Toast } from 'antd-mobile';
 import { stringify } from 'query-string';
 import { useCallback } from 'react';
 import { useIntl } from 'react-intl';
 import { useHistory } from 'react-router-dom';
-import styled from 'styled-components';
 import { StringParam, useQueryParam } from 'use-query-params';
+import Screen from '../../../components/Screen';
 import { getEmail } from '../../../utils/api';
 import { TypeParam } from '../../../utils/params';
 
@@ -43,11 +43,10 @@ const BindEmail = () => {
   );
 
   return (
-    <Container className="h-full bg-[#F0F1F7]">
-      <NavBar onBack={() => history.goBack()} className="mb-8 bg-white">
-        {intl.formatMessage({ defaultMessage: '請輸入新郵箱', id: 'ulKN6p' })}
-      </NavBar>
-
+    <Screen
+      navBarProps={{ onBack: () => history.goBack() }}
+      headerTitle={intl.formatMessage({ defaultMessage: '請輸入新郵箱', id: 'ulKN6p' })}
+    >
       {email && (
         <div className="mb-4 text-center text-[#78797d]">
           {intl.formatMessage(
@@ -63,7 +62,7 @@ const BindEmail = () => {
         layout="vertical"
         footer={
           <div className="mt-4">
-            <Button type="submit" block size="large" className="submit">
+            <Button type="submit" block color="primary">
               {intl.formatMessage({ defaultMessage: '發送驗證碼', id: 'MYqUqI' })}
             </Button>
           </div>
@@ -76,14 +75,8 @@ const BindEmail = () => {
           />
         </Form.Item>
       </Form>
-    </Container>
+    </Screen>
   );
 };
 
-const Container = styled.div`
-  .submit {
-    background-color: #fe6b1d;
-    color: #fff;
-  }
-`;
 export default BindEmail;

@@ -36,7 +36,7 @@ const PaymentPasswordDialog = ({ open, onClose, onFill }: PaymentPasswordDialogP
                   history.push('/bind-phone');
                 }
               }}
-              className="text-sm text-[#6175AE]"
+              className="text-sm text-[#6175AE] dark:text-white"
             >
               {intl.formatMessage({ defaultMessage: '交易密码管理', id: 'lK7IeZ' })}
             </a>

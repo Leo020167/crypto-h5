@@ -13,13 +13,15 @@ const Record2 = ({ data }: RecordProps) => {
     <div>
       <div className="flex justify-between">
         <div className="flex items-center">
-          <span className="text-base font-bold text-[#3D3A50]">{getOriginSymbol(data.symbol)}</span>
+          <span className="text-base font-bold text-[#3D3A50] dark:text-white">
+            {getOriginSymbol(data.symbol)}
+          </span>
           <span
             className={`pl-2.5 text-xs ${
               data.buySell === 'buy' ? 'text-[#14CC4B]' : 'text-[#CC1414]'
             }`}
           >{`• ${data.buySellValue}`}</span>
-          <span className="pl-2.5 text-xs text-[#661D3155]">{stringDateFormat(data.openTime)}</span>
+          <span className="pl-2.5 text-xs text-[#AAAAAA]">{stringDateFormat(data.openTime)}</span>
         </div>
         <div className="flex items-center text-xs text-gray-400">
           {intl.formatMessage({ defaultMessage: '手續費', id: 'UXyFaa' })}
@@ -28,8 +30,8 @@ const Record2 = ({ data }: RecordProps) => {
             {data.state === '-1'
               ? intl.formatMessage({ defaultMessage: '已撤销', id: 'zznr09' })
               : data.state === '0'
-              ? intl.formatMessage({ defaultMessage: '未成交', id: 'JVD8BD' })
-              : intl.formatMessage({ defaultMessage: '已成交', id: 'KLriKo' })}
+                ? intl.formatMessage({ defaultMessage: '未成交', id: 'JVD8BD' })
+                : intl.formatMessage({ defaultMessage: '已成交', id: 'KLriKo' })}
           </span>
         </div>
       </div>
@@ -38,25 +40,29 @@ const Record2 = ({ data }: RecordProps) => {
           <span className=" text-gray-400">
             {intl.formatMessage({ defaultMessage: '數量', id: 'YYra8Q' })}
           </span>
-          <span className="mt-1 text-[#3D3A50]">{data.amount}</span>
+          <span className="mt-1 text-[#3D3A50] dark:text-white">{data.amount}</span>
         </div>
         <div className="flex flex-1 flex-col items-center">
           <span className=" text-gray-400">
             {intl.formatMessage({ defaultMessage: '價格', id: 'qzi2dl' })}
           </span>
-          <span className="mt-1 text-[#3D3A50]">{data.price}</span>
+          <span className="mt-1 text-[#3D3A50] dark:text-white">{data.price}</span>
         </div>
         <div className="flex flex-1 flex-col items-center">
           <span className=" text-gray-400">
             {intl.formatMessage({ defaultMessage: '金額(USDT)', id: 's4hlhW' })}
           </span>
-          <span className="mt-1 text-[#3D3A50]">{Number(data.price) * Number(data.amount)}</span>
+          <span className="mt-1 text-[#3D3A50] dark:text-white">
+            {Number(data.price) * Number(data.amount)}
+          </span>
         </div>
-        <div className="flex flex-1 flex-col items-end">
+        <div className="ml-1 flex flex-1 flex-col items-end">
           <span className=" text-gray-400">
             {intl.formatMessage({ defaultMessage: '時間', id: 'W6smHj' })}
           </span>
-          <span className="mt-1 text-[#3D3A50]">{stringDateFormat(data.updateTime)}</span>
+          <span className="mt-1 text-[#3D3A50] dark:text-white">
+            {stringDateFormat(data.updateTime)}
+          </span>
         </div>
       </div>
     </div>

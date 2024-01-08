@@ -164,7 +164,7 @@ const ResetPassword = () => {
                 </a>
               ) : (
                 <a
-                  className=" rounded border-2 border-[#dcb585] px-2 py-1 text-sm text-[#dcb585]"
+                  className=" rounded border border-[#D9BD93] px-2 py-1 text-sm text-[#D9BD93]"
                   onClick={handleSendSms}
                 >
                   {intl.formatMessage({ defaultMessage: '获取验证码', id: 'ypMY0M' })}
@@ -225,14 +225,6 @@ const Container = styled.div`
   .adm-form-item-label,
   .adm-input-element {
     font-size: 0.875rem;
-  }
-
-  .adm-list-item {
-    padding-left: 0;
-    .adm-list-item-content {
-      border-top: 0;
-      border-bottom: var(--border-inner);
-    }
   }
 
   .phone {

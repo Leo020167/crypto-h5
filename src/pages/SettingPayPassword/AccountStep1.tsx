@@ -37,7 +37,7 @@ const AccountStep1 = ({ onStepCompleted }: AccountStepProps) => {
 
   return (
     <Container>
-      <div className="border-b p-4">
+      <div className="p-4">
         {intl.formatMessage({ defaultMessage: '已綁定手機號：', id: 'EGAOia' })}
         {phoneNumber}
       </div>

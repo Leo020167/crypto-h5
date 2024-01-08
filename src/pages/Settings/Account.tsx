@@ -1,8 +1,8 @@
-import { NavBar, Steps, Toast } from 'antd-mobile';
+import { Steps, Toast } from 'antd-mobile';
 import { useMemo, useState } from 'react';
 import { useIntl } from 'react-intl';
 import { useHistory } from 'react-router-dom';
-import styled from 'styled-components';
+import Screen from '../../components/Screen';
 import { useAuthStore } from '../../stores/auth';
 import AccountStep1 from './AccountStep1';
 import AccountStep2 from './AccountStep2';
@@ -45,11 +45,11 @@ const Account = () => {
   }, [authStore, current, history, intl, oldSmsCode]);
 
   return (
-    <Container className="h-screen bg-white">
-      <NavBar onBack={() => history.goBack()} className="mb-2">
-        {intl.formatMessage({ defaultMessage: '更换手机号码', id: '2Y1clI' })}
-      </NavBar>
-
+    <Screen
+      className="h-screen bg-white"
+      navBarProps={{ onBack: () => history.goBack() }}
+      headerTitle={intl.formatMessage({ defaultMessage: '更换手机号码', id: '2Y1clI' })}
+    >
       <Steps current={current}>
         <Steps.Step title={intl.formatMessage({ defaultMessage: '验证身份', id: 'tI511i' })} />
         <Steps.Step title={intl.formatMessage({ defaultMessage: '更改手机号', id: 'iVpb9N' })} />
@@ -57,10 +57,8 @@ const Account = () => {
       </Steps>
 
       <div className="px-4">{content}</div>
-    </Container>
+    </Screen>
   );
 };
-
-const Container = styled.div``;
 
 export default Account;

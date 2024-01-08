@@ -274,6 +274,23 @@ const GlobalStyle = styled.createGlobalStyle`
     .adm-input {
       --placeholder-color: #696d79;
     }
+    .adm-step-status-finish {
+      --icon-color: #0bbb79;
+      --line-to-next-color: #0bbb79;
+      .adm-step-title {
+        color: #0bbb79;
+      }
+    }
+    .adm-step-status-process {
+      --icon-color: #0bbb79;
+
+      .adm-step-title {
+        color: #0bbb79;
+      }
+    }
+    .adm-search-bar .adm-search-bar-input-box .adm-search-bar-input-box-icon {
+      color: #0bbb79;
+    }
 
     .my-list,
     .settings-list,
@@ -353,6 +370,10 @@ const GlobalStyle = styled.createGlobalStyle`
     .adm-dialog-footer .adm-dialog-action-row,
     .adm-dialog-footer .adm-dialog-action-row > .adm-dialog-button {
       border-color: #161720;
+    }
+
+    .adm-passcode-input-cell {
+      background-color: #fff;
     }
   }
 `;

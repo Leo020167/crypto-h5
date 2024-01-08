@@ -5,7 +5,6 @@ import { useIntl } from 'react-intl';
 import { useHistory } from 'react-router-dom';
 import { AccountInfo } from '../../api/model';
 import PositionItem from './PositionItem';
-import styled from 'styled-components';
 
 type PositionListProps = {
   account?: AccountInfo;
@@ -58,7 +57,7 @@ export const PositionList = ({ account }: PositionListProps) => {
   const intl = useIntl();
 
   return (
-    <Container className="bg-white">
+    <div className="bg-white dark:bg-[#2A2E38]">
       <div className="flex items-center px-4">
         <Switch checked={checked} onChange={setChecked} />
         <div className="ml-2">
@@ -66,12 +65,6 @@ export const PositionList = ({ account }: PositionListProps) => {
         </div>
       </div>
       {content}
-    </Container>
+    </div>
   );
 };
-
-const Container = styled.div`
-.adm-list-body {
-  --border-top: 0;
-}
-`

@@ -1,13 +1,13 @@
-import { Button, Form, Input, NavBar, Toast } from 'antd-mobile';
+import { Button, Form, Input, Toast } from 'antd-mobile';
 import md5 from 'js-md5';
 import { useCallback, useState } from 'react';
 import { useIntl } from 'react-intl';
 import { useHistory } from 'react-router-dom';
 import { useCounter, useInterval } from 'react-use';
-import styled from 'styled-components';
 import { useRegister, useSmsGet } from '../../api/endpoints/transformer';
 import { useAuthStore } from '../../stores/auth';
 
+import Screen from '../../components/Screen';
 import { useSignUpStore } from '../../stores/signup';
 
 const Captcha = () => {
@@ -86,13 +86,7 @@ const Captcha = () => {
   });
 
   return (
-    <Container className="h-screen bg-white">
-      <NavBar
-        onBack={() => {
-          history.goBack();
-        }}
-      />
-
+    <Screen navBarProps={{ onBack: () => history.goBack() }}>
       <div className="p-8">
         <h1 className=" mb-2 text-3xl font-bold">
           {intl.formatMessage({ defaultMessage: '输入验证码', id: '4FDcHK' })}
@@ -144,7 +138,7 @@ const Captcha = () => {
                 </a>
               ) : (
                 <a
-                  className=" rounded border-2 border-[#dcb585] px-2 py-1 text-sm text-[#dcb585]"
+                  className=" rounded border border-[#D9BD93] px-2 py-1 text-sm text-[#D9BD93]"
                   onClick={handleSendSms}
                 >
                   {intl.formatMessage({ defaultMessage: '获取验证码', id: 'ypMY0M' })}
@@ -159,14 +153,8 @@ const Captcha = () => {
           </Form.Item>
         </Form>
       </div>
-    </Container>
+    </Screen>
   );
 };
-
-const Container = styled.div`
-  .adm-nav-bar {
-    border-bottom: 1px solid #f6f6f6;
-  }
-`;
 
 export default Captcha;

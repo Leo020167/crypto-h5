@@ -44,14 +44,14 @@ const Currency = ({
 
   return (
     <div
-      className={`flex px-4 py-2 ${isActive ? 'is-active' : ''}`}
+      className={`flex px-4 py-2 dark:bg-[#3D424E] ${isActive ? 'is-active' : ''}`}
       key={record.symbol}
       onClick={() => {
         onSelect?.(record);
       }}
     >
       <div className="flex flex-1 items-center">
-        <div className=" text-sm font-bold text-black ">
+        <div className=" text-sm font-bold text-black dark:text-white">
           <span>{record.symbol}</span>
         </div>
       </div>
@@ -111,7 +111,7 @@ export const CurrencyListPopup = (props: CurrencyListPopupProps) => {
     }
 
     return (
-      <div className=" divide-y divide-gray-200">
+      <div className=" divide-y divide-gray-200 dark:divide-[#161720]">
         {currencyFiltered.map((v) => (
           <Currency record={v} key={v.symbol} isActive={symbol === v.symbol} onSelect={onSelect} />
         ))}

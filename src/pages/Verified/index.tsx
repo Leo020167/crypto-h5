@@ -157,7 +157,7 @@ const Verified = () => {
       )}
 
       <div className="flex h-full flex-col overflow-y-auto">
-        <div className=" mx-4 mt-4 border-l-4 border-[#fa4b1b] px-2.5 text-base">
+        <div className=" mx-4 mt-4 border-l-4 border-[#6175ae] px-2.5 text-base">
           {intl.formatMessage({
             defaultMessage: '輸入證件資訊',
             id: 'U99CrO',
@@ -188,7 +188,7 @@ const Verified = () => {
           </Form.Item>
         </Form>
 
-        <div className="mx-4 mt-4 border-l-4 border-[#fa4b1b] px-2.5 text-base">
+        <div className="mx-4 mt-4 border-l-4 border-[#6175ae] px-2.5 text-base">
           {intl.formatMessage({
             defaultMessage: '上傳圖片',
             id: 'ZRv4FU',
@@ -197,7 +197,7 @@ const Verified = () => {
 
         <div className="flex flex-col items-center justify-center">
           <div>
-            <div className="mt-4 text-base text-[#232323]">
+            <div className="mt-4 text-base text-[#232323] dark:text-white">
               {intl.formatMessage({
                 defaultMessage: '選擇正面',
                 id: 'Dq6c3S',
@@ -221,7 +221,7 @@ const Verified = () => {
           </div>
 
           <div>
-            <div className="mt-4 text-base text-[#232323]">
+            <div className="mt-4 text-base text-[#232323] dark:text-white">
               {intl.formatMessage({
                 defaultMessage: '選擇反面',
                 id: '5qldgM',

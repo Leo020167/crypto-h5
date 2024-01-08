@@ -76,20 +76,22 @@ const FinancialList = () => {
             <div className="px-4">
               <div className="text-[#c6175ae]">{getName(v)}</div>
               <div className="mt-3 flex items-center justify-between">
-                <div className="text-xs text-gray-400">
+                <div className="text-xs text-gray-400 dark:text-[#AAAAAA]">
                   <div>{intl.formatMessage({ defaultMessage: '數量', id: 'YYra8Q' })}</div>
-                  <div className="text-black">{v.amount}</div>
+                  <div className="text-black dark:text-white">{v.amount ?? '-'}</div>
                 </div>
                 <div className="text-right text-xs text-gray-400">
                   <div>{intl.formatMessage({ defaultMessage: '狀態', id: 'NL+iCs' })}</div>
-                  <div className="text-black">{v.stateDesc}</div>
+                  <div className="text-black dark:text-white">{v.stateDesc ?? '-'}</div>
                 </div>
               </div>
               <div className="flex items-center  justify-between">
                 {v.inOut === '2' ? (
                   <div className="text-xs text-gray-400">
                     <div>{intl.formatMessage({ defaultMessage: '申購時間', id: 'PUWCuy' })}</div>
-                    <div className="text-black">{stringDateFormat(v.createTime)}</div>
+                    <div className="text-black dark:text-white">
+                      {stringDateFormat(v.createTime)}
+                    </div>
                   </div>
                 ) : (
                   <div></div>
@@ -97,7 +99,9 @@ const FinancialList = () => {
 
                 <div className="text-right text-xs text-gray-400">
                   <div>{intl.formatMessage({ defaultMessage: '解倉時間', id: '/AVS2G' })}</div>
-                  <div className="text-black">{stringDateFormat(v.transferTime)}</div>
+                  <div className="text-black dark:text-white">
+                    {stringDateFormat(v.transferTime)}
+                  </div>
                 </div>
               </div>
             </div>
