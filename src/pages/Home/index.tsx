@@ -8,12 +8,7 @@ import { Link, useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import { useHomeConfig } from '../../api/endpoints/transformer';
 
-import tab1_menu2 from '../../assets/tab1_menu2.png';
-import tab1_menu3 from '../../assets/tab1_menu3.png';
-import tab1_menu4 from '../../assets/tab1_menu4.png';
-import tab1_menu5 from '../../assets/tab1_menu5.png';
-
-import { localeStateAtom, switchColorValueAtom } from '../../atoms';
+import { darkModeAtom, localeStateAtom, switchColorValueAtom } from '../../atoms';
 import { DarkModeSwitch } from '../../components';
 import { Symbol } from '../../components/Symbol';
 import { useChatLink } from '../../hooks/useChatLink';
@@ -23,6 +18,7 @@ import { Quote } from '../../market/model';
 const Home = () => {
   const localeState = useAtomValue(localeStateAtom);
 
+  const mode = useAtomValue(darkModeAtom);
   const { data: homeConfig } = useHomeConfig({
     domain: location.hostname.substring(location.hostname.indexOf('.') + 1),
   });
@@ -169,25 +165,41 @@ const Home = () => {
 
       <div className="mt-4 grid grid-cols-4 rounded-lg bg-white py-4 font-bold shadow-md shadow-black/5 dark:bg-[#2A2E38]">
         <Link to="/subscribe" className="flex flex-col items-center">
-          <img alt="" src={tab1_menu2} className="h-9 w-9" />
+          <img
+            alt=""
+            src={new URL(`../../assets/${mode}/tab1_menu1.png`, import.meta.url).toString()}
+            className="h-9 w-9"
+          />
           <div className="mt-2.5 break-all text-xs text-[#666666] dark:text-white">
             {intl.formatMessage({ defaultMessage: '首發交易', id: 'QBilBJ' })}
           </div>
         </Link>
         <Link to="/pledge" className="flex flex-col items-center justify-start">
-          <img alt="" src={tab1_menu5} className="h-9 w-9" />
+          <img
+            alt=""
+            src={new URL(`../../assets/${mode}/tab1_menu5.png`, import.meta.url).toString()}
+            className="h-9 w-9"
+          />
           <div className="mt-2.5 break-all text-xs text-[#666666] dark:text-white">
             {intl.formatMessage({ defaultMessage: '質押生息', id: 'R3Xfcn' })}
           </div>
         </Link>
         <Link to="/recharge-coin" className="flex flex-col items-center">
-          <img alt="" src={tab1_menu3} className="h-9 w-9" />
+          <img
+            alt=""
+            src={new URL(`../../assets/${mode}/tab1_menu3.png`, import.meta.url).toString()}
+            className="h-9 w-9"
+          />
           <div className="mt-2.5 break-all text-xs text-[#666666] dark:text-white">
             {intl.formatMessage({ defaultMessage: '充幣', id: 'kGK1/L' })}
           </div>
         </Link>
         <a href={chatLink} target="_blank" rel="noreferrer" className="flex flex-col items-center">
-          <img alt="" src={tab1_menu4} className="h-9 w-9" />
+          <img
+            alt=""
+            src={new URL(`../../assets/${mode}/tab1_menu4.png`, import.meta.url).toString()}
+            className="h-9 w-9"
+          />
           <div className="mt-2.5 break-all text-xs text-[#666666] dark:text-white">
             {intl.formatMessage({ defaultMessage: '綫上客服', id: 'wwOQz6' })}
           </div>
