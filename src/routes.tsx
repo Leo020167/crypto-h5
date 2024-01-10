@@ -1,9 +1,10 @@
 import { lazy, Suspense } from 'react';
-import { Redirect, Route, Switch } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 
 import PrivateRoute from './auth/PrivateRoute';
 import { TabLayout } from './components/TabLayout';
 import { AdvancedCertification } from './pages/AdvancedCertification';
+import { Landing } from './pages/Home/Landing';
 import { PrimaryCertification } from './pages/PrimaryCertification';
 
 const HelpCenter = lazy(() => import('./pages/HelpCenter'));
@@ -112,7 +113,9 @@ const HomeTabs = () => {
 export const Routes = () => {
   return (
     <Switch>
-      <Redirect path="/" to="/home" exact />
+      <Route path="/" exact>
+        <Landing />
+      </Route>
 
       <Route path="/primary-certification">
         <Suspense fallback={<div>Loading...</div>}>

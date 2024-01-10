@@ -286,7 +286,9 @@ const TradeLeverDetails = ({
                   },
                 )}
           </div>
-          {buySell === -1 && <div className="mt-3 text-gray-400">{openBail}</div>}
+          {buySell === -1 && (
+            <div className="mt-3 text-gray-400 dark:text-white">{openBail ?? '--'}</div>
+          )}
         </div>
       </div>
 

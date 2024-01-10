@@ -224,7 +224,8 @@ const TradeLeverDetails = ({
               { maxHand: orderCheckOut?.data?.maxHand },
             )}
           </div>
-          <div className="mt-3 text-gray-400">
+
+          <div className="mt-3 text-gray-400 dark:text-white">
             {intl.formatMessage({ defaultMessage: '開倉保證金', id: 'H4vld2' })}
             {orderCheckOut?.data?.openBail}
           </div>

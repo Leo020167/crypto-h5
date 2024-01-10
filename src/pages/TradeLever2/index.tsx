@@ -12,11 +12,9 @@ import {
   useProOrderCancel,
   useProOrderConfig,
 } from '../../api/endpoints/transformer';
-import ic_switch_sell_selected from '../../assets/ic_switch_buy_selected.9.png';
-import ic_switch_sell_unselected from '../../assets/ic_switch_buy_unselected.9.png';
-import ic_switch_buy_selected from '../../assets/ic_switch_sell_selected.9.png';
-import ic_switch_buy_unselected from '../../assets/ic_switch_sell_unselected.9.png';
 
+import { useAtomValue } from 'jotai';
+import { darkModeAtom } from '../../atoms';
 import Screen from '../../components/Screen';
 import { useQuoteReal } from '../../market/endpoints/marketWithTransformer';
 import { CurrencyListPopup } from './CurrencySelectionPopup';
@@ -77,6 +75,8 @@ const TradeLever = () => {
   const history = useHistory();
   const [visible, setVisible] = useState(false);
 
+  const mode = useAtomValue(darkModeAtom);
+
   return (
     <Container>
       <Screen
@@ -95,12 +95,14 @@ const TradeLever = () => {
             <div className="w-3/5">
               <div className="mb-2 flex items-center">
                 <SelectorSwitchBuy
+                  mode={mode}
                   isSelected={buySell === 1}
                   onClick={() => setBuySell(1, 'replaceIn')}
                 >
                   {intl.formatMessage({ defaultMessage: '買入', id: 'sY5/oP' })}
                 </SelectorSwitchBuy>
                 <SelectorSwitchSell
+                  mode={mode}
                   isSelected={buySell === -1}
                   onClick={() => setBuySell(-1, 'replaceIn')}
                 >
@@ -198,7 +200,7 @@ const TradeLever = () => {
   );
 };
 
-const SelectorSwitchBuy = styled.div<{ isSelected?: boolean }>`
+const SelectorSwitchBuy = styled.div<{ isSelected?: boolean; mode: string }>`
   flex: 1;
   height: 36px;
   background-size: 100%;
@@ -210,10 +212,18 @@ const SelectorSwitchBuy = styled.div<{ isSelected?: boolean }>`
   background-repeat: no-repeat;
   color: ${(props) => (props.isSelected ? '#fff' : '#BEBEBE')};
   background-image: ${(props) =>
-    props.isSelected ? `url(${ic_switch_buy_selected})` : `url(${ic_switch_buy_unselected})`};
+    props.isSelected
+      ? `url(${new URL(
+          `../../assets/${props.mode}/ic_switch_sell_selected.9.png`,
+          import.meta.url,
+        )})`
+      : `url(${new URL(
+          `../../assets/${props.mode}/ic_switch_sell_unselected.9.png`,
+          import.meta.url,
+        )})`};
 `;
 
-const SelectorSwitchSell = styled.div<{ isSelected?: boolean }>`
+const SelectorSwitchSell = styled.div<{ isSelected?: boolean; mode: string }>`
   flex: 1;
   height: 36px;
   background-size: cover;
@@ -225,7 +235,15 @@ const SelectorSwitchSell = styled.div<{ isSelected?: boolean }>`
   background-repeat: no-repeat;
   color: ${(props) => (props.isSelected ? '#fff' : '#BEBEBE')};
   background-image: ${(props) =>
-    props.isSelected ? `url(${ic_switch_sell_selected})` : `url(${ic_switch_sell_unselected})`};
+    props.isSelected
+      ? `url(${new URL(
+          `../../assets/${props.mode}/ic_switch_buy_selected.9.png`,
+          import.meta.url,
+        )})`
+      : `url(${new URL(
+          `../../assets/${props.mode}/ic_switch_buy_unselected.9.png`,
+          import.meta.url,
+        )})`};
 `;
 
 const Container = styled.div`

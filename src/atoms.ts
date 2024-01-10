@@ -1,6 +1,6 @@
 import { atom } from 'jotai';
 import { atomWithStore } from 'jotai-zustand';
-import { atomWithStorage } from 'jotai/utils';
+import { atomWithStorage, createJSONStorage } from 'jotai/utils';
 import { AreaListItem } from './model';
 import { useLocaleStore } from './stores/locale';
 import { getAreaList } from './utils/api';
@@ -25,3 +25,8 @@ export const usernamePasswordAtom = atomWithStorage<
 >('username-password', undefined);
 
 export const darkModeAtom = atomWithStorage<'dark' | 'light'>('dark-mode', 'light');
+export const landingAtom = atomWithStorage<boolean>(
+  'landing',
+  false,
+  createJSONStorage(() => sessionStorage),
+);

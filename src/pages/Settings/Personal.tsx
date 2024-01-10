@@ -48,7 +48,7 @@ const Personal = () => {
         onBack: () => history.goBack(),
         right: (
           <div className="flex justify-end">
-            <a onClick={updateUserInfo}>
+            <a onClick={updateUserInfo} className="dark:text-[#00BAB8]">
               <CheckOutline fontSize={24} />
             </a>
           </div>

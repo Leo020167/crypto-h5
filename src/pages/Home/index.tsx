@@ -265,8 +265,6 @@ const Symbols = ({ quotes = [] }: { quotes?: Quote[] }) => {
 const Container = styled.div`
   .adm-tabs {
     --title-font-size: 16px;
-    --active-line-height: 0;
-    --active-line-color: transparent;
     --active-title-color: #000;
     color: #999999;
 
