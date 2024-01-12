@@ -26,16 +26,22 @@ const TradeCurrentCommission = ({ onCancel }: { onCancel?: (orderId: string) => 
   return (
     <>
       {data?.data?.data?.map((v, i) => (
-        <div key={i} className="bg-white p-4">
+        <div key={i} className="bg-white p-4 dark:bg-[#2A2E38]">
           <div className="flex items-center">
             <div className="flex flex-1 items-center">
-              <span className="text-base font-bold text-[#3d3a50]">{v.symbol}</span>
-              <span className="ml-2 text-xs text-gray-400">{v.buySellValue}</span>
-              <span className="ml-2 text-xs text-gray-400">{stringDateFormat(v.openTime)}</span>
+              <span className="text-base font-bold text-[#3d3a50] dark:text-white">
+                {v.symbol ?? '--'}
+              </span>
+              <span className="ml-2 text-xs text-gray-400 dark:text-[#AAAAAA]">
+                {v.buySellValue ?? '--'}
+              </span>
+              <span className="ml-2 text-xs text-gray-400 dark:text-[#AAAAAA]">
+                {stringDateFormat(v.openTime)}
+              </span>
             </div>
 
             <a
-              className=" flex h-6 w-12 items-center justify-center border text-xs text-[#969696]"
+              className="flex h-6 w-12 items-center justify-center border text-xs text-[#969696] dark:text-white"
               onClick={() => {
                 onCancel?.(v.orderId);
               }}
@@ -48,19 +54,21 @@ const TradeCurrentCommission = ({ onCancel }: { onCancel?: (orderId: string) => 
               <span className="text-xs text-gray-400">
                 {intl.formatMessage({ defaultMessage: '数量', id: 'fFmyYM' })}
               </span>
-              <span className="text-sm text-[#3d3a50]">{v.amount}</span>
+              <span className="mt-1 text-sm text-[#3d3a50] dark:text-white">
+                {v.amount ?? '--'}
+              </span>
             </div>
             <div className="flex w-1/3 flex-col items-center">
               <span className="text-xs text-gray-400">
                 {intl.formatMessage({ defaultMessage: '委托價', id: 'ehbGQt' })}
               </span>
-              <span className="text-sm text-[#3d3a50]">{v.price}</span>
+              <span className="mt-1 text-sm text-[#3d3a50] dark:text-white">{v.price ?? '--'}</span>
             </div>
             <div className="flex w-1/3 flex-col items-end">
               <span className="text-xs text-gray-400">
                 {intl.formatMessage({ defaultMessage: '總金額(USDT)', id: 'jBc8s4' })}
               </span>
-              <span className="text-sm text-[#3d3a50]">{v.sum}</span>
+              <span className="mt-1 text-sm text-[#3d3a50] dark:text-white">{v.sum ?? '--'}</span>
             </div>
           </div>
         </div>

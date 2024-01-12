@@ -31,7 +31,7 @@ const TradeLeverPrices = ({ data }: { data?: QuoteReal }) => {
             <span style={{ color: '#00AD88' }} className="z-10">
               {v.price}
             </span>
-            <span className="z-10 mr-4 text-[#969696]">{v.amount}</span>
+            <span className="z-10 mr-4 text-[#969696] dark:text-white">{v.amount}</span>
           </div>
         ))}
       </div>
@@ -51,7 +51,7 @@ const TradeLeverPrices = ({ data }: { data?: QuoteReal }) => {
             <span style={{ color: '#E2214E' }} className="z-10">
               {v.price}
             </span>
-            <span className="z-10 mr-4 text-[#969696]">{v.amount}</span>
+            <span className="z-10 mr-4 text-[#969696] dark:text-white">{v.amount}</span>
           </div>
         ))}
       </div>

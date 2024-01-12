@@ -43,20 +43,22 @@ const TradeCurrentOpenPosition = ({ data = [] }: { data?: PaginationResponseData
               <span className="text-xs text-gray-400 dark:text-[#AAAAAA]">
                 {intl.formatMessage({ defaultMessage: '可用', id: '7C3q18' })}
               </span>
-              <span className="text-sm text-[#3d3a50] dark:text-white">{v.availableAmount}</span>
+              <span className="mt-1 text-sm text-[#3d3a50] dark:text-white">
+                {v.availableAmount}
+              </span>
             </div>
             <div className="flex w-1/3 flex-col items-center">
               <span className="text-xs text-gray-400 dark:text-[#AAAAAA]">
                 {intl.formatMessage({ defaultMessage: '委托', id: 'CKdped' })}
               </span>
-              <span className="text-sm text-[#3d3a50] dark:text-white">{v.frozenAmount}</span>
+              <span className="mt-1 text-sm text-[#3d3a50] dark:text-white ">{v.frozenAmount}</span>
             </div>
             <div className="flex w-1/3 flex-col items-end">
               <span className="text-xs text-gray-400 dark:text-[#AAAAAA]">
                 {intl.formatMessage({ defaultMessage: '折合(USDT)', id: 'P+t8ta' })}
               </span>
               <span
-                className="text-sm text-[#3d3a50] dark:text-white"
+                className="mt-1 text-sm text-[#3d3a50] dark:text-white "
                 style={{ color: getColor(v.profit) }}
               >
                 {v.usdtAmount}

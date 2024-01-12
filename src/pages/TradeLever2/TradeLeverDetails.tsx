@@ -192,7 +192,7 @@ const TradeLeverDetails = ({
       </div>
 
       {orderTypeOption.value === 'market' ? (
-        <div className="mt-2 flex h-10 items-center justify-center bg-[#f2f2f2] text-xs text-[#666175ae] dark:bg-[#161720] dark:text-white">
+        <div className="mt-2 flex h-10 items-center justify-center bg-[#f2f2f2] text-xs text-[#AAAAAA] dark:bg-[#3D424E]">
           {intl.formatMessage({ defaultMessage: '以當前最優價格交易', id: 'VXMi89' })}
         </div>
       ) : (
@@ -252,7 +252,7 @@ const TradeLeverDetails = ({
                   .format();
           return (
             <a
-              className={`hand flex flex-1 items-center justify-center py-2 ${
+              className={`hand flex flex-1 items-center justify-center py-2 dark:text-[#AAAAAA] ${
                 hand === _hand ? 'active' : ''
               }`}
               key={i}
