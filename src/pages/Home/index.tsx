@@ -7,7 +7,7 @@ import { useIntl } from 'react-intl';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { useHomeConfig } from '../../api/endpoints/transformer';
-import ic_default_head from '../../assets/ic_default_head.png';
+import logo from '../../assets/logo.png';
 
 import tab1_menu2 from '../../assets/tab1_menu2.png';
 import tab1_menu3 from '../../assets/tab1_menu3.png';
@@ -66,7 +66,7 @@ const Home = () => {
         <Link to="/home/my">
           <img
             alt=""
-            src={userInfo?.headUrl ?? ic_default_head}
+            src={logo}
             className="h-10 w-10 rounded-full"
           />
         </Link>

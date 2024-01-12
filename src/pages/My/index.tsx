@@ -5,6 +5,7 @@ import { Link, useHistory } from 'react-router-dom';
 import { useInterval } from 'react-use';
 import styled from 'styled-components';
 import { useIdentityGet } from '../../api/endpoints/transformer';
+import logo from '../../assets/logo.png';
 import defaultHead from '../../assets/ic_default_head.png';
 import ic_home_mine_help from '../../assets/ic_home_mine_help.png';
 import ic_home_mine_kefu from '../../assets/ic_home_mine_kefu.png';
@@ -40,7 +41,7 @@ const My = () => {
         <div className="px-4 py-2">
           <div className="avatar flex">
             <div className="mr-4 h-10 w-10 overflow-hidden rounded-full">
-              <img alt="head" src={userInfo?.headUrl ?? defaultHead} />
+              <img alt="head" src={logo} />
             </div>
             <div>
               <div

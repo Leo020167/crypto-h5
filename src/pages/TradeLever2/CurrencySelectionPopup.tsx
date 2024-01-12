@@ -1,6 +1,7 @@
 import { ErrorBlock, Popup, SearchBar } from 'antd-mobile';
 import { useAtom, useAtomValue } from 'jotai';
 import { range } from 'lodash-es';
+// @ts-ignore
 import { Scrollbars } from 'rc-scrollbars';
 import { useMemo, useState } from 'react';
 import { useIntl } from 'react-intl';

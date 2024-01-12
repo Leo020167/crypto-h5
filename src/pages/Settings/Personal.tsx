@@ -59,16 +59,16 @@ const Personal = () => {
       </NavBar>
 
       <List className="mb-2">
-        <List.Item
-          arrow={<Arrow />}
-          extra={
-            <div className="mr-4 h-8 w-8 overflow-hidden rounded-full">
-              <img alt="head" src={userInfo?.headUrl ?? defaultHead} />
-            </div>
-          }
-        >
-          {intl.formatMessage({ defaultMessage: '头像', id: '65CX2o' })}
-        </List.Item>
+        {/*<List.Item*/}
+        {/*  arrow={<Arrow />}*/}
+        {/*  extra={*/}
+        {/*    <div className="mr-4 h-8 w-8 overflow-hidden rounded-full">*/}
+        {/*      <img alt="head" src={userInfo?.headUrl ?? defaultHead} />*/}
+        {/*    </div>*/}
+        {/*  }*/}
+        {/*>*/}
+        {/*  {intl.formatMessage({ defaultMessage: '头像', id: '65CX2o' })}*/}
+        {/*</List.Item>*/}
         <List.Item
           arrow={<Arrow />}
           extra={<div className="mr-4">{userName}</div>}

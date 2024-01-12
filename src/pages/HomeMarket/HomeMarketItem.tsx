@@ -53,10 +53,12 @@ const HomeMarketItem = ({ data, sort }: { data: Quote; sort: number }) => {
 
     if (prevStateRef.current != undefined || prevStateRef.current !== rate) {
       const duration = sort * 50;
+      // @ts-ignore
       startTimeoutRef.current = setTimeout(() => {
         api.start({ opacity: 0.65, backgroundColor });
       }, duration);
 
+      // @ts-ignore
       cancelTimeoutRef.current = setTimeout(() => {
         api.start({ opacity: 0 });
       }, duration + 500);
