@@ -209,8 +209,9 @@ const SelectorSwitchBuy = styled.div<{ isSelected?: boolean; mode: string }>`
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  font-weight: 500;
   background-repeat: no-repeat;
-  color: ${(props) => (props.isSelected ? '#fff' : '#BEBEBE')};
+  color: ${(props) => (props.mode === 'dark' ? '#fff' : props.isSelected ? '#fff' : '#BEBEBE')};
   background-image: ${(props) =>
     props.isSelected
       ? `url(${new URL(
@@ -233,7 +234,8 @@ const SelectorSwitchSell = styled.div<{ isSelected?: boolean; mode: string }>`
   justify-content: center;
   overflow: hidden;
   background-repeat: no-repeat;
-  color: ${(props) => (props.isSelected ? '#fff' : '#BEBEBE')};
+  font-weight: 500;
+  color: ${(props) => (props.mode === 'dark' ? '#fff' : props.isSelected ? '#fff' : '#BEBEBE')};
   background-image: ${(props) =>
     props.isSelected
       ? `url(${new URL(
