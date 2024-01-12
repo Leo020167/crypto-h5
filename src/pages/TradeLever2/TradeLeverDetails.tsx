@@ -3,7 +3,7 @@ import currency from 'currency.js';
 import { useAtom } from 'jotai';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useIntl } from 'react-intl';
-import Select, { StylesConfig } from 'react-select';
+import Select from 'react-select';
 import styled from 'styled-components';
 import {
   useHomeAccount,
@@ -136,9 +136,9 @@ const TradeLeverDetails = ({
   const homeAccount = useHomeAccount();
 
   const [mode] = useAtom(darkModeAtom);
-  const colourStyles: StylesConfig = {
-    container: (styles) => ({ ...styles, padding: 0, backgroundColor: '#666' }),
-    control: (styles, state) => ({
+  const colourStyles: any = {
+    container: (styles: any) => ({ ...styles, padding: 0, backgroundColor: '#666' }),
+    control: (styles: any) => ({
       ...styles,
       borderColor: mode === 'dark' ? '#666666' : '#ececec',
       boxShadow: undefined,
@@ -147,7 +147,7 @@ const TradeLeverDetails = ({
       backgroundColor: mode === 'dark' ? '#2A2E38' : 'transparent',
       color: '#fff',
     }),
-    option: (styles, { isSelected }) => {
+    option: (styles: any, { isSelected }: any) => {
       return {
         ...styles,
         color: mode === 'dark' ? '#fff' : '#727fa5',
@@ -161,20 +161,20 @@ const TradeLeverDetails = ({
               : undefined,
       };
     },
-    input: (styles) => ({ ...styles, margin: 0, padding: 0 }),
-    singleValue: (styles) => ({
+    input: (styles: any) => ({ ...styles, margin: 0, padding: 0 }),
+    singleValue: (styles: any) => ({
       ...styles,
       color: mode === 'dark' ? '#fff' : '#666175ae',
       margin: 0,
     }),
     indicatorSeparator: () => ({ display: 'none' }),
-    dropdownIndicator: (styles) => ({ ...styles, paddingLeft: 0 }),
-    valueContainer: (styles) => ({ ...styles, paddingRight: 0 }),
-    menu(base, props) {
+    dropdownIndicator: (styles: any) => ({ ...styles, paddingLeft: 0 }),
+    valueContainer: (styles: any) => ({ ...styles, paddingRight: 0 }),
+    menu(base: any) {
       return { ...base, padding: 0, margin: 0 };
     },
-    menuList(base, props) {
-      return { padding: 0 };
+    menuList(base: any) {
+      return { ...base, padding: 0 };
     },
   };
 

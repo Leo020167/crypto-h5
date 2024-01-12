@@ -3,33 +3,33 @@ import currency from 'currency.js';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useIntl } from 'react-intl';
 import { Link } from 'react-router-dom';
-import Select, { StylesConfig } from 'react-select';
+import Select from 'react-select';
 import styled from 'styled-components';
 import { useProOrderCheckOut, useProOrderOpen } from '../../api/endpoints/transformer';
 import { ProOrderConfigResponseAllOfData } from '../../api/model';
 import { QuoteReal } from '../../market/model';
 
-const colourStyles: StylesConfig = {
-  container: (styles) => ({ ...styles, padding: 0 }),
-  control: (styles) => ({
+const colourStyles: any = {
+  container: (styles: any) => ({ ...styles, padding: 0 }),
+  control: (styles: any) => ({
     ...styles,
     borderColor: '#ececec',
     boxShadow: '',
     borderRadius: 0,
     padding: 0,
   }),
-  option: (styles, { isSelected }) => {
+  option: (styles: any, { isSelected }: any) => {
     return {
       ...styles,
       color: '#727fa5',
       backgroundColor: isSelected ? '#d9d8dd' : undefined,
     };
   },
-  input: (styles) => ({ ...styles, margin: 0, padding: 0 }),
-  singleValue: (styles) => ({ ...styles, color: '#666175ae', margin: 0 }),
+  input: (styles: any) => ({ ...styles, margin: 0, padding: 0 }),
+  singleValue: (styles: any) => ({ ...styles, color: '#666175ae', margin: 0 }),
   indicatorSeparator: () => ({ display: 'none' }),
-  dropdownIndicator: (styles) => ({ ...styles, paddingLeft: 0 }),
-  valueContainer: (styles) => ({ ...styles, paddingRight: 0 }),
+  dropdownIndicator: (styles: any) => ({ ...styles, paddingLeft: 0 }),
+  valueContainer: (styles: any) => ({ ...styles, paddingRight: 0 }),
 };
 
 interface TradeLeverDetailsProps {

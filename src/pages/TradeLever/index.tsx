@@ -11,10 +11,10 @@ import {
   useProOrderConfig,
   useProOrderQueryList,
 } from '../../api/endpoints/transformer';
-import ic_switch_sell_selected from '../../assets/ic_switch_buy_selected.9.png';
-import ic_switch_sell_unselected from '../../assets/ic_switch_buy_unselected.9.png';
-import ic_switch_buy_selected from '../../assets/ic_switch_sell_selected.9.png';
-import ic_switch_buy_unselected from '../../assets/ic_switch_sell_unselected.9.png';
+import ic_switch_sell_selected from '../../assets/light/ic_switch_buy_selected.9.png';
+import ic_switch_sell_unselected from '../../assets/light/ic_switch_buy_unselected.9.png';
+import ic_switch_buy_selected from '../../assets/light/ic_switch_sell_selected.9.png';
+import ic_switch_buy_unselected from '../../assets/light/ic_switch_sell_unselected.9.png';
 
 import Screen from '../../components/Screen';
 import { useQuoteReal } from '../../market/endpoints/marketWithTransformer';
