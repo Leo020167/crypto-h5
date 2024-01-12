@@ -81,27 +81,27 @@ const HomeTabs = () => {
     <TabLayout>
       <Switch>
         <Route path="/home" exact>
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense fallback={<div className="dark:bg-[#161720]">Loading...</div>}>
             <Home />
           </Suspense>
         </Route>
         <Route path="/home/market">
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense fallback={<div className="dark:bg-[#161720]">Loading...</div>}>
             <HomeMarket />
           </Suspense>
         </Route>
         <PrivateRoute path="/home/account">
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense fallback={<div className="dark:bg-[#161720]">Loading...</div>}>
             <HomeAccount />
           </Suspense>
         </PrivateRoute>
         <PrivateRoute path="/home/community">
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense fallback={<div className="dark:bg-[#161720]">Loading...</div>}>
             <Community />
           </Suspense>
         </PrivateRoute>
         <PrivateRoute path="/home/my">
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense fallback={<div className="dark:bg-[#161720]">Loading...</div>}>
             <My />
           </Suspense>
         </PrivateRoute>
@@ -118,12 +118,12 @@ export const Routes = () => {
       </Route>
 
       <Route path="/primary-certification">
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<div className="dark:bg-[#161720]">Loading...</div>}>
           <PrimaryCertification />
         </Suspense>
       </Route>
       <Route path="/advanced-certification">
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<div className="dark:bg-[#161720]">Loading...</div>}>
           <AdvancedCertification />
         </Suspense>
       </Route>
@@ -133,344 +133,344 @@ export const Routes = () => {
       </Route>
 
       <Route path="/help-center">
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<div className="dark:bg-[#161720]">Loading...</div>}>
           <HelpCenter />
         </Suspense>
       </Route>
 
       <Route path="/setting-pay-password">
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<div className="dark:bg-[#161720]">Loading...</div>}>
           <SettingPayPassword />
         </Suspense>
       </Route>
 
       <Route path="/search-coin">
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<div className="dark:bg-[#161720]">Loading...</div>}>
           <SearchCoin />
         </Suspense>
       </Route>
 
       <Route path="/subscribe-detail">
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<div className="dark:bg-[#161720]">Loading...</div>}>
           <SubscribeDetail />
         </Suspense>
       </Route>
 
       <Route path="/subscribe">
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<div className="dark:bg-[#161720]">Loading...</div>}>
           <Subscribe />
         </Suspense>
       </Route>
 
       <Route path="/lever-info">
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<div className="dark:bg-[#161720]">Loading...</div>}>
           <LeverInfo />
         </Suspense>
       </Route>
 
       <Route path="/apply-bind-account">
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<div className="dark:bg-[#161720]">Loading...</div>}>
           <ApplyBindAccount />
         </Suspense>
       </Route>
 
       <Route path="/radar-summary">
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<div className="dark:bg-[#161720]">Loading...</div>}>
           <RadarSummary />
         </Suspense>
       </Route>
 
       <Route path="/user-home">
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<div className="dark:bg-[#161720]">Loading...</div>}>
           <UserHome />
         </Suspense>
       </Route>
 
       <Route path="/institution">
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<div className="dark:bg-[#161720]">Loading...</div>}>
           <Institution />
         </Suspense>
       </Route>
 
       <Route path="/addresses" exact>
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<div className="dark:bg-[#161720]">Loading...</div>}>
           <Addresses />
         </Suspense>
       </Route>
 
       <Route path="/addresses/add">
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<div className="dark:bg-[#161720]">Loading...</div>}>
           <AddressAdd />
         </Suspense>
       </Route>
 
       <Route path="/position-details">
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<div className="dark:bg-[#161720]">Loading...</div>}>
           <PositionDetails />
         </Suspense>
       </Route>
 
       <Route path="/pledge-history">
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<div className="dark:bg-[#161720]">Loading...</div>}>
           <PledgeHistory />
         </Suspense>
       </Route>
 
       <Route path="/pledge">
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<div className="dark:bg-[#161720]">Loading...</div>}>
           <Pledge />
         </Suspense>
       </Route>
 
       <Route path="/languages">
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<div className="dark:bg-[#161720]">Loading...</div>}>
           <Language />
         </Suspense>
       </Route>
 
       <Route path="/trade-lever2">
         <TabLayout>
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense fallback={<div className="dark:bg-[#161720]">Loading...</div>}>
             <TradeLever2 />
           </Suspense>
         </TabLayout>
       </Route>
 
       <Route path="/trade-lever">
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<div className="dark:bg-[#161720]">Loading...</div>}>
           <TradeLever />
         </Suspense>
       </Route>
 
       <Route path="/market2">
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<div className="dark:bg-[#161720]">Loading...</div>}>
           <Market2 />
         </Suspense>
       </Route>
       <Route path="/market">
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<div className="dark:bg-[#161720]">Loading...</div>}>
           <Market />
         </Suspense>
       </Route>
 
       <Route path="/add-ad">
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<div className="dark:bg-[#161720]">Loading...</div>}>
           <AddAd />
         </Suspense>
       </Route>
 
       <Route path="/my-ad-list">
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<div className="dark:bg-[#161720]">Loading...</div>}>
           <MyAdList />
         </Suspense>
       </Route>
 
       <Route path="/merchant-authentication">
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<div className="dark:bg-[#161720]">Loading...</div>}>
           <MerchantAuthentication />
         </Suspense>
       </Route>
 
       <Route path="/settings">
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<div className="dark:bg-[#161720]">Loading...</div>}>
           <Settings />
         </Suspense>
       </Route>
 
       <Route path="/account">
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<div className="dark:bg-[#161720]">Loading...</div>}>
           <SettingAccount />
         </Suspense>
       </Route>
 
       <Route path="/personal">
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<div className="dark:bg-[#161720]">Loading...</div>}>
           <Personal />
         </Suspense>
       </Route>
 
       <Route path="/chat">
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<div className="dark:bg-[#161720]">Loading...</div>}>
           <Chat />
         </Suspense>
       </Route>
 
       <Route path="/otc-chat">
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<div className="dark:bg-[#161720]">Loading...</div>}>
           <OtcChat />
         </Suspense>
       </Route>
 
       <Route path="/anonymous-chat">
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<div className="dark:bg-[#161720]">Loading...</div>}>
           <AnonymousChat />
         </Suspense>
       </Route>
 
       <Route path="/legal-pay">
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<div className="dark:bg-[#161720]">Loading...</div>}>
           <LegalPay />
         </Suspense>
       </Route>
 
       <Route path="/otc-appeal">
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<div className="dark:bg-[#161720]">Loading...</div>}>
           <OtcAppeal />
         </Suspense>
       </Route>
 
       <Route path="/legal-order-info">
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<div className="dark:bg-[#161720]">Loading...</div>}>
           <LegalOrderInfo />
         </Suspense>
       </Route>
 
       <Route path="/verified">
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<div className="dark:bg-[#161720]">Loading...</div>}>
           <Verified />
         </Suspense>
       </Route>
 
       <Route path="/verified-result">
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<div className="dark:bg-[#161720]">Loading...</div>}>
           <VerifiedResult />
         </Suspense>
       </Route>
 
       <Route path="/transaction-records">
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<div className="dark:bg-[#161720]">Loading...</div>}>
           <TransactionRecords />
         </Suspense>
       </Route>
 
       <Route path="/login">
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<div className="dark:bg-[#161720]">Loading...</div>}>
           <Login />
         </Suspense>
       </Route>
 
       <Route path="/signup">
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<div className="dark:bg-[#161720]">Loading...</div>}>
           <Signup />
         </Suspense>
       </Route>
 
       <Route path="/reset-password">
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<div className="dark:bg-[#161720]">Loading...</div>}>
           <ResetPassword />
         </Suspense>
       </Route>
 
       <Route path="/captcha">
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<div className="dark:bg-[#161720]">Loading...</div>}>
           <Captcha />
         </Suspense>
       </Route>
 
       <Route path="/email-auth">
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<div className="dark:bg-[#161720]">Loading...</div>}>
           <EmailAuth />
         </Suspense>
       </Route>
 
       <Route path="/email-auth-code">
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<div className="dark:bg-[#161720]">Loading...</div>}>
           <EmailAuthCode />
         </Suspense>
       </Route>
 
       <Route path="/bind-email">
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<div className="dark:bg-[#161720]">Loading...</div>}>
           <BindEmail />
         </Suspense>
       </Route>
 
       <Route path="/bind-email-code">
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<div className="dark:bg-[#161720]">Loading...</div>}>
           <BindEmailCode />
         </Suspense>
       </Route>
 
       <Route path="/change-password">
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<div className="dark:bg-[#161720]">Loading...</div>}>
           <ChangePassword />
         </Suspense>
       </Route>
 
       <Route path="/notifications">
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<div className="dark:bg-[#161720]">Loading...</div>}>
           <Notifications />
         </Suspense>
       </Route>
 
       <Route path="/transfer-coin">
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<div className="dark:bg-[#161720]">Loading...</div>}>
           <TransferCoin />
         </Suspense>
       </Route>
 
       <Route path="/transfer-coin-history">
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<div className="dark:bg-[#161720]">Loading...</div>}>
           <TransferCoinHistory />
         </Suspense>
       </Route>
 
       <Route path="/recharge-coin">
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<div className="dark:bg-[#161720]">Loading...</div>}>
           <RechargeCoin />
         </Suspense>
       </Route>
 
       <Route path="/take-coin">
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<div className="dark:bg-[#161720]">Loading...</div>}>
           <TakeCoin />
         </Suspense>
       </Route>
 
       <Route path="/take-coin-history">
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<div className="dark:bg-[#161720]">Loading...</div>}>
           <TakeCoinHistory />
         </Suspense>
       </Route>
 
       <Route path="/take-coin-history-details">
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<div className="dark:bg-[#161720]">Loading...</div>}>
           <TakeCoinHistoryDetails />
         </Suspense>
       </Route>
 
       <Route path="/legal-money" exact>
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<div className="dark:bg-[#161720]">Loading...</div>}>
           <LegalMoney />
         </Suspense>
       </Route>
 
       <Route path="/otc-order-history">
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<div className="dark:bg-[#161720]">Loading...</div>}>
           <OtcOrderHistory />
         </Suspense>
       </Route>
 
       <Route path="/receipt-list">
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<div className="dark:bg-[#161720]">Loading...</div>}>
           <ReceiptList />
         </Suspense>
       </Route>
 
       <Route path="/add-receipt">
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<div className="dark:bg-[#161720]">Loading...</div>}>
           <AddReceipt />
         </Suspense>
       </Route>
 
       <Route path="/add-bank-pay">
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<div className="dark:bg-[#161720]">Loading...</div>}>
           <AddBankPay />
         </Suspense>
       </Route>
 
       <Route path="/bind-phone">
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<div className="dark:bg-[#161720]">Loading...</div>}>
           <BindPhone />
         </Suspense>
       </Route>
