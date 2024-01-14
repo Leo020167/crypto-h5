@@ -10,7 +10,7 @@ import svgr from 'vite-plugin-svgr';
 export default defineConfig(({ mode }) => {
   return {
     build: {
-      outDir: `dist/ElectraSwap-${mode === 'allow-download' ? '有下載' : '無下載'}`,
+      outDir: `dist/Dinacview-${mode === 'allow-download' ? '有下載' : '無下載'}`,
     },
     server: {
       host: '0.0.0.0',
@@ -18,16 +18,16 @@ export default defineConfig(({ mode }) => {
         // http://api.piglobalexchanges.com/procoin/swagger/index.html#/
         // http://api.worldcoinservice.com/procoin/swagger/index.html#/
         '/procoin-market': {
-          target: 'http://market.electraswap.net',
+          target: 'http://market.dinacview.com',
           changeOrigin: true,
         },
         '/procoin-file': {
-          target: 'http://upload.electraswap.net',
+          target: 'http://upload.dinacview.com',
           changeOrigin: true,
         },
         //  http://api.cryptographexx.com/procoin/meiqia
         '/procoin': {
-          target: 'https://api.electraswap.net',
+          target: 'https://api.dinacview.com',
           changeOrigin: true,
         },
       },

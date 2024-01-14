@@ -92,7 +92,7 @@ const Signup = () => {
                         id: 'uoCZsI',
                       },
                       {
-                        name: 'ElectraSwap',
+                        name: 'Dinacview',
                       },
                     )}
                   </a>
@@ -104,7 +104,7 @@ const Signup = () => {
                         id: 'rv44i+',
                       },
                       {
-                        name: 'ElectraSwap',
+                        name: 'Dinacview',
                       },
                     )}
                   </a>

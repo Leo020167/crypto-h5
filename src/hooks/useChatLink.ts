@@ -19,7 +19,7 @@ export const useChatLink = () => {
     `https://chat.ichatlink.net/widget/standalone.html?` +
     queryString.stringify(
       {
-        eid: '694c1702452b522646c9c3358a011141',
+        eid: '8b926d40eb1e1074e5a3012d394451df',
         clientid: userInfo?.userId,
         language: 'en',
         metadata,
