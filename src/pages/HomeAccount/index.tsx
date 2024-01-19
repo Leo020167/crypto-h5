@@ -25,8 +25,8 @@ const HomeAccount = () => {
     () => [
       { key: '0', title: intl.formatMessage({ defaultMessage: '餘額', id: 'hPHyre' }) },
       { key: '4', title: intl.formatMessage({ defaultMessage: '幣幣帳戶', id: 'l9VaC8' }) },
-      { key: '1', title: intl.formatMessage({ defaultMessage: '跟單帳戶', id: 'WDcvta' }) },
-      { key: '2', title: intl.formatMessage({ defaultMessage: '全球期指帳戶', id: 'L2Dpi5' }) },
+      // { key: '1', title: intl.formatMessage({ defaultMessage: '跟單帳戶', id: 'WDcvta' }) },
+      // { key: '2', title: intl.formatMessage({ defaultMessage: '全球期指帳戶', id: 'L2Dpi5' }) },
       { key: '3', title: intl.formatMessage({ defaultMessage: '合約帳戶', id: 'VYKM4q' }) },
       
     ],

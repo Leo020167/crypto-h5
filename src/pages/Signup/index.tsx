@@ -113,7 +113,7 @@ const Signup = () => {
                   <a
                     href={`http://api.${
                       import.meta.env.VITE_APP_DOMAIN
-                    }/procoin/article/#/passgeDetail?article_id=48`}
+                    }/procoin/article/#/passgeDetail?article_id=480`}
                     target="_blank"
                     className="text-[#6277b0]"
                     rel="noreferrer"
@@ -124,7 +124,7 @@ const Signup = () => {
                         id: 'uoCZsI',
                       },
                       {
-                        name: 'Liegt',
+                        name: 'ACGT',
                       },
                     )}
                   </a>
@@ -132,7 +132,7 @@ const Signup = () => {
                   <a
                     href={`http://api.${
                       import.meta.env.VITE_APP_DOMAIN
-                    }/procoin/article/#/passgeDetail?article_id=54`}
+                    }/procoin/article/#/passgeDetail?article_id=540`}
                     target="_blank"
                     className="text-[#6277b0]"
                     rel="noreferrer"
@@ -143,7 +143,7 @@ const Signup = () => {
                         id: 'rv44i+',
                       },
                       {
-                        name: 'Liegt',
+                        name: 'ACGT',
                       },
                     )}
                   </a>

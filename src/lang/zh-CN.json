@@ -42,7 +42,7 @@
     "string": "币种"
   },
   "X3UAMm": {
-    "string": "消耗 GLT:"
+    "string": "消耗 ACB:"
   },
   "ndT7z1": {
     "string": "年化收益"
@@ -123,7 +123,7 @@
     "string": "请输入申购数量"
   },
   "12rpup": {
-    "string": "全额申购"
+    "string": "顶格申购"
   },
   "161suA": {
     "string": "质押"
@@ -141,7 +141,13 @@
     "string": "是否订閲该用户？"
   },
   "20MJBj": {
-    "string": "GLT"
+    "string": "ACB"
+  },
+  "6509KL": {
+    "string": "确认"
+  },
+  "H784JK": {
+    "string": "确认缴款吗？"
   },
   "297aFF": {
     "string": "保证金比例"
@@ -228,7 +234,7 @@
     "string": "平仓明细"
   },
   "4ivSMB": {
-    "string": "总资产(GLT)"
+    "string": "总资产(ACB)"
   },
   "56o47p": {
     "string": "邮箱验证码"
@@ -421,6 +427,9 @@
   },
   "BRtAE8": {
     "string": "帮助中心"
+  },
+  "BIO490": {
+    "string": "平台公告"
   },
   "BSPQ7h": {
     "string": "最大"
@@ -657,7 +666,7 @@
     "string": "法币购买"
   },
   "JVHhgb": {
-    "string": "《Liegt用户协议》"
+    "string": "《ACGT用户协议》"
   },
   "JYhyDW": {
     "string": "已入住{days}天"
@@ -762,7 +771,7 @@
     "string": "请再次输入密码"
   },
   "MQKv1T": {
-    "string": "社区总奖励(GLT)"
+    "string": "社区总奖励(ACB)"
   },
   "MTyrlB": {
     "string": "密必须是8-16位字、字母组合"
@@ -777,7 +786,7 @@
     "string": "质押开始时间"
   },
   "MeeLjX": {
-    "string": "申购冻结({a}-{b})"
+    "string": "申购({a}-{b})"
   },
   "Mj7nsK": {
     "string": "当前委托"
@@ -853,6 +862,21 @@
   },
   "PUWCuy": {
     "string": "申购时间"
+  },
+  "s9R592": {
+    "string": "申购数量"
+  },
+  "KLJG35": {
+    "string": "中签数量"
+  },
+  "89g4Jo": {
+    "string": "已缴款（USDT）"
+  },
+  "ivjrgh": {
+    "string": "未缴款（USDT）"
+  },
+  "/jAa8w": {
+    "string": "{maxHand}{symbol}"
   },
   "PYgwg0": {
     "string": "留言不能超过300个字符"
@@ -1113,7 +1137,7 @@
     "string": "交易次数"
   },
   "XR6wlA": {
-    "string": "《Liegt隐私条款》"
+    "string": "《ACGT隐私条款》"
   },
   "XWzDpA": {
     "string": "我已付款成功"
@@ -1176,7 +1200,7 @@
     "string": "只允许充值"
   },
   "aD/9at": {
-    "string": "数量(GLT)"
+    "string": "数量(ACB)"
   },
   "aOp/5l": {
     "string": "未实名不能申请商家认证，请实名认证后，在提交商家认证申请。"
@@ -1435,6 +1459,9 @@
   },
   "k/qXgT": {
     "string": "持仓"
+  },
+  "jio6G3": {
+    "string": "申购记录"
   },
   "kCh5Jz": {
     "string": "提示"
@@ -1749,7 +1776,7 @@
     "string": "提币数量"
   },
   "wwOQz6": {
-    "string": "线上客服"
+    "string": "在线客服"
   },
   "wzY6eO": {
     "string": "作为广告方保证资产，且同意"
@@ -1839,7 +1866,7 @@
     "string": "到账数量"
   },
   "zqkaAr": {
-    "string": "奖励(GLT)"
+    "string": "奖励(ACB)"
   },
   "zv2r2Q": {
     "string": "订閲"

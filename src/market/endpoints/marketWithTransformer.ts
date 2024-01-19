@@ -113,14 +113,17 @@ export const useQuoteReal = <
 >(
   quoteRealBody: QuoteRealBody,
   options?: { query?: UseQueryOptions<Awaited<ReturnType<typeof quoteReal>>, TError, TData> },
-): UseQueryResult<TData, TError> & { queryKey: QueryKey } => {
+): UseQueryResult<TData, TError> & { queryKey: QueryKey, quoteRefetch: () => Promise<TData> } => {
   const queryOptions = getQuoteRealQueryOptions(quoteRealBody, options);
 
-  const query = useQuery(queryOptions) as UseQueryResult<TData, TError> & { queryKey: QueryKey };
+  const query = useQuery(queryOptions) as UseQueryResult<TData, TError> & {
+    queryKey: QueryKey;
+    refetch: () => Promise<TData>; // 这里是 useQuery 返回的属性名
+  };
 
   query.queryKey = queryOptions.queryKey;
 
-  return query;
+  return { ...query, quoteRefetch: query.refetch }; // 使用 quoteRefetch 作为属性名
 };
 
 export const kline = (klineBody: KlineBody) => {

@@ -156,10 +156,10 @@ const Home = () => {
       </div>
 
       <div className="text-sm font-bold mt-3 shadow-md shadow-black/5 bg-white rounded-lg overflow-hidden py-2.5 px-2.5 grid grid-cols-4 gap-1">
-        <Link to="/institution" className="flex flex-col items-center">
+        <Link to="/notice-center" className="flex flex-col items-center">
           <img alt="" src={tab1_menu1} className="w-9 h-9" />
           <div className="mt-2.5 text-xs text-[#666666] break-all">
-            {intl.formatMessage({ defaultMessage: '金牌機構', id: 'Ls3qou' })}
+            {intl.formatMessage({ defaultMessage: '平台公告', id: 'BIO490' })}
           </div>
         </Link>
         <Link to="/subscribe" className="flex flex-col items-center">
@@ -168,10 +168,10 @@ const Home = () => {
             {intl.formatMessage({ defaultMessage: '新幣申購', id: 'I/5B/d' })}
           </div>
         </Link>
-        <Link to="/pledge" className="flex flex-col items-center justify-start">
+        <Link to="/chat" className="flex flex-col items-center justify-start">
           <img alt="" src={tab1_menu5} className="w-9 h-9" />
           <div className="mt-2.5 text-xs text-[#666666] break-all">
-            {intl.formatMessage({ defaultMessage: 'Defi专区', id: 'misXZU' })}
+            {intl.formatMessage({ defaultMessage: '在线客服', id: 'wwOQz6' })}
           </div>
         </Link>
         <Link to="/legal-money" className="flex flex-col items-center">

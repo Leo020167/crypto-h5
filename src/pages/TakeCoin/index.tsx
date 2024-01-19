@@ -303,18 +303,18 @@ const TakeCoin = () => {
             onChange={setAmount}
           />
 
-          <div className="text-sm mt-4 flex items-center justify-between">
-            <span className="text-[#A2A9BC]">
-              {intl.formatMessage({
-                defaultMessage: '手續費',
-                id: 'UXyFaa',
-              })}
-              (GLT)
-            </span>
-            <span className="text-base text-[#6175AE]">
-              {currency(configs?.data?.fee || 0, { precision, separator: '', symbol: '' }).format()}
-            </span>
-          </div>
+          {/*<div className="text-sm mt-4 flex items-center justify-between">*/}
+          {/*  <span className="text-[#A2A9BC]">*/}
+          {/*    {intl.formatMessage({*/}
+          {/*      defaultMessage: '手續費',*/}
+          {/*      id: 'UXyFaa',*/}
+          {/*    })}*/}
+          {/*    (ACB)*/}
+          {/*  </span>*/}
+          {/*  <span className="text-base text-[#6175AE]">*/}
+          {/*    {currency(configs?.data?.fee || 0, { precision, separator: '', symbol: '' }).format()}*/}
+          {/*  </span>*/}
+          {/*</div>*/}
 
           <div className="text-sm mt-2 flex items-center justify-between">
             <span className="text-[#A2A9BC]">

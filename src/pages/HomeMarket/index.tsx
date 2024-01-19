@@ -28,11 +28,11 @@ const HomeMarket = () => {
         title: intl.formatMessage({ defaultMessage: '合約', id: '6ExJHy' }),
         tab: 'digital',
       },
-      {
-        key: '2',
-        title: intl.formatMessage({ defaultMessage: '全球期指', id: 'RwgA6k' }),
-        tab: 'stock',
-      },
+      // {
+      //   key: '2',
+      //   title: intl.formatMessage({ defaultMessage: '全球期指', id: 'RwgA6k' }),
+      //   tab: 'stock',
+      // },
     ],
     [intl],
   );

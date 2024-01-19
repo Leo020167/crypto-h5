@@ -74,14 +74,8 @@ const HomeSpotAccount = ({ account }: HomeSpotAccountProps) => {
             className={`px-4 ${selected === 1 ? ' text-black' : ''}`}
             onClick={() => setSelected(1)}
           >
-            {intl.formatMessage({ defaultMessage: '財務記錄', id: 'gtC59I' })}
+            {intl.formatMessage({ defaultMessage: '申购记录', id: 'jio6G3' })}
           </span>
-
-          {selected === 1 && (
-            <Link to="/take-coin-history" className="flex-1 text-right text-xs px-4">
-              {intl.formatMessage({ defaultMessage: '全部', id: 'dGBGbt' })}
-            </Link>
-          )}
         </div>
       </div>
 

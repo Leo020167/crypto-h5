@@ -23,6 +23,15 @@
   "uoCZsI": {
     "string": "《{name} Contrat d'utilisation》"
   },
+  "/jAa8w": {
+    "string": "{maxHand}{symbol}"
+  },
+  "6509KL": {
+    "string": "Confirmer"
+  },
+  "H784JK": {
+    "string": "Confirmer le paiement ?"
+  },
   "HOSYMH": {
     "string": "Heure de fermeture"
   },
@@ -42,7 +51,7 @@
     "string": "Monnaie"
   },
   "X3UAMm": {
-    "string": "consommer GLT:"
+    "string": "consommer ACB:"
   },
   "ndT7z1": {
     "string": "Revenu annualisé"
@@ -123,7 +132,7 @@
     "string": "Veuillez indiquer le nombre d'abonnements"
   },
   "12rpup": {
-    "string": "Montant total"
+    "string": "Prix d'achat le plus élevé"
   },
   "161suA": {
     "string": "Engagement"
@@ -141,7 +150,7 @@
     "string": "Cet utilisateur est-il abonné ?"
   },
   "20MJBj": {
-    "string": "GLT"
+    "string": "ACB"
   },
   "297aFF": {
     "string": "Ratio de marge"
@@ -422,6 +431,9 @@
   "BRtAE8": {
     "string": "Centre d'aide"
   },
+  "BIO490": {
+    "string": "Notification du système"
+  },
   "BSPQ7h": {
     "string": "Max"
   },
@@ -570,7 +582,7 @@
     "string": "Message de plainte (facultatif)"
   },
   "GKRXXt": {
-    "string": "Obtenir GLT"
+    "string": "Obtenir ACB"
   },
   "GO/P/E": {
     "string": "Ajouter l'adresse de retrait"
@@ -657,7 +669,7 @@
     "string": "Achat en monnaie fiduciaire"
   },
   "JVHhgb": {
-    "string": "《Accord d'utilisation de Liegt》"
+    "string": "《Accord d'utilisation de ACGT》"
   },
   "JYhyDW": {
     "string": "Resté{days} jours"
@@ -762,7 +774,7 @@
     "string": "Veuillez entrer à nouveau votre mot de passe"
   },
   "MQKv1T": {
-    "string": "Prix communautaire total (GLT)"
+    "string": "Prix communautaire total (ACB)"
   },
   "MTyrlB": {
     "string": "Le secret doit être une combinaison de 8 à 16 caractères et lettres"
@@ -777,7 +789,7 @@
     "string": "Heure de début de l'engagement"
   },
   "MeeLjX": {
-    "string": "Gel des commandes ({a}-{b})"
+    "string": "Gel des({a}-{b})"
   },
   "Mj7nsK": {
     "string": "Commission actuelle"
@@ -807,7 +819,7 @@
     "string": "Veuillez entrer votre adresse e-mail"
   },
   "NdxUVx": {
-    "string": "Voir comment obtenir GLT"
+    "string": "Voir comment obtenir ACB"
   },
   "NlcysC": {
     "string": "Veuillez entrer votre code postal"
@@ -853,6 +865,18 @@
   },
   "PUWCuy": {
     "string": "Temps de commande"
+  },
+  "s9R592": {
+    "string": "Quantité d'abonnement"
+  },
+  "KLJG35": {
+    "string": "Montant des tickets gagnants"
+  },
+  "89g4Jo": {
+    "string": "Paiement (USDT)"
+  },
+  "ivjrgh": {
+    "string": "Impayé (USDT)"
   },
   "PYgwg0": {
     "string": "Le message ne peut pas dépasser 300 caractères"
@@ -1113,7 +1137,7 @@
     "string": "Nombre de transactions"
   },
   "XR6wlA": {
-    "string": "《Politique de confidentialité de Liegt》"
+    "string": "《Politique de confidentialité de ACGT》"
   },
   "XWzDpA": {
     "string": "J'ai payé avec succès"
@@ -1176,7 +1200,7 @@
     "string": "Seules les recharges sont autorisées"
   },
   "aD/9at": {
-    "string": "Quantité (GLT)"
+    "string": "Quantité (ACB)"
   },
   "aOp/5l": {
     "string": "Vous ne pouvez pas demander la vérification des commerçants sans un nom réel. Veuillez vérifier votre nom réel avant de soumettre votre demande de vérification des commerçants."
@@ -1371,7 +1395,7 @@
     "string": "Historique financier"
   },
   "guM4xe": {
-    "string": "Consommer GLT:"
+    "string": "Consommer ACB:"
   },
   "gx0XBL": {
     "string": "S'abonner à"
@@ -1435,6 +1459,9 @@
   },
   "k/qXgT": {
     "string": "Position"
+  },
+  "jio6G3": {
+    "string": "Enregistrement d'abonnement"
   },
   "kCh5Jz": {
     "string": "Conseil"
@@ -1839,7 +1866,7 @@
     "string": "Quantité"
   },
   "zqkaAr": {
-    "string": "Récompense (GLT)"
+    "string": "Récompense (ACB)"
   },
   "zv2r2Q": {
     "string": "Commandez"
@@ -2023,7 +2050,7 @@
   },
 
   "Hh3rHP": {
-    "string": "Obtenir GLT"
+    "string": "Obtenir ACB"
   },
 
   "misXZU": {
@@ -2111,7 +2138,7 @@
     "string": "Récompenses totales de la communauté (LCN)"
   },
   "iBG8Hb": {
-    "string": "Voir comment obtenir GLT"
+    "string": "Voir comment obtenir ACB"
   },
   "kOFx5M": {
     "string": "Lors du retrait d'USDT, le système gèlera cette partie des fonds du compte de solde"

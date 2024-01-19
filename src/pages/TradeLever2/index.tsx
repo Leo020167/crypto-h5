@@ -29,7 +29,7 @@ const TradeLever = () => {
   const [symbol] = useQueryParam('symbol', StringParam);
   const [buySell, setBuySell] = useQueryParam('buySell', BuySellParam);
 
-  const { data } = useQuoteReal(
+  const { data ,quoteRefetch} = useQuoteReal(
     {
       symbol: symbol ?? '',
     },
@@ -39,6 +39,9 @@ const TradeLever = () => {
       },
     },
   );
+  useInterval(() => {
+    quoteRefetch();
+  }, 2000);
 
   const quote = data?.data?.[symbol ?? ''];
 

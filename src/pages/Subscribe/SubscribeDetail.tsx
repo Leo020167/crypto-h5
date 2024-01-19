@@ -411,11 +411,11 @@ const SubscribeDetail = () => {
               <a
                 className="text-xs text-[#6175ae]"
                 onClick={() => {
-                  setCount(data?.data?.maxCount ?? '0');
+                  setCount(detail?.max ?? '0');
                 }}
               >
                 {intl.formatMessage({
-                  defaultMessage: '全額申購',
+                  defaultMessage: '頂格申購',
                   id: '12rpup',
                 })}
               </a>

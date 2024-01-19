@@ -11,7 +11,15 @@
   "xalGPW": {
     "string": "パスワードは 8 ～ 16 桁でなければなりません"
   },
-
+  "/jAa8w": {
+    "string": "{maxHand}{symbol}"
+  },
+  "6509KL": {
+    "文字列": "確認"
+  },
+  "H784JK": {
+    "string": "支払いを確認しますか?"
+  },
   "5S7UlH": {
     "string": "正しい購入範囲を入力してください {range}"
   },
@@ -43,7 +51,7 @@
     "string": "通貨"
   },
   "X3UAMm": {
-    "string": "消費 GLT:"
+    "string": "消費 ACB:"
   },
   "ndT7z1": {
     "string": "年収"
@@ -124,7 +132,7 @@
     "string": "購買数量を入力してください"
   },
   "12rpup": {
-    "string": "全額購入"
+    "string": "最高の購入価格"
   },
   "161suA": {
     "string": "誓いを立てる"
@@ -142,7 +150,7 @@
     "string": "このユーザーを購読するかどうか"
   },
   "20MJBj": {
-    "string": "GLT"
+    "string": "ACB"
   },
   "297aFF": {
     "string": "保証金比率"
@@ -229,7 +237,7 @@
     "string": "位置を閉じます"
   },
   "4ivSMB": {
-    "string": "総資産(GLT)"
+    "string": "総資産(ACB)"
   },
   "56o47p": {
     "string": "メールボックス検証コード"
@@ -422,6 +430,9 @@
   },
   "BRtAE8": {
     "string": "ヘルプセンター"
+  },
+  "BIO490": {
+    "string": "システム通知"
   },
   "BSPQ7h": {
     "string": "最大"
@@ -658,7 +669,7 @@
     "string": "合法的な入札購入"
   },
   "JVHhgb": {
-    "string": "《Liegt ユーザプロトコル》"
+    "string": "《ACGT ユーザプロトコル》"
   },
   "JYhyDW": {
     "string": "滞留時間 {days} 日"
@@ -763,7 +774,7 @@
     "string": "パスワードを再入力してください"
   },
   "MQKv1T": {
-    "string": "コミュニティの総報酬(GLT)"
+    "string": "コミュニティの総報酬(ACB)"
   },
   "MTyrlB": {
     "string": "秘密は8～16桁の単語,アルファベットの組み合わせでなければなりません"
@@ -854,6 +865,19 @@
   },
   "PUWCuy": {
     "string": "サブスクリプション時間"
+  },
+
+  "s9R592": {
+    "string": "サブスクリプション数量"
+  },
+  "KLJG35": {
+    "string": "当選チケットの枚数"
+  },
+  "89g4Jo": {
+    "文字列": "支払い(USDT)"
+  },
+  "ivjrgh": {
+    "string": "未払い (USDT)"
   },
   "PYgwg0": {
     "string": "メッセージは300文字を超えることはできません"
@@ -1114,7 +1138,7 @@
     "string": "トランザクション数"
   },
   "XR6wlA": {
-    "string": "《Liegtプライバシーポリシー》"
+    "string": "《ACGTプライバシーポリシー》"
   },
   "XWzDpA": {
     "string": "私は成功を収めた"
@@ -1177,7 +1201,7 @@
     "string": "充電のみを許可します"
   },
   "aD/9at": {
-    "string": "量(GLT)"
+    "string": "量(ACB)"
   },
   "aOp/5l": {
     "string": "商人認定に本名を適用できない場合は,実際の認証の後にビジネス認定申請書を提出してください。"
@@ -1436,6 +1460,9 @@
   },
   "k/qXgT": {
     "string": "オプション位置"
+  },
+  "jio6G3": {
+    "文字列": "購読レコード"
   },
   "kCh5Jz": {
     "string": "ヒント"
@@ -1840,7 +1867,7 @@
     "string": "受け取った数量"
   },
   "zqkaAr": {
-    "string": "褒美(GLT)"
+    "string": "褒美(ACB)"
   },
   "zv2r2Q": {
     "string": "申し込む"
@@ -2024,7 +2051,7 @@
   },
 
   "Hh3rHP": {
-    "string": "GLT を取得"
+    "string": "ACB を取得"
   },
 
   "misXZU": {

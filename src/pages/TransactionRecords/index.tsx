@@ -51,14 +51,14 @@ const TransactionRecords = () => {
         value: 'spot',
         label: intl.formatMessage({ defaultMessage: '幣幣交易記錄', id: 'RXCFfg' }),
       },
-      {
-        value: 'follow',
-        label: intl.formatMessage({ defaultMessage: '跟單交易記錄', id: 'qNUf+q' }),
-      },
-      {
-        value: 'stock',
-        label: intl.formatMessage({ defaultMessage: '全球期指交易記錄', id: 'HDx5DM' }),
-      },
+      // {
+      //   value: 'follow',
+      //   label: intl.formatMessage({ defaultMessage: '跟單交易記錄', id: 'qNUf+q' }),
+      // },
+      // {
+      //   value: 'stock',
+      //   label: intl.formatMessage({ defaultMessage: '全球期指交易記錄', id: 'HDx5DM' }),
+      // },
       {
         value: 'digital',
         label: intl.formatMessage({ defaultMessage: '合約交易記錄', id: 'MG99Vk' }),
@@ -222,7 +222,7 @@ const TransactionRecords = () => {
               <div className="flex flex-col ml-4">
                 <span className="text-xs text-[#999999]">
                   {intl.formatMessage({
-                    defaultMessage: '獲得Liegt',
+                    defaultMessage: '獲得ACGT',
                     id: 'Hh3rHP',
                   })}
                 </span>

@@ -57,6 +57,7 @@ const SearchCoin = () => {
             <List.Item
               key={i}
               onClick={() => {
+                // @ts-ignore
                 setSearchCoinHistory(
                   produce((draft) => {
                     draft.unshift(v);

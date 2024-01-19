@@ -11,7 +11,15 @@
   "xalGPW": {
     "string": "La contraseña debe tener entre 8 y 16 dígitos"
   },
-
+  "/jAa8w": {
+    "string": "{maxHand}{symbol}"
+  },
+  "6509KL": {
+    "cadena": "Confirmar"
+  },
+  "H784JK": {
+    "string": "¿Confirmar pago?"
+  },
   "5S7UlH": {
     "string": "Ingrese el alcance correcto de la compra {range}"
   },
@@ -43,7 +51,7 @@
     "string": "Divisa"
   },
   "X3UAMm": {
-    "string": "consumir GLT:"
+    "string": "consumir ACB:"
   },
   "ndT7z1": {
     "string": "Ingreso anualizado"
@@ -124,7 +132,7 @@
     "string": "Introduzca el número de suscripciones"
   },
   "12rpup": {
-    "string": "Importe total"
+    "string": "Precio de compra superior"
   },
   "161suA": {
     "string": "Compromiso"
@@ -142,7 +150,7 @@
     "string": "¿Está suscrito este usuario?"
   },
   "20MJBj": {
-    "string": "GLT"
+    "string": "ACB"
   },
   "297aFF": {
     "string": "Ratio de margen"
@@ -423,6 +431,9 @@
   "BRtAE8": {
     "string": "Centro de ayuda"
   },
+  "BIO490": {
+    "string": "Notificación del sistema"
+  },
   "BSPQ7h": {
     "string": "Max"
   },
@@ -571,7 +582,7 @@
     "string": "Mensaje de queja (opcional)"
   },
   "GKRXXt": {
-    "string": "Consigue GLT"
+    "string": "Consigue ACB"
   },
   "GO/P/E": {
     "string": "Añadir dirección de retirada"
@@ -658,7 +669,7 @@
     "string": "Compra en moneda fiduciaria"
   },
   "JVHhgb": {
-    "string": "《Acuerdo de usuario de Liegt》"
+    "string": "《Acuerdo de usuario de ACGT》"
   },
   "JYhyDW": {
     "string": "Estancia{days}días"
@@ -763,7 +774,7 @@
     "string": "Vuelva a introducir su contraseña"
   },
   "MQKv1T": {
-    "string": "Premio comunitario total(GLT)"
+    "string": "Premio comunitario total(ACB)"
   },
   "MTyrlB": {
     "string": "La contraseña debe ser una combinación de - dígitos y letras"
@@ -778,7 +789,7 @@
     "string": "Hora de inicio del compromiso"
   },
   "MeeLjX": {
-    "string": "Congelación de pedidos ({a}-{b})"
+    "string": "Congelación de ({a}-{b})"
   },
   "Mj7nsK": {
     "string": "Comisión actual"
@@ -808,7 +819,7 @@
     "string": "Introduzca su dirección de correo electrónico"
   },
   "NdxUVx": {
-    "string": "Vea cómo conseguir GLT"
+    "string": "Vea cómo conseguir ACB"
   },
   "NlcysC": {
     "string": "Introduzca su código postal"
@@ -854,6 +865,18 @@
   },
   "PUWCuy": {
     "string": "Hora de pedido"
+  },
+  "s9R592": {
+    "string": "Cantidad de suscripción"
+  },
+  "KLJG35": {
+    "string": "Cantidad de boletos ganadores"
+  },
+  "89g4Jo": {
+    "string": "Pago (USDT)"
+  },
+  "ivjrgh": {
+    "string": "No pagado (USDT)"
   },
   "PYgwg0": {
     "string": "Los mensajes no pueden superar los 300 caracteres"
@@ -1114,7 +1137,7 @@
     "string": "Número de transacciones"
   },
   "XR6wlA": {
-    "string": "《Política de privacidad de Liegt》"
+    "string": "《Política de privacidad de ACGT》"
   },
   "XWzDpA": {
     "string": "He pagado con éxito"
@@ -1177,7 +1200,7 @@
     "string": "Sólo se permiten recargas"
   },
   "aD/9at": {
-    "string": "Cantidad (GLT)"
+    "string": "Cantidad (ACB)"
   },
   "aOp/5l": {
     "string": "No puede solicitar la verificación de comerciante sin un nombre real, por favor verifique su nombre real antes de enviar su solicitud de verificación de comerciante."
@@ -1372,7 +1395,7 @@
     "string": "Historia financiera"
   },
   "guM4xe": {
-    "string": "Consumir GLT:"
+    "string": "Consumir ACB:"
   },
   "gx0XBL": {
     "string": "Suscríbase a"
@@ -1436,6 +1459,9 @@
   },
   "k/qXgT": {
     "string": "Posición"
+  },
+  "jio6G3": {
+    "string": "Registro de suscripción"
   },
   "kCh5Jz": {
     "string": "Consejo"
@@ -1840,7 +1866,7 @@
     "string": "Cantidad"
   },
   "zqkaAr": {
-    "string": "Recompensa (GLT)"
+    "string": "Recompensa (ACB)"
   },
   "zv2r2Q": {
     "string": "Pida"
@@ -2024,7 +2050,7 @@
   },
 
   "Hh3rHP": {
-    "string": "Obtener GLT"
+    "string": "Obtener ACB"
   },
 
   "Pqs8N": {
@@ -2116,7 +2142,7 @@
     "string": "Recompensas totales de la comunidad (LCN)"
   },
   "iBG8Hb": {
-    "string": "Vea cómo obtener GLT"
+    "string": "Vea cómo obtener ACB"
   },
   "kOFx5M": {
     "string": "Al retirar USDT, el sistema congelará esta parte de los fondos de la cuenta de saldo"

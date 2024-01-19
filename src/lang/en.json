@@ -43,7 +43,7 @@
     "string": "Currency"
   },
   "X3UAMm": {
-    "string": "consume GLT:"
+    "string": "consume ACB:"
   },
   "ndT7z1": {
     "string": "Annualized income"
@@ -124,7 +124,7 @@
     "string": "Please enter the purchase quantity"
   },
   "12rpup": {
-    "string": "Full purchase"
+    "string": "Top purchase price"
   },
   "161suA": {
     "string": "Pledge"
@@ -142,7 +142,7 @@
     "string": "Whether to subscribe to this user？"
   },
   "20MJBj": {
-    "string": "GLT"
+    "string": "ACB"
   },
   "297aFF": {
     "string": "Margin Ratio"
@@ -229,7 +229,7 @@
     "string": "close a position"
   },
   "4ivSMB": {
-    "string": "Total Assets(GLT)"
+    "string": "Total Assets(ACB)"
   },
   "56o47p": {
     "string": "Mailbox Verification Code"
@@ -426,6 +426,9 @@
   "BRtAE8": {
     "string": "Help Center"
   },
+  "BIO490": {
+    "string": "System notification"
+  },
   "BSPQ7h": {
     "string": "Maximum"
   },
@@ -574,7 +577,7 @@
     "string": "Appeal message (optional)"
   },
   "GKRXXt": {
-    "string": "obtain GLT"
+    "string": "obtain ACB"
   },
   "GO/P/E": {
     "string": "Add the withdrawal currency address"
@@ -661,7 +664,7 @@
     "string": "Legal tender purchases"
   },
   "JVHhgb": {
-    "string": "《Liegt User Agreement》"
+    "string": "《ACGT User Agreement》"
   },
   "JYhyDW": {
     "string": "Stayed for {days} days"
@@ -766,7 +769,7 @@
     "string": "Please enter the password again"
   },
   "MQKv1T": {
-    "string": "Community Total Reward(GLT)"
+    "string": "Community Total Reward(ACB)"
   },
   "MTyrlB": {
     "string": "The secret must be 8-16-bit words, letters combination"
@@ -781,7 +784,7 @@
     "string": "Pledge start time"
   },
   "MeeLjX": {
-    "string": "Subscription freeze({a}-{b})"
+    "string": "Subscription({a}-{b})"
   },
   "Mj7nsK": {
     "string": "current commission"
@@ -811,7 +814,7 @@
     "string": "please input your mailbox"
   },
   "NdxUVx": {
-    "string": "Check how to get GLT"
+    "string": "Check how to get ACB"
   },
   "NlcysC": {
     "string": "Please enter the mailbox number"
@@ -857,6 +860,27 @@
   },
   "PUWCuy": {
     "string": "Subscription time"
+  },
+  "s9R592": {
+    "string": "Subscription quantity"
+  },
+  "/jAa8w": {
+    "string": "{maxHand}{symbol}"
+  },
+  "6509KL": {
+    "string": "Confirm"
+  },
+  "H784JK": {
+    "string": "Confirm payment?"
+  },
+  "KLJG35": {
+    "string": "Amount of winning tickets"
+  },
+  "89g4Jo": {
+    "string": "Payment (USDT)"
+  },
+  "ivjrgh": {
+    "string": "Unpaid (USDT)"
   },
   "PYgwg0": {
     "string": "The message cannot exceed 300 characters"
@@ -1120,7 +1144,7 @@
     "string": "Number of transactions"
   },
   "XR6wlA": {
-    "string": "《Liegt Privacy Policy》"
+    "string": "《ACGT Privacy Policy》"
   },
   "XWzDpA": {
     "string": "I have paid success"
@@ -1183,7 +1207,7 @@
     "string": "Only allow recharge"
   },
   "aD/9at": {
-    "string": "quantity(GLT)"
+    "string": "quantity(ACB)"
   },
   "aOp/5l": {
     "string": "If the real name cannot be applied for merchant certification, please submit a business certification application after the real -name authentication."
@@ -1378,7 +1402,7 @@
     "string": "Financial record"
   },
   "guM4xe": {
-    "string": "Consume GLT:"
+    "string": "Consume ACB:"
   },
   "gx0XBL": {
     "string": "Subscribe"
@@ -1442,6 +1466,9 @@
   },
   "k/qXgT": {
     "string": "option position"
+  },
+  "jio6G3": {
+    "string": "Subscription record"
   },
   "kCh5Jz": {
     "string": "hint"
@@ -1846,7 +1873,7 @@
     "string": "Quantity received"
   },
   "zqkaAr": {
-    "string": "reward(GLT)"
+    "string": "reward(ACB)"
   },
   "zv2r2Q": {
     "string": "Subscribe"
@@ -2029,7 +2056,7 @@
     "string": "Daily Earnings"
   },
   "Hh3rHP": {
-    "string": "Get GLT"
+    "string": "Get ACB"
   },
   "misXZU": {
     "string": "Defi zone"
@@ -2110,7 +2137,7 @@
     "string": "Total Community Rewards (LCN)"
   },
   "iBG8Hb": {
-    "string": "See how to get GLT"
+    "string": "See how to get ACB"
   },
   "kOFx5M": {
     "string": "When withdrawing USDT, the system will freeze this part of the funds from the balance account"

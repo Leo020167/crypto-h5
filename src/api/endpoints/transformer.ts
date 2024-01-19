@@ -22,6 +22,7 @@ import type {
   SearchCoinBody,
   CommonResponse,
   ApplySubscribeBody,
+  ApplyPaidBody,
   GetSubscribeListResponse,
   GetSubscribeDetailResponse,
   GetSubscribeDetailBody,
@@ -86,6 +87,8 @@ import type {
   AccountRecordListBody,
   ArticleHelpListResponse,
   ArticleHelpListBody,
+  ArticleListResponse,
+  ArticleListBody,
   HomeAccountResponse,
   OtcDelMyAdBody,
   OtcGetMyAdInfo200,
@@ -146,6 +149,8 @@ import type {
 } from '../model';
 import { customInstance } from '../mutator/custom-instance';
 import type { ErrorType } from '../mutator/custom-instance';
+import {SubscribeRecordListBody} from "../model/subscribeRecordListBody";
+import {SubscribeRecordListResponse} from "../model/subscribeRecordListResponse";
 
 type AwaitedInput<T> = PromiseLike<T> | T;
 
@@ -356,7 +361,7 @@ export const useSearchCoin = <
 };
 
 /**
- * http發送文字聊天
+ * 提交申购申请
  */
 export const applySubscribe = (applySubscribeBody: ApplySubscribeBody) => {
   return customInstance<CommonResponse>({
@@ -410,6 +415,68 @@ export const useApplySubscribe = <TError = ErrorType<unknown>, TContext = unknow
   >;
 }) => {
   const mutationOptions = getApplySubscribeMutationOptions(options);
+
+  return useMutation(mutationOptions);
+};
+
+/**
+ * 修改缴款金额
+ * */
+/**
+ * 提交申购申请
+ */
+export const applyPaid = (applyPaidBody: ApplyPaidBody) => {
+  return customInstance<CommonResponse>({
+    url: `/subscribe/applyPaid.do`,
+    method: 'post',
+    headers: { 'Content-Type': 'application/json' },
+    data: applyPaidBody,
+  });
+};
+
+export const getApplyPaidMutationOptions = <
+  TError = ErrorType<unknown>,
+  TContext = unknown,
+>(options?: {
+  mutation?: UseMutationOptions<
+    Awaited<ReturnType<typeof applyPaid>>,
+    TError,
+    { data: ApplyPaidBody },
+    TContext
+  >;
+}): UseMutationOptions<
+  Awaited<ReturnType<typeof applyPaid>>,
+  TError,
+  { data: ApplyPaidBody },
+  TContext
+> => {
+  const { mutation: mutationOptions } = options ?? {};
+
+  const mutationFn: MutationFunction<
+    Awaited<ReturnType<typeof applyPaid>>,
+    { data: ApplyPaidBody }
+  > = (props) => {
+    const { data } = props ?? {};
+
+    return applyPaid(data);
+  };
+
+  return { mutationFn, ...mutationOptions };
+};
+
+export type ApplyPaidMutationResult = NonNullable<Awaited<ReturnType<typeof applyPaid>>>;
+export type ApplyPaidMutationBody = ApplyPaidBody;
+export type ApplyPaidMutationError = ErrorType<unknown>;
+
+export const useApplyPaid = <TError = ErrorType<unknown>, TContext = unknown>(options?: {
+  mutation?: UseMutationOptions<
+    Awaited<ReturnType<typeof applyPaid>>,
+    TError,
+    { data: ApplyPaidBody },
+    TContext
+  >;
+}) => {
+  const mutationOptions = getApplyPaidMutationOptions(options);
 
   return useMutation(mutationOptions);
 };
@@ -2826,6 +2893,24 @@ export const useArticleHelpList = <
 };
 
 /**
+ * 公告中心
+ * */
+/**
+ * 帮助中心
+ */
+export const articleList = (articleListBody: ArticleListBody) => {
+  return customInstance<ArticleListResponse>({
+    url: `/article/noticeList.do`,
+    method: 'post',
+    headers: { 'Content-Type': 'application/json' },
+    data: articleListBody,
+  });
+};
+
+export const getArticleListQueryKey = (articleListBody: ArticleListBody) =>
+  [`/article/noticeList.do`, articleListBody] as const;
+
+/**
  * 账户信息
  */
 export const homeAccount = () => {
@@ -5207,6 +5292,59 @@ export const useDepositList = <
   options?: { query?: UseQueryOptions<Awaited<ReturnType<typeof depositList>>, TError, TData> },
 ): UseQueryResult<TData, TError> & { queryKey: QueryKey } => {
   const queryOptions = getDepositListQueryOptions(depositListBody, options);
+
+  const query = useQuery(queryOptions) as UseQueryResult<TData, TError> & { queryKey: QueryKey };
+
+  query.queryKey = queryOptions.queryKey;
+
+  return query;
+};
+
+/**
+ * 获取申购相关记录
+ */
+export const subscribeRecordList = (subscribeRecordListBody: SubscribeRecordListBody) => {
+  return customInstance<SubscribeRecordListResponse>({
+    url: `/subscribe/getRecordList.do`,
+    method: 'post',
+    headers: { 'Content-Type': 'application/json' },
+    data: subscribeRecordListBody,
+  });
+};
+
+export const getSubscribeRecordListQueryKey = (subscribeRecordListBody: SubscribeRecordListBody) =>
+  [`/subscribe/getRecordList.do`, subscribeRecordListBody] as const;
+
+export const getSubscribeRecordListQueryOptions = <
+  TData = Awaited<ReturnType<typeof subscribeRecordList>>,
+  TError = ErrorType<unknown>,
+>(
+  subscribeRecordListBody: SubscribeRecordListBody,
+  options?: { query?: UseQueryOptions<Awaited<ReturnType<typeof subscribeRecordList>>, TError, TData> },
+): UseQueryOptions<Awaited<ReturnType<typeof subscribeRecordList>>, TError, TData> & {
+  queryKey: QueryKey;
+} => {
+  const { query: queryOptions } = options ?? {};
+
+  const queryKey = queryOptions?.queryKey ?? getSubscribeRecordListQueryKey(subscribeRecordListBody);
+
+  const queryFn: QueryFunction<Awaited<ReturnType<typeof subscribeRecordList>>> = () =>
+    subscribeRecordList(subscribeRecordListBody);
+
+  return { queryKey, queryFn, ...queryOptions };
+};
+
+export type SubscribeRecordListQueryResult = NonNullable<Awaited<ReturnType<typeof subscribeRecordList>>>;
+export type SubscribeRecordListQueryError = ErrorType<unknown>;
+
+export const useSubscribeRecordList = <
+  TData = Awaited<ReturnType<typeof subscribeRecordList>>,
+  TError = ErrorType<unknown>,
+>(
+  subscribeRecordListBody: SubscribeRecordListBody,
+  options?: { query?: UseQueryOptions<Awaited<ReturnType<typeof subscribeRecordList>>, TError, TData> },
+): UseQueryResult<TData, TError> & { queryKey: QueryKey } => {
+  const queryOptions = getSubscribeRecordListQueryOptions(subscribeRecordListBody, options);
 
   const query = useQuery(queryOptions) as UseQueryResult<TData, TError> & { queryKey: QueryKey };
 

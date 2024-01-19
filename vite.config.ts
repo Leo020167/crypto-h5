@@ -9,22 +9,20 @@ import svgr from 'vite-plugin-svgr';
 // https://vitejs.dev/config/
 export default defineConfig({
   build: {
-    outDir: 'dist/Liegt-H5',
+    outDir: 'dist/ACGT-H5',
   },
   server: {
     proxy: {
-      // http://api.piglobalexchanges.com/procoin/swagger/index.html#/
-      // http://api.worldcoinservice.com/procoin/swagger/index.html#/
       '/procoin-market': {
-        target: 'http://market.yulexing.cn',
+        target: 'http://market.jafhm.top',
         changeOrigin: true,
       },
       '/procoin-file': {
-        target: 'http://upload.yulexing.cn',
+        target: 'http://upload.jafhm.top',
         changeOrigin: true,
       },
       '/procoin': {
-        target: 'http://api.yulexing.cn',
+        target: 'http://api.jafhm.top',
         changeOrigin: true,
       },
     },

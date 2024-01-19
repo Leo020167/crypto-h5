@@ -81,7 +81,7 @@
     "string": "請輸入申購數量"
   },
   "12rpup": {
-    "string": "全額申購"
+    "string": "頂格申購"
   },
   "161suA": {
     "string": "質押"
@@ -383,6 +383,9 @@
   "BRtAE8": {
     "string": "幫助中心"
   },
+  "BIO490": {
+    "string": "平台公告"
+  },
   "BSPQ7h": {
     "string": "最大"
   },
@@ -588,7 +591,7 @@
     "string": "購買USDT"
   },
   "Hh3rHP": {
-    "string": "獲得Liegt"
+    "string": "獲得ACGT"
   },
   "HmiIeC": {
     "string": "是否確定上架?"
@@ -747,7 +750,7 @@
     "string": "请再次输入密码"
   },
   "MQKv1T": {
-    "string": "社區總獎勵(Liegt)"
+    "string": "社區總獎勵(ACGT)"
   },
   "MTyrlB": {
     "string": "密必须是8-16位字、字母组合"
@@ -762,7 +765,7 @@
     "string": "質押開始時間"
   },
   "MeeLjX": {
-    "string": "申購凍結({a}-{b})"
+    "string": "申購({a}-{b})"
   },
   "Mj7nsK": {
     "string": "當前委托"
@@ -841,6 +844,18 @@
   },
   "PUWCuy": {
     "string": "申購時間"
+  },
+  "s9R592": {
+    "string": "申购数量"
+  },
+  "KLJG35": {
+    "string": "中签数量"
+  },
+  "89g4Jo": {
+    "string": "已缴款（USDT）"
+  },
+  "ivjrgh": {
+    "string": "未缴款（USDT）"
   },
   "PYgwg0": {
     "string": "留言不能超過300個字符"
@@ -1107,7 +1122,7 @@
     "string": "委託金額(USDT)"
   },
   "X3UAMm": {
-    "string": "消耗Liegt:"
+    "string": "消耗ACGT:"
   },
   "XJfx+x": {
     "string": "正在申請取消商家認證"
@@ -1188,7 +1203,7 @@
     "string": "只允許充值"
   },
   "aD/9at": {
-    "string": "數量(Liegt)"
+    "string": "數量(ACGT)"
   },
   "aOp/5l": {
     "string": "未實名不能申請商家認證，請實名認證後，在提交商家認證申請。"
@@ -1437,13 +1452,13 @@
     "string": "提交申訴"
   },
   "iBG8Hb": {
-    "string": "查看如何獲取Liegt"
+    "string": "查看如何獲取ACGT"
   },
   "iCZI8W": {
     "string": "合約份數"
   },
   "iJfW5y": {
-    "string": "總資產(Liegt)"
+    "string": "總資產(ACGT)"
   },
   "iVpb9N": {
     "string": "更改手机号"
@@ -1475,6 +1490,12 @@
   "jefLBO": {
     "string": "去認證"
   },
+  "6509KL": {
+    "string": "确认"
+  },
+  "H784JK": {
+    "string": "确认缴款吗？"
+  },
   "jnrXEJ": {
     "string": "最小波動盈虧"
   },
@@ -1486,6 +1507,9 @@
   },
   "k/qXgT": {
     "string": "持倉"
+  },
+  "jio6G3": {
+    "string": "申购记录"
   },
   "k5HUdW": {
     "string": "最小充值金額({symbol})"
@@ -1842,7 +1866,7 @@
     "string": "提幣數量"
   },
   "wwOQz6": {
-    "string": "綫上客服"
+    "string": "網路客服"
   },
   "wzY6eO": {
     "string": "作為廣告方保證資產，且同意"
@@ -1944,7 +1968,7 @@
     "string": "到賬數量"
   },
   "zqkaAr": {
-    "string": "獎勵(Liegt)"
+    "string": "獎勵(ACGT)"
   },
   "zv2r2Q": {
     "string": "訂閲"
