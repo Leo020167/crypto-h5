@@ -18,9 +18,9 @@ import { IntlProvider } from 'react-intl';
 import { HashRouter } from 'react-router-dom';
 import { QueryParamProvider } from 'use-query-params';
 import { ReactRouter5Adapter } from 'use-query-params/adapters/react-router-5';
-import GlobalStyle from './GlobalStyle';
 import { darkModeAtom, localeStateAtom } from './atoms';
 
+import { ScrollToTop } from './components/ScrollToTop';
 import Routes from './routes';
 import { useAuthStore } from './stores/auth';
 
@@ -108,11 +108,11 @@ function App() {
       >
         <ConfigProvider locale={localeMap[localeState.locale] ?? enUS}>
           <HashRouter>
+            <ScrollToTop />
             <QueryParamProvider adapter={ReactRouter5Adapter} options={options}>
               <Routes />
             </QueryParamProvider>
           </HashRouter>
-          <GlobalStyle />
         </ConfigProvider>
       </IntlProvider>
     </QueryClientProvider>

@@ -8,8 +8,8 @@ import { Link, useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import { useHomeConfig } from '../../api/endpoints/transformer';
 
+import logo from '../../assets/logo.png';
 import { darkModeAtom, localeStateAtom, switchColorValueAtom } from '../../atoms';
-import { DarkModeSwitch } from '../../components';
 import { Symbol } from '../../components/Symbol';
 import { useChatLink } from '../../hooks/useChatLink';
 import { useMarketData, useQuoteHomePage } from '../../market/endpoints/marketWithTransformer';
@@ -87,8 +87,11 @@ const Home = () => {
 
   return (
     <Container className="flex-1 overflow-y-auto bg-[#E3E6F1] px-4 dark:bg-[#161720]">
-      <div className="mt-4 flex items-center ">
-        <div className="mr-4 flex flex-1">
+      <div className="mt-4 flex items-center gap-x-4 ">
+        <div className="shrink-0">
+          <img src={logo} alt="logo" className="h-10 w-10 rounded-full" />
+        </div>
+        <div className="flex flex-1">
           <SearchBar
             className="w-full"
             placeholder={intl.formatMessage({ defaultMessage: '输入币种名称搜索', id: 'LaUwF3' })}
@@ -98,7 +101,7 @@ const Home = () => {
           />
         </div>
 
-        <div className="mr-4 flex items-center">
+        <div className="flex items-center">
           {!!import.meta.env.VITE_ALLOW_DOWNLOAD && homeConfig?.data?.downloadUrl && (
             <a target="_blank" href={homeConfig?.data?.downloadUrl} rel="noreferrer">
               <ArrowDownCircleOutline className="mr-4 text-2xl " color="rgb(0, 186, 118)" />
@@ -111,10 +114,6 @@ const Home = () => {
               className="h-6 w-6 rounded-full"
             />
           </Link>
-        </div>
-
-        <div className="">
-          <DarkModeSwitch />
         </div>
       </div>
 

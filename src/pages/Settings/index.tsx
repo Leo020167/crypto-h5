@@ -7,6 +7,7 @@ import { useHomeMy } from '../../api/endpoints/transformer';
 import { ReactComponent as Arrow } from '../../assets/ic_svg_arrow_2.svg';
 import Screen from '../../components/Screen';
 import { useAuthStore } from '../../stores/auth';
+import DarkModeList from './DarkModeList';
 import RefreshRateList from './RefreshRateList';
 import UpAndDownColorList from './UpAndDownColorList';
 
@@ -15,6 +16,7 @@ const Settings = () => {
 
   const [openRefreshRate, setOpenRefreshRate] = useState(false);
   const [openUpAndDownColor, setOpenUpAndDownColor] = useState(false);
+  const [openDarkMode, setDarkMode] = useState(false);
 
   const authStore = useAuthStore();
 
@@ -68,6 +70,9 @@ const Settings = () => {
           <List.Item arrow={<Arrow />} onClick={() => setOpenUpAndDownColor(true)}>
             {intl.formatMessage({ defaultMessage: '涨跌颜色', id: 'o3hkNu' })}
           </List.Item>
+          <List.Item arrow={<Arrow />} onClick={() => setDarkMode(true)}>
+            {intl.formatMessage({ defaultMessage: '主题模式', id: 'jNvMHX' })}
+          </List.Item>
         </List>
         <List className="mb-2">
           <List.Item
@@ -109,6 +114,7 @@ const Settings = () => {
           open={openUpAndDownColor}
           onClose={() => setOpenUpAndDownColor(false)}
         />
+        <DarkModeList open={openDarkMode} onClose={() => setDarkMode(false)} />
       </div>
     </Screen>
   );

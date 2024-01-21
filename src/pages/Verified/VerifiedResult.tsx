@@ -18,8 +18,8 @@ const VerifiedResult = () => {
 
   return (
     <Container className="h-screen bg-white dark:bg-[#161720]">
-      <div className="bg-[#1677ff]">
-        <NavBar onBack={() => history.goBack()}>
+      <div className="bg-[#1677ff] dark:bg-[#161720]">
+        <NavBar onBack={() => history.goBack()} className="bg-[#1677ff] dark:bg-[#161720]">
           {intl.formatMessage({ defaultMessage: '實名認證中心', id: 'bweeFF' })}
         </NavBar>
         <div className="mt-4 flex flex-col items-center justify-center">
@@ -69,7 +69,7 @@ const VerifiedResult = () => {
 const Container = styled.div`
   .adm-nav-bar {
     border: 0;
-    background-color: #1677ff;
+
     color: #fff;
   }
 `;

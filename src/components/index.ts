@@ -13,6 +13,7 @@ export * from './PaymentPasswordDialog';
 export * from './RegisterTabs';
 export * from './Screen';
 export * from './ScreenWithInfiniteScroll';
+export * from './ScrollToTop';
 export * from './SmsCodeInput';
 export * from './SwipeImageValidator';
 export * from './Symbol';
