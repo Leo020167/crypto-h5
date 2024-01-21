@@ -4,10 +4,10 @@ import { stringify } from 'query-string';
 import { useState } from 'react';
 import { useIntl } from 'react-intl';
 import { StringParam, useQueryParam, withDefault } from 'use-query-params';
+import { useSearchCoin } from '../../api/endpoints/transformer';
 import { SearchResultListItem } from '../../api/model';
 import { Symbol2 } from '../../components';
 import Screen from '../../components/Screen';
-import { useQuoteHomePage } from '../../market/endpoints/marketWithTransformer';
 
 export const searchCoinHistoryAtom = atomWithStorage<SearchResultListItem[]>(
   'search-coin-history',
@@ -20,15 +20,14 @@ const SearchCoin = () => {
 
   const [accountType] = useQueryParam('accountType', withDefault(StringParam, ''));
 
-  const { data } = useQuoteHomePage();
-  // const { data } = useSearchCoin(
-  //   { symbol: value, accountType },
-  //   {
-  //     query: {
-  //       enabled: !!value,
-  //     },
-  //   },
-  // );
+  const { data } = useSearchCoin(
+    { symbol: value, accountType },
+    {
+      query: {
+        enabled: !!value,
+      },
+    },
+  );
 
   return (
     <Screen
@@ -42,7 +41,7 @@ const SearchCoin = () => {
     >
       <div className="search-page overflow-y-auto py-2.5">
         <List>
-          {data?.data?.quotes?.map((v, i) => (
+          {data?.data?.searchResultList?.map((v, i) => (
             <List.Item key={i}>
               <Symbol2
                 {...v}
