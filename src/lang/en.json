@@ -3,7 +3,7 @@
     "string": "Pledge"
   },
   "kGK1/L": {
-    "string": "Recharge"
+    "string": "Deposit"
   },
   "H/88FZ": {
     "string": "Order status"
@@ -1218,7 +1218,7 @@
     "string": "Poor buying point"
   },
   "andeZs": {
-    "string": "Extraction currency"
+    "string": "Withdraw"
   },
   "ans63b": {
     "string": "Account is not verified"
