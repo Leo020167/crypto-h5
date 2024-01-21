@@ -169,7 +169,7 @@ const Home = () => {
           </div>
         </Link>
         <Link to="/chat" className="flex flex-col items-center justify-start">
-          <img alt="" src={tab1_menu5} className="w-9 h-9" />
+          <img alt="" src={tab1_menu4} className="w-9 h-9" />
           <div className="mt-2.5 text-xs text-[#666666] break-all">
             {intl.formatMessage({ defaultMessage: '在线客服', id: 'wwOQz6' })}
           </div>

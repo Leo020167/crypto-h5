@@ -18,6 +18,7 @@ import ic_svg_legal_coin from '../../assets/ic_svg_legal_coin.svg';
 import ic_svg_recharge_coin from '../../assets/ic_svg_recharge_coin.svg';
 import ic_svg_take_coin from '../../assets/ic_svg_take_coin.svg';
 import ic_svg_transfer_coin from '../../assets/ic_svg_transfer_coin.svg';
+import ic_svg_receipt_manager from '../../assets/ic_svg_receipt_manager.svg';
 import { useAuthStore } from '../../stores/auth';
 
 const My = () => {
@@ -140,6 +141,16 @@ const My = () => {
           }}
         >
           {intl.formatMessage({ defaultMessage: '實名認證', id: 'vgGksF' })}
+        </List.Item>
+
+        <List.Item
+          prefix={<img alt="" src={ic_svg_receipt_manager} className="w-8 h-8" />}
+          arrow={<Arrow />}
+          onClick={() => {
+            history.push('/receipt-list');
+          }}
+        >
+          {intl.formatMessage({ defaultMessage: '绑定银行卡', id: 'hrMVXB' })}
         </List.Item>
 
         <List.Item

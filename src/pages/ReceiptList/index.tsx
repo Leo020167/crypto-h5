@@ -49,7 +49,7 @@ const ReceiptList = () => {
         <div className="px-4 mb-4">
           <Button
             block
-            color="primary"
+            color="primary" 
             onClick={() =>
               history.push({
                 pathname: '/add-receipt',

@@ -15,6 +15,7 @@ import ImagePicker from '../../components/ImagePicker';
 import Screen from '../../components/Screen';
 import { useAuthStore } from '../../stores/auth';
 import { uploadImage } from '../../utils/upload';
+import { useInterval } from "react-use";
 
 const Content = ({ type, say }: { type?: string; say?: string }) => {
   switch (type) {
@@ -23,7 +24,7 @@ const Content = ({ type, say }: { type?: string; say?: string }) => {
 
     default:
       return (
-        <div className="p-2.5 min-w-[60px] max-w-[245px] min-h-[40px] text-[#fefefe] rounded bg-[#444]">
+        <div className="p-2.5 break-all min-w-[60px] max-w-[245px] min-h-[40px] text-[#fefefe] rounded bg-[#444]">
           {say}
         </div>
       );
@@ -32,7 +33,6 @@ const Content = ({ type, say }: { type?: string; say?: string }) => {
 
 const OtcChat = () => {
   const [orderId] = useQueryParam('orderId', StringParam);
-  const [nickName] = useQueryParam('nickName', StringParam);
 
   const intl = useIntl();
 
@@ -76,7 +76,7 @@ const OtcChat = () => {
             </span>
           </div>
           <div
-            className={`flex gap-2.5 p-2.5 ${
+            className={`flex gap-2.5 py-2.5 ${
               userInfo?.userId === item.userId ? 'justify-end' : 'flex-row-reverse justify-end'
             }`}
           >
@@ -135,12 +135,12 @@ const OtcChat = () => {
   }, []);
 
   const [visible, setVisible] = useState(false);
-
+  useInterval(() => refetch(), 1000);
   return (
-    <Screen headerTitle={nickName}>
-      <Container className="min-h-0 flex-1 flex flex-col pb-10">
+    <Screen headerTitle='商家对话中'>
+      <Container className="h-full flex flex-col pb-10">
         <Virtuoso
-          className="flex-1"
+          className="flex-1 "
           initialTopMostItemIndex={sorted.length - 1}
           data={sorted}
           itemContent={renderItemContent}
