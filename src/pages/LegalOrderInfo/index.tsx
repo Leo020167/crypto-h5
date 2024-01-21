@@ -248,9 +248,9 @@ const LegalOrderInfo = () => {
   ]);
 
   const handleTimeout = useCallback(() => {
-    Toast.show(
-      intl.formatMessage({ defaultMessage: '訂單已經超時', id: '9x6bNN' })
-    );
+    // Toast.show(
+    //   intl.formatMessage({ defaultMessage: '訂單已經超時', id: '9x6bNN' })
+    // );
     refetch();
   }, [intl, refetch]);
 

@@ -146,12 +146,12 @@ const LegalPay = () => {
                   );
                 }}
                 onComplete={() => {
-                  Toast.show(
-                    intl.formatMessage({
-                      defaultMessage: '訂單已經超時',
-                      id: '9x6bNN',
-                    })
-                  );
+                  // Toast.show(
+                  //   intl.formatMessage({
+                  //     defaultMessage: '訂單已經超時',
+                  //     id: '9x6bNN',
+                  //   })
+                  // );
                 }}
               />
             </span>
