@@ -31,10 +31,10 @@ const localeMap: { [key: string]: any } = {
   ja: jaJP,
   ko: koKR,
   ru: ruRU,
-  va: vi,
+  va: vi, // 越南
   'zh-CN': zhCN,
   'zh-TW': zhTW,
-  th: th,
+  th: th, // 泰国
 };
 
 const queryClient = new QueryClient({

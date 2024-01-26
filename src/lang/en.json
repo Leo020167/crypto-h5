@@ -1,9 +1,30 @@
 {
+  "4BmD4u": {
+    "string": "Please enter the correct financial institution code"
+  },
+  "6jZgrM": {
+    "string": "Please enter the financial institution code (required)"
+  },
+  "F+MsId": {
+    "string": "Night mode"
+  },
+  "jNvMHX": {
+    "string": "Theme mode"
+  },
+  "m1y4J3": {
+    "string": "Theme mode settings"
+  },
+  "qkiilT": {
+    "string": "Financial institution code cannot be empty"
+  },
+  "v4cfkr": {
+    "string": "Daytime mode"
+  },
   "WKYPpM": {
     "string": "Pledge"
   },
   "kGK1/L": {
-    "string": "Recharge"
+    "string": "Deposit"
   },
   "H/88FZ": {
     "string": "Order status"
@@ -1218,7 +1239,7 @@
     "string": "Poor buying point"
   },
   "andeZs": {
-    "string": "Extraction currency"
+    "string": "Withdraw"
   },
   "ans63b": {
     "string": "Account is not verified"

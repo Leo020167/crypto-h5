@@ -70,7 +70,9 @@ const Signup = () => {
               }
 
               if (!values.inviteCode?.trim().length) {
-                Toast.show(intl.formatMessage({ defaultMessage: '邀请码不能為空', id: 'X5/jXG' }));
+                Toast.show(
+                  intl.formatMessage({ defaultMessage: '金融机构代码不能為空', id: 'qkiilT' }),
+                );
                 return;
               }
 
@@ -188,16 +190,16 @@ const Signup = () => {
                 {
                   pattern: /^\S*$/,
                   message: intl.formatMessage({
-                    defaultMessage: '请输入正确的邀请码',
-                    id: 'Hckn7b',
+                    defaultMessage: '请输入正确的金融机构代码',
+                    id: '4BmD4u',
                   }),
                 },
               ]}
             >
               <Input
                 placeholder={intl.formatMessage({
-                  defaultMessage: '请输入邀请码(必填)',
-                  id: 'Ie9Vi3',
+                  defaultMessage: '请输入金融机构代码(必填)',
+                  id: '6jZgrM',
                 })}
               />
             </Form.Item>

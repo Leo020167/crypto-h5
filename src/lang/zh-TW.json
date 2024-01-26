@@ -1,4 +1,25 @@
 {
+  "4BmD4u": {
+    "string": "请输入正确的金融机构代码"
+  },
+  "6jZgrM": {
+    "string": "请输入金融机构代码(必填)"
+  },
+  "F+MsId": {
+    "string": "夜间模式"
+  },
+  "jNvMHX": {
+    "string": "主题模式"
+  },
+  "m1y4J3": {
+    "string": "主题模式设置"
+  },
+  "qkiilT": {
+    "string": "金融机构代码不能為空"
+  },
+  "v4cfkr": {
+    "string": "日间模式"
+  },
   "+4lD9e": {
     "string": "姓名"
   },
@@ -603,7 +624,7 @@
     "string": "您目前的郵箱是{email}，想要把它更新為？"
   },
   "Hckn7b": {
-    "string": "请输入正确的邀请码"
+    "string": "请输入正确的金融机构代码"
   },
   "HeL/t7": {
     "string": "購買USDT"
@@ -639,7 +660,7 @@
     "string": "總資產(USDT)"
   },
   "Ie9Vi3": {
-    "string": "请输入邀请码(必填)"
+    "string": "请输入金融机构代码(必填)"
   },
   "IoCgCq": {
     "string": "總資產"
@@ -1104,7 +1125,7 @@
     "string": "委託金額(USDT)"
   },
   "X5/jXG": {
-    "string": "邀请码不能為空"
+    "string": "金融机构代码不能為空"
   },
   "XJfx+x": {
     "string": "正在申請取消商家認證"

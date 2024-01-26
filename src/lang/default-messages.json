@@ -179,6 +179,9 @@
   "42lXMM": {
     "string": "提币"
   },
+  "4BmD4u": {
+    "string": "请输入正确的金融机构代码"
+  },
   "4FDcHK": {
     "string": "输入验证码"
   },
@@ -254,6 +257,9 @@
   "6jT3zt": {
     "string": "你确定要注销吗?"
   },
+  "6jZgrM": {
+    "string": "请输入金融机构代码(必填)"
+  },
   "6w/mMH": {
     "string": "红涨绿跌"
   },
@@ -286,9 +292,6 @@
   },
   "7rLwaw": {
     "string": "我的提幣地址"
-  },
-  "7xCHrU": {
-    "string": "總盈虧(USDT)"
   },
   "84nlVd": {
     "string": "請輸入正整數"
@@ -530,6 +533,9 @@
   "EYBWHx": {
     "string": "價格最優"
   },
+  "F+MsId": {
+    "string": "夜间模式"
+  },
   "FXys9B": {
     "string": "輸入舊密碼"
   },
@@ -602,9 +608,6 @@
   "HcSaEz": {
     "string": "您目前的郵箱是{email}，想要把它更新為？"
   },
-  "Hckn7b": {
-    "string": "请输入正确的邀请码"
-  },
   "HeL/t7": {
     "string": "購買USDT"
   },
@@ -637,9 +640,6 @@
   },
   "IbtpXH": {
     "string": "總資產(USDT)"
-  },
-  "Ie9Vi3": {
-    "string": "请输入邀请码(必填)"
   },
   "IoCgCq": {
     "string": "總資產"
@@ -868,9 +868,6 @@
   },
   "Q4foHv": {
     "string": "充幣地址"
-  },
-  "Q9qgiz": {
-    "string": "intl"
   },
   "QBilBJ": {
     "string": "首發交易"
@@ -1102,9 +1099,6 @@
   },
   "X/X8Ge": {
     "string": "委託金額(USDT)"
-  },
-  "X5/jXG": {
-    "string": "邀请码不能為空"
   },
   "XJfx+x": {
     "string": "正在申請取消商家認證"
@@ -1439,9 +1433,6 @@
   "htEymu": {
     "string": "申訴理由"
   },
-  "hxj1V+": {
-    "string": "清空歷史"
-  },
   "i0bc3f": {
     "string": "币种"
   },
@@ -1474,6 +1465,9 @@
   },
   "jJ0rDY": {
     "string": "選擇幣種"
+  },
+  "jNvMHX": {
+    "string": "主题模式"
   },
   "jPTst4": {
     "string": "準確率"
@@ -1546,6 +1540,9 @@
   },
   "lxxud1": {
     "string": "成員"
+  },
+  "m1y4J3": {
+    "string": "主题模式设置"
   },
   "m6ypg2": {
     "string": "提幣幣種:"
@@ -1661,6 +1658,9 @@
   "qZzRwu": {
     "string": "已綁定"
   },
+  "qkiilT": {
+    "string": "金融机构代码不能為空"
+  },
   "qx86Ow": {
     "string": "簡介"
   },
@@ -1739,9 +1739,6 @@
   "t/1bpl": {
     "string": "輸入跟單倍數不能小於{minMultiNum}"
   },
-  "tAG5jn": {
-    "string": "歷史記錄"
-  },
   "tI511i": {
     "string": "验证身份"
   },
@@ -1795,6 +1792,9 @@
   },
   "v2G+NV": {
     "string": "買入價"
+  },
+  "v4cfkr": {
+    "string": "日间模式"
   },
   "v5SgYb": {
     "string": "真實姓名"

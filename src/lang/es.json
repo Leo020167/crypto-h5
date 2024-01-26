@@ -1,4 +1,25 @@
 {
+  "4BmD4u": {
+    "string": "Ingrese el código de institución financiera correcto"
+  },
+  "6jZgrM": {
+    "string": "Por favor ingrese el código de la institución financiera (obligatorio)"
+  },
+  "F+MsId": {
+    "string": "Modo nocturno"
+  },
+  "jNvMHX": {
+    "string": "Modo tema"
+  },
+  "m1y4J3": {
+    "string": "Configuración del modo de tema"
+  },
+  "qkiilT": {
+    "string": "El código de institución financiera no puede estar vacío"
+  },
+  "v4cfkr": {
+    "string": "Modo diurno"
+  },
   "WKYPpM": {
     "string": "Promesa"
   },
